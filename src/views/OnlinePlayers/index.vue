@@ -40,7 +40,7 @@ export default {
 <script setup>
 import ContextMenu from '@imengyu/vue3-context-menu';
 import * as sdtdConsole from '~/api/sdtd-console';
-import { getOnlinePlayers } from '~/api/players';
+import { getOnlinePlayers, getOnlinePlayerDetails } from '~/api/players';
 import { showInventory } from '~/components/InventoryDialog/index.js';
 import myprompt from '~/utils/myprompt';
 import myconfirm from '~/utils/myconfirm';
@@ -87,7 +87,7 @@ const formatPosition = (row) => {
     return `${value.x} ${value.y} ${value.z}`;
 };
 const getDetails = async (playerId) => {
-    const data = await getHistoryPlayerDetails(playerId);
+    const data = await getOnlinePlayerDetails(playerId);
     // for (const key in data) {
     //     result.push({ label: key, value: data[key] });
     // }
