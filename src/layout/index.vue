@@ -1,0 +1,74 @@
+<template>
+    <div class="layout">
+        <el-container>
+            <el-aside :width="sidebarWidth">
+                <Sidebar />
+            </el-aside>
+            <el-container>
+                <el-scrollbar>
+                    <el-main>
+                        <Main />
+                    </el-main>
+                </el-scrollbar>
+                <el-footer height="48px">
+                    <Footer />
+                </el-footer>
+            </el-container>
+        </el-container>
+    </div>
+</template>
+
+<script setup>
+import Sidebar from './Sidebar/index.vue';
+import Main from './Main/index.vue';
+import Footer from './Footer/index.vue';
+import { useSidebarStore } from '~/store/sidebar';
+import { useUserInfoStore } from '~/store/user-info';
+import { useGameLocalizationStore } from '~/store/game-localization';
+import { startWebsocket } from '~/utils/websocket';
+import { getAppSettings } from '~/api/app-settings';
+
+const sidebarStore = useSidebarStore();
+const sidebarWidth = computed(() => (sidebarStore.isCollapse ? '80px' : '180px'));
+
+const userInfoStore = useUserInfoStore();
+const isLoggedIn = computedAsync(async () => await userInfoStore.isLoggedIn());
+watch(
+    isLoggedIn,
+    async (val) => {
+        if (val) {
+            useGameLocalizationStore();
+            const appSettings = await getAppSettings();
+            const hostname = import.meta.env.DEV ? import.meta.env.VITE_APP_API_DOMAIN : location.hostname;
+            const url = appSettings.webSocketUrl.replace('{hostname}', hostname) + '?token=' + (await userInfoStore.getToken());
+            startWebsocket(url);
+        } else {
+            //
+        }
+    },
+    {
+        immediate: true,
+    }
+);
+</script>
+
+<style scoped lang="scss">
+.layout {
+    height: 100%;
+    .el-container {
+        height: 100%;
+        .el-aside {
+            transition: width 0.3s;
+        }
+        .el-container {
+            background-color: #f4f4f4df;
+            .el-main {
+                transition: margin-left 0.3s;
+            }
+            .el-footer {
+                padding: 0;
+            }
+        }
+    }
+}
+</style>
