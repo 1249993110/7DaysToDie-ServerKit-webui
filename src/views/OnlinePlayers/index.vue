@@ -86,6 +86,7 @@ const formatPosition = (row) => {
     const value = row.position;
     return `${value.x} ${value.y} ${value.z}`;
 };
+
 const getDetails = async (playerId) => {
     const data = await getOnlinePlayerDetails(playerId);
     // for (const key in data) {
@@ -190,15 +191,15 @@ const getDetails = async (playerId) => {
         },
         {
             label: '最长生存时长',
-            value: data.longestLife.toFixed(2),
+            value: formatMinute(data.longestLife),
         },
         {
             label: '当前存活时长',
-            value: data.currentLife.toFixed(2),
+            value: formatMinute(data.currentLife),
         },
         {
             label: '总游戏时长',
-            value: data.totalTimePlayed.toFixed(2),
+            value: formatMinute(data.totalTimePlayed),
         },
         {
             label: '游戏阶段出生在世界时间',

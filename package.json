@@ -27,7 +27,7 @@
     "pinia": "^2.1.7",
     "qs": "^6.11.2",
     "screenfull": "^6.0.2",
-    "vue": "^3.3.12",
+    "vue": "^3.3.13",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

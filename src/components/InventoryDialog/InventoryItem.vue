@@ -76,7 +76,7 @@ const handleContextMenu = (event) => {
             {
                 label: '移除选中物品',
                 onClick: async () => {
-                    if (await myconfirm(`确定从玩家背包、腰带或装备中移除所有的'${gameLocalizationStore.dict[item.itemName]}'吗?`)) {
+                    if (await myconfirm(`确定从玩家的背包和腰带中移除所有的'${gameLocalizationStore.dict[item.itemName]}'吗?`)) {
                         const result = await removePlayerItems(props.playerId, item.itemName);
                         ElNotification({
                             title: '命令执行结果',

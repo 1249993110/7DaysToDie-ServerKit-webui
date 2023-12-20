@@ -87,7 +87,26 @@ const formatPosition = (row) => {
     const value = row.position;
     return `${value.x} ${value.y} ${value.z}`;
 };
+const formatMinute = (totalMinute) => {
+    if (totalMinute < 1) {
+        return '小于 1 分钟';
+    }
 
+    const day = parseInt(totalMinute / 60 / 24);
+    const hour = parseInt((totalMinute / 60) % 24);
+    const minute = parseInt(totalMinute % 60);
+    let result = '';
+    if (day > 0) {
+        result = day + ' 天 ';
+    }
+    if (hour > 0) {
+        result += hour + ' 小时 ';
+    }
+    if (minute > 0) {
+        result += minute + ' 分钟 ';
+    }
+    return result;
+};
 const getDetails = async (playerId) => {
     const data = await getHistoryPlayerDetails(playerId);
     // for (const key in data) {
@@ -184,15 +203,15 @@ const getDetails = async (playerId) => {
         },
         {
             label: '最长生存时长',
-            value: data.longestLife.toFixed(2),
+            value: formatMinute(data.longestLife),
         },
         {
             label: '当前存活时长',
-            value: data.currentLife.toFixed(2),
+            value: formatMinute(data.currentLife),
         },
         {
             label: '总游戏时长',
-            value: data.totalTimePlayed.toFixed(2),
+            value: formatMinute(data.totalTimePlayed),
         },
         {
             label: '游戏阶段出生在世界时间',
