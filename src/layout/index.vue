@@ -64,6 +64,7 @@ watch(
             background-color: #f4f4f4df;
             .el-main {
                 transition: margin-left 0.3s;
+                overflow: hidden;
             }
             .el-footer {
                 padding: 0;

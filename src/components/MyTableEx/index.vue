@@ -61,7 +61,7 @@
             :is="addOrUpdateComponent"
             :initData="initData"
             v-model="addOrUpdateComponentVisible"
-            @onConfirm="handelAddOrUpdateConfirm"
+            @onConfirm="handleAddOrUpdateConfirm"
         ></component>
     </div>
 </template>
@@ -222,7 +222,7 @@ const handlePaginationChange = async () => {
     await getData();
 };
 
-const handelAddOrUpdateConfirm = async () => {
+const handleAddOrUpdateConfirm = async () => {
     await getData();
 };
 

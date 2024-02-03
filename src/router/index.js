@@ -91,7 +91,7 @@ router.beforeEach(async (to, from) => {
         const isLoggedIn = await userInfoStore.isLoggedIn();
         if (!isLoggedIn) {
             // 如果没有, 则重定向到登录页面
-            return '/login?redirect' + to.fullPath;
+            return '/login?redirect=' + to.fullPath;
         }
     }
 });

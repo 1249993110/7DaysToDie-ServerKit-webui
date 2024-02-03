@@ -1,5 +1,5 @@
 <template>
-    <el-dialog ref="dialogRef" :title="(isAdd ? '添加' : '编辑') + titleSuffix" draggable :close-on-click-modal="false" :width="width" @open="handelOpen" @close="handelClose">
+    <el-dialog ref="dialogRef" :title="(isAdd ? '添加' : '编辑') + titleSuffix" draggable :close-on-click-modal="false" :width="width" @open="handleOpen" @close="handleClose">
         <el-form ref="formRef" :model="formModel" :rules="rules" :label-width="labelWidth" :label-position="labelPosition" status-icon>
             <slot :isAdd="isAdd"></slot>
         </el-form>
@@ -71,13 +71,13 @@ const handleConfirm = async () => {
     }
 };
 
-const handelOpen = () => {
+const handleOpen = () => {
     if (props.initData) {
         Object.assign(props.formModel, props.initData);
     }
 };
 
-const handelClose = () => {
+const handleClose = () => {
     formRef.value?.resetFields();
 };
 </script>
