@@ -58,6 +58,90 @@ const routes = [
                 component: () => import('../views/Console/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
+            {
+                path: '/chat-record',
+                name: 'ChatRecord',
+                component: () => import('../views/ChatRecord/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
+            },
+            {
+                path: '/global-settings',
+                name: 'GlobalSettings',
+                component: () => import('../views/GlobalSettings/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
+            },
+            {
+                path: '/game-notice',
+                name: 'GameNotice',
+                component: () => import('../views/GameNotice/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
+            },
+            {
+                path: '/points-system',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'PointsSystem.Settings',
+                        component: () => import('../views/PointsSystem/Settings/index.vue'),
+                    },
+                    {
+                        path: 'management',
+                        name: 'PointsSystem.Management',
+                        component: () => import('../views/PointsSystem/Management/index.vue'),
+                    },
+                ],
+            },
+            {
+                path: '/game-store',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'GameStore.Settings',
+                        component: () => import('../views/GameStore/Settings/index.vue'),
+                    },
+                    {
+                        path: 'management',
+                        name: 'GameStore.Management',
+                        component: () => import('../views/GameStore/Management/index.vue'),
+                    },
+                ],
+            },
+            {
+                path: '/tele-friend',
+                name: 'TeleportFriend',
+                component: () => import('../views/TeleportFriend/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
+            },
+            {
+                path: '/tele-city',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'TeleportCity.Settings',
+                        component: () => import('../views/TeleportCity/Settings/index.vue'),
+                    },
+                    {
+                        path: 'management',
+                        name: 'TeleportCity.Management',
+                        component: () => import('../views/TeleportCity/Management/index.vue'),
+                    },
+                ],
+            },
+            {
+                path: '/tele-home',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'TeleportHome.Settings',
+                        component: () => import('../views/TeleportHome/Settings/index.vue'),
+                    },
+                    {
+                        path: 'management',
+                        name: 'TeleportHome.Management',
+                        component: () => import('../views/TeleportHome/Management/index.vue'),
+                    },
+                ],
+            },
         ],
     },
     {

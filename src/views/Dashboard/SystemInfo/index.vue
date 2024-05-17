@@ -47,7 +47,7 @@
                 <template #label>
                     <span class="label">内存大小</span>
                 </template>
-                {{ systemInfo.systemMemorySize }} MB
+                {{ Math.round(systemInfo.systemMemorySize / 1024) }} GB
             </el-descriptions-item>
         </el-descriptions>
     </el-scrollbar>

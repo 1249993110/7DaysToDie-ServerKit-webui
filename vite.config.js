@@ -59,7 +59,7 @@ export default defineConfig(({ mode }) => {
                     IconsResolver({
                         prefix: 'icon', // 自动引入的Icon组件统一前缀, 默认为 i, 设置false为不需要前缀
                         // {prefix}-{collection}-{icon} 使用组件解析器时, 您必须遵循名称转换才能正确推断图标
-                        enabledCollections: ['mdi', 'ep', 'ant-design', 'uiw', 'arcticons'], // 这是可选的, 默认启用 Iconify 支持的所有集合['mdi']
+                        // enabledCollections: ['mdi', 'ep', 'ant-design', 'uiw', 'arcticons'], // 这是可选的, 默认启用 Iconify 支持的所有集合['mdi']
                         // alias: {
                         //     park: 'icon-park',
                         // }

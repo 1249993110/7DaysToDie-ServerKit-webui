@@ -63,11 +63,86 @@ const tree = [
         title: '控制台',
         icon: getIcon(() => import('~icons/mdi/console')),
     },
-    // {
-    //     path: '/app-settings',
-    //     title: '应用设置',
-    //     icon: getIcon(() => import('~icons/ep/setting')),
-    // },
+    {
+        path: '/chat-record',
+        title: '聊天记录',
+        icon: getIcon(() => import('~icons/ep/chat-line-square')),
+    },
+    {
+        path: '/global-settings',
+        title: '全局配置',
+        icon: getIcon(() => import('~icons/ep/setting')),
+    },
+    {
+        path: '/game-notice',
+        title: '游戏公告',
+        icon: getIcon(() => import('~icons/icon-park-outline/volume-notice')),
+    },
+    {
+        path: '/points-system',
+        title: '积分系统',
+        icon: getIcon(() => import('~icons/mdi/bitcoin')),
+        children: [
+            {
+                path: 'settings',
+                title: '签到配置',
+            },
+            {
+                path: 'management',
+                title: '积分管理',
+            },
+        ],
+    },
+    {
+        path: '/game-store',
+        title: '游戏商店',
+        icon: getIcon(() => import('~icons/mdi/store')),
+        children: [
+            {
+                path: 'settings',
+                title: '商店配置',
+            },
+            {
+                path: 'management',
+                title: '商店管理',
+            },
+        ],
+    },
+    {
+        path: '/tele-friend',
+        title: '好友传送',
+        icon: getIcon(() => import('~icons/carbon/friendship')),
+    },
+    {
+        path: '/tele-city',
+        title: '城镇传送',
+        icon: getIcon(() => import('~icons/mdi/city')),
+        children: [
+            {
+                path: 'settings',
+                title: '城镇配置',
+            },
+            {
+                path: 'management',
+                title: '城镇管理',
+            },
+        ],
+    },
+    {
+        path: '/tele-home',
+        title: '私人传送',
+        icon: getIcon(() => import('~icons/mdi/home')),
+        children: [
+            {
+                path: 'settings',
+                title: '传送配置',
+            },
+            {
+                path: 'management',
+                title: 'Home管理',
+            },
+        ],
+    },
     {
         path: import.meta.env.VITE_APP_SWAGGER_URL,
         title: '接口文档',
