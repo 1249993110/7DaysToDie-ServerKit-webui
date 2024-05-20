@@ -3,7 +3,7 @@
         <RouterButton
             :buttons="[
                 {
-                    label: '控制台',
+                    value: '控制台',
                     path: '/console',
                 },
             ]"

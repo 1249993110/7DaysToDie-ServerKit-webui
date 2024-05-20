@@ -1,10 +1,8 @@
 <template>
     <el-card class="router-card">
         <el-radio-group v-model="activeName" @change="handleChange">
-            <el-radio-button class="router-card-button" :label="button.label" v-for="(button, index) in buttonArray" size="large" :key="index">
-                <el-badge :value="button.count" v-if="button.count" is-dot>
-                    <span>{{ button.label }}</span>
-                </el-badge>
+            <el-radio-button class="router-card-button" :value="button.value" v-for="(button, index) in buttonArray" size="large" :key="index">
+                <span>{{ button.value }}</span>
             </el-radio-button>
         </el-radio-group>
         <div class="router-card-right">
@@ -48,12 +46,12 @@ const routerToName = (name) => {
     router.push({ name: name });
 };
 
-const handleChange = (label) => {
-    const btn = buttonArray.value.find((btn) => btn.label === label);
+const handleChange = (value) => {
+    const btn = buttonArray.value.find((btn) => btn.value === value);
     if (!btn) return;
     if (btn.path) routerToPath(btn.path);
     else if (btn.name) routerToName(btn.name);
-    activeName.value = btn.label;
+    activeName.value = btn.value;
 };
 
 onMounted(() => {
@@ -62,10 +60,10 @@ onMounted(() => {
         const btn = buttonArray.value.find((btn) => btn.path === router.currentRoute.value.path);
         if (btn) {
             isPathExist = true;
-            activeName.value = btn.label;
+            activeName.value = btn.value;
         }
         if (!isPathExist) {
-            activeName.value = buttonArray.value[0].label;
+            activeName.value = buttonArray.value[0].value;
         }
     }
 });

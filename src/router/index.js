@@ -11,9 +11,15 @@ const routes = [
         component: Layout,
         children: [
             {
-                path: 'dashboard',
+                path: '/dashboard',
                 name: 'Dashboard',
                 component: () => import('../views/Dashboard/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
+            },
+            {
+                path: '/server-settings',
+                name: 'ServerSettings',
+                component: () => import('../views/ServerSettings/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {

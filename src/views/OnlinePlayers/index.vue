@@ -3,7 +3,7 @@
         <RouterButton
             :buttons="[
                 {
-                    label: '在线玩家',
+                    value: '在线玩家',
                     path: '/online-players',
                 },
             ]"

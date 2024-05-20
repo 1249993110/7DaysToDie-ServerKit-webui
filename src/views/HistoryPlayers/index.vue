@@ -3,7 +3,7 @@
         <RouterButton
             :buttons="[
                 {
-                    label: '历史玩家',
+                    value: '历史玩家',
                     path: '/history-players',
                 },
             ]"

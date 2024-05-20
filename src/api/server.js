@@ -60,3 +60,19 @@ export const executeConsoleCommand = (command, inMainThread = false) => {
         },
     });
 };
+
+/**
+ * 获取服务器设置
+ * @returns 
+ */
+export const getSettings = () => {
+    return http.get('/Server/Settings');
+};
+
+/**
+ * 修改服务器设置
+ * @returns 
+ */
+export const putSettings = (data) => {
+    return http.put('/Server/Settings', data);
+};

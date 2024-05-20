@@ -3,7 +3,7 @@
         <RouterButton
             :buttons="[
                 {
-                    label: '黑名单',
+                    value: '黑名单',
                     path: '/blacklist',
                 },
             ]"

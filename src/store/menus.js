@@ -19,6 +19,11 @@ const tree = [
         icon: getIcon(() => import('~icons/uiw/dashboard')),
     },
     {
+        path: '/server-settings',
+        title: '服务器设置',
+        icon: getIcon(() => import('~icons/material-symbols/settings')),
+    },
+    {
         path: '/map',
         title: 'GPS地图',
         icon: getIcon(() => import('~icons/ep/location-information')),
@@ -70,7 +75,7 @@ const tree = [
     },
     {
         path: '/global-settings',
-        title: '全局配置',
+        title: '功能配置',
         icon: getIcon(() => import('~icons/ep/setting')),
     },
     {

@@ -3,7 +3,7 @@
         <RouterButton
             :buttons="[
                 {
-                    label: '仪表盘',
+                    value: '仪表盘',
                     path: '/dashboard',
                 },
             ]"

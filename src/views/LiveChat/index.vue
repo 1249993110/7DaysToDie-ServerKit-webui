@@ -3,7 +3,7 @@
         <RouterButton
             :buttons="[
                 {
-                    label: '实时聊天',
+                    value: '实时聊天',
                     path: '/live-chat',
                 },
             ]"
