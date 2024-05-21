@@ -18,19 +18,19 @@
         </RouterButton>
         <div style="margin-top: 20px"></div>
         <template v-for="(item, index) in tableData" :key="index">
-            <el-table :data="item" border stripe style="width: 100%" :show-header="false" :span-method="objectSpanMethod">
+            <el-table :data="item" border stripe style="width: 100%" :show-header="false" :span-method="objectSpanMethod" size="small">
                 <el-table-column prop="group" width="110">
                     <template #default="scope">
-                        {{ scope.row.group }}
+                        <span style="font-size: 16px; font-weight: bolder">{{ scope.row.group }}</span>
                     </template>
                 </el-table-column>
-                <el-table-column prop="name" width="230">
+                <el-table-column prop="name" width="250">
                     <template #default="scope">
-                        <el-tag>{{ scope.row.name }}</el-tag>
+                        <el-tag style="font-weight: bold; font-family: monospace">{{ scope.row.name }}</el-tag>
                     </template>
                 </el-table-column>
                 <el-table-column prop="desc" show-overflow-tooltip />
-                <el-table-column prop="value" width="160" show-overflow-tooltip />
+                <el-table-column prop="value" width="200" show-overflow-tooltip />
                 <el-table-column width="90" fixed="right">
                     <template #default="scope">
                         <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">修改</el-button>
