@@ -224,8 +224,13 @@ const getDetails = async (playerId) => {
     ];
 };
 
+const format_position = (row) => {
+    const value = row.position;
+    return `${value.x} ${value.y} ${value.z}`;
+};
+
 const handleContextmenu = (row, column, event) => {
-    const entityId = row.entityId;
+    const crossplatformId = row.crossplatformId;
     const playerName = row.playerName;
 
     ContextMenu.showContextMenu({
@@ -264,9 +269,9 @@ const handleContextmenu = (row, column, event) => {
                         },
                     },
                     {
-                        label: '复制玩家实体Id',
+                        label: '复制玩家EOS',
                         onClick: async () => {
-                            await copy(entityId);
+                            await copy(crossplatformId);
                             ElMessage.success('复制成功');
                         },
                     },
@@ -290,7 +295,7 @@ const handleContextmenu = (row, column, event) => {
                 label: '封禁玩家',
                 onClick: () => {
                     myprompt('e.g. 2 minutes "Time for a break" "Joel"', '封禁玩家-请输入可选参数', 'warning').then((value) => {
-                        sdtdConsole.telePlayer(entityId, value).then(() => {
+                        sdtdConsole.telePlayer(crossplatformId, value).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     });
@@ -301,7 +306,7 @@ const handleContextmenu = (row, column, event) => {
                 label: '设置为超级管理员',
                 onClick: () => {
                     myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning').then(() => {
-                        sdtdConsole.addAdmin(entityId, 0, '超级管理员-' + playerName).then(() => {
+                        sdtdConsole.addAdmin(crossplatformId, 0, '超级管理员-' + playerName).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     });

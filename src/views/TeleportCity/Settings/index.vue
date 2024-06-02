@@ -39,7 +39,7 @@
                         </el-form-item>
                     </el-form>
                     <div>
-                        <el-text style="color: green">提示: 游戏内输入hc+空格+城镇名称 进行传送</el-text>
+                        <el-text style="color: green">提示: 游戏内输入hc+横杠(-)+城镇名称 进行传送</el-text>
                     </div>
                 </div>
             </el-scrollbar>

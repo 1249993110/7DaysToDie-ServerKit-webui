@@ -33,7 +33,7 @@
                         </el-form-item>
                     </el-form>
                     <div>
-                        <el-text style="color: green">提示: 游戏内输入buy+空格+商品名称 购买</el-text>
+                        <el-text style="color: green">提示: 游戏内输入buy+横杠(-)+商品名称 购买</el-text>
                     </div>
                 </div></el-scrollbar
             >

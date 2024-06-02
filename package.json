@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@imengyu/vue3-context-menu": "^1.4.1",
-    "@vueuse/core": "^10.9.0",
-    "axios": "^1.7.1",
+    "@vueuse/core": "^10.10.0",
+    "axios": "^1.7.2",
     "dayjs": "^1.11.11",
     "echarts": "^5.5.0",
-    "element-plus": "^2.7.3",
+    "element-plus": "^2.7.4",
     "leaflet": "^1.9.4",
     "leaflet-measure": "^3.1.0",
     "leaflet-minimap": "^3.6.1",
@@ -32,18 +32,18 @@
   },
   "devDependencies": {
     "@iconify-json/ant-design": "^1.1.16",
-    "@iconify-json/arcticons": "^1.1.103",
-    "@iconify-json/carbon": "^1.1.33",
+    "@iconify-json/arcticons": "^1.1.104",
+    "@iconify-json/carbon": "^1.1.34",
     "@iconify-json/ep": "^1.1.15",
     "@iconify-json/icon-park-outline": "^1.1.15",
-    "@iconify-json/material-symbols": "^1.1.80",
+    "@iconify-json/material-symbols": "^1.1.81",
     "@iconify-json/mdi": "^1.1.66",
     "@iconify-json/uiw": "^1.1.11",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "sass": "^1.77.2",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "sass": "^1.77.4",
     "unplugin-auto-import": "^0.17.6",
     "unplugin-icons": "^0.19.0",
     "unplugin-vue-components": "^0.27.0",
-    "vite": "^5.2.11"
+    "vite": "^5.2.12"
   }
 }

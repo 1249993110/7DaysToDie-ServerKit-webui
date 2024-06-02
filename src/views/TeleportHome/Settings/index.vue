@@ -73,7 +73,7 @@
                     </el-form>
                 </div>
                 <div>
-                    <el-text style="color: green">提示: 游戏内输入setHome+空格+home名称 保存当前坐标, 输入delHome+空格+home名称 删除home</el-text>
+                    <el-text style="color: green">提示: 游戏内输入setHome+横杠(-)+home名称 保存当前坐标, 输入delHome+横杠(-)+home名称 删除home</el-text>
                 </div>
             </el-scrollbar>
         </el-card>
