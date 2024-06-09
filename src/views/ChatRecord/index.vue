@@ -22,7 +22,7 @@
             <el-table-column prop="senderName" label="发送者名称" width="180" sortable> </el-table-column>
             <el-table-column prop="chatType" label="类型" width="80" sortable :formatter="format_chatType"> </el-table-column>
             <el-table-column prop="message" label="消息内容" min-width="120" sortable> </el-table-column>
-            <el-table-column prop="playerId" label="玩家Id" width="215" sortable> </el-table-column>
+            <el-table-column prop="playerId" label="玩家Id" min-width="215" sortable> </el-table-column>
         </template>
     </MyTableEx>
 </template>

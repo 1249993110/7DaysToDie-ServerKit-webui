@@ -24,6 +24,11 @@ const tree = [
         icon: getIcon(() => import('~icons/material-symbols/settings')),
     },
     {
+        path: '/file-browser',
+        title: '文件浏览器',
+        icon: getIcon(() => import('~icons/arcticons/little-file-explorer')),
+    },
+    {
         path: '/map',
         title: 'GPS地图',
         icon: getIcon(() => import('~icons/ep/location-information')),

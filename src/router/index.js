@@ -3,6 +3,7 @@ import Layout from '../layout/index.vue';
 import nProgress from '../plugins/nprogress';
 import { useUserInfoStore } from '../store/user-info';
 import qs from 'qs';
+import *  as fileBrowserApi from '~/api/file-browser';
 
 const routes = [
     {
@@ -20,6 +21,12 @@ const routes = [
                 path: '/server-settings',
                 name: 'ServerSettings',
                 component: () => import('../views/ServerSettings/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
+            },
+            {
+                path: '/file-browser',
+                name: 'FileBrowser',
+                component: () => import('../views/FileBrowser/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
@@ -183,6 +190,12 @@ router.beforeEach(async (to, from) => {
             // 如果没有, 则重定向到登录页面
             return '/login?redirect=' + to.fullPath;
         }
+
+        // if(to.path === '/file-browser'){
+        //     const token = await fileBrowserApi.getToken();
+        //     console.log(token);
+        //     document.cookie = 'auth=' + token;
+        // }
     }
 });
 

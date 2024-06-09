@@ -3,7 +3,7 @@
         <el-card>
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="150px">
+                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="180px">
                         <!-- <el-form-item label="是否启用">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item> -->
@@ -18,6 +18,18 @@
                         </el-form-item>
                         <el-form-item label="聊天消息错误提示" prop="handleChatMessageError">
                             <el-input v-model="formModel.handleChatMessageError" />
+                        </el-form-item>
+                        <el-form-item label="是否启用僵尸击杀奖励" prop="isEnabled">
+                            <el-switch v-model="formModel.killZombieTrigger.isEnabled" />
+                        </el-form-item>
+                        <el-form-item class="label" :label="`执行指令\n(每行一条)`" prop="executeCommands">
+                            <el-input v-model="textareaValue1" type="textarea" :rows="5"></el-input>
+                        </el-form-item>
+                        <el-form-item label="是否启用死亡惩罚" prop="isEnabled">
+                            <el-switch v-model="formModel.deathTrigger.isEnabled" />
+                        </el-form-item>
+                        <el-form-item class="label" :label="`执行指令\n(每行一条)`" prop="executeCommands">
+                            <el-input v-model="textareaValue2" type="textarea" :rows="5"></el-input>
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
@@ -43,6 +55,31 @@ const formModel = reactive({
     chatCommandPrefix: '',
     chatCommandSeparator: '',
     handleChatMessageError: '',
+    killZombieTrigger: {
+        isEnabled: false,
+        executeCommands: [],
+    },
+    deathTrigger: {
+        isEnabled: false,
+        executeCommands: [],
+    }
+});
+
+const textareaValue1 = computed({
+  get() {
+    return formModel.killZombieTrigger.executeCommands.join('\n');
+  },
+  set(value) {
+    formModel.killZombieTrigger.executeCommands = value.split('\n').filter(item => item.trim() !== '');
+  }
+});
+const textareaValue2 = computed({
+  get() {
+    return formModel.deathTrigger.executeCommands.join('\n');
+  },
+  set(value) {
+    formModel.deathTrigger.executeCommands = value.split('\n').filter(item => item.trim() !== '');
+  }
 });
 
 const formRef = ref();
@@ -74,6 +111,13 @@ const save = async () => {
         background-color: #ffffffaf;
         :deep(.el-card__body) {
             height: calc(100% - 40px);
+        }
+
+        .label {
+            :deep(.el-form-item__label) {
+                word-break: break-all;
+                white-space: pre-wrap;
+            }
         }
     }
 }
