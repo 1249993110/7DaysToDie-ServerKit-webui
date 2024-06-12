@@ -18,7 +18,7 @@ const src = ref('');
 getAppSettings()
     .then((data) => {
         const hostname = import.meta.env.DEV ? import.meta.env.VITE_APP_API_DOMAIN : location.hostname;
-        src.value = `//${hostname}:${data.fileBrowserPort}`;
+        src.value = data.fileBrowserUrl.replace('{hostname}', hostname);
     })
     .catch((error) => {});
 </script>

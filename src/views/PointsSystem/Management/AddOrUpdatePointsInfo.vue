@@ -74,7 +74,7 @@ const submit = async () => {
         if (isAdd.value) {
             await api.addPointsInfo(formModel);
         } else {
-            await api.updatePointsInfo(formModel.id, formModel);
+            await api.updatePointsInfo(formModel.playerId, formModel);
         }
 
         ElMessage.success('保存成功');

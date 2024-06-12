@@ -85,7 +85,7 @@ const handleUpdate = (row) => {
 const handleDelete = async (row) => {
     try {
         await myconfirm('确定删除选中内容吗?');
-        await api.deletePointsInfoById(row.id);
+        await api.deletePointsInfoById(row.playerId);
         getData();
     } catch {}
 };
