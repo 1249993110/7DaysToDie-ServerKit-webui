@@ -89,6 +89,7 @@ const appendMessage = (message, logType) => {
     const p = document.createElement('p');
     const font = document.createElement('font');
     font.setAttribute('color', color);
+    font.setAttribute('style', 'font-family: monospace');
     font.innerText = message;
     p.appendChild(font);
 
