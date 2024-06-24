@@ -46,6 +46,9 @@
                         <el-form-item class="label" :label="`自动重启提示\n(每行一条)`">
                             <el-input v-model="textareaValue3" type="textarea" :rows="5"></el-input>
                         </el-form-item>
+                        <el-form-item label="是否禁止家庭共享账号" prop="blockFamilySharingAccount">
+                            <el-switch v-model="formModel.blockFamilySharingAccount" />
+                        </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
                         </el-form-item>
@@ -97,6 +100,7 @@ const formModel = reactive({
         restartMinute: 0,
         messages: [],
     },
+    blockFamilySharingAccount: false
 });
 
 const textareaValue1 = computed({
