@@ -8,6 +8,12 @@
                 },
             ]"
         >
+            <template #route-button>
+                <div class="route-button">
+                    <span style="font-size: 14px;margin-right: 4px;">自动刷新</span>
+                    <el-switch v-model="autoRefrensh" />
+                </div>
+            </template>
         </RouterButton>
         <el-card class="table-card" shadow="always" v-loading="loading">
             <el-table ref="tableRef" :data="tableData" stripe height="100%" highlight-current-row @row-contextmenu="onContextmenu">
@@ -45,6 +51,7 @@ import { showInventory } from '~/components/InventoryDialog/index.js';
 import myprompt from '~/utils/myprompt';
 import myconfirm from '~/utils/myconfirm';
 import axios from 'axios';
+import { showBanWindow } from '~/components/AddBlacklist/index';
 
 const detailsDialogVisible = ref(false);
 const dialogTitle = ref('');
@@ -66,7 +73,11 @@ const getData = async () => {
             data = response.data;
             for (let i = 0; i < data.length; i++) {
                 const element = data[i];
-                tableData.value[i].ipAttribution = `${element.country} ${element.regionName} ${element.city}`;
+                if (element.status === 'fail') {
+                    tableData.value[i].ipAttribution = '未知';
+                } else {
+                    tableData.value[i].ipAttribution = `${element.country} ${element.regionName} ${element.city}`;
+                }
             }
         }
     } finally {
@@ -78,6 +89,15 @@ const { pause, resume, isActive } = useIntervalFn(getData, 10000, { immediate: f
 
 onActivated(resume);
 onDeactivated(pause);
+
+const autoRefrensh = ref(true);
+watch(autoRefrensh, (val) => {
+    if (val) {
+        resume();
+    } else {
+        pause();
+    }
+});
 
 const tableRef = ref();
 const { copy } = useClipboard();
@@ -224,7 +244,7 @@ const onContextmenu = (row, column, event) => {
         y: event.y,
         theme: 'default dark',
         items: [
-        {
+            {
                 label: '查看详细信息',
                 onClick: async () => {
                     dialogTitle.value = `玩家: ${playerName} (${row.crossplatformId}) 的数据`;
@@ -311,28 +331,24 @@ const onContextmenu = (row, column, event) => {
             },
             {
                 label: '踢出玩家',
-                onClick: () => {
-                    myconfirm('此操作将踢出选定玩家, 是否继续?', '提示', 'warning').then(() => {
+                onClick: async () => {
+                    if (await myconfirm('此操作将踢出选定玩家, 是否继续?', '提示', 'warning')) {
                         sdtdConsole.kickPlayer(entityId).then(() => {
                             ElMessage.success('发送命令成功');
                         });
-                    });
+                    }
                 },
             },
             {
                 label: '封禁玩家',
                 onClick: () => {
-                    myprompt('e.g. 2 minutes "Time for a break" "Joel"', '封禁玩家-请输入可选参数', 'warning').then((value) => {
-                        sdtdConsole.telePlayer(entityId, value).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    });
+                    showBanWindow(row.crossplatformId, playerName);
                 },
                 divided: true,
             },
             {
                 label: '发送私聊消息',
-                onClick: () => {
+                onClick: async () => {
                     myprompt('{message}', '请输入文本').then((value) => {
                         sdtdConsole.sendMessageToPlayer(entityId, value).then(() => {
                             ElMessage.success('发送命令成功');
@@ -343,12 +359,12 @@ const onContextmenu = (row, column, event) => {
             },
             {
                 label: '设置为超级管理员',
-                onClick: () => {
-                    myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning').then(() => {
+                onClick: async () => {
+                    if (await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')) {
                         sdtdConsole.addAdmin(entityId, 0, '超级管理员-' + playerName).then(() => {
                             ElMessage.success('发送命令成功');
                         });
-                    });
+                    }
                 },
             },
         ],
@@ -396,6 +412,19 @@ const format_landProtectionActive = (row) => {
 <style scoped lang="scss">
 .online-players {
     height: 100%;
+    .route-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+        :deep(.el-button) {
+            --el-button-text-color: #005eeb;
+        }
+        :deep(button:nth-child(3)) {
+            --el-button-text-color: #f56c6c;
+        }
+    }
+
     .table-card {
         height: 100%;
         background-color: #ffffffaf;

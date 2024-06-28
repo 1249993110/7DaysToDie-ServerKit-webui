@@ -63,6 +63,7 @@ import { showInventory } from '~/components/InventoryDialog/index.js';
 import myprompt from '~/utils/myprompt';
 import myconfirm from '~/utils/myconfirm';
 import * as fileHelper from '~/utils/file-helper';
+import { showBanWindow } from '~/components/AddBlacklist/index';
 
 const detailsDialogVisible = ref(false);
 const dialogTitle = ref('');
@@ -294,22 +295,18 @@ const handleContextmenu = (row, column, event) => {
             {
                 label: '封禁玩家',
                 onClick: () => {
-                    myprompt('e.g. 2 minutes "Time for a break" "Joel"', '封禁玩家-请输入可选参数', 'warning').then((value) => {
-                        sdtdConsole.telePlayer(crossplatformId, value).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    });
+                    showBanWindow(crossplatformId, playerName);
                 },
                 divided: true,
             },
             {
                 label: '设置为超级管理员',
-                onClick: () => {
-                    myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning').then(() => {
+                onClick: async () => {
+                    if(await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')){
                         sdtdConsole.addAdmin(crossplatformId, 0, '超级管理员-' + playerName).then(() => {
                             ElMessage.success('发送命令成功');
                         });
-                    });
+                    }
                 },
             },
         ],

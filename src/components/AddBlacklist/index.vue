@@ -20,9 +20,14 @@
 <script setup>
 import * as api from '~/api/blacklist';
 
+const props = defineProps({
+    playerId: String,
+    displayName: String,
+});
+
 const formModel = reactive({
-    playerId: '',
-    displayName: '',
+    playerId: props.playerId,
+    displayName: props.displayName,
     bannedUntil: '',
     reason: '',
 });

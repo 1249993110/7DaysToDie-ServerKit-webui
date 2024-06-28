@@ -1,12 +1,13 @@
 import Dialog from './index.vue';
 import { createVNode, render } from 'vue';
 
-export const showInventory = async (playerId, playerName) => {
+export const showBanWindow = async (playerId, displayName) => {
     const container = document.createElement('div');
     const vNode = createVNode(Dialog, {
-        title: `玩家: ${playerName} (${playerId}) 的背包`,
+        modelValue: true,
+        title: `封禁: ${displayName} (${playerId})`,
         playerId: playerId,
-        visible: true,
+        displayName: displayName,
         onClosed: () => {
             document.body.removeChild(container);
         },

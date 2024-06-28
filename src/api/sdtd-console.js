@@ -33,15 +33,6 @@ export const kickPlayer = function (playerIdOrName) {
     return sendConsoleCommand(`kick ${playerIdOrName}`);
 };
 
-/**
- * 封禁玩家
- * @example ban add madmole 2 minutes "Time for a break" "Joel"
- * @durationUnit minute(s), hour(s), day(s), week(s), month(s), year(s)
- */
-export const banPlayer = function (playerIdOrName, duration, durationUnit, reason, displayName) {
-    return sendConsoleCommand(`ban add ${playerIdOrName} ${duration} ${durationUnit} ${reason} ${displayName}`);
-};
-
 export const addAdmin = function (playerIdOrName, level, displayName) {
     return sendConsoleCommand(`admin add ${playerIdOrName} ${level} ${displayName}`);
 };

@@ -24,13 +24,21 @@
                         <span style="font-size: 16px; font-weight: bolder">{{ scope.row.group }}</span>
                     </template>
                 </el-table-column>
-                <el-table-column prop="name" width="250">
+                <el-table-column prop="name" width="250" show-overflow-tooltip>
                     <template #default="scope">
                         <el-tag style="font-weight: bold; font-family: monospace">{{ scope.row.name }}</el-tag>
                     </template>
                 </el-table-column>
-                <el-table-column prop="desc" show-overflow-tooltip />
-                <el-table-column prop="value" width="200" show-overflow-tooltip />
+                <el-table-column prop="desc" show-overflow-tooltip>
+                    <template #default="scope">
+                        <span style="font-family: cursive">{{ scope.row.desc }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="value" width="200" show-overflow-tooltip>
+                    <template #default="scope">
+                        <span style="font-size: 14px; font-weight: bold; font-family: emoji; color: black">{{ scope.row.value }}</span>
+                    </template>
+                </el-table-column>
                 <el-table-column width="90" fixed="right">
                     <template #default="scope">
                         <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">修改</el-button>
@@ -85,7 +93,7 @@ const objectSpanMethod = ({ rowIndex, columnIndex }) => {
     if (columnIndex === 0) {
         if (rowIndex === 0) {
             return {
-                rowspan: tableData.value.length,
+                rowspan: Number.MAX_SAFE_INTEGER,
                 colspan: 1,
             };
         } else {

@@ -1,5 +1,6 @@
 import { getLocations } from '~/api/locations';
 import { showInventory } from '~/components/InventoryDialog/index';
+import * as sdtdConsole from '~/api/sdtd-console';
 
 // onlinePlayer icon
 const onlinePlayerIcon = L.icon({
@@ -42,9 +43,19 @@ export function getOnlinePlayersLayer(map, mapInfo) {
                 showInventory(playerId, entityName);
             });
 
-            const marker = L.marker([position.x, position.z], { icon: onlinePlayerIcon }).bindPopup(container);
+            const marker = L.marker([position.x, position.z], {
+                icon: onlinePlayerIcon,
+                draggable: true, // 使标记可拖拽
+            }).bindPopup(container);
             marker.addEventListener('popupopen', (e) => {
                 e.popup._closeButton.href = 'javascript:void(0);';
+            });
+            // 监听拖拽结束事件
+            marker.on('dragend', (e) => {
+                const newPos = e.target.getLatLng(); // 获取新的位置
+                console.log(`Marker dragged to new position: ${newPos}`);
+                // 在这里执行你想要的方法
+                sdtdConsole.sendConsoleCommand(`tele ${playerId} ${Math.round(newPos.lat)} -1 ${Math.round(newPos.lng)}`)
             });
             marker.setOpacity(1.0);
 
