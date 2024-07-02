@@ -24,6 +24,10 @@ const props = defineProps({
     formModel: {
         type: Object,
     },
+    isAdd: {
+        type: Boolean,
+        default: false,
+    },
     initData: {
         type: Object,
     },
@@ -46,8 +50,6 @@ const props = defineProps({
 const dialogRef = ref();
 const formRef = ref();
 
-const isAdd = computed(() => !props.initData);
-
 const handleCancel = () => {
     dialogRef.value.visible = false;
 };
@@ -61,7 +63,7 @@ const handleConfirm = async () => {
     });
     try {
         await formRef.value.validate();
-        const result = await Promise.resolve(props.request(isAdd.value));
+        const result = await Promise.resolve(props.request(props.isAdd));
         emit('onConfirm', result);
         dialogRef.value.visible = false;
         ElMessage.success('保存成功');

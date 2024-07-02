@@ -15,7 +15,7 @@
             :get-data="getData"
             :table-data="tableData"
             :total="total"
-            :add-or-update-component="AddBlacklist"
+            :add-or-edit-component="AddBlacklist"
             :delete="deleteRequest"
             :batch-delete="batchDeleteRequest"
             style="margin-top: 20px"

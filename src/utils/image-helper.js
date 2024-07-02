@@ -9,3 +9,12 @@ export const getBase64 = (blobUrl) => {
         reader.onerror = (error) => reject(error);
     });
 };
+
+export const getIconUrl = (item) => {
+    let itemName = item.itemIcon;
+    if (item.iconColor !== 'FFFFFF') {
+        itemName += '__' + item.iconColor;
+    }
+
+    return import.meta.env.VITE_APP_API_BASE_URL + 'ItemIcons/' + itemName + '.png';
+};

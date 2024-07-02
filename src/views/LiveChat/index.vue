@@ -37,6 +37,7 @@ export default {
 import { sendGlobalMessage } from '~/api/server';
 import { emitter, eventTypes } from '~/utils/event-hub';
 import * as api from '~/api/chat-record';
+import { getSettings } from '~/api/settings.js';
 
 let contentCount = 0;
 const contentMaxCount = 1000;
@@ -44,7 +45,8 @@ const message = ref('');
 
 const sendMessage = async () => {
     if (!!message.value) {
-        await sendGlobalMessage(message.value);
+        const globalSettings = await getSettings('GlobalSettings');
+        await sendGlobalMessage(message.value, globalSettings.serverName);
         message.value = '';
     }
 };
@@ -63,7 +65,7 @@ onDeactivated(() => {
 });
 
 const appendMessage = (chatMessage) => {
-    const message = chatMessage.createdAt + '   ' + chatMessage.senderName + "': " + chatMessage.message;
+    const message = chatMessage.createdAt + "   '" + chatMessage.senderName + "': " + chatMessage.message;
 
     const element = document.getElementById('live-chat-content');
     if (contentCount > contentMaxCount) {
@@ -119,7 +121,7 @@ emitter.on(eventTypes.OnChatMessage, (chatMessage) => {
 onMounted(async () => {
     const data = await api.getChatRecord({ pageNumber: 1, pageSize: 20 });
     const len = data.items.length;
-    for (let i = len -1; i >= 0; i--) {
+    for (let i = len - 1; i >= 0; i--) {
         appendMessage(data.items[i]);
     }
 });

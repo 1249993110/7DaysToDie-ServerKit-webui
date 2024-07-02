@@ -5,10 +5,8 @@
                 <el-checkbox v-model="itemsChecked" label="物品" />
                 <el-checkbox v-model="blocksChecked" label="方块" />
                 <el-checkbox v-model="devItemsChecked" label="开发(对用户隐藏的类型)" />
-                <el-input class="input" v-model="queryParams.keyword" placeholder clearable @keyup.enter.native="search"></el-input>
-                <el-button class="button" type="primary" @click="search">
-                    搜 索
-                </el-button>
+                <el-input class="input" v-model="searchModel.keyword" placeholder clearable @keyup.enter.native="search"></el-input>
+                <el-button class="button" type="primary" @click="search"> 搜 索 </el-button>
             </div>
             <div class="items-container">
                 <el-scrollbar always>
@@ -39,22 +37,14 @@ export default {
 <script setup>
 import { getItemBlocks } from '~/api/item-blocks';
 import { showTooltip, closeTooltip } from '~/components/SingletonTooltip/index.js';
+import { getIconUrl } from '~/utils/image-helper';
 
 const items = reactive([]);
 const itemsChecked = ref(true);
-const blocksChecked = ref(true);
+const blocksChecked = ref(false);
 const devItemsChecked = ref(false);
 
-const getIconUrl = (item) => {
-    let itemName = item.itemIcon;
-    if (item.iconColor !== 'FFFFFF') {
-        itemName += '__' + item.iconColor;
-    }
-
-    return import.meta.env.VITE_APP_API_BASE_URL + 'ItemIcons/' + itemName + '.png';
-};
-
-const queryParams = reactive({
+const searchModel = reactive({
     pageNumber: 0,
     pageSize: 50,
     keyword: '',
@@ -71,19 +61,19 @@ const getData = async () => {
 
     try {
         if (itemsChecked.value && blocksChecked.value) {
-            queryParams.itemBlockKind = 0;
+            searchModel.itemBlockKind = 0;
         } else if (itemsChecked.value && !blocksChecked.value) {
-            queryParams.itemBlockKind = 1;
+            searchModel.itemBlockKind = 1;
         } else if (!itemsChecked.value && blocksChecked.value) {
-            queryParams.itemBlockKind = 2;
+            searchModel.itemBlockKind = 2;
         } else {
             ElMessage.info('您必须至少选中一个种类');
             return;
         }
 
-        queryParams.showUserHidden = devItemsChecked.value;
+        searchModel.showUserHidden = devItemsChecked.value;
 
-        const data = (await getItemBlocks(queryParams)).items;
+        const data = (await getItemBlocks(searchModel)).items;
         const len = data.length;
         if (len === 0) {
             ElMessage.success('没有更多数据了');
@@ -102,14 +92,14 @@ const getData = async () => {
 
 const search = () => {
     items.length = 0;
-    queryParams.pageNumber = 1;
+    searchModel.pageNumber = 1;
     getData();
 };
 
 watch([itemsChecked, blocksChecked, devItemsChecked], search);
 
 const load = async () => {
-    queryParams.pageNumber += 1;
+    searchModel.pageNumber += 1;
     await getData();
 };
 
@@ -127,6 +117,8 @@ const handleMouseover = (item, event) => {
 const handleMouseleave = () => {
     closeTooltip();
 };
+
+onDeactivated(closeTooltip);
 </script>
 
 <style scoped lang="scss">

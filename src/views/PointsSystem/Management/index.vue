@@ -24,7 +24,7 @@
             :show-edit-btn="true"
             :delete="deleteRequest"
             :batch-delete="batchDeleteRequest"
-            :add-or-update-component="AddOrEditPointsInfo"
+            :add-or-edit-component="AddOrEditPointsInfo"
         >
             <template #searchFormItems>
                 <el-form-item label="关键词" prop="keyword">

@@ -38,7 +38,7 @@
             layout="total, sizes, prev, pager, next, jumper"
         >
         </el-pagination>
-        <AddOrUpdateHomeLocation ref="addOrUpdateHomeLocationRef" @onSubmit="getData" />
+        <addOrEditHomeLocation ref="addOrEditHomeLocationRef" @onSubmit="getData" />
     </div>
 </template>
 
@@ -52,16 +52,17 @@ export default {
 import * as api from '~/api/home-location.js';
 import { Edit, Plus, Delete, Search, Refresh, FolderAdd } from '@element-plus/icons-vue';
 import myconfirm from '~/utils/myconfirm';
-import AddOrUpdateHomeLocation from './AddOrUpdateHomeLocation.vue';
+import addOrEditHomeLocation from './addOrEditHomeLocation.vue';
 
 const tableData = ref([]);
+const total = ref(0);
+
 const queryParams = reactive({
     pageNumber: 1,
     pageSize: 20,
     desc: true,
     keyword: '',
 });
-const total = ref(0);
 
 const getData = () => {
     api.getHomeLocationPaged(queryParams).then((data) => {
@@ -73,14 +74,14 @@ const getData = () => {
 getData();
 
 const tableRef = ref();
-const addOrUpdateHomeLocationRef = ref();
+const addOrEditHomeLocationRef = ref();
 
 const handleAdd = () => {
-    addOrUpdateHomeLocationRef.value.show();
+    addOrEditHomeLocationRef.value.show();
 };
 
 const handleEdit = (row) => {
-    addOrUpdateHomeLocationRef.value.show(row);
+    addOrEditHomeLocationRef.value.show(row);
 };
 
 const handleDelete = async (row) => {

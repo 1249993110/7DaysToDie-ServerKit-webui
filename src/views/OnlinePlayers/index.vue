@@ -67,22 +67,26 @@ const tableData = ref([]);
 const getData = async () => {
     loading.value = true;
     try {
-        let data = await getOnlinePlayers();
+        const data = await getOnlinePlayers();
         tableData.value = data;
         if (data.length) {
-            const response = await axios.post(
-                'http://ip-api.com/batch?lang=zh-CN&fields=status,country,regionName,city',
-                data.map((i) => i.ip)
-            );
-            data = response.data;
-            for (let i = 0; i < data.length; i++) {
-                const element = data[i];
-                if (element.status === 'fail') {
-                    tableData.value[i].ipAttribution = '未知';
-                } else {
-                    tableData.value[i].ipAttribution = `${element.country} ${element.regionName} ${element.city}`;
-                }
-            }
+            axios
+                .post(
+                    'http://ip-api.com/batch?lang=zh-CN&fields=status,country,regionName,city',
+                    data.map((i) => i.ip)
+                )
+                .then((response) => {
+                    const data = response.data;
+                    const len = data.length > 100 ? 100 : data.length;
+                    for (let i = 0; i < len; i++) {
+                        const element = data[i];
+                        if (element.status === 'fail') {
+                            tableData.value[i].ipAttribution = '未知';
+                        } else {
+                            tableData.value[i].ipAttribution = `${element.country} ${element.regionName} ${element.city}`;
+                        }
+                    }
+                });
         }
     } finally {
         loading.value = false;

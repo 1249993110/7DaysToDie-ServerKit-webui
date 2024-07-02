@@ -6,8 +6,13 @@ const container = document.createElement('div');
 document.body.appendChild(container);
 let mouseInPopper;
 let mouseInVirtual;
+let isUnmounted;
 
 export const closeTooltip = async () => {
+    if (isUnmounted) {
+        return;
+    }
+
     await promiseTimeout(200);
 
     if (!mouseInVirtual.isOutside.value) {
@@ -20,6 +25,7 @@ export const closeTooltip = async () => {
     }
 
     render(null, container);
+    isUnmounted = true;
 };
 
 export const showTooltip = async (props) => {
@@ -38,6 +44,7 @@ export const showTooltip = async (props) => {
     });
 
     render(vNode, container);
+    isUnmounted = false;
     await nextTick();
 
     mouseInPopper = useMouseInElement(container.firstElementChild);

@@ -23,8 +23,8 @@ const props = defineProps({
     },
     removeItemsDisabled: {
         type: Boolean,
-        default: false
-    }
+        default: false,
+    },
 });
 
 const gameLocalizationStore = useGameLocalizationStore();
@@ -85,7 +85,7 @@ const handleContextMenu = (event) => {
                         });
                     }
                 },
-                disabled: props.removeItemsDisabled
+                disabled: props.removeItemsDisabled,
             },
         ],
     });
@@ -107,6 +107,8 @@ const handleMouseover = (item, event) => {
 const handleMouseleave = () => {
     closeTooltip();
 };
+
+onUnmounted(closeTooltip);
 </script>
 
 <style scoped lang="scss">

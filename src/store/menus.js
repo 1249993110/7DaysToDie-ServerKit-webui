@@ -77,16 +77,6 @@ const tree = [
         path: '/game-store',
         title: '游戏商店',
         icon: getIcon(() => import('~icons/mdi/store')),
-        children: [
-            {
-                path: 'settings',
-                title: '商店配置',
-            },
-            {
-                path: 'management',
-                title: '商店管理',
-            },
-        ],
     },
     {
         path: '/tele-friend',

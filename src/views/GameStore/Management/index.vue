@@ -1,79 +1,95 @@
 <template>
-    <div class="goods-management">
-        <el-button type="primary" :icon="Plus" @click="handleAdd">新建</el-button>
-        <div class="table-container">
-            <el-table :data="tableData" border height="100%" highlight-current-row ref="tableRef">
-                <el-table-column type="index" label="序号" width="60"> </el-table-column>
-                <el-table-column prop="name" label="商品名称" sortable width="200"> </el-table-column>
-                <el-table-column prop="executeCommands" label="执行命令" sortable> </el-table-column>
-                <el-table-column prop="inMainThread" label="是否在主线程执行命令" width="200" sortable>
-                    <template #default="scope">
-                        <el-tag v-if="scope.row.inMainThread" type="danger">是</el-tag>
-                        <el-tag v-else type="success">否</el-tag>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="price" label="售价" width="100" sortable> </el-table-column>
-                <el-table-column label="操作" width="200" header-align="center" show-overflow-tooltip>
-                    <template #default="scope">
-                        <el-button size="small" type="primary" :icon="Edit" @click="handleUpdate(scope.row)">编辑</el-button>
-                        <el-button size="small" type="danger" :icon="Delete" @click="handleDelete(scope.row)">删除</el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
-        </div>
-        <AddOrUpdateGoods ref="addOrUpdateGoodsRef" @onSubmit="getData" />
+    <div class="points-management">
+        <RouterButton
+            :buttons="[
+                {
+                    value: '商店配置',
+                    path: '/game-store/settings',
+                },
+                {
+                    value: '商品管理',
+                    path: '/game-store/management',
+                },
+            ]"
+        >
+        </RouterButton>
+        <MyTableEx
+            style="margin-top: 20px"
+            :show-export-btn="false"
+            :show-searcher="false"
+            :show-table-index="false"
+            :show-pager="false"
+            :get-data="getData"
+            :table-data="tableData"
+            :show-add-btn="true"
+            :show-edit-btn="true"
+            :delete="deleteRequest"
+            :batch-delete="batchDeleteRequest"
+            :add-or-edit-component="AddOrEditGoods"
+            :addOrEditComponentProps="addOrEditComponentProps"
+        >
+            <template #columns>
+                <el-table-column prop="id" label="商品Id" sortable> </el-table-column>
+                <el-table-column prop="name" label="商品名称" sortable> </el-table-column>
+                <el-table-column prop="price" label="售价" sortable> </el-table-column>
+                <el-table-column prop="itemName" label="物品名称" sortable> </el-table-column>
+
+                <el-table-column prop="count" label="数量" sortable> </el-table-column>
+                <el-table-column prop="quality" label="品质" sortable> </el-table-column>
+                <el-table-column prop="durability" label="耐久度" sortable> </el-table-column>
+            </template>
+        </MyTableEx>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'GameStore.GoodsManagement',
+    name: 'GameStore.Management',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/goods.js';
-import { Edit, Plus, Delete } from '@element-plus/icons-vue';
-import myconfirm from '~/utils/myconfirm';
-import AddOrUpdateGoods from './AddOrUpdateGoods.vue';
+import AddOrEditGoods from './AddOrEditGoods.vue';
 
 const tableData = ref([]);
-const total = ref(0);
 
-const getData = () => {
-    api.getGoods().then((data) => {
-        tableData.value = data;
-    });
+const addOrEditComponentProps = ref({});
+
+const getData = async () => {
+    const data = await api.getGoods();
+
+    const array = [];
+    for (let i = 0; i < data.length; i++) {
+        const element = data[i];
+        const item = JSON.parse(element.content);
+        array.push({
+            id: element.id,
+            name: element.name,
+            price: element.price,
+            itemName: item.itemName,
+            count: item.count,
+            quality: item.quality,
+            durability: item.durability,
+            itemIcon: item.itemIcon,
+            iconColor: item.iconColor,
+        });
+    }
+
+    if (data.length) {
+        addOrEditComponentProps.value = { id: data[data.length - 1].id + 1 };
+    }
+
+    tableData.value = array;
 };
 
-getData();
-
-const tableRef = ref();
-const addOrUpdateGoodsRef = ref();
-
-const handleAdd = () => {
-    addOrUpdateGoodsRef.value.show();
+const deleteRequest = async (row) => {
+    return await api.deleteGoodsByIds([row.id]);
 };
 
-const handleUpdate = (row) => {
-    addOrUpdateGoodsRef.value.show(row);
-};
-
-const handleDelete = async (row) => {
-    try {
-        await myconfirm('确定删除选中内容吗?');
-        await api.deleteGoodsById(row.id);
-        getData();
-    } catch {}
+const batchDeleteRequest = async (rows) => {
+    return await api.deleteGoodsByIds(rows.map((i) => i.id));
 };
 </script>
 
-<style scoped lang="scss">
-.goods-management {
-    height: 100%;
-    .table-container {
-        margin-top: 8px;
-        height: calc(100% - 84px);
-    }
-}
-</style>
+<style scoped lang="scss"></style>

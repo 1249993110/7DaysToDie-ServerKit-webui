@@ -1,6 +1,19 @@
 <template>
     <div class="game-store-settings">
-        <el-card>
+        <RouterButton
+            :buttons="[
+                {
+                    value: '商店配置',
+                    path: '/game-store/settings',
+                },
+                {
+                    value: '商店管理',
+                    path: '/game-store/management',
+                },
+            ]"
+        >
+        </RouterButton>
+        <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
                     <el-form :model="formModel" ref="formRef" label-width="150px" status-icon>
@@ -33,7 +46,7 @@
                         </el-form-item>
                     </el-form>
                     <div>
-                        <el-text style="color: green">提示: 游戏内输入buy+横杠(-)+商品名称 购买</el-text>
+                        <el-text style="color: green">提示: 游戏内输入buy+横杠(-)+商品Id 购买</el-text>
                     </div>
                 </div></el-scrollbar
             >
@@ -68,13 +81,14 @@ const save = async () => {
     } catch {}
 };
 
-const variables = ['GoodsName', 'Price', 'SerialNumber', 'EntityId', 'PlatformId', 'PlayerName'];
+const variables = ['GoodsId', 'GoodsName', 'Price', 'EntityId', 'PlatformId', 'PlayerName'];
 </script>
 
 <style scoped lang="scss">
 .game-store-settings {
-    .el-card {
+    .card {
         height: 100%;
+        margin-top: 20px;
         background-color: #ffffffaf;
         :deep(.el-card__body) {
             height: calc(100% - 40px);

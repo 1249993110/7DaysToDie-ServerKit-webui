@@ -120,6 +120,7 @@ const routes = [
             },
             {
                 path: '/game-store',
+                redirect: '/game-store/settings',
                 children: [
                     {
                         path: 'settings',
