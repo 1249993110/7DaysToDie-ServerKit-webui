@@ -248,7 +248,7 @@ defineExpose({ tableRef });
 
 <style scoped lang="scss">
 .my-table {
-    height: 100%;
+    height: calc(100vh - 160px);
     display: flex;
     flex-direction: column;
     .search-card {

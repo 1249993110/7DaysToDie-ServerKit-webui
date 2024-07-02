@@ -1,6 +1,15 @@
 <template>
     <div class="game-store-settings">
-        <el-card>
+        <RouterButton
+            :buttons="[
+                {
+                    value: '游戏公告',
+                    path: '/game-notice',
+                },
+            ]"
+        >
+        </RouterButton>
+        <el-card class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
                     <el-form :model="formModel" ref="formRef" label-width="150px" status-icon>
@@ -73,11 +82,11 @@ const variables = ['BloodMoonDays', 'BloodMoonStartTime', 'BloodMoonEndTime', 'E
 
 <style scoped lang="scss">
 .game-store-settings {
-    .el-card {
-        height: 100%;
+    .card {
+        margin-top: 20px;
         background-color: #ffffffaf;
         :deep(.el-card__body) {
-            height: calc(100% - 40px);
+            height: calc(100vh - 200px);
         }
 
         :deep(.el-form-item__label) {

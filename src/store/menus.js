@@ -14,19 +14,9 @@ const getIcon = (source) => {
 
 const tree = [
     {
-        path: '/dashboard',
+        path: '/lobby',
         title: '仪表盘',
         icon: getIcon(() => import('~icons/uiw/dashboard')),
-    },
-    {
-        path: '/server-settings',
-        title: '服务器设置',
-        icon: getIcon(() => import('~icons/material-symbols/settings')),
-    },
-    {
-        path: '/file-browser',
-        title: '文件浏览器',
-        icon: getIcon(() => import('~icons/arcticons/little-file-explorer')),
     },
     {
         path: '/map',
@@ -34,18 +24,13 @@ const tree = [
         icon: getIcon(() => import('~icons/ep/location-information')),
     },
     {
-        path: '/online-players',
-        title: '在线玩家',
+        path: '/playerlist',
+        title: '玩家列表',
         icon: getIcon(() => import('~icons/ep/user')),
     },
     {
-        path: '/history-players',
-        title: '历史玩家',
-        icon: getIcon(() => import('~icons/ep/user-filled')),
-    },
-    {
-        path: '/live-chat',
-        title: '实时聊天',
+        path: '/chat',
+        title: '游戏聊天',
         icon: getIcon(() => import('~icons/ep/chat-dot-round')),
     },
     // {
@@ -74,11 +59,6 @@ const tree = [
         icon: getIcon(() => import('~icons/mdi/console')),
     },
     {
-        path: '/chat-record',
-        title: '聊天记录',
-        icon: getIcon(() => import('~icons/ep/chat-line-square')),
-    },
-    {
         path: '/global-settings',
         title: '功能配置',
         icon: getIcon(() => import('~icons/ep/setting')),
@@ -92,16 +72,6 @@ const tree = [
         path: '/points-system',
         title: '积分系统',
         icon: getIcon(() => import('~icons/mdi/bitcoin')),
-        children: [
-            {
-                path: 'settings',
-                title: '签到配置',
-            },
-            {
-                path: 'management',
-                title: '积分管理',
-            },
-        ],
     },
     {
         path: '/game-store',
@@ -194,7 +164,9 @@ export const useMenusStore = defineStore('menus', {
     },
     actions: {
         getMenuByPath(path) {
-            return this.dict[path];
+            const slashIndex = path.indexOf('/', 1);
+            const extractedPath = path.substring(0, slashIndex);
+            return this.dict[path] ?? this.dict[extractedPath];
         },
     },
 });

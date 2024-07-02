@@ -4,12 +4,16 @@
             :buttons="[
                 {
                     value: '实时聊天',
-                    path: '/live-chat',
+                    path: '/chat/live-chat',
+                },
+                {
+                    value: '聊天记录',
+                    path: '/chat/chat-record',
                 },
             ]"
         >
         </RouterButton>
-        <el-card shadow="always">
+        <el-card class="card" shadow="always">
             <div class="live-chat-container">
                 <el-scrollbar always>
                     <div id="live-chat-content"></div>
@@ -30,9 +34,9 @@ export default {
 </script>
 
 <script setup>
-import dayjs from 'dayjs';
 import { sendGlobalMessage } from '~/api/server';
 import { emitter, eventTypes } from '~/utils/event-hub';
+import * as api from '~/api/chat-record';
 
 let contentCount = 0;
 const contentMaxCount = 1000;
@@ -59,7 +63,7 @@ onDeactivated(() => {
 });
 
 const appendMessage = (chatMessage) => {
-    const message = dayjs().format("YYYY-MM-DD HH:mm:ss   '") + chatMessage.senderName + "': " + chatMessage.message;
+    const message = chatMessage.createdAt + '   ' + chatMessage.senderName + "': " + chatMessage.message;
 
     const element = document.getElementById('live-chat-content');
     if (contentCount > contentMaxCount) {
@@ -111,16 +115,24 @@ emitter.on(eventTypes.OnChatMessage, (chatMessage) => {
         appendMessage(chatMessage);
     }
 });
+
+onMounted(async () => {
+    const data = await api.getChatRecord({ pageNumber: 1, pageSize: 20 });
+    const len = data.items.length;
+    for (let i = len -1; i >= 0; i--) {
+        appendMessage(data.items[i]);
+    }
+});
 </script>
 
 <style scoped lang="scss">
 .live-chat {
-    .el-card {
+    .card {
         margin-top: 20px;
         background-color: #ffffffaf;
         :deep(.el-card__body) {
             .live-chat-container {
-                height: calc(100vh - 260px);
+                height: calc(100vh - 240px);
             }
         }
 

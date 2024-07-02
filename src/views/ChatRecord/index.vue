@@ -1,30 +1,46 @@
 <template>
-    <MyTableEx
-        @on-export="handleExport"
-        :search-form-model="searchFormModel"
-        :get-data="getData"
-        :table-data="tableData"
-        :total="total"
-        :show-add-btn="false"
-        :show-edit-btn="false"
-        :operation-column-width="90"
-        :delete="deleteRequest"
-        :batch-delete="batchDeleteRequest"
-    >
-        <template #searchFormItems>
-            <el-form-item label="关键词" prop="keyword">
-                <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
-            </el-form-item>
-        </template>
-        <template #columns>
-            <el-table-column prop="createdAt" label="日期" width="165" sortable> </el-table-column>
-            <el-table-column prop="entityId" label="实体Id" width="95" sortable> </el-table-column>
-            <el-table-column prop="senderName" label="发送者名称" width="180" sortable> </el-table-column>
-            <el-table-column prop="chatType" label="类型" width="80" sortable :formatter="format_chatType"> </el-table-column>
-            <el-table-column prop="message" label="消息内容" min-width="120" sortable> </el-table-column>
-            <el-table-column prop="playerId" label="玩家Id" min-width="215" sortable> </el-table-column>
-        </template>
-    </MyTableEx>
+    <div>
+        <RouterButton
+            :buttons="[
+                {
+                    value: '实时聊天',
+                    path: '/chat/live-chat',
+                },
+                {
+                    value: '聊天记录',
+                    path: '/chat/chat-record',
+                },
+            ]"
+        >
+        </RouterButton>
+        <MyTableEx
+            style="margin-top: 20px"
+            @on-export="handleExport"
+            :search-form-model="searchFormModel"
+            :get-data="getData"
+            :table-data="tableData"
+            :total="total"
+            :show-add-btn="false"
+            :show-edit-btn="false"
+            :operation-column-width="90"
+            :delete="deleteRequest"
+            :batch-delete="batchDeleteRequest"
+        >
+            <template #searchFormItems>
+                <el-form-item label="关键词" prop="keyword">
+                    <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
+                </el-form-item>
+            </template>
+            <template #columns>
+                <el-table-column prop="createdAt" label="日期" width="165" sortable> </el-table-column>
+                <el-table-column prop="entityId" label="实体Id" width="95" sortable> </el-table-column>
+                <el-table-column prop="senderName" label="发送者名称" width="180" sortable> </el-table-column>
+                <el-table-column prop="chatType" label="类型" width="80" sortable :formatter="format_chatType"> </el-table-column>
+                <el-table-column prop="message" label="消息内容" min-width="120" sortable> </el-table-column>
+                <el-table-column prop="playerId" label="玩家Id" min-width="215" sortable> </el-table-column>
+            </template>
+        </MyTableEx>
+    </div>
 </template>
 <script>
 export default {

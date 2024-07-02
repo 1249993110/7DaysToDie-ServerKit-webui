@@ -54,7 +54,7 @@ const handleChange = (value) => {
     activeName.value = btn.value;
 };
 
-onMounted(() => {
+onActivated(() => {
     if (buttonArray.value.length) {
         let isPathExist = false;
         const btn = buttonArray.value.find((btn) => btn.path === router.currentRoute.value.path);

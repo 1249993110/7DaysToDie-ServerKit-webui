@@ -1,6 +1,7 @@
 import { getLocations } from '~/api/locations';
 import { showInventory } from '~/components/InventoryDialog/index';
 import * as sdtdConsole from '~/api/sdtd-console';
+import myconfirm from '~/utils/myconfirm';
 
 // onlinePlayer icon
 const onlinePlayerIcon = L.icon({
@@ -10,6 +11,11 @@ const onlinePlayerIcon = L.icon({
     iconAnchor: [12, 24],
     popupAnchor: [0, -20],
 });
+
+function formatCoord(latlng){
+    if (latlng == false) return '- E / - N';
+    else return '' + Math.abs(latlng.lat).toFixed(0) + (latlng.lat >= 0 ? ' E' : ' W') + ' / ' + Math.abs(latlng.lng).toFixed(0) + (latlng.lng >= 0 ? ' N' : ' S');
+};
 
 export function getOnlinePlayersLayer(map, mapInfo) {
     const onlinePlayersMarkerGroup = L.markerClusterGroup({
@@ -43,20 +49,33 @@ export function getOnlinePlayersLayer(map, mapInfo) {
                 showInventory(playerId, entityName);
             });
 
-            const marker = L.marker([position.x, position.z], {
+            let initialPos = [position.x, position.z];
+            const marker = L.marker(initialPos, {
                 icon: onlinePlayerIcon,
                 draggable: true, // 使标记可拖拽
             }).bindPopup(container);
             marker.addEventListener('popupopen', (e) => {
                 e.popup._closeButton.href = 'javascript:void(0);';
             });
+
+
+
             // 监听拖拽结束事件
-            marker.on('dragend', (e) => {
+            marker.on('dragend', async (e) => {
                 const newPos = e.target.getLatLng(); // 获取新的位置
-                console.log(`Marker dragged to new position: ${newPos}`);
-                // 在这里执行你想要的方法
-                sdtdConsole.sendConsoleCommand(`tele ${playerId} ${Math.round(newPos.lat)} -1 ${Math.round(newPos.lng)}`)
+                if (await myconfirm(`确定将玩家: ${entityName} 传送到目标地点 ${formatCoord(newPos)} 吗?`)) {
+                    // console.log(`Marker dragged to new position: ${newPos}`);
+                    // 在这里执行你想要的方法
+                    sdtdConsole.sendConsoleCommand(`tele ${playerId} ${Math.round(newPos.lat)} -1 ${Math.round(newPos.lng)}`);
+                    initialPos = [newPos.lat, newPos.lng];
+                } else {
+                    // 将 marker 移回初始位置
+                    marker.setLatLng(initialPos);
+                }
             });
+
+            marker.bindTooltip(entityName + '<br>' + playerId, { permanent: false, opacity: 1.0 });
+
             marker.setOpacity(1.0);
 
             onlinePlayersMarkerGroup.addLayer(marker);

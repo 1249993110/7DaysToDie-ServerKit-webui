@@ -4,13 +4,17 @@
             :buttons="[
                 {
                     value: '在线玩家',
-                    path: '/online-players',
+                    path: '/playerlist/online-players',
+                },
+                {
+                    value: '历史玩家',
+                    path: '/playerlist/history-players',
                 },
             ]"
         >
             <template #route-button>
                 <div class="route-button">
-                    <span style="font-size: 14px;margin-right: 4px;">自动刷新</span>
+                    <span style="font-size: 14px; margin-right: 4px">自动刷新</span>
                     <el-switch v-model="autoRefrensh" />
                 </div>
             </template>

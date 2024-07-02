@@ -1,9 +1,21 @@
 <template>
     <div class="global-settings">
-        <el-card>
+        <RouterButton
+            :buttons="[
+                {
+                    value: '功能配置',
+                    path: '/global-settings',
+                },
+            ]"
+        >
+        </RouterButton>
+        <el-card class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
                     <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px">
+                        <el-form-item>
+                            <el-button type="primary" @click="save">保存</el-button>
+                        </el-form-item>
                         <!-- <el-form-item label="是否启用">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item> -->
@@ -151,11 +163,11 @@ const save = async () => {
 
 <style scoped lang="scss">
 .global-settings {
-    .el-card {
-        height: 100%;
+    .card {
+        margin-top: 20px;
         background-color: #ffffffaf;
         :deep(.el-card__body) {
-            height: calc(100% - 40px);
+            height: calc(100vh - 200px);
         }
 
         .label {

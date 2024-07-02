@@ -3,8 +3,12 @@
         <RouterButton
             :buttons="[
                 {
+                    value: '在线玩家',
+                    path: '/playerlist/online-players',
+                },
+                {
                     value: '历史玩家',
-                    path: '/history-players',
+                    path: '/playerlist/history-players',
                 },
             ]"
         >
@@ -302,7 +306,7 @@ const handleContextmenu = (row, column, event) => {
             {
                 label: '设置为超级管理员',
                 onClick: async () => {
-                    if(await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')){
+                    if (await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')) {
                         sdtdConsole.addAdmin(crossplatformId, 0, '超级管理员-' + playerName).then(() => {
                             ElMessage.success('发送命令成功');
                         });

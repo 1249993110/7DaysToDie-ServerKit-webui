@@ -3,8 +3,12 @@
         <RouterButton
             :buttons="[
                 {
+                    value: '仪表盘',
+                    path: '/lobby/dashboard',
+                },
+                {
                     value: '服务器设置',
-                    path: '/server-settings',
+                    path: '/lobby/server-settings',
                 },
             ]"
         >
@@ -16,36 +20,39 @@
                 </div>
             </template>
         </RouterButton>
-        <div style="margin-top: 20px"></div>
-        <template v-for="(item, index) in tableData" :key="index">
-            <el-table :data="item" border stripe style="width: 100%" :show-header="false" :span-method="objectSpanMethod" size="small">
-                <el-table-column prop="group" width="110">
-                    <template #default="scope">
-                        <span style="font-size: 16px; font-weight: bolder">{{ scope.row.group }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="name" width="250" show-overflow-tooltip>
-                    <template #default="scope">
-                        <el-tag style="font-weight: bold; font-family: monospace">{{ scope.row.name }}</el-tag>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="desc" show-overflow-tooltip>
-                    <template #default="scope">
-                        <span style="font-family: cursive">{{ scope.row.desc }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="value" width="200" show-overflow-tooltip>
-                    <template #default="scope">
-                        <span style="font-size: 14px; font-weight: bold; font-family: emoji; color: black">{{ scope.row.value }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column width="90" fixed="right">
-                    <template #default="scope">
-                        <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">修改</el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
-        </template>
+        <el-card shadow="always" class="card">
+            <el-scrollbar always>
+                <template v-for="(item, index) in tableData" :key="index">
+                    <el-table :data="item" border stripe style="width: 100%" :show-header="false" :span-method="objectSpanMethod" size="small">
+                        <el-table-column prop="group" width="110">
+                            <template #default="scope">
+                                <span style="font-size: 16px; font-weight: bolder">{{ scope.row.group }}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="name" width="250" show-overflow-tooltip>
+                            <template #default="scope">
+                                <el-tag style="font-weight: bold; font-family: monospace">{{ scope.row.name }}</el-tag>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="desc" show-overflow-tooltip>
+                            <template #default="scope">
+                                <span style="font-size: 13px">{{ scope.row.desc }}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="value" width="200" show-overflow-tooltip>
+                            <template #default="scope">
+                                <span style="font-size: 14px; font-weight: bold; font-family: emoji; color: black">{{ scope.row.value }}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column width="90" fixed="right">
+                            <template #default="scope">
+                                <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">修改</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </template>
+            </el-scrollbar>
+        </el-card>
     </div>
 </template>
 
@@ -115,13 +122,26 @@ const handleEdit = async ({ row }) => {
 </script>
 
 <style scoped lang="scss">
-.route-button {
-    margin-right: 20px;
-    :deep(.el-button) {
-        --el-button-text-color: #005eeb;
+.dashboard {
+    .route-button {
+        margin-right: 20px;
+        :deep(.el-button) {
+            --el-button-text-color: #005eeb;
+        }
+        :deep(button:nth-child(3)) {
+            --el-button-text-color: #f56c6c;
+        }
     }
-    :deep(button:nth-child(3)) {
-        --el-button-text-color: #f56c6c;
+
+    .card {
+        margin-top: 20px;
+        :deep(.el-card__body) {
+            height: calc(100vh - 160px);
+            padding: 0;
+            .el-scrollbar__bar {
+                z-index: 2;
+            }
+        }
     }
 }
 </style>
