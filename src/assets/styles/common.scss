@@ -79,3 +79,12 @@
         outline: none;
     }
 }
+
+.el-table__row {
+    .table-icon-col {
+        padding: 0 !important;
+        .cell {
+            line-height: 0 !important;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-    <div class="points-management">
+    <div class="store-management">
         <RouterButton
             :buttons="[
                 {
@@ -29,14 +29,18 @@
             :addOrEditComponentProps="addOrEditComponentProps"
         >
             <template #columns>
-                <el-table-column prop="id" label="商品Id" sortable> </el-table-column>
-                <el-table-column prop="name" label="商品名称" sortable> </el-table-column>
-                <el-table-column prop="price" label="售价" sortable> </el-table-column>
-                <el-table-column prop="itemName" label="物品名称" sortable> </el-table-column>
-
-                <el-table-column prop="count" label="数量" sortable> </el-table-column>
-                <el-table-column prop="quality" label="品质" sortable> </el-table-column>
-                <el-table-column prop="durability" label="耐久度" sortable> </el-table-column>
+                <el-table-column prop="id" label="商品Id" width="120px" sortable> </el-table-column>
+                <el-table-column prop="name" label="图标" width="120px" class-name="table-icon-col">
+                    <template #default="scope">
+                        <el-image :src="getIconUrl(scope.row)" style="width: 40px; height: 40px" lazy></el-image>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="name" label="商品名称" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="price" label="售价" width="120px" sortable> </el-table-column>
+                <el-table-column prop="itemName" label="物品名称" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="count" label="数量" width="120px" sortable> </el-table-column>
+                <el-table-column prop="quality" label="品质" width="120px" sortable> </el-table-column>
+                <el-table-column prop="durability" label="耐久度" width="120px" sortable> </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -51,6 +55,7 @@ export default {
 <script setup>
 import * as api from '~/api/goods.js';
 import AddOrEditGoods from './AddOrEditGoods.vue';
+import { getIconUrl } from '~/utils/image-helper';
 
 const tableData = ref([]);
 
@@ -92,4 +97,6 @@ const batchDeleteRequest = async (rows) => {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss">
+
+</style>

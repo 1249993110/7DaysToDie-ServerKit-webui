@@ -54,7 +54,7 @@ const handleCancel = () => {
     dialogRef.value.visible = false;
 };
 
-const emit = defineEmits(['onConfirm']);
+const emit = defineEmits(['onOpen', 'onConfirm', 'onClosed']);
 const handleConfirm = async () => {
     const loading = ElLoading.service({
         lock: true,
@@ -77,9 +77,11 @@ const handleOpen = () => {
     if (props.initData) {
         Object.assign(props.formModel, props.initData);
     }
+    emit('onOpen');
 };
 
 const handleClosed = () => {
     formRef.value?.resetFields();
+    emit('onClosed');
 };
 </script>

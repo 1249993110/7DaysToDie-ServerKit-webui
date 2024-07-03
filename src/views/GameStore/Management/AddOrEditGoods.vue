@@ -13,7 +13,13 @@
             <el-form-item label="物品名称" prop="itemName">
                 <ItemBlockSelector v-model="itemBlockSelectorVisible" @on-select="handleSelect" />
                 <div style="display: flex; align-items: center">
-                    <el-image :src="imageSrc" style="width: 80px; height: 80px"></el-image>
+                    <el-image :src="getIconUrl(formModel)" style="width: 80px; height: 80px">
+                        <template #error>
+                            <div class="image-slot">
+                                <el-icon><icon-picture /></el-icon>
+                            </div>
+                        </template>
+                    </el-image>
                     <el-button @click="itemBlockSelectorVisible = true" style="margin-left: 8px">选择物品</el-button>
                 </div>
                 <el-input v-model="formModel.itemName"></el-input>
@@ -27,6 +33,8 @@
             <el-form-item label="耐久度" prop="durability">
                 <el-input-number v-model="formModel.durability" :min="0" :max="100" />
             </el-form-item>
+            <el-form-item prop="itemIcon" v-show="false"> </el-form-item>
+            <el-form-item prop="iconColor" v-show="false"> </el-form-item>
         </template>
     </MyDialogForm>
 </template>
@@ -34,6 +42,7 @@
 <script setup>
 import * as api from '~/api/goods.js';
 import { getIconUrl } from '~/utils/image-helper';
+import { Picture as IconPicture } from '@element-plus/icons-vue';
 
 const itemBlockSelectorVisible = ref(false);
 const formModel = reactive({
@@ -60,7 +69,14 @@ const request = async (isAdd) => {
     const data = {
         id: formModel.id,
         name: formModel.name,
-        content: JSON.stringify(formModel),
+        content: JSON.stringify({
+            itemName: formModel.itemName,
+            count: formModel.count,
+            quality: formModel.quality,
+            durability: formModel.durability,
+            itemIcon: formModel.itemIcon,
+            iconColor: formModel.iconColor,
+        }),
         contentType: 'item',
         inMainThread: false,
         price: formModel.price,
@@ -79,8 +95,17 @@ const handleSelect = (item) => {
     formModel.iconColor = item.iconColor;
     itemBlockSelectorVisible.value = false;
 };
-
-const imageSrc = computed(() => {
-    return getIconUrl(formModel);
-});
 </script>
+
+<style scoped lang="scss">
+.image-slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--el-fill-color-light);
+    color: var(--el-text-color-secondary);
+    font-size: 30px;
+}
+</style>
