@@ -45,7 +45,7 @@ const total = ref(0);
 const loading = ref(false);
 
 const searchModel = reactive({
-    pageNumber: 0,
+    pageNumber: 1,
     pageSize: 20,
     keyword: '',
     itemBlockKind: 0,
