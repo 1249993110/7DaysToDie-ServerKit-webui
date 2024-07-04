@@ -14,16 +14,16 @@
                             <el-input v-model="formModel.queryListCmd" />
                         </el-form-item>
                         <el-form-item label="传送间隔, 单位: 秒" prop="teleInterval" required>
-                            <el-input v-model="formModel.teleInterval" />
+                            <el-input-number v-model="formModel.teleInterval" />
                         </el-form-item>
                         <el-form-item label="设置Home命令前缀" prop="setHomeCmdPrefix" required>
                             <el-input v-model="formModel.setHomeCmdPrefix" />
                         </el-form-item>
                         <el-form-item label="最大可设置数量" prop="setCountLimit" required>
-                            <el-input v-model="formModel.setCountLimit" />
+                            <el-input-number v-model="formModel.setCountLimit" />
                         </el-form-item>
                         <el-form-item label="设置需要积分" prop="pointsRequiredForSet" required>
-                            <el-input v-model="formModel.pointsRequiredForSet" />
+                            <el-input-number v-model="formModel.pointsRequiredForSet" />
                         </el-form-item>
                         <el-form-item label="删除Home命令前缀" prop="deleteHomeCmdPrefix" required>
                             <el-input v-model="formModel.deleteHomeCmdPrefix" />
@@ -32,7 +32,7 @@
                             <el-input v-model="formModel.teleHomeCmdPrefix" />
                         </el-form-item>
                         <el-form-item label="传送需要积分" prop="pointsRequiredForTele" required>
-                            <el-input v-model="formModel.pointsRequiredForTele" />
+                            <el-input-number v-model="formModel.pointsRequiredForTele" />
                         </el-form-item>
                         <el-form-item label="没有Home提示" prop="noHomeTip" required>
                             <el-input v-model="formModel.noHomeTip" />

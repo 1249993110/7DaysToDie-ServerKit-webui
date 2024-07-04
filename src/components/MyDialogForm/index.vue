@@ -1,5 +1,5 @@
 <template>
-    <el-dialog ref="dialogRef" :title="(isAdd ? '添加' : '编辑') + titleSuffix" draggable :close-on-click-modal="false" :width="width" @open="handleOpen" @closed="handleClosed">
+    <el-dialog ref="dialogRef" :title="title" draggable :close-on-click-modal="false" :width="width" @open="handleOpen" @closed="handleClosed">
         <el-form ref="formRef" :model="formModel" :rules="rules" :label-width="labelWidth" :label-position="labelPosition" status-icon>
             <slot :isAdd="isAdd"></slot>
         </el-form>
@@ -16,6 +16,7 @@
 const props = defineProps({
     titleSuffix: {
         type: String,
+        default: '',
     },
     width: {
         type: [String, Number],
@@ -58,6 +59,8 @@ const props = defineProps({
         default: '确认',
     },
 });
+
+const title = computed(() => (props.isAdd ? '添加' : '编辑') + props.titleSuffix);
 
 const dialogRef = ref();
 const formRef = ref();

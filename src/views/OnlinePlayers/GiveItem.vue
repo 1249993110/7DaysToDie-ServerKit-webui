@@ -1,5 +1,5 @@
 <template>
-    <MyDialogForm :title="`给予 ${playerName} 物品`" :formModel="formModel" :rules="rules" :request="request" successMessage="发送成功" confirmBtnText="发送">
+    <MyDialogForm :title="title" :formModel="formModel" :rules="rules" :request="request" successMessage="发送成功" confirmBtnText="发送">
         <template #default="{ isAdd }">
             <el-form-item label="物品名称" prop="itemName">
                 <ItemBlockSelector v-model="itemBlockSelectorVisible" @on-select="handleSelect" />
@@ -44,6 +44,8 @@ const props = defineProps({
     playerId: String,
     playerName: String,
 });
+
+const title = computed(() => `给予 ${props.playerName} 物品`);
 
 const itemBlockSelectorVisible = ref(false);
 const formModel = reactive({

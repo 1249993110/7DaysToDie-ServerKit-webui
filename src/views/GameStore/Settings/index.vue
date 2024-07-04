@@ -10,6 +10,10 @@
                     value: '商店管理',
                     path: '/game-store/management',
                 },
+                {
+                    value: '高级商店',
+                    path: '/game-store/advance',
+                },
             ]"
         >
         </RouterButton>

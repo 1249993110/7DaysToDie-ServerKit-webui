@@ -14,10 +14,10 @@
                             <el-input v-model="formModel.teleCmdPrefix" />
                         </el-form-item>
                         <el-form-item label="传送间隔 (单位: 秒)" prop="teleInterval" required>
-                            <el-input v-model="formModel.teleInterval" />
+                            <el-input-number v-model="formModel.teleInterval" />
                         </el-form-item>
                         <el-form-item label="需要积分" prop="pointsRequired" required>
-                            <el-input v-model="formModel.pointsRequired" />
+                            <el-input-number v-model="formModel.pointsRequired" />
                         </el-form-item>
                         <el-form-item label="传送成功提示" prop="teleSuccessTip" required>
                             <el-input v-model="formModel.teleSuccessTip" />

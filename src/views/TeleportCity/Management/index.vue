@@ -16,7 +16,7 @@
                 </el-table-column>
             </el-table>
         </div>
-        <addOrEditCityLocation ref="addOrEditCityLocationRef" @onSubmit="getData" />
+        <AddOrEditCityLocation ref="addOrEditCityLocationRef" @onSubmit="getData" />
     </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
 import * as api from '~/api/city-location.js';
 import { Edit, Plus, Delete, Search, Refresh, FolderAdd } from '@element-plus/icons-vue';
 import myconfirm from '~/utils/myconfirm';
-import addOrEditCityLocation from './addOrEditCityLocation.vue';
+import AddOrEditCityLocation from './AddOrEditCityLocation.vue';
 
 const tableData = ref([]);
 

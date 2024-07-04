@@ -41,13 +41,13 @@
                             <el-switch v-model="formModel.killZombieTrigger.isEnabled" />
                         </el-form-item>
                         <el-form-item class="label" :label="`执行指令\n(每行一条)`">
-                            <el-input v-model="textareaValue1" type="textarea" :rows="5"></el-input>
+                            <MyTextarea v-model="formModel.killZombieTrigger.executeCommands"></MyTextarea>
                         </el-form-item>
                         <el-form-item label="是否启用死亡惩罚">
                             <el-switch v-model="formModel.deathTrigger.isEnabled" />
                         </el-form-item>
                         <el-form-item class="label" :label="`执行指令\n(每行一条)`">
-                            <el-input v-model="textareaValue2" type="textarea" :rows="5"></el-input>
+                            <MyTextarea v-model="formModel.deathTrigger.executeCommands"></MyTextarea>
                         </el-form-item>
                         <el-form-item label="是否启用自动重启">
                             <el-switch v-model="formModel.autoRestart.isEnabled" />
@@ -56,7 +56,7 @@
                             <el-time-select v-model="autoRestartTime" style="width: 240px" start="00:00" step="00:30" end="23:59" placeholder="选择时间" />
                         </el-form-item>
                         <el-form-item class="label" :label="`自动重启提示\n(每行一条)`">
-                            <el-input v-model="textareaValue3" type="textarea" :rows="5"></el-input>
+                            <MyTextarea v-model="formModel.autoRestart.messages"></MyTextarea>
                         </el-form-item>
                         <el-form-item label="是否禁止家庭共享账号" prop="blockFamilySharingAccount">
                             <el-switch v-model="formModel.blockFamilySharingAccount" />
@@ -115,30 +115,6 @@ const formModel = reactive({
     blockFamilySharingAccount: false
 });
 
-const textareaValue1 = computed({
-    get() {
-        return formModel.killZombieTrigger.executeCommands.join('\n');
-    },
-    set(value) {
-        formModel.killZombieTrigger.executeCommands = value.split('\n').filter((item) => item.trim() !== '');
-    },
-});
-const textareaValue2 = computed({
-    get() {
-        return formModel.deathTrigger.executeCommands.join('\n');
-    },
-    set(value) {
-        formModel.deathTrigger.executeCommands = value.split('\n').filter((item) => item.trim() !== '');
-    },
-});
-const textareaValue3 = computed({
-    get() {
-        return formModel.autoRestart.messages.join('\n');
-    },
-    set(value) {
-        formModel.autoRestart.messages = value.split('\n').filter((item) => item.trim() !== '');
-    },
-});
 const formRef = ref();
 
 const rules = {

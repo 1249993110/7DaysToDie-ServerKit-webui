@@ -8,7 +8,7 @@
                 <el-input :disabled="!isAdd" v-model="formModel.id"></el-input>
             </el-form-item>
             <el-form-item label="积分数量" prop="points">
-                <el-input v-model="formModel.points"></el-input>
+                <el-input-number v-model="formModel.points"></el-input-number>
             </el-form-item>
             <el-form-item label="上次签到日期" prop="lastSignInAt">
                 <el-date-picker v-model="formModel.lastSignInAt" type="datetime" placeholder="选择日期" format="YYYY-MM-DD HH:mm" value-format="YYYY-MM-DD HH:mm:00" />

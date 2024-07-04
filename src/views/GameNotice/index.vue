@@ -23,10 +23,10 @@
                             <el-input v-model="formModel.welcomeNotice" />
                         </el-form-item>
                         <el-form-item :label="`轮播通知\n(每行一条)`" prop="rotatingNotices">
-                            <el-input v-model="formModel.rotatingNotices" type="textarea" :rows="5"></el-input>
+                            <MyTextarea v-model="formModel.rotatingNotices"></MyTextarea>
                         </el-form-item>
                         <el-form-item label="轮播间隔" prop="rotatingInterval" required>
-                            <el-input v-model="formModel.rotatingInterval" />
+                            <el-input-number v-model="formModel.rotatingInterval" />
                         </el-form-item>
                         <el-form-item label="血月通知1" prop="bloodMoonNotice1" required>
                             <el-input v-model="formModel.bloodMoonNotice1" />
@@ -62,7 +62,6 @@ const formRef = ref();
 
 api.getSettings('GameNotice')
     .then((data) => {
-        data.rotatingNotices = data.rotatingNotices.join('\n');
         Object.assign(formModel, data);
     })
     .catch((error) => {});
@@ -70,9 +69,7 @@ api.getSettings('GameNotice')
 const save = async () => {
     try {
         await formRef.value.validate();
-        const data = { ...formModel };
-        data.rotatingNotices = data.rotatingNotices.split('\n');
-        await api.updateSettings('GameNotice', data);
+        await api.updateSettings('GameNotice', formModel);
         ElMessage.success('保存成功');
     } catch {}
 };

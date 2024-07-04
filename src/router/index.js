@@ -134,6 +134,12 @@ const routes = [
                         component: () => import('../views/GameStore/Management/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
+                    {
+                        path: 'advance',
+                        name: 'GameStore.Advance',
+                        component: () => import('../views/GameStore/Advance/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
                 ],
             },
             {

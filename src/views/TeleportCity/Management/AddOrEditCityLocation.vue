@@ -5,7 +5,7 @@
                 <el-input v-model="formModel.cityName"></el-input>
             </el-form-item>
             <el-form-item label="传送需要积分" prop="pointsRequired">
-                <el-input v-model="formModel.pointsRequired"></el-input>
+                <el-input-number v-model="formModel.pointsRequired"></el-input-number>
             </el-form-item>
             <el-form-item label="三维坐标" prop="position">
                 <el-input v-model="formModel.position"></el-input>

@@ -17,7 +17,7 @@
                             <el-input v-model="formModel.teleCmdPrefix" />
                         </el-form-item>
                         <el-form-item label="传送间隔, 单位: 秒" prop="teleInterval" required>
-                            <el-input v-model="formModel.teleInterval" />
+                            <el-input-number v-model="formModel.teleInterval" />
                         </el-form-item>
                         <el-form-item label="查询列表提示" prop="locationItemTip" required>
                             <el-input v-model="formModel.locationItemTip" />

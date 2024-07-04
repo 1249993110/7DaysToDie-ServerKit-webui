@@ -34,17 +34,20 @@
         >
             <template #columns>
                 <el-table-column prop="id" label="商品Id" width="120px" sortable> </el-table-column>
-                <el-table-column label="图标" width="120px" class-name="table-icon-col">
-                    <template #default="scope">
-                        <el-image :src="getIconUrl(scope.row)" style="width: 40px; height: 40px" lazy></el-image>
+                <el-table-column prop="name" label="商品名称" width="180px" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="price" label="售价" width="120px" sortable> </el-table-column>
+                <el-table-column label="自定义命令" show-overflow-tooltip>
+                    <template #default="{ row }">
+                        <el-tag v-for="(cmd, index) in row.commands" :key="index" style="margin-right: 5px">
+                            {{ cmd }}
+                        </el-tag>
                     </template>
                 </el-table-column>
-                <el-table-column prop="name" label="商品名称" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="price" label="售价" width="120px" sortable> </el-table-column>
-                <el-table-column prop="itemName" label="物品名称" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="count" label="数量" width="120px" sortable> </el-table-column>
-                <el-table-column prop="quality" label="品质" width="120px" sortable> </el-table-column>
-                <el-table-column prop="durability" label="耐久度%" width="120px" sortable> </el-table-column>
+                <el-table-column label="在主线程执行" width="140px" sortable>
+                    <template #default="{ row }">
+                        {{ `${row.inMainThread ? '是' : '否'}` }}
+                    </template>
+                </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -52,17 +55,15 @@
 
 <script>
 export default {
-    name: 'GameStore.Management',
+    name: 'GameStore.Advance',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/goods.js';
 import AddOrEditGoods from './AddOrEditGoods.vue';
-import { getIconUrl } from '~/utils/image-helper';
 
 const tableData = ref([]);
-
 const addOrEditComponentProps = ref({});
 
 const getData = async () => {
@@ -71,18 +72,14 @@ const getData = async () => {
     const array = [];
     for (let i = 0; i < data.length; i++) {
         const element = data[i];
-        if (element.contentType === 'Item') {
-            const item = JSON.parse(element.content);
+        if (element.contentType === 'Command') {
+            const commands = JSON.parse(element.content);
             array.push({
                 id: element.id,
                 name: element.name,
                 price: element.price,
-                itemName: item.itemName,
-                count: item.count,
-                quality: item.quality,
-                durability: item.durability,
-                itemIcon: item.itemIcon,
-                iconColor: item.iconColor,
+                commands: commands,
+                inMainThread: element.inMainThread,
             });
         }
     }

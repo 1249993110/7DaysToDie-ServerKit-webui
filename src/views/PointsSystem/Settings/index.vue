@@ -30,7 +30,7 @@
                             <el-input-number v-model="formModel.signInInterval" :min="1" />
                         </el-form-item>
                         <el-form-item label="签到奖励积分" prop="signInRewardPoints" required>
-                            <el-input v-model="formModel.signInRewardPoints" />
+                            <el-input-number v-model="formModel.signInRewardPoints" />
                         </el-form-item>
                         <el-form-item label="签到成功提示" prop="signInSuccessTip" required>
                             <el-input v-model="formModel.signInSuccessTip" />
