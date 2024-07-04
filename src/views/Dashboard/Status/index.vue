@@ -69,7 +69,7 @@ watch(
             },
             heap: {
                 current: val.heap,
-                max: val.maxHeap,
+                max: val.heap > val.maxHeap ? val.heap : val.maxHeap,
             },
         };
     }

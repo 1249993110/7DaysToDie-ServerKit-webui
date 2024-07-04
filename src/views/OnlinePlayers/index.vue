@@ -38,6 +38,7 @@
                 </el-descriptions>
             </el-scrollbar>
         </el-dialog>
+        <GiveItem :player-id="playerId" :player-name="playerName" v-model="giveItemDialogVisible" />
     </div>
 </template>
 
@@ -56,6 +57,7 @@ import myprompt from '~/utils/myprompt';
 import myconfirm from '~/utils/myconfirm';
 import axios from 'axios';
 import { showBanWindow } from '~/components/AddBlacklist/index';
+import GiveItem from './GiveItem.vue';
 
 const detailsDialogVisible = ref(false);
 const dialogTitle = ref('');
@@ -240,12 +242,18 @@ const getDetails = async (playerId) => {
     ];
 };
 
+const giveItemDialogVisible = ref(false);
+const playerId = ref('');
+const playerName = ref('');
 const onContextmenu = (row, column, event) => {
     event.preventDefault();
     tableRef.value.setCurrentRow(row);
 
-    const entityId = row.entityId;
-    const playerName = row.playerName;
+    const _entityId = row.entityId;
+    const _playerName = row.playerName;
+    const _playerId = row.crossplatformId;
+    playerId.value = _playerId;
+    playerName.value = _playerName;
 
     ContextMenu.showContextMenu({
         x: event.x,
@@ -255,7 +263,7 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '查看详细信息',
                 onClick: async () => {
-                    dialogTitle.value = `玩家: ${playerName} (${row.crossplatformId}) 的数据`;
+                    dialogTitle.value = `玩家: ${_playerName} (${row.crossplatformId}) 的数据`;
                     detailsDialogVisible.value = true;
                     details.value = await getDetails(row.crossplatformId);
                 },
@@ -264,7 +272,7 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '查看背包',
                 onClick: () => {
-                    showInventory(row.crossplatformId, playerName);
+                    showInventory(row.crossplatformId, _playerName);
                 },
                 svgIcon: '#icon-view',
                 svgProps: {
@@ -278,14 +286,14 @@ const onContextmenu = (row, column, event) => {
                     {
                         label: '复制玩家昵称',
                         onClick: async () => {
-                            await copy(playerName);
+                            await copy(_playerName);
                             ElMessage.success('复制成功');
                         },
                     },
                     {
                         label: '复制玩家实体Id',
                         onClick: async () => {
-                            await copy(entityId);
+                            await copy(_entityId);
                             ElMessage.success('复制成功');
                         },
                     },
@@ -308,18 +316,14 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '给予物品',
                 onClick: () => {
-                    myprompt('{itemName} {count} {quality} {durability}', '请输入物品名称').then((value) => {
-                        sdtdConsole.sendConsoleCommand(`ty-gi ${entityId} ${value}`).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    });
+                    giveItemDialogVisible.value = true;
                 },
             },
             {
                 label: '生成实体',
                 onClick: () => {
                     myprompt('{spawnEntityIdOrName}', '请输入实体Id或名称').then((value) => {
-                        sdtdConsole.spawnEntity(entityId, value).then(() => {
+                        sdtdConsole.spawnEntity(_entityId, value).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     });
@@ -329,7 +333,7 @@ const onContextmenu = (row, column, event) => {
                 label: '传送玩家',
                 onClick: () => {
                     myprompt('{target}', '请输入目标, 可为Id或三维坐标').then((value) => {
-                        sdtdConsole.telePlayer(entityId, value).then(() => {
+                        sdtdConsole.telePlayer(_entityId, value).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     });
@@ -341,7 +345,7 @@ const onContextmenu = (row, column, event) => {
                 label: '踢出玩家',
                 onClick: async () => {
                     if (await myconfirm('此操作将踢出选定玩家, 是否继续?', '提示', 'warning')) {
-                        sdtdConsole.kickPlayer(entityId).then(() => {
+                        sdtdConsole.kickPlayer(_entityId).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     }
@@ -350,7 +354,7 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '封禁玩家',
                 onClick: () => {
-                    showBanWindow(row.crossplatformId, playerName);
+                    showBanWindow(row.crossplatformId, _playerName);
                 },
                 divided: true,
             },
@@ -358,7 +362,7 @@ const onContextmenu = (row, column, event) => {
                 label: '发送私聊消息',
                 onClick: async () => {
                     myprompt('{message}', '请输入文本').then((value) => {
-                        sdtdConsole.sendMessageToPlayer(entityId, value).then(() => {
+                        sdtdConsole.sendMessageToPlayer(_entityId, value).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     });
@@ -369,7 +373,7 @@ const onContextmenu = (row, column, event) => {
                 label: '设置为超级管理员',
                 onClick: async () => {
                     if (await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')) {
-                        sdtdConsole.addAdmin(entityId, 0, '超级管理员-' + playerName).then(() => {
+                        sdtdConsole.addAdmin(_entityId, 0, '超级管理员-' + _playerName).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     }

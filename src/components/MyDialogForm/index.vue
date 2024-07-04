@@ -5,8 +5,8 @@
         </el-form>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="handleCancel">取消</el-button>
-                <el-button type="primary" @click="handleConfirm">确认</el-button>
+                <el-button @click="handleCancel">{{ cancelBtnText }}</el-button>
+                <el-button type="primary" @click="handleConfirm">{{ confirmBtnText }}</el-button>
             </span>
         </template>
     </el-dialog>
@@ -45,6 +45,18 @@ const props = defineProps({
     request: {
         type: Function,
     },
+    successMessage: {
+        type: String,
+        default: '保存成功',
+    },
+    cancelBtnText: {
+        type: String,
+        default: '取消',
+    },
+    confirmBtnText: {
+        type: String,
+        default: '确认',
+    },
 });
 
 const dialogRef = ref();
@@ -66,7 +78,7 @@ const handleConfirm = async () => {
         const result = await Promise.resolve(props.request(props.isAdd));
         emit('onConfirm', result);
         dialogRef.value.visible = false;
-        ElMessage.success('保存成功');
+        ElMessage.success(props.successMessage);
     } catch (error) {
     } finally {
         loading.close();

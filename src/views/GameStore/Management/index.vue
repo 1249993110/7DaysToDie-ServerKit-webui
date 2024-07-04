@@ -40,7 +40,7 @@
                 <el-table-column prop="itemName" label="物品名称" sortable show-overflow-tooltip> </el-table-column>
                 <el-table-column prop="count" label="数量" width="120px" sortable> </el-table-column>
                 <el-table-column prop="quality" label="品质" width="120px" sortable> </el-table-column>
-                <el-table-column prop="durability" label="耐久度" width="120px" sortable> </el-table-column>
+                <el-table-column prop="durability" label="耐久度%" width="120px" sortable> </el-table-column>
             </template>
         </MyTableEx>
     </div>
