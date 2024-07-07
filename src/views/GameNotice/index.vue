@@ -1,5 +1,5 @@
 <template>
-    <div class="game-store-settings">
+    <div class="game-notice-settings">
         <RouterButton
             :buttons="[
                 {
@@ -39,6 +39,7 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
+                            <el-button type="danger" @click="reset">重置</el-button>
                         </el-form-item>
                     </el-form>
                 </div>
@@ -55,16 +56,17 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
+import myconfirm from '~/utils/myconfirm';
 
 const formModel = reactive({});
 
 const formRef = ref();
 
-api.getSettings('GameNotice')
-    .then((data) => {
-        Object.assign(formModel, data);
-    })
-    .catch((error) => {});
+const getData = async () => {
+    const data = await api.getSettings('GameNotice');
+    Object.assign(formModel, data);
+};
+getData();
 
 const save = async () => {
     try {
@@ -74,11 +76,21 @@ const save = async () => {
     } catch {}
 };
 
+const reset = async () => {
+    try {
+        if (await myconfirm('确定重置配置吗?')) {
+            await api.resetSettings('GameNotice', formModel);
+            await getData();
+            ElMessage.success('重置成功');
+        }
+    } catch {}
+};
+
 const variables = ['BloodMoonDays', 'BloodMoonStartTime', 'BloodMoonEndTime', 'EntityId', 'PlatformId', 'PlayerName'];
 </script>
 
 <style scoped lang="scss">
-.game-store-settings {
+.game-notice-settings {
     .card {
         margin-top: 20px;
         background-color: #ffffffaf;

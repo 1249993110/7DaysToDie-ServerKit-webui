@@ -95,6 +95,24 @@ const routes = [
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
+                path: 'autobackup',
+                redirect: '/autobackup/settings',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'AutoBackup.Settings',
+                        component: () => import('../views/AutoBackup/Settings/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'management',
+                        name: 'AutoBackup.Management',
+                        component: () => import('../views/AutoBackup/Management/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
+            {
                 path: 'game-notice',
                 name: 'GameNotice',
                 component: () => import('../views/GameNotice/index.vue'),

@@ -64,6 +64,11 @@ const tree = [
         icon: getIcon(() => import('~icons/ep/setting')),
     },
     {
+        path: '/autobackup',
+        title: '自动备份',
+        icon: getIcon(() => import('~icons/iconoir/database-backup')),
+    },
+    {
         path: '/game-notice',
         title: '游戏公告',
         icon: getIcon(() => import('~icons/icon-park-outline/volume-notice')),

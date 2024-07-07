@@ -46,6 +46,7 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
+                            <el-button type="danger" @click="reset">重置</el-button>
                         </el-form-item>
                     </el-form>
                 </div>
@@ -62,21 +63,32 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
+import myconfirm from '~/utils/myconfirm';
 
 const formModel = reactive({});
 const formRef = ref();
 
-api.getSettings('PointsSystem')
-    .then((data) => {
-        Object.assign(formModel, data);
-    })
-    .catch((error) => {});
+const getData = async () => {
+    const data = await api.getSettings('PointsSystem');
+    Object.assign(formModel, data);
+};
+getData();
 
 const save = async () => {
     try {
         await formRef.value.validate();
         await api.updateSettings('PointsSystem', formModel);
         ElMessage.success('保存成功');
+    } catch {}
+};
+
+const reset = async () => {
+    try {
+        if (await myconfirm('确定重置配置吗?')) {
+            await api.resetSettings('PointsSystem', formModel);
+            await getData();
+            ElMessage.success('重置成功');
+        }
     } catch {}
 };
 
