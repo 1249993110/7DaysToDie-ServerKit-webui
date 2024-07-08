@@ -20,7 +20,7 @@
                         <el-form-item label="是否启用" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="自动间隔 (秒)" prop="interval" required>
+                        <el-form-item label="自动备份间隔 (秒)" prop="interval" required>
                             <el-input-number v-model="formModel.interval" :min="10" />
                         </el-form-item>
                         <el-form-item label="保留文件数量限制" prop="retainedFileCountLimit" required>

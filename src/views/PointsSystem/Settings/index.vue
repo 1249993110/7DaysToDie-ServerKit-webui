@@ -16,7 +16,7 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" ref="formRef" label-width="150px" status-icon>
+                    <el-form :model="formModel" ref="formRef" label-width="200px" status-icon>
                         <el-form-item label="是否启用" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
@@ -43,6 +43,21 @@
                         </el-form-item>
                         <el-form-item label="查询积分提示" prop="queryPointsTip" required>
                             <el-input v-model="formModel.queryPointsTip" />
+                        </el-form-item>
+                        <el-form-item label="是否启用游戏内货币兑换积分" prop="isCurrencyExchangeEnabled">
+                            <el-switch v-model="formModel.isCurrencyExchangeEnabled" />
+                        </el-form-item>
+                        <el-form-item label="游戏内货币与积分兑换比例" prop="currencyToPointsExchangeRate" required>
+                            <el-input-number v-model="formModel.currencyToPointsExchangeRate" :min="0.0" :precision="1" />
+                        </el-form-item>
+                        <el-form-item label="兑换命令" prop="currencyExchangeCmd" required>
+                            <el-input v-model="formModel.currencyExchangeCmd" />
+                        </el-form-item>
+                        <el-form-item label="兑换成功提示" prop="exchangeSuccessTip" required>
+                            <el-input v-model="formModel.exchangeSuccessTip" />
+                        </el-form-item>
+                        <el-form-item label="兑换失败提示" prop="exchangeFailureTip" required>
+                            <el-input v-model="formModel.exchangeFailureTip" />
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
@@ -92,7 +107,7 @@ const reset = async () => {
     } catch {}
 };
 
-const variables = ['SignInRewardPoints', 'PlayerTotalPoints', 'EntityId', 'PlatformId', 'PlayerName'];
+const variables = ['SignInRewardPoints', 'PlayerTotalPoints', 'CurrencyAmount', 'EntityId', 'PlatformId', 'PlayerName'];
 </script>
 
 <style scoped lang="scss">
