@@ -1,7 +1,7 @@
 <template>
     <el-dialog title="选择物品或方块" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
         <el-table :data="tableData" border height="calc(64vh)" highlight-current-row ref="tableRef" v-loading="loading">
-            <el-table-column prop="id" label="Id" width="60px"> </el-table-column>
+            <el-table-column prop="id" label="Id" width="80px"> </el-table-column>
             <el-table-column prop="itemIcon" label="图标" width="120px" class-name="table-icon-col">
                 <template #default="scope">
                     <el-image :src="getIconUrl(scope.row)" style="width: 80px; height: 80px" lazy></el-image>

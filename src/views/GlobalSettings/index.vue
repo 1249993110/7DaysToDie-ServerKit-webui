@@ -62,6 +62,9 @@
                         <el-form-item label="是否禁止家庭共享账号" prop="blockFamilySharingAccount">
                             <el-switch v-model="formModel.blockFamilySharingAccount" />
                         </el-form-item>
+                        <el-form-item label="是否启用POI保护" prop="removeSleepingBagFromPOI">
+                            <el-switch v-model="formModel.removeSleepingBagFromPOI" />
+                        </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
                             <el-button type="danger" @click="reset">重置</el-button>
@@ -116,6 +119,7 @@ const formModel = reactive({
         messages: [],
     },
     blockFamilySharingAccount: false,
+    removeSleepingBagFromPOI: false,
 });
 
 const formRef = ref();
