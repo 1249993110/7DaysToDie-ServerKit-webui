@@ -36,8 +36,8 @@ export const shutdown = () => {
  * 发送全局消息
  * @returns
  */
-export const sendGlobalMessage = (message, senderName) => {
-    return http.post('/Server/SendGlobalMessage', { message, senderName: senderName });
+export const sendGlobalMessage = (message) => {
+    return http.post('/Server/SendGlobalMessage', { message });
 };
 
 /**

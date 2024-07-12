@@ -37,7 +37,6 @@ export default {
 import { sendGlobalMessage } from '~/api/server';
 import { emitter, eventTypes } from '~/utils/event-hub';
 import * as api from '~/api/chat-record';
-import { getSettings } from '~/api/settings.js';
 
 let contentCount = 0;
 const contentMaxCount = 1000;
@@ -45,8 +44,7 @@ const message = ref('');
 
 const sendMessage = async () => {
     if (!!message.value) {
-        const globalSettings = await getSettings('GlobalSettings');
-        await sendGlobalMessage(message.value, globalSettings.serverName);
+        await sendGlobalMessage(message.value);
         message.value = '';
     }
 };
