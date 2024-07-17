@@ -304,13 +304,13 @@ const onContextmenu = (row, column, event) => {
                             ElMessage.success('复制成功');
                         },
                     },
-                    {
-                        label: '复制玩家坐标',
-                        onClick: async () => {
-                            await copy(format_position(row));
-                            ElMessage.success('复制成功');
-                        },
-                    },
+                    // {
+                    //     label: '复制玩家坐标',
+                    //     onClick: async () => {
+                    //         await copy(format_position(row));
+                    //         ElMessage.success('复制成功');
+                    //     },
+                    // },
                 ],
             },
             {
