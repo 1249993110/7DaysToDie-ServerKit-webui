@@ -16,7 +16,7 @@
                     <el-image :src="getIconUrl(formModel)" style="width: 80px; height: 80px">
                         <template #error>
                             <div class="image-slot">
-                                <el-icon><icon-picture /></el-icon>
+                                <el-icon><IconPicture /></el-icon>
                             </div>
                         </template>
                     </el-image>
@@ -44,7 +44,6 @@ import * as api from '~/api/goods.js';
 import { getIconUrl } from '~/utils/image-helper';
 import { Picture as IconPicture } from '@element-plus/icons-vue';
 
-const itemBlockSelectorVisible = ref(false);
 const formModel = reactive({
     id: 0,
     name: '',
@@ -88,6 +87,7 @@ const request = async (isAdd) => {
     }
 };
 
+const itemBlockSelectorVisible = ref(false);
 const handleSelect = (item) => {
     formModel.name = item.localizationName;
     formModel.itemName = item.itemName;

@@ -79,6 +79,11 @@ const tree = [
         icon: getIcon(() => import('~icons/mdi/bitcoin')),
     },
     {
+        path: '/list-management',
+        title: '清单管理',
+        icon: getIcon(() => import('~icons/material-symbols/checklist')),
+    },
+    {
         path: '/game-store',
         title: '游戏商店',
         icon: getIcon(() => import('~icons/mdi/store')),

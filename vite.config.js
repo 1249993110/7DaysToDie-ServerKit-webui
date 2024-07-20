@@ -81,11 +81,7 @@ export default defineConfig(({ mode }) => {
                 '/api': {
                     target: `http://${env.VITE_APP_API_DOMAIN}:8888`,
                     changeOrigin: true,
-                },
-                '/swagger': {
-                    target: `http://${env.VITE_APP_API_DOMAIN}:8888`,
-                    changeOrigin: true,
-                },
+                }
             },
         },
         build: {

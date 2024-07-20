@@ -48,7 +48,7 @@
                             <el-switch v-model="formModel.isCurrencyExchangeEnabled" />
                         </el-form-item>
                         <el-form-item label="游戏内货币与积分兑换比例" prop="currencyToPointsExchangeRate" required>
-                            <el-input-number v-model="formModel.currencyToPointsExchangeRate" :min="0.0" :precision="1" />
+                            <el-input-number v-model="formModel.currencyToPointsExchangeRate" :min="0.0" :precision="3" />
                         </el-form-item>
                         <el-form-item label="兑换命令" prop="currencyExchangeCmd" required>
                             <el-input v-model="formModel.currencyExchangeCmd" />

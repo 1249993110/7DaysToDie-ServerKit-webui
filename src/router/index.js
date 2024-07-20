@@ -137,6 +137,24 @@ const routes = [
                 ],
             },
             {
+                path: 'list-management',
+                redirect: '/list-management/item-list',
+                children: [
+                    {
+                        path: 'item-list',
+                        name: 'ListManagement.ItemList',
+                        component: () => import('../views/ListManagement/ItemList/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'command-list',
+                        name: 'ListManagement.CommandList',
+                        component: () => import('../views/ListManagement/CommandList/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
+            {
                 path: '/game-store',
                 redirect: '/game-store/settings',
                 children: [

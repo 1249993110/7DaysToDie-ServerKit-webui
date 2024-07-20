@@ -37,13 +37,13 @@ export const deleteGoodsById = (id) => {
  * @returns
  */
 export const deleteGoodsByIds = (ids) => {
-    return http.delete('/Goods', { data: ids });
+    return http.delete('/Goods', { params: { ids } });
 };
 
 /**
  * 更新商品
  * @returns
  */
- export const updateGoods = (id, data) => {
+export const updateGoods = (id, data) => {
     return http.put('/Goods/' + id, data);
 };

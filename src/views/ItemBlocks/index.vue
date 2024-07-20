@@ -105,7 +105,7 @@ const load = async () => {
 
 const handleMouseover = (item, event) => {
     const content = `
-        ${item.isBlock ? '方块' : '物品'}ID: ${item.id}<br />
+        ${item.isBlock ? '方块' : '物品'}Id: ${item.id}<br />
         名称: ${item.itemName}<br />
         本地化名称: ${item.localizationName}<br />
         图标: ${item.itemIcon}<br />
