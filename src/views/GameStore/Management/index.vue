@@ -9,11 +9,7 @@
                 {
                     value: '商店管理',
                     path: '/game-store/management',
-                },
-                {
-                    value: '高级商店',
-                    path: '/game-store/advance',
-                },
+                }
             ]"
         >
         </RouterButton>
@@ -39,13 +35,14 @@
                 <el-table-column prop="description" label="说明" show-overflow-tooltip> </el-table-column>
                 <el-table-column label="绑定" :width="200" header-align="center" show-overflow-tooltip>
                     <template #default="{ row }">
-                        <el-button size="small" color="#40E0D0" @click="handleEdit(row)">绑定物品</el-button>
-                        <el-button size="small" color="#8a2be2" @click="handleDelete(row)">绑定命令</el-button>
+                        <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">绑定物品</el-button>
+                        <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">绑定命令</el-button>
                     </template>
                 </el-table-column>
             </template>
         </MyTableEx>
-        <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedItemsData" :loading="associatedItemsLoading" @on-edit="handleItemsEdit" />
+        <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @on-edit="handleItemsEdit" />
+        <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @on-edit="handleCommandsEdit" />
     </div>
 </template>
 
@@ -80,25 +77,43 @@ const batchDeleteRequest = async (rows) => {
     return await api.deleteGoodsByIds(rows.map((i) => i.id));
 };
 
-const associatedItemsVisible = ref(false);
-const associatedItemsData = ref([]);
-const associatedItemsLoading = ref(false);
-
 const lastClickId = ref(0);
-const handleEdit = async (row) => {
+
+const associatedItemsVisible = ref(false);
+const associatedCommandsVisible = ref(false);
+const associatedData = ref([]);
+const associatedLoading = ref(false);
+
+const handleAssociatedItem = async (row) => {
     associatedItemsVisible.value = true;
     lastClickId.value = row.id;
     try {
-        associatedItemsLoading.value = true;
+        associatedLoading.value = true;
         const data = await api.getItemList(row.id);
-        associatedItemsData.value = data;
+        associatedData.value = data;
     } finally {
-        associatedItemsLoading.value = false;
+        associatedLoading.value = false;
     }
 };
 
 const handleItemsEdit = async (ids) => {
     await api.updateItemList(lastClickId.value, ids);
+};
+
+const handleAssociatedCommand = async (row) => {
+    associatedCommandsVisible.value = true;
+    lastClickId.value = row.id;
+    try {
+        associatedLoading.value = true;
+        const data = await api.getCommandList(row.id);
+        associatedData.value = data;
+    } finally {
+        associatedLoading.value = false;
+    }
+};
+
+const handleCommandsEdit = async (ids) => {
+    await api.updateCommandList(lastClickId.value, ids);
 };
 </script>
 

@@ -57,9 +57,25 @@ export const getItemList = (id) => {
 };
 
 /**
- * 修改商品关联的物品
+ * 修改商品关联的物品清单
  * @returns
  */
 export const updateItemList = (id, data) => {
     return http.put('/Goods/' + id + '/Items', data);
+};
+
+/**
+ * 获取商品关联的命令清单
+ * @returns
+ */
+export const getCommandList = (id) => {
+    return http.get('/Goods/' + id + '/Commands');
+};
+
+/**
+ * 修改商品关联的命令清单
+ * @returns
+ */
+export const updateCommandList = (id, data) => {
+    return http.put('/Goods/' + id + '/Commands', data);
 };

@@ -1,6 +1,6 @@
 <template>
-    <el-dialog title="从清单选择物品" draggable append-to-body align-center :close-on-click-modal="false" width="800px" @open="handleOpen">
-        <div style="margin-bottom: 8px;">
+    <el-dialog title="从清单选择命令" draggable append-to-body align-center :close-on-click-modal="false" width="800px" @open="handleOpen">
+        <div style="margin-bottom: 8px">
             <el-input v-model="searchModel.keyword" placeholder="请输入内容" clearable autofocus style="width: 200px"></el-input>
             <el-button :icon="Search" @click="getData" type="primary" style="margin-left: 8px">查 询</el-button>
             <el-button @click="handleBatchSelect" color="#40e0d0" :disabled="batchSelectDisabled">批量选择</el-button>
@@ -8,15 +8,12 @@
         <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="50" align="center" :selectable="checkSelectable" />
             <el-table-column prop="id" label="Id" width="60px"> </el-table-column>
-            <el-table-column label="图标" width="65px" class-name="table-icon-col">
+            <el-table-column prop="command" label="命令" show-overflow-tooltip> </el-table-column>
+            <el-table-column label="在主线程执行" width="140px" sortable>
                 <template #default="{ row }">
-                    <GameIcon :name="row.itemName" :size="40" />
+                    {{ `${row.inMainThread ? '是' : '否'}` }}
                 </template>
             </el-table-column>
-            <el-table-column prop="itemName" label="物品名称" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="count" label="数量" width="60px"> </el-table-column>
-            <el-table-column prop="quality" label="品质" width="60px"> </el-table-column>
-            <el-table-column prop="durability" label="耐久度%" width="85px"> </el-table-column>
             <el-table-column prop="description" label="说明"> </el-table-column>
             <el-table-column label="选择" align="center" width="100px">
                 <template #default="{ row }">
@@ -40,7 +37,7 @@
 </template>
 
 <script setup>
-import { getItemListPaged } from '~/api/item-list';
+import { getCommandListPaged } from '~/api/command-list';
 import { Search } from '@element-plus/icons-vue';
 
 const props = defineProps({
@@ -69,7 +66,7 @@ const searchModel = reactive({
 const getData = async () => {
     try {
         loading.value = true;
-        const data = await getItemListPaged(searchModel);
+        const data = await getCommandListPaged(searchModel);
         tableData.value = data.items;
         total.value = data.total;
     } finally {
