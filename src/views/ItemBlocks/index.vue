@@ -82,7 +82,7 @@ const getData = async () => {
 
         for (let i = 0; i < len; i++) {
             const item = data[i];
-            item.url = getIconUrl(item);
+            item.url = getIconUrl(item.itemName);
             items.push(item);
         }
     } finally {
@@ -108,7 +108,7 @@ const handleMouseover = (item, event) => {
         ${item.isBlock ? '方块' : '物品'}Id: ${item.id}<br />
         名称: ${item.itemName}<br />
         本地化名称: ${item.localizationName}<br />
-        图标: ${item.itemIcon}<br />
+        图标: ${item.iconName}<br />
         图标颜色: ${item.iconColor}<br />
         最大堆叠数量: ${item.maxStackAllowed}<br />`;
 

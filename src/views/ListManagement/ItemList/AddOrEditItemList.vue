@@ -4,13 +4,7 @@
             <el-form-item label="物品名称" prop="itemName">
                 <ItemBlockSelector v-model="itemBlockSelectorVisible" @on-select="handleSelect" />
                 <div style="display: flex; align-items: center">
-                    <el-image :src="getIconUrl(formModel)" style="width: 80px; height: 80px">
-                        <template #error>
-                            <div class="image-slot">
-                                <el-icon><IconPicture /></el-icon>
-                            </div>
-                        </template>
-                    </el-image>
+                    <GameIcon :name="formModel.itemName" />
                     <el-button @click="itemBlockSelectorVisible = true" style="margin-left: 8px">选择物品</el-button>
                 </div>
                 <el-input v-model="formModel.itemName"></el-input>
@@ -33,9 +27,6 @@
 
 <script setup>
 import * as api from '~/api/item-list.js';
-import { getIconUrl } from '~/utils/image-helper';
-import { Picture as IconPicture } from '@element-plus/icons-vue';
-
 
 const formModel = reactive({});
 

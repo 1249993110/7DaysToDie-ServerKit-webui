@@ -1,6 +1,6 @@
 <template>
     <div class="image-container" v-if="item" @contextmenu.prevent="handleContextMenu" @mouseover="handleMouseover(item, $event)" @mouseleave="handleMouseleave">
-        <el-image :src="getIconUrl(item)" class="image" lazy></el-image>
+        <el-image :src="getIconUrl(item.itemName)" class="image" lazy></el-image>
         <span v-if="item.quality === -1" class="inventory-item-count">{{ item.count }}</span>
         <span v-else :style="getQualityStyle(item)" class="inventory-item-quality"></span>
     </div>
@@ -13,6 +13,7 @@ import { showTooltip, closeTooltip } from '~/components/SingletonTooltip/index.j
 import { useGameLocalizationStore } from '~/store/game-localization';
 import { removePlayerItems } from '~/api/inventories';
 import myconfirm from '~/utils/myconfirm';
+import { getIconUrl } from '~/utils/image-helper';
 
 const props = defineProps({
     item: {
@@ -28,15 +29,6 @@ const props = defineProps({
 });
 
 const gameLocalizationStore = useGameLocalizationStore();
-
-const getIconUrl = (item) => {
-    let itemName = item.icon;
-    if (item.iconColor !== 'FFFFFF') {
-        itemName += '__' + item.iconColor;
-    }
-
-    return import.meta.env.VITE_APP_API_BASE_URL + 'ItemIcons/' + itemName + '.png';
-};
 
 const getQualityStyle = (item) => {
     const durability = (1 - item.useTimes / item.maxUseTimes) * 80;
@@ -62,7 +54,7 @@ const handleContextMenu = (event) => {
             {
                 label: '复制物品图标',
                 onClick: async () => {
-                    await copy(item.icon);
+                    await copy(item.iconName);
                     ElMessage.success('复制成功');
                 },
             },
@@ -97,7 +89,7 @@ const handleMouseover = (item, event) => {
         本地化名称: ${gameLocalizationStore.dict[item.itemName]}<br />
         数量: ${item.count}<br />
         质量: ${item.quality}<br />
-        图标: ${item.icon}<br />
+        图标: ${item.iconName}<br />
         图标颜色: ${item.iconColor}<br />
         最大使用时长: ${item.maxUseTimes}<br />
         使用时长: ${item.useTimes}<br />`;

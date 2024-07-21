@@ -10,11 +10,18 @@ export const getBase64 = (blobUrl) => {
     });
 };
 
-export const getIconUrl = (item) => {
-    let itemName = item.itemIcon;
-    if (item.iconColor !== 'FFFFFF') {
-        itemName += '__' + item.iconColor;
+export const getIconUrl = (name, iconColor = null) => {
+    if (!name) {
+        return null;
     }
 
-    return import.meta.env.VITE_APP_API_BASE_URL + 'ItemIcons/' + itemName + '.png';
+    if (iconColor) {
+        if (iconColor.toUpperCase() !== 'FFFFFF') {
+            name += '__' + iconColor;
+        }
+
+        return import.meta.env.VITE_APP_API_BASE_URL + 'ItemIcons/' + name + '.png';
+    }
+
+    return import.meta.env.VITE_APP_API_BASE_URL + 'ItemIcons/' + name;
 };

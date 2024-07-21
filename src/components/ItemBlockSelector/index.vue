@@ -1,22 +1,22 @@
 <template>
     <el-dialog title="选择物品或方块" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
-        <el-table :data="tableData" border height="calc(64vh)" highlight-current-row ref="tableRef" v-loading="loading">
+        <el-table :data="tableData" border height="calc(64vh)" highlight-current-row v-loading="loading">
             <el-table-column prop="id" label="Id" width="80px"> </el-table-column>
-            <el-table-column prop="itemIcon" label="图标" width="120px" class-name="table-icon-col">
-                <template #default="scope">
-                    <el-image :src="getIconUrl(scope.row)" style="width: 80px; height: 80px" lazy></el-image>
+            <el-table-column label="图标" width="120px" class-name="table-icon-col">
+                <template #default="{ row }">
+                    <GameIcon :name="row.itemName" />
                 </template>
             </el-table-column>
             <el-table-column prop="itemName" label="物品名称" show-overflow-tooltip> </el-table-column>
             <el-table-column prop="localizationName" label="本地化名称" show-overflow-tooltip> </el-table-column>
-            <!-- <el-table-column prop="iconColor" label="图标颜色" sortable> </el-table-column> -->
             <el-table-column prop="maxStackAllowed" label="最大堆叠数量" width="120px"> </el-table-column>
             <el-table-column align="center" width="200px">
-                <template #header> 
+                <template #header>
                     <el-input v-model="searchModel.keyword" placeholder="搜索" clearable style="width: calc(100% - 32px)" @keyup.enter="getData" :validate-event="false" />
-                    <el-button :icon="Search" circle @click="getData" /> </template>
-                <template #default="scope">
-                    <el-button type="primary" @click="handleSelect(scope.row)">选择</el-button>
+                    <el-button :icon="Search" circle @click="getData" />
+                </template>
+                <template #default="{ row }">
+                    <el-button type="primary" @click="handleSelect(row)">选择</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -37,7 +37,6 @@
 
 <script setup>
 import { getItemBlocks } from '~/api/item-blocks';
-import { getIconUrl } from '~/utils/image-helper';
 import { Search } from '@element-plus/icons-vue';
 
 const tableData = ref([]);

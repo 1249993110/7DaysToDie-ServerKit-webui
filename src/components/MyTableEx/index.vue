@@ -43,9 +43,9 @@
                     <el-table-column v-if="showTableIndex" type="index" label="序号" width="60" />
                     <slot name="columns"></slot>
                     <el-table-column v-if="showOperationColumn" label="操作" :width="operationColumnWidth" header-align="center" show-overflow-tooltip fixed="right">
-                        <template #default="scope">
-                            <el-button v-if="showEditBtn" size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">编辑</el-button>
-                            <el-button v-if="showDeleteBtn" size="small" type="danger" :icon="Delete" @click="handleDelete(scope)">{{ deleteLabel }}</el-button>
+                        <template #default="{ row }">
+                            <el-button v-if="showEditBtn" size="small" type="primary" :icon="Edit" @click="handleEdit(row)">{{ editLabel }}</el-button>
+                            <el-button v-if="showDeleteBtn" size="small" type="danger" :icon="Delete" @click="handleDelete(row)">{{ deleteLabel }}</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -93,6 +93,10 @@ const props = defineProps({
     },
     delete: {
         type: Function,
+    },
+    editLabel: {
+        type: String,
+        default: '编辑',
     },
     deleteLabel: {
         type: String,
@@ -210,13 +214,13 @@ const handleAdd = () => {
     initData.value = { ...props.addOrEditComponentProps };
     addOrEditComponentVisible.value = true;
 };
-const handleEdit = ({ row }) => {
+const handleEdit = (row) => {
     isAdd.value = false;
     initData.value = { ...props.addOrEditComponentProps, ...row };
     addOrEditComponentVisible.value = true;
 };
 
-const handleDelete = async ({ row }) => {
+const handleDelete = async (row) => {
     try {
         if (await myconfirm('确定删除选中的内容吗?')) {
             await Promise.resolve(props.delete(row));

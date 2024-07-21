@@ -47,3 +47,19 @@ export const deleteGoodsByIds = (ids) => {
 export const updateGoods = (id, data) => {
     return http.put('/Goods/' + id, data);
 };
+
+/**
+ * 获取商品关联的物品清单
+ * @returns
+ */
+export const getItemList = (id) => {
+    return http.get('/Goods/' + id + '/Items');
+};
+
+/**
+ * 修改商品关联的物品
+ * @returns
+ */
+export const updateItemList = (id, data) => {
+    return http.put('/Goods/' + id + '/Items', data);
+};

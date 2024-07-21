@@ -5,13 +5,7 @@
                 <ItemBlockSelector v-model="itemBlockSelectorVisible" @on-select="handleSelect" />
                 <div style="width: 100%">
                     <div style="display: flex; align-items: center">
-                        <el-image :src="getIconUrl(formModel)" style="width: 80px; height: 80px">
-                            <template #error>
-                                <div class="image-slot">
-                                    <el-icon><icon-picture /></el-icon>
-                                </div>
-                            </template>
-                        </el-image>
+                        <GameIcon :name="formModel.itemName" :size="80"/>
                         <el-button @click="itemBlockSelectorVisible = true" style="margin-left: 8px">选择物品</el-button>
                     </div>
                 </div>
@@ -29,15 +23,11 @@
             <el-form-item label="耐久度%" prop="durability">
                 <el-input-number v-model="formModel.durability" :min="0" :max="100" />
             </el-form-item>
-            <el-form-item prop="itemIcon" v-show="false"> </el-form-item>
-            <el-form-item prop="iconColor" v-show="false"> </el-form-item>
         </template>
     </MyDialogForm>
 </template>
 
 <script setup>
-import { getIconUrl } from '~/utils/image-helper';
-import { Picture as IconPicture } from '@element-plus/icons-vue';
 import { giveItem } from '~/api/sdtd-console';
 
 const props = defineProps({
@@ -54,7 +44,6 @@ const formModel = reactive({
     count: 1,
     quality: 1,
     durability: 100,
-    itemIcon: '',
     iconColor: '',
 });
 
@@ -70,7 +59,6 @@ const request = async () => {
 const handleSelect = (item) => {
     formModel.name = item.localizationName;
     formModel.itemName = item.itemName;
-    formModel.itemIcon = item.itemIcon;
     formModel.iconColor = item.iconColor;
     itemBlockSelectorVisible.value = false;
 };

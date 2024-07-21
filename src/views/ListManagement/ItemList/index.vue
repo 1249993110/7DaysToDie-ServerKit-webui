@@ -34,6 +34,11 @@
             </template>
             <template #columns>
                 <el-table-column prop="id" label="Id" sortable width="80px"></el-table-column>
+                <el-table-column label="图标" width="120px" class-name="table-icon-col">
+                    <template #default="{ row }">
+                        <GameIcon :name="row.itemName" :size="40"/>
+                    </template>
+                </el-table-column>
                 <el-table-column prop="itemName" label="物品名称" sortable></el-table-column>
                 <el-table-column prop="count" label="数量" sortable></el-table-column>
                 <el-table-column prop="quality" label="品质" sortable></el-table-column>
