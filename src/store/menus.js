@@ -89,6 +89,11 @@ const tree = [
         icon: getIcon(() => import('~icons/mdi/store')),
     },
     {
+        path: '/vip-gift',
+        title: 'VIP礼包',
+        icon: getIcon(() => import('~icons/quill/vip')),
+    },
+    {
         path: '/tele-friend',
         title: '好友传送',
         icon: getIcon(() => import('~icons/carbon/friendship')),

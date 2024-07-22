@@ -173,6 +173,24 @@ const routes = [
                 ],
             },
             {
+                path: '/vip-gift',
+                redirect: '/vip-gift/settings',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'VipGift.Settings',
+                        component: () => import('../views/VipGift/Settings/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'management',
+                        name: 'VipGift.Management',
+                        component: () => import('../views/VipGift/Management/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
+            {
                 path: '/tele-friend',
                 name: 'TeleportFriend',
                 component: () => import('../views/TeleportFriend/index.vue'),

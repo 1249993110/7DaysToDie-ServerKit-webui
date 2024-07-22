@@ -39,6 +39,7 @@
     "@iconify-json/iconoir": "^1.1.44",
     "@iconify-json/material-symbols": "^1.1.82",
     "@iconify-json/mdi": "^1.1.67",
+    "@iconify-json/quill": "^1.1.10",
     "@iconify-json/uiw": "^1.1.12",
     "@vitejs/plugin-vue": "^5.0.5",
     "sass": "^1.77.6",

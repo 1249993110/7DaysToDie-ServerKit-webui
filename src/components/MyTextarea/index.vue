@@ -3,14 +3,10 @@
 </template>
 
 <script setup>
-const props = defineProps({
-    modelValue: {
-        type: Array,
-        default: [],
-    },
+const modelValue = defineModel({
+    type: Array,
+    default: [],
 });
-
-const { modelValue } = useVModels(props);
 
 const textareaValue = computed({
     get() {
