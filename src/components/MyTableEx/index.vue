@@ -14,6 +14,7 @@
                 <slot name="toolbar"></slot>
                 <el-button v-if="showAddBtn" type="primary" :icon="Plus" @click="handleAdd">新 增</el-button>
                 <el-button v-if="showBatchDeleteBtn" type="danger" :icon="Delete" @click="handleBatchDelete" :disabled="batchDeleteDisabled">{{ batchDeleteLabel }}</el-button>
+                <slot name="toolbarPost"></slot>
                 <div style="margin-left: auto">
                     <el-button v-if="showImportBtn" style="margin-right: 12px" type="primary" :icon="UploadFilled" @click="handleImport">导 入</el-button>
                     <el-dropdown v-if="showExportBtn" @command="handleExportCommand">

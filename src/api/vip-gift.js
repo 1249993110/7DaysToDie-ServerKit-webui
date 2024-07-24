@@ -36,8 +36,8 @@ export const deleteVipGiftById = (id) => {
  * 通过Id集合删除VIP礼品
  * @returns
  */
-export const deleteVipGiftByIds = (ids) => {
-    return http.delete('/VipGift', { params: { ids } });
+export const deleteVipGiftByIds = (ids, deleteAll = false, resetAll = false) => {
+    return http.delete('/VipGift', { params: { ids, deleteAll, resetAll } });
 };
 
 /**

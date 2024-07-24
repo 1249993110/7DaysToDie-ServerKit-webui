@@ -27,6 +27,9 @@
             :batch-delete="batchDeleteRequest"
             :add-or-edit-component="AddOrEditVipGift"
         >
+            <template #toolbarPost>
+                <el-button @click="handleResetAll" type="danger">重置所有领取状态</el-button>
+            </template>
             <template #columns>
                 <el-table-column prop="id" label="玩家Id" sortable> </el-table-column>
                 <el-table-column prop="name" label="礼包名称" sortable show-overflow-tooltip> </el-table-column>
@@ -36,6 +39,7 @@
                     </template>
                 </el-table-column>
                 <el-table-column prop="totalClaimCount" label="总领取次数" width="120px" sortable> </el-table-column>
+                <el-table-column prop="lastClaimAt" label="上次领取日期" sortable> </el-table-column>
                 <el-table-column prop="description" label="说明" show-overflow-tooltip> </el-table-column>
                 <el-table-column label="绑定" :width="200" header-align="center" show-overflow-tooltip>
                     <template #default="{ row }">
@@ -59,6 +63,7 @@ export default {
 <script setup>
 import * as api from '~/api/vip-gift.js';
 import AddOrEditVipGift from './AddOrEditVipGift.vue';
+import myconfirm from '~/utils/myconfirm';
 
 const tableData = ref([]);
 
@@ -73,6 +78,15 @@ const deleteRequest = async (row) => {
 
 const batchDeleteRequest = async (rows) => {
     return await api.deleteVipGiftByIds(rows.map((i) => i.id));
+};
+
+const handleResetAll = async () => {
+    try {
+        if (await myconfirm('确定重置所有玩家的领取状态为未领取吗?')) {
+            await api.deleteVipGiftByIds([], false, true);
+            await getData();
+        }
+    } catch {}
 };
 
 const lastClickId = ref(0);
