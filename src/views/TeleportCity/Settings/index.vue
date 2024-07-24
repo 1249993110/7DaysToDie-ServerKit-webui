@@ -1,41 +1,67 @@
 <template>
     <div class="teleport-city-settings">
-        <el-card>
+        <RouterButton
+            :buttons="[
+                {
+                    value: '好友传送',
+                    path: '/tele-system/friend',
+                },
+                {
+                    value: '城镇配置',
+                    path: '/tele-system/city/settings',
+                },
+                {
+                    value: '城镇管理',
+                    path: '/tele-system/city/management',
+                },
+                {
+                    value: 'Home配置',
+                    path: '/tele-system/home/settings',
+                },
+                {
+                    value: 'Home管理',
+                    path: '/tele-system/home/management',
+                },
+            ]"
+        >
+        </RouterButton>
+        <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" ref="formRef" label-width="150px" status-icon>
+                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="150px" status-icon>
                         <el-form-item label="是否启用" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
                         <el-form-item label="可用变量">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="查询列表命令" prop="queryListCmd" required>
+                        <el-form-item label="查询列表命令" prop="queryListCmd">
                             <el-input v-model="formModel.queryListCmd" />
                         </el-form-item>
-                        <el-form-item label="传送命令前缀" prop="teleCmdPrefix" required>
+                        <el-form-item label="传送命令前缀" prop="teleCmdPrefix">
                             <el-input v-model="formModel.teleCmdPrefix" />
                         </el-form-item>
-                        <el-form-item label="传送间隔, 单位: 秒" prop="teleInterval" required>
+                        <el-form-item label="传送间隔, 单位: 秒" prop="teleInterval">
                             <el-input-number v-model="formModel.teleInterval" />
                         </el-form-item>
-                        <el-form-item label="查询列表提示" prop="locationItemTip" required>
+                        <el-form-item label="查询列表提示" prop="locationItemTip">
                             <el-input v-model="formModel.locationItemTip" />
                         </el-form-item>
-                        <el-form-item label="传送成功提示" prop="teleSuccessTip" required>
+                        <el-form-item label="传送成功提示" prop="teleSuccessTip">
                             <el-input v-model="formModel.teleSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="积分不足提示" prop="pointsNotEnoughTip" required>
+                        <el-form-item label="积分不足提示" prop="pointsNotEnoughTip">
                             <el-input v-model="formModel.pointsNotEnoughTip" />
                         </el-form-item>
-                        <el-form-item label="正在冷却提示" prop="coolingTip" required>
+                        <el-form-item label="正在冷却提示" prop="coolingTip">
                             <el-input v-model="formModel.coolingTip" />
                         </el-form-item>
-                        <el-form-item label="无城市信息提示" prop="noLocation" required>
+                        <el-form-item label="无城市信息提示" prop="noLocation">
                             <el-input v-model="formModel.noLocation" />
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
+                            <el-button type="danger" @click="reset">重置</el-button>
                         </el-form-item>
                     </el-form>
                     <div>
@@ -55,15 +81,16 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
+import myconfirm from '~/utils/myconfirm';
 
 const formModel = reactive({});
 const formRef = ref();
 
-api.getSettings('TeleportCity')
-    .then((data) => {
-        Object.assign(formModel, data);
-    })
-    .catch((error) => {});
+const getData = async () => {
+    const data = await api.getSettings('TeleportCity');
+    Object.assign(formModel, data);
+};
+getData();
 
 const save = async () => {
     try {
@@ -73,19 +100,44 @@ const save = async () => {
     } catch {}
 };
 
-const variables = ['CityName', 'TeleInterval', 'PointsRequired', 'CooldownSeconds', 'SerialNumber', 'EntityId', 'PlatformId', 'PlayerName'];
+const reset = async () => {
+    try {
+        if (await myconfirm('确定重置配置吗?')) {
+            await api.resetSettings('TeleportCity', formModel);
+            await getData();
+            ElMessage.success('重置成功');
+        }
+    } catch {}
+};
+
+const variables = ['CityId', 'CityName', 'TeleInterval', 'PointsRequired', 'CooldownSeconds', 'EntityId', 'PlatformId', 'PlayerName'];
+
+const rules = {
+    queryListCmd: [{ required: true, message: '必填项', trigger: 'blur' }],
+    teleCmdPrefix: [{ required: true, message: '必填项', trigger: 'blur' }],
+    teleInterval: [{ required: true, message: '必填项', trigger: 'blur' }],
+    locationItemTip: [{ required: true, message: '必填项', trigger: 'blur' }],
+    teleSuccessTip: [{ required: true, message: '必填项', trigger: 'blur' }],
+    pointsNotEnoughTip: [{ required: true, message: '必填项', trigger: 'blur' }],
+    coolingTip: [{ required: true, message: '必填项', trigger: 'blur' }],
+    noLocation: [{ required: true, message: '必填项', trigger: 'blur' }],
+};
 </script>
 
 <style scoped lang="scss">
 .teleport-city-settings {
-    .tag {
-        margin-right: 8px;
-    }
-    .el-card {
-        height: 100%;
+    .card {
+        margin-top: 20px;
         background-color: #ffffffaf;
         :deep(.el-card__body) {
-            height: calc(100% - 40px);
+            height: calc(100vh - 200px);
+        }
+
+        .label {
+            :deep(.el-form-item__label) {
+                word-break: break-all;
+                white-space: pre-wrap;
+            }
         }
     }
 }

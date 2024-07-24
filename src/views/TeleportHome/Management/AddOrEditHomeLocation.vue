@@ -1,6 +1,6 @@
 <template>
-    <el-dialog :title="isAdd ? '新增Home' : '编辑Home'" v-model="visible" width="650px">
-        <el-form ref="formRef" :model="formModel" status-icon :rules="formRules" label-width="120px" label-position="right">
+    <MyDialogForm titleSuffix="Home" :formModel="formModel" :rules="rules" :request="request">
+        <template #default="{ isAdd }">
             <el-form-item label="玩家Id" prop="playerId">
                 <el-input :disabled="!isAdd" v-model="formModel.playerId"></el-input>
             </el-form-item>
@@ -10,94 +10,29 @@
             <el-form-item label="Home名称" prop="homeName">
                 <el-input v-model="formModel.homeName"></el-input>
             </el-form-item>
-            <el-form-item label="三维坐标" prop="position">
-                <el-input v-model="formModel.position"></el-input>
+            <el-form-item label="坐标 (X, Y, Z)" prop="position">
+                <Coordinate v-model="formModel.position"></Coordinate>
             </el-form-item>
-        </el-form>
-        <template #footer>
-            <span class="dialog-footer">
-                <el-button @click="visible = false">取消</el-button>
-                <el-button type="primary" @click="submit">保存</el-button>
-            </span>
         </template>
-    </el-dialog>
+    </MyDialogForm>
 </template>
 
 <script setup>
 import * as api from '~/api/home-location';
 
-const isAdd = ref(false);
-const visible = ref(false);
-
 const formModel = reactive({});
 
-const formRef = ref();
-
-const formRules = reactive({
-    playerId: [
-        {
-            required: true,
-            trigger: 'blur',
-            message: '请填写玩家Id',
-        },
-    ],
-    homeName: [
-        {
-            required: true,
-            trigger: 'blur',
-            message: '请填写Home名称',
-        },
-    ],
-    position: [
-        {
-            required: true,
-            trigger: 'blur',
-            message: '请填写三维坐标',
-        },
-    ],
-});
-
-const submit = async () => {
-    const loading = ElLoading.service({
-        lock: true,
-        text: 'Loading',
-        background: 'rgba(0, 0, 0, 0.7)',
-    });
-
-    try {
-        await formRef.value.validate();
-
-        if (isAdd.value) {
-            await api.addHomeLocation(formModel);
-        } else {
-            await api.updateHomeLocation(formModel.id, formModel);
-        }
-
-        ElMessage.success('保存成功');
-        visible.value = false;
-        emit('onSubmit');
-    } finally {
-        loading.close();
-    }
+const rules = {
+    playerId: [{ required: true, message: '必填项', trigger: 'blur' }],
+    homeName: [{ required: true, message: '必填项', trigger: 'blur' }],
+    position: [{ required: true, message: '必填项', trigger: 'blur' }],
 };
 
-const show = (row) => {
-    visible.value = true;
-
-    if (!row) {
-        isAdd.value = true;
-        formRef.value?.resetFields();
+const request = async (isAdd) => {
+    if (isAdd) {
+        await api.addHomeLocation(formModel);
     } else {
-        isAdd.value = false;
-        nextTick(() => {
-            Object.assign(formModel, row);
-        });
+        await api.updateHomeLocation(formModel.id, formModel);
     }
 };
-
-defineExpose({
-    show,
-});
-
-const emit = defineEmits(['onSubmit']);
 </script>

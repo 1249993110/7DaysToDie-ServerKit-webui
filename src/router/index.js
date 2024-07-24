@@ -191,42 +191,48 @@ const routes = [
                 ],
             },
             {
-                path: '/tele-friend',
-                name: 'TeleportFriend',
-                component: () => import('../views/TeleportFriend/index.vue'),
-                meta: { requiresAuth: true, keepAlive: true },
-            },
-            {
-                path: '/tele-city',
+                path: 'tele-system',
+                redirect: '/tele-system/friend',
                 children: [
                     {
-                        path: 'settings',
-                        name: 'TeleportCity.Settings',
-                        component: () => import('../views/TeleportCity/Settings/index.vue'),
+                        path: 'friend',
+                        name: 'TeleportFriend',
+                        component: () => import('../views/TeleportFriend/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
-                        path: 'management',
-                        name: 'TeleportCity.Management',
-                        component: () => import('../views/TeleportCity/Management/index.vue'),
-                        meta: { requiresAuth: true, keepAlive: true },
+                        path: 'city',
+                        children: [
+                            {
+                                path: 'settings',
+                                name: 'TeleportCity.Settings',
+                                component: () => import('../views/TeleportCity/Settings/index.vue'),
+                                meta: { requiresAuth: true, keepAlive: true },
+                            },
+                            {
+                                path: 'management',
+                                name: 'TeleportCity.Management',
+                                component: () => import('../views/TeleportCity/Management/index.vue'),
+                                meta: { requiresAuth: true, keepAlive: true },
+                            },
+                        ],
                     },
-                ],
-            },
-            {
-                path: '/tele-home',
-                children: [
                     {
-                        path: 'settings',
-                        name: 'TeleportHome.Settings',
-                        component: () => import('../views/TeleportHome/Settings/index.vue'),
-                        meta: { requiresAuth: true, keepAlive: true },
-                    },
-                    {
-                        path: 'management',
-                        name: 'TeleportHome.Management',
-                        component: () => import('../views/TeleportHome/Management/index.vue'),
-                        meta: { requiresAuth: true, keepAlive: true },
+                        path: 'home',
+                        children: [
+                            {
+                                path: 'settings',
+                                name: 'TeleportHome.Settings',
+                                component: () => import('../views/TeleportHome/Settings/index.vue'),
+                                meta: { requiresAuth: true, keepAlive: true },
+                            },
+                            {
+                                path: 'management',
+                                name: 'TeleportHome.Management',
+                                component: () => import('../views/TeleportHome/Management/index.vue'),
+                                meta: { requiresAuth: true, keepAlive: true },
+                            },
+                        ],
                     },
                 ],
             },

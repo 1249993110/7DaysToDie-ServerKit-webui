@@ -1,105 +1,50 @@
 <template>
-    <el-dialog :title="isAdd ? '新增城市' : '编辑城市'" v-model="visible" width="650px">
-        <el-form ref="formRef" :model="formModel" status-icon :rules="formRules" label-width="120px" label-position="right">
-            <el-form-item label="城市名称" prop="cityName">
+    <MyDialogForm titleSuffix="城镇" :formModel="formModel" :rules="rules" :request="request">
+        <template #default="{ isAdd }">
+            <el-form-item label="城镇Id" prop="id">
+                <el-input-number :disabled="!isAdd" v-model="formModel.id" :min="0"></el-input-number>
+            </el-form-item>
+            <el-form-item label="城镇名称" prop="cityName">
                 <el-input v-model="formModel.cityName"></el-input>
             </el-form-item>
             <el-form-item label="传送需要积分" prop="pointsRequired">
                 <el-input-number v-model="formModel.pointsRequired"></el-input-number>
             </el-form-item>
-            <el-form-item label="三维坐标" prop="position">
-                <el-input v-model="formModel.position"></el-input>
+            <el-form-item label="坐标 (X, Y, Z)" prop="position">
+                <Coordinate v-model="formModel.position"></Coordinate>
             </el-form-item>
-        </el-form>
-        <template #footer>
-            <span class="dialog-footer">
-                <el-button @click="visible = false">取消</el-button>
-                <el-button type="primary" @click="submit">保存</el-button>
-            </span>
+            <el-form-item label="视角方向" prop="viewDirection">
+                <el-select-v2 v-model="formModel.viewDirection" :options="viewDirectionOptions" placeholder="选择" style="width: 150px" clearable scrollbar-always-on>
+                </el-select-v2>
+            </el-form-item>
         </template>
-    </el-dialog>
+    </MyDialogForm>
 </template>
 
 <script setup>
 import * as api from '~/api/city-location.js';
-
-const isAdd = ref(false);
-const visible = ref(false);
+import { viewDirectionOptions } from '~/utils/view-direction-options.js';
 
 const formModel = reactive({
-    id: '',
+    id: 0,
     cityName: '',
     pointsRequired: 0,
     position: '',
+    viewDirection: '',
 });
 
-const formRef = ref();
-
-const formRules = reactive({
-    cityName: [
-        {
-            required: true,
-            trigger: 'blur',
-            message: '请填写城市名称',
-        },
-    ],
-    pointsRequired: [
-        {
-            required: true,
-            trigger: 'blur',
-            message: '请填写传送需要积分',
-        },
-    ],
-    position: [
-        {
-            required: true,
-            trigger: 'blur',
-            message: '请填写三维坐标',
-        },
-    ],
-});
-
-const submit = async () => {
-    const loading = ElLoading.service({
-        lock: true,
-        text: 'Loading',
-        background: 'rgba(0, 0, 0, 0.7)',
-    });
-
-    try {
-        await formRef.value.validate();
-
-        if (isAdd.value) {
-            await api.addCityLocation(formModel);
-        } else {
-            await api.updateCityLocation(formModel.id, formModel);
-        }
-
-        ElMessage.success('保存成功');
-        visible.value = false;
-        emit('onSubmit');
-    } finally {
-        loading.close();
-    }
+const rules = {
+    id: [{ required: true, message: '必填项', trigger: 'blur' }],
+    cityName: [{ required: true, message: '必填项', trigger: 'blur' }],
+    pointsRequired: [{ required: true, message: '必填项', trigger: 'blur' }],
+    position: [{ required: true, message: '必填项', trigger: 'blur' }],
 };
 
-const show = (row) => {
-    visible.value = true;
-
-    if (!row) {
-        isAdd.value = true;
-        formRef.value?.resetFields();
+const request = async (isAdd) => {
+    if (isAdd) {
+        await api.addCityLocation(formModel);
     } else {
-        isAdd.value = false;
-        nextTick(() => {
-            Object.assign(formModel, row);
-        });
+        await api.updateCityLocation(formModel.id, formModel);
     }
 };
-
-defineExpose({
-    show,
-});
-
-const emit = defineEmits(['onSubmit']);
 </script>

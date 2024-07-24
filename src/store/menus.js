@@ -94,39 +94,9 @@ const tree = [
         icon: getIcon(() => import('~icons/quill/vip')),
     },
     {
-        path: '/tele-friend',
-        title: '好友传送',
-        icon: getIcon(() => import('~icons/carbon/friendship')),
-    },
-    {
-        path: '/tele-city',
-        title: '城镇传送',
-        icon: getIcon(() => import('~icons/mdi/city')),
-        children: [
-            {
-                path: 'settings',
-                title: '城镇配置',
-            },
-            {
-                path: 'management',
-                title: '城镇管理',
-            },
-        ],
-    },
-    {
-        path: '/tele-home',
-        title: '私人传送',
-        icon: getIcon(() => import('~icons/mdi/home')),
-        children: [
-            {
-                path: 'settings',
-                title: '传送配置',
-            },
-            {
-                path: 'management',
-                title: 'Home管理',
-            },
-        ],
+        path: '/tele-system',
+        title: '传送系统',
+        icon: getIcon(() => import('~icons/game-icons/teleport')),
     },
     {
         path: import.meta.env.VITE_APP_SWAGGER_URL,

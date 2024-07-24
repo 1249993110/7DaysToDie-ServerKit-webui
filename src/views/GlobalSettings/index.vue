@@ -9,10 +9,10 @@
             ]"
         >
         </RouterButton>
-        <el-card class="card">
+        <el-card  shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px">
+                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
                             <el-button type="danger" @click="reset">重置</el-button>

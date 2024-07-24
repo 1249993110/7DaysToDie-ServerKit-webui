@@ -1,22 +1,58 @@
 <template>
-    <div class="teleport-city-management">
-        <el-button type="primary" :icon="Plus" @click="handleAdd">新建</el-button>
-        <div class="table-container">
-            <el-table :data="tableData" border height="100%" highlight-current-row ref="tableRef">
-                <el-table-column type="index" label="序号" width="60"> </el-table-column>
+    <div>
+        <RouterButton
+            :buttons="[
+                {
+                    value: '好友传送',
+                    path: '/tele-system/friend',
+                },
+                {
+                    value: '城镇配置',
+                    path: '/tele-system/city/settings',
+                },
+                {
+                    value: '城镇管理',
+                    path: '/tele-system/city/management',
+                },
+                {
+                    value: 'Home配置',
+                    path: '/tele-system/home/settings',
+                },
+                {
+                    value: 'Home管理',
+                    path: '/tele-system/home/management',
+                },
+            ]"
+        >
+        </RouterButton>
+        <MyTableEx
+            style="margin-top: 20px"
+            :show-searcher="false"
+            :show-table-index="false"
+            :show-export-btn="false"
+            :show-pager="false"
+            :show-add-btn="true"
+            :show-edit-btn="true"
+            :get-data="getData"
+            :table-data="tableData"
+            :delete="deleteRequest"
+            :batch-delete="batchDeleteRequest"
+            :add-or-edit-component="AddOrEditCityLocation"
+            :addOrEditComponentProps="addOrEditComponentProps"
+        >
+            <template #columns>
+                <el-table-column prop="id" label="城镇Id" width="120px" sortable> </el-table-column>
                 <el-table-column prop="cityName" label="城镇名称" sortable> </el-table-column>
-                <el-table-column prop="createdAt" label="创建日期" sortable> </el-table-column>
                 <el-table-column prop="pointsRequired" label="传送需要积分" sortable> </el-table-column>
-                <el-table-column prop="position" label="三维坐标" sortable> </el-table-column>
-                <el-table-column label="操作" width="200" header-align="center" show-overflow-tooltip>
-                    <template #default="scope">
-                        <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope.row)">编辑</el-button>
-                        <el-button size="small" type="danger" :icon="Delete" @click="handleDelete(scope.row)">删除</el-button>
+                <el-table-column prop="position" label="三维坐标"> </el-table-column>
+                <el-table-column label="视角方向">
+                    <template #default="{ row }">
+                        {{ getLabel(row.viewDirection) }}
                     </template>
                 </el-table-column>
-            </el-table>
-        </div>
-        <AddOrEditCityLocation ref="addOrEditCityLocationRef" @onSubmit="getData" />
+                <el-table-column prop="createdAt" label="创建日期" sortable> </el-table-column>
+            </template>
+        </MyTableEx>
     </div>
 </template>
 
@@ -28,46 +64,26 @@ export default {
 
 <script setup>
 import * as api from '~/api/city-location.js';
-import { Edit, Plus, Delete, Search, Refresh, FolderAdd } from '@element-plus/icons-vue';
-import myconfirm from '~/utils/myconfirm';
 import AddOrEditCityLocation from './AddOrEditCityLocation.vue';
+import { getLabel } from '~/utils/view-direction-options.js';
 
 const tableData = ref([]);
 
-const getData = () => {
-    api.getCityLocations().then((data) => {
-        tableData.value = data;
-    });
+const addOrEditComponentProps = ref({});
+const getData = async () => {
+    const data = await api.getCityLocations();
+    if (data.length) {
+        addOrEditComponentProps.value = { id: data[data.length - 1].id + 1 };
+    }
+
+    tableData.value = data;
 };
 
-getData();
-
-const tableRef = ref();
-const addOrEditCityLocationRef = ref();
-
-const handleAdd = () => {
-    addOrEditCityLocationRef.value.show();
+const deleteRequest = async (row) => {
+    return await api.deleteCityLocationByIds([row.id]);
 };
 
-const handleEdit = (row) => {
-    addOrEditCityLocationRef.value.show(row);
-};
-
-const handleDelete = async (row) => {
-    try {
-        await myconfirm('确定删除选中内容吗?');
-        await api.deleteCityLocationById(row.id);
-        getData();
-    } catch {}
+const batchDeleteRequest = async (rows) => {
+    return await api.deleteCityLocationByIds(rows.map((i) => i.id));
 };
 </script>
-
-<style scoped lang="scss">
-.teleport-city-management {
-    height: 100%;
-    .table-container {
-        margin-top: 8px;
-        height: calc(100% - 84px);
-    }
-}
-</style>
