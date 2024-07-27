@@ -14,7 +14,7 @@
     "axios": "^1.7.2",
     "dayjs": "^1.11.12",
     "echarts": "^5.5.1",
-    "element-plus": "^2.7.7",
+    "element-plus": "^2.7.8",
     "leaflet": "^1.9.4",
     "leaflet-measure": "^3.1.0",
     "leaflet-minimap": "^3.6.1",
@@ -24,10 +24,10 @@
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "papaparse": "^5.4.1",
-    "pinia": "^2.1.7",
+    "pinia": "^2.2.0",
     "qs": "^6.12.3",
     "screenfull": "^6.0.2",
-    "vue": "^3.4.33",
+    "vue": "^3.4.34",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
@@ -42,11 +42,11 @@
     "@iconify-json/mdi": "^1.1.67",
     "@iconify-json/quill": "^1.1.10",
     "@iconify-json/uiw": "^1.1.12",
-    "@vitejs/plugin-vue": "^5.1.0",
+    "@vitejs/plugin-vue": "^5.1.1",
     "sass": "^1.77.6",
-    "unplugin-auto-import": "^0.18.1",
+    "unplugin-auto-import": "^0.18.2",
     "unplugin-icons": "^0.19.0",
     "unplugin-vue-components": "^0.27.3",
-    "vite": "^5.3.4"
+    "vite": "^5.3.5"
   }
 }

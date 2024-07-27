@@ -9,7 +9,7 @@
             ]"
         >
         </RouterButton>
-        <el-card  shadow="always" class="card">
+        <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
                     <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
@@ -64,6 +64,12 @@
                         </el-form-item>
                         <el-form-item label="是否启用POI保护" prop="removeSleepingBagFromPOI">
                             <el-switch v-model="formModel.removeSleepingBagFromPOI" />
+                        </el-form-item>
+                        <el-form-item label="是否启用玩家初始出生点" prop="isEnablePlayerInitialSpawnPoint">
+                            <el-switch v-model="formModel.isEnablePlayerInitialSpawnPoint" />
+                        </el-form-item>
+                        <el-form-item label="玩家初始坐标 (X, Y, Z)" prop="playerInitialPosition">
+                            <Coordinate v-model="formModel.playerInitialPosition"></Coordinate>
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">保存</el-button>
@@ -120,6 +126,8 @@ const formModel = reactive({
     },
     blockFamilySharingAccount: false,
     removeSleepingBagFromPOI: false,
+    isEnablePlayerInitialSpawnPoint: false,
+    playerInitialPosition: '',
 });
 
 const formRef = ref();

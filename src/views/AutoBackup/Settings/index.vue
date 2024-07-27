@@ -32,6 +32,9 @@
                         <el-form-item label="是否在没有玩家时跳过备份" prop="skipIfThereAreNoPlayers">
                             <el-switch v-model="formModel.skipIfThereAreNoPlayers" />
                         </el-form-item>
+                        <el-form-item label="是否在服务器启动时自动备份" prop="autoBackupOnServerStartup">
+                            <el-switch v-model="formModel.autoBackupOnServerStartup" />
+                        </el-form-item>
                         <el-form-item label="备份文件夹" prop="archiveFolder">
                             <el-input v-model="formModel.archiveFolder" />
                         </el-form-item>

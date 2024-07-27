@@ -28,13 +28,13 @@
                         <el-form-item label="轮播间隔" prop="rotatingInterval" required>
                             <el-input-number v-model="formModel.rotatingInterval" />
                         </el-form-item>
-                        <el-form-item label="血月通知1" prop="bloodMoonNotice1" required>
+                        <el-form-item label="血月通知1" prop="bloodMoonNotice1">
                             <el-input v-model="formModel.bloodMoonNotice1" />
                         </el-form-item>
-                        <el-form-item label="血月通知2" prop="bloodMoonNotice2" required>
+                        <el-form-item label="血月通知2" prop="bloodMoonNotice2">
                             <el-input v-model="formModel.bloodMoonNotice2" />
                         </el-form-item>
-                        <el-form-item label="血月通知3" prop="bloodMoonNotice3" required>
+                        <el-form-item label="血月通知3" prop="bloodMoonNotice3">
                             <el-input v-model="formModel.bloodMoonNotice3" />
                         </el-form-item>
                         <el-form-item>
