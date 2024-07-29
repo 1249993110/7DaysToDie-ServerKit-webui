@@ -31,6 +31,9 @@
                     <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
                 </el-form-item>
             </template>
+            <template #toolbarPost>
+                <el-button @click="handleDeleteAll" type="danger">删除所有记录</el-button>
+            </template>
             <template #columns>
                 <el-table-column prop="createdAt" label="日期" width="165" sortable> </el-table-column>
                 <el-table-column prop="entityId" label="实体Id" width="95" sortable> </el-table-column>
@@ -50,6 +53,7 @@ export default {
 <script setup>
 import * as api from '~/api/chat-record';
 import * as fileHelper from '~/utils/file-helper';
+import myconfirm from '~/utils/myconfirm';
 
 const searchFormModel = reactive({
     keyword: '',
@@ -109,10 +113,19 @@ const handleExport = (command) => {
 };
 
 const deleteRequest = async (row) => {
-    return await api.deleteChatRecordById([row.id]);
+    return await api.deleteChatRecordByIds({ ids: [row.id] });
 };
 
 const batchDeleteRequest = async (rows) => {
-    return await api.deleteChatRecordByIds(rows.map((i) => i.id));
+    return await api.deleteChatRecordByIds({ ids: rows.map((i) => i.id) });
+};
+
+const handleDeleteAll = async () => {
+    try {
+        if (await myconfirm('确定删除所有记录吗?')) {
+            await api.deleteChatRecordByIds({ deleteAll: true });
+            await getData();
+        }
+    } catch {}
 };
 </script>

@@ -36,8 +36,8 @@ export const deleteHomeLocationById = (id) => {
  * 通过Id集合删除私人位置
  * @returns
  */
-export const deleteHomeLocationByIds = (ids) => {
-    return http.delete('/HomeLocation', { data: ids });
+export const deleteHomeLocationByIds = (params) => {
+    return http.delete('/HomeLocation', { params: params });
 };
 
 /**

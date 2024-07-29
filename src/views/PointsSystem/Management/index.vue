@@ -31,6 +31,10 @@
                     <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
                 </el-form-item>
             </template>
+            <template #toolbarPost>
+                <el-button @click="handleResetPoints" type="danger">重置所有玩家积分</el-button>
+                <el-button @click="handleResetSignIn" type="danger">重置所有签到时间</el-button>
+            </template>
             <template #columns>
                 <el-table-column prop="playerName" label="玩家名称" sortable> </el-table-column>
                 <el-table-column prop="id" label="玩家Id" sortable> </el-table-column>
@@ -50,6 +54,7 @@ export default {
 <script setup>
 import * as api from '~/api/points-info.js';
 import AddOrEditPointsInfo from './AddOrEditPointsInfo.vue';
+import myconfirm from '~/utils/myconfirm';
 
 const searchFormModel = reactive({
     keyword: '',
@@ -65,14 +70,30 @@ const getData = async (pagination) => {
 };
 
 const deleteRequest = async (row) => {
-    return await api.deletePointsInfoByIds([row.id]);
+    return await api.deletePointsInfoByIds({ ids: [row.id] });
 };
 
 const batchDeleteRequest = async (rows) => {
-    return await api.deletePointsInfoByIds(rows.map((i) => i.id));
+    return await api.deletePointsInfoByIds({ ids: rows.map((i) => i.id) });
+};
+
+const handleResetPoints = async () => {
+    try {
+        if (await myconfirm('您确定要清空所有玩家的积分吗？这个操作不可逆!')) {
+            await api.deletePointsInfoByIds({ resetPoints: true });
+            await getData();
+        }
+    } catch {}
+};
+
+const handleResetSignIn = async () => {
+    try {
+        if (await myconfirm('您确定要重置所有玩家的签到时间吗?')) {
+            await api.deletePointsInfoByIds({ resetSignIn: true });
+            await getData();
+        }
+    } catch {}
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -43,6 +43,9 @@
                     <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
                 </el-form-item>
             </template>
+            <template #toolbarPost>
+                <el-button @click="handleDeleteAll" type="danger">删除所有记录</el-button>
+            </template>
             <template #columns>
                 <el-table-column prop="playerName" label="玩家名称" sortable> </el-table-column>
                 <el-table-column prop="playerId" label="玩家Id" sortable> </el-table-column>
@@ -63,6 +66,7 @@ export default {
 <script setup>
 import * as api from '~/api/home-location.js';
 import AddOrEditHomeLocation from './AddOrEditHomeLocation.vue';
+import myconfirm from '~/utils/myconfirm';
 
 const searchFormModel = reactive({
     keyword: '',
@@ -78,11 +82,19 @@ const getData = async (pagination) => {
 };
 
 const deleteRequest = async (row) => {
-    return await api.deleteHomeLocationByIds([row.id]);
+    return await api.deleteHomeLocationByIds({ ids: [row.id] });
 };
 
 const batchDeleteRequest = async (rows) => {
-    return await api.deleteHomeLocationByIds(rows.map((i) => i.id));
+    return await api.deleteHomeLocationByIds({ ids: rows.map((i) => i.id) });
+};
+
+const handleDeleteAll = async () => {
+    try {
+        if (await myconfirm('确定删除所有记录吗?')) {
+            await api.deleteHomeLocationByIds({ deleteAll: true });
+            await getData();
+        }
+    } catch {}
 };
 </script>
-
