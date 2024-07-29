@@ -2,6 +2,7 @@
     <el-dialog title="绑定物品" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
         <div style="margin-bottom: 8px">
             <el-button type="primary" @click="handleAdd">添加物品</el-button>
+            <el-button color="#626aef" @click="handleAddFromList">从清单添加物品</el-button>
             <el-button type="danger" @click="handleBatchDelete" :disabled="batchDeleteDisabled">批量删除</el-button>
         </div>
         <el-table :data="tableData" border height="calc(64vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
@@ -23,11 +24,14 @@
                 </template>
             </el-table-column>
         </el-table>
+        <AddOrEditItemList v-model="addOrEditItemListVisible" @on-confirm="handleAddConfirm" :is-add="true" />
         <ItemListSelector v-model="itemListSelectorVisible" @on-select="handleSelectItemList" :disabled-ids="tableData.map((i) => i.id)" />
     </el-dialog>
 </template>
 
 <script setup>
+import { getItemById } from '~/api/item-list';
+
 const props = defineProps({
     tableData: {
         type: Array,
@@ -47,8 +51,22 @@ const handleSelectionChange = (val) => {
     batchDeleteDisabled.value = multipleSelection.length === 0;
 };
 
-const itemListSelectorVisible = ref(false);
+const addOrEditItemListVisible = ref(false);
 const handleAdd = () => {
+    addOrEditItemListVisible.value = true;
+};
+
+const handleAddConfirm = async (id) => {
+    const cmd = await getItemById(id);
+    tableData.value.push(cmd);
+    emit(
+        'onEdit',
+        tableData.value.map((i) => i.id)
+    );
+};
+
+const itemListSelectorVisible = ref(false);
+const handleAddFromList = () => {
     itemListSelectorVisible.value = true;
 };
 

@@ -28,7 +28,11 @@
 <script setup>
 import * as api from '~/api/item-list.js';
 
-const formModel = reactive({});
+const formModel = reactive({
+    count: 1,
+    quality: 6,
+    durability: 100,
+});
 
 const rules = {
     itemName: [{ required: true, message: '必填项', trigger: 'blur' }],
@@ -37,9 +41,9 @@ const rules = {
 
 const request = async (isAdd) => {
     if (isAdd) {
-        await api.addItem(formModel);
+        return await api.addItem(formModel);
     } else {
-        await api.updateItem(formModel.id, formModel);
+        return await api.updateItem(formModel.id, formModel);
     }
 };
 

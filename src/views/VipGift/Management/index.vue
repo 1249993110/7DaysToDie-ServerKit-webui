@@ -73,17 +73,17 @@ const getData = async () => {
 };
 
 const deleteRequest = async (row) => {
-    return await api.deleteVipGiftByIds([row.id]);
+    return await api.deleteVipGiftByIds({ ids: [row.id] });
 };
 
 const batchDeleteRequest = async (rows) => {
-    return await api.deleteVipGiftByIds(rows.map((i) => i.id));
+    return await api.deleteVipGiftByIds({ ids: rows.map((i) => i.id) });
 };
 
 const handleResetAll = async () => {
     try {
         if (await myconfirm('确定重置所有玩家的领取状态为未领取吗?')) {
-            await api.deleteVipGiftByIds([], false, true);
+            await api.deleteVipGiftByIds({ resetAll: true });
             await getData();
         }
     } catch {}

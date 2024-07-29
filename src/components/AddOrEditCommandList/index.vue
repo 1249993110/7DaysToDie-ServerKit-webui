@@ -17,7 +17,6 @@
 <script setup>
 import * as api from '~/api/command-list.js';
 
-
 const formModel = reactive({
     inMainThread: true
 });
@@ -28,17 +27,10 @@ const rules = {
 
 const request = async (isAdd) => {
     if (isAdd) {
-        await api.addCommand(formModel);
+        return await api.addCommand(formModel);
     } else {
-        await api.updateCommand(formModel.id, formModel);
+        return await api.updateCommand(formModel.id, formModel);
     }
-};
-
-const itemBlockSelectorVisible = ref(false);
-const handleSelect = (item) => {
-    formModel.itemName = item.itemName;
-    formModel.description = item.localizationName;
-    itemBlockSelectorVisible.value = false;
 };
 </script>
 

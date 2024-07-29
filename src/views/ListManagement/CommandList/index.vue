@@ -55,7 +55,7 @@ export default {
 
 <script setup>
 import * as api from '~/api/command-list.js';
-import AddOrEditCommandList from './AddOrEditCommandList.vue';
+import AddOrEditCommandList from '~/components/AddOrEditCommandList/index.vue';
 
 const searchFormModel = reactive({
     keyword: '',

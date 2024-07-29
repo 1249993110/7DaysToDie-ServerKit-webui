@@ -58,7 +58,7 @@ export default {
 
 <script setup>
 import * as api from '~/api/item-list.js';
-import AddOrEditItemList from './AddOrEditItemList.vue';
+import AddOrEditItemList from '~/components/AddOrEditItemList/index.vue';
 
 const searchFormModel = reactive({
     keyword: '',
