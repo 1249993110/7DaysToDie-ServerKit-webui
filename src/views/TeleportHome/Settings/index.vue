@@ -143,7 +143,7 @@ const reset = async () => {
     } catch {}
 };
 
-const variables = ['HomeName', 'TeleInterval', 'CooldownSeconds', 'EntityId', 'PlatformId', 'PlayerName'];
+const variables = ['HomeName', 'TeleInterval', 'CooldownSeconds', 'EntityId', 'PlayerId', 'PlayerName'];
 
 const rules = {
     queryListCmd: [{ required: true, message: '必填项', trigger: 'blur' }],

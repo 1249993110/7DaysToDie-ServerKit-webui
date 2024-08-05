@@ -86,7 +86,7 @@ const reset = async () => {
     } catch {}
 };
 
-const variables = ['BloodMoonDays', 'BloodMoonStartTime', 'BloodMoonEndTime', 'EntityId', 'PlatformId', 'PlayerName'];
+const variables = ['BloodMoonDays', 'BloodMoonStartTime', 'BloodMoonEndTime', 'EntityId', 'PlayerId', 'PlayerName'];
 </script>
 
 <style scoped lang="scss">

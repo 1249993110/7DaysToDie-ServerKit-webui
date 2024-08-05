@@ -37,7 +37,7 @@
             <template #columns>
                 <el-table-column prop="playerName" label="玩家昵称" min-width="120" sortable> </el-table-column>
                 <el-table-column prop="platformId" label="平台Id" min-width="215" sortable> </el-table-column>
-                <el-table-column prop="crossplatformId" label="EOS" min-width="320" sortable> </el-table-column>
+                <el-table-column prop="playerId" label="玩家Id (EOS)" min-width="320" sortable> </el-table-column>
                 <el-table-column prop="lastLogin" label="上次在线" min-width="170" sortable :formatter="formatLastLogin"> </el-table-column>
                 <el-table-column prop="position" label="玩家坐标" min-width="130" :formatter="formatPosition"> </el-table-column>
             </template>
@@ -120,7 +120,7 @@ const getDetails = async (playerId) => {
     return [
         {
             label: 'EOS',
-            value: data.crossplatformId,
+            value: data.playerId,
         },
         {
             label: '平台ID',
@@ -235,7 +235,7 @@ const format_position = (row) => {
 };
 
 const handleContextmenu = (row, column, event) => {
-    const crossplatformId = row.crossplatformId;
+    const playerId = row.playerId;
     const playerName = row.playerName;
 
     ContextMenu.showContextMenu({
@@ -246,16 +246,16 @@ const handleContextmenu = (row, column, event) => {
             {
                 label: '查看详细信息',
                 onClick: async () => {
-                    dialogTitle.value = `玩家: ${playerName} (${row.crossplatformId}) 的数据`;
+                    dialogTitle.value = `玩家: ${playerName} (${row.playerId}) 的数据`;
                     detailsDialogVisible.value = true;
-                    details.value = await getDetails(row.crossplatformId);
+                    details.value = await getDetails(row.playerId);
                 },
                 divided: true,
             },
             {
                 label: '查看背包',
                 onClick: () => {
-                    showInventory(row.crossplatformId, playerName);
+                    showInventory(row.playerId, playerName);
                 },
                 svgIcon: '#icon-view',
                 svgProps: {
@@ -276,14 +276,14 @@ const handleContextmenu = (row, column, event) => {
                     {
                         label: '复制玩家EOS',
                         onClick: async () => {
-                            await copy(crossplatformId);
+                            await copy(playerId);
                             ElMessage.success('复制成功');
                         },
                     },
                     {
-                        label: '复制玩家平台Id',
+                        label: '复制玩家Id',
                         onClick: async () => {
-                            await copy(row.platformId);
+                            await copy(row.playerId);
                             ElMessage.success('复制成功');
                         },
                     },
@@ -299,7 +299,7 @@ const handleContextmenu = (row, column, event) => {
             {
                 label: '封禁玩家',
                 onClick: () => {
-                    showBanWindow(crossplatformId, playerName);
+                    showBanWindow(playerId, playerName);
                 },
                 divided: true,
             },
@@ -307,7 +307,7 @@ const handleContextmenu = (row, column, event) => {
                 label: '设置为超级管理员',
                 onClick: async () => {
                     if (await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')) {
-                        sdtdConsole.addAdmin(crossplatformId, 0, '超级管理员-' + playerName).then(() => {
+                        sdtdConsole.addAdmin(playerId, 0, '超级管理员-' + playerName).then(() => {
                             ElMessage.success('发送命令成功');
                         });
                     }
@@ -323,7 +323,7 @@ const handleExport = (command) => {
             fileHelper.exportCsv(tableData.value, '历史玩家', {
                 playerName: '玩家昵称',
                 platformId: '平台Id',
-                crossplatformId: 'EOS',
+                playerId: 'EOS',
                 lastLogin: '上次在线',
                 position: '玩家坐标',
             });
@@ -335,12 +335,12 @@ const handleExport = (command) => {
 };
 
 const deleteRequest = async (row) => {
-    return await resetPlayer(row.crossplatformId);
+    return await resetPlayer(row.playerId);
 };
 
 const batchDeleteRequest = async (rows) => {
     for (const row of rows) {
-        await resetPlayer(row.crossplatformId);
+        await resetPlayer(row.playerId);
     }
 };
 

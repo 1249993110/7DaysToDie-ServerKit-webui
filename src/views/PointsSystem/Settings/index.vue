@@ -107,7 +107,7 @@ const reset = async () => {
     } catch {}
 };
 
-const variables = ['SignInRewardPoints', 'PlayerTotalPoints', 'CurrencyAmount', 'EntityId', 'PlatformId', 'PlayerName'];
+const variables = ['SignInRewardPoints', 'PlayerTotalPoints', 'CurrencyAmount', 'EntityId', 'PlayerId', 'PlayerName'];
 </script>
 
 <style scoped lang="scss">

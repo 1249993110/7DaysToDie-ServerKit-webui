@@ -93,7 +93,7 @@ const reset = async () => {
     } catch {}
 };
 
-const variables = ['GoodsId', 'GoodsName', 'Price', 'EntityId', 'PlatformId', 'PlayerName'];
+const variables = ['GoodsId', 'GoodsName', 'Price', 'EntityId', 'PlayerId', 'PlayerName'];
 </script>
 
 <style scoped lang="scss">

@@ -110,7 +110,7 @@ const reset = async () => {
     } catch {}
 };
 
-const variables = ['TeleInterval', 'PointsRequired', 'TargetName', 'CooldownSeconds', 'EntityId', 'PlatformId', 'PlayerName'];
+const variables = ['TeleInterval', 'PointsRequired', 'TargetName', 'CooldownSeconds', 'EntityId', 'PlayerId', 'PlayerName'];
 
 const rules = {
     teleCmdPrefix: [{ required: true, message: '必填项', trigger: 'blur' }],

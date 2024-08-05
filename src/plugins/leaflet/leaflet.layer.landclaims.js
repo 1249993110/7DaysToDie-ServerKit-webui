@@ -29,7 +29,7 @@ export function getLandClaimsLayer(map, mapInfo) {
 
         for (let i = 0, len = claimOwners.length; i < len; i++) {
             const claimOwner = claimOwners[i];
-            const platformId = claimOwner.platformId;
+            const playerId = claimOwner.crossplatformId;
             const playerName = claimOwner.playerName || '&lt;unknown&gt;';
             const active = claimOwner.claimActive;
             const color = active ? '#55ff55' : '#ff0000';
@@ -46,7 +46,7 @@ export function getLandClaimsLayer(map, mapInfo) {
                     iconSize: [0, 0],
                     icon: L.divIcon({ className: 'invisIcon', iconSize: [0, 0] }),
                 });
-                r.bindPopup('所有者: ' + playerName + ' (' + platformId + ')<br/>Position: ' + position.x + ' ' + position.y + ' ' + position.z);
+                r.bindPopup('所有者: ' + playerName + ' (' + playerId + ')<br/>Position: ' + position.x + ' ' + position.y + ' ' + position.z);
                 landClaimsRectGroup.addLayer(r);
                 r.addEventListener('popupopen', (e) => {
                     e.popup._closeButton.href = 'javascript:void(0);';

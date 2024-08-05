@@ -25,7 +25,7 @@
                 <el-table-column prop="entityId" label="实体Id" min-width="95" sortable> </el-table-column>
                 <el-table-column prop="playerName" label="玩家昵称" min-width="115" sortable> </el-table-column>
                 <el-table-column prop="platformId" label="平台Id" min-width="215" sortable> </el-table-column>
-                <el-table-column prop="crossplatformId" label="EOS" min-width="315" sortable> </el-table-column>
+                <el-table-column prop="playerId" label="玩家Id (EOS)" min-width="315" sortable> </el-table-column>
                 <el-table-column prop="ip" label="IP地址" min-width="135" sortable> </el-table-column>
                 <el-table-column prop="ipAttribution" label="IP归属地" min-width="135" sortable> </el-table-column>
                 <el-table-column prop="ping" label="延迟" min-width="80" sortable> </el-table-column>
@@ -124,8 +124,8 @@ const getDetails = async (playerId) => {
     // }
     return [
         {
-            label: 'EOS',
-            value: data.crossplatformId,
+            label: '玩家Id (EOS)',
+            value: data.playerId,
         },
         {
             label: '平台ID',
@@ -251,7 +251,7 @@ const onContextmenu = (row, column, event) => {
 
     const _entityId = row.entityId;
     const _playerName = row.playerName;
-    const _playerId = row.crossplatformId;
+    const _playerId = row.playerId;
     playerId.value = _playerId;
     playerName.value = _playerName;
 
@@ -263,16 +263,16 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '查看详细信息',
                 onClick: async () => {
-                    dialogTitle.value = `玩家: ${_playerName} (${row.crossplatformId}) 的数据`;
+                    dialogTitle.value = `玩家: ${_playerName} (${row.playerId}) 的数据`;
                     detailsDialogVisible.value = true;
-                    details.value = await getDetails(row.crossplatformId);
+                    details.value = await getDetails(row.playerId);
                 },
                 divided: true,
             },
             {
                 label: '查看背包',
                 onClick: () => {
-                    showInventory(row.crossplatformId, _playerName);
+                    showInventory(row.playerId, _playerName);
                 },
                 svgIcon: '#icon-view',
                 svgProps: {
@@ -298,9 +298,9 @@ const onContextmenu = (row, column, event) => {
                         },
                     },
                     {
-                        label: '复制玩家平台Id',
+                        label: '复制玩家Id',
                         onClick: async () => {
-                            await copy(row.platformId);
+                            await copy(row.playerId);
                             ElMessage.success('复制成功');
                         },
                     },
@@ -354,7 +354,7 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '封禁玩家',
                 onClick: () => {
-                    showBanWindow(row.crossplatformId, _playerName);
+                    showBanWindow(row.playerId, _playerName);
                 },
                 divided: true,
             },
