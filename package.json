@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@imengyu/vue3-context-menu": "^1.4.1",
+    "@imengyu/vue3-context-menu": "^1.4.2",
     "@vueuse/core": "^10.11.0",
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "dayjs": "^1.11.12",
     "echarts": "^5.5.1",
     "element-plus": "^2.7.8",
@@ -25,10 +25,10 @@
     "nprogress": "^0.2.0",
     "papaparse": "^5.4.1",
     "pinia": "^2.2.0",
-    "qs": "^6.12.3",
+    "qs": "^6.13.0",
     "screenfull": "^6.0.2",
-    "vue": "^3.4.34",
-    "vue-router": "^4.4.0"
+    "vue": "^3.4.35",
+    "vue-router": "^4.4.2"
   },
   "devDependencies": {
     "@iconify-json/ant-design": "^1.1.16",
@@ -42,10 +42,10 @@
     "@iconify-json/mdi": "^1.1.67",
     "@iconify-json/quill": "^1.1.10",
     "@iconify-json/uiw": "^1.1.12",
-    "@vitejs/plugin-vue": "^5.1.1",
+    "@vitejs/plugin-vue": "^5.1.2",
     "sass": "^1.77.6",
     "unplugin-auto-import": "^0.18.2",
-    "unplugin-icons": "^0.19.0",
+    "unplugin-icons": "^0.19.1",
     "unplugin-vue-components": "^0.27.3",
     "vite": "^5.3.5"
   }
