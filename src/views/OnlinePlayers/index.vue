@@ -24,8 +24,8 @@
                 <el-table-column type="index" label="序号" width="60"> </el-table-column>
                 <el-table-column prop="entityId" label="实体Id" min-width="95" sortable> </el-table-column>
                 <el-table-column prop="playerName" label="玩家昵称" min-width="115" sortable> </el-table-column>
-                <el-table-column prop="platformId" label="平台Id" min-width="215" sortable> </el-table-column>
                 <el-table-column prop="playerId" label="玩家Id (EOS)" min-width="315" sortable> </el-table-column>
+                <el-table-column prop="platformId" label="平台Id" min-width="215" sortable> </el-table-column>
                 <el-table-column prop="ip" label="IP地址" min-width="135" sortable> </el-table-column>
                 <el-table-column prop="ipAttribution" label="IP归属地" min-width="135" sortable> </el-table-column>
                 <el-table-column prop="ping" label="延迟" min-width="80" sortable> </el-table-column>
@@ -51,7 +51,7 @@ export default {
 <script setup>
 import ContextMenu from '@imengyu/vue3-context-menu';
 import * as sdtdConsole from '~/api/sdtd-console';
-import { getOnlinePlayers, getOnlinePlayerDetails } from '~/api/players';
+import { getOnlinePlayers } from '~/api/players';
 import { showInventory } from '~/components/InventoryDialog/index.js';
 import myprompt from '~/utils/myprompt';
 import myconfirm from '~/utils/myconfirm';
@@ -112,23 +112,19 @@ watch(autoRefrensh, (val) => {
 const tableRef = ref();
 const { copy } = useClipboard();
 
-const formatPosition = (row) => {
-    const value = row.position;
-    return `${value.x} ${value.y} ${value.z}`;
+const formatPosition = (pos) => {
+    return `${pos.x} ${pos.y} ${pos.z}`;
 };
 
-const getDetails = async (playerId) => {
-    const data = await getOnlinePlayerDetails(playerId);
-    // for (const key in data) {
-    //     result.push({ label: key, value: data[key] });
-    // }
+const getDetails = (data) => {
+    const playerDetails = data.playerDetails;
     return [
         {
             label: '玩家Id (EOS)',
             value: data.playerId,
         },
         {
-            label: '平台ID',
+            label: '平台Id',
             value: data.platformId,
         },
         {
@@ -136,7 +132,7 @@ const getDetails = async (playerId) => {
             value: data.playerName,
         },
         {
-            label: '实体ID',
+            label: '实体Id',
             value: data.entityId,
         },
         {
@@ -149,95 +145,91 @@ const getDetails = async (playerId) => {
         },
         {
             label: '坐标',
-            value: formatPosition(data),
+            value: formatPosition(playerDetails.position),
         },
         {
             label: '上次在线',
-            value: data.lastLogin,
+            value: playerDetails.lastLogin,
         },
         {
             label: '击杀玩家',
-            value: data.playerKills,
+            value: playerDetails.playerKills,
         },
         {
             label: '击杀僵尸',
-            value: data.zombieKills,
+            value: playerDetails.zombieKills,
         },
         {
             label: '死亡次数',
-            value: data.deaths,
+            value: playerDetails.deaths,
         },
         {
             label: '分数',
-            value: data.score,
+            value: playerDetails.score,
         },
         {
             label: '生命值',
-            value: data.health.toFixed(1),
+            value: playerDetails.stats.health.toFixed(1),
         },
         {
             label: '体力值',
-            value: data.stamina.toFixed(1),
+            value: playerDetails.stats.stamina.toFixed(1),
         },
         {
             label: '温度',
-            value: data.coreTemp.toFixed(1),
+            value: playerDetails.stats.coreTemp.toFixed(1),
         },
         {
             label: '食物',
-            value: data.food.toFixed(2),
+            value: playerDetails.stats.food.toFixed(2),
         },
         {
             label: '水',
-            value: data.water.toFixed(2),
+            value: playerDetails.stats.water.toFixed(2),
         },
         {
             label: '等级',
-            value: data.level,
+            value: playerDetails.progression.level,
         },
         {
             label: '至下一级的经验',
-            value: data.expToNextLevel,
+            value: playerDetails.progression.expToNextLevel,
         },
         {
             label: '技能点',
-            value: data.skillPoints,
+            value: playerDetails.progression.skillPoints,
         },
         {
             label: '领地石保护状态',
-            value: data.landProtectionActive ? '激活' : '未激活',
-        },
-        {
-            label: '领地石保护倍数',
-            value: data.landProtectionMultiplier,
+            value: playerDetails.landProtectionActive ? '激活' : '未激活',
         },
         {
             label: '行走距离',
-            value: data.distanceWalked.toFixed(2),
+            value: playerDetails.distanceWalked.toFixed(2),
         },
         {
             label: '制作项目总数',
-            value: data.totalItemsCrafted,
+            value: playerDetails.totalItemsCrafted,
         },
         {
             label: '最长生存时长',
-            value: formatMinute(data.longestLife),
+            value: formatMinute(playerDetails.longestLife),
         },
         {
             label: '当前存活时长',
-            value: formatMinute(data.currentLife),
+            value: formatMinute(playerDetails.currentLife),
         },
         {
             label: '总游戏时长',
-            value: formatMinute(data.totalTimePlayed),
+            value: formatMinute(playerDetails.totalTimePlayed),
         },
         {
-            label: '游戏阶段出生在世界时间',
-            value: data.gameStageBornAtWorldTime.toFixed(2),
+            label: '出生游戏阶段的世界时间',
+            value: playerDetails.gameStageBornAtWorldTime.toFixed(2),
         },
         {
             label: '租赁结束日期',
-            value: data.rentalEndDay + ' 天 ' + data.rentalEndTime + ' 小时',
+            value: playerDetails.rentalEndDay + ' 天 ' + playerDetails.rentalEndTime + ' 小时',
         },
     ];
 };
@@ -265,7 +257,7 @@ const onContextmenu = (row, column, event) => {
                 onClick: async () => {
                     dialogTitle.value = `玩家: ${_playerName} (${row.playerId}) 的数据`;
                     detailsDialogVisible.value = true;
-                    details.value = await getDetails(row.playerId);
+                    details.value = getDetails(row);
                 },
                 divided: true,
             },

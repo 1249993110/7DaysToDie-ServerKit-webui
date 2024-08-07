@@ -3,11 +3,28 @@
         <el-descriptions :column="3" class="description" direction="vertical">
             <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
                 <template #label>
+                    <span class="label">服务器名称</span>
+                </template>
+                {{ data.serverName }}
+            </el-descriptions-item>
+            <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
+                <template #label>
+                    <span class="label">服务器区域</span>
+                </template>
+                {{ data.region }}
+            </el-descriptions-item>
+            <el-descriptions-item class-name="content" label-class-name="label">
+                <template #label>
+                    <span class="label">服务器语言</span>
+                </template>
+                {{ data.language }}
+            </el-descriptions-item>
+            <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
+                <template #label>
                     <span class="label">服务器 IP</span>
                 </template>
                 {{ data.serverIp }}
             </el-descriptions-item>
-
             <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
                 <template #label>
                     <span class="label">服务端正常运行时长</span>
@@ -111,7 +128,7 @@ const formatGameTime = (val) => {
 .overview {
     :deep(.description) {
         margin-left: 18px;
-        height: 210px;
+        height: 280px;
         // min-width: 460px;
         .label {
             font-weight: 400 !important;

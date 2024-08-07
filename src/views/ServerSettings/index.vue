@@ -3,12 +3,8 @@
         <RouterButton
             :buttons="[
                 {
-                    value: '仪表盘',
-                    path: '/lobby/dashboard',
-                },
-                {
                     value: '服务器设置',
-                    path: '/lobby/server-settings',
+                    path: '/server-settings',
                 },
             ]"
         >

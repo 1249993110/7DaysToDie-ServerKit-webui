@@ -38,8 +38,8 @@
                 <el-table-column prop="playerName" label="玩家昵称" min-width="120" sortable> </el-table-column>
                 <el-table-column prop="platformId" label="平台Id" min-width="215" sortable> </el-table-column>
                 <el-table-column prop="playerId" label="玩家Id (EOS)" min-width="320" sortable> </el-table-column>
-                <el-table-column prop="lastLogin" label="上次在线" min-width="170" sortable :formatter="formatLastLogin"> </el-table-column>
-                <el-table-column prop="position" label="玩家坐标" min-width="130" :formatter="formatPosition"> </el-table-column>
+                <!-- <el-table-column prop="lastLogin" label="上次在线" min-width="170" sortable :formatter="formatLastLogin"> </el-table-column>
+                <el-table-column prop="position" label="玩家坐标" min-width="130" :formatter="formatPosition"> </el-table-column> -->
             </template>
         </MyTableEx>
         <el-dialog v-model="detailsDialogVisible" :title="dialogTitle" draggable :close-on-click-modal="false">
@@ -62,7 +62,7 @@ export default {
 import ContextMenu from '@imengyu/vue3-context-menu';
 import * as sdtdConsole from '~/api/sdtd-console';
 import { resetPlayer } from '~/api/server';
-import { getHistoryPlayers, getHistoryPlayerDetails } from '~/api/players';
+import { getHistoryPlayers } from '~/api/players';
 import { showInventory } from '~/components/InventoryDialog/index.js';
 import myprompt from '~/utils/myprompt';
 import myconfirm from '~/utils/myconfirm';
@@ -112,11 +112,7 @@ const formatMinute = (totalMinute) => {
     }
     return result;
 };
-const getDetails = async (playerId) => {
-    const data = await getHistoryPlayerDetails(playerId);
-    // for (const key in data) {
-    //     result.push({ label: key, value: data[key] });
-    // }
+const getDetails = async (data) => {
     return [
         {
             label: 'EOS',
@@ -248,7 +244,7 @@ const handleContextmenu = (row, column, event) => {
                 onClick: async () => {
                     dialogTitle.value = `玩家: ${playerName} (${row.playerId}) 的数据`;
                     detailsDialogVisible.value = true;
-                    details.value = await getDetails(row.playerId);
+                    details.value = getDetails(row);
                 },
                 divided: true,
             },

@@ -7,26 +7,20 @@ import qs from 'qs';
 const routes = [
     {
         path: '/',
-        redirect: '/lobby',
+        redirect: '/dashboard',
         component: Layout,
         children: [
             {
-                path: 'lobby',
-                redirect: '/lobby/dashboard',
-                children: [
-                    {
-                        path: 'dashboard',
-                        name: 'Dashboard',
-                        component: () => import('../views/Dashboard/index.vue'),
-                        meta: { requiresAuth: true, keepAlive: true },
-                    },
-                    {
-                        path: 'server-settings',
-                        name: 'ServerSettings',
-                        component: () => import('../views/ServerSettings/index.vue'),
-                        meta: { requiresAuth: true, keepAlive: true },
-                    },
-                ],
+                path: 'dashboard',
+                name: 'Dashboard',
+                component: () => import('../views/Dashboard/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
+            },
+            {
+                path: 'server-settings',
+                name: 'ServerSettings',
+                component: () => import('../views/ServerSettings/index.vue'),
+                meta: { requiresAuth: true, keepAlive: true },
             },
             {
                 path: 'map',

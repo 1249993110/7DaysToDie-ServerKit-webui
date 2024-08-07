@@ -14,9 +14,14 @@ const getIcon = (source) => {
 
 const tree = [
     {
-        path: '/lobby',
+        path: '/dashboard',
         title: '仪表盘',
         icon: getIcon(() => import('~icons/uiw/dashboard')),
+    },
+    {
+        path: '/server-settings',
+        title: '服务器设置',
+        icon: getIcon(() => import('~icons/material-symbols/display-settings-outline')),
     },
     {
         path: '/map',
