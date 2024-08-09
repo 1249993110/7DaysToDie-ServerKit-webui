@@ -1,7 +1,7 @@
 <template>
     <MyDialogForm titleSuffix="VIP礼包" :formModel="formModel" :rules="rules" :request="request">
         <template #default="{ isAdd }">
-            <el-form-item label="玩家Id (EOS)" prop="id">
+            <el-form-item label="玩家Id" prop="id">
                 <el-input :disabled="!isAdd" v-model="formModel.id"></el-input>
             </el-form-item>
             <el-form-item label="礼包名称" prop="name">

@@ -1,5 +1,5 @@
 import { getLocations } from '~/api/locations';
-import { showInventory } from '~/components/InventoryDialog/index';
+import { showPlayerInventory } from '~/components/InventoryDialog/index';
 import * as sdtdConsole from '~/api/sdtd-console';
 import myconfirm from '~/utils/myconfirm';
 
@@ -46,7 +46,7 @@ export function getOnlinePlayersLayer(map, mapInfo) {
             inventoryButton.href = 'javascript:void(0);';
             inventoryButton.title = 'Show inventory';
             L.DomEvent.on(inventoryButton, 'click', () => {
-                showInventory(playerId, entityName);
+                showPlayerInventory(playerId, entityName);
             });
 
             let initialPos = [position.x, position.z];

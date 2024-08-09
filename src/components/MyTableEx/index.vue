@@ -171,6 +171,10 @@ const props = defineProps({
         type: Number,
         default: 0,
     },
+    cardBodyPadding:{
+        type: String,
+        default: '20px',
+    }
 });
 
 const loading = ref(false);
@@ -293,6 +297,7 @@ const tableHeight = computed(() => {
         background-color: #ffffffaf;
         :deep(.el-card__body) {
             height: calc(100% - 40px);
+            padding: v-bind(cardBodyPadding);
         }
 
         .toolbar {

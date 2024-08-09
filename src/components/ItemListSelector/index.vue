@@ -6,7 +6,7 @@
             <el-button @click="handleBatchSelect" color="#40e0d0" :disabled="batchSelectDisabled">批量选择</el-button>
         </div>
         <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
-            <el-table-column type="selection" width="50" align="center" :selectable="checkSelectable" />
+            <el-table-column type="selection" width="42" :selectable="checkSelectable" />
             <el-table-column prop="id" label="Id" width="60px"> </el-table-column>
             <el-table-column label="图标" width="65px" class-name="table-icon-col">
                 <template #default="{ row }">

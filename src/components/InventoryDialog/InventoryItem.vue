@@ -39,7 +39,7 @@ const { copy } = useClipboard();
 const handleContextMenu = (event) => {
     const item = props.item;
     ContextMenu.showContextMenu({
-        zIndex: useZIndex().currentZIndex.value,
+        zIndex: useZIndex().nextZIndex(),
         x: event.x,
         y: event.y,
         theme: 'default dark',

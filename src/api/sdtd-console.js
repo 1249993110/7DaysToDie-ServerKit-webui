@@ -9,12 +9,12 @@ export const sendConsoleCommand = function (command, inMainThread = false) {
     });
 };
 
-export const sendGlobalMessage = function (message, senderName = 'Server') {
-    return sendConsoleCommand(`ty-say \"${message}\" ${senderName}`);
+export const sendGlobalMessage = function (message) {
+    return sendConsoleCommand(`ty-say \"${message}\"`);
 };
 
-export const sendMessageToPlayer = function (playerIdOrName, message, senderName = 'Server') {
-    return sendConsoleCommand(`ty-pm ${playerIdOrName} \"${message}\" ${senderName}`);
+export const sendMessageToPlayer = function (playerIdOrName, message) {
+    return sendConsoleCommand(`ty-pm ${playerIdOrName} \"${message}\"`);
 };
 
 export const telePlayer = function (playerIdOrName, target) {
@@ -29,10 +29,22 @@ export const spawnEntity = function (playerNameOrEntityId, spawnEntityIdOrName) 
     return sendConsoleCommand(`se ${playerNameOrEntityId} ${spawnEntityIdOrName}`, true);
 };
 
-export const kickPlayer = function (playerIdOrName) {
-    return sendConsoleCommand(`kick ${playerIdOrName}`);
+export const kickPlayer = function (playerIdOrName, reason) {
+    return sendConsoleCommand(`kick ${playerIdOrName} \"${reason}\"`);
 };
 
 export const addAdmin = function (playerIdOrName, level, displayName) {
-    return sendConsoleCommand(`admin add ${playerIdOrName} ${level} ${displayName}`);
+    return sendConsoleCommand(`admin add ${playerIdOrName} ${level} \"${displayName}\"`);
+};
+
+export const removeAdmin = function (playerIdOrName) {
+    return sendConsoleCommand(`admin remove ${playerIdOrName}`);
+};
+
+export const changePlayerPoints = function (playerId, count) {
+    return sendConsoleCommand(`ty-cpp ${playerId} ${count}`);
+};
+
+export const resetPlayer = function (playerId) {
+    return sendConsoleCommand(`ty-rpi ${playerId}`);
 };

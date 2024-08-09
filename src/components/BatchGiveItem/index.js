@@ -1,13 +1,20 @@
 import Dialog from './index.vue';
 import { createVNode, render } from 'vue';
 
-export const showBanWindow = async (playerId, displayName) => {
+export const batchGiveItem = async (playerIds, displayNames) => {
     const container = document.createElement('div');
+
+    let title = '';
+    if (playerIds.length > 1) {
+        title = `给予: ${displayNames.join(', ')} 物品`;
+    } else {
+        title = `给予 ${displayNames[0]} (${playerIds[0]}) 物品`;
+    }
+
     const vNode = createVNode(Dialog, {
         modelValue: true,
-        title: `封禁: ${displayName} (${playerId})`,
-        playerId: playerId,
-        displayName: displayName,
+        title: title,
+        playerIds: playerIds,
         onClosed: () => {
             document.body.removeChild(container);
         },

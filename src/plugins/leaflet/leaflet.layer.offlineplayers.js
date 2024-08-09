@@ -1,5 +1,5 @@
 import { getLocations } from '~/api/locations';
-import { showInventory } from '~/components/InventoryDialog/index';
+import { showPlayerInventory } from '~/components/InventoryDialog/index';
 
 // offlinePlayer icon
 const offlinePlayerIcon = L.icon({
@@ -39,7 +39,7 @@ export function getOfflinePlayersLayer(map, mapInfo) {
             inventoryButton.href = 'javascript:void(0);';
             inventoryButton.title = 'Show inventory';
             L.DomEvent.on(inventoryButton, 'click', () => {
-                showInventory(playerId, entityName);
+                showPlayerInventory(playerId, entityName);
             });
 
             const marker = L.marker([position.x, position.z], { icon: offlinePlayerIcon }).bindPopup(container);

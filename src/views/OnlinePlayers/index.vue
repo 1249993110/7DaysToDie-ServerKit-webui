@@ -20,25 +20,136 @@
             </template>
         </RouterButton>
         <el-card class="table-card" shadow="always" v-loading="loading">
-            <el-table ref="tableRef" :data="tableData" stripe height="100%" highlight-current-row @row-contextmenu="onContextmenu">
-                <el-table-column type="index" label="序号" width="60"> </el-table-column>
-                <el-table-column prop="entityId" label="实体Id" min-width="95" sortable> </el-table-column>
-                <el-table-column prop="playerName" label="玩家昵称" min-width="115" sortable> </el-table-column>
-                <el-table-column prop="playerId" label="玩家Id (EOS)" min-width="315" sortable> </el-table-column>
-                <el-table-column prop="platformId" label="平台Id" min-width="215" sortable> </el-table-column>
-                <el-table-column prop="ip" label="IP地址" min-width="135" sortable> </el-table-column>
+            <div class="toolbar">
+                <el-dropdown :disabled="batchBtnDisabled" @command="handleCommand">
+                    <el-button type="success" :disabled="batchBtnDisabled">
+                        批量操作<el-icon class="el-icon--right"><arrow-down /></el-icon>
+                    </el-button>
+                    <template #dropdown>
+                        <el-dropdown-menu>
+                            <el-dropdown-item command="sendMessage">发送消息</el-dropdown-item>
+                            <el-dropdown-item command="giveItem">给予物品</el-dropdown-item>
+                            <el-dropdown-item command="changePoints">给予积分</el-dropdown-item>
+                            <el-dropdown-item command="spawnEntity">生成实体</el-dropdown-item>
+                            <el-dropdown-item command="telePlayer">传送玩家</el-dropdown-item>
+                            <el-dropdown-item command="kickPlayer" divided>踢出玩家</el-dropdown-item>
+                            <el-dropdown-item command="banPlayer">封禁玩家</el-dropdown-item>
+                            <el-dropdown-item command="setSuperAdmin">设置为超级管理员</el-dropdown-item>
+                            <el-dropdown-item command="cancelAdmin">取消管理员</el-dropdown-item>
+                            <el-dropdown-item command="removeLandClaims" disabled>移除领地石</el-dropdown-item>
+                            <el-dropdown-item command="resetPlayer">删除玩家存档</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </template>
+                </el-dropdown>
+            </div>
+            <el-table ref="tableRef" :data="tableData" stripe height="calc(100vh - 200px)" highlight-current-row @row-contextmenu="onContextmenu" @selection-change="handleSelectionChange">
+                <el-table-column type="selection" width="42" />
+                <el-table-column type="index" label="序号" width="60" fixed> </el-table-column>
+                <el-table-column label="玩家昵称" min-width="115" sortable fixed show-overflow-tooltip>
+                    <template #default="{ row }">
+                        <span style="display: flex">
+                            {{ row.playerName }}
+                            <img v-if="row.playerDetails.isAdmin" src="../../assets/images/server_favorite_1.png" width="20" height="20" title="超级管理员" />
+                        </span>
+                    </template>
+                </el-table-column>
+                <el-table-column label="等级" min-width="80" sortable>
+                    <template #default="{ row }">
+                        {{ row.playerDetails.progression.level }}
+                    </template>
+                </el-table-column>
+                <el-table-column label="游戏阶段" min-width="105" sortable>
+                    <template #default="{ row }">
+                        {{ row.gameStage }}
+                    </template>
+                </el-table-column>
+                <el-table-column label="击杀敌人" min-width="105" sortable>
+                    <template #default="{ row }">
+                        {{ row.playerDetails.zombieKills }}
+                    </template>
+                </el-table-column>
+                <el-table-column label="击杀玩家" min-width="105" sortable>
+                    <template #default="{ row }">
+                        {{ row.playerDetails.playerKills }}
+                    </template>
+                </el-table-column>
+                <el-table-column label="死亡次数" min-width="105" sortable>
+                    <template #default="{ row }">
+                        {{ row.playerDetails.deaths }}
+                    </template>
+                </el-table-column>
+                <el-table-column label="技能点" min-width="90" sortable>
+                    <template #default="{ row }">
+                        {{ row.playerDetails.progression.skillPoints }}
+                    </template>
+                </el-table-column>
+                <el-table-column label="当前位置" min-width="100">
+                    <template #default="{ row }">
+                        {{ formatHelper.formatPosition(row.playerDetails.position) }}
+                    </template>
+                </el-table-column>
+                <el-table-column prop="ip" label="IP地址" min-width="130" sortable> </el-table-column>
                 <el-table-column prop="ipAttribution" label="IP归属地" min-width="135" sortable> </el-table-column>
                 <el-table-column prop="ping" label="延迟" min-width="80" sortable> </el-table-column>
+                <el-table-column prop="entityId" label="实体Id" min-width="90" sortable> </el-table-column>
+                <el-table-column prop="playerId" label="玩家Id" min-width="280" sortable> </el-table-column>
+                <el-table-column prop="platformId" label="平台Id" min-width="185" sortable> </el-table-column>
+                <el-table-column label="操作" width="110" fixed="right">
+                    <template #default="{ row }">
+                        <el-dropdown
+                            @command="handleCommand"
+                            @visible-change="
+                                (val) => {
+                                    if (val) handleDropdownVisible(row);
+                                }
+                            "
+                        >
+                            <el-button size="small" plain>
+                                <el-icon size="16">
+                                    <View />
+                                </el-icon>
+                            </el-button>
+                            <template #dropdown>
+                                <el-dropdown-menu>
+                                    <el-dropdown-item command="showInventory">查看背包</el-dropdown-item>
+                                    <el-dropdown-item command="showDetails">查看详细信息</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </template>
+                        </el-dropdown>
+                        <el-dropdown
+                            @command="handleCommand"
+                            @visible-change="
+                                (val) => {
+                                    if (val) handleDropdownVisible(row);
+                                }
+                            "
+                            style="margin-left: 4px"
+                        >
+                            <el-button size="small" plain>
+                                <el-icon size="16">
+                                    <Operations />
+                                </el-icon>
+                            </el-button>
+                            <template #dropdown>
+                                <el-dropdown-menu>
+                                    <el-dropdown-item command="sendMessage">发送消息</el-dropdown-item>
+                                    <el-dropdown-item command="giveItem">给予物品</el-dropdown-item>
+                                    <el-dropdown-item command="changePoints">给予积分</el-dropdown-item>
+                                    <el-dropdown-item command="spawnEntity">生成实体</el-dropdown-item>
+                                    <el-dropdown-item command="telePlayer">传送玩家</el-dropdown-item>
+                                    <el-dropdown-item command="kickPlayer" divided>踢出玩家</el-dropdown-item>
+                                    <el-dropdown-item command="banPlayer">封禁玩家</el-dropdown-item>
+                                    <el-dropdown-item command="setSuperAdmin">设置为超级管理员</el-dropdown-item>
+                                    <el-dropdown-item command="cancelAdmin">取消管理员</el-dropdown-item>
+                                    <el-dropdown-item command="removeLandClaims" disabled>移除领地石</el-dropdown-item>
+                                    <el-dropdown-item command="resetPlayer">删除玩家存档</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </template>
+                        </el-dropdown>
+                    </template>
+                </el-table-column>
             </el-table>
         </el-card>
-        <el-dialog v-model="detailsDialogVisible" :title="dialogTitle" draggable :close-on-click-modal="false">
-            <el-scrollbar max-height="60vh" always>
-                <el-descriptions :column="2" border>
-                    <el-descriptions-item v-for="(item, index) in details" :key="index" :label="item.label">{{ item.value }}</el-descriptions-item>
-                </el-descriptions>
-            </el-scrollbar>
-        </el-dialog>
-        <GiveItem :player-id="playerId" :player-name="playerName" v-model="giveItemDialogVisible" />
     </div>
 </template>
 
@@ -50,18 +161,12 @@ export default {
 
 <script setup>
 import ContextMenu from '@imengyu/vue3-context-menu';
-import * as sdtdConsole from '~/api/sdtd-console';
+import * as playerHelper from '~/utils/player-helper';
+import * as formatHelper from '~/utils/format-helper';
 import { getOnlinePlayers } from '~/api/players';
-import { showInventory } from '~/components/InventoryDialog/index.js';
-import myprompt from '~/utils/myprompt';
-import myconfirm from '~/utils/myconfirm';
 import axios from 'axios';
-import { showBanWindow } from '~/components/AddBlacklist/index';
-import GiveItem from './GiveItem.vue';
-
-const detailsDialogVisible = ref(false);
-const dialogTitle = ref('');
-const details = ref([]);
+import { ArrowDown, View } from '@element-plus/icons-vue';
+import Operations from '~icons/carbon/operations-record';
 
 const loading = ref(false);
 const tableData = ref([]);
@@ -112,163 +217,95 @@ watch(autoRefrensh, (val) => {
 const tableRef = ref();
 const { copy } = useClipboard();
 
-const formatPosition = (pos) => {
-    return `${pos.x} ${pos.y} ${pos.z}`;
-};
-
-const getDetails = (data) => {
-    const playerDetails = data.playerDetails;
-    return [
-        {
-            label: '玩家Id (EOS)',
-            value: data.playerId,
-        },
-        {
-            label: '平台Id',
-            value: data.platformId,
-        },
-        {
-            label: '玩家昵称',
-            value: data.playerName,
-        },
-        {
-            label: '实体Id',
-            value: data.entityId,
-        },
-        {
-            label: 'IP地址',
-            value: data.ip,
-        },
-        {
-            label: '延迟',
-            value: data.ping,
-        },
-        {
-            label: '坐标',
-            value: formatPosition(playerDetails.position),
-        },
-        {
-            label: '上次在线',
-            value: playerDetails.lastLogin,
-        },
-        {
-            label: '击杀玩家',
-            value: playerDetails.playerKills,
-        },
-        {
-            label: '击杀僵尸',
-            value: playerDetails.zombieKills,
-        },
-        {
-            label: '死亡次数',
-            value: playerDetails.deaths,
-        },
-        {
-            label: '分数',
-            value: playerDetails.score,
-        },
-        {
-            label: '生命值',
-            value: playerDetails.stats.health.toFixed(1),
-        },
-        {
-            label: '体力值',
-            value: playerDetails.stats.stamina.toFixed(1),
-        },
-        {
-            label: '温度',
-            value: playerDetails.stats.coreTemp.toFixed(1),
-        },
-        {
-            label: '食物',
-            value: playerDetails.stats.food.toFixed(2),
-        },
-        {
-            label: '水',
-            value: playerDetails.stats.water.toFixed(2),
-        },
-        {
-            label: '等级',
-            value: playerDetails.progression.level,
-        },
-        {
-            label: '至下一级的经验',
-            value: playerDetails.progression.expToNextLevel,
-        },
-        {
-            label: '技能点',
-            value: playerDetails.progression.skillPoints,
-        },
-        {
-            label: '领地石保护状态',
-            value: playerDetails.landProtectionActive ? '激活' : '未激活',
-        },
-        {
-            label: '行走距离',
-            value: playerDetails.distanceWalked.toFixed(2),
-        },
-        {
-            label: '制作项目总数',
-            value: playerDetails.totalItemsCrafted,
-        },
-        {
-            label: '最长生存时长',
-            value: formatMinute(playerDetails.longestLife),
-        },
-        {
-            label: '当前存活时长',
-            value: formatMinute(playerDetails.currentLife),
-        },
-        {
-            label: '总游戏时长',
-            value: formatMinute(playerDetails.totalTimePlayed),
-        },
-        {
-            label: '出生游戏阶段的世界时间',
-            value: playerDetails.gameStageBornAtWorldTime.toFixed(2),
-        },
-        {
-            label: '租赁结束日期',
-            value: playerDetails.rentalEndDay + ' 天 ' + playerDetails.rentalEndTime + ' 小时',
-        },
-    ];
-};
-
-const giveItemDialogVisible = ref(false);
-const playerId = ref('');
-const playerName = ref('');
 const onContextmenu = (row, column, event) => {
     event.preventDefault();
     tableRef.value.setCurrentRow(row);
 
-    const _entityId = row.entityId;
-    const _playerName = row.playerName;
-    const _playerId = row.playerId;
-    playerId.value = _playerId;
-    playerName.value = _playerName;
-
+    const playerId = row.playerId;
+    const playerName = row.playerName;
     ContextMenu.showContextMenu({
         x: event.x,
         y: event.y,
-        theme: 'default dark',
+        theme: 'mac dark',
         items: [
             {
+                label: '查看背包',
+                onClick: () => {
+                    playerHelper.showPlayerInventory(playerId, playerName);
+                },
+            },
+            {
                 label: '查看详细信息',
-                onClick: async () => {
-                    dialogTitle.value = `玩家: ${_playerName} (${row.playerId}) 的数据`;
-                    detailsDialogVisible.value = true;
-                    details.value = getDetails(row);
+                onClick: () => {
+                    playerHelper.showPlayerDetails(row);
                 },
                 divided: true,
             },
             {
-                label: '查看背包',
+                label: '发送消息',
                 onClick: () => {
-                    showInventory(row.playerId, _playerName);
+                    playerHelper.sendMessageToPlayers([playerId]);
                 },
-                svgIcon: '#icon-view',
-                svgProps: {
-                    fill: '#f60',
+            },
+            {
+                label: '给予物品',
+                onClick: () => {
+                    playerHelper.giveItemToPlayers([playerId], [playerName]);
+                },
+            },
+            {
+                label: '给予积分',
+                onClick: () => {
+                    playerHelper.changePoints([playerId]);
+                },
+            },
+            {
+                label: '生成实体',
+                onClick: () => {
+                    playerHelper.spawnEntityToPlayers([playerId]);
+                },
+            },
+            {
+                label: '传送玩家',
+                onClick: () => {
+                    playerHelper.telePlayers([playerId]);
+                },
+                divided: true,
+            },
+            {
+                label: '踢出玩家',
+                onClick: () => {
+                    playerHelper.kickPlayers([playerId]);
+                },
+            },
+            {
+                label: '封禁玩家',
+                onClick: () => {
+                    playerHelper.banPlayers([playerId], [playerName]);
+                },
+            },
+            {
+                label: '设置为超级管理员',
+                onClick: () => {
+                    playerHelper.setSuperAdmins([playerId], [playerName]);
+                },
+            },
+            {
+                label: '取消管理员',
+                onClick: () => {
+                    playerHelper.cancelAdmins([playerId]);
+                },
+            },
+            // {
+            //     label: '移除领地石',
+            //     onClick: () => {
+            //         playerHelper.removeLandClaims([playerId]);
+            //     },
+            // },
+            {
+                label: '删除玩家存档',
+                onClick: () => {
+                    playerHelper.resetPlayers([playerId]);
                 },
                 divided: true,
             },
@@ -278,138 +315,84 @@ const onContextmenu = (row, column, event) => {
                     {
                         label: '复制玩家昵称',
                         onClick: async () => {
-                            await copy(_playerName);
-                            ElMessage.success('复制成功');
-                        },
-                    },
-                    {
-                        label: '复制玩家实体Id',
-                        onClick: async () => {
-                            await copy(_entityId);
+                            await copy(playerName);
                             ElMessage.success('复制成功');
                         },
                     },
                     {
                         label: '复制玩家Id',
                         onClick: async () => {
-                            await copy(row.playerId);
+                            await copy(layerId);
                             ElMessage.success('复制成功');
                         },
                     },
-                    // {
-                    //     label: '复制玩家坐标',
-                    //     onClick: async () => {
-                    //         await copy(format_position(row));
-                    //         ElMessage.success('复制成功');
-                    //     },
-                    // },
+                    {
+                        label: '复制玩家坐标',
+                        onClick: async () => {
+                            await copy(formatHelper.formatPosition(row.playerDetails.position));
+                            ElMessage.success('复制成功');
+                        },
+                    },
                 ],
-            },
-            {
-                label: '给予物品',
-                onClick: () => {
-                    giveItemDialogVisible.value = true;
-                },
-            },
-            {
-                label: '生成实体',
-                onClick: () => {
-                    myprompt('{spawnEntityIdOrName}', '请输入实体Id或名称').then((value) => {
-                        sdtdConsole.spawnEntity(_entityId, value).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    });
-                },
-            },
-            {
-                label: '传送玩家',
-                onClick: () => {
-                    myprompt('{target}', '请输入目标, 可为Id或三维坐标').then((value) => {
-                        sdtdConsole.telePlayer(_entityId, value).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    });
-                },
-                icon: 'map-location',
-                divided: true,
-            },
-            {
-                label: '踢出玩家',
-                onClick: async () => {
-                    if (await myconfirm('此操作将踢出选定玩家, 是否继续?', '提示', 'warning')) {
-                        sdtdConsole.kickPlayer(_entityId).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    }
-                },
-            },
-            {
-                label: '封禁玩家',
-                onClick: () => {
-                    showBanWindow(row.playerId, _playerName);
-                },
-                divided: true,
-            },
-            {
-                label: '发送私聊消息',
-                onClick: async () => {
-                    myprompt('{message}', '请输入文本').then((value) => {
-                        sdtdConsole.sendMessageToPlayer(_entityId, value).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    });
-                },
-                icon: 'message',
-            },
-            {
-                label: '设置为超级管理员',
-                onClick: async () => {
-                    if (await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')) {
-                        sdtdConsole.addAdmin(_entityId, 0, '超级管理员-' + _playerName).then(() => {
-                            ElMessage.success('发送命令成功');
-                        });
-                    }
-                },
             },
         ],
     });
 };
 
-const formatMinute = (totalMinute) => {
-    if (totalMinute < 1) {
-        return '小于 1 分钟';
-    }
-
-    const day = parseInt(totalMinute / 60 / 24);
-    const hour = parseInt((totalMinute / 60) % 24);
-    const minute = parseInt(totalMinute % 60);
-    let result = '';
-    if (day > 0) {
-        result = day + ' 天 ';
-    }
-    if (hour > 0) {
-        result += hour + ' 小时 ';
-    }
-    if (minute > 0) {
-        result += minute + ' 分钟 ';
-    }
-    return result;
+const batchBtnDisabled = ref(true);
+let multipleSelection = [];
+const handleSelectionChange = (val) => {
+    multipleSelection = val;
+    batchBtnDisabled.value = multipleSelection.length === 0;
 };
-const format_currentLife = (row) => {
-    const value = row.currentLife;
-    return formatMinute(value);
+const handleDropdownVisible = (row) => {
+    multipleSelection = [row];
 };
-const format_totalTimePlayed = (row) => {
-    const value = row.totalTimePlayed;
-    return formatMinute(value);
-};
-const format_position = (row) => {
-    const value = row.position;
-    return `${value.x} ${value.y} ${value.z}`;
-};
-const format_landProtectionActive = (row) => {
-    const value = row.landProtectionActive;
-    return value ? '激活' : '未激活';
+const handleCommand = (command) => {
+    const playerIds = multipleSelection.map((i) => i.playerId);
+    const playerNames = multipleSelection.map((i) => i.playerName);
+    switch (command) {
+        case 'showInventory':
+            playerHelper.showPlayerInventory(playerIds[0], playerNames[0]);
+            break;
+        case 'showDetails':
+            playerHelper.showPlayerDetails(multipleSelection[0]);
+            break;
+        case 'sendMessage':
+            playerHelper.sendMessageToPlayers(playerIds);
+            break;
+        case 'giveItem':
+            playerHelper.giveItemToPlayers(playerIds, playerNames);
+            break;
+        case 'changePoints':
+            playerHelper.changePlayerPoints(playerIds);
+            break;
+        case 'spawnEntity':
+            playerHelper.spawnEntityToPlayers(playerIds);
+            break;
+        case 'telePlayer':
+            playerHelper.telePlayers(playerIds);
+            break;
+        case 'kickPlayer':
+            playerHelper.kickPlayers(playerIds);
+            break;
+        case 'banPlayer':
+            playerHelper.banPlayers(playerIds, playerNames);
+            break;
+        case 'setSuperAdmin':
+            playerHelper.setSuperAdmins(playerIds, playerNames);
+            break;
+        case 'cancelAdmin':
+            playerHelper.cancelAdmins(playerIds);
+            break;
+        case 'removeLandClaims':
+            break;
+        case 'resetPlayer':
+            playerHelper.resetPlayers(playerIds);
+            break;
+        default:
+            ElMessage.error(`未找到命令: ${command}`);
+    }
 };
 </script>
 
@@ -428,7 +411,6 @@ const format_landProtectionActive = (row) => {
             --el-button-text-color: #f56c6c;
         }
     }
-
     .table-card {
         height: 100%;
         background-color: #ffffffaf;
@@ -439,6 +421,10 @@ const format_landProtectionActive = (row) => {
         }
         :deep(.el-table) {
             background-color: transparent;
+        }
+        .toolbar {
+            display: flex;
+            padding: 4px;
         }
     }
 }

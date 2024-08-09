@@ -83,6 +83,7 @@ const handleConfirm = async () => {
         dialogRef.value.visible = false;
         ElMessage.success(props.successMessage);
     } catch (error) {
+        console.log(error);
     } finally {
         loading.close();
     }
