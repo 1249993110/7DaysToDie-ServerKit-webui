@@ -203,6 +203,7 @@ const getData = async () => {
     try {
         await Promise.resolve(props.getData(pagination));
     } catch (error) {
+        console.log(error);
     } finally {
         loading.value = false;
     }
@@ -292,8 +293,9 @@ const tableHeight = computed(() => {
     }
 });
 
-const handleSortChange = ({ prop, order }) => {
+const handleSortChange = async ({ prop, order }) => {
     emit('onSortChange', { prop, order });
+    await getData();
 };
 </script>
 

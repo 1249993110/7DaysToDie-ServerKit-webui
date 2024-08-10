@@ -138,6 +138,5 @@ const handleDeleteAll = async () => {
 const handleSortChange = async ({ prop, order }) => {
     searchFormModel.order = prop;
     searchFormModel.desc = order === 'descending';
-    await getData();
 };
 </script>
