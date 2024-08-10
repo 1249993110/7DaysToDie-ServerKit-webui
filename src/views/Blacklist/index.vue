@@ -59,7 +59,7 @@ const total = ref(0);
 
 const getData = async ({ pageNumber, pageSize }) => {
     let data = await api.getBlacklist();
-
+    data.reverse();
     const filter = (propName) => {
         if (searchFormModel[propName]) {
             const regex = new RegExp(searchFormModel[propName], 'i');

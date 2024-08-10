@@ -25,6 +25,10 @@
             :operation-column-width="90"
             :delete="deleteRequest"
             :batch-delete="batchDeleteRequest"
+            @onSortChange="handleSortChange"
+            :default-sort="{ prop: 'createdAt', order: 'descending' }"
+            tableSize="small"
+            :pageSize="100"
         >
             <template #searchFormItems>
                 <el-form-item label="关键词" prop="keyword">
@@ -35,12 +39,12 @@
                 <el-button @click="handleDeleteAll" type="danger">删除所有记录</el-button>
             </template>
             <template #columns>
-                <el-table-column prop="createdAt" label="日期" width="165" sortable> </el-table-column>
-                <el-table-column prop="entityId" label="实体Id" width="95" sortable> </el-table-column>
-                <el-table-column prop="senderName" label="发送者名称" width="180" sortable> </el-table-column>
-                <el-table-column prop="chatType" label="类型" width="80" sortable :formatter="format_chatType"> </el-table-column>
-                <el-table-column prop="message" label="消息内容" min-width="120" sortable> </el-table-column>
-                <el-table-column prop="playerId" label="玩家Id" min-width="215" sortable> </el-table-column>
+                <el-table-column prop="createdAt" label="日期" width="165" sortable="custom"> </el-table-column>
+                <el-table-column prop="senderName" label="发送者名称" width="180" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="chatType" label="类型" width="80" :formatter="formatChatType"> </el-table-column>
+                <el-table-column prop="message" label="消息内容" min-width="120" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="entityId" label="实体Id" width="90"> </el-table-column>
+                <el-table-column prop="playerId" label="玩家Id" width="280" show-overflow-tooltip> </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -57,6 +61,8 @@ import myconfirm from '~/utils/myconfirm';
 
 const searchFormModel = reactive({
     keyword: '',
+    order: 'createdAt',
+    desc: true,
 });
 
 const tableData = ref([]);
@@ -68,23 +74,23 @@ const getData = async (pagination) => {
     total.value = data.total;
 };
 
-const format_chatType = (row) => {
+const formatChatType = (row) => {
     let type;
     switch (row.chatType) {
         // Global
-        case 0:
+        case 'Global':
             type = '公屏';
             break;
         // Friends
-        case 1:
+        case 'Friends':
             type = '好友';
             break;
         // Party
-        case 2:
+        case 'Party':
             type = '阵营';
             break;
         // Whisper
-        case 3:
+        case 'Whisper':
             type = '私聊';
             break;
         // Unknown
@@ -127,5 +133,11 @@ const handleDeleteAll = async () => {
             await getData();
         }
     } catch {}
+};
+
+const handleSortChange = async ({ prop, order }) => {
+    searchFormModel.order = prop;
+    searchFormModel.desc = order === 'descending';
+    await getData();
 };
 </script>

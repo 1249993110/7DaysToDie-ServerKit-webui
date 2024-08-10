@@ -29,9 +29,9 @@
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
-                <el-form class="search-form" ref="searchFormRef" :model="pagination" label-position="right" :inline="true">
+                <el-form class="search-form" ref="searchFormRef" :model="searchFormModel" label-position="right" :inline="true">
                     <el-form-item label="关键词" prop="keyword">
-                        <el-input v-model="pagination.keyword" style="width: 400px" placeholder="请输入玩家Id或昵称" clearable autofocus @keyup.enter="getData"></el-input>
+                        <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入玩家Id或昵称" clearable autofocus @keyup.enter="getData"></el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-button :icon="Search" @click="getData" type="primary">查 询</el-button>
@@ -90,34 +90,34 @@
                         {{ row.playerDetails.progression.skillPoints }}
                     </template>
                 </el-table-column>
-                <el-table-column label="积分" min-width="90">
+                <el-table-column label="积分" min-width="90" sortable="custom" prop="pointsCount" show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ row.playerDetails.pointsCount }}
                     </template>
                 </el-table-column>
-                <el-table-column label="当前位置" min-width="100">
+                <el-table-column label="当前位置" min-width="100" show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ formatHelper.formatPosition(row.playerDetails.position) }}
                     </template>
                 </el-table-column>
-                <el-table-column label="上次在线" min-width="150" sortable="custom" prop="lastLogin">
+                <el-table-column label="上次在线" min-width="165" sortable="custom" prop="lastLogin" show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ row.playerDetails.lastLogin }}
                     </template>
                 </el-table-column>
-                <el-table-column label="总游戏时长" min-width="120" sortable="custom" prop="totalTimePlayed">
+                <el-table-column label="总游戏时长" min-width="120" sortable="custom" prop="totalTimePlayed" show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ formatHelper.formatMinute(row.playerDetails.totalTimePlayed) }}
                     </template>
                 </el-table-column>
-                <el-table-column label="最长生存时长" min-width="135" sortable="custom" prop="longestLife">
+                <el-table-column label="最长生存时长" min-width="135" sortable="custom" prop="longestLife" show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ formatHelper.formatMinute(row.playerDetails.longestLife) }}
                     </template>
                 </el-table-column>
                 <el-table-column prop="entityId" label="实体Id" min-width="90" sortable="custom"> </el-table-column>
-                <el-table-column prop="playerId" label="玩家Id" min-width="280"> </el-table-column>
-                <el-table-column prop="platformId" label="平台Id" min-width="185"> </el-table-column>
+                <el-table-column prop="playerId" label="玩家Id" min-width="280" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="platformId" label="平台Id" min-width="200" show-overflow-tooltip> </el-table-column>
                 <el-table-column label="操作" width="110" fixed="right">
                     <template #default="{ row }">
                         <el-dropdown
@@ -174,8 +174,8 @@
                     @size-change="getData"
                     @current-change="getData"
                     :page-sizes="[5, 10, 20, 50, 100]"
-                    v-model:current-page="pagination.pageNumber"
-                    v-model:page-size="pagination.pageSize"
+                    v-model:current-page="searchFormModel.pageNumber"
+                    v-model:page-size="searchFormModel.pageSize"
                     :total="total"
                     layout="total, sizes, prev, pager, next, jumper"
                 >
@@ -203,7 +203,7 @@ const loading = ref(false);
 const tableData = ref([]);
 const total = ref(0);
 
-const pagination = reactive({
+const searchFormModel = reactive({
     pageNumber: 1,
     pageSize: 20,
     keyword: '',
@@ -219,7 +219,7 @@ const handleReset = () => {
 const getData = async () => {
     loading.value = true;
     try {
-        const data = await getHistoryPlayers(pagination);
+        const data = await getHistoryPlayers(searchFormModel);
         tableData.value = data.items;
         total.value = data.total;
     } finally {
@@ -228,11 +228,9 @@ const getData = async () => {
 };
 getData();
 
-const handleSortChange = async ({prop, order}) => {
-    console.log(prop, order);
-    
-    pagination.order = prop.charAt(0).toUpperCase() + prop.slice(1);
-    pagination.desc = order === 'descending';
+const handleSortChange = async ({ prop, order }) => {
+    searchFormModel.order = prop;
+    searchFormModel.desc = order === 'descending';
     await getData();
 };
 

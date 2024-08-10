@@ -39,6 +39,9 @@
                     stripe
                     @selection-change="handleSelectionChange"
                     @row-contextmenu="handleContextmenu"
+                    @sort-change="handleSortChange"
+                    :default-sort="defaultSort"
+                    :size="tableSize"
                 >
                     <el-table-column v-if="showTableSelection" type="selection" width="50" align="center" />
                     <el-table-column v-if="showTableIndex" type="index" label="序号" width="60" />
@@ -82,6 +85,10 @@ import { Edit, Plus, Delete, Refresh, Search, UploadFilled, ArrowDown } from '@e
 import myconfirm from '~/utils/myconfirm';
 
 const props = defineProps({
+    tableSize: {
+        type: String,
+        default: 'default',
+    },
     showSearcher: {
         type: Boolean,
         default: true,
@@ -171,17 +178,24 @@ const props = defineProps({
         type: Number,
         default: 0,
     },
-    cardBodyPadding:{
+    pageSize: {
+        type: Number,
+        default: 20,
+    },
+    cardBodyPadding: {
         type: String,
         default: '20px',
-    }
+    },
+    defaultSort: {
+        type: Object,
+    },
 });
 
 const loading = ref(false);
 
 const pagination = reactive({
     pageNumber: 1,
-    pageSize: 20,
+    pageSize: props.pageSize,
 });
 
 const getData = async () => {
@@ -251,7 +265,7 @@ const handleAddOrEditConfirm = async () => {
     await getData();
 };
 
-const emit = defineEmits(['onExport', 'onImport', 'onContextmenu']);
+const emit = defineEmits(['onExport', 'onImport', 'onContextmenu', 'onSortChange']);
 const handleExportCommand = async (command) => {
     emit('onExport', command);
 };
@@ -277,6 +291,10 @@ const tableHeight = computed(() => {
         return 'calc(100% - 32px)';
     }
 });
+
+const handleSortChange = ({ prop, order }) => {
+    emit('onSortChange', { prop, order });
+};
 </script>
 
 <style scoped lang="scss">

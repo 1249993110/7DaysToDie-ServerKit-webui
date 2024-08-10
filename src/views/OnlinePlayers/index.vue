@@ -83,22 +83,22 @@
                         {{ row.playerDetails.progression.skillPoints }}
                     </template>
                 </el-table-column>
-                <el-table-column label="积分" min-width="90" sortable>
+                <el-table-column label="积分" min-width="90" sortable show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ row.playerDetails.pointsCount }}
                     </template>
                 </el-table-column>
-                <el-table-column label="当前位置" min-width="100">
+                <el-table-column label="当前位置" min-width="100" show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ formatHelper.formatPosition(row.playerDetails.position) }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="ip" label="IP地址" min-width="130" sortable> </el-table-column>
-                <el-table-column prop="ipAttribution" label="IP归属地" min-width="135" sortable> </el-table-column>
+                <el-table-column prop="ip" label="IP地址" min-width="130" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="ipAttribution" label="IP归属地" min-width="135" sortable show-overflow-tooltip> </el-table-column>
                 <el-table-column prop="ping" label="延迟" min-width="80" sortable> </el-table-column>
                 <el-table-column prop="entityId" label="实体Id" min-width="90" sortable> </el-table-column>
-                <el-table-column prop="playerId" label="玩家Id" min-width="280" sortable> </el-table-column>
-                <el-table-column prop="platformId" label="平台Id" min-width="185" sortable> </el-table-column>
+                <el-table-column prop="playerId" label="玩家Id" min-width="280" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="platformId" label="平台Id" min-width="200" sortable show-overflow-tooltip> </el-table-column>
                 <el-table-column label="操作" width="110" fixed="right">
                     <template #default="{ row }">
                         <el-dropdown
