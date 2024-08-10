@@ -106,6 +106,10 @@ const details = computed(() => {
             value: playerDetails.stats.water.toFixed(1),
         },
         {
+            label: '积分',
+            value: playerDetails.pointsCount,
+        },
+        {
             label: '等级',
             value: playerDetails.progression.level,
         },

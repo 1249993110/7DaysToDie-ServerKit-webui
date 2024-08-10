@@ -83,6 +83,11 @@
                         {{ row.playerDetails.progression.skillPoints }}
                     </template>
                 </el-table-column>
+                <el-table-column label="积分" min-width="90" sortable>
+                    <template #default="{ row }">
+                        {{ row.playerDetails.pointsCount }}
+                    </template>
+                </el-table-column>
                 <el-table-column label="当前位置" min-width="100">
                     <template #default="{ row }">
                         {{ formatHelper.formatPosition(row.playerDetails.position) }}
@@ -256,13 +261,13 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '给予积分',
                 onClick: () => {
-                    playerHelper.changePoints([playerId]);
+                    playerHelper.changePlayerPoints([playerId]);
                 },
             },
             {
                 label: '生成实体',
                 onClick: () => {
-                    playerHelper.spawnEntityToPlayers([playerId]);
+                    playerHelper.spawnEntityToPlayers([row.entityId]);
                 },
             },
             {
@@ -368,7 +373,7 @@ const handleCommand = (command) => {
             playerHelper.changePlayerPoints(playerIds);
             break;
         case 'spawnEntity':
-            playerHelper.spawnEntityToPlayers(playerIds);
+            playerHelper.spawnEntityToPlayers(multipleSelection.map((i) => i.entityId));
             break;
         case 'telePlayer':
             playerHelper.telePlayers(playerIds);

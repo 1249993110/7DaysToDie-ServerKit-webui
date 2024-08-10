@@ -52,7 +52,7 @@
             >
                 <el-table-column type="selection" width="42" />
                 <el-table-column type="index" label="序号" width="60" fixed> </el-table-column>
-                <el-table-column label="玩家昵称" min-width="115" sortable fixed show-overflow-tooltip prop="playerName">
+                <el-table-column label="玩家昵称" min-width="115" sortable="custom" fixed show-overflow-tooltip prop="playerName">
                     <template #default="{ row }">
                         <span style="display: flex">
                             {{ row.playerName }}
@@ -60,34 +60,39 @@
                         </span>
                     </template>
                 </el-table-column>
-                <el-table-column label="等级" min-width="80" sortable prop="level">
+                <el-table-column label="等级" min-width="80" sortable="custom" prop="level">
                     <template #default="{ row }">
                         {{ row.playerDetails.progression.level }}
                     </template>
                 </el-table-column>
-                <el-table-column label="是否在线" min-width="105" sortable prop="isOffline">
+                <el-table-column label="是否在线" min-width="105" sortable="custom" prop="isOffline">
                     <template #default="{ row }">
-                        {{ row.playerDetails.isOffline ? '否' : '是' }}
+                        {{ row.isOffline ? '否' : '是' }}
                     </template>
                 </el-table-column>
-                <el-table-column label="击杀敌人" min-width="105" sortable prop="zombieKills">
+                <el-table-column label="击杀敌人" min-width="105" sortable="custom" prop="zombieKills">
                     <template #default="{ row }">
                         {{ row.playerDetails.zombieKills }}
                     </template>
                 </el-table-column>
-                <el-table-column label="击杀玩家" min-width="105" sortable prop="playerKills">
+                <el-table-column label="击杀玩家" min-width="105" sortable="custom" prop="playerKills">
                     <template #default="{ row }">
                         {{ row.playerDetails.playerKills }}
                     </template>
                 </el-table-column>
-                <el-table-column label="死亡次数" min-width="105" sortable prop="deaths">
+                <el-table-column label="死亡次数" min-width="105" sortable="custom" prop="deaths">
                     <template #default="{ row }">
                         {{ row.playerDetails.deaths }}
                     </template>
                 </el-table-column>
-                <el-table-column label="技能点" min-width="90" sortable prop="skillPoints">
+                <el-table-column label="技能点" min-width="90" sortable="custom" prop="skillPoints">
                     <template #default="{ row }">
                         {{ row.playerDetails.progression.skillPoints }}
+                    </template>
+                </el-table-column>
+                <el-table-column label="积分" min-width="90">
+                    <template #default="{ row }">
+                        {{ row.playerDetails.pointsCount }}
                     </template>
                 </el-table-column>
                 <el-table-column label="当前位置" min-width="100">
@@ -95,22 +100,22 @@
                         {{ formatHelper.formatPosition(row.playerDetails.position) }}
                     </template>
                 </el-table-column>
-                <el-table-column label="上次在线" min-width="150" sortable prop="lastLogin">
+                <el-table-column label="上次在线" min-width="150" sortable="custom" prop="lastLogin">
                     <template #default="{ row }">
                         {{ row.playerDetails.lastLogin }}
                     </template>
                 </el-table-column>
-                <el-table-column label="总游戏时长" min-width="120" sortable prop="totalTimePlayed">
+                <el-table-column label="总游戏时长" min-width="120" sortable="custom" prop="totalTimePlayed">
                     <template #default="{ row }">
                         {{ formatHelper.formatMinute(row.playerDetails.totalTimePlayed) }}
                     </template>
                 </el-table-column>
-                <el-table-column label="最长生存时长" min-width="135" sortable prop="longestLife">
+                <el-table-column label="最长生存时长" min-width="135" sortable="custom" prop="longestLife">
                     <template #default="{ row }">
                         {{ formatHelper.formatMinute(row.playerDetails.longestLife) }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="entityId" label="实体Id" min-width="90" sortable> </el-table-column>
+                <el-table-column prop="entityId" label="实体Id" min-width="90" sortable="custom"> </el-table-column>
                 <el-table-column prop="playerId" label="玩家Id" min-width="280"> </el-table-column>
                 <el-table-column prop="platformId" label="平台Id" min-width="185"> </el-table-column>
                 <el-table-column label="操作" width="110" fixed="right">
@@ -223,8 +228,10 @@ const getData = async () => {
 };
 getData();
 
-const handleSortChange = async (prop, order) => {
-    pagination.order = prop;
+const handleSortChange = async ({prop, order}) => {
+    console.log(prop, order);
+    
+    pagination.order = prop.charAt(0).toUpperCase() + prop.slice(1);
     pagination.desc = order === 'descending';
     await getData();
 };

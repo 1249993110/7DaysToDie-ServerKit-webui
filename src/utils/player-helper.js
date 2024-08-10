@@ -24,15 +24,20 @@ export const changePlayerPoints = async (playerIds) => {
     for (let i = 0; i < playerIds.length; i++) {
         const playerId = playerIds[i];
         await sdtdConsole.changePlayerPoints(playerId, count);
+        if (count < 0) {
+            await sdtdConsole.sendMessageToPlayer(playerId, `您被扣除了 ${-count} 积分`);
+        } else {
+            await sdtdConsole.sendMessageToPlayer(playerId, `您成功充值了 ${count} 积分`);
+        }
     }
     ElMessage.success('发送命令成功');
 };
 
-export const spawnEntityToPlayers = async (playerIds) => {
+export const spawnEntityToPlayers = async (entityIds) => {
     const spawnEntityIdOrName = await myprompt('如: zombieNurse', '请输入实体Id或名称');
-    for (let i = 0; i < playerIds.length; i++) {
-        const playerId = playerIds[i];
-        await sdtdConsole.spawnEntity(playerId, spawnEntityIdOrName);
+    for (let i = 0; i < entityIds.length; i++) {
+        const entityId = entityIds[i];
+        await sdtdConsole.spawnEntity(entityId, spawnEntityIdOrName);
     }
     ElMessage.success('发送命令成功');
 };

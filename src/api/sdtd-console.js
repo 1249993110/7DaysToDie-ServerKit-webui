@@ -46,5 +46,5 @@ export const changePlayerPoints = function (playerId, count) {
 };
 
 export const resetPlayer = function (playerId) {
-    return sendConsoleCommand(`ty-rpi ${playerId}`);
+    return sendConsoleCommand(`ty-rpp ${playerId}`);
 };
