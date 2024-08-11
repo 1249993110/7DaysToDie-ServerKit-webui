@@ -75,19 +75,19 @@ const appendMessage = (chatMessage) => {
     let color;
     switch (chatMessage.chatType) {
         // Global
-        case 0:
+        case 'Global':
             color = 'black';
             break;
         // Friends
-        case 1:
+        case 'Friends':
             color = '#006400';
             break;
         // Party
-        case 2:
+        case 'Party':
             color = '#FFD700';
             break;
         // Whisper
-        case 3:
+        case 'Whisper':
             color = '#00C814';
             break;
         default:
@@ -117,7 +117,7 @@ emitter.on(eventTypes.OnChatMessage, (chatMessage) => {
 });
 
 onMounted(async () => {
-    const data = await api.getChatRecord({ pageNumber: 1, pageSize: 20 });
+    const data = await api.getChatRecord({ pageNumber: 1, pageSize: 20, order: 'createdAt', desc: true });
     const len = data.items.length;
     for (let i = len - 1; i >= 0; i--) {
         appendMessage(data.items[i]);

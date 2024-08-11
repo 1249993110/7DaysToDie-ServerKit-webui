@@ -48,3 +48,11 @@ export const changePlayerPoints = function (playerId, count) {
 export const resetPlayer = function (playerId) {
     return sendConsoleCommand(`ty-rpp ${playerId}`);
 };
+
+export const removePlayerLandClaims = function (playerId) {
+    return sendConsoleCommand(`ty-rplc ${playerId}`);
+};
+
+export const removePlayerLandClaim = function (x, y, z) {
+    return sendConsoleCommand(`ty-rplc ${x} ${y} ${z}`);
+};

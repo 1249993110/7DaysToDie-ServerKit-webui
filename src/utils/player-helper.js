@@ -86,13 +86,15 @@ export const cancelAdmins = async (playerIds) => {
     }
 };
 
-// export const removeLandClaims = async (playerIds) => {
-//     for (let i = 0; i < playerIds.length; i++) {
-//         const playerId = playerIds[i];
-//         await sdtdConsole.removeLandClaims(playerId);
-//     }
-//     ElMessage.success('发送命令成功');
-// };
+export const removeLandClaims = async (playerIds) => {
+    if (await myconfirm('此操作将移除选定玩家的所有领地石, 是否继续?', '提示', 'warning')) {
+        for (let i = 0; i < playerIds.length; i++) {
+            const playerId = playerIds[i];
+            await sdtdConsole.removePlayerLandClaims(playerId);
+        }
+        ElMessage.success('发送命令成功');
+    }
+};
 
 export const resetPlayers = async (playerIds) => {
     if (await myconfirm('此操作将重置选定玩家的存档, 是否继续?', '提示', 'warning')) {

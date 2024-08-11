@@ -24,7 +24,7 @@
                             <el-dropdown-item command="banPlayer">封禁玩家</el-dropdown-item>
                             <el-dropdown-item command="setSuperAdmin">设置为超级管理员</el-dropdown-item>
                             <el-dropdown-item command="cancelAdmin">取消管理员</el-dropdown-item>
-                            <el-dropdown-item command="removeLandClaims" disabled>移除领地石</el-dropdown-item>
+                            <el-dropdown-item command="removeLandClaims">移除领地石</el-dropdown-item>
                             <el-dropdown-item command="resetPlayer">删除玩家存档</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
@@ -118,7 +118,7 @@
                 <el-table-column prop="entityId" label="实体Id" min-width="90" sortable="custom"> </el-table-column>
                 <el-table-column prop="playerId" label="玩家Id" min-width="280" show-overflow-tooltip> </el-table-column>
                 <el-table-column prop="platformId" label="平台Id" min-width="200" show-overflow-tooltip> </el-table-column>
-                <el-table-column label="操作" width="110" fixed="right">
+                <el-table-column label="操作" width="65" fixed="right">
                     <template #default="{ row }">
                         <el-dropdown
                             @command="handleCommand"
@@ -130,36 +130,17 @@
                         >
                             <el-button size="small" plain>
                                 <el-icon size="16">
-                                    <View />
+                                    <Operations />
                                 </el-icon>
                             </el-button>
                             <template #dropdown>
                                 <el-dropdown-menu>
                                     <el-dropdown-item command="showInventory">查看背包</el-dropdown-item>
                                     <el-dropdown-item command="showDetails">查看详细信息</el-dropdown-item>
-                                </el-dropdown-menu>
-                            </template>
-                        </el-dropdown>
-                        <el-dropdown
-                            @command="handleCommand"
-                            @visible-change="
-                                (val) => {
-                                    if (val) handleDropdownVisible(row);
-                                }
-                            "
-                            style="margin-left: 4px"
-                        >
-                            <el-button size="small" plain>
-                                <el-icon size="16">
-                                    <Operations />
-                                </el-icon>
-                            </el-button>
-                            <template #dropdown>
-                                <el-dropdown-menu>
-                                    <el-dropdown-item command="banPlayer">封禁玩家</el-dropdown-item>
+                                    <el-dropdown-item command="banPlayer" divided>封禁玩家</el-dropdown-item>
                                     <el-dropdown-item command="setSuperAdmin">设置为超级管理员</el-dropdown-item>
                                     <el-dropdown-item command="cancelAdmin">取消管理员</el-dropdown-item>
-                                    <el-dropdown-item command="removeLandClaims" disabled>移除领地石</el-dropdown-item>
+                                    <el-dropdown-item command="removeLandClaims">移除领地石</el-dropdown-item>
                                     <el-dropdown-item command="resetPlayer">删除玩家存档</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
@@ -196,7 +177,7 @@ import ContextMenu from '@imengyu/vue3-context-menu';
 import * as playerHelper from '~/utils/player-helper';
 import * as formatHelper from '~/utils/format-helper';
 import { getHistoryPlayers } from '~/api/players';
-import { ArrowDown, View, Refresh, Search } from '@element-plus/icons-vue';
+import { ArrowDown, Refresh, Search } from '@element-plus/icons-vue';
 import Operations from '~icons/carbon/operations-record';
 
 const loading = ref(false);
@@ -279,12 +260,12 @@ const onContextmenu = (row, column, event) => {
                     playerHelper.cancelAdmins([playerId]);
                 },
             },
-            // {
-            //     label: '移除领地石',
-            //     onClick: () => {
-            //         playerHelper.removeLandClaims([playerId]);
-            //     },
-            // },
+            {
+                label: '移除领地石',
+                onClick: () => {
+                    playerHelper.removeLandClaims([playerId]);
+                },
+            },
             {
                 label: '删除玩家存档',
                 onClick: () => {
@@ -369,6 +350,7 @@ const handleCommand = (command) => {
             playerHelper.cancelAdmins(playerIds);
             break;
         case 'removeLandClaims':
+            playerHelper.removeLandClaims(playerIds);
             break;
         case 'resetPlayer':
             playerHelper.resetPlayers(playerIds);

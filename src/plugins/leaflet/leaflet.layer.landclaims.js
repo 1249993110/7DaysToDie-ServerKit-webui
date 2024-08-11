@@ -1,4 +1,6 @@
 import { getLandClaims } from '~/api/land-claims';
+import { removePlayerLandClaim } from '~/api/sdtd-console';
+import myconfirm from '~/utils/myconfirm';
 
 export function getLandClaimsLayer(map, mapInfo) {
     const landClaimsGroup = L.layerGroup();
@@ -46,7 +48,31 @@ export function getLandClaimsLayer(map, mapInfo) {
                     iconSize: [0, 0],
                     icon: L.divIcon({ className: 'invisIcon', iconSize: [0, 0] }),
                 });
-                r.bindPopup('所有者: ' + playerName + ' (' + playerId + ')<br/>Position: ' + position.x + ' ' + position.y + ' ' + position.z);
+
+                const container = L.DomUtil.create('div');
+                const title = L.DomUtil.create('span', null, container);
+                title.innerText = '所有者: ' + playerName + ' (' + playerId + ')';
+
+                L.DomUtil.create('br', null, container);
+
+                const posText = L.DomUtil.create('span', null, container);
+                posText.innerText = 'Position: ' + position.x + ' ' + position.y + ' ' + position.z;
+
+                L.DomUtil.create('br', null, container);
+
+                const inventoryButton = L.DomUtil.create('a', null, container);
+                inventoryButton.innerText = '移除此领地石';
+                inventoryButton.href = 'javascript:void(0);';
+                inventoryButton.title = '移除此领地石';
+                L.DomEvent.on(inventoryButton, 'click', async () => {
+                    if (await myconfirm('此操作将移除选定的领地石, 是否继续?', '提示', 'warning')) {
+                        await removePlayerLandClaim(position.x, position.y, position.z);
+                        await updateClaimsEvent();
+                    }
+                });
+
+                r.bindPopup(container);
+
                 landClaimsRectGroup.addLayer(r);
                 r.addEventListener('popupopen', (e) => {
                     e.popup._closeButton.href = 'javascript:void(0);';

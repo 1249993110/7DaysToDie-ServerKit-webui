@@ -120,7 +120,7 @@ export const initMap = (element, mapInfo) => {
     layerControl.addOverlay(getLandClaimsLayer(map, mapInfo), '领地石');
     layerControl.addOverlay(getHostilesLayer(map, mapInfo), "僵尸 (<span id='mapControlHostileCount'>0</span>)");
     layerControl.addOverlay(getAnimalsLayer(map, mapInfo), "动物 (<span id='mapControlAnimalCount'>0</span>)");
-    layerControl.addOverlay(getOfflinePlayersLayer(map, mapInfo), "玩家 (离线) (<span id='mapControlOfflinePlayerCount'>0</span>)");
+    layerControl.addOverlay(getOfflinePlayersLayer(map, mapInfo), "玩家 (历史) (<span id='mapControlOfflinePlayerCount'>0</span>)");
     layerControl.addOverlay(getOnlinePlayersLayer(map, mapInfo), "玩家 (在线) (<span id='mapControlOnlinePlayerCount'>0</span>)");
 
     layerControl.addTo(map);
