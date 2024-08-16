@@ -10,7 +10,7 @@ export const getBase64 = (blobUrl) => {
     });
 };
 
-export const getIconUrl = (name, iconColor = null) => {
+export const getItemIconUrl = (name, iconColor = null) => {
     if (!name) {
         return null;
     }
@@ -24,4 +24,18 @@ export const getIconUrl = (name, iconColor = null) => {
     }
 
     return import.meta.env.VITE_APP_API_BASE_URL + 'ItemIcons/' + name;
+};
+
+export const getUiIconUrl = (name, iconColor = null) => {
+    if (!name) {
+        return null;
+    }
+
+    if (iconColor) {
+        if (iconColor.toUpperCase() !== 'FFFFFF') {
+            name += '__' + iconColor;
+        }
+    }
+
+    return import.meta.env.VITE_APP_API_BASE_URL + 'UiIcons/' + name + '.png';
 };

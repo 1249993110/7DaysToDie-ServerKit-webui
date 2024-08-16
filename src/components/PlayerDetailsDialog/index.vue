@@ -1,5 +1,5 @@
 <template>
-    <el-dialog v-model="detailsDialogVisible" :title="`玩家: ${data.playerName} (${data.playerId}) 的数据`" draggable :close-on-click-modal="false">
+    <el-dialog :title="`玩家: ${data.playerName} (${data.playerId}) 的数据`" draggable :close-on-click-modal="false">
         <el-scrollbar max-height="63vh" always>
             <el-descriptions :column="2" border>
                 <el-descriptions-item v-for="(item, index) in details" :key="index" :label="item.label">
@@ -21,8 +21,6 @@ import * as formatHelper from '~/utils/format-helper';
 const props = defineProps({
     data: Object,
 });
-
-const detailsDialogVisible = ref(false);
 
 const details = computed(() => {
     const data = props.data;
@@ -118,15 +116,15 @@ const details = computed(() => {
         },
         {
             label: '等级',
-            value: playerDetails.progression.level,
+            value: playerDetails.level,
         },
         {
             label: '至下一级的经验',
-            value: playerDetails.progression.expToNextLevel,
+            value: playerDetails.expToNextLevel,
         },
         {
             label: '技能点',
-            value: playerDetails.progression.skillPoints,
+            value: playerDetails.skillPoints,
         },
         {
             label: '领地石保护状态',

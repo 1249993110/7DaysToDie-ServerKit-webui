@@ -36,7 +36,7 @@ export default {
 <script setup>
 import { getItemBlocks } from '~/api/item-blocks';
 import { showTooltip } from '~/components/SingletonTooltip/index.js';
-import { getIconUrl } from '~/utils/image-helper';
+import { getItemIconUrl } from '~/utils/image-helper';
 
 const items = reactive([]);
 const itemsChecked = ref(true);
@@ -81,7 +81,7 @@ const getData = async () => {
 
         for (let i = 0; i < len; i++) {
             const item = data[i];
-            item.url = getIconUrl(item.itemName);
+            item.url = getItemIconUrl(item.itemName);
             items.push(item);
         }
     } finally {

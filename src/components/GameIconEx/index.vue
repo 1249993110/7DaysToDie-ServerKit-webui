@@ -82,8 +82,8 @@ const handleMouseover = (event) => {
         数量: ${props.count}<br />
         最大堆叠数量: ${props.maxStackAllowed}<br />
         质量: ${props.quality}<br />
-        最大使用时长: ${props.maxUseTimes}<br />
         使用时长: ${props.useTimes}<br />
+        最大使用时长: ${props.maxUseTimes}<br />
         模组: ${props.isMod ? '是' : '否'}`;
 
     showTooltip({ trigger: event.target, content: content, rawContent: true });

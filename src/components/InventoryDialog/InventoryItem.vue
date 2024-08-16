@@ -1,6 +1,6 @@
 <template>
     <div class="image-container" v-if="item" @contextmenu.prevent="handleContextMenu" @mouseover="handleMouseover(item, $event)">
-        <el-image :src="getIconUrl(item.itemName)" class="image" lazy></el-image>
+        <el-image :src="getItemIconUrl(item.itemName)" class="image" lazy></el-image>
         <span v-if="item.quality <= 0" class="inventory-item-count">{{ item.count }}</span>
         <span v-else :style="getQualityStyle(item)" class="inventory-item-quality"></span>
     </div>
@@ -12,7 +12,7 @@ import { useZIndex } from 'element-plus';
 import { showTooltip } from '~/components/SingletonTooltip/index.js';
 import { removePlayerItems } from '~/api/inventories';
 import myconfirm from '~/utils/myconfirm';
-import { getIconUrl } from '~/utils/image-helper';
+import { getItemIconUrl } from '~/utils/image-helper';
 
 const props = defineProps({
     item: {

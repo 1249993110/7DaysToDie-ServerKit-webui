@@ -55,7 +55,7 @@
                 </el-table-column>
                 <el-table-column label="等级" min-width="80" sortable>
                     <template #default="{ row }">
-                        {{ row.playerDetails.progression.level }}
+                        {{ row.playerDetails.level }}
                     </template>
                 </el-table-column>
                 <el-table-column label="游戏阶段" min-width="105" sortable>
@@ -80,7 +80,7 @@
                 </el-table-column>
                 <el-table-column label="技能点" min-width="90" sortable>
                     <template #default="{ row }">
-                        {{ row.playerDetails.progression.skillPoints }}
+                        {{ row.playerDetails.skillPoints }}
                     </template>
                 </el-table-column>
                 <el-table-column label="积分" min-width="90" sortable show-overflow-tooltip>
@@ -225,6 +225,12 @@ const onContextmenu = (row, column, event) => {
                 onClick: () => {
                     playerHelper.showPlayerDetails(row);
                 },
+            },
+            {
+                label: '查看技能',
+                onClick: () => {
+                    playerHelper.showPlayerSkills(playerId, playerName);
+                },
                 divided: true,
             },
             {
@@ -308,7 +314,7 @@ const onContextmenu = (row, column, event) => {
                     {
                         label: '复制玩家Id',
                         onClick: async () => {
-                            await copy(layerId);
+                            await copy(playerId);
                             ElMessage.success('复制成功');
                         },
                     },
