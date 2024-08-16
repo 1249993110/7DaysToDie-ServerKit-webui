@@ -1,52 +1,73 @@
 import { ElTooltip } from 'element-plus';
 import { createVNode, render } from 'vue';
-import { promiseTimeout } from '@vueuse/core';
+import { promiseTimeout, useDebounceFn } from '@vueuse/core';
 
 const container = document.createElement('div');
 document.body.appendChild(container);
+let trigger;
+let mouseInTrigger;
 let mouseInPopper;
-let mouseInVirtual;
-let isUnmounted;
 
-export const closeTooltip = async () => {
-    if (isUnmounted) {
-        return;
+const dispose = () => {
+    if (mouseInTrigger) {
+        mouseInTrigger.stop();
+        mouseInTrigger = null;
     }
-
-    await promiseTimeout(200);
-
-    if (!mouseInVirtual.isOutside.value) {
-        return;
+    if (mouseInPopper) {
+        mouseInPopper.stop();
+        mouseInPopper = null;
     }
-
-    if (!mouseInPopper.isOutside.value) {
-        await closeTooltip();
-        return;
-    }
-
     render(null, container);
-    isUnmounted = true;
+    trigger = null;
 };
 
-export const showTooltip = async (props) => {
+const checkTouch = useDebounceFn(async () => {
+    //await promiseTimeout(100);
+
+    if (!trigger) {
+        return;
+    }
+
+    if (!trigger.checkVisibility()) {
+        dispose();
+        return;
+    }
+
+    if (!mouseInTrigger.isOutside.value || !mouseInPopper.isOutside.value) {
+        checkTouch();
+        return;
+    }
+
+    dispose();
+}, 100);
+
+export const showTooltip = useDebounceFn(async (props) => {
+    trigger = props.trigger;
+    if (!trigger.checkVisibility()) {
+        return;
+    }
+
     const vNode = createVNode(ElTooltip, {
         appendTo: container,
         virtualTriggering: true,
-        virtualRef: props.virtualRef,
+        virtualRef: trigger,
         visible: true,
+        effect: props.effect,
         content: props.content,
-        placement: props.placement || 'bottom-start',
-        showArrow: props.showArrow || true,
-        rawContent: props.rawContent || true,
-        enterable: props.enterable || true,
-        offset: props.offset || 2,
-        showAfter: props.showAfter || 0,
+        placement: props.placement || 'right-end',
+        showArrow: props.showArrow,
+        rawContent: props.rawContent,
+        offset: 0,
     });
 
-    render(vNode, container);
-    isUnmounted = false;
-    await nextTick();
+    if (props.showAfter) {
+        await promiseTimeout(props.showAfter);
+    }
 
+    render(vNode, container);
+    await nextTick();
+    mouseInTrigger = useMouseInElement(trigger);
     mouseInPopper = useMouseInElement(container.firstElementChild);
-    mouseInVirtual = useMouseInElement(props.virtualRef);
-};
+
+    checkTouch(); // do not await
+}, 100);

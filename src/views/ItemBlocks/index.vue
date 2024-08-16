@@ -18,7 +18,6 @@
                             :src="item.url"
                             lazy
                             @mouseover="handleMouseover(item, $event)"
-                            @mouseleave="handleMouseleave"
                         />
                         <el-empty :image-size="200" v-if="items.length === 0" style="width: 100%" />
                     </div>
@@ -36,7 +35,7 @@ export default {
 
 <script setup>
 import { getItemBlocks } from '~/api/item-blocks';
-import { showTooltip, closeTooltip } from '~/components/SingletonTooltip/index.js';
+import { showTooltip } from '~/components/SingletonTooltip/index.js';
 import { getIconUrl } from '~/utils/image-helper';
 
 const items = reactive([]);
@@ -112,13 +111,9 @@ const handleMouseover = (item, event) => {
         图标颜色: ${item.iconColor}<br />
         最大堆叠数量: ${item.maxStackAllowed}<br />`;
 
-    showTooltip({ virtualRef: event.target, content: content, placement: 'right-end' });
-};
-const handleMouseleave = () => {
-    closeTooltip();
+    showTooltip({ trigger: event.target, content: content, rawContent: true });
 };
 
-onDeactivated(closeTooltip);
 </script>
 
 <style scoped lang="scss">

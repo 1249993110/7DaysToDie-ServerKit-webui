@@ -2,7 +2,14 @@
     <el-dialog v-model="detailsDialogVisible" :title="`玩家: ${data.playerName} (${data.playerId}) 的数据`" draggable :close-on-click-modal="false">
         <el-scrollbar max-height="63vh" always>
             <el-descriptions :column="2" border>
-                <el-descriptions-item v-for="(item, index) in details" :key="index" :label="item.label">{{ item.value }}</el-descriptions-item>
+                <el-descriptions-item v-for="(item, index) in details" :key="index" :label="item.label">
+                    <template v-if="Array.isArray(item.value)">
+                        <el-select :model-value="item.value" multiple collapse-tags collapse-tags-tooltip style="width: 240px" placeholder="空">
+                            <el-option v-for="(subItem, subIndex) in item.value" :key="subIndex" :label="subItem" :value="subItem" />
+                        </el-select>
+                    </template>
+                    <template v-else>{{ item.value }}</template>
+                </el-descriptions-item>
             </el-descriptions>
         </el-scrollbar>
     </el-dialog>
@@ -144,6 +151,14 @@ const details = computed(() => {
         {
             label: '最长生存时长',
             value: formatHelper.formatMinute(playerDetails.longestLife),
+        },
+        {
+            label: '已制作物品列表',
+            value: playerDetails.alreadyCraftedList,
+        },
+        {
+            label: '已解锁配方列表',
+            value: playerDetails.unlockedRecipeList,
         },
         {
             label: '租赁坐标',

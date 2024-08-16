@@ -1,7 +1,7 @@
 <template>
-    <div class="image-container" v-if="item" @contextmenu.prevent="handleContextMenu" @mouseover="handleMouseover(item, $event)" @mouseleave="handleMouseleave">
+    <div class="image-container" v-if="item" @contextmenu.prevent="handleContextMenu" @mouseover="handleMouseover(item, $event)">
         <el-image :src="getIconUrl(item.itemName)" class="image" lazy></el-image>
-        <span v-if="item.quality === -1" class="inventory-item-count">{{ item.count }}</span>
+        <span v-if="item.quality <= 0" class="inventory-item-count">{{ item.count }}</span>
         <span v-else :style="getQualityStyle(item)" class="inventory-item-quality"></span>
     </div>
 </template>
@@ -9,8 +9,7 @@
 <script setup>
 import ContextMenu from '@imengyu/vue3-context-menu';
 import { useZIndex } from 'element-plus';
-import { showTooltip, closeTooltip } from '~/components/SingletonTooltip/index.js';
-import { useGameLocalizationStore } from '~/store/game-localization';
+import { showTooltip } from '~/components/SingletonTooltip/index.js';
 import { removePlayerItems } from '~/api/inventories';
 import myconfirm from '~/utils/myconfirm';
 import { getIconUrl } from '~/utils/image-helper';
@@ -28,8 +27,6 @@ const props = defineProps({
     },
 });
 
-const gameLocalizationStore = useGameLocalizationStore();
-
 const getQualityStyle = (item) => {
     const durability = (1 - item.useTimes / item.maxUseTimes) * 80;
     return { backgroundColor: `#${item.qualityColor}C8`, width: (durability > 80 ? 80 : durability) + 'px' };
@@ -42,7 +39,7 @@ const handleContextMenu = (event) => {
         zIndex: useZIndex().nextZIndex(),
         x: event.x,
         y: event.y,
-        theme: 'default dark',
+        theme: 'mac dark',
         items: [
             {
                 label: '复制物品名称',
@@ -94,13 +91,9 @@ const handleMouseover = (item, event) => {
         最大使用时长: ${item.maxUseTimes}<br />
         使用时长: ${item.useTimes}<br />`;
 
-    showTooltip({ virtualRef: event.target, content: content });
-};
-const handleMouseleave = () => {
-    closeTooltip();
+    showTooltip({ trigger: event.target, content: content });
 };
 
-onUnmounted(closeTooltip);
 </script>
 
 <style scoped lang="scss">
@@ -119,11 +112,12 @@ onUnmounted(closeTooltip);
     }
 
     .inventory-item-count {
-        color: lightgreen;
-        font-size: 20px;
+        color: white;
+        font-size: 28px;
         position: absolute;
         right: 1px;
         bottom: 1px;
+        text-shadow: 0 0 4px #32003c;
     }
 
     .inventory-item-quality {

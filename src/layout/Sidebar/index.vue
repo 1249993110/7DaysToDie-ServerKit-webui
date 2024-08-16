@@ -25,7 +25,15 @@ const menusStore = useMenusStore();
 const sidebarStore = useSidebarStore();
 const userInfoStore = useUserInfoStore();
 
-const defaultActive = ref(menusStore.getMenuByPath(route.path).path);
+const defaultActive = ref('');
+
+watch(
+    () => route.path,
+    () => {
+        defaultActive.value = menusStore.getMenuByPath(route.path).path;
+    },
+    { immediate: true }
+);
 
 const handleSelectMenu = async (path) => {
     if (!path) {

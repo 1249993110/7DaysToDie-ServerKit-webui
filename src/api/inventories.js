@@ -5,7 +5,7 @@ import http from '../utils/request';
  * @returns
  */
 export const getPlayerInventory = (playerId) => {
-    return http.get('/Inventories/' + playerId);
+    return http.get('/Inventories/' + playerId, { params: { language: 'Schinese' } });
 };
 
 /**

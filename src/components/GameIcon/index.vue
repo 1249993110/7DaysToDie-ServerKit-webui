@@ -1,9 +1,7 @@
 <template>
     <el-image :src="src" :style="style" lazy>
         <template #error>
-            <div class="image-slot">
-                <el-icon :size="size"><IconPicture /></el-icon>
-            </div>
+            <el-icon :size="size"><IconPicture /></el-icon>
         </template>
     </el-image>
 </template>
@@ -22,8 +20,8 @@ const props = defineProps({
         default: 80,
     },
 });
-const src = computed(() => getIconUrl(props.name));
 
+const src = computed(() => getIconUrl(props.name));
 const style = computed(() => {
     return {
         width: props.size + 'px',
