@@ -136,6 +136,7 @@
                             <template #dropdown>
                                 <el-dropdown-menu>
                                     <el-dropdown-item command="showInventory">查看背包</el-dropdown-item>
+                                    <el-dropdown-item command="showSkills">查看技能</el-dropdown-item>
                                     <el-dropdown-item command="showDetails">查看详细信息</el-dropdown-item>
                                     <el-dropdown-item command="banPlayer" divided>封禁玩家</el-dropdown-item>
                                     <el-dropdown-item command="setSuperAdmin">设置为超级管理员</el-dropdown-item>
@@ -236,6 +237,12 @@ const onContextmenu = (row, column, event) => {
                 },
             },
             {
+                label: '查看技能',
+                onClick: () => {
+                    playerHelper.showPlayerSkills(playerId, playerName);
+                },
+            },
+            {
                 label: '查看详细信息',
                 onClick: () => {
                     playerHelper.showPlayerDetails(row);
@@ -318,6 +325,9 @@ const handleCommand = (command) => {
     switch (command) {
         case 'showInventory':
             playerHelper.showPlayerInventory(playerIds[0], playerNames[0]);
+            break;
+        case 'showSkills':
+            playerHelper.showPlayerSkills(playerIds[0], playerNames[0]);
             break;
         case 'showDetails':
             playerHelper.showPlayerDetails(multipleSelection[0]);

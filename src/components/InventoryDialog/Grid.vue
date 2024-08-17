@@ -2,7 +2,7 @@
     <div style="width: 855px">
         <div class="bag">
             <div>背包</div>
-            <el-scrollbar noresize always class="split" height="410px">
+            <el-scrollbar noresize always class="split" height="426px">
                 <GameIconEx
                     v-for="(item, index) in bag"
                     :key="index"
@@ -23,7 +23,7 @@
         </div>
         <div class="equipment">
             <div>装备</div>
-            <el-scrollbar noresize always class="split" height="410px">
+            <el-scrollbar noresize always class="split" height="426px">
                 <GameIconEx
                     v-for="(item, index) in equipment"
                     :key="index"
