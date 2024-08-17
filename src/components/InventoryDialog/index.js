@@ -6,7 +6,7 @@ export const showPlayerInventory = async (playerId, playerName) => {
     const vNode = createVNode(Dialog, {
         title: `玩家: ${playerName} (${playerId}) 的背包`,
         playerId: playerId,
-        visible: true,
+        modelValue: true,
         onClosed: () => {
             document.body.removeChild(container);
         },

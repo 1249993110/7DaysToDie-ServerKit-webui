@@ -17,7 +17,7 @@
                     :maxUseTimes="item.maxUseTimes"
                     :isMod="item.isMod"
                     :playerId="playerId"
-                    backgroundColor="#afafaf"
+                    backgroundColor="#4d4d4d"
                 />
             </el-scrollbar>
         </div>
@@ -37,7 +37,7 @@
                     :useTimes="item.useTimes"
                     :maxUseTimes="item.maxUseTimes"
                     :isMod="item.isMod"
-                    backgroundColor="#afafaf"
+                    backgroundColor="#4d4d4d"
                 />
             </el-scrollbar>
         </div>
@@ -59,7 +59,7 @@
                 :maxUseTimes="item.maxUseTimes"
                 :isMod="item.isMod"
                 :playerId="playerId"
-                backgroundColor="#afafaf"
+                backgroundColor="#4d4d4d"
             />
         </div>
     </div>

@@ -1,16 +1,16 @@
 import myconfirm from '~/utils/myconfirm';
-import { renderFullMap } from '~/api/map';
+import { renderExploredArea } from '~/api/map';
 
-L.Control.RenderFullMap = L.Control.extend({
+L.Control.RenderExploredArea = L.Control.extend({
     options: {
         position: 'bottomleft',
     },
 
     onAdd: function (map) {
-        const name = 'control-renderFullMap';
+        const name = 'control-renderExploredArea';
         const container = L.DomUtil.create('div', name + ' webmap-control render-map');
 
-        container.innerHTML = '渲染全图';
+        container.innerHTML = '渲染已探索区域';
         this._map = map;
         this._div = container;
 
@@ -22,8 +22,8 @@ L.Control.RenderFullMap = L.Control.extend({
     onRemove: function (map) {},
 
     _onClick: async (e) => {
-        if (await myconfirm('确认渲染全图吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度, 此操作一般仅在开服后执行一次.')) {
-            await renderFullMap();
+        if (await myconfirm('确认渲染已探索区域吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度.')) {
+            await renderExploredArea();
         }
     },
 });

@@ -1,5 +1,5 @@
 <template>
-    <el-table :data="tableData" max-height="calc(56vh)" highlight-current-row>
+    <el-table :data="tableData" max-height="56vh" highlight-current-row>
         <el-table-column label="图标" width="86px" class-name="table-icon-col">
             <template #default="{ row }">
                 <GameIconEx

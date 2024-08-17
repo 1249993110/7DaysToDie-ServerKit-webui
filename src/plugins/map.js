@@ -12,6 +12,7 @@ import 'leaflet-measure/dist/leaflet-measure.cn.js';
 import './leaflet/leaflet.control.coordinates.js';
 import './leaflet/leaflet.control.reloadtiles.js';
 import './leaflet/leaflet.control.renderFullMap.js';
+import './leaflet/leaflet.control.renderExploredArea.js';
 
 import './leaflet/leaflet.control.gametime.js';
 import { getSdtdTileLayer } from './leaflet/leaflet.layer.sdtdtiles';
@@ -85,6 +86,7 @@ export const initMap = (element, mapInfo) => {
     }).addTo(map);
 
     new L.Control.RenderFullMap({}).addTo(map);
+    new L.Control.RenderExploredArea({}).addTo(map);
 
     // L.control.measure({
     // 	units: {

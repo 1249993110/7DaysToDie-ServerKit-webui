@@ -1,16 +1,16 @@
 <template>
-    <el-dialog class="inventory-dialog" v-model="visible" width="890px" draggable :close-on-click-modal="false" @closed="handleClosed" :show-close="false">
+    <el-dialog class="inventory-dialog" width="890px" draggable :close-on-click-modal="false" :show-close="false">
         <template #header="{ close, titleId, titleClass }">
             <div class="my-header">
                 <h1 :id="titleId" :class="titleClass">{{ title }}</h1>
                 <span style="margin-left: auto">
                     <el-text style="margin: 0 4px" type="success">网格</el-text>
-                    <el-switch v-model="showList" style="--el-switch-on-color: #ff4949; --el-switch-off-color: #13ce66"></el-switch>
-                    <el-text style="margin: 0 4px" type="danger">列表</el-text>
+                    <el-switch v-model="showList" style="--el-switch-on-color: #409eff; --el-switch-off-color: #13ce66"></el-switch>
+                    <el-text style="margin: 0 4px" type="primary">列表</el-text>
                 </span>
-                <el-button style="margin-left: auto" type="danger" @click="close">
-                    <el-icon><CircleCloseFilled /></el-icon>
-                </el-button>
+                <IconButton style="margin-left: auto" @click="close">
+                    <Close />
+                </IconButton>
             </div>
         </template>
         <div v-loading="loading" v-show="!showList">
@@ -34,15 +34,11 @@
 import Grid from './Grid.vue';
 import Table from './Table.vue';
 import { getPlayerInventory } from '~/api/inventories';
-import { CircleCloseFilled } from '@element-plus/icons-vue';
+import { Close } from '@element-plus/icons-vue';
 
 const props = defineProps({
     title: {
         type: String,
-    },
-    visible: {
-        type: Boolean,
-        default: false,
     },
     playerId: {
         type: String,
@@ -73,25 +69,15 @@ getPlayerInventory(props.playerId)
         loading.value = false;
     })
     .catch((error) => {});
-
-const emit = defineEmits(['onClosed']);
-const visible = ref(props.visible);
-
-const handleClosed = () => {
-    emit('onClosed');
-};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .inventory-dialog {
     //background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5)), url('../../assets/images/background.png');
-    .el-dialog__header {
-        padding: 0;
-    }
     .my-header {
         display: flex;
         flex-direction: row;
-        justify-items: center;
+        align-items: center;
         gap: 16px;
     }
 }

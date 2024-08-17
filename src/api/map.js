@@ -12,8 +12,16 @@ export const getMapInfo = () => {
  * 渲染整个地图
  * @returns 
  */
-export const renderMap = () => {
-    return http.post('/Map/Render');
+export const renderFullMap = () => {
+    return http.post('/Map/RenderFullMap');
+};
+
+/**
+ * 渲染已探索区域
+ * @returns 
+ */
+export const renderExploredArea = () => {
+    return http.post('/Map/RenderExploredArea');
 };
 
 /**

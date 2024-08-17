@@ -8,7 +8,7 @@
         <el-table :data="tableData" border height="calc(64vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="42" />
             <!-- <el-table-column prop="id" label="Id" width="80px"> </el-table-column> -->
-            <el-table-column label="图标" width="80px" class-name="table-icon-col">
+            <el-table-column label="图标" width="65px" class-name="table-icon-col">
                 <template #default="{ row }">
                     <GameIcon :name="row.itemName" :size="40" />
                 </template>

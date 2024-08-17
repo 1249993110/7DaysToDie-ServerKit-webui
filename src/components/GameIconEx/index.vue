@@ -1,6 +1,6 @@
 <template>
     <div class="container" @contextmenu.prevent="handleContextMenu" @mouseover="handleMouseover">
-        <GameIcon :name="itemName" :size="size"></GameIcon>
+        <GameIcon :name="itemName" :size="size" :backgroundColor="backgroundColor"></GameIcon>
         <span v-if="quality < 0" class="count">{{ count }}</span>
         <span v-if="quality > 0" :style="style"></span>
         <span v-if="quality > 0" class="quality">{{ quality }}</span>
@@ -54,7 +54,6 @@ const props = defineProps({
     },
     backgroundColor: {
         type: String,
-        default: '',
     },
 });
 
@@ -136,7 +135,6 @@ const handleContextMenu = (event) => {
     height: v-bind(sizePx);
     width: v-bind(sizePx);
     display: inline-block;
-    background-color: v-bind(backgroundColor);
     margin: 1px;
 
     /*& + & {

@@ -42,7 +42,15 @@
                     </template>
                 </el-dropdown>
             </div>
-            <el-table ref="tableRef" :data="tableData" stripe height="calc(100vh - 200px)" highlight-current-row @row-contextmenu="onContextmenu" @selection-change="handleSelectionChange">
+            <el-table
+                ref="tableRef"
+                :data="tableData"
+                stripe
+                height="calc(100vh - 200px)"
+                highlight-current-row
+                @row-contextmenu="onContextmenu"
+                @selection-change="handleSelectionChange"
+            >
                 <el-table-column type="selection" width="42" />
                 <el-table-column type="index" label="序号" width="60" fixed> </el-table-column>
                 <el-table-column label="玩家昵称" min-width="115" sortable fixed show-overflow-tooltip>
@@ -117,6 +125,7 @@
                             <template #dropdown>
                                 <el-dropdown-menu>
                                     <el-dropdown-item command="showInventory">查看背包</el-dropdown-item>
+                                    <el-dropdown-item command="showSkills">查看技能</el-dropdown-item>
                                     <el-dropdown-item command="showDetails">查看详细信息</el-dropdown-item>
                                     <el-dropdown-item command="sendMessage" divided>发送消息</el-dropdown-item>
                                     <el-dropdown-item command="giveItem">给予物品</el-dropdown-item>
@@ -221,15 +230,15 @@ const onContextmenu = (row, column, event) => {
                 },
             },
             {
-                label: '查看详细信息',
-                onClick: () => {
-                    playerHelper.showPlayerDetails(row);
-                },
-            },
-            {
                 label: '查看技能',
                 onClick: () => {
                     playerHelper.showPlayerSkills(playerId, playerName);
+                },
+            },
+            {
+                label: '查看详细信息',
+                onClick: () => {
+                    playerHelper.showPlayerDetails(row);
                 },
                 divided: true,
             },
@@ -346,6 +355,9 @@ const handleCommand = (command) => {
     switch (command) {
         case 'showInventory':
             playerHelper.showPlayerInventory(playerIds[0], playerNames[0]);
+            break;
+        case 'showSkills':
+            playerHelper.showPlayerSkills(playerIds[0], playerNames[0]);
             break;
         case 'showDetails':
             playerHelper.showPlayerDetails(multipleSelection[0]);
