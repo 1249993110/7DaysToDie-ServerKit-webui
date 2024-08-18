@@ -15,7 +15,7 @@
         </RouterButton>
         <el-card class="card" shadow="always">
             <div class="live-chat-container">
-                <el-scrollbar always>
+                <el-scrollbar always ref="scrollbarRef">
                     <div id="live-chat-content"></div>
                 </el-scrollbar>
             </div>
@@ -37,11 +37,9 @@ export default {
 import { sendGlobalMessage } from '~/api/server';
 import { emitter, eventTypes } from '~/utils/event-hub';
 import * as api from '~/api/chat-record';
+import { useInfiniteScroll, useElementSize } from '@vueuse/core';
 
-let contentCount = 0;
-const contentMaxCount = 1000;
 const message = ref('');
-
 const sendMessage = async () => {
     if (!!message.value) {
         await sendGlobalMessage(message.value);
@@ -62,15 +60,10 @@ onDeactivated(() => {
     isActivated = false;
 });
 
-const appendMessage = (chatMessage) => {
+const appendMessage = (chatMessage, prepend = false) => {
     const message = chatMessage.createdAt + "   '" + chatMessage.senderName + "': " + chatMessage.message;
 
     const element = document.getElementById('live-chat-content');
-    if (contentCount > contentMaxCount) {
-        element.removeChild(element.firstElementChild);
-    } else {
-        contentCount++;
-    }
 
     let color;
     switch (chatMessage.chatType) {
@@ -101,8 +94,13 @@ const appendMessage = (chatMessage) => {
     const p = document.createElement('p');
     p.innerHTML = `<font color="${color}">${message}</font>`;
 
-    element.appendChild(p);
-    p.scrollIntoView();
+    if (prepend) {
+        element.prepend(p);
+    } else {
+        element.appendChild(p);
+    }
+
+    return p;
 };
 
 emitter.on(eventTypes.OnChatMessage, (chatMessage) => {
@@ -112,16 +110,43 @@ emitter.on(eventTypes.OnChatMessage, (chatMessage) => {
         }
         messageBuffer.push(chatMessage);
     } else {
-        appendMessage(chatMessage);
+        const el = appendMessage(chatMessage);
+        el.scrollIntoView();
     }
 });
 
-onMounted(async () => {
-    const data = await api.getChatRecord({ pageNumber: 1, pageSize: 20, order: 'createdAt', desc: true });
-    const len = data.items.length;
-    for (let i = len - 1; i >= 0; i--) {
-        appendMessage(data.items[i]);
+let pageNumber = 1;
+let len = 0;
+const getData = async (pageSize) => {
+    const data = await api.getChatRecord({ pageNumber: pageNumber, pageSize: pageSize, order: 'createdAt', desc: true });
+    len = data.items.length;
+    for (let i = 0; i < len; i++) {
+        appendMessage(data.items[i], true);
     }
+};
+
+const canLoadMore = () => {
+    return len > 0;
+};
+
+const scrollbarRef = ref();
+
+onMounted(async () => {
+    await getData(50);
+
+    const { height } = useElementSize(document.getElementById('live-chat-content'));
+    scrollbarRef.value.setScrollTop(height.value);
+    useInfiniteScroll(
+        scrollbarRef.value.wrapRef,
+        async () => {
+            console.log(111);
+
+            pageNumber++;
+            await getData(10);
+            scrollbarRef.value.setScrollTop(1);
+        },
+        { direction: 'top', distance: 0, canLoadMore: canLoadMore }
+    );
 });
 </script>
 
