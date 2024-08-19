@@ -6,6 +6,7 @@ import Components from 'unplugin-vue-components/vite';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import vueDevTools from 'vite-plugin-vue-devtools'
 
 process.env.BROWSER = 'chrome';
 
@@ -17,6 +18,7 @@ export default defineConfig(({ mode }) => {
     return {
         plugins: [
             vue(),
+            vueDevTools(),
             AutoImport({
                 // targets to transform
                 include: [
@@ -66,6 +68,7 @@ export default defineConfig(({ mode }) => {
                     }),
                 ],
                 dts: true,
+                globs: ['src/components/*.vue','src/components/*/index.vue'],
             }),
             Icons({
                 autoInstall: true,
