@@ -1,6 +1,6 @@
 import { getLandClaims } from '~/api/land-claims';
 import { removePlayerLandClaim } from '~/api/sdtd-console';
-import myconfirm from '~/utils/myconfirm';
+
 
 export function getLandClaimsLayer(map, mapInfo) {
     const landClaimsGroup = L.layerGroup();

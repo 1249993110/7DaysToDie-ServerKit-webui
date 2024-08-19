@@ -54,7 +54,7 @@ export default {
 <script setup>
 import * as api from '~/api/points-info.js';
 import AddOrEditPointsInfo from './AddOrEditPointsInfo.vue';
-import myconfirm from '~/utils/myconfirm';
+
 
 const searchFormModel = reactive({
     keyword: '',

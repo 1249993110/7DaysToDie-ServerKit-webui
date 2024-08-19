@@ -2,8 +2,6 @@ import * as sdtdConsole from '~/api/sdtd-console';
 import { showPlayerInventory } from '~/components/InventoryDialog/index';
 import { showPlayerDetails } from '~/components/PlayerDetailsDialog/index';
 import { showPlayerSkills } from '~/components/PlayerSkillsDialog/index';
-import myprompt from '~/utils/myprompt';
-import myconfirm from '~/utils/myconfirm';
 import { batchBan } from '~/components/BatchAddBlacklist/index';
 import { batchGiveItem } from '~/components/BatchGiveItem/index';
 

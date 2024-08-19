@@ -79,7 +79,7 @@ import Overview from './Overview/index.vue';
 import Status from './Status/index.vue';
 import SystemInfo from './SystemInfo/index.vue';
 import { getStats, restart, shutdown } from '~/api/server';
-import myconfirm from '~/utils/myconfirm';
+
 
 const stats = ref({});
 const getData = async () => {

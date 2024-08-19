@@ -56,8 +56,8 @@ export default {
 </script>
 <script setup>
 import * as api from '~/api/chat-record';
-import * as fileHelper from '~/utils/file-helper';
-import myconfirm from '~/utils/myconfirm';
+
+
 
 const searchFormModel = reactive({
     keyword: '',

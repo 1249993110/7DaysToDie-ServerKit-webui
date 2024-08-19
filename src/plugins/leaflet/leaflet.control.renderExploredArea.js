@@ -1,4 +1,4 @@
-import myconfirm from '~/utils/myconfirm';
+
 import { renderExploredArea } from '~/api/map';
 
 L.Control.RenderExploredArea = L.Control.extend({

@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-import { getItemIconUrl, getUiIconUrl } from '~/utils/image-helper';
 import { Picture as IconPicture } from '@element-plus/icons-vue';
 
 const props = defineProps({

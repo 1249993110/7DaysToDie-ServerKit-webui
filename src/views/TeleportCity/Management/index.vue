@@ -47,7 +47,7 @@
                 <el-table-column prop="position" label="三维坐标"> </el-table-column>
                 <el-table-column label="视角方向">
                     <template #default="{ row }">
-                        {{ getLabel(row.viewDirection) }}
+                        {{ getViewDirectionLabel(row.viewDirection) }}
                     </template>
                 </el-table-column>
                 <el-table-column prop="createdAt" label="创建日期" sortable> </el-table-column>
@@ -65,7 +65,7 @@ export default {
 <script setup>
 import * as api from '~/api/city-location.js';
 import AddOrEditCityLocation from './AddOrEditCityLocation.vue';
-import { getLabel } from '~/utils/view-direction-options.js';
+import { getViewDirectionLabel } from '~/utils/view-direction-options.js';
 
 const tableData = ref([]);
 

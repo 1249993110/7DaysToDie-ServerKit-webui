@@ -12,7 +12,6 @@ import { showTooltip } from '~/components/SingletonTooltip/index.js';
 import ContextMenu from '@imengyu/vue3-context-menu';
 import { useZIndex } from 'element-plus';
 import { removePlayerItems } from '~/api/inventories';
-import myconfirm from '~/utils/myconfirm';
 
 const props = defineProps({
     size: {

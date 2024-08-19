@@ -41,7 +41,7 @@ export const viewDirectionOptions = [
     },
 ];
 
-export const getLabel = (val) => {
+export const getViewDirectionLabel = (val) => {
     for (let i = 0; i < viewDirectionOptions.length; i++) {
         if (viewDirectionOptions[i].value === val) {
             return viewDirectionOptions[i].label;

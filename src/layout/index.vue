@@ -25,7 +25,6 @@ import Footer from './Footer/index.vue';
 import { useSidebarStore } from '~/store/sidebar';
 import { useUserInfoStore } from '~/store/user-info';
 //import { useGameLocalizationStore } from '~/store/game-localization';
-import { startWebsocket } from '~/utils/websocket';
 import { getAppSettings } from '~/api/app-settings';
 
 const sidebarStore = useSidebarStore();

@@ -90,7 +90,7 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
-import myconfirm from '~/utils/myconfirm';
+
 
 const autoRestartTime = computed({
     get() {

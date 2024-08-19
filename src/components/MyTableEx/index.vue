@@ -82,7 +82,6 @@
 
 <script setup>
 import { Edit, Plus, Delete, Refresh, Search, UploadFilled, ArrowDown } from '@element-plus/icons-vue';
-import myconfirm from '~/utils/myconfirm';
 
 const props = defineProps({
     tableSize: {

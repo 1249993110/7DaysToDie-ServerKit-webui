@@ -61,8 +61,6 @@ export default {
 <script setup>
 import { getSettings, putSettings, restart, shutdown } from '~/api/server';
 import { Edit } from '@element-plus/icons-vue';
-import myconfirm from '~/utils/myconfirm';
-import myprompt from '~/utils/myprompt';
 
 const handleRestart = async () => {
     if (await myconfirm('您确定要重启服务器吗? 这可能需要几分钟的时间')) {

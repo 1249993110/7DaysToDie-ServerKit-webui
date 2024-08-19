@@ -1,7 +1,7 @@
 import { getLocations } from '~/api/locations';
 import { showPlayerInventory } from '~/components/InventoryDialog/index';
 import * as sdtdConsole from '~/api/sdtd-console';
-import myconfirm from '~/utils/myconfirm';
+
 
 // onlinePlayer icon
 const onlinePlayerIcon = L.icon({

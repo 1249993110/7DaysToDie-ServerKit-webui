@@ -63,7 +63,7 @@ export default {
 <script setup>
 import * as api from '~/api/vip-gift.js';
 import AddOrEditVipGift from './AddOrEditVipGift.vue';
-import myconfirm from '~/utils/myconfirm';
+
 
 const tableData = ref([]);
 

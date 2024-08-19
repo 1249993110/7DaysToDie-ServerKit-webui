@@ -66,7 +66,7 @@ export default {
 <script setup>
 import * as api from '~/api/home-location.js';
 import AddOrEditHomeLocation from './AddOrEditHomeLocation.vue';
-import myconfirm from '~/utils/myconfirm';
+
 
 const searchFormModel = reactive({
     keyword: '',

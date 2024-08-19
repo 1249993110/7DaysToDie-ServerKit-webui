@@ -1,4 +1,4 @@
-import myconfirm from '~/utils/myconfirm';
+
 import { renderFullMap } from '~/api/map';
 
 L.Control.RenderFullMap = L.Control.extend({

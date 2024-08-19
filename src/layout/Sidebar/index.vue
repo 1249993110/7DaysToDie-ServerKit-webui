@@ -17,7 +17,7 @@ import Collapse from './Collapse.vue';
 import { useMenusStore } from '~/store/menus';
 import { useSidebarStore } from '~/store/sidebar';
 import { useUserInfoStore } from '~/store/user-info';
-import myconfirm from '~/utils/myconfirm';
+
 
 const route = useRoute();
 const router = useRouter();

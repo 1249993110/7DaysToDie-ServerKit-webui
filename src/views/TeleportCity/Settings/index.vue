@@ -81,7 +81,7 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
-import myconfirm from '~/utils/myconfirm';
+
 
 const formModel = reactive({});
 const formRef = ref();
