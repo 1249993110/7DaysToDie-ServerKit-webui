@@ -7,6 +7,7 @@ import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import vueDevTools from 'vite-plugin-vue-devtools';
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 
 process.env.BROWSER = 'chrome';
 
@@ -46,7 +47,7 @@ export default defineConfig(({ mode }) => {
                 // Auto import inside Vue template
                 // see https://github.com/unjs/unimport/pull/15 and https://github.com/unjs/unimport/pull/72
                 vueTemplate: false,
-                dirs: ['./src/utils/*'],
+                dirs: ['./src/utils/*', './src/store/*'],
                 resolvers: [ElementPlusResolver()], // 自动导入element API
             }),
             Components({
@@ -73,6 +74,9 @@ export default defineConfig(({ mode }) => {
             Icons({
                 autoInstall: true,
                 compiler: 'vue3',
+            }),
+            VueI18nPlugin({
+                include: [path.resolve(__dirname, './src/locales/**')],
             }),
         ],
         base: env.VITE_APP_BASE_URL,

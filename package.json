@@ -28,6 +28,7 @@
     "qs": "^6.13.0",
     "screenfull": "^6.0.2",
     "vue": "^3.4.37",
+    "vue-i18n": "^9.14.0",
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
@@ -42,6 +43,7 @@
     "@iconify-json/mdi": "^1.1.68",
     "@iconify-json/quill": "^1.1.11",
     "@iconify-json/uiw": "^1.1.13",
+    "@intlify/unplugin-vue-i18n": "^4.0.0",
     "@vitejs/plugin-vue": "^5.1.2",
     "sass": "^1.77.6",
     "unplugin-auto-import": "^0.18.2",
