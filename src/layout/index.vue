@@ -24,7 +24,6 @@ import Main from './Main/index.vue';
 import Footer from './Footer/index.vue';
 import { useSidebarStore } from '~/store/sidebar';
 import { useUserInfoStore } from '~/store/user-info';
-//import { useGameLocalizationStore } from '~/store/game-localization';
 import { getAppSettings } from '~/api/app-settings';
 
 const sidebarStore = useSidebarStore();
@@ -36,7 +35,6 @@ watch(
     isLoggedIn,
     async (val) => {
         if (val) {
-            //useGameLocalizationStore();
             const appSettings = await getAppSettings();
             const hostname = import.meta.env.DEV ? import.meta.env.VITE_APP_API_DOMAIN : location.hostname;
             const url = appSettings.webSocketUrl.replace('{hostname}', hostname) + '?token=' + (await userInfoStore.getToken());

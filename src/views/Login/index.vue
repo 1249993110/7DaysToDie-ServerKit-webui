@@ -2,7 +2,7 @@
     <div class="login-container">
         <div class="login-box">
             <div class="login-box-title">
-                <span>{{ title }}</span>
+                <span>{{ $t('title') }}</span>
             </div>
             <el-form :model="formModel" :rules="rules" ref="loginRef" label-width="0px" class="login-box-content">
                 <el-form-item prop="username">
@@ -39,7 +39,6 @@ import { useUserInfoStore } from '~/store/user-info';
 import { disposeAllStores } from '~/plugins/pinia';
 
 disposeAllStores();
-const title = import.meta.env.VITE_APP_TITEL;
 
 const route = useRoute();
 const router = useRouter();

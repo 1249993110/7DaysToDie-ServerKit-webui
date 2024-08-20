@@ -86,7 +86,7 @@ export default defineConfig(({ mode }) => {
             open: true,
             proxy: {
                 '/api': {
-                    target: `http://${env.VITE_APP_API_DOMAIN}:8888`,
+                    target: `http://${env.VITE_APP_API_DOMAIN}:${env.VITE_APP_API_PORT}`,
                     changeOrigin: true,
                 },
             },

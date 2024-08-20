@@ -104,7 +104,7 @@ const tree = [
         icon: getIcon(() => import('~icons/game-icons/teleport')),
     },
     {
-        path: import.meta.env.VITE_APP_SWAGGER_URL,
+        path: import.meta.env.DEV ? `http://${import.meta.env.VITE_APP_API_DOMAIN}:${import.meta.env.VITE_APP_API_PORT}/swagger/` : '/swagger',
         title: '接口文档',
         icon: getIcon(() => import('~icons/ep/document')),
         isExternalLink: true,
