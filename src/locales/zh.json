@@ -1,6 +1,6 @@
 {
     "global": {
-        "app_title": "天依七日杀服主工具",
+        "appTitle": "天依七日杀服主工具",
         "form": {
             "required": "必填项"
         }
@@ -11,5 +11,15 @@
         "menus": {}
     },
     "utils": {},
-    "views": {}
+    "views": {
+        "login":{
+            "username": "用户名",
+            "password": "密码",
+            "login": "登 录",
+            "logout": "退出",
+            "loginFailed": "登录失败",
+            "loginSuccess": "登录成功",
+            "logoutSuccess": "退出成功"
+        }
+    }
 }

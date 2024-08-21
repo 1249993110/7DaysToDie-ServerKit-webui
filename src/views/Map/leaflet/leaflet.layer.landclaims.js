@@ -32,7 +32,7 @@ export function getLandClaimsLayer(map, mapInfo) {
         for (let i = 0, len = claimOwners.length; i < len; i++) {
             const claimOwner = claimOwners[i];
             const playerId = claimOwner.playerId;
-            const playerName = claimOwner.playerName || '&lt;unknown&gt;';
+            const playerName = claimOwner.playerName ?? '&lt;unknown&gt;';
             const active = claimOwner.claimActive;
             const color = active ? '#55ff55' : '#ff0000';
             const claimPositions = claimOwner.claimPositions;

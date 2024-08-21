@@ -24,7 +24,7 @@ export const useLocaleStore = defineStore({
             localStorage.setItem('lang', locale);
         },
         getAppTitle() {
-            return i18n.global.t('app_title') + ' ' + import.meta.env.VITE_APP_VERSION;
+            return i18n.global.t('global.appTitle') + ' ' + import.meta.env.VITE_APP_VERSION;
         },
     },
 });

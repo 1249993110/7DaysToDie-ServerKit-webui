@@ -1,6 +1,6 @@
 {
     "global": {
-        "app_title": "TianYi 7 Days to Die Server Tools",
+        "appTitle": "TianYi 7 Days to Die Server Tools",
         "form": {
             "required": "Required"
         }
@@ -11,5 +11,15 @@
         "menus": {}
     },
     "utils": {},
-    "views": {}
+    "views": {
+        "login":{
+            "username": "Username",
+            "password": "Password",
+            "login": "Login",
+            "logout": "Logout",
+            "loginFailed": "Login failed",
+            "loginSuccess": "Login success",
+            "logoutSuccess": "Logout success"
+        }
+    }
 }
