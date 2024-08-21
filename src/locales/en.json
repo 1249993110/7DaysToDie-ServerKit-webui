@@ -1,4 +1,15 @@
 {
-    "app_title": "TianYi 7 Days to Die Server Tools",
-    "required": "Required"
+    "global": {
+        "app_title": "TianYi 7 Days to Die Server Tools",
+        "form": {
+            "required": "Required"
+        }
+    },
+    "components": {},
+    "layout": {},
+    "store": {
+        "menus": {}
+    },
+    "utils": {},
+    "views": {}
 }

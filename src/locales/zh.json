@@ -1,10 +1,15 @@
 {
-    "app_title": "天依七日杀服主工具",
-    "required": "必填项",
-    "components":{
-
+    "global": {
+        "app_title": "天依七日杀服主工具",
+        "form": {
+            "required": "必填项"
+        }
     },
-    "layout":{
-        
-    }
+    "components": {},
+    "layout": {},
+    "store": {
+        "menus": {}
+    },
+    "utils": {},
+    "views": {}
 }
