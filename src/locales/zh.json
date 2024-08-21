@@ -6,17 +6,27 @@
         }
     },
     "components": {},
-    "layout": {},
+    "layout": {
+        "footer": {
+            "codeRepository": "代码仓库",
+            "copyright": "Copyright © 2024 洛水天依Team 版权所有",
+            "group": {
+                "title": "加入天依七日杀服主群",
+                "url": "https://qm.qq.com/cgi-bin/qm/qr?k=p3TKGDnBAxxyVsR79pF-WYHI3BjsYiHe&jump_from=webapi&authKey=wTpnGpOGOsAaNTD4TqL4kukLQnxT+TmDFQx803v+Q2zWU0E7LYuSkBQQI+WhrqFB"
+            }
+        }
+    },
     "store": {
         "menus": {}
     },
     "utils": {},
     "views": {
-        "login":{
+        "login": {
             "username": "用户名",
             "password": "密码",
             "login": "登 录",
             "logout": "退出",
+            "logoutConfirm": "您确定要退出登录吗?",
             "loginFailed": "登录失败",
             "loginSuccess": "登录成功",
             "logoutSuccess": "退出成功"

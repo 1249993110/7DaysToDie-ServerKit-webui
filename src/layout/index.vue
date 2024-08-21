@@ -39,8 +39,6 @@ watch(
             const hostname = import.meta.env.DEV ? import.meta.env.VITE_APP_API_DOMAIN : location.hostname;
             const url = appSettings.webSocketUrl.replace('{hostname}', hostname) + '?token=' + (await userInfoStore.getToken());
             startWebsocket(url);
-        } else {
-            //
         }
     },
     {

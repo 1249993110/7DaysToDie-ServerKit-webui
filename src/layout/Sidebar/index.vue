@@ -14,16 +14,13 @@
 import MenuTree from './MenuTree.vue';
 import Logo from './Logo.vue';
 import Collapse from './Collapse.vue';
-import { useMenusStore } from '~/store/menus';
-import { useSidebarStore } from '~/store/sidebar';
-import { useUserInfoStore } from '~/store/user-info';
-
 
 const route = useRoute();
 const router = useRouter();
 const menusStore = useMenusStore();
 const sidebarStore = useSidebarStore();
 const userInfoStore = useUserInfoStore();
+const { t } = useI18n();
 
 const defaultActive = ref('');
 
@@ -51,8 +48,8 @@ const handleSelectMenu = async (path) => {
 };
 
 const logout = async () => {
-    if (await myconfirm('您确定要退出登录吗?')) {
-        ElMessage.success('退出成功');
+    if (await myconfirm(t('views.login.logoutConfirm'))) {
+        ElMessage.success(t('views.login.logoutSuccess'));
         await userInfoStore.logout();
         router.push('/login');
     }

@@ -6,7 +6,16 @@
         }
     },
     "components": {},
-    "layout": {},
+    "layout": {
+        "footer": {
+            "codeRepository": "Code Repository",
+            "copyright": "© 2024 All rights reserved by TianYi Team",
+            "group":{
+                "title": "Join the Discord server",
+                "url": "https://discord.gg/TsbjR4KU"
+            }
+        }
+    },
     "store": {
         "menus": {}
     },
@@ -17,6 +26,7 @@
             "password": "Password",
             "login": "Login",
             "logout": "Logout",
+            "logoutConfirm": "Are you sure you want to logout?",
             "loginFailed": "Login failed",
             "loginSuccess": "Login success",
             "logoutSuccess": "Logout success"
