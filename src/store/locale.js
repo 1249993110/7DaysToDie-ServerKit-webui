@@ -1,14 +1,30 @@
-// export function preferredLocale(locale = 'en') {
-//     if (!IN_BROWSER) return locale;
-
-//     const languages = [].concat(window.localStorage.getItem('currentLocale') || [], navigator.languages || []);
-
-//     return languages.find((l) => locales.some((locale) => locale.enabled && l === (locale.alternate || locale.locale))) || locale;
-// }
+import { i18n } from '~/plugins/i18n';
+import { setLocale as setDayjsLocale } from '~/plugins/dayjs';
 
 export const useLocaleStore = defineStore({
     id: 'locale',
     state: () => ({
-        locale: 'en',
+        locale: i18n.global.locale,
+        availableLocales: [
+            {
+                lable: 'English',
+                value: 'en',
+            },
+            {
+                lable: '简体中文',
+                value: 'zh',
+            },
+        ],
     }),
+    getters: {},
+    actions: {
+        setLocale(locale) {
+            this.locale = locale;
+            setDayjsLocale(locale);
+            localStorage.setItem('lang', locale);
+        },
+        getAppTitle() {
+            return i18n.global.t('app_title') + ' ' + import.meta.env.VITE_APP_VERSION;
+        },
+    },
 });

@@ -2,7 +2,7 @@
     <div class="login-container">
         <div class="login-box">
             <div class="login-box-title">
-                <span>{{ $t('title') }}</span>
+                <span>{{ localeStore.getAppTitle() }}</span>
             </div>
             <el-form :model="formModel" :rules="rules" ref="loginRef" label-width="0px" class="login-box-content">
                 <el-form-item prop="username">
@@ -35,10 +35,12 @@ export default {
 
 <script setup>
 import { User, Lock } from '@element-plus/icons-vue';
-import { useUserInfoStore } from '~/store/user-info';
 import { disposeAllStores } from '~/plugins/pinia';
 
 disposeAllStores();
+
+const localeStore = useLocaleStore();
+const { t } = useI18n();
 
 const route = useRoute();
 const router = useRouter();
@@ -49,8 +51,8 @@ const formModel = reactive({
     password: '',
 });
 const rules = {
-    username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-    password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+    username: [{ required: true, message: t('required'), trigger: 'blur' }],
+    password: [{ required: true, message: t('required'), trigger: 'blur' }],
 };
 
 const loginRef = ref();
@@ -61,7 +63,6 @@ const submitForm = async () => {
             await userInfoStore.login(formModel.username, formModel.password);
             ElMessage.success('登录成功');
             router.push(route.query.redirect || '/');
-
         } catch (error) {
             ElMessage.error('登录失败');
             console.error(error);

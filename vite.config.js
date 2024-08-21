@@ -37,6 +37,7 @@ export default defineConfig(({ mode }) => {
                     'pinia',
                     '@vueuse/core',
                     'vue-i18n',
+                    { '~/plugins/dayjs': [['default', 'dayjs']] },
                 ],
 
                 // Filepath to generate corresponding .d.ts file.

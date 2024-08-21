@@ -1,12 +1,18 @@
 <template>
-    <el-config-provider :locale="locale === 'en' ? en : zhCn">
+    <MyConfigProvider>
         <router-view />
-    </el-config-provider>
+    </MyConfigProvider>
 </template>
 
 <script setup>
-import en from 'element-plus/dist/locale/en.mjs';
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
+const localeStore = useLocaleStore();
 
-const { locale } = useI18n();
+// Monitor language changes and update titles
+watch(
+    () => localeStore.locale,
+    () => {
+        document.title = localeStore.getAppTitle();
+    },
+    { immediate: true }
+);
 </script>

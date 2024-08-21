@@ -1,3 +1,10 @@
 {
-    "title": "标题"
+    "app_title": "天依七日杀服主工具",
+    "required": "必填项",
+    "components":{
+
+    },
+    "layout":{
+        
+    }
 }

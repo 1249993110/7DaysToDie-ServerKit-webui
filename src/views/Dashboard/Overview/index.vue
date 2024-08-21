@@ -78,8 +78,6 @@
 </template>
 
 <script setup>
-import dayjs from 'dayjs';
-
 const props = defineProps({
     data: Object,
 });

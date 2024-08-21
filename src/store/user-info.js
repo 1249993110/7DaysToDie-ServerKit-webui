@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia';
 import * as api from '../api/account';
-import dayjs from 'dayjs';
-import { defaultFormat } from '../plugins/dayjs';
 import { closeWebsocket } from '~/utils/websocket';
 
 export const useUserInfoStore = defineStore('user-info', {
@@ -23,7 +21,7 @@ export const useUserInfoStore = defineStore('user-info', {
             this.token = data.access_token;
             this.expiresIn = dayjs()
                 .add(data.expires_in / 2, 'second')
-                .format(defaultFormat);
+                .format();
 
             sessionStorage.setItem('username', this.username);
             sessionStorage.setItem('password', this.password);
@@ -31,7 +29,8 @@ export const useUserInfoStore = defineStore('user-info', {
             sessionStorage.setItem('expiresIn', this.expiresIn);
         },
         async getToken() {
-            if (dayjs() > dayjs(this.expiresIn, defaultFormat)) {
+            if (dayjs() > dayjs(this.expiresIn)) {
+                
                 await this.login(this.username, this.password);
             }
 
@@ -43,7 +42,7 @@ export const useUserInfoStore = defineStore('user-info', {
                     return false;
                 }
 
-                if (dayjs() > dayjs(this.expiresIn, defaultFormat)) {
+                if (dayjs() > dayjs(this.expiresIn)) {
                     await this.login(this.username, this.password);
                 }
 
