@@ -257,20 +257,14 @@ const router = createRouter({
 
 router.beforeEach(async (to, from) => {
     nProgress.start();
-    // 检查此路由需要授权, 用户是否已登录
+    // Check if this route requires authorization and if the user has logged in
     if (to.meta.requiresAuth) {
         const userInfoStore = useUserInfoStore();
         const isLoggedIn = await userInfoStore.isLoggedIn();
         if (!isLoggedIn) {
-            // 如果没有, 则重定向到登录页面
+            // If not, redirect to the login page
             return '/login?redirect=' + to.fullPath;
         }
-
-        // if(to.path === '/file-browser'){
-        //     const token = await fileBrowserApi.getToken();
-        //     console.log(token);
-        //     document.cookie = 'auth=' + token;
-        // }
     }
 });
 

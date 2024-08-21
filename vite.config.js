@@ -73,6 +73,7 @@ export default defineConfig(({ mode }) => {
                 globs: ['./src/components/*.vue', './src/components/*/index.vue'],
             }),
             Icons({
+                // https://icones.js.org/
                 autoInstall: true,
                 compiler: 'vue3',
             }),
