@@ -60,8 +60,6 @@ import * as api from '~/api/autobackup.js';
 
 const tableData = ref([]);
 
-const addOrEditComponentProps = ref({});
-
 const getData = async () => {
     const data = await api.getBackupFiles();
     data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
