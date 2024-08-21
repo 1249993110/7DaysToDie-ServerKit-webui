@@ -35,7 +35,6 @@ export default {
 
 <script setup>
 import { sendGlobalMessage } from '~/api/server';
-import { emitter, eventTypes } from '~/utils/event-hub';
 import * as api from '~/api/chat-record';
 import { useInfiniteScroll, useElementSize } from '@vueuse/core';
 

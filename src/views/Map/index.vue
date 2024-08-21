@@ -13,7 +13,7 @@ export default {
 </script>
 
 <script setup>
-import { initMap } from '~/plugins/map';
+import { initMap } from './map';
 import { getMapInfo } from '~/api/map';
 
 const mapRef = ref();

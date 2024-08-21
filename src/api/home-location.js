@@ -1,4 +1,4 @@
-import http from '../utils/request';
+
 
 /**
  * 通过分页参数获取私人位置

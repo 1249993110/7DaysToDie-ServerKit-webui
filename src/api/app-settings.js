@@ -1,4 +1,4 @@
-import http from '../utils/request';
+
 
 /**
  * 获取应用设置

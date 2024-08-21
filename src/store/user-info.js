@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import * as api from '../api/account';
-import { closeWebsocket } from '~/utils/websocket';
 
 export const useUserInfoStore = defineStore('user-info', {
     state: () => {

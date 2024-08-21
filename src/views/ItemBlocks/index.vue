@@ -36,7 +36,7 @@ export default {
 <script setup>
 import { getItemBlocks } from '~/api/item-blocks';
 import { showTooltip } from '~/components/SingletonTooltip/index.js';
-import { getItemIconUrl } from '~/utils/image-helper';
+import { getItemIconUrl } from '~/utils/imageHelper';
 
 const items = reactive([]);
 const itemsChecked = ref(true);

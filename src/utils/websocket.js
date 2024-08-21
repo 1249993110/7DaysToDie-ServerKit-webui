@@ -1,4 +1,4 @@
-import { emitter, eventTypes } from './event-hub';
+import { emitter, eventTypes } from './eventHub';
 
 const createConnection = (url) => {
     // Create WebSocket connection.

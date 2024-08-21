@@ -23,7 +23,7 @@
 
 <script setup>
 import * as api from '~/api/city-location.js';
-import { viewDirectionOptions } from '~/utils/view-direction-options.js';
+import { viewDirectionOptions } from '../viewDirectionOptions.js';
 
 const formModel = reactive({
     id: 0,

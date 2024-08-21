@@ -1,5 +1,3 @@
-import http from '../utils/request';
-
 /**
  * 获取本地化资源
  */

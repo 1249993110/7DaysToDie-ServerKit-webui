@@ -16,8 +16,6 @@
 </template>
 
 <script setup>
-import * as formatHelper from '~/utils/format-helper';
-
 const props = defineProps({
     data: Object,
 });

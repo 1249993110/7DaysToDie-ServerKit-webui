@@ -1,5 +1,3 @@
-import http from '../utils/request';
-
 export const loginUrl = '/oauth/token';
 
 /**

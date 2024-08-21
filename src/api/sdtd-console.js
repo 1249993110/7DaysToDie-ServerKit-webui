@@ -1,4 +1,4 @@
-import http from '../utils/request';
+
 
 export const sendConsoleCommand = function (command, inMainThread = false) {
     return http.post('/Server/ExecuteConsoleCommand', null, {

@@ -1,4 +1,4 @@
-import http from '../utils/request';
+
 
 export const getBlacklist = () => {
     return http.get('/Blacklist');

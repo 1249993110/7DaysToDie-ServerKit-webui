@@ -1,4 +1,4 @@
-import http from '../utils/request';
+
 
 /**
  * 获取物品方块

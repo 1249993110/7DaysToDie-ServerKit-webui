@@ -1,4 +1,4 @@
-import http from '../utils/request';
+
 
 export const getSettings = (name) => {
     return http.get('/Settings/' + name);

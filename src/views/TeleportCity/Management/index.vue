@@ -65,7 +65,7 @@ export default {
 <script setup>
 import * as api from '~/api/city-location.js';
 import AddOrEditCityLocation from './AddOrEditCityLocation.vue';
-import { getViewDirectionLabel } from '~/utils/view-direction-options.js';
+import { getViewDirectionLabel } from '../viewDirectionOptions.js';
 
 const tableData = ref([]);
 
