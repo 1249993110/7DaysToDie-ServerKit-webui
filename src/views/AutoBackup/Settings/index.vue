@@ -1,18 +1,6 @@
 <template>
     <div class="autobackup-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '备份配置',
-                    path: '/autobackup/settings',
-                },
-                {
-                    value: '备份管理',
-                    path: '/autobackup/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['autobackup.settings', 'autobackup.management']"></RouterButton>
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -51,13 +39,12 @@
 
 <script>
 export default {
-    name: 'AutoBackup.Settings',
+    name: 'autobackup.settings',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/settings.js';
-
 
 const formModel = reactive({});
 

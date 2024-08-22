@@ -49,12 +49,15 @@ export default defineConfig(({ mode }) => {
                 // see https://github.com/unjs/unimport/pull/15 and https://github.com/unjs/unimport/pull/72
                 vueTemplate: false,
                 dirs: ['./src/utils/*', './src/store/*'],
-                resolvers: [ElementPlusResolver()], // 自动导入element API
+                resolvers: [
+                    ElementPlusResolver({
+                        importStyle: 'sass',
+                    }),
+                ], // Auto import element API
             }),
             Components({
                 resolvers: [
                     // Auto register Element Plus components
-                    // 自动导入 Element Plus 组件与样式
                     ElementPlusResolver({
                         importStyle: 'sass',
                     }),
@@ -84,8 +87,8 @@ export default defineConfig(({ mode }) => {
         base: env.VITE_APP_BASE_URL,
         server: {
             host: 'localhost',
-            port: 9527,
-            open: true,
+            port: env.VITE_PORT,
+            open: env.VITE_OPEN,
             proxy: {
                 '/api': {
                     target: `http://${env.VITE_APP_API_DOMAIN}:${env.VITE_APP_API_PORT}`,

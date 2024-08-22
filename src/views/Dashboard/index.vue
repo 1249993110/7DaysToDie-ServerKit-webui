@@ -1,64 +1,53 @@
 <template>
     <div class="dashboard">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '仪表盘',
-                    path: '/dashboard',
-                },
-            ]"
-        >
+        <RouterButton :names="['dashboard']">
             <template #route-button>
-                <div class="route-button">
-                    <el-button link type="primary" @click="handleRestart"> 重启服务器 </el-button>
-                    <el-divider direction="vertical" />
-                    <el-button link type="danger" @click="handleShutdown"> 关闭服务器 </el-button>
-                </div>
+                <ServerToolBar />
             </template>
         </RouterButton>
         <el-row :gutter="20">
             <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16">
-                <CardWithHeader header="概览">
+                <CardWithHeader :header="$t('views.dashboard.header.overview')">
                     <template #body><Overview :data="stats" /></template>
                 </CardWithHeader>
-                <CardWithHeader header="状态" min-height="260px">
+                <CardWithHeader :header="$t('views.dashboard.header.status')" min-height="260px">
                     <template #body><Status :data="stats" /></template>
                 </CardWithHeader>
                 <el-row :gutter="20">
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader header="FPS" height="146px" class="moniter">
+                        <CardWithHeader :header="$t('views.dashboard.header.fps')" height="146px" class="moniter">
                             <template #body>{{ stats.fps?.toFixed(2) }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader header="实体数" height="146px" class="moniter">
+                        <CardWithHeader :header="$t('views.dashboard.header.entities')" height="146px" class="moniter">
                             <template #body>{{ stats.entities }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader header="RSS" height="146px" class="moniter">
+                        <CardWithHeader :header="$t('views.dashboard.header.rss')" height="146px" class="moniter">
                             <template #body>{{ stats.residentSetSize?.toFixed() }} MB</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader header="Chunks" height="146px" class="moniter">
+                        <CardWithHeader :header="$t('views.dashboard.header.chunks')" height="146px" class="moniter">
                             <template #body>{{ stats.chunks }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader header="CGO" height="146px" class="moniter">
+                        <CardWithHeader :header="$t('views.dashboard.header.cgo')" height="146px" class="moniter">
                             <template #body>{{ stats.cgo }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader header="Items" height="146px" class="moniter">
+                        <CardWithHeader :header="$t('views.dashboard.header.items')" height="146px" class="moniter">
                             <template #body>{{ stats.items }}</template>
                         </CardWithHeader>
                     </el-col>
                 </el-row>
             </el-col>
             <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-                <CardWithHeader header="系统信息">
+                <CardWithHeader :header="$t('views.dashboard.header.systemInfo')">
                     <template #body>
                         <SystemInfo />
                     </template>
@@ -70,7 +59,7 @@
 
 <script>
 export default {
-    name: 'Dashboard',
+    name: 'dashboard',
 };
 </script>
 
@@ -78,8 +67,7 @@ export default {
 import Overview from './Overview/index.vue';
 import Status from './Status/index.vue';
 import SystemInfo from './SystemInfo/index.vue';
-import { getStats, restart, shutdown } from '~/api/server';
-
+import { getStats } from '~/api/server';
 
 const stats = ref({});
 const getData = async () => {
@@ -89,33 +77,9 @@ const { pause, resume, isActive } = useIntervalFn(getData, 10000, { immediate: f
 
 onActivated(resume);
 onDeactivated(pause);
-
-const handleRestart = async () => {
-    if (await myconfirm('您确定要重启服务器吗? 这可能需要几分钟的时间')) {
-        await restart();
-        ElMessage.success('重启成功');
-    }
-};
-
-const handleShutdown = async () => {
-    if (await myconfirm('您确定要关闭服务器吗?')) {
-        await shutdown();
-        ElMessage.success('关闭成功');
-    }
-};
 </script>
 
 <style scoped lang="scss">
-.route-button {
-    margin-right: 20px;
-    :deep(.el-button) {
-        --el-button-text-color: #005eeb;
-    }
-    :deep(button:nth-child(3)) {
-        --el-button-text-color: #f56c6c;
-    }
-}
-
 .moniter {
     margin-top: 0;
     :deep(.el-card__body) {

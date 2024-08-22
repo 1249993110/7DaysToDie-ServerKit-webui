@@ -12,109 +12,113 @@ const routes = [
         children: [
             {
                 path: 'dashboard',
-                name: 'Dashboard',
+                name: 'dashboard',
                 component: () => import('../views/Dashboard/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
-                path: 'server-settings',
-                name: 'ServerSettings',
+                path: 'serverSettings',
+                name: 'serverSettings',
                 component: () => import('../views/ServerSettings/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
                 path: 'map',
-                name: 'Map',
+                name: 'map',
                 component: () => import('../views/Map/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
-                path: 'playerlist',
-                redirect: '/playerlist/online-players',
+                path: 'playerList',
+                name: 'playerList',
+                redirect: '/playerList/onlinePlayers',
                 children: [
                     {
-                        path: 'online-players',
-                        name: 'OnlinePlayers',
-                        component: () => import('../views/OnlinePlayers/index.vue'),
+                        path: 'onlinePlayers',
+                        name: 'playerList.onlinePlayers',
+                        component: () => import('../views/PlayerList/OnlinePlayers/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
-                        path: 'history-players',
-                        name: 'HistoryPlayers',
-                        component: () => import('../views/HistoryPlayers/index.vue'),
+                        path: 'historyPlayers',
+                        name: 'playerList.historyPlayers',
+                        component: () => import('../views/PlayerList/HistoryPlayers/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                 ],
             },
             {
                 path: 'chat',
-                redirect: '/chat/live-chat',
+                name: 'chat',
+                redirect: '/chat/liveChat',
                 children: [
                     {
-                        path: 'live-chat',
-                        name: 'LiveChat',
-                        component: () => import('../views/LiveChat/index.vue'),
+                        path: 'liveChat',
+                        name: 'chat.liveChat',
+                        component: () => import('../views/Chat/LiveChat/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
-                        path: 'chat-record',
-                        name: 'ChatRecord',
-                        component: () => import('../views/ChatRecord/index.vue'),
+                        path: 'chatRecord',
+                        name: 'chat.chatRecord',
+                        component: () => import('../views/Chat/ChatRecord/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                 ],
             },
             {
                 path: 'blacklist',
-                name: 'Blacklist',
+                name: 'blacklist',
                 component: () => import('../views/Blacklist/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
-                path: 'item-blocks',
-                name: 'ItemBlocks',
+                path: 'itemBlocks',
+                name: 'itemBlocks',
                 component: () => import('../views/ItemBlocks/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
                 path: 'console',
-                name: 'Console',
+                name: 'console',
                 component: () => import('../views/Console/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
-                path: 'global-settings',
-                name: 'GlobalSettings',
+                path: 'globalSettings',
+                name: 'globalSettings',
                 component: () => import('../views/GlobalSettings/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
                 path: 'autobackup',
+                name: 'autobackup',
                 redirect: '/autobackup/settings',
                 children: [
                     {
                         path: 'settings',
-                        name: 'AutoBackup.Settings',
+                        name: 'autobackup.settings',
                         component: () => import('../views/AutoBackup/Settings/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
                         path: 'management',
-                        name: 'AutoBackup.Management',
+                        name: 'autobackup.management',
                         component: () => import('../views/AutoBackup/Management/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                 ],
             },
             {
-                path: 'game-notice',
+                path: 'gameNotice',
                 name: 'GameNotice',
                 component: () => import('../views/GameNotice/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
-                path: 'points-system',
-                redirect: '/points-system/settings',
+                path: 'pointsSystem',
+                name: 'pointsSystem',
+                redirect: '/pointsSystem/settings',
                 children: [
                     {
                         path: 'settings',
@@ -131,17 +135,18 @@ const routes = [
                 ],
             },
             {
-                path: 'list-management',
-                redirect: '/list-management/item-list',
+                path: 'listManagement',
+                name: 'listManagement',
+                redirect: '/listManagement/itemList',
                 children: [
                     {
-                        path: 'item-list',
+                        path: 'itemList',
                         name: 'ListManagement.ItemList',
                         component: () => import('../views/ListManagement/ItemList/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
-                        path: 'command-list',
+                        path: 'commandList',
                         name: 'ListManagement.CommandList',
                         component: () => import('../views/ListManagement/CommandList/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
@@ -149,8 +154,9 @@ const routes = [
                 ],
             },
             {
-                path: '/game-store',
-                redirect: '/game-store/settings',
+                path: '/gameStore',
+                name: '/gameStore',
+                redirect: '/gameStore/settings',
                 children: [
                     {
                         path: 'settings',
@@ -167,8 +173,9 @@ const routes = [
                 ],
             },
             {
-                path: '/vip-gift',
-                redirect: '/vip-gift/settings',
+                path: '/vipGift',
+                name: '/vipGift',
+                redirect: '/vipGift/settings',
                 children: [
                     {
                         path: 'settings',
@@ -185,8 +192,9 @@ const routes = [
                 ],
             },
             {
-                path: 'tele-system',
-                redirect: '/tele-system/friend',
+                path: 'teleSystem',
+                name: 'teleSystem',
+                redirect: '/teleSystem/friend',
                 children: [
                     {
                         path: 'friend',
@@ -196,6 +204,7 @@ const routes = [
                     },
                     {
                         path: 'city',
+                        name: 'city',
                         children: [
                             {
                                 path: 'settings',
@@ -213,6 +222,7 @@ const routes = [
                     },
                     {
                         path: 'home',
+                        name: 'home',
                         children: [
                             {
                                 path: 'settings',
@@ -234,7 +244,7 @@ const routes = [
     },
     {
         path: '/login',
-        name: 'Login',
+        name: 'login',
         component: () => import('../views/Login/index.vue'),
     },
     {

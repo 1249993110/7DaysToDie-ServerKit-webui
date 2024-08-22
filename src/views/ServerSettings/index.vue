@@ -1,19 +1,8 @@
 <template>
-    <div class="dashboard">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '服务器设置',
-                    path: '/server-settings',
-                },
-            ]"
-        >
+    <div class="server-settings">
+        <RouterButton :names="['serverSettings']">
             <template #route-button>
-                <div class="route-button">
-                    <el-button link type="primary" @click="handleRestart"> 重启服务器 </el-button>
-                    <el-divider direction="vertical" />
-                    <el-button link type="danger" @click="handleShutdown"> 关闭服务器 </el-button>
-                </div>
+                <ServerToolBar />
             </template>
         </RouterButton>
         <el-card shadow="always" class="card">
@@ -54,27 +43,13 @@
 
 <script>
 export default {
-    name: 'ServerSettings',
+    name: 'serverSettings',
 };
 </script>
 
 <script setup>
-import { getSettings, putSettings, restart, shutdown } from '~/api/server';
+import { getSettings, putSettings } from '~/api/server';
 import { Edit } from '@element-plus/icons-vue';
-
-const handleRestart = async () => {
-    if (await myconfirm('您确定要重启服务器吗? 这可能需要几分钟的时间')) {
-        await restart();
-        ElMessage.success('重启成功');
-    }
-};
-
-const handleShutdown = async () => {
-    if (await myconfirm('您确定要关闭服务器吗?')) {
-        await shutdown();
-        ElMessage.success('关闭成功');
-    }
-};
 
 const tableData = ref([]);
 const getData = async () => {
@@ -116,17 +91,7 @@ const handleEdit = async ({ row }) => {
 </script>
 
 <style scoped lang="scss">
-.dashboard {
-    .route-button {
-        margin-right: 20px;
-        :deep(.el-button) {
-            --el-button-text-color: #005eeb;
-        }
-        :deep(button:nth-child(3)) {
-            --el-button-text-color: #f56c6c;
-        }
-    }
-
+.server-settings {
     .card {
         margin-top: 20px;
         :deep(.el-card__body) {

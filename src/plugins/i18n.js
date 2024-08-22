@@ -6,7 +6,25 @@ import { createI18n } from 'vue-i18n';
 import messages from '@intlify/unplugin-vue-i18n/messages';
 
 const preferredLocale = () => {
-    return localStorage.getItem('lang') ?? usePreferredLanguages().value[0].slice(0, 2);
+    let lang = localStorage.getItem('lang');
+    if(lang){
+        return lang;
+    }
+
+    lang = navigator.language;
+    switch (lang.toLowerCase()) {
+        case 'en':
+        case 'en-us':
+        case 'en-gb':
+            return 'en';
+        case 'zh':
+        case 'zh-cn':
+            return 'zh';
+        case 'zh-tw':
+            return 'tw';
+        default:
+            console.error('Unsupported language:', lang);
+    }
 };
 
 export const i18n = createI18n({
@@ -14,7 +32,7 @@ export const i18n = createI18n({
     fallbackLocale: 'en',
     legacy: false,
     messages,
-    globalInjection: true, // 在 <template> 可以使用 $t
+    globalInjection: true, // In <template> can use $t
 });
 
 export default (app) => {

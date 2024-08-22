@@ -1,18 +1,6 @@
 <template>
     <div class="autobackup-management">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '备份配置',
-                    path: '/autobackup/settings',
-                },
-                {
-                    value: '备份管理',
-                    path: '/autobackup/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['autobackup.settings', 'autobackup.management']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             :show-export-btn="false"
@@ -51,7 +39,7 @@
 
 <script>
 export default {
-    name: 'AutoBackup.Management',
+    name: 'autobackup.management',
 };
 </script>
 

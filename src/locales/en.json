@@ -5,23 +5,127 @@
             "required": "Required"
         }
     },
-    "components": {},
+    "menus": {
+        "dashboard": "Dashboard",
+        "serverSettings": "Server Settings",
+        "map": "GPS Map",
+        "playerList": {
+            "": "Player List",
+            "onlinePlayers": "Online Players",
+            "historyPlayers": "History Players"
+        },
+        "chat": {
+            "": "Game Chat",
+            "liveChat": "Live Chat",
+            "chatRecord": "Chat Record"
+        },
+        "permission": "Permission",
+        "blacklist": "Blacklist",
+        "whitelist": "Whitelist",
+        "itemBlocks": "Item Blocks",
+        "console": "Console",
+        "globalSettings": "Global Settings",
+        "autobackup": {
+            "": "Auto Backup",
+            "settings": "Backup Settings",
+            "management": "Backup Management"
+        },
+        "gameNotice": "Game Notice",
+        "pointsSystem": "Points System",
+        "listManagement": "List Management",
+        "gameStore": "Game Store",
+        "vipGift": "VIP Gift",
+        "teleSystem": {
+            "": "Teleport",
+            "friend": "Friend Tele",
+            "city": "City Tele",
+            "home": "Home Tele"
+        },
+        "swagger": "API Document"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "Refresh",
+            "fullscreen": "Fullscreen",
+            "exitFullscreen": "Exit Fullscreen",
+            "fullscreenNotSupport": "Your browser does not support fullscreen"
+        },
+        "serverToolBar": {
+            "restart": "Restart Server",
+            "restartConfirm": "Are you sure you want to restart the server? This may take a few minutes",
+            "restartSuccess": "Server restart success",
+            "shutdown": "Shutdown Server",
+            "shutdownConfirm": "Are you sure you want to shutdown the server? The server will be inaccessible",
+            "shutdownSuccess": "Server shutdown success"
+        }
+    },
     "layout": {
         "footer": {
             "codeRepository": "Code Repository",
             "copyright": "© 2024 All rights reserved by TianYi Team",
-            "group":{
+            "group": {
                 "title": "Join the Discord server",
                 "url": "https://discord.gg/TsbjR4KU"
             }
         }
     },
-    "store": {
-        "menus": {}
-    },
+    "store": {},
     "utils": {},
     "views": {
-        "login":{
+        "dashboard": {
+            "header": {
+                "overview": "Overview",
+                "status": "Status",
+                "fps": "FPS",
+                "entities": "Entities",
+                "rss": "RSS",
+                "chunks": "Chunks",
+                "cgo": "CGO",
+                "items": "Items",
+                "systemInfo": "System Infomation"
+            },
+            "overview": {
+                "serverName": "Server Name",
+                "region": "Server Region",
+                "language": "Server Language",
+                "serverIp": "Server IP",
+                "uptime": "Server Uptime",
+                "gameTime": "Game Time",
+                "serverPort": "Server Port",
+                "gameName": "Game Name",
+                "gameMode": "Game Mode",
+                "serverVersion": "Server Version",
+                "gameWorld": "Game World",
+                "gameDifficulty": "Game Difficulty",
+                "gameDifficultys": {
+                    "0": "Scavenger",
+                    "1": "Adventurer",
+                    "2": "Nomad",
+                    "3": "Warrior",
+                    "4": "Survivalist",
+                    "5": "Insane"
+                },
+                "formatDuration": "{days}:{hours}:{minutes}:{seconds}",
+                "formatGameTime": "Day {days}, {hours}:{minutes}"
+            },
+            "status": {
+                "players": "Players",
+                "zombies": "Zombies",
+                "animals": "Animals",
+                "heap": "Heap"
+            },
+            "systemInfo": {
+                "deviceName": "Device Name",
+                "deviceModel": "Device Model",
+                "deviceType": "Device Type",
+                "deviceUniqueIdentifier": "Device Unique Identifier",
+                "operatingSystem": "Operating System",
+                "processorType": "Processor Type",
+                "processorCount": "Processor Count",
+                "systemMemorySize": "System Memory Size"
+            }
+        },
+        "login": {
             "username": "Username",
             "password": "Password",
             "login": "Login",

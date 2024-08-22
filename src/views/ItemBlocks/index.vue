@@ -29,7 +29,7 @@
 
 <script>
 export default {
-    name: 'ItemBlocks',
+    name: 'itemBlocks',
 };
 </script>
 

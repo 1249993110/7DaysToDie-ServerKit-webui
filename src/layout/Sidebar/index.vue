@@ -3,7 +3,7 @@
         <Logo />
         <el-scrollbar always>
             <el-menu :default-active="defaultActive" @select="handleSelectMenu" :collapse="sidebarStore.isCollapse" :collapse-transition="false" unique-opened>
-                <MenuTree :items="menusStore.tree" />
+                <MenuTree :menus="menusStore.tree" />
             </el-menu>
         </el-scrollbar>
         <Collapse />
@@ -14,6 +14,7 @@
 import MenuTree from './MenuTree.vue';
 import Logo from './Logo.vue';
 import Collapse from './Collapse.vue';
+import { promiseTimeout } from '@vueuse/core';
 
 const route = useRoute();
 const router = useRouter();
@@ -25,25 +26,28 @@ const { t } = useI18n();
 const defaultActive = ref('');
 
 watch(
-    () => route.path,
-    () => {
-        defaultActive.value = menusStore.getMenuByPath(route.path).path;
+    () => route.name,
+    (name) => {
+        const index = name.lastIndexOf('.');
+        if (index !== -1) {
+            name = name.substring(0, index);
+        }
+        defaultActive.value = name;
     },
     { immediate: true }
 );
 
-const handleSelectMenu = async (path) => {
-    if (!path) {
+const handleSelectMenu = async (name) => {
+    if (name === 'logout') {
         await logout();
         return;
     }
 
-    const menu = menusStore.getMenuByPath(path);
+    const menu = menusStore.dict[name];
     if (menu.isExternalLink) {
-        defaultActive.value = path;
         window.open(menu.path);
     } else {
-        router.push(menu.path);
+        router.push({ name: name });
     }
 };
 

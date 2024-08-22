@@ -1,15 +1,14 @@
 <template>
     <div class="footer">
-        <a href="https://github.com/1249993110/7DaysToDie-ServerKit" target="_blank">{{ t('layout.footer.codeRepository') }}</a>
-        <a href="https://7dtd.top" target="_blank">{{ t('layout.footer.copyright') }}</a>
-        <a :href="t('layout.footer.group.url')" target="_blank">
-            {{ t('layout.footer.group.title') }}
+        <a href="https://github.com/1249993110/7DaysToDie-ServerKit" target="_blank">{{ $t('layout.footer.codeRepository') }}</a>
+        <a href="https://7dtd.top" target="_blank">{{ $t('layout.footer.copyright') }}</a>
+        <a :href="$t('layout.footer.group.url')" target="_blank">
+            {{ $t('layout.footer.group.title') }}
         </a>
     </div>
 </template>
 
 <script setup>
-const { t } = useI18n();
 </script>
 
 <style scoped lang="scss">

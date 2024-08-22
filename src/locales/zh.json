@@ -5,7 +5,60 @@
             "required": "必填项"
         }
     },
-    "components": {},
+    "menus": {
+        "dashboard": "仪表盘",
+        "serverSettings": "服务器设置",
+        "map": "GPS地图",
+        "playerList": {
+            "": "玩家列表",
+            "onlinePlayers": "在线玩家",
+            "historyPlayers": "历史玩家"
+        },
+        "chat": {
+            "": "游戏聊天",
+            "liveChat": "实时聊天",
+            "chatRecord": "聊天记录"
+        },
+        "permission": "权限管理",
+        "blacklist": "黑名单",
+        "whitelist": "白名单",
+        "itemBlocks": "物品方块",
+        "console": "控制台",
+        "globalSettings": "功能配置",
+        "autobackup": {
+            "": "自动备份",
+            "settings": "备份配置",
+            "management": "备份管理"
+        },
+        "gameNotice": "游戏公告",
+        "pointsSystem": "积分系统",
+        "listManagement": "清单管理",
+        "gameStore": "游戏商店",
+        "vipGift": "VIP礼包",
+        "teleSystem": {
+            "": "传送系统",
+            "friend": "好友传送",
+            "city": "城镇传送",
+            "home": "私人传送"
+        },
+        "swagger": "接口文档"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "刷新",
+            "fullscreen": "全屏",
+            "exitFullscreen": "退出全屏",
+            "fullscreenNotSupport": "您的浏览器不支持全屏"
+        },
+        "serverToolBar": {
+            "restart": "重启服务器",
+            "restartConfirm": "您确定要重启服务器吗? 这可能需要几分钟的时间",
+            "restartSuccess": "服务器重启成功",
+            "shutdown": "关闭服务器",
+            "shutdownConfirm": "您确定要关闭服务器吗? 服务器将无法访问",
+            "shutdownSuccess": "服务器关闭成功"
+        }
+    },
     "layout": {
         "footer": {
             "codeRepository": "代码仓库",
@@ -16,16 +69,67 @@
             }
         }
     },
-    "store": {
-        "menus": {}
-    },
+    "store": {},
     "utils": {},
     "views": {
+        "dashboard": {
+            "header": {
+                "overview": "概览",
+                "status": "状态",
+                "fps": "FPS",
+                "entities": "实体数",
+                "rss": "RSS",
+                "chunks": "区块数",
+                "cgo": "CGO",
+                "items": "Items",
+                "systemInfo": "系统信息"
+            },
+            "overview": {
+                "serverName": "服务器名称",
+                "region": "服务器区域",
+                "language": "服务器语言",
+                "serverIp": "服务器 IP",
+                "uptime": "服务端正常运行时长",
+                "gameTime": "游戏时间",
+                "serverPort": "服务器端口",
+                "gameName": "游戏名称",
+                "gameMode": "游戏模式",
+                "serverVersion": "服务端版本",
+                "gameWorld": "游戏世界",
+                "gameDifficulty": "游戏难度",
+                "gameDifficultys": {
+                    "0": "拾荒者",
+                    "1": "冒险家",
+                    "2": "流浪者",
+                    "3": "战士",
+                    "4": "幸存者",
+                    "5": "疯狂"
+                },
+                "formatDuration": "{days} 天 {hours} 小时 {minutes} 分钟 {seconds} 秒",
+                "formatGameTime": "{days} 天 {hours} 小时 {minutes} 分钟"
+            },
+            "status": {
+                "players": "玩家数",
+                "zombies": "僵尸数",
+                "animals": "动物数",
+                "heap": "堆内存"
+            },
+            "systemInfo": {
+                "deviceName": "主机名称",
+                "deviceModel": "设备平台",
+                "deviceType": "设备类型",
+                "deviceUniqueIdentifier": "设备唯一标识",
+                "operatingSystem": "系统版本",
+                "processorType": "处理器类型",
+                "processorCount": "处理器个数",
+                "systemMemorySize": "内存大小"
+            }
+        },
         "login": {
             "username": "用户名",
             "password": "密码",
             "login": "登 录",
-            "logout": "退出",
+            "logout": "退出登录",
             "logoutConfirm": "您确定要退出登录吗?",
             "loginFailed": "登录失败",
             "loginSuccess": "登录成功",

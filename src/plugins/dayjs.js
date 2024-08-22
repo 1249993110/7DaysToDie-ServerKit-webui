@@ -3,6 +3,7 @@ import isLeapYear from 'dayjs/plugin/isLeapYear'; // import plugin
 import duration from 'dayjs/plugin/duration'; // import plugin
 import 'dayjs/locale/en';
 import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/zh-tw';
 import { i18n } from './i18n';
 
 dayjs.extend(isLeapYear); // use plugin
@@ -17,8 +18,20 @@ dayjs.extend((option, dayjsClass, dayjsFactory) => {
 });
 
 export const setLocale = (locale) => {
-    dayjs.locale(locale === 'en' ? 'en' : 'zh-cn');
+    switch (locale) {
+        case 'en':
+            dayjs.locale('en');
+            break;
+        case 'zh':
+            dayjs.locale('zh-cn');
+            break;
+        case 'tw':
+            dayjs.locale('zh-tw');
+            break;
+        default:
+            console.error('Unknown locale:', locale);
+    }
 };
-setLocale(i18n.global.locale); // use locale
+setLocale(i18n.global.locale.value); // use locale
 
 export default dayjs;

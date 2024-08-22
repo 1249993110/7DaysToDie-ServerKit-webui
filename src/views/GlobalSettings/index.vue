@@ -1,14 +1,6 @@
 <template>
     <div class="global-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '功能配置',
-                    path: '/global-settings',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['globalSettings']"> </RouterButton>
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -84,13 +76,12 @@
 
 <script>
 export default {
-    name: 'GlobalSettings',
+    name: 'globalSettings',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/settings.js';
-
 
 const autoRestartTime = computed({
     get() {

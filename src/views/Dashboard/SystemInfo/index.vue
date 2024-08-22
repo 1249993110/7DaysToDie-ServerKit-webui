@@ -3,49 +3,49 @@
         <el-descriptions :column="1" class="description">
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">主机名称</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceName') }}</span>
                 </template>
                 {{ systemInfo.deviceName }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">设备平台</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceModel') }}</span>
                 </template>
                 {{ systemInfo.deviceModel }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">设备类型</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceType') }}</span>
                 </template>
                 {{ systemInfo.deviceType }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">设备唯一标识</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceUniqueIdentifier') }}</span>
                 </template>
                 {{ systemInfo.deviceUniqueIdentifier }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">系统版本</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.operatingSystem') }}</span>
                 </template>
                 {{ systemInfo.operatingSystem }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">处理器类型</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.processorType') }}</span>
                 </template>
                 {{ systemInfo.processorType }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">处理器个数</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.processorCount') }}</span>
                 </template>
                 {{ systemInfo.processorCount }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">内存大小</span>
+                    <span class="label">{{ $t('views.dashboard.systemInfo.systemMemorySize') }}</span>
                 </template>
                 {{ Math.round(systemInfo.systemMemorySize / 1024) }} GB
             </el-descriptions-item>

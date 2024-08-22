@@ -1,14 +1,6 @@
 <template>
     <div class="console">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '控制台',
-                    path: '/console',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['console']"> </RouterButton>
         <div id="console-content"></div>
         <div class="send-container">
             <el-input placeholder="请输入内容" v-model="command" clearable @keyup.enter.native="sendCommand"> </el-input>
@@ -19,15 +11,13 @@
 
 <script>
 export default {
-    name: 'Console',
+    name: 'console',
 };
 </script>
 
 <script setup>
 import { executeConsoleCommand } from '~/api/server';
 
-let contentCount = 0;
-const contentMaxCount = 1000;
 const command = ref('');
 
 const sendCommand = async () => {
@@ -53,32 +43,22 @@ onDeactivated(() => {
 
 const appendMessage = (message, logType) => {
     const element = document.getElementById('console-content');
-    if (contentCount > contentMaxCount) {
-        element.removeChild(element.firstElementChild);
-    } else {
-        contentCount++;
-    }
 
     let color;
     switch (logType) {
-        // Error
-        case 0:
+        case 'Error':
             color = 'red';
             break;
-        // Assert
-        case 1:
+        case 'Assert':
             color = 'white';
             break;
-        // Warning
-        case 2:
+        case 'Warning':
             color = 'yellow';
             break;
-        // Log
-        case 3:
+        case 'Log':
             color = '#00C814';
             break;
-        // Exception
-        case 4:
+        case 'Exception':
             color = 'red';
             break;
         default:
@@ -98,9 +78,6 @@ const appendMessage = (message, logType) => {
 
 emitter.on(eventTypes.OnConsoleLog, (logEntry) => {
     if (!isActivated) {
-        if (messageBuffer.length > 100) {
-            messageBuffer.shift();
-        }
         messageBuffer.push(logEntry);
     } else {
         appendMessage(logEntry.message, logEntry.logType);

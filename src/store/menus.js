@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 
 // menu = {
+//     name: ,
 //     path: ,
-//     title: ,
 //     icon: ,
 //     children: ,
 //     isExternalLink: ,
@@ -14,104 +14,88 @@ const getIcon = (source) => {
 
 const tree = [
     {
-        path: '/dashboard',
-        title: '仪表盘',
+        name: 'dashboard',
         icon: getIcon(() => import('~icons/uiw/dashboard')),
     },
     {
-        path: '/server-settings',
-        title: '服务器设置',
+        name: 'serverSettings',
         icon: getIcon(() => import('~icons/material-symbols/display-settings-outline')),
     },
     {
-        path: '/map',
-        title: 'GPS地图',
+        name: 'map',
         icon: getIcon(() => import('~icons/ep/location-information')),
     },
     {
-        path: '/playerlist',
-        title: '玩家列表',
+        name: 'playerList',
         icon: getIcon(() => import('~icons/ep/user')),
     },
     {
-        path: '/chat',
-        title: '游戏聊天',
+        name: 'chat',
         icon: getIcon(() => import('~icons/ep/chat-dot-round')),
     },
-    // {
-    //     path: '/permission',
-    //     title: '权限管理',
-    //     icon: getIcon(() => import('~icons/arcticons/kul-authenticator')),
-    // },
     {
-        path: '/blacklist',
-        title: '黑名单',
+        name: 'blacklist',
         icon: getIcon(() => import('~icons/mdi/playlist-remove')),
     },
-    // {
-    //     path: '/whitelist',
-    //     title: '白名单',
-    //     icon: getIcon(() => import('~icons/mdi/playlist-check')),
-    // },
     {
-        path: '/item-blocks',
-        title: '物品方块',
+        name: 'itemBlocks',
         icon: getIcon(() => import('~icons/mdi/menu')),
     },
     {
-        path: '/console',
-        title: '控制台',
+        name: 'console',
         icon: getIcon(() => import('~icons/mdi/console')),
     },
     {
-        path: '/global-settings',
-        title: '功能配置',
+        name: 'globalSettings',
         icon: getIcon(() => import('~icons/ep/setting')),
     },
     {
-        path: '/autobackup',
-        title: '自动备份',
+        name: 'autobackup',
         icon: getIcon(() => import('~icons/iconoir/database-backup')),
     },
     {
-        path: '/game-notice',
-        title: '游戏公告',
+        name: 'gameNotice',
         icon: getIcon(() => import('~icons/icon-park-outline/volume-notice')),
     },
     {
-        path: '/points-system',
-        title: '积分系统',
+        name: 'pointsSystem',
         icon: getIcon(() => import('~icons/mdi/bitcoin')),
     },
     {
-        path: '/list-management',
-        title: '清单管理',
+        name: 'listManagement',
         icon: getIcon(() => import('~icons/material-symbols/checklist')),
     },
     {
-        path: '/game-store',
-        title: '游戏商店',
+        name: 'gameStore',
         icon: getIcon(() => import('~icons/mdi/store')),
     },
     {
-        path: '/vip-gift',
-        title: 'VIP礼包',
+        name: 'vipGift',
         icon: getIcon(() => import('~icons/quill/vip')),
     },
     {
-        path: '/tele-system',
-        title: '传送系统',
+        name: 'teleSystem',
         icon: getIcon(() => import('~icons/game-icons/teleport')),
+        children: [
+            {
+                name: 'teleSystem.friend',
+            },
+            {
+                name: 'teleSystem.city',
+            },
+            {
+                name: 'teleSystem.home',
+            },
+        ],
     },
     {
+        name: 'swagger',
         path: import.meta.env.DEV ? `//${import.meta.env.VITE_APP_API_DOMAIN}:${import.meta.env.VITE_APP_API_PORT}/swagger/` : '/swagger',
-        title: '接口文档',
         icon: getIcon(() => import('~icons/ep/document')),
         isExternalLink: true,
     },
     {
-        path: '',
-        title: '退出登录',
+        name: 'logout',
         icon: getIcon(() => import('~icons/uiw/logout')),
     },
 ];
@@ -125,7 +109,7 @@ const foreachTree = (menus, parentPath) => {
             menu.path = parentPath + '/' + menu.path;
         }
 
-        dict[menu.path] = menu;
+        dict[menu.name] = menu;
 
         if (menu.children && menu.children.length) {
             foreachTree(menu.children, menu.path);
@@ -141,12 +125,5 @@ export const useMenusStore = defineStore('menus', {
             tree: tree,
             dict: dict,
         };
-    },
-    actions: {
-        getMenuByPath(path) {
-            const slashIndex = path.indexOf('/', 1);
-            const extractedPath = path.substring(0, slashIndex);
-            return this.dict[path] ?? this.dict[extractedPath];
-        },
     },
 });

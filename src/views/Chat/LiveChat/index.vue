@@ -1,18 +1,6 @@
 <template>
     <div class="live-chat">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '实时聊天',
-                    path: '/chat/live-chat',
-                },
-                {
-                    value: '聊天记录',
-                    path: '/chat/chat-record',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['chat.liveChat', 'chat.chatRecord']"></RouterButton>
         <el-card class="card" shadow="always">
             <div class="live-chat-container">
                 <el-scrollbar always ref="scrollbarRef">
@@ -29,14 +17,13 @@
 
 <script>
 export default {
-    name: 'LiveChat',
+    name: 'liveChat',
 };
 </script>
 
 <script setup>
 import { sendGlobalMessage } from '~/api/server';
 import * as api from '~/api/chat-record';
-import { useInfiniteScroll, useElementSize } from '@vueuse/core';
 
 const message = ref('');
 const sendMessage = async () => {
@@ -138,8 +125,6 @@ onMounted(async () => {
     useInfiniteScroll(
         scrollbarRef.value.wrapRef,
         async () => {
-            console.log(111);
-
             pageNumber++;
             await getData(10);
             scrollbarRef.value.setScrollTop(1);

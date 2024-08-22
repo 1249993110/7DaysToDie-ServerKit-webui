@@ -1,14 +1,6 @@
 <template>
     <div>
-        <RouterButton
-            :buttons="[
-                {
-                    value: '黑名单',
-                    path: '/blacklist',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['blacklist']"></RouterButton>
         <MyTableEx
             @on-export="handleExport"
             :search-form-model="searchFormModel"
@@ -40,14 +32,13 @@
 
 <script>
 export default {
-    name: 'Blacklist',
+    name: 'blacklist',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/blacklist';
 import AddBlacklist from './Add.vue';
-
 
 const searchFormModel = reactive({
     playerId: '',

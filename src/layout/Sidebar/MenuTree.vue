@@ -1,20 +1,20 @@
 <template>
-    <template v-for="menu in items" :key="menu.path">
-        <el-sub-menu v-if="menu.children && menu.children.length" :index="menu.path" popper-class="sidebar-menu-popper">
+    <template v-for="menu in menus" :key="menu.name">
+        <el-sub-menu v-if="menu.children && menu.children.length" :index="menu.name" popper-class="sidebar-menu-popper">
             <template #title>
                 <el-icon>
                     <component :is="menu.icon"></component>
                 </el-icon>
-                <span>{{ menu.title }}</span>
+                <span>{{ getTitle(menu.name) }}</span>
             </template>
-            <MenuTree :items="menu.children"></MenuTree>
+            <MenuTree :menus="menu.children"></MenuTree>
         </el-sub-menu>
-        <el-menu-item v-else :index="menu.path">
+        <el-menu-item v-else :index="menu.name">
             <el-icon>
                 <component :is="menu.icon"></component>
             </el-icon>
             <template #title>
-                <span>{{ menu.title }}</span>
+                <span>{{ getTitle(menu.name) }}</span>
             </template>
         </el-menu-item>
     </template>
@@ -22,8 +22,29 @@
 
 <script setup>
 defineProps({
-    items: Array,
+    menus: Array,
 });
+
+const { t, te, tm, rt } = useI18n();
+
+const getTitle = (name) => {
+    if (name === 'logout') {
+        return t('views.login.logout');
+    }
+
+    const localeName = 'menus.' + name;
+
+    if (te(localeName)) {
+        return t(localeName);
+    }
+
+    const localeMessages = tm(localeName);
+    if (Object.keys(localeMessages).length === 0) {
+        console.warn(`Missing translation for ${localeName}`);
+        return '';
+    }
+    return rt(localeMessages[''] ?? localeMessages);
+};
 </script>
 
 <style lang="scss">

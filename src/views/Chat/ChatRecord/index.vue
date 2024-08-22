@@ -1,18 +1,6 @@
 <template>
     <div>
-        <RouterButton
-            :buttons="[
-                {
-                    value: '实时聊天',
-                    path: '/chat/live-chat',
-                },
-                {
-                    value: '聊天记录',
-                    path: '/chat/chat-record',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['chat.liveChat', 'chat.chatRecord']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             @on-export="handleExport"
@@ -51,13 +39,11 @@
 </template>
 <script>
 export default {
-    name: 'ChatRecord',
+    name: 'chatRecord',
 };
 </script>
 <script setup>
 import * as api from '~/api/chat-record';
-
-
 
 const searchFormModel = reactive({
     keyword: '',

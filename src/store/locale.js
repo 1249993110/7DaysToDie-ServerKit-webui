@@ -14,6 +14,10 @@ export const useLocaleStore = defineStore({
                 lable: '简体中文',
                 value: 'zh',
             },
+            {
+                lable: '繁体中文',
+                value: 'tw',
+            },
         ],
     }),
     getters: {},

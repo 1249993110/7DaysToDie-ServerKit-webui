@@ -2,15 +2,15 @@
     <el-row :gutter="10">
         <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
             <MyCharts height="160px" type="pie" :option="status.players" />
-            <span class="input-help">玩家数</span>
+            <span class="input-help">{{ $t('views.dashboard.status.players') }}</span>
         </el-col>
         <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
             <MyCharts height="160px" type="pie" :option="status.zombies" />
-            <span class="input-help">僵尸数</span>
+            <span class="input-help">{{ $t('views.dashboard.status.zombies') }}</span>
         </el-col>
         <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
             <MyCharts height="160px" type="pie" :option="status.animals" />
-            <span class="input-help">动物数</span>
+            <span class="input-help">{{ $t('views.dashboard.status.animals') }}</span>
         </el-col>
         <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
             <MyCharts
@@ -22,7 +22,7 @@
                     unit: '%',
                 }"
             />
-            <span class="input-help">堆内存 {{ status.heap.current.toFixed() }} / {{ status.heap.max.toFixed() }} MB</span>
+            <span class="input-help">{{ `${$t('views.dashboard.status.heap')} ${status.heap.current.toFixed()} / ${status.heap.max.toFixed()} MB` }}</span>
         </el-col>
     </el-row>
 </template>
