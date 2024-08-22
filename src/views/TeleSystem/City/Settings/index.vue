@@ -1,30 +1,6 @@
 <template>
     <div class="teleport-city-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '好友传送',
-                    path: '/tele-system/friend',
-                },
-                {
-                    value: '城镇配置',
-                    path: '/tele-system/city/settings',
-                },
-                {
-                    value: '城镇管理',
-                    path: '/tele-system/city/management',
-                },
-                {
-                    value: 'Home配置',
-                    path: '/tele-system/home/settings',
-                },
-                {
-                    value: 'Home管理',
-                    path: '/tele-system/home/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['teleSystem.city.settings', 'teleSystem.city.management']"></RouterButton>
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -75,7 +51,7 @@
 
 <script>
 export default {
-    name: 'TeleportCity.Settings',
+    name: 'teleSystem.city.settings',
 };
 </script>
 

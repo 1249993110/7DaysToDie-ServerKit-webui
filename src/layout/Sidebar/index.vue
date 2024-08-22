@@ -14,7 +14,6 @@
 import MenuTree from './MenuTree.vue';
 import Logo from './Logo.vue';
 import Collapse from './Collapse.vue';
-import { promiseTimeout } from '@vueuse/core';
 
 const route = useRoute();
 const router = useRouter();
@@ -28,10 +27,13 @@ const defaultActive = ref('');
 watch(
     () => route.name,
     (name) => {
-        const index = name.lastIndexOf('.');
-        if (index !== -1) {
-            name = name.substring(0, index);
+        if (!menusStore.dict.hasOwnProperty(name)) {
+            const index = name.lastIndexOf('.');
+            if (index !== -1) {
+                name = name.substring(0, index);
+            }
         }
+
         defaultActive.value = name;
     },
     { immediate: true }

@@ -1,18 +1,6 @@
 <template>
     <div class="points-management">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '签到配置',
-                    path: '/points-system/settings',
-                },
-                {
-                    value: '积分管理',
-                    path: '/points-system/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['pointsSystem.settings', 'pointsSystem.management']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             :show-export-btn="false"
@@ -47,7 +35,7 @@
 
 <script>
 export default {
-    name: 'PointsSystem.Management',
+    name: 'pointsSystem.management',
 };
 </script>
 

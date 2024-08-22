@@ -1,18 +1,6 @@
 <template>
     <div class="store-management">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '商店配置',
-                    path: '/game-store/settings',
-                },
-                {
-                    value: '商店管理',
-                    path: '/game-store/management',
-                }
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['gameStore.settings', 'gameStore.management']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             :show-export-btn="false"
@@ -48,7 +36,7 @@
 
 <script>
 export default {
-    name: 'GameStore.Management',
+    name: 'gameStore.management',
 };
 </script>
 

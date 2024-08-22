@@ -1,18 +1,6 @@
 <template>
     <div class="points-system-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '签到配置',
-                    path: '/points-system/settings',
-                },
-                {
-                    value: '积分管理',
-                    path: '/points-system/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['pointsSystem.settings', 'pointsSystem.management']"></RouterButton>
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -72,13 +60,12 @@
 
 <script>
 export default {
-    name: 'PointsSystem.Settings',
+    name: 'pointsSystem.settings',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/settings.js';
-
 
 const formModel = reactive({});
 const formRef = ref();

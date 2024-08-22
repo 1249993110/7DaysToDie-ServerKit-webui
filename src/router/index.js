@@ -111,7 +111,7 @@ const routes = [
             },
             {
                 path: 'gameNotice',
-                name: 'GameNotice',
+                name: 'gameNotice',
                 component: () => import('../views/GameNotice/index.vue'),
                 meta: { requiresAuth: true, keepAlive: true },
             },
@@ -122,13 +122,13 @@ const routes = [
                 children: [
                     {
                         path: 'settings',
-                        name: 'PointsSystem.Settings',
+                        name: 'pointsSystem.settings',
                         component: () => import('../views/PointsSystem/Settings/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
                         path: 'management',
-                        name: 'PointsSystem.Management',
+                        name: 'pointsSystem.management',
                         component: () => import('../views/PointsSystem/Management/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
@@ -141,13 +141,13 @@ const routes = [
                 children: [
                     {
                         path: 'itemList',
-                        name: 'ListManagement.ItemList',
+                        name: 'listManagement.itemList',
                         component: () => import('../views/ListManagement/ItemList/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
                         path: 'commandList',
-                        name: 'ListManagement.CommandList',
+                        name: 'listManagement.commandList',
                         component: () => import('../views/ListManagement/CommandList/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
@@ -155,18 +155,18 @@ const routes = [
             },
             {
                 path: '/gameStore',
-                name: '/gameStore',
+                name: 'gameStore',
                 redirect: '/gameStore/settings',
                 children: [
                     {
                         path: 'settings',
-                        name: 'GameStore.Settings',
+                        name: 'gameStore.settings',
                         component: () => import('../views/GameStore/Settings/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
                         path: 'management',
-                        name: 'GameStore.Management',
+                        name: 'gameStore.management',
                         component: () => import('../views/GameStore/Management/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
@@ -174,18 +174,18 @@ const routes = [
             },
             {
                 path: '/vipGift',
-                name: '/vipGift',
+                name: 'vipGift',
                 redirect: '/vipGift/settings',
                 children: [
                     {
                         path: 'settings',
-                        name: 'VipGift.Settings',
+                        name: 'vipGift.settings',
                         component: () => import('../views/VipGift/Settings/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
                         path: 'management',
-                        name: 'VipGift.Management',
+                        name: 'vipGift.management',
                         component: () => import('../views/VipGift/Management/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
@@ -198,42 +198,44 @@ const routes = [
                 children: [
                     {
                         path: 'friend',
-                        name: 'TeleportFriend',
-                        component: () => import('../views/TeleportFriend/index.vue'),
+                        name: 'teleSystem.friend',
+                        component: () => import('../views/TeleSystem/Friend/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
                     {
                         path: 'city',
-                        name: 'city',
+                        name: 'teleSystem.city',
+                        redirect: '/teleSystem/city/settings',
                         children: [
                             {
                                 path: 'settings',
-                                name: 'TeleportCity.Settings',
-                                component: () => import('../views/TeleportCity/Settings/index.vue'),
+                                name: 'teleSystem.city.settings',
+                                component: () => import('../views/TeleSystem/City/Settings/index.vue'),
                                 meta: { requiresAuth: true, keepAlive: true },
                             },
                             {
                                 path: 'management',
-                                name: 'TeleportCity.Management',
-                                component: () => import('../views/TeleportCity/Management/index.vue'),
+                                name: 'teleSystem.city.management',
+                                component: () => import('../views/TeleSystem/City/Management/index.vue'),
                                 meta: { requiresAuth: true, keepAlive: true },
                             },
                         ],
                     },
                     {
                         path: 'home',
-                        name: 'home',
+                        name: 'teleSystem.home',
+                        redirect: '/teleSystem/home/settings',
                         children: [
                             {
                                 path: 'settings',
-                                name: 'TeleportHome.Settings',
-                                component: () => import('../views/TeleportHome/Settings/index.vue'),
+                                name: 'teleSystem.home.settings',
+                                component: () => import('../views/TeleSystem/Home/Settings/index.vue'),
                                 meta: { requiresAuth: true, keepAlive: true },
                             },
                             {
                                 path: 'management',
-                                name: 'TeleportHome.Management',
-                                component: () => import('../views/TeleportHome/Management/index.vue'),
+                                name: 'teleSystem.home.management',
+                                component: () => import('../views/TeleSystem/Home/Management/index.vue'),
                                 meta: { requiresAuth: true, keepAlive: true },
                             },
                         ],

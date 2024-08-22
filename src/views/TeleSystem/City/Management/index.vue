@@ -1,30 +1,6 @@
 <template>
     <div>
-        <RouterButton
-            :buttons="[
-                {
-                    value: '好友传送',
-                    path: '/tele-system/friend',
-                },
-                {
-                    value: '城镇配置',
-                    path: '/tele-system/city/settings',
-                },
-                {
-                    value: '城镇管理',
-                    path: '/tele-system/city/management',
-                },
-                {
-                    value: 'Home配置',
-                    path: '/tele-system/home/settings',
-                },
-                {
-                    value: 'Home管理',
-                    path: '/tele-system/home/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['teleSystem.city.settings', 'teleSystem.city.management']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             :show-searcher="false"
@@ -58,7 +34,7 @@
 
 <script>
 export default {
-    name: 'TeleportCity.Management',
+    name: 'teleSystem.city.management',
 };
 </script>
 

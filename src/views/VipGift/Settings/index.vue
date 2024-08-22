@@ -1,18 +1,6 @@
 <template>
     <div class="vip-gift-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: 'VIP礼包配置',
-                    path: '/vip-gift/settings',
-                },
-                {
-                    value: 'VIP礼包管理',
-                    path: '/vip-gift/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['vipGift.settings', 'vipGift.management']"></RouterButton>
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -48,13 +36,12 @@
 
 <script>
 export default {
-    name: 'VipGift.Settings',
+    name: 'vipGift.settings',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/settings.js';
-
 
 const formModel = reactive({});
 

@@ -1,30 +1,6 @@
 <template>
     <div class="teleport-friend-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '好友传送',
-                    path: '/tele-system/friend',
-                },
-                {
-                    value: '城镇配置',
-                    path: '/tele-system/city/settings',
-                },
-                {
-                    value: '城镇管理',
-                    path: '/tele-system/city/management',
-                },
-                {
-                    value: 'Home配置',
-                    path: '/tele-system/home/settings',
-                },
-                {
-                    value: 'Home管理',
-                    path: '/tele-system/home/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['teleSystem.friend']"></RouterButton>
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -75,13 +51,12 @@
 
 <script>
 export default {
-    name: 'TeleportFriend',
+    name: 'teleSystem.friend',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/settings.js';
-
 
 const formModel = reactive({});
 const formRef = ref();
@@ -122,7 +97,6 @@ const rules = {
     targetNotFoundTip: [{ required: true, message: '必填项', trigger: 'blur' }],
     targetNotFriendTip: [{ required: true, message: '必填项', trigger: 'blur' }],
 };
-
 </script>
 
 <style scoped lang="scss">

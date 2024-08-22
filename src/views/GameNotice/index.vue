@@ -1,14 +1,6 @@
 <template>
     <div class="game-notice-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '游戏公告',
-                    path: '/game-notice',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['gameNotice']"></RouterButton>
         <el-card class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -50,13 +42,12 @@
 
 <script>
 export default {
-    name: 'GameNotice',
+    name: 'gameNotice',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/settings.js';
-
 
 const formModel = reactive({});
 

@@ -33,7 +33,6 @@ const getTitle = (name) => {
     }
 
     const localeName = 'menus.' + name;
-
     if (te(localeName)) {
         return t(localeName);
     }

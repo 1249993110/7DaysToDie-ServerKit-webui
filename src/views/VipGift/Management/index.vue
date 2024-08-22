@@ -1,18 +1,6 @@
 <template>
     <div>
-        <RouterButton
-            :buttons="[
-                {
-                    value: 'VIP礼包配置',
-                    path: '/vip-gift/settings',
-                },
-                {
-                    value: 'VIP礼包管理',
-                    path: '/vip-gift/management',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['vipGift.settings', 'vipGift.management']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             :show-export-btn="false"
@@ -56,7 +44,7 @@
 
 <script>
 export default {
-    name: 'GameStore.Management',
+    name: 'vipGift.management',
 };
 </script>
 

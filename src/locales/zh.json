@@ -31,15 +31,39 @@
             "management": "备份管理"
         },
         "gameNotice": "游戏公告",
-        "pointsSystem": "积分系统",
-        "listManagement": "清单管理",
-        "gameStore": "游戏商店",
-        "vipGift": "VIP礼包",
+        "pointsSystem": {
+            "": "积分系统",
+            "settings": "签到配置",
+            "management": "积分管理"
+        },
+        "listManagement": {
+            "": "列表管理",
+            "itemList": "物品清单",
+            "commandList": "命令清单"
+        },
+        "gameStore": {
+            "": "游戏商城",
+            "settings": "商店配置",
+            "management": "商品管理"
+        },
+        "vipGift": {
+            "": "VIP礼包",
+            "settings": "礼包配置",
+            "management": "礼包管理"
+        },
         "teleSystem": {
             "": "传送系统",
             "friend": "好友传送",
-            "city": "城镇传送",
-            "home": "私人传送"
+            "city": {
+                "": "城镇传送",
+                "settings": "城镇配置",
+                "management": "城镇管理"
+            },
+            "home": {
+                "": "私人传送",
+                "settings": "Home配置",
+                "management": "Home管理"
+            }
         },
         "swagger": "接口文档"
     },

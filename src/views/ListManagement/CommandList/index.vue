@@ -1,18 +1,6 @@
 <template>
     <div>
-        <RouterButton
-            :buttons="[
-                {
-                    value: '物品清单',
-                    path: '/list-management/item-list',
-                },
-                {
-                    value: '命令清单',
-                    path: '/list-management/command-list',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['listManagement.itemList', 'listManagement.commandList']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             :show-export-btn="false"
@@ -34,13 +22,13 @@
             </template>
             <template #columns>
                 <el-table-column prop="id" label="Id" sortable width="80px"></el-table-column>
-                <el-table-column prop="command" label="命令" sortable></el-table-column>
+                <el-table-column prop="command" label="命令" sortable how-overflow-tooltip></el-table-column>
                 <el-table-column label="在主线程执行" width="140px" sortable>
                     <template #default="{ row }">
                         {{ `${row.inMainThread ? '是' : '否'}` }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="description" label="说明" sortable></el-table-column>
+                <el-table-column prop="description" label="说明" sortable how-overflow-tooltip></el-table-column>
                 <el-table-column prop="createdAt" label="创建日期" sortable></el-table-column>
             </template>
         </MyTableEx>
@@ -49,7 +37,7 @@
 
 <script>
 export default {
-    name: 'ListManagement.CommandList',
+    name: 'listManagement.commandList',
 };
 </script>
 

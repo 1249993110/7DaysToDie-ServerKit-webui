@@ -31,15 +31,39 @@
             "management": "Backup Management"
         },
         "gameNotice": "Game Notice",
-        "pointsSystem": "Points System",
-        "listManagement": "List Management",
-        "gameStore": "Game Store",
-        "vipGift": "VIP Gift",
+        "pointsSystem": {
+            "": "Points System",
+            "settings": "Sign-in Settings",
+            "management": "Points Management"
+        },
+        "listManagement": {
+            "": "List Management",
+            "itemList": "Item List",
+            "commandList": "Command List"
+        },
+        "gameStore": {
+            "": "Game Store",
+            "settings": "Store Settings",
+            "management": "Product Management"
+        },
+        "vipGift": {
+            "": "VIP Gift",
+            "settings": "Gift Settings",
+            "management": "Gift Management"
+        },
         "teleSystem": {
             "": "Teleport",
             "friend": "Friend Tele",
-            "city": "City Tele",
-            "home": "Home Tele"
+            "city": {
+                "": "City Tele",
+                "settings": "City Settings",
+                "management": "City Management"
+            },
+            "home": {
+                "": "Home Tele",
+                "settings": "Home Settings",
+                "management": "Home Management"
+            }
         },
         "swagger": "API Document"
     },

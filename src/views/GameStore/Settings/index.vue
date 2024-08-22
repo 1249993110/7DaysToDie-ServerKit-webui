@@ -1,18 +1,6 @@
 <template>
     <div class="game-store-settings">
-        <RouterButton
-            :buttons="[
-                {
-                    value: '商店配置',
-                    path: '/game-store/settings',
-                },
-                {
-                    value: '商店管理',
-                    path: '/game-store/management',
-                }
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['gameStore.settings', 'gameStore.management']"></RouterButton>
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
@@ -57,13 +45,12 @@
 
 <script>
 export default {
-    name: 'GameStore.Settings',
+    name: 'gameStore.settings',
 };
 </script>
 
 <script setup>
 import * as api from '~/api/settings.js';
-
 
 const formModel = reactive({});
 

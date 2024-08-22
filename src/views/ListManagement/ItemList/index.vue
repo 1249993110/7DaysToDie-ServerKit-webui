@@ -1,18 +1,6 @@
 <template>
     <div>
-        <RouterButton
-            :buttons="[
-                {
-                    value: '物品清单',
-                    path: '/list-management/item-list',
-                },
-                {
-                    value: '命令清单',
-                    path: '/list-management/command-list',
-                },
-            ]"
-        >
-        </RouterButton>
+        <RouterButton :names="['listManagement.itemList', 'listManagement.commandList']"></RouterButton>
         <MyTableEx
             style="margin-top: 20px"
             :show-export-btn="false"
@@ -39,11 +27,11 @@
                         <GameIcon :name="row.itemName" :size="40"/>
                     </template>
                 </el-table-column>
-                <el-table-column prop="itemName" label="物品名称" sortable></el-table-column>
+                <el-table-column prop="itemName" label="物品名称" sortable show-overflow-tooltip></el-table-column>
                 <el-table-column prop="count" label="数量" sortable></el-table-column>
                 <el-table-column prop="quality" label="品质" sortable></el-table-column>
                 <el-table-column prop="durability" label="耐久度%" sortable width="120px"></el-table-column>
-                <el-table-column prop="description" label="说明" sortable></el-table-column>
+                <el-table-column prop="description" label="说明" sortable how-overflow-tooltip></el-table-column>
                 <el-table-column prop="createdAt" label="创建日期" sortable></el-table-column>
             </template>
         </MyTableEx>
@@ -52,7 +40,7 @@
 
 <script>
 export default {
-    name: 'ListManagement.ItemList',
+    name: 'listManagement.itemList',
 };
 </script>
 
