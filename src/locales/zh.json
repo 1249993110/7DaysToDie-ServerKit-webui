@@ -1,5 +1,6 @@
 {
     "global": {
+        "language": "简体中文",
         "appTitle": "天依七日杀服主工具",
         "form": {
             "required": "必填项"
