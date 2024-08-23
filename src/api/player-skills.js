@@ -1,5 +1,5 @@
 
 
-export const getPlayerSkills = (playerId) =>{
-    return http.get('/PlayerSkills/' + playerId);
+export const getPlayerSkills = (playerId, lang) =>{
+    return http.get('/PlayerSkills/' + playerId, { params: { language: lang } });
 }

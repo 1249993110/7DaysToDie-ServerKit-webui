@@ -49,7 +49,8 @@ const props = defineProps({
 
 const loading = ref(true);
 const skills = ref([]);
-getPlayerSkills(props.playerId)
+const localeStore = useLocaleStore();
+getPlayerSkills(props.playerId, localeStore.getLanguage())
     .then((data) => {
         skills.value = data;
     })
