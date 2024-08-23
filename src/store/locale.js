@@ -1,6 +1,6 @@
 import { i18n } from '~/plugins/i18n';
 import { setLocale as setDayjsLocale } from '~/plugins/dayjs';
-console.log(i18n.global.availableLocales);
+
 export const useLocaleStore = defineStore({
     id: 'locale',
     state: () => ({

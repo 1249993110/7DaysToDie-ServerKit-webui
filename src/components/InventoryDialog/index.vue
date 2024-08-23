@@ -59,8 +59,8 @@ const inventory = reactive({
     belt: [],
     equipment: [],
 });
-
-getPlayerInventory(props.playerId)
+const localeStore = useLocaleStore();
+getPlayerInventory(props.playerId, localeStore.getLanguage())
     .then((data) => {
         inventory.bag = data.bag;
         inventory.belt = data.belt;

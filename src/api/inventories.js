@@ -4,8 +4,8 @@
  * 获取玩家背包
  * @returns
  */
-export const getPlayerInventory = (playerId) => {
-    return http.get('/Inventories/' + playerId, { params: { language: 'Schinese' } });
+export const getPlayerInventory = (playerId, lang) => {
+    return http.get('/Inventories/' + playerId, { params: { language: lang } });
 };
 
 /**

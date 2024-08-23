@@ -58,11 +58,11 @@ const details = computed(() => {
         },
         {
             label: '当前位置',
-            value: formatHelper.formatPosition(playerDetails.position),
+            value: formatPosition(playerDetails.position),
         },
         {
             label: '上次重生位置',
-            value: formatHelper.formatPosition(playerDetails.lastSpawnPosition.position),
+            value: formatPosition(playerDetails.lastSpawnPosition.position),
         },
         {
             label: '游戏阶段',
@@ -138,15 +138,15 @@ const details = computed(() => {
         },
         {
             label: '总游戏时长',
-            value: formatHelper.formatMinute(playerDetails.totalTimePlayed),
+            value: formatMinute(playerDetails.totalTimePlayed),
         },
         {
             label: '当前存活时长',
-            value: formatHelper.formatMinute(playerDetails.currentLife),
+            value: formatMinute(playerDetails.currentLife),
         },
         {
             label: '最长生存时长',
-            value: formatHelper.formatMinute(playerDetails.longestLife),
+            value: formatMinute(playerDetails.longestLife),
         },
         {
             label: '已制作物品列表',
@@ -158,7 +158,7 @@ const details = computed(() => {
         },
         {
             label: '租赁坐标',
-            value: formatHelper.formatPosition(playerDetails.rentedVMPosition),
+            value: formatPosition(playerDetails.rentedVMPosition),
         },
         {
             label: '租赁结束日期',

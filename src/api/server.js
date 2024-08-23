@@ -66,7 +66,7 @@ export const executeConsoleCommand = (command, inMainThread = false) => {
  * @returns 
  */
 export const getSettings = (lang) => {
-    return http.get('/Server/Settings', { params: { lang } });
+    return http.get('/Server/Settings', { params: { language: lang } });
 };
 
 /**

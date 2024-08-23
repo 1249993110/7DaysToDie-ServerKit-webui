@@ -1,7 +1,7 @@
 
 
 export const getSettings = (name, lang) => {
-    return http.get('/Settings/' + name, { params: { lang } });
+    return http.get('/Settings/' + name, { params: { language: lang } });
 };
 
 export const updateSettings = (name, data) => {
@@ -9,5 +9,5 @@ export const updateSettings = (name, data) => {
 };
 
 export const resetSettings = (name, lang) => {
-    return http.delete('/Settings/' + name, { params: { lang } });
+    return http.delete('/Settings/' + name, { params: { language: lang } });
 };
