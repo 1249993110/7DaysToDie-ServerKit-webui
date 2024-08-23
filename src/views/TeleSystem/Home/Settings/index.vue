@@ -94,9 +94,9 @@ import * as api from '~/api/settings.js';
 
 const formModel = reactive({});
 const formRef = ref();
-
+const localeStore = useLocaleStore();
 const getData = async () => {
-    const data = await api.getSettings('TeleportHome');
+    const data = await api.getSettings('TeleportHome', localeStore.getLanguage());
     Object.assign(formModel, data);
 };
 getData();
@@ -112,7 +112,7 @@ const save = async () => {
 const reset = async () => {
     try {
         if (await myconfirm('确定重置配置吗?')) {
-            await api.resetSettings('TeleportHome', formModel);
+            await api.resetSettings('TeleportHome', localeStore.getLanguage());
             await getData();
             ElMessage.success('重置成功');
         }

@@ -65,8 +65,8 @@ export const executeConsoleCommand = (command, inMainThread = false) => {
  * 获取服务器设置
  * @returns 
  */
-export const getSettings = () => {
-    return http.get('/Server/Settings');
+export const getSettings = (lang) => {
+    return http.get('/Server/Settings', { params: { lang } });
 };
 
 /**

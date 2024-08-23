@@ -52,9 +52,9 @@ import * as api from '~/api/settings.js';
 const formModel = reactive({});
 
 const formRef = ref();
-
+const localeStore = useLocaleStore();
 const getData = async () => {
-    const data = await api.getSettings('GameNotice');
+    const data = await api.getSettings('GameNotice', localeStore.getLanguage());
     Object.assign(formModel, data);
 };
 getData();
@@ -70,7 +70,7 @@ const save = async () => {
 const reset = async () => {
     try {
         if (await myconfirm('确定重置配置吗?')) {
-            await api.resetSettings('GameNotice', formModel);
+            await api.resetSettings('GameNotice', localeStore.getLanguage());
             await getData();
             ElMessage.success('重置成功');
         }

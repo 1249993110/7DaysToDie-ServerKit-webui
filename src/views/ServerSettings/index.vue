@@ -52,8 +52,9 @@ import { getSettings, putSettings } from '~/api/server';
 import { Edit } from '@element-plus/icons-vue';
 
 const tableData = ref([]);
+const localeStore = useLocaleStore();
 const getData = async () => {
-    const data = await getSettings();
+    const data = await getSettings(localeStore.getLanguage());
     const group = Object.groupBy(data, (item) => {
         return item.group;
     });

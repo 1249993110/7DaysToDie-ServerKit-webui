@@ -47,11 +47,11 @@ export default {
 import * as api from '~/api/settings.js';
 
 const formModel = reactive({});
-
 const formRef = ref();
 
+const localeStore = useLocaleStore();
 const getData = async () => {
-    const data = await api.getSettings('AutoBackup');
+    const data = await api.getSettings('AutoBackup', localeStore.getLanguage());
     Object.assign(formModel, data);
 };
 getData();
@@ -67,7 +67,7 @@ const save = async () => {
 const reset = async () => {
     try {
         if (await myconfirm('确定重置配置吗?')) {
-            await api.resetSettings('AutoBackup', formModel);
+            await api.resetSettings('AutoBackup', localeStore.getLanguage());
             await getData();
             ElMessage.success('重置成功');
         }

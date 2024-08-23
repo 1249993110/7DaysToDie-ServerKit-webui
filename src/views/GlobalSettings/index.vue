@@ -128,8 +128,9 @@ const rules = {
     handleChatMessageError: [{ required: true, message: '请输入聊天消息错误提示', trigger: 'blur' }],
 };
 
+const localeStore = useLocaleStore();
 const getData = async () => {
-    const data = await api.getSettings('GlobalSettings');
+    const data = await api.getSettings('GlobalSettings', localeStore.getLanguage());
     Object.assign(formModel, data);
 };
 getData();
@@ -145,7 +146,7 @@ const save = async () => {
 const reset = async () => {
     try {
         if (await myconfirm('确定重置配置吗?')) {
-            await api.resetSettings('GlobalSettings', formModel);
+            await api.resetSettings('GlobalSettings', localeStore.getLanguage());
             await getData();
             ElMessage.success('重置成功');
         }
