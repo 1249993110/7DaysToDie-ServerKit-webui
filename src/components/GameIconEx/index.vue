@@ -12,6 +12,7 @@ import { showTooltip } from '~/components/SingletonTooltip/index.js';
 import ContextMenu from '@imengyu/vue3-context-menu';
 import { useZIndex } from 'element-plus';
 import { removePlayerItems } from '~/api/inventories';
+import { i18n } from '~/plugins/i18n';
 
 const props = defineProps({
     size: {
@@ -73,16 +74,17 @@ const sizePx = computed(() => {
     return props.size + 'px';
 });
 
+const { t } = i18n.global;
 const handleMouseover = (event) => {
     const content = `
-        名称: ${props.itemName}<br />
-        本地化名称: ${props.localizationName}<br />
-        数量: ${props.count}<br />
-        最大堆叠数量: ${props.maxStackAllowed}<br />
-        质量: ${props.quality}<br />
-        使用时长: ${props.useTimes}<br />
-        最大使用时长: ${props.maxUseTimes}<br />
-        模组: ${props.isMod ? '是' : '否'}`;
+        ${t('components.gameIconEx.itemName')}: ${props.itemName}<br />
+        ${t('components.gameIconEx.localizationName')}: ${props.localizationName}<br />
+        ${t('components.gameIconEx.count')}: ${props.count}<br />
+        ${t('components.gameIconEx.maxStackAllowed')}: ${props.maxStackAllowed}<br />
+        ${t('components.gameIconEx.quality')}: ${props.quality}<br />
+        ${t('components.gameIconEx.useTimes')}: ${props.useTimes}<br />
+        ${t('components.gameIconEx.maxUseTimes')}: ${props.maxUseTimes}<br />
+        ${t('components.gameIconEx.isMod')}: ${props.isMod ? t('global.true') : t('global.false')}<br />`;
 
     showTooltip({ trigger: event.target, content: content, rawContent: true });
 };
@@ -96,26 +98,26 @@ const handleContextMenu = (event) => {
         theme: 'mac dark',
         items: [
             {
-                label: '复制物品名称',
+                label: t('components.gameIconEx.copyItemName'),
                 onClick: async () => {
                     await copy(props.itemName);
                     ElMessage.success('复制成功');
                 },
             },
             {
-                label: '复制本地化名称',
+                label: t('components.gameIconEx.copyLocalizationName'),
                 onClick: async () => {
                     await copy(props.localizationName);
                     ElMessage.success('复制成功');
                 },
             },
             {
-                label: '移除选中物品',
+                label: t('components.gameIconEx.removeItem'),
                 onClick: async () => {
-                    if (await myconfirm(`确定从玩家的背包和腰带中移除所有的'${props.localizationName}'吗?`)) {
+                    if (await myconfirm(t('components.gameIconEx.removeItemConfirm', { name: props.itemName }))) {
                         const result = await removePlayerItems(props.playerId, props.itemName);
                         ElNotification({
-                            title: '命令执行结果',
+                            title: t('global.message.cmdExecResult'),
                             type: 'info',
                             message: h('i', { style: 'color: teal' }, result[0]),
                         });

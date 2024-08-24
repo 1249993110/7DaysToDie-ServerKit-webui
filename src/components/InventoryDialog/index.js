@@ -1,10 +1,11 @@
 import Dialog from './index.vue';
 import { createVNode, render } from 'vue';
+import { i18n } from '~/plugins/i18n';
 
 export const showPlayerInventory = async (playerId, playerName) => {
     const container = document.createElement('div');
     const vNode = createVNode(Dialog, {
-        title: `玩家: ${playerName} (${playerId}) 的背包`,
+        title: i18n.global.t('components.inventoryDialog.title', { playerId, playerName }),
         playerId: playerId,
         modelValue: true,
         onClosed: () => {

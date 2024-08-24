@@ -1,6 +1,6 @@
 <template>
     <el-table :data="tableData" max-height="56vh" highlight-current-row>
-        <el-table-column label="图标" width="86px" class-name="table-icon-col">
+        <el-table-column :label="t('components.inventoryDialog.tableHeader.icon')" width="86px" class-name="table-icon-col">
             <template #default="{ row }">
                 <GameIconEx
                     :size="60"
@@ -17,11 +17,11 @@
                 />
             </template>
         </el-table-column>
-        <el-table-column prop="itemName" label="物品名称" min-width="30%" show-overflow-tooltip> </el-table-column>
-        <el-table-column prop="localizationName" label="本地化名称" min-width="20%" show-overflow-tooltip> </el-table-column>
-        <el-table-column label="模组" class-name="table-icon-col" min-width="50%">
+        <el-table-column prop="itemName" :label="t('components.inventoryDialog.tableHeader.itemName')" min-width="30%" show-overflow-tooltip> </el-table-column>
+        <el-table-column prop="localizationName" :label="t('components.inventoryDialog.tableHeader.localizationName')" min-width="20%" show-overflow-tooltip> </el-table-column>
+        <el-table-column :label="t('components.inventoryDialog.tableHeader.mod')" class-name="table-icon-col" min-width="50%">
             <template #default="{ row }">
-                <template v-if="row.parts && row.parts.length > 0">
+                <template v-if="row.parts && row.parts.length">
                     <GameIconEx
                         v-for="(item, index) in row.parts.filter((i) => i !== null)"
                         :key="index"
@@ -43,6 +43,10 @@
 </template>
 
 <script setup>
+import { i18n } from '~/plugins/i18n';
+
+const { t } = i18n.global;
+
 const props = defineProps({
     tableData: {
         type: Array,

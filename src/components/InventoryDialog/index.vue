@@ -4,9 +4,9 @@
             <div class="my-header">
                 <h1 :id="titleId" :class="titleClass">{{ title }}</h1>
                 <span style="margin-left: auto">
-                    <el-text style="margin: 0 4px" type="success">网格</el-text>
+                    <el-text style="margin: 0 4px" type="success">{{ t('components.inventoryDialog.grid') }}</el-text>
                     <el-switch v-model="showList" style="--el-switch-on-color: #409eff; --el-switch-off-color: #13ce66"></el-switch>
-                    <el-text style="margin: 0 4px" type="primary">列表</el-text>
+                    <el-text style="margin: 0 4px" type="primary">{{ t('components.inventoryDialog.list') }}</el-text>
                 </span>
                 <IconButton style="margin-left: auto" @click="close">
                     <Close />
@@ -17,13 +17,13 @@
             <Grid :bag="inventory.bag" :belt="inventory.belt" :equipment="inventory.equipment" :playerId="playerId" />
         </div>
         <el-tabs type="border-card" v-if="loadedList" v-show="showList" v-loading="loading">
-            <el-tab-pane label="背包" lazy>
+            <el-tab-pane :label="t('components.inventoryDialog.bag')" lazy>
                 <Table :tableData="inventory.bag" :playerId="playerId"></Table>
             </el-tab-pane>
-            <el-tab-pane label="腰带" lazy>
+            <el-tab-pane :label="t('components.inventoryDialog.belt')" lazy>
                 <Table :tableData="inventory.belt" :playerId="playerId"></Table>
             </el-tab-pane>
-            <el-tab-pane label="装备" lazy>
+            <el-tab-pane :label="t('components.inventoryDialog.equipment')" lazy>
                 <Table :tableData="inventory.equipment"></Table>
             </el-tab-pane>
         </el-tabs>
@@ -35,6 +35,7 @@ import Grid from './Grid.vue';
 import Table from './Table.vue';
 import { getPlayerInventory } from '~/api/inventories';
 import { Close } from '@element-plus/icons-vue';
+import { i18n } from '~/plugins/i18n';
 
 const props = defineProps({
     title: {
@@ -44,6 +45,8 @@ const props = defineProps({
         type: String,
     },
 });
+
+const { t } = i18n.global;
 
 const loading = ref(true);
 const showList = ref(false);

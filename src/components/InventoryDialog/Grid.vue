@@ -1,8 +1,8 @@
 <template>
     <div style="width: 855px">
         <div class="bag">
-            <div>背包</div>
-            <el-scrollbar noresize always class="split" height="420px">
+            <div>{{ t('components.inventoryDialog.bag') }}</div>
+            <el-scrollbar noresize always class="split" height="421px">
                 <GameIconEx
                     v-for="(item, index) in bag"
                     :key="index"
@@ -22,8 +22,8 @@
             </el-scrollbar>
         </div>
         <div class="equipment">
-            <div>装备</div>
-            <el-scrollbar noresize always class="split" height="420px">
+            <div>{{ t('components.inventoryDialog.equipment') }}</div>
+            <el-scrollbar noresize always class="split" height="421px">
                 <GameIconEx
                     v-for="(item, index) in equipment"
                     :key="index"
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div style="width: 820px">
-        <div>腰带</div>
+        <div>{{ t('components.inventoryDialog.belt') }}</div>
         <div class="belt">
             <GameIconEx
                 v-for="(item, index) in belt"
@@ -66,6 +66,8 @@
 </template>
 
 <script setup>
+import { i18n } from '~/plugins/i18n';
+
 const props = defineProps({
     bag: {
         type: Array,
@@ -80,6 +82,8 @@ const props = defineProps({
         type: String,
     },
 });
+
+const { t } = i18n.global;
 </script>
 
 <style scoped lang="scss">

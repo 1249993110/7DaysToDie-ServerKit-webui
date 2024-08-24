@@ -42,7 +42,8 @@
             "importFailed": "导入失败",
             "exportSuccess": "导出成功",
             "exportFailed": "导出失败",
-            "example": "例: "
+            "example": "例: ",
+            "cmdExecResult": "命令执行结果"
         }
     },
     "player": "玩家",
@@ -125,6 +126,34 @@
             "shutdown": "关闭服务器",
             "shutdownConfirm": "您确定要关闭服务器吗? 服务器将无法访问",
             "shutdownSuccess": "服务器关闭成功"
+        },
+        "inventoryDialog":{
+            "title": "玩家: {playerName} ({playerId}) 的背包",
+            "grid": "网格",
+            "list": "列表",
+            "bag": "背包",
+            "belt": "腰带",
+            "equipment": "装备",
+            "tableHeader":{
+                "icon": "图标",
+                "itemName": "物品名称",
+                "localizationName": "本地化名称",
+                "mod": "模组"
+            }
+        },
+        "gameIconEx":{
+            "itemName": "名称",
+            "localizationName": "本地化名称",
+            "count": "数量",
+            "maxStackAllowed": "最大堆叠数量",
+            "quality": "质量",
+            "useTimes": "使用时长",
+            "maxUseTimes": "最大使用时长",
+            "isMod": "模组",
+            "copyItemName": "复制物品名称",
+            "copyLocalizationName": "复制本地化名称",
+            "removeItem": "移除选中物品",
+            "removeItemConfirm": "您确定要从玩家的背包和腰带中移除所有的 {name} 吗?"
         }
     },
     "layout": {

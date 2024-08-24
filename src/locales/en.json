@@ -6,7 +6,7 @@
             "required": "Required"
         },
         "true": "Yes",
-        "false": "No",  
+        "false": "No",
         "button": {
             "add": "Add",
             "delete": "Delete",
@@ -14,7 +14,7 @@
             "save": "Save",
             "enable": "Enable",
             "disable": "Disable",
-            "search": "Search",            
+            "search": "Search",
             "reset": "Reset",
             "back": "Back",
             "close": "Close",
@@ -42,7 +42,8 @@
             "importFailed": "Import failed",
             "exportSuccess": "Export success",
             "exportFailed": "Export failed",
-            "example": "Example: "
+            "example": "Example: ",
+            "cmdExecResult": "Command execution result"
         }
     },
     "player": "Player",
@@ -125,6 +126,34 @@
             "shutdown": "Shutdown Server",
             "shutdownConfirm": "Are you sure you want to shutdown the server? The server will be inaccessible",
             "shutdownSuccess": "Server shutdown success"
+        },
+        "inventoryDialog": {
+            "title": "Player: {playerName} ({playerId}) Inventory",
+            "grid": "Grid",
+            "list": "List",
+            "bag": "Bag",
+            "belt": "Belt",
+            "equipment": "Equipment",
+            "tableHeader":{
+                "icon": "Icon",
+                "itemName": "Item Name",
+                "localizationName": "Localization Name",
+                "mod": "Mod"
+            }
+        },
+        "gameIconEx":{
+            "itemName": "Name",
+            "localizationName": "Localization Name",
+            "count": "Count",
+            "maxStackAllowed": "Max Stack Allowed",
+            "quality": "Quality",
+            "useTimes": "Use Times",
+            "maxUseTimes": "Max Use Times",
+            "isMod": "Is Mod",
+            "copyItemName": "Copy Item Name",
+            "copyLocalizationName": "Copy Localization Name",
+            "removeItem": "Remove Selected Item",
+            "removeItemConfirm": "Are you sure you want to remove all {name} from the player's bag and belt?"
         }
     },
     "layout": {
