@@ -85,7 +85,7 @@
                 </el-table-column>
                 <el-table-column label="当前位置" min-width="100" show-overflow-tooltip>
                     <template #default="{ row }">
-                        {{ formatHelper.formatPosition(row.playerDetails.position) }}
+                        {{ formatPosition(row.playerDetails.position) }}
                     </template>
                 </el-table-column>
                 <el-table-column label="上次在线" min-width="165" sortable="custom" prop="lastLogin" show-overflow-tooltip>
@@ -95,12 +95,12 @@
                 </el-table-column>
                 <el-table-column label="总游戏时长" min-width="120" sortable="custom" prop="totalTimePlayed" show-overflow-tooltip>
                     <template #default="{ row }">
-                        {{ formatHelper.formatMinute(row.playerDetails.totalTimePlayed) }}
+                        {{ formatMinute(row.playerDetails.totalTimePlayed) }}
                     </template>
                 </el-table-column>
                 <el-table-column label="最长生存时长" min-width="135" sortable="custom" prop="longestLife" show-overflow-tooltip>
                     <template #default="{ row }">
-                        {{ formatHelper.formatMinute(row.playerDetails.longestLife) }}
+                        {{ formatMinute(row.playerDetails.longestLife) }}
                     </template>
                 </el-table-column>
                 <el-table-column prop="entityId" label="实体Id" min-width="90" sortable="custom"> </el-table-column>
@@ -163,12 +163,11 @@ export default {
 
 <script setup>
 import ContextMenu from '@imengyu/vue3-context-menu';
-import * as playerHelper from '~/utils/playerHelper';
-import * as formatHelper from '~/utils/formatHelper';
 import { getHistoryPlayers } from '~/api/players';
 import { ArrowDown, Refresh, Search } from '@element-plus/icons-vue';
 import Operations from '~icons/carbon/operations-record';
-import serverFavoriteImgUrl from '~/assets/images/server_favorite_1.png'
+import serverFavoriteImgUrl from '~/assets/images/server_favorite_1.png';
+import { formatMinute, formatPosition } from '~/utils/formatHelper';
 
 const loading = ref(false);
 const tableData = ref([]);
@@ -222,50 +221,50 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '查看背包',
                 onClick: () => {
-                    playerHelper.showPlayerInventory(playerId, playerName);
+                    showPlayerInventory(playerId, playerName);
                 },
             },
             {
                 label: '查看技能',
                 onClick: () => {
-                    playerHelper.showPlayerSkills(playerId, playerName);
+                    showPlayerSkills(playerId, playerName);
                 },
             },
             {
                 label: '查看详细信息',
                 onClick: () => {
-                    playerHelper.showPlayerDetails(row);
+                    showPlayerDetails(row);
                 },
                 divided: true,
             },
             {
                 label: '封禁玩家',
                 onClick: () => {
-                    playerHelper.banPlayers([playerId], [playerName]);
+                    banPlayers([playerId], [playerName]);
                 },
             },
             {
                 label: '设置为超级管理员',
                 onClick: () => {
-                    playerHelper.setSuperAdmins([playerId], [playerName]);
+                    setSuperAdmins([playerId], [playerName]);
                 },
             },
             {
                 label: '取消管理员',
                 onClick: () => {
-                    playerHelper.cancelAdmins([playerId]);
+                    cancelAdmins([playerId]);
                 },
             },
             {
                 label: '移除领地石',
                 onClick: () => {
-                    playerHelper.removePlayerLandClaims([playerId]);
+                    removePlayerLandClaims([playerId]);
                 },
             },
             {
                 label: '删除玩家存档',
                 onClick: () => {
-                    playerHelper.resetPlayers([playerId]);
+                    resetPlayers([playerId]);
                 },
                 divided: true,
             },
@@ -289,7 +288,7 @@ const onContextmenu = (row, column, event) => {
                     {
                         label: '复制玩家坐标',
                         onClick: async () => {
-                            await copy(formatHelper.formatPosition(row.playerDetails.position));
+                            await copy(formatPosition(row.playerDetails.position));
                             ElMessage.success('复制成功');
                         },
                     },
@@ -313,46 +312,46 @@ const handleCommand = (command) => {
     const playerNames = multipleSelection.map((i) => i.playerName);
     switch (command) {
         case 'showInventory':
-            playerHelper.showPlayerInventory(playerIds[0], playerNames[0]);
+            showPlayerInventory(playerIds[0], playerNames[0]);
             break;
         case 'showSkills':
-            playerHelper.showPlayerSkills(playerIds[0], playerNames[0]);
+            showPlayerSkills(playerIds[0], playerNames[0]);
             break;
         case 'showDetails':
-            playerHelper.showPlayerDetails(multipleSelection[0]);
+            showPlayerDetails(multipleSelection[0]);
             break;
         case 'sendMessage':
-            playerHelper.sendMessageToPlayers(playerIds);
+            sendMessageToPlayers(playerIds);
             break;
         case 'giveItem':
-            playerHelper.giveItemToPlayers(playerIds, playerNames);
+            giveItemToPlayers(playerIds, playerNames);
             break;
         case 'changePoints':
-            playerHelper.changePlayerPoints(playerIds);
+            changePlayerPoints(playerIds);
             break;
         case 'spawnEntity':
-            playerHelper.spawnEntityToPlayers(playerIds);
+            spawnEntityToPlayers(playerIds);
             break;
         case 'telePlayer':
-            playerHelper.telePlayers(playerIds);
+            telePlayers(playerIds);
             break;
         case 'kickPlayer':
-            playerHelper.kickPlayers(playerIds);
+            kickPlayers(playerIds);
             break;
         case 'banPlayer':
-            playerHelper.banPlayers(playerIds, playerNames);
+            banPlayers(playerIds, playerNames);
             break;
         case 'setSuperAdmin':
-            playerHelper.setSuperAdmins(playerIds, playerNames);
+            setSuperAdmins(playerIds, playerNames);
             break;
         case 'cancelAdmin':
-            playerHelper.cancelAdmins(playerIds);
+            cancelAdmins(playerIds);
             break;
         case 'removeLandClaims':
-            playerHelper.removePlayerLandClaims(playerIds);
+            removePlayerLandClaims(playerIds);
             break;
         case 'resetPlayer':
-            playerHelper.resetPlayers(playerIds);
+            resetPlayers(playerIds);
             break;
         default:
             ElMessage.error(`未找到命令: ${command}`);

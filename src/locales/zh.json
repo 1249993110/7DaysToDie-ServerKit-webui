@@ -18,6 +18,7 @@
         "lessThan": "小于",
         "moreThan": "大于",
         "equal": "等于",
+        "keyworld": "关键词",
         "button": {
             "add": "添加",
             "delete": "删除",
@@ -79,7 +80,6 @@
         "cancelAdmin": "取消管理员",
         "removeLandClaims": "移除领地石",
         "resetPlayer": "删除玩家存档",
-        "resetPlayerConfirm": "您确定要删除玩家 {playerName} 的存档吗?",
         "copyPlayerId": "复制玩家 ID",
         "copyPlayerName": "复制玩家名称",
         "copyPlayerPos": "复制玩家位置"
@@ -193,7 +193,7 @@
             }
         },
         "playerDetailsDialog": {
-            "title": "玩家: {playerName} ({playerId}) 的数据",
+            "title": "玩家: {playerName} ({playerId}) 的详情",
             "active": "激活",
             "inactive": "未激活",
             "tableHeader": {

@@ -18,6 +18,7 @@
         "lessThan": "Less Than",
         "moreThan": "More Than",
         "equal": "Equal",
+        "keyworld": "Keyworld",
         "button": {
             "add": "Add",
             "delete": "Delete",
@@ -79,7 +80,6 @@
         "cancelAdmin": "Cancel Admin",
         "removeLandClaims": "Remove Land Claims",
         "resetPlayer": "Reset Player",
-        "resetPlayerConfirm": "Are you sure you want to reset player: {playerName}? This operation will delete the player's save data and the player will be reset to the initial state",
         "copyPlayerId": "Copy Player ID",
         "copyPlayerName": "Copy Player Name",
         "copyPlayerPos": "Copy Player Position"
