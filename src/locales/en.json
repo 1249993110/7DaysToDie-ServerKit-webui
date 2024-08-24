@@ -45,8 +45,11 @@
             "exportSuccess": "Export success",
             "exportFailed": "Export failed",
             "copySuccess": "Copy success",
-            "example": "Example: ",
-            "cmdExecResult": "Command execution result"
+            "example": "Example",
+            "cmdSentSuccess": "Command sent success",
+            "cmdExecResult": "Command execution result",
+            "inputText": "Please enter text",
+            "inputNumber": "Please enter a number"
         }
     },
     "copy": "Copy",
@@ -188,7 +191,22 @@
         }
     },
     "store": {},
-    "utils": {},
+    "utils": {
+        "playerHelper":{
+            "title": "Negative numbers will deduct points",
+            "inputCount": "Please enter the count of points",
+            "deductPoints": "You have been deducted {0} points",
+            "addPoints": "You have successfully recharged {0} points",
+            "inputEntityIdOrName": "Please enter the entity ID or name",
+            "teleportTarget": "Please enter the teleport target",
+            "kickPlayerReason": "Please enter the reason for kicking the player",
+            "kickPlayerConfirm": "Are you sure you want to kick the selected player or players",
+            "setSuperAdminConfirm": "Are you sure you want to set the selected player or players as super administrator",
+            "cancelAdminConfirm": "Are you sure you want to cancel the selected player or players as administrator",
+            "removeLandClaimConfirm": "Are you sure you want to remove the land claim of the selected player or players",
+            "resetPlayerConfirm": "Are you sure you want to reset the selected player or players"
+        }
+    },
     "views": {
         "dashboard": {
             "header": {

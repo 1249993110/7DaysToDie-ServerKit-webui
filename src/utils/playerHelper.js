@@ -4,14 +4,15 @@ import { showPlayerDetails } from '~/components/PlayerDetailsDialog/index';
 import { showPlayerSkills } from '~/components/PlayerSkillsDialog/index';
 import { batchBan } from '~/components/BatchAddBlacklist/index';
 import { batchGiveItem } from '~/components/BatchGiveItem/index';
+import { i18n } from '~/plugins/i18n';
 
 export const sendMessageToPlayers = async (playerIds) => {
-    const val = await myprompt('', '请输入文本');
+    const val = await myprompt('', i18n.global.t('global.message.inputText'));
     for (let i = 0; i < playerIds.length; i++) {
         const playerId = playerIds[i];
         await sdtdConsole.sendMessageToPlayer(playerId, val);
     }
-    ElMessage.success('发送命令成功');
+    ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
 };
 
 export const giveItemToPlayers = async (playerIds, displayNames) => {
@@ -19,45 +20,45 @@ export const giveItemToPlayers = async (playerIds, displayNames) => {
 };
 
 export const changePlayerPoints = async (playerIds) => {
-    const count = await myprompt('为负数将扣除积分', '请输入积分数量', '', '', /^-?\d+$/);
+    const count = await myprompt(i18n.global.t('utils.playerHelper.title'), i18n.global.t('utils.playerHelper.inputCount'), '', '', /^-?\d+$/);
     for (let i = 0; i < playerIds.length; i++) {
         const playerId = playerIds[i];
         await sdtdConsole.changePlayerPoints(playerId, count);
         if (count < 0) {
-            await sdtdConsole.sendMessageToPlayer(playerId, `您被扣除了 ${-count} 积分`);
+            await sdtdConsole.sendMessageToPlayer(playerId, i18n.global.t('utils.playerHelper.deductPoints', [-count]));
         } else {
-            await sdtdConsole.sendMessageToPlayer(playerId, `您成功充值了 ${count} 积分`);
+            await sdtdConsole.sendMessageToPlayer(playerId, i18n.global.t('utils.playerHelper.addPoints', [count]));
         }
     }
-    ElMessage.success('发送命令成功');
+    ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
 };
 
 export const spawnEntityToPlayers = async (entityIds) => {
-    const spawnEntityIdOrName = await myprompt('如: zombieNurse', '请输入实体Id或名称');
+    const spawnEntityIdOrName = await myprompt(i18n.global.t('global.message.example') + ': zombieNurse', i18n.global.t('utils.playerHelper.inputEntityIdOrName'));
     for (let i = 0; i < entityIds.length; i++) {
         const entityId = entityIds[i];
         await sdtdConsole.spawnEntity(entityId, spawnEntityIdOrName);
     }
-    ElMessage.success('发送命令成功');
+    ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
 };
 
 export const telePlayers = async (playerIds) => {
-    const target = await myprompt('如: 路人甲 或 EOS_XXX 或 x y z', '请输入目标, 可为玩家昵称、玩家Id或三维坐标');
+    const target = await myprompt(i18n.global.t('global.message.example') + ': EOS_XXX', i18n.global.t('utils.playerHelper.teleportTarget'));
     for (let i = 0; i < playerIds.length; i++) {
         const playerId = playerIds[i];
         await sdtdConsole.telePlayer(playerId, target);
     }
-    ElMessage.success('发送命令成功');
+    ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
 };
 
 export const kickPlayers = async (playerIds) => {
-    const reason = await myprompt('如: 您因为左脚先踏出被踢出服务器', '此操作将踢出选定玩家, 是否继续? 请输入原因');
+    const reason = await myprompt(i18n.global.t('utils.playerHelper.kickPlayerReason'), i18n.global.t('utils.playerHelper.kickPlayerConfirm'));
 
     for (let i = 0; i < playerIds.length; i++) {
         const playerId = playerIds[i];
         await sdtdConsole.kickPlayer(playerId, reason);
     }
-    ElMessage.success('发送命令成功');
+    ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
 };
 
 export const banPlayers = async (playerIds, displayNames) => {
@@ -65,43 +66,43 @@ export const banPlayers = async (playerIds, displayNames) => {
 };
 
 export const setSuperAdmins = async (playerIds, displayNames) => {
-    if (await myconfirm('此操作将把选定玩家设置为超级管理员, 是否继续?', '提示', 'warning')) {
+    if (await myconfirm(i18n.global.t('utils.playerHelper.setSuperAdminConfirm'), i18n.global.t('global.message.title'), 'warning')) {
         for (let i = 0; i < playerIds.length; i++) {
             const playerId = playerIds[i];
             const displayName = displayNames[i];
-            await sdtdConsole.addAdmin(playerId, 0, '超级管理员-' + displayName);
+            await sdtdConsole.addAdmin(playerId, 0, 'Admin-' + displayName);
         }
-        ElMessage.success('发送命令成功');
+        ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
     }
 };
 
 export const cancelAdmins = async (playerIds) => {
-    if (await myconfirm('此操作将取消选定玩家的管理员权限, 是否继续?', '提示', 'warning')) {
+    if (await myconfirm(i18n.global.t('utils.playerHelper.cancelAdminConfirm'), i18n.global.t('global.message.title'), 'warning')) {
         for (let i = 0; i < playerIds.length; i++) {
             const playerId = playerIds[i];
             await sdtdConsole.removeAdmin(playerId);
         }
-        ElMessage.success('发送命令成功');
+        ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
     }
 };
 
 export const removePlayerLandClaims = async (playerIds) => {
-    if (await myconfirm('此操作将移除选定玩家的所有领地石, 是否继续?', '提示', 'warning')) {
+    if (await myconfirm(i18n.global.t('utils.playerHelper.removeLandClaimConfirm'), i18n.global.t('global.message.title'), 'warning')) {
         for (let i = 0; i < playerIds.length; i++) {
             const playerId = playerIds[i];
             await sdtdConsole.removePlayerLandClaims(playerId);
         }
-        ElMessage.success('发送命令成功');
+        ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
     }
 };
 
 export const resetPlayers = async (playerIds) => {
-    if (await myconfirm('此操作将重置选定玩家的存档, 是否继续?', '提示', 'warning')) {
+    if (await myconfirm(i18n.global.t('utils.playerHelper.resetPlayerConfirm'), i18n.global.t('global.message.title'), 'warning')) {
         for (let i = 0; i < playerIds.length; i++) {
             const playerId = playerIds[i];
             await sdtdConsole.resetPlayer(playerId);
         }
-        ElMessage.success('发送命令成功');
+        ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
     }
 };
 

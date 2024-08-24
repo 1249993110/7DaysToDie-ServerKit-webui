@@ -45,8 +45,11 @@
             "exportSuccess": "导出成功",
             "exportFailed": "导出失败",
             "copySuccess": "复制成功",
-            "example": "例: ",
-            "cmdExecResult": "命令执行结果"
+            "example": "例如",
+            "cmdSentSuccess": "命令发送成功",
+            "cmdExecResult": "命令执行结果",
+            "inputText": "请输入文本",
+            "inputNumber": "请输入数字"
         }
     },
     "copy": "复制",
@@ -188,7 +191,22 @@
         }
     },
     "store": {},
-    "utils": {},
+    "utils": {
+        "playerHelper":{
+            "title": "为负数将扣除积分",
+            "inputCount": "请输入积分数量",
+            "deductPoints": "您被扣除了 {0} 积分",
+            "addPoints": "您成功充值了 {0} 积分",
+            "inputEntityIdOrName": "请输入实体Id或名称",
+            "teleportTarget": "请输入传送目标, 可为玩家名称、玩家Id或三维坐标",
+            "kickPlayerReason": "请输入踢出玩家的原因",
+            "kickPlayerConfirm": "此操作将踢出选定玩家, 是否继续?",
+            "setSuperAdminConfirm": "此操作将把选定玩家设置为超级管理员, 是否继续?",
+            "cancelAdminConfirm": "此操作将取消选定玩家的管理员权限, 是否继续?",
+            "removeLandClaimConfirm": "此操作将移除选定玩家的所有领地石, 是否继续?",
+            "resetPlayerConfirm": "此操作将删除选定玩家的存档, 是否继续?"
+        }
+    },
     "views": {
         "dashboard": {
             "header": {
