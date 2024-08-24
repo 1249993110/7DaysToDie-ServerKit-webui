@@ -1,10 +1,10 @@
 <template>
-    <el-dialog :title="`玩家: ${data.playerName} (${data.playerId}) 的数据`" draggable :close-on-click-modal="false">
-        <el-scrollbar max-height="63vh" always>
+    <el-dialog :title="title" draggable :close-on-click-modal="false">
+        <el-scrollbar max-height="64vh" always>
             <el-descriptions :column="2" border>
                 <el-descriptions-item v-for="(item, index) in details" :key="index" :label="item.label">
                     <template v-if="Array.isArray(item.value)">
-                        <el-select :model-value="item.value" multiple collapse-tags collapse-tags-tooltip style="width: 240px" placeholder="空">
+                        <el-select :model-value="item.value" multiple collapse-tags collapse-tags-tooltip style="width: 240px" :placeholder="t('global.empty')">
                             <el-option v-for="(subItem, subIndex) in item.value" :key="subIndex" :label="subItem" :value="subItem" />
                         </el-select>
                     </template>
@@ -16,153 +16,161 @@
 </template>
 
 <script setup>
+import { i18n } from '~/plugins/i18n';
+const { t } = i18n.global;
+
 const props = defineProps({
     data: Object,
 });
+
+const title = t('components.playerDetailsDialog.title', { playerName: props.data.playerName, playerId: props.data.playerId });
+const formatDayTime = (days, time) => {
+    return `${days} ${t('global.days')} ${time} ${t('global.hours')}`;
+};
 
 const details = computed(() => {
     const data = props.data;
     const playerDetails = data.playerDetails;
     const result = [
         {
-            label: '玩家昵称',
+            label: t('components.playerDetailsDialog.tableHeader.playerName'),
             value: data.playerName,
         },
         {
-            label: '实体Id',
+            label: t('components.playerDetailsDialog.tableHeader.entityId'),
             value: data.entityId,
         },
         {
-            label: '玩家Id',
+            label: t('components.playerDetailsDialog.tableHeader.playerId'),
             value: data.playerId,
         },
         {
-            label: '平台Id',
+            label: t('components.playerDetailsDialog.tableHeader.platformId'),
             value: data.platformId,
         },
         {
-            label: '是否为管理员',
-            value: playerDetails.isAdmin ? '是' : '否',
+            label: t('components.playerDetailsDialog.tableHeader.isAdmin'),
+            value: playerDetails.isAdmin ? t('global.true') : t('global.false'),
         },
         {
-            label: '是否在线',
-            value: data.isOffline ? '否' : '是',
+            label: t('components.playerDetailsDialog.tableHeader.isOnline'),
+            value: data.isOffline ? t('global.false') : t('global.true'),
         },
         {
-            label: 'IP地址',
+            label: t('components.playerDetailsDialog.tableHeader.ip'),
             value: data.ip,
         },
         {
-            label: '延迟',
+            label: t('components.playerDetailsDialog.tableHeader.ping'),
             value: data.ping,
         },
         {
-            label: '当前位置',
+            label: t('components.playerDetailsDialog.tableHeader.currentPosition'),
             value: formatPosition(playerDetails.position),
         },
         {
-            label: '上次重生位置',
+            label: t('components.playerDetailsDialog.tableHeader.lastSpawnPosition'),
             value: formatPosition(playerDetails.lastSpawnPosition.position),
         },
         {
-            label: '游戏阶段',
+            label: t('components.playerDetailsDialog.tableHeader.gameStage'),
             value: data.gameStage,
         },
         {
-            label: '上次在线',
+            label: t('components.playerDetailsDialog.tableHeader.lastLogin'),
             value: playerDetails.lastLogin,
         },
         {
-            label: '击杀玩家',
+            label: t('components.playerDetailsDialog.tableHeader.playerKills'),
             value: playerDetails.playerKills,
         },
         {
-            label: '击杀僵尸',
+            label: t('components.playerDetailsDialog.tableHeader.zombieKills'),
             value: playerDetails.zombieKills,
         },
         {
-            label: '死亡次数',
+            label: t('components.playerDetailsDialog.tableHeader.deaths'),
             value: playerDetails.deaths,
         },
         {
-            label: '分数',
+            label: t('components.playerDetailsDialog.tableHeader.score'),
             value: playerDetails.score,
         },
         {
-            label: '生命值',
+            label: t('components.playerDetailsDialog.tableHeader.health'),
             value: playerDetails.stats.health.toFixed(1),
         },
         {
-            label: '体力值',
+            label: t('components.playerDetailsDialog.tableHeader.stamina'),
             value: playerDetails.stats.stamina.toFixed(1),
         },
         {
-            label: '温度',
+            label: t('components.playerDetailsDialog.tableHeader.coreTemp'),
             value: playerDetails.stats.coreTemp.toFixed(1),
         },
         {
-            label: '食物',
+            label: t('components.playerDetailsDialog.tableHeader.food'),
             value: playerDetails.stats.food.toFixed(1),
         },
         {
-            label: '水',
+            label: t('components.playerDetailsDialog.tableHeader.water'),
             value: playerDetails.stats.water.toFixed(1),
         },
         {
-            label: '积分',
+            label: t('components.playerDetailsDialog.tableHeader.pointsCount'),
             value: playerDetails.pointsCount,
         },
         {
-            label: '等级',
+            label: t('components.playerDetailsDialog.tableHeader.level'),
             value: playerDetails.level,
         },
         {
-            label: '至下一级的经验',
+            label: t('components.playerDetailsDialog.tableHeader.expToNextLevel'),
             value: playerDetails.expToNextLevel,
         },
         {
-            label: '技能点',
+            label: t('components.playerDetailsDialog.tableHeader.skillPoints'),
             value: playerDetails.skillPoints,
         },
         {
-            label: '领地石保护状态',
-            value: playerDetails.landProtectionActive ? '激活' : '未激活',
+            label: t('components.playerDetailsDialog.tableHeader.landProtectionActive'),
+            value: playerDetails.landProtectionActive ? t('components.playerDetailsDialog.active') : t('components.playerDetailsDialog.inactive'),
         },
         {
-            label: '行走距离',
+            label: t('components.playerDetailsDialog.tableHeader.distanceWalked'),
             value: playerDetails.distanceWalked.toFixed(1),
         },
         {
-            label: '制作项目总数',
+            label: t('components.playerDetailsDialog.tableHeader.totalItemsCrafted'),
             value: playerDetails.totalItemsCrafted,
         },
         {
-            label: '总游戏时长',
+            label: t('components.playerDetailsDialog.tableHeader.totalTimePlayed'),
             value: formatMinute(playerDetails.totalTimePlayed),
         },
         {
-            label: '当前存活时长',
+            label: t('components.playerDetailsDialog.tableHeader.currentLife'),
             value: formatMinute(playerDetails.currentLife),
         },
         {
-            label: '最长生存时长',
+            label: t('components.playerDetailsDialog.tableHeader.longestLife'),
             value: formatMinute(playerDetails.longestLife),
         },
         {
-            label: '已制作物品列表',
+            label: t('components.playerDetailsDialog.tableHeader.alreadyCraftedList'),
             value: playerDetails.alreadyCraftedList,
         },
         {
-            label: '已解锁配方列表',
+            label: t('components.playerDetailsDialog.tableHeader.unlockedRecipeList'),
             value: playerDetails.unlockedRecipeList,
         },
         {
-            label: '租赁坐标',
+            label: t('components.playerDetailsDialog.tableHeader.rentedVMPosition'),
             value: formatPosition(playerDetails.rentedVMPosition),
         },
         {
-            label: '租赁结束日期',
-            value: playerDetails.rentalEndDay + ' 天 ' + playerDetails.rentalEndTime + ' 小时',
+            label: t('components.playerDetailsDialog.tableHeader.rentalEndDay'),
+            value: formatDayTime(playerDetails.rentalEndDay, playerDetails.rentalEndTime),
         },
     ];
 

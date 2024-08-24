@@ -1,11 +1,12 @@
 import Dialog from './index.vue';
 import { createVNode, render } from 'vue';
+import { i18n } from '~/plugins/i18n';
 
 export const showPlayerSkills = async (playerId, playerName) => {
     const container = document.createElement('div');
     const vNode = createVNode(Dialog, {
         modelValue: true,
-        title: `玩家: ${playerName} (${playerId}) 的技能`,
+        title: i18n.global.t('components.playerSkillsDialog.title', { playerId, playerName }),
         playerId: playerId,
         onClosed: () => {
             document.body.removeChild(container);

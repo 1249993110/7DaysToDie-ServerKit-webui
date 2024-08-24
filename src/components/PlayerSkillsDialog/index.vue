@@ -4,11 +4,11 @@
             <div class="my-header">
                 <h1 :id="titleId" :class="titleClass">{{ title }}</h1>
                 <span style="margin-left: auto">
-                    <el-text style="margin: 0 4px" type="success">折叠</el-text>
+                    <el-text style="margin: 0 4px" type="success">{{ t('components.playerSkillsDialog.fold') }}</el-text>
                     <el-switch v-model="expand" style="--el-switch-on-color: #409eff; --el-switch-off-color: #13ce66"></el-switch>
-                    <el-text style="margin: 0 4px" type="primary">展开</el-text>
+                    <el-text style="margin: 0 4px" type="primary">{{ t('components.playerSkillsDialog.expand') }}</el-text>
                 </span>
-                <el-tooltip effect="dark" :content="fullscreen ? '退出全屏' : '全屏'" placement="right">
+                <el-tooltip effect="dark" :content="fullscreen ? t('components.playerSkillsDialog.exitFullscreen') : t('components.playerSkillsDialog.fullscreen')" placement="right">
                     <IconButton :size="24" @click="fullscreen = !fullscreen">
                         <icon-mdi-fullscreen-exit v-show="fullscreen" />
                         <icon-mdi-fullscreen v-show="!fullscreen" />
@@ -24,7 +24,7 @@
                 <template #label>
                     <span class="custom-tabs-label">
                         <GameIcon v-if="item.icon" isUiIcon :name="item.icon" :size="24" backgroundColor="#4d4d4d" />
-                        <span>{{ (item.localizationName || item.name) + ' (等级:' + item.level + ')' }}</span>
+                        <span>{{ (item.localizationName || item.name) + ` (${t('components.playerSkillsDialog.tableHeader.level')}:${item.level})` }}</span>
                     </span>
                 </template>
                 <Table :skills="item.children" :expand-row-keys="expandRowKeys" :default-expand-all="expand" :height="fullscreen ? 'calc(100vh - 180px)' : '56vh'"></Table>
@@ -37,6 +37,8 @@
 import { getPlayerSkills } from '~/api/player-skills';
 import Table from './Table.vue';
 import { Close } from '@element-plus/icons-vue';
+import { i18n } from '~/plugins/i18n';
+const { t } = i18n.global;
 
 const props = defineProps({
     title: {

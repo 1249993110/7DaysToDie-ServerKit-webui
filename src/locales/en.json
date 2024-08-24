@@ -8,6 +8,16 @@
         "true": "Yes",
         "false": "No",
         "unknown": "Unknown",
+        "loading": "Loading...",
+        "empty": "Empty",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "oneMinute": "One Minute",
+        "seconds": "Seconds",
+        "lessThan": "Less Than",
+        "moreThan": "More Than",
+        "equal": "Equal",
         "button": {
             "add": "Add",
             "delete": "Delete",
@@ -158,14 +168,73 @@
             "bag": "Bag",
             "belt": "Belt",
             "equipment": "Equipment",
-            "tableHeader":{
+            "tableHeader": {
                 "icon": "Icon",
                 "itemName": "Item Name",
                 "localizationName": "Localization Name",
                 "mod": "Mod"
             }
         },
-        "gameIconEx":{
+        "playerSkillsDialog": {
+            "title": "Player: {playerName} ({playerId}) Skill Points",
+            "fullscreen": "Fullscreen",
+            "exitFullscreen": "Exit Fullscreen",
+            "fold": "Fold",
+            "expand": "Expand",
+            "tableHeader": {
+                "name": "Name",
+                "icon": "Icon",
+                "localizationName": "Localization Name",
+                "level": "Level",
+                "maxLevel": "Max Level",
+                "costForNextLevel": "Cost For Next Level",
+                "type": "Type",
+                "localizationDesc": "Description"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "Player: {playerName} ({playerId}) Details",
+            "active": "Active",
+            "inactive": "Inactive",
+            "tableHeader": {
+                "playerName": "Player Name",
+                "entityId": "Entity ID",
+                "playerId": "Player ID",
+                "platformId": "Platform ID",
+                "isAdmin": "Administrator",
+                "isOnline": "Online",
+                "ip": "IP Address",
+                "ping": "Ping",
+                "currentPosition": "Current Position",
+                "lastSpawnPosition": "Last Respawn Position",
+                "gameStage": "Game Stage",
+                "lastLogin": "Last Online",
+                "playerKills": "Player Kills",
+                "zombieKills": "Zombie Kills",
+                "deaths": "Deaths",
+                "score": "Score",
+                "health": "Health",
+                "stamina": "Stamina",
+                "coreTemp": "Temperature",
+                "food": "Food",
+                "water": "Water",
+                "pointsCount": "TianYi Points",
+                "level": "Level",
+                "expToNextLevel": "Experience To Next Level",
+                "skillPoints": "Skill Points",
+                "landProtectionActive": "Landstone Protection Status",
+                "distanceWalked": "Distance Walked",
+                "totalItemsCrafted": "Total Items Crafted",
+                "totalTimePlayed": "Total Time Played",
+                "currentLife": "Current Survival Time",
+                "longestLife": "Longest Survival Time",
+                "alreadyCraftedList": "Already Crafted List",
+                "unlockedRecipeList": "Unlocked Recipe List",
+                "rentedVMPosition": "Rental Positions",
+                "rentalEndDay": "Rental End Date"
+            }
+        },
+        "gameIconEx": {
             "itemName": "Name",
             "localizationName": "Localization Name",
             "count": "Count",
@@ -192,7 +261,7 @@
     },
     "store": {},
     "utils": {
-        "playerHelper":{
+        "playerHelper": {
             "title": "Negative numbers will deduct points",
             "inputCount": "Please enter the count of points",
             "deductPoints": "You have been deducted {0} points",

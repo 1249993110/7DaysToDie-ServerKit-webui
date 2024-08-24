@@ -8,6 +8,16 @@
         "true": "是",
         "false": "否",
         "unknown": "未知",
+        "loading": "加载中...",
+        "empty": "空",
+        "days": "天",
+        "hours": "小时",
+        "minutes": "分钟",
+        "oneMinute": "1 分钟",
+        "seconds": "秒",
+        "lessThan": "小于",
+        "moreThan": "大于",
+        "equal": "等于",
         "button": {
             "add": "添加",
             "delete": "删除",
@@ -165,6 +175,65 @@
                 "mod": "模组"
             }
         },
+        "playerSkillsDialog": {
+            "title": "玩家: {playerName} ({playerId}) 的技能",
+            "fullscreen": "全屏",
+            "exitFullscreen": "退出全屏",
+            "fold": "折叠",
+            "expand": "展开",
+            "tableHeader": {
+                "name": "技能名称",
+                "icon": "图标",
+                "localizationName": "本地化名称",
+                "level": "等级",
+                "maxLevel": "最大等级",
+                "costForNextLevel": "升级消耗",
+                "type": "类型",
+                "localizationDesc": "说明"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "玩家: {playerName} ({playerId}) 的数据",
+            "active": "激活",
+            "inactive": "未激活",
+            "tableHeader": {
+                "playerName": "玩家昵称",
+                "entityId": "实体 ID",
+                "playerId": "玩家 ID",
+                "platformId": "平台 ID",
+                "isAdmin": "是否为管理员",
+                "isOnline": "是否在线",
+                "ip": "IP地址",
+                "ping": "延迟",
+                "currentPosition": "当前位置",
+                "lastSpawnPosition": "上次重生位置",
+                "gameStage": "游戏阶段",
+                "lastLogin": "上次在线",
+                "playerKills": "击杀玩家",
+                "zombieKills": "击杀僵尸",
+                "deaths": "死亡次数",
+                "score": "分数",
+                "health": "生命值",
+                "stamina": "体力值",
+                "coreTemp": "温度",
+                "food": "食物",
+                "water": "水",
+                "pointsCount": "积分",
+                "level": "等级",
+                "expToNextLevel": "至下一级的经验",
+                "skillPoints": "技能点",
+                "landProtectionActive": "领地石保护状态",
+                "distanceWalked": "行走距离",
+                "totalItemsCrafted": "制作项目总数",
+                "totalTimePlayed": "总游戏时长",
+                "currentLife": "当前存活时长",
+                "longestLife": "最长生存时长",
+                "alreadyCraftedList": "已制作物品列表",
+                "unlockedRecipeList": "已解锁配方列表",
+                "rentedVMPosition": "租赁坐标",
+                "rentalEndDay": "租赁结束日期"
+            }
+        },
         "gameIconEx": {
             "itemName": "名称",
             "localizationName": "本地化名称",
@@ -192,7 +261,7 @@
     },
     "store": {},
     "utils": {
-        "playerHelper":{
+        "playerHelper": {
             "title": "为负数将扣除积分",
             "inputCount": "请输入积分数量",
             "deductPoints": "您被扣除了 {0} 积分",
