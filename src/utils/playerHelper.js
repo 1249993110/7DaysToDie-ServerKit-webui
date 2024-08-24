@@ -85,7 +85,7 @@ export const cancelAdmins = async (playerIds) => {
     }
 };
 
-export const removeLandClaims = async (playerIds) => {
+export const removePlayerLandClaims = async (playerIds) => {
     if (await myconfirm('此操作将移除选定玩家的所有领地石, 是否继续?', '提示', 'warning')) {
         for (let i = 0; i < playerIds.length; i++) {
             const playerId = playerIds[i];

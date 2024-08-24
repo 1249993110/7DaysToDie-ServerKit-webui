@@ -3,7 +3,7 @@
         <RouterButton :names="['playerList.onlinePlayers', 'playerList.historyPlayers']">
             <template #route-button>
                 <div class="route-button">
-                    <span style="font-size: 14px; margin-right: 4px">自动刷新</span>
+                    <span style="font-size: 14px; margin-right: 4px">{{ $t('views.playerList.autoRefresh') }}</span>
                     <el-switch v-model="autoRefrensh" />
                 </div>
             </template>
@@ -12,21 +12,21 @@
             <div class="toolbar">
                 <el-dropdown :disabled="batchBtnDisabled" @command="handleCommand">
                     <el-button type="success" :disabled="batchBtnDisabled">
-                        批量操作<el-icon class="el-icon--right"><arrow-down /></el-icon>
+                        {{ $t('global.button.batchOperation') }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
                     </el-button>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item command="sendMessage">发送消息</el-dropdown-item>
-                            <el-dropdown-item command="giveItem">给予物品</el-dropdown-item>
-                            <el-dropdown-item command="changePoints">给予积分</el-dropdown-item>
-                            <el-dropdown-item command="spawnEntity">生成实体</el-dropdown-item>
-                            <el-dropdown-item command="telePlayer">传送玩家</el-dropdown-item>
-                            <el-dropdown-item command="kickPlayer" divided>踢出玩家</el-dropdown-item>
-                            <el-dropdown-item command="banPlayer">封禁玩家</el-dropdown-item>
-                            <el-dropdown-item command="setSuperAdmin">设置为超级管理员</el-dropdown-item>
-                            <el-dropdown-item command="cancelAdmin">取消管理员</el-dropdown-item>
-                            <el-dropdown-item command="removeLandClaims">移除领地石</el-dropdown-item>
-                            <el-dropdown-item command="resetPlayer">删除玩家存档</el-dropdown-item>
+                            <el-dropdown-item command="sendMessage">{{ $t('playerOperation.sendMessage') }}</el-dropdown-item>
+                            <el-dropdown-item command="giveItem">{{ $t('playerOperation.giveItem') }}</el-dropdown-item>
+                            <el-dropdown-item command="changePoints">{{ $t('playerOperation.changePoints') }}</el-dropdown-item>
+                            <el-dropdown-item command="spawnEntity">{{ $t('playerOperation.spawnEntity') }}</el-dropdown-item>
+                            <el-dropdown-item command="teleport">{{ $t('playerOperation.teleport') }}</el-dropdown-item>
+                            <el-dropdown-item command="kick" divided>{{ $t('playerOperation.kick') }}</el-dropdown-item>
+                            <el-dropdown-item command="ban">{{ $t('playerOperation.ban') }}</el-dropdown-item>
+                            <el-dropdown-item command="setSuperAdmin">{{ $t('playerOperation.setSuperAdmin') }}</el-dropdown-item>
+                            <el-dropdown-item command="cancelAdmin">{{ $t('playerOperation.cancelAdmin') }}</el-dropdown-item>
+                            <el-dropdown-item command="removeLandClaims">{{ $t('playerOperation.removeLandClaims') }}</el-dropdown-item>
+                            <el-dropdown-item command="resetPlayer">{{ $t('playerOperation.resetPlayer') }}</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -41,62 +41,62 @@
                 @selection-change="handleSelectionChange"
             >
                 <el-table-column type="selection" width="42" />
-                <el-table-column type="index" label="序号" width="60" fixed> </el-table-column>
-                <el-table-column label="玩家昵称" min-width="115" sortable fixed show-overflow-tooltip>
+                <el-table-column type="index" :label="t('views.playerList.tableHeader.index')" width="61" fixed> </el-table-column>
+                <el-table-column :label="t('views.playerList.tableHeader.playerName')" min-width="133" sortable fixed show-overflow-tooltip>
                     <template #default="{ row }">
                         <span style="display: flex">
                             {{ row.playerName }}
-                            <img v-if="row.playerDetails.isAdmin" src="../../assets/images/server_favorite_1.png" width="20" height="20" title="超级管理员" />
+                            <img v-if="row.playerDetails.isAdmin" :src="serverFavoriteImgUrl" width="20" height="20" :title="t('views.playerList.tableHeader.admin')" />
                         </span>
                     </template>
                 </el-table-column>
-                <el-table-column label="等级" min-width="80" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.level')" min-width="84" sortable>
                     <template #default="{ row }">
                         {{ row.playerDetails.level }}
                     </template>
                 </el-table-column>
-                <el-table-column label="游戏阶段" min-width="105" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.gameStage')" min-width="129" sortable>
                     <template #default="{ row }">
                         {{ row.gameStage }}
                     </template>
                 </el-table-column>
-                <el-table-column label="击杀敌人" min-width="105" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.zombieKills')" min-width="132" sortable>
                     <template #default="{ row }">
                         {{ row.playerDetails.zombieKills }}
                     </template>
                 </el-table-column>
-                <el-table-column label="击杀玩家" min-width="105" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.playerKills')" min-width="124" sortable>
                     <template #default="{ row }">
                         {{ row.playerDetails.playerKills }}
                     </template>
                 </el-table-column>
-                <el-table-column label="死亡次数" min-width="105" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.deaths')" min-width="105" sortable>
                     <template #default="{ row }">
                         {{ row.playerDetails.deaths }}
                     </template>
                 </el-table-column>
-                <el-table-column label="技能点" min-width="90" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.skillPoints')" min-width="124" sortable>
                     <template #default="{ row }">
                         {{ row.playerDetails.skillPoints }}
                     </template>
                 </el-table-column>
-                <el-table-column label="积分" min-width="90" sortable show-overflow-tooltip>
+                <el-table-column :label="t('views.playerList.tableHeader.pointsCount')" min-width="136" sortable show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ row.playerDetails.pointsCount }}
                     </template>
                 </el-table-column>
-                <el-table-column label="当前位置" min-width="100" show-overflow-tooltip>
+                <el-table-column :label="t('views.playerList.tableHeader.currentPosition')" min-width="134" show-overflow-tooltip>
                     <template #default="{ row }">
-                        {{ formatHelper.formatPosition(row.playerDetails.position) }}
+                        {{ formatPosition(row.playerDetails.position) }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="ip" label="IP地址" min-width="130" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="ipAttribution" label="IP归属地" min-width="135" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="ping" label="延迟" min-width="80" sortable> </el-table-column>
-                <el-table-column prop="entityId" label="实体Id" min-width="90" sortable> </el-table-column>
-                <el-table-column prop="playerId" label="玩家Id" min-width="280" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="platformId" label="平台Id" min-width="200" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column label="操作" width="65" fixed="right">
+                <el-table-column prop="ip" :label="t('views.playerList.tableHeader.ip')" min-width="130" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="ipAttribution" :label="t('views.playerList.tableHeader.ipAttribution')" min-width="135" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="ping" :label="t('views.playerList.tableHeader.ping')" min-width="80" sortable> </el-table-column>
+                <el-table-column prop="entityId" :label="t('views.playerList.tableHeader.entityId')" min-width="105" sortable> </el-table-column>
+                <el-table-column prop="playerId" :label="t('views.playerList.tableHeader.playerId')" min-width="280" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="platformId" :label="t('views.playerList.tableHeader.platformId')" min-width="200" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column :label="t('views.playerList.tableHeader.operate')" width="77" fixed="right">
                     <template #default="{ row }">
                         <el-dropdown
                             @command="handleCommand"
@@ -113,20 +113,20 @@
                             </el-button>
                             <template #dropdown>
                                 <el-dropdown-menu>
-                                    <el-dropdown-item command="showInventory">查看背包</el-dropdown-item>
-                                    <el-dropdown-item command="showSkills">查看技能</el-dropdown-item>
-                                    <el-dropdown-item command="showDetails">查看详细信息</el-dropdown-item>
-                                    <el-dropdown-item command="sendMessage" divided>发送消息</el-dropdown-item>
-                                    <el-dropdown-item command="giveItem">给予物品</el-dropdown-item>
-                                    <el-dropdown-item command="changePoints">给予积分</el-dropdown-item>
-                                    <el-dropdown-item command="spawnEntity">生成实体</el-dropdown-item>
-                                    <el-dropdown-item command="telePlayer">传送玩家</el-dropdown-item>
-                                    <el-dropdown-item command="kickPlayer" divided>踢出玩家</el-dropdown-item>
-                                    <el-dropdown-item command="banPlayer">封禁玩家</el-dropdown-item>
-                                    <el-dropdown-item command="setSuperAdmin">设置为超级管理员</el-dropdown-item>
-                                    <el-dropdown-item command="cancelAdmin">取消管理员</el-dropdown-item>
-                                    <el-dropdown-item command="removeLandClaims">移除领地石</el-dropdown-item>
-                                    <el-dropdown-item command="resetPlayer">删除玩家存档</el-dropdown-item>
+                                    <el-dropdown-item command="showInventory">{{ $t('playerOperation.showInventory') }}</el-dropdown-item>
+                                    <el-dropdown-item command="showSkills">{{ $t('playerOperation.showSkills') }}</el-dropdown-item>
+                                    <el-dropdown-item command="showDetails">{{ $t('playerOperation.showDetails') }}</el-dropdown-item>
+                                    <el-dropdown-item command="sendMessage" divided>{{ $t('playerOperation.sendMessage') }}</el-dropdown-item>
+                                    <el-dropdown-item command="giveItem">{{ $t('playerOperation.giveItem') }}</el-dropdown-item>
+                                    <el-dropdown-item command="changePoints">{{ $t('playerOperation.changePoints') }}</el-dropdown-item>
+                                    <el-dropdown-item command="spawnEntity">{{ $t('playerOperation.spawnEntity') }}</el-dropdown-item>
+                                    <el-dropdown-item command="teleport">{{ $t('playerOperation.teleport') }}</el-dropdown-item>
+                                    <el-dropdown-item command="kick" divided>{{ $t('playerOperation.kick') }}</el-dropdown-item>
+                                    <el-dropdown-item command="ban">{{ $t('playerOperation.ban') }}</el-dropdown-item>
+                                    <el-dropdown-item command="setSuperAdmin">{{ $t('playerOperation.setSuperAdmin') }}</el-dropdown-item>
+                                    <el-dropdown-item command="cancelAdmin">{{ $t('playerOperation.cancelAdmin') }}</el-dropdown-item>
+                                    <el-dropdown-item command="removeLandClaims">{{ $t('playerOperation.removeLandClaims') }}</el-dropdown-item>
+                                    <el-dropdown-item command="resetPlayer">{{ $t('playerOperation.resetPlayer') }}</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
@@ -145,15 +145,16 @@ export default {
 
 <script setup>
 import ContextMenu from '@imengyu/vue3-context-menu';
-import * as playerHelper from '~/utils/playerHelper';
-import * as formatHelper from '~/utils/formatHelper';
 import { getOnlinePlayers } from '~/api/players';
 import axios from 'axios';
 import { ArrowDown } from '@element-plus/icons-vue';
 import Operations from '~icons/carbon/operations-record';
+import serverFavoriteImgUrl from '~/assets/images/server_favorite_1.png';
+import { formatPosition } from '~/utils/formatHelper';
 
 const loading = ref(false);
 const tableData = ref([]);
+const { t } = useI18n();
 
 const getData = async () => {
     loading.value = true;
@@ -172,7 +173,7 @@ const getData = async () => {
                     for (let i = 0; i < len; i++) {
                         const element = data[i];
                         if (element.status === 'fail') {
-                            tableData.value[i].ipAttribution = '未知';
+                            tableData.value[i].ipAttribution = t('global.unknown');
                         } else {
                             tableData.value[i].ipAttribution = `${element.country} ${element.regionName} ${element.city}`;
                         }
@@ -213,114 +214,114 @@ const onContextmenu = (row, column, event) => {
         theme: 'mac dark',
         items: [
             {
-                label: '查看背包',
+                label: t('playerOperation.showInventory'),
                 onClick: () => {
-                    playerHelper.showPlayerInventory(playerId, playerName);
+                    showPlayerInventory(playerId, playerName);
                 },
             },
             {
-                label: '查看技能',
+                label: t('playerOperation.showSkills'),
                 onClick: () => {
-                    playerHelper.showPlayerSkills(playerId, playerName);
+                    showPlayerSkills(playerId, playerName);
                 },
             },
             {
-                label: '查看详细信息',
+                label: t('playerOperation.showDetails'),
                 onClick: () => {
-                    playerHelper.showPlayerDetails(row);
-                },
-                divided: true,
-            },
-            {
-                label: '发送消息',
-                onClick: () => {
-                    playerHelper.sendMessageToPlayers([playerId]);
-                },
-            },
-            {
-                label: '给予物品',
-                onClick: () => {
-                    playerHelper.giveItemToPlayers([playerId], [playerName]);
-                },
-            },
-            {
-                label: '给予积分',
-                onClick: () => {
-                    playerHelper.changePlayerPoints([playerId]);
-                },
-            },
-            {
-                label: '生成实体',
-                onClick: () => {
-                    playerHelper.spawnEntityToPlayers([row.entityId]);
-                },
-            },
-            {
-                label: '传送玩家',
-                onClick: () => {
-                    playerHelper.telePlayers([playerId]);
+                    showPlayerDetails(row);
                 },
                 divided: true,
             },
             {
-                label: '踢出玩家',
+                label: t('playerOperation.sendMessage'),
                 onClick: () => {
-                    playerHelper.kickPlayers([playerId]);
+                    sendMessageToPlayers([playerId]);
                 },
             },
             {
-                label: '封禁玩家',
+                label: t('playerOperation.giveItem'),
                 onClick: () => {
-                    playerHelper.banPlayers([playerId], [playerName]);
+                    giveItemToPlayers([playerId], [playerName]);
                 },
             },
             {
-                label: '设置为超级管理员',
+                label: t('playerOperation.changePoints'),
                 onClick: () => {
-                    playerHelper.setSuperAdmins([playerId], [playerName]);
+                    changePlayerPoints([playerId]);
                 },
             },
             {
-                label: '取消管理员',
+                label: t('playerOperation.spawnEntity'),
                 onClick: () => {
-                    playerHelper.cancelAdmins([playerId]);
+                    spawnEntityToPlayers([row.entityId]);
                 },
             },
             {
-                label: '移除领地石',
+                label: t('playerOperation.teleport'),
                 onClick: () => {
-                    playerHelper.removeLandClaims([playerId]);
-                },
-            },
-            {
-                label: '删除玩家存档',
-                onClick: () => {
-                    playerHelper.resetPlayers([playerId]);
+                    telePlayers([playerId]);
                 },
                 divided: true,
             },
             {
-                label: '复制',
+                label: t('playerOperation.kick'),
+                onClick: () => {
+                    kickPlayers([playerId]);
+                },
+            },
+            {
+                label: t('playerOperation.ban'),
+                onClick: () => {
+                    banPlayers([playerId], [playerName]);
+                },
+            },
+            {
+                label: t('playerOperation.setSuperAdmin'),
+                onClick: () => {
+                    setSuperAdmins([playerId], [playerName]);
+                },
+            },
+            {
+                label: t('playerOperation.cancelAdmin'),
+                onClick: () => {
+                    cancelAdmins([playerId]);
+                },
+            },
+            {
+                label: t('playerOperation.removeLandClaims'),
+                onClick: () => {
+                    removePlayerLandClaims([playerId]);
+                },
+            },
+            {
+                label: t('playerOperation.resetPlayer'),
+                onClick: () => {
+                    resetPlayers([playerId]);
+                },
+                divided: true,
+            },
+            {
+                label: t('copy'),
                 children: [
                     {
-                        label: '复制玩家昵称',
+                        label: t('playerOperation.copyPlayerName'),
                         onClick: async () => {
                             await copy(playerName);
-                            ElMessage.success('复制成功');
+                            ElMessage.success(t('global.message.copySuccess'));
                         },
                     },
                     {
-                        label: '复制玩家Id',
+                        label: t('playerOperation.copyPlayerName'),
                         onClick: async () => {
                             await copy(playerId);
-                            ElMessage.success('复制成功');
+                            ElMessage.success(t('global.message.copySuccess'));
                         },
                     },
                     {
-                        label: '复制玩家坐标',
+                        label: t('playerOperation.copyPlayerPos'),
                         onClick: async () => {
-                            await copy(formatHelper.formatPosition(row.playerDetails.position));
-                            ElMessage.success('复制成功');
+                            await copy(formatPosition(row.playerDetails.position));
+                            ElMessage.success(t('global.message.copySuccess'));
                         },
                     },
                 ],
@@ -343,49 +344,49 @@ const handleCommand = (command) => {
     const playerNames = multipleSelection.map((i) => i.playerName);
     switch (command) {
         case 'showInventory':
-            playerHelper.showPlayerInventory(playerIds[0], playerNames[0]);
+            showPlayerInventory(playerIds[0], playerNames[0]);
             break;
         case 'showSkills':
-            playerHelper.showPlayerSkills(playerIds[0], playerNames[0]);
+            showPlayerSkills(playerIds[0], playerNames[0]);
             break;
         case 'showDetails':
-            playerHelper.showPlayerDetails(multipleSelection[0]);
+            showPlayerDetails(multipleSelection[0]);
             break;
         case 'sendMessage':
-            playerHelper.sendMessageToPlayers(playerIds);
+            sendMessageToPlayers(playerIds);
             break;
         case 'giveItem':
-            playerHelper.giveItemToPlayers(playerIds, playerNames);
+            giveItemToPlayers(playerIds, playerNames);
             break;
         case 'changePoints':
-            playerHelper.changePlayerPoints(playerIds);
+            changePlayerPoints(playerIds);
             break;
         case 'spawnEntity':
-            playerHelper.spawnEntityToPlayers(multipleSelection.map((i) => i.entityId));
+            spawnEntityToPlayers(multipleSelection.map((i) => i.entityId));
             break;
-        case 'telePlayer':
-            playerHelper.telePlayers(playerIds);
+        case 'teleport':
+            telePlayers(playerIds);
             break;
-        case 'kickPlayer':
-            playerHelper.kickPlayers(playerIds);
+        case 'kick':
+            kickPlayers(playerIds);
             break;
-        case 'banPlayer':
-            playerHelper.banPlayers(playerIds, playerNames);
+        case 'ban':
+            banPlayers(playerIds, playerNames);
             break;
         case 'setSuperAdmin':
-            playerHelper.setSuperAdmins(playerIds, playerNames);
+            setSuperAdmins(playerIds, playerNames);
             break;
         case 'cancelAdmin':
-            playerHelper.cancelAdmins(playerIds);
+            cancelAdmins(playerIds);
             break;
         case 'removeLandClaims':
-            playerHelper.removeLandClaims(playerIds);
+            removePlayerLandClaims(playerIds);
             break;
         case 'resetPlayer':
-            playerHelper.resetPlayers(playerIds);
+            resetPlayers(playerIds);
             break;
         default:
-            ElMessage.error(`未找到命令: ${command}`);
+            console.error(`Unknown command: ${command}`);
     }
 };
 </script>

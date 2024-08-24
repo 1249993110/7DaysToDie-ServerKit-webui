@@ -7,6 +7,7 @@
         },
         "true": "是",
         "false": "否",
+        "unknown": "未知",
         "button": {
             "add": "添加",
             "delete": "删除",
@@ -14,14 +15,15 @@
             "save": "保存",
             "enable": "启用",
             "disable": "停用",
-            "search": "搜索",            
+            "search": "搜索",
             "reset": "重置",
             "back": "返回",
             "close": "关闭",
             "confirm": "确认",
             "cancel": "取消",
             "import": "导入",
-            "export": "导出"
+            "export": "导出",
+            "batchOperation": "批量操作"
         },
         "message": {
             "title": "提示",
@@ -42,13 +44,32 @@
             "importFailed": "导入失败",
             "exportSuccess": "导出成功",
             "exportFailed": "导出失败",
+            "copySuccess": "复制成功",
             "example": "例: ",
             "cmdExecResult": "命令执行结果"
         }
     },
+    "copy": "复制",
     "player": "玩家",
     "playerOperation": {
-        "showInventory": "查看背包"
+        "showInventory": "查看背包",
+        "showSkills": "查看技能",
+        "showDetails": "查看详情",
+        "sendMessage": "发送消息",
+        "giveItem": "给予物品",
+        "changePoints": "给予积分",
+        "spawnEntity": "生成实体",
+        "teleport": "传送玩家",
+        "kick": "踢出玩家",
+        "ban": "封禁玩家",
+        "setSuperAdmin": "设置为超级管理员",
+        "cancelAdmin": "取消管理员",
+        "removeLandClaims": "移除领地石",
+        "resetPlayer": "删除玩家存档",
+        "resetPlayerConfirm": "您确定要删除玩家 {playerName} 的存档吗?",
+        "copyPlayerId": "复制玩家 ID",
+        "copyPlayerName": "复制玩家名称",
+        "copyPlayerPos": "复制玩家位置"
     },
     "menus": {
         "dashboard": "仪表盘",
@@ -127,21 +148,21 @@
             "shutdownConfirm": "您确定要关闭服务器吗? 服务器将无法访问",
             "shutdownSuccess": "服务器关闭成功"
         },
-        "inventoryDialog":{
+        "inventoryDialog": {
             "title": "玩家: {playerName} ({playerId}) 的背包",
             "grid": "网格",
             "list": "列表",
             "bag": "背包",
             "belt": "腰带",
             "equipment": "装备",
-            "tableHeader":{
+            "tableHeader": {
                 "icon": "图标",
                 "itemName": "物品名称",
                 "localizationName": "本地化名称",
                 "mod": "模组"
             }
         },
-        "gameIconEx":{
+        "gameIconEx": {
             "itemName": "名称",
             "localizationName": "本地化名称",
             "count": "数量",
@@ -252,6 +273,29 @@
             "loginFailed": "登录失败",
             "loginSuccess": "登录成功",
             "logoutSuccess": "退出成功"
+        },
+        "playerList": {
+            "autoRefresh": "自动刷新",
+            "tableHeader": {
+                "index": "序号",
+                "playerName": "玩家名称",
+                "admin": "超级管理员",
+                "level": "等级",
+                "gameStage": "游戏阶段",
+                "zombieKills": "击杀敌人",
+                "playerKills": "击杀玩家",
+                "deaths": "死亡次数",
+                "skillPoints": "技能点",
+                "pointsCount": "积分",
+                "currentPosition": "当前位置",
+                "ip": "IP 地址",
+                "ipAttribution": "IP 归属地",
+                "ping": "延迟",
+                "entityId": "实体 ID",
+                "playerId": "玩家 ID",
+                "platformId": "平台 ID",
+                "operate": "操作"
+            }
         }
     }
 }

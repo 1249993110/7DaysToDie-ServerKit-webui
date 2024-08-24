@@ -259,7 +259,7 @@ const onContextmenu = (row, column, event) => {
             {
                 label: '移除领地石',
                 onClick: () => {
-                    playerHelper.removeLandClaims([playerId]);
+                    playerHelper.removePlayerLandClaims([playerId]);
                 },
             },
             {
@@ -349,7 +349,7 @@ const handleCommand = (command) => {
             playerHelper.cancelAdmins(playerIds);
             break;
         case 'removeLandClaims':
-            playerHelper.removeLandClaims(playerIds);
+            playerHelper.removePlayerLandClaims(playerIds);
             break;
         case 'resetPlayer':
             playerHelper.resetPlayers(playerIds);

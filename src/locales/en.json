@@ -7,6 +7,7 @@
         },
         "true": "Yes",
         "false": "No",
+        "unknown": "Unknown",
         "button": {
             "add": "Add",
             "delete": "Delete",
@@ -21,7 +22,8 @@
             "confirm": "Confirm",
             "cancel": "Cancel",
             "import": "Import",
-            "export": "Export"
+            "export": "Export",
+            "batchOperation": "Batch Operation"
         },
         "message": {
             "title": "Hint",
@@ -42,13 +44,32 @@
             "importFailed": "Import failed",
             "exportSuccess": "Export success",
             "exportFailed": "Export failed",
+            "copySuccess": "Copy success",
             "example": "Example: ",
             "cmdExecResult": "Command execution result"
         }
     },
+    "copy": "Copy",
     "player": "Player",
     "playerOperation": {
-        "showInventory": "Show Inventory"
+        "showInventory": "Show Inventory",
+        "showSkills": "Show Skills",
+        "showDetails": "Show Details",
+        "sendMessage": "Send Message",
+        "giveItem": "Give Item",
+        "changePoints": "Change Points",
+        "spawnEntity": "Spawn Entity",
+        "teleport": "Teleport Player",
+        "kick": "Kick Player",
+        "ban": "Ban Player",
+        "setSuperAdmin": "Set Super Admin",
+        "cancelAdmin": "Cancel Admin",
+        "removeLandClaims": "Remove Land Claims",
+        "resetPlayer": "Reset Player",
+        "resetPlayerConfirm": "Are you sure you want to reset player: {playerName}? This operation will delete the player's save data and the player will be reset to the initial state",
+        "copyPlayerId": "Copy Player ID",
+        "copyPlayerName": "Copy Player Name",
+        "copyPlayerPos": "Copy Player Position"
     },
     "menus": {
         "dashboard": "Dashboard",
@@ -252,6 +273,29 @@
             "loginFailed": "Login failed",
             "loginSuccess": "Login success",
             "logoutSuccess": "Logout success"
+        },
+        "playerList": {
+            "autoRefresh": "Auto Refresh",
+            "tableHeader": {
+                "index": "Index",
+                "playerName": "Player Name",
+                "admin": "Admin",
+                "level": "Level",
+                "gameStage": "Game Stage",
+                "zombieKills": "Zombie Kills",
+                "playerKills": "Player Kills",
+                "deaths": "Deaths",
+                "skillPoints": "Skill Points",
+                "pointsCount": "TianYi Points",
+                "currentPosition": "Current Position",
+                "ip": "IP Address",
+                "ipAttribution": "IP Attribution",
+                "ping": "Ping",
+                "entityId": "Entity ID",
+                "playerId": "Player ID",
+                "platformId": "Platform ID",
+                "operate": "Operate"
+            }
         }
     }
 }
