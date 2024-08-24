@@ -1,11 +1,14 @@
 /**
- * 信息确定提示框
+ * Information confirmation prompt box
  */
-export default function myconfirm(message, title = '系统提示', type = '') {
+
+import { i18n } from '~/plugins/i18n';
+
+export default function myconfirm(message, title, type = '') {
     return new Promise((resolve) => {
-        ElMessageBox.confirm(message, title, {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
+        ElMessageBox.confirm(message, title ?? i18n.global.t('global.message.title'), {
+            confirmButtonText: i18n.global.t('global.button.confirm'),
+            cancelButtonText: i18n.global.t('global.button.cancel'),
             type: type,
         })
             .then(() => {

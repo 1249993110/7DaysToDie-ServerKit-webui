@@ -2,8 +2,45 @@
     "global": {
         "language": "English",
         "appTitle": "TianYi 7 Days to Die Server Tools",
-        "form": {
+        "formRule": {
             "required": "Required"
+        },
+        "example": "Example: ",
+        "button": {
+            "add": "Add",
+            "delete": "Delete",
+            "edit": "Edit",
+            "save": "Save",
+            "enable": "Enable",
+            "disable": "Disable",
+            "search": "Search",            
+            "reset": "Reset",
+            "back": "Back",
+            "close": "Close",
+            "confirm": "Confirm",
+            "cancel": "Cancel",
+            "import": "Import",
+            "export": "Export"
+        },
+        "message": {
+            "title": "Hint",
+            "success": "Success",
+            "failed": "Failed",
+            "inputNewValue": "Please enter a new value",
+            "inputError": "Input error",
+            "deleteConfirm": "Are you sure you want to delete?",
+            "deleteSuccess": "Delete success",
+            "deleteFailed": "Delete failed",
+            "saveSuccess": "Save success",
+            "saveFailed": "Save failed",
+            "enableSuccess": "Enable success",
+            "enableFailed": "Enable failed",
+            "disableSuccess": "Disable success",
+            "disableFailed": "Disable failed",
+            "importSuccess": "Import success",
+            "importFailed": "Import failed",
+            "exportSuccess": "Export success",
+            "exportFailed": "Export failed"
         }
     },
     "menus": {

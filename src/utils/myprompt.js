@@ -1,11 +1,14 @@
 /**
- * 信息输入提示框
+ * Information input prompt box
  */
-export default function myprompt(message, title = '系统提示', inputValue = '', type = '', inputPattern = null, inputErrorMessage = '') {
+
+import { i18n } from '~/plugins/i18n';
+
+export default function myprompt(message, title, inputValue = '', type = '', inputPattern = null, inputErrorMessage = '') {
     return new Promise((resolve, reject) => {
-        ElMessageBox.prompt(message, title, {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
+        ElMessageBox.prompt(message, title ?? i18n.global.t('global.message.title'), {
+            confirmButtonText: i18n.global.t('global.button.confirm'),
+            cancelButtonText: i18n.global.t('global.button.cancel'),
             inputPattern: inputPattern,
             inputErrorMessage: inputErrorMessage,
             type: type,

@@ -51,8 +51,8 @@ const formModel = reactive({
     password: '',
 });
 const rules = {
-    username: [{ required: true, message: t('global.form.required'), trigger: 'blur' }],
-    password: [{ required: true, message: t('global.form.required'), trigger: 'blur' }],
+    username: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    password: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const loginRef = ref();

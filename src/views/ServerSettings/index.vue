@@ -31,7 +31,7 @@
                         </el-table-column>
                         <el-table-column width="90" fixed="right">
                             <template #default="scope">
-                                <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">修改</el-button>
+                                <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">{{ $t('global.button.edit') }}</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -82,12 +82,16 @@ const objectSpanMethod = ({ rowIndex, columnIndex }) => {
     }
 };
 
+const { t } = useI18n();
 const handleEdit = async ({ row }) => {
-    const value = await myprompt(row.name, '请输入新的值', row.value);
-    const dict = {};
-    dict[row.name] = value;
-    await putSettings(dict);
-    await getData();
+    try {
+        const value = await myprompt(row.name, t('global.message.inputNewValue'), row.value);
+        const dict = {};
+        dict[row.name] = value;
+        await putSettings(dict);
+        await getData();
+    } catch {
+    }
 };
 </script>
 
