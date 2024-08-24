@@ -5,7 +5,8 @@
         "formRule": {
             "required": "Required"
         },
-        "example": "Example: ",
+        "true": "Yes",
+        "false": "No",  
         "button": {
             "add": "Add",
             "delete": "Delete",
@@ -40,8 +41,13 @@
             "importSuccess": "Import success",
             "importFailed": "Import failed",
             "exportSuccess": "Export success",
-            "exportFailed": "Export failed"
+            "exportFailed": "Export failed",
+            "example": "Example: "
         }
+    },
+    "player": "Player",
+    "playerOperation": {
+        "showInventory": "Show Inventory"
     },
     "menus": {
         "dashboard": "Dashboard",
@@ -186,6 +192,27 @@
                 "processorCount": "Processor Count",
                 "systemMemorySize": "System Memory Size"
             }
+        },
+        "map": {
+            "region": "Region File",
+            "landClaim": "Land Claim",
+            "zombie": "Zombie",
+            "animal": "Animal",
+            "historyPlayer": "Player (History)",
+            "onlinePlayer": "Player (Online)",
+            "mousePos": "Mouse pos",
+            "lastClick": "Last click",
+            "renderExploredArea": "Render Explored Area",
+            "renderExploredAreaConfirm": "Are you sure you want to render the explored area? This may take a few minutes, you can check the progress in the console",
+            "renderFullMap": "Render Full Map",
+            "renderFullMapConfirm": "Are you sure you want to render the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
+            "refreshMap": "Refresh Map",
+            "autoReload": "Reload every",
+            "seconds": "seconds",
+            "landOwner": "Land Owner",
+            "removeLandClaim": "Remove",
+            "removeLandClaimConfirm": "Are you sure you want to remove the land claim?",
+            "dragendTelePlayerConfirm": "Are you sure you want to teleport player: {playerName} to the target location {pos}?"
         },
         "login": {
             "username": "Username",

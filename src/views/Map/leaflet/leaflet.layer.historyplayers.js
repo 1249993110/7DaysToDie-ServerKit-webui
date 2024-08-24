@@ -1,5 +1,6 @@
 import { getLocations } from '~/api/locations';
 import { showPlayerInventory } from '~/components/InventoryDialog/index';
+import { i18n } from '~/plugins/i18n';
 
 // offlinePlayer icon
 const offlinePlayerIcon = L.icon({
@@ -10,7 +11,7 @@ const offlinePlayerIcon = L.icon({
     popupAnchor: [0, -20],
 });
 
-export function getOfflinePlayersLayer(map, mapInfo) {
+export function getHistoryPlayersLayer(map, mapInfo) {
     const offlinePlayersMarkerGroup = L.markerClusterGroup({
         maxClusterRadius: function (zoom) {
             return zoom >= mapInfo.maxZoom ? 10 : 50;
@@ -30,12 +31,12 @@ export function getOfflinePlayersLayer(map, mapInfo) {
             const container = L.DomUtil.create('div');
 
             const title = L.DomUtil.create('span', null, container);
-            title.innerText = `玩家: ${entityName} (${playerId})`;
+            title.innerText = `${i18n.global.t('player')}: ${entityName} (${playerId})`;
 
             L.DomUtil.create('br', null, container);
 
             const inventoryButton = L.DomUtil.create('a', null, container);
-            inventoryButton.innerText = '查看背包';
+            inventoryButton.innerText = i18n.global.t('playerOperation.showInventory');
             inventoryButton.href = 'javascript:void(0);';
             inventoryButton.title = 'Show inventory';
             L.DomEvent.on(inventoryButton, 'click', () => {

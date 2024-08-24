@@ -1,4 +1,7 @@
 import { getLocations } from '~/api/locations';
+import { i18n } from '~/plugins/i18n';
+import { useLocaleStore } from '~/store/locale';
+import { getLocalizationByKey } from '~/api/localization';
 
 // animal icon
 const animalIcon = L.icon({
@@ -16,20 +19,25 @@ export function getAnimalsLayer(map, mapInfo) {
         },
     });
 
-    const setAnimalsLocation = function (data) {
+    const setAnimalsLocation = async (data) => {
         document.getElementById('mapControlAnimalCount').innerText = data.length;
 
         animalsMarkerGroup.clearLayers();
+        const localeStore = useLocaleStore();
 
         for (let i = 0, len = data.length; i < len; i++) {
             const location = data[i];
             const position = location.position;
-            const marker = L.marker([position.x, position.z], { icon: animalIcon }).bindPopup(`动物: ${location.entityName} (${location.entityId})`);
-            marker.addEventListener('popupopen', (e) => {
-                e.popup._closeButton.href = 'javascript:void(0);';
-            });
-            marker.setOpacity(1.0);
-            animalsMarkerGroup.addLayer(marker);
+            getLocalizationByKey(location.entityName, localeStore.getLanguage())
+                .then((entityName) => {
+                    const marker = L.marker([position.x, position.z], { icon: animalIcon }).bindPopup(`${i18n.global.t('views.map.animal')}: ${entityName} (${location.entityId})`);
+                    marker.addEventListener('popupopen', (e) => {
+                        e.popup._closeButton.href = 'javascript:void(0);';
+                    });
+                    marker.setOpacity(1.0);
+                    animalsMarkerGroup.addLayer(marker);
+                })
+                .catch((error) => {});
         }
     };
 

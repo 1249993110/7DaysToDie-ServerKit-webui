@@ -1,4 +1,4 @@
-
+import { i18n } from '~/plugins/i18n.js';
 import { renderFullMap } from '~/api/map';
 
 L.Control.RenderFullMap = L.Control.extend({
@@ -10,7 +10,7 @@ L.Control.RenderFullMap = L.Control.extend({
         const name = 'control-renderFullMap';
         const container = L.DomUtil.create('div', name + ' webmap-control render-map');
 
-        container.innerHTML = '渲染全图';
+        container.innerHTML = i18n.global.t('views.map.renderFullMap');
         this._map = map;
         this._div = container;
 
@@ -22,7 +22,7 @@ L.Control.RenderFullMap = L.Control.extend({
     onRemove: function (map) {},
 
     _onClick: async (e) => {
-        if (await myconfirm('确认渲染全图吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度, 此操作一般仅在开服后执行一次.')) {
+        if (await myconfirm(i18n.global.t('views.map.renderFullMapConfirm'))) {
             await renderFullMap();
         }
     },

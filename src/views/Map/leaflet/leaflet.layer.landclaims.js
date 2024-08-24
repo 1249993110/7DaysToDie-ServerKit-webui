@@ -1,6 +1,6 @@
 import { getLandClaims } from '~/api/land-claims';
 import { removePlayerLandClaim } from '~/api/sdtd-console';
-
+import { i18n } from '~/plugins/i18n';
 
 export function getLandClaimsLayer(map, mapInfo) {
     const landClaimsGroup = L.layerGroup();
@@ -51,7 +51,7 @@ export function getLandClaimsLayer(map, mapInfo) {
 
                 const container = L.DomUtil.create('div');
                 const title = L.DomUtil.create('span', null, container);
-                title.innerText = '所有者: ' + playerName + ' (' + playerId + ')';
+                title.innerText = i18n.global.t('views.map.landOwner') + ': ' + playerName + ' (' + playerId + ')';
 
                 L.DomUtil.create('br', null, container);
 
@@ -61,11 +61,11 @@ export function getLandClaimsLayer(map, mapInfo) {
                 L.DomUtil.create('br', null, container);
 
                 const inventoryButton = L.DomUtil.create('a', null, container);
-                inventoryButton.innerText = '移除此领地石';
+                inventoryButton.innerText = i18n.global.t('views.map.removeLandClaim');
                 inventoryButton.href = 'javascript:void(0);';
-                inventoryButton.title = '移除此领地石';
+                inventoryButton.title = i18n.global.t('views.map.removeLandClaim');
                 L.DomEvent.on(inventoryButton, 'click', async () => {
-                    if (await myconfirm('此操作将移除选定的领地石, 是否继续?', '提示', 'warning')) {
+                    if (await myconfirm(i18n.global.t('views.map.removeLandClaimConfirm'), null, 'warning')) {
                         await removePlayerLandClaim(position.x, position.y, position.z);
                         await updateClaimsEvent();
                     }

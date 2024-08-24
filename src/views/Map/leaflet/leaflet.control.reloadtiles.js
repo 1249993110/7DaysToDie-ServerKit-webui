@@ -1,3 +1,5 @@
+import { i18n } from "~/plugins/i18n";
+
 L.Control.ReloadTiles = L.Control.extend({
     options: {
         position: 'bottomleft',
@@ -19,7 +21,7 @@ L.Control.ReloadTiles = L.Control.extend({
         this._map = map;
 
         const reloadbutton = L.DomUtil.create('a', name + '-btn', container);
-        reloadbutton.innerText = '刷新地图';
+        reloadbutton.innerText = i18n.global.t('views.map.refreshMap');
         reloadbutton.href = 'javascript:void(0);';
         reloadbutton.title = 'Reload tiles now';
         L.DomEvent.on(reloadbutton, 'click', this._reload, this);
@@ -42,7 +44,7 @@ L.Control.ReloadTiles = L.Control.extend({
 
             const label_left = L.DomUtil.create('label', null, container);
             label_left.for = 'map_reloadtiles_autoreload';
-            label_left.innerText = 'Reload every ';
+            label_left.innerText = i18n.global.t('views.map.autoReload') + ' ';
 
             const reloadInterval = L.DomUtil.create('input', name + '-txt', container);
             reloadInterval.name = 'map_reloadtiles_autoreload_time';
@@ -55,7 +57,7 @@ L.Control.ReloadTiles = L.Control.extend({
 
             const label_right = L.DomUtil.create('label', null, container);
             label_right.for = 'map_reloadtiles_autoreload';
-            label_right.innerText = ' seconds';
+            label_right.innerText = ' ' + i18n.global.t('views.map.seconds');
         }
 
         return container;

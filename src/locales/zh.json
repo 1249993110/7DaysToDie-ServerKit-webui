@@ -5,7 +5,8 @@
         "formRule": {
             "required": "必填项"
         },
-        "example": "例: ",
+        "true": "是",
+        "false": "否",
         "button": {
             "add": "添加",
             "delete": "删除",
@@ -40,8 +41,13 @@
             "importSuccess": "导入成功",
             "importFailed": "导入失败",
             "exportSuccess": "导出成功",
-            "exportFailed": "导出失败"
+            "exportFailed": "导出失败",
+            "example": "例: "
         }
+    },
+    "player": "玩家",
+    "playerOperation": {
+        "showInventory": "查看背包"
     },
     "menus": {
         "dashboard": "仪表盘",
@@ -187,7 +193,27 @@
                 "systemMemorySize": "内存大小"
             }
         },
-        "serverSettings": {},
+        "map": {
+            "region": "区域文件",
+            "landClaim": "领地石",
+            "zombie": "僵尸",
+            "animal": "动物",
+            "historyPlayer": "玩家 (历史)",
+            "onlinePlayer": "玩家 (在线)",
+            "mousePos": "鼠标位置",
+            "lastClick": "上次点击",
+            "renderExploredArea": "渲染已探索区域",
+            "renderExploredAreaConfirm": "确认渲染已探索区域吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度",
+            "renderFullMap": "渲染全图",
+            "renderFullMapConfirm": "确认渲染全图吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度, 此操作一般仅在开服后执行一次",
+            "refreshMap": "刷新地图",
+            "autoReload": "自动刷新",
+            "seconds": "秒",
+            "landOwner": "领地所有者",
+            "removeLandClaim": "移除领地石",
+            "removeLandClaimConfirm": "您确定要移除领地石吗?",
+            "dragendTelePlayerConfirm": "确定将玩家: {playerName} 传送到目标地点 {pos} 吗?"
+        },
         "login": {
             "username": "用户名",
             "password": "密码",

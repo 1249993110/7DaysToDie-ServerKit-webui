@@ -20,8 +20,10 @@ import { getRegionLayer } from './leaflet/leaflet.regionlayer';
 import { getLandClaimsLayer } from './leaflet/leaflet.layer.landclaims';
 import { getHostilesLayer } from './leaflet/leaflet.layer.hostiles';
 import { getAnimalsLayer } from './leaflet/leaflet.layer.animals';
-import { getOfflinePlayersLayer } from './leaflet/leaflet.layer.offlineplayers';
+import { getHistoryPlayersLayer } from './leaflet/leaflet.layer.historyplayers.js';
 import { getOnlinePlayersLayer } from './leaflet/leaflet.layer.onlineplayers';
+
+import { i18n } from '~/plugins/i18n.js';
 
 export const initMap = (element, mapInfo) => {
     // ===============================================================================================
@@ -118,12 +120,12 @@ export const initMap = (element, mapInfo) => {
         }
     );
 
-    layerControl.addOverlay(getRegionLayer(mapInfo), '区域文件');
-    layerControl.addOverlay(getLandClaimsLayer(map, mapInfo), '领地石');
-    layerControl.addOverlay(getHostilesLayer(map, mapInfo), "僵尸 (<span id='mapControlHostileCount'>0</span>)");
-    layerControl.addOverlay(getAnimalsLayer(map, mapInfo), "动物 (<span id='mapControlAnimalCount'>0</span>)");
-    layerControl.addOverlay(getOfflinePlayersLayer(map, mapInfo), "玩家 (历史) (<span id='mapControlOfflinePlayerCount'>0</span>)");
-    layerControl.addOverlay(getOnlinePlayersLayer(map, mapInfo), "玩家 (在线) (<span id='mapControlOnlinePlayerCount'>0</span>)");
+    layerControl.addOverlay(getRegionLayer(mapInfo), i18n.global.t('views.map.region'));
+    layerControl.addOverlay(getLandClaimsLayer(map, mapInfo), i18n.global.t('views.map.landClaim'));
+    layerControl.addOverlay(getHostilesLayer(map, mapInfo), i18n.global.t('views.map.zombie') + ' (<span id="mapControlHostileCount">0</span>)');
+    layerControl.addOverlay(getAnimalsLayer(map, mapInfo), i18n.global.t('views.map.animal') + ' (<span id="mapControlAnimalCount">0</span>)');
+    layerControl.addOverlay(getHistoryPlayersLayer(map, mapInfo), i18n.global.t('views.map.historyPlayer') + ' (<span id="mapControlOfflinePlayerCount">0</span>)');
+    layerControl.addOverlay(getOnlinePlayersLayer(map, mapInfo), i18n.global.t('views.map.onlinePlayer') + ' (<span id="mapControlOnlinePlayerCount">0</span>)');
 
     layerControl.addTo(map);
 };

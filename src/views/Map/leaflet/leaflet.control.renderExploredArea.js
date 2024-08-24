@@ -1,4 +1,4 @@
-
+import { i18n } from '~/plugins/i18n.js';
 import { renderExploredArea } from '~/api/map';
 
 L.Control.RenderExploredArea = L.Control.extend({
@@ -10,7 +10,7 @@ L.Control.RenderExploredArea = L.Control.extend({
         const name = 'control-renderExploredArea';
         const container = L.DomUtil.create('div', name + ' webmap-control render-map');
 
-        container.innerHTML = '渲染已探索区域';
+        container.innerHTML = i18n.global.t('views.map.renderExploredArea');
         this._map = map;
         this._div = container;
 
@@ -22,7 +22,7 @@ L.Control.RenderExploredArea = L.Control.extend({
     onRemove: function (map) {},
 
     _onClick: async (e) => {
-        if (await myconfirm('确认渲染已探索区域吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度.')) {
+        if (await myconfirm(i18n.global.t('views.map.renderExploredAreaConfirm'))) {
             await renderExploredArea();
         }
     },

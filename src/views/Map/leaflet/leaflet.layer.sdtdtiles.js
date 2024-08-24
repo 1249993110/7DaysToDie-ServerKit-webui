@@ -4,7 +4,7 @@ export function getSdtdTileLayer(mapInfo, initTime, isMiniMap = false) {
     const token = useUserInfoStore().token;
     const url = import.meta.env.VITE_APP_MAP_TILE_URL + `{z}/{x}/{y}?access-token=${token}&t={time}`;
     const tileLayer = L.tileLayer(url, {
-        maxZoom: isMiniMap ? mapInfo.maxZoom : mapInfo.maxZoom + 1,
+        maxZoom: isMiniMap ? mapInfo.maxZoom : mapInfo.maxZoom + 3,
         minZoom: isMiniMap ? -1 : Math.max(0, mapInfo.maxZoom - 5),
         maxNativeZoom: mapInfo.maxZoom,
         minNativeZoom: 0,

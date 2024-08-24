@@ -1,7 +1,7 @@
 import { getLocations } from '~/api/locations';
 import { showPlayerInventory } from '~/components/InventoryDialog/index';
 import * as sdtdConsole from '~/api/sdtd-console';
-
+import { i18n } from '~/plugins/i18n';
 
 // onlinePlayer icon
 const onlinePlayerIcon = L.icon({
@@ -37,12 +37,12 @@ export function getOnlinePlayersLayer(map, mapInfo) {
             const container = L.DomUtil.create('div');
 
             const title = L.DomUtil.create('span', null, container);
-            title.innerText = `玩家: ${entityName} (${playerId})`;
+            title.innerText = `${i18n.global.t('player')}: ${entityName} (${playerId})`;
 
             L.DomUtil.create('br', null, container);
 
             const inventoryButton = L.DomUtil.create('a', null, container);
-            inventoryButton.innerText = '查看背包';
+            inventoryButton.innerText = i18n.global.t('playerOperation.showInventory');
             inventoryButton.href = 'javascript:void(0);';
             inventoryButton.title = 'Show inventory';
             L.DomEvent.on(inventoryButton, 'click', () => {
@@ -63,7 +63,8 @@ export function getOnlinePlayersLayer(map, mapInfo) {
             // 监听拖拽结束事件
             marker.on('dragend', async (e) => {
                 const newPos = e.target.getLatLng(); // 获取新的位置
-                if (await myconfirm(`确定将玩家: ${entityName} 传送到目标地点 ${formatCoord(newPos)} 吗?`)) {
+                const message = i18n.global.t('views.map.dragendTelePlayerConfirm', { playerName: entityName, pos: formatCoord(newPos) });
+                if (await myconfirm(message)) {
                     // console.log(`Marker dragged to new position: ${newPos}`);
                     // 在这里执行你想要的方法
                     sdtdConsole.sendConsoleCommand(`tele ${playerId} ${Math.round(newPos.lat)} -1 ${Math.round(newPos.lng)}`);
