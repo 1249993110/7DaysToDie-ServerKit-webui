@@ -34,7 +34,8 @@
             "cancel": "取消",
             "import": "导入",
             "export": "导出",
-            "batchOperation": "批量操作"
+            "batchOperation": "批量操作",
+            "send": "发送"
         },
         "message": {
             "title": "提示",
@@ -266,8 +267,8 @@
             "inputCount": "请输入积分数量",
             "deductPoints": "您被扣除了 {0} 积分",
             "addPoints": "您成功充值了 {0} 积分",
-            "inputEntityIdOrName": "请输入实体Id或名称",
-            "teleportTarget": "请输入传送目标, 可为玩家名称、玩家Id或三维坐标",
+            "inputEntityIdOrName": "请输入实体ID或名称",
+            "teleportTarget": "请输入传送目标, 可为玩家名称、玩家ID或三维坐标",
             "kickPlayerReason": "请输入踢出玩家的原因",
             "kickPlayerConfirm": "此操作将踢出选定玩家, 是否继续?",
             "setSuperAdminConfirm": "此操作将把选定玩家设置为超级管理员, 是否继续?",
@@ -363,6 +364,7 @@
         },
         "playerList": {
             "autoRefresh": "自动刷新",
+            "searchPlaceholder": "请输入玩家ID或名称",
             "tableHeader": {
                 "index": "序号",
                 "playerName": "玩家名称",
@@ -381,7 +383,12 @@
                 "entityId": "实体 ID",
                 "playerId": "玩家 ID",
                 "platformId": "平台 ID",
-                "operate": "操作"
+                "operate": "操作",
+                "isOnline": "是否在线",
+                "lastLogin": "上次在线",
+                "totalTimePlayed": "总游戏时长",
+                "currentLife": "当前存活时长",
+                "longestLife": "最长生存时长"
             }
         }
     }

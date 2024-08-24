@@ -208,7 +208,7 @@
                 "currentPosition": "Current Position",
                 "lastSpawnPosition": "Last Respawn Position",
                 "gameStage": "Game Stage",
-                "lastLogin": "Last Online",
+                "lastLogin": "Last Login",
                 "playerKills": "Player Kills",
                 "zombieKills": "Zombie Kills",
                 "deaths": "Deaths",
@@ -363,6 +363,7 @@
         },
         "playerList": {
             "autoRefresh": "Auto Refresh",
+            "searchPlaceholder": "Please enter your player ID or name",
             "tableHeader": {
                 "index": "Index",
                 "playerName": "Player Name",
@@ -381,7 +382,12 @@
                 "entityId": "Entity ID",
                 "playerId": "Player ID",
                 "platformId": "Platform ID",
-                "operate": "Operate"
+                "operate": "Operate",
+                "isOnline": "Online",
+                "lastLogin": "Last Login",
+                "totalTimePlayed": "Total Time Played",
+                "currentLife": "Current Survival Time",
+                "longestLife": "Longest Survival Time"
             }
         }
     }

@@ -3,7 +3,7 @@
         <RouterButton :names="['playerList.onlinePlayers', 'playerList.historyPlayers']">
             <template #route-button>
                 <div class="route-button">
-                    <span style="font-size: 14px; margin-right: 4px">{{ $t('views.playerList.autoRefresh') }}</span>
+                    <span style="font-size: 14px; margin-right: 4px">{{ t('views.playerList.autoRefresh') }}</span>
                     <el-switch v-model="autoRefrensh" />
                 </div>
             </template>
@@ -12,21 +12,21 @@
             <div class="toolbar">
                 <el-dropdown :disabled="batchBtnDisabled" @command="handleCommand">
                     <el-button type="success" :disabled="batchBtnDisabled">
-                        {{ $t('global.button.batchOperation') }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
+                        {{ t('global.button.batchOperation') }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
                     </el-button>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item command="sendMessage">{{ $t('playerOperation.sendMessage') }}</el-dropdown-item>
-                            <el-dropdown-item command="giveItem">{{ $t('playerOperation.giveItem') }}</el-dropdown-item>
-                            <el-dropdown-item command="changePoints">{{ $t('playerOperation.changePoints') }}</el-dropdown-item>
-                            <el-dropdown-item command="spawnEntity">{{ $t('playerOperation.spawnEntity') }}</el-dropdown-item>
-                            <el-dropdown-item command="teleport">{{ $t('playerOperation.teleport') }}</el-dropdown-item>
-                            <el-dropdown-item command="kick" divided>{{ $t('playerOperation.kick') }}</el-dropdown-item>
-                            <el-dropdown-item command="ban">{{ $t('playerOperation.ban') }}</el-dropdown-item>
-                            <el-dropdown-item command="setSuperAdmin">{{ $t('playerOperation.setSuperAdmin') }}</el-dropdown-item>
-                            <el-dropdown-item command="cancelAdmin">{{ $t('playerOperation.cancelAdmin') }}</el-dropdown-item>
-                            <el-dropdown-item command="removeLandClaims">{{ $t('playerOperation.removeLandClaims') }}</el-dropdown-item>
-                            <el-dropdown-item command="resetPlayer">{{ $t('playerOperation.resetPlayer') }}</el-dropdown-item>
+                            <el-dropdown-item command="sendMessage">{{ t('playerOperation.sendMessage') }}</el-dropdown-item>
+                            <el-dropdown-item command="giveItem">{{ t('playerOperation.giveItem') }}</el-dropdown-item>
+                            <el-dropdown-item command="changePoints">{{ t('playerOperation.changePoints') }}</el-dropdown-item>
+                            <el-dropdown-item command="spawnEntity">{{ t('playerOperation.spawnEntity') }}</el-dropdown-item>
+                            <el-dropdown-item command="teleport">{{ t('playerOperation.teleport') }}</el-dropdown-item>
+                            <el-dropdown-item command="kick" divided>{{ t('playerOperation.kick') }}</el-dropdown-item>
+                            <el-dropdown-item command="ban">{{ t('playerOperation.ban') }}</el-dropdown-item>
+                            <el-dropdown-item command="setSuperAdmin">{{ t('playerOperation.setSuperAdmin') }}</el-dropdown-item>
+                            <el-dropdown-item command="cancelAdmin">{{ t('playerOperation.cancelAdmin') }}</el-dropdown-item>
+                            <el-dropdown-item command="removeLandClaims">{{ t('playerOperation.removeLandClaims') }}</el-dropdown-item>
+                            <el-dropdown-item command="resetPlayer">{{ t('playerOperation.resetPlayer') }}</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -113,20 +113,20 @@
                             </el-button>
                             <template #dropdown>
                                 <el-dropdown-menu>
-                                    <el-dropdown-item command="showInventory">{{ $t('playerOperation.showInventory') }}</el-dropdown-item>
-                                    <el-dropdown-item command="showSkills">{{ $t('playerOperation.showSkills') }}</el-dropdown-item>
-                                    <el-dropdown-item command="showDetails">{{ $t('playerOperation.showDetails') }}</el-dropdown-item>
-                                    <el-dropdown-item command="sendMessage" divided>{{ $t('playerOperation.sendMessage') }}</el-dropdown-item>
-                                    <el-dropdown-item command="giveItem">{{ $t('playerOperation.giveItem') }}</el-dropdown-item>
-                                    <el-dropdown-item command="changePoints">{{ $t('playerOperation.changePoints') }}</el-dropdown-item>
-                                    <el-dropdown-item command="spawnEntity">{{ $t('playerOperation.spawnEntity') }}</el-dropdown-item>
-                                    <el-dropdown-item command="teleport">{{ $t('playerOperation.teleport') }}</el-dropdown-item>
-                                    <el-dropdown-item command="kick" divided>{{ $t('playerOperation.kick') }}</el-dropdown-item>
-                                    <el-dropdown-item command="ban">{{ $t('playerOperation.ban') }}</el-dropdown-item>
-                                    <el-dropdown-item command="setSuperAdmin">{{ $t('playerOperation.setSuperAdmin') }}</el-dropdown-item>
-                                    <el-dropdown-item command="cancelAdmin">{{ $t('playerOperation.cancelAdmin') }}</el-dropdown-item>
-                                    <el-dropdown-item command="removeLandClaims">{{ $t('playerOperation.removeLandClaims') }}</el-dropdown-item>
-                                    <el-dropdown-item command="resetPlayer">{{ $t('playerOperation.resetPlayer') }}</el-dropdown-item>
+                                    <el-dropdown-item command="showInventory">{{ t('playerOperation.showInventory') }}</el-dropdown-item>
+                                    <el-dropdown-item command="showSkills">{{ t('playerOperation.showSkills') }}</el-dropdown-item>
+                                    <el-dropdown-item command="showDetails">{{ t('playerOperation.showDetails') }}</el-dropdown-item>
+                                    <el-dropdown-item command="sendMessage" divided>{{ t('playerOperation.sendMessage') }}</el-dropdown-item>
+                                    <el-dropdown-item command="giveItem">{{ t('playerOperation.giveItem') }}</el-dropdown-item>
+                                    <el-dropdown-item command="changePoints">{{ t('playerOperation.changePoints') }}</el-dropdown-item>
+                                    <el-dropdown-item command="spawnEntity">{{ t('playerOperation.spawnEntity') }}</el-dropdown-item>
+                                    <el-dropdown-item command="teleport">{{ t('playerOperation.teleport') }}</el-dropdown-item>
+                                    <el-dropdown-item command="kick" divided>{{ t('playerOperation.kick') }}</el-dropdown-item>
+                                    <el-dropdown-item command="ban">{{ t('playerOperation.ban') }}</el-dropdown-item>
+                                    <el-dropdown-item command="setSuperAdmin">{{ t('playerOperation.setSuperAdmin') }}</el-dropdown-item>
+                                    <el-dropdown-item command="cancelAdmin">{{ t('playerOperation.cancelAdmin') }}</el-dropdown-item>
+                                    <el-dropdown-item command="removeLandClaims">{{ t('playerOperation.removeLandClaims') }}</el-dropdown-item>
+                                    <el-dropdown-item command="resetPlayer">{{ t('playerOperation.resetPlayer') }}</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
@@ -304,16 +304,16 @@ const onContextmenu = (row, column, event) => {
                 label: t('copy'),
                 children: [
                     {
-                        label: t('playerOperation.copyPlayerName'),
+                        label: t('playerOperation.copyPlayerId'),
                         onClick: async () => {
-                            await copy(playerName);
+                            await copy(playerId);
                             ElMessage.success(t('global.message.copySuccess'));
                         },
                     },
                     {
                         label: t('playerOperation.copyPlayerName'),
                         onClick: async () => {
-                            await copy(playerId);
+                            await copy(playerName);
                             ElMessage.success(t('global.message.copySuccess'));
                         },
                     },
