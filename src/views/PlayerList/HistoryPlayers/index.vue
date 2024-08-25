@@ -47,7 +47,7 @@
             >
                 <el-table-column type="selection" width="42" />
                 <el-table-column type="index" :label="t('views.playerList.tableHeader.index')" width="61" fixed> </el-table-column>
-                <el-table-column :label="t('views.playerList.tableHeader.playerName')" min-width="133" sortable fixed show-overflow-tooltip>
+                <el-table-column :label="t('views.playerList.tableHeader.playerName')" min-width="133" sortable="custom" fixed show-overflow-tooltip prop="playerName">
                     <template #default="{ row }">
                         <span style="display: flex">
                             {{ row.playerName }}
@@ -55,7 +55,7 @@
                         </span>
                     </template>
                 </el-table-column>
-                <el-table-column :label="t('views.playerList.tableHeader.level')" min-width="84" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.level')" min-width="84" sortable="custom" prop="level">
                     <template #default="{ row }">
                         {{ row.playerDetails.level }}
                     </template>
@@ -65,27 +65,27 @@
                         {{ row.isOffline ? t('global.false') : t('global.true') }}
                     </template>
                 </el-table-column>
-                <el-table-column :label="t('views.playerList.tableHeader.zombieKills')" min-width="132" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.zombieKills')" min-width="132" sortable="custom" prop="zombieKills">
                     <template #default="{ row }">
                         {{ row.playerDetails.zombieKills }}
                     </template>
                 </el-table-column>
-                <el-table-column :label="t('views.playerList.tableHeader.playerKills')" min-width="124" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.playerKills')" min-width="124" sortable="custom" prop="playerKills">
                     <template #default="{ row }">
                         {{ row.playerDetails.playerKills }}
                     </template>
                 </el-table-column>
-                <el-table-column :label="t('views.playerList.tableHeader.deaths')" min-width="105" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.deaths')" min-width="105" sortable="custom" prop="deaths">
                     <template #default="{ row }">
                         {{ row.playerDetails.deaths }}
                     </template>
                 </el-table-column>
-                <el-table-column :label="t('views.playerList.tableHeader.skillPoints')" min-width="124" sortable>
+                <el-table-column :label="t('views.playerList.tableHeader.skillPoints')" min-width="124" sortable="custom" prop="skillPoints">
                     <template #default="{ row }">
                         {{ row.playerDetails.skillPoints }}
                     </template>
                 </el-table-column>
-                <el-table-column :label="t('views.playerList.tableHeader.pointsCount')" min-width="136" sortable show-overflow-tooltip>
+                <el-table-column :label="t('views.playerList.tableHeader.pointsCount')" min-width="136" sortable="custom" prop="pointsCount" show-overflow-tooltip>
                     <template #default="{ row }">
                         {{ row.playerDetails.pointsCount }}
                     </template>
@@ -110,9 +110,9 @@
                         {{ formatMinute(row.playerDetails.longestLife) }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="entityId" :label="t('views.playerList.tableHeader.entityId')" min-width="105" sortable> </el-table-column>
-                <el-table-column prop="playerId" :label="t('views.playerList.tableHeader.playerId')" min-width="280" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="platformId" :label="t('views.playerList.tableHeader.platformId')" min-width="200" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="entityId" :label="t('views.playerList.tableHeader.entityId')" min-width="105" sortable="custom"> </el-table-column>
+                <el-table-column prop="playerId" :label="t('views.playerList.tableHeader.playerId')" min-width="280" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="platformId" :label="t('views.playerList.tableHeader.platformId')" min-width="200" show-overflow-tooltip> </el-table-column>
                 <el-table-column label="操作" width="65" fixed="right">
                     <template #default="{ row }">
                         <el-dropdown
@@ -208,6 +208,8 @@ const getData = async () => {
 getData();
 
 const handleSortChange = async ({ prop, order }) => {
+    console.log(prop, order);
+    
     searchFormModel.order = prop;
     searchFormModel.desc = order === 'descending';
     await getData();
