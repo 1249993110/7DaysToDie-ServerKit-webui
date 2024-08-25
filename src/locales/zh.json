@@ -263,10 +263,10 @@
                 "operate": "操作"
             }
         },
-        "itemBlockSelector":{
+        "itemBlockSelector": {
             "title": "选择物品或方块",
-            "id":"ID",
-            "icon":"图标",
+            "id": "ID",
+            "icon": "图标",
             "itemName": "名称",
             "localizationName": "本地化名称",
             "maxStackAllowed": "最大堆叠数量"
@@ -539,6 +539,27 @@
                 "command": "命令",
                 "inMainThread": "在主线程执行",
                 "item": "物品"
+            }
+        },
+        "gameStore": {
+            "isEnabled": "是否启用",
+            "variables": "可用变量",
+            "queryListCmd": "查询商品列表命令",
+            "buyCmdPrefix": "购买命令前缀",
+            "goodsItemTip": "商品项目提示",
+            "buySuccessTip": "购买成功提示",
+            "pointsNotEnoughTip": "积分不足提示",
+            "noGoods": "没有商品提示",
+            "useTips": "提示: 游戏内输入buy+横杠(-)+商品Id 购买",
+            "goods": "商品",
+            "tableHeader": {
+                "id": "ID",
+                "name": "商品名称",
+                "price": "售价",
+                "description": "说明",
+                "bind": "绑定",
+                "bindItem": "绑定物品",
+                "bindCmd": "绑定命令"
             }
         }
     }

@@ -540,6 +540,27 @@
                 "inMainThread": "In Main Thread",
                 "item": "Item"
             }
+        },
+        "gameStore": {
+            "isEnabled": "Enable Game Store",
+            "variables": "Variables",
+            "queryListCmd": "Query List Command",
+            "buyCmdPrefix": "Buy Command Prefix",
+            "goodsItemTip": "Goods Item Tip",
+            "buySuccessTip": "Buy Success Tip",
+            "pointsNotEnoughTip": "Points Not Enough Tip",
+            "noGoods": "No Goods",
+            "useTips": "Tips: Enter buy-{'{'}id{'}'} in the game to purchase",
+            "goods": "Goods",
+            "tableHeader": {
+                "id": "ID",
+                "name": "Name",
+                "price": "Price",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command"
+            }
         }
     }
 }

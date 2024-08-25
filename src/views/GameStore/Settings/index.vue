@@ -4,29 +4,29 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" ref="formRef" label-width="150px" status-icon>
-                        <el-form-item label="是否启用" prop="isEnabled">
+                    <el-form :model="formModel" ref="formRef" label-width="250px" status-icon>
+                        <el-form-item :label="t('views.gameStore.isEnabled')" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="可用变量">
+                        <el-form-item :label="t('views.gameStore.variables')">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="查询商品列表命令" prop="queryListCmd" required>
+                        <el-form-item :label="t('views.gameStore.queryListCmd')" prop="queryListCmd" required>
                             <el-input v-model="formModel.queryListCmd" />
                         </el-form-item>
-                        <el-form-item label="购买命令前缀" prop="buyCmdPrefix" required>
+                        <el-form-item :label="t('views.gameStore.buyCmdPrefix')" prop="buyCmdPrefix" required>
                             <el-input v-model="formModel.buyCmdPrefix" />
                         </el-form-item>
-                        <el-form-item label="商品项目提示" prop="goodsItemTip" required>
+                        <el-form-item :label="t('views.gameStore.goodsItemTip')" prop="goodsItemTip" required>
                             <el-input v-model="formModel.goodsItemTip" />
                         </el-form-item>
-                        <el-form-item label="购买成功提示" prop="buySuccessTip" required>
+                        <el-form-item :label="t('views.gameStore.buySuccessTip')" prop="buySuccessTip" required>
                             <el-input v-model="formModel.buySuccessTip" />
                         </el-form-item>
-                        <el-form-item label="积分不足提示" prop="pointsNotEnoughTip" required>
+                        <el-form-item :label="t('views.gameStore.pointsNotEnoughTip')" prop="pointsNotEnoughTip" required>
                             <el-input v-model="formModel.pointsNotEnoughTip" />
                         </el-form-item>
-                        <el-form-item label="没有商品提示" prop="noGoods" required>
+                        <el-form-item :label="t('views.gameStore.noGoods')" prop="noGoods" required>
                             <el-input v-model="formModel.noGoods" />
                         </el-form-item>
                         <el-form-item>
@@ -35,7 +35,7 @@
                         </el-form-item>
                     </el-form>
                     <div>
-                        <el-text style="color: green">提示: 游戏内输入buy+横杠(-)+商品Id 购买</el-text>
+                        <el-text style="color: green">{{ t('views.gameStore.useTips') }}</el-text>
                     </div>
                 </div></el-scrollbar
             >
@@ -51,6 +51,8 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
+
+const { t } = useI18n();
 
 const formModel = reactive({});
 

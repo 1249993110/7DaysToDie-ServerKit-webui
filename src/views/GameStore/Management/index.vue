@@ -17,14 +17,14 @@
             :addOrEditComponentProps="addOrEditComponentProps"
         >
             <template #columns>
-                <el-table-column prop="id" label="商品Id" width="120px" sortable> </el-table-column>
-                <el-table-column prop="name" label="商品名称" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="price" label="售价" width="120px" sortable> </el-table-column>
-                <el-table-column prop="description" label="说明" show-overflow-tooltip> </el-table-column>
-                <el-table-column label="绑定" :width="200" header-align="center" show-overflow-tooltip>
+                <el-table-column prop="id" :label="t('views.gameStore.tableHeader.id')" width="120px" sortable> </el-table-column>
+                <el-table-column prop="name" :label="t('views.gameStore.tableHeader.name')" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="price" :label="t('views.gameStore.tableHeader.price')" width="120px" sortable> </el-table-column>
+                <el-table-column prop="description" :label="t('views.gameStore.tableHeader.description')" show-overflow-tooltip> </el-table-column>
+                <el-table-column :label="t('views.gameStore.tableHeader.bind')" :width="220" header-align="center" show-overflow-tooltip>
                     <template #default="{ row }">
-                        <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">绑定物品</el-button>
-                        <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">绑定命令</el-button>
+                        <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.gameStore.tableHeader.bindItem') }}</el-button>
+                        <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.gameStore.tableHeader.bindCmd') }}</el-button>
                     </template>
                 </el-table-column>
             </template>
@@ -43,6 +43,8 @@ export default {
 <script setup>
 import * as api from '~/api/goods.js';
 import AddOrEditGoods from './AddOrEditGoods.vue';
+
+const { t } = useI18n();
 
 const tableData = ref([]);
 
