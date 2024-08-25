@@ -77,7 +77,7 @@ const save = async () => {
 
 const reset = async () => {
     try {
-        if (await myconfirm(ElMessage.success(t('global.message.resetConfirm')))) {
+        if (await myconfirm(t('global.message.resetConfirm'))) {
             await api.resetSettings('TeleportCity', localeStore.getLanguage());
             await getData();
             ElMessage.success(t('global.message.resetSuccess'));

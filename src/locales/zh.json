@@ -406,14 +406,14 @@
         },
         "chat": {
             "tableHeader": {
-                "createdAt": "日期",
+                "createdAt": "创建时间",
                 "entityId": "实体Id",
                 "senderName": "发送者名称",
                 "chatType": "类型",
                 "message": "消息内容",
                 "playerId": "玩家 ID"
             },
-            "chatType":{
+            "chatType": {
                 "global": "公屏",
                 "friends": "好友",
                 "party": "阵营",
@@ -421,7 +421,7 @@
                 "unknown": "未知"
             }
         },
-        "blacklist":{
+        "blacklist": {
             "tableHeader": {
                 "playerId": "玩家 ID",
                 "displayName": "名称",
@@ -429,7 +429,7 @@
                 "reason": "封禁原因"
             }
         },
-        "itemBlocks":{
+        "itemBlocks": {
             "item": "物品",
             "block": "方块",
             "devItem": "开发(对用户隐藏的类型)",
@@ -438,6 +438,48 @@
             "iconName": "图标名称",
             "iconColor": "图标颜色",
             "maxStackAllowed": "最大堆叠数量"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "聊天命令前缀",
+            "chatCommandSeparator": "聊天命令分隔符",
+            "handleChatMessageError": "聊天消息错误提示",
+            "teleZombieCheck": "传送前是否检查玩家周围是否有僵尸",
+            "teleDisableTip": "禁止传送提示",
+            "killZombieTrigger": {
+                "isEnabled": "是否启用僵尸击杀奖励",
+                "executeCommands": "执行指令\n(每行一条)"
+            },
+            "deathTriggerd": {
+                "isEnabled": "是否启用死亡惩罚",
+                "executeCommands": "执行指令\n(每行一条)"
+            },
+            "autoRestart": {
+                "isEnabled": "是否启用自动重启",
+                "time": "自动重启时间",
+                "messages": "自动重启提示\n(每行一条)"
+            },
+            "blockFamilySharingAccount": "是否禁止家庭共享账号",
+            "removeSleepingBagFromPOI": "是否启用POI保护",
+            "isEnablePlayerInitialSpawnPoint": "是否启用玩家初始出生点",
+            "playerInitialPosition": "玩家初始坐标 (X, Y, Z)"
+        },
+        "autoBackup":{
+            "isEnabled": "是否启用",
+            "interval": "自动备份间隔 (秒)",
+            "retainedFileCountLimit": "保留文件数量限制",
+            "resetIntervalAfterManualBackup": "是否在手动备份后重置计时",
+            "skipIfThereAreNoPlayers": "是否在没有玩家时跳过备份",
+            "autoBackupOnServerStartup": "是否在服务器启动时自动备份",
+            "archiveFolder": "备份文件夹",
+            "tableHeader":{
+                "serverVersion": "服务端版本",
+                "gameWorld": "游戏世界",
+                "gameName": "游戏名称",
+                "gameTime": "游戏时间",
+                "formatGameTime": "{days} 天 {hours} 小时",
+                "createdAt": "创建时间",
+                "size": "文件大小"
+            }
         }
     }
 }

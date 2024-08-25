@@ -438,6 +438,48 @@
             "iconName": "Icon Name",
             "iconColor": "Icon Color",
             "maxStackAllowed": "Max Stack Allowed"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "Chat Command Prefix",
+            "chatCommandSeparator": "Chat Command Separator",
+            "handleChatMessageError": "Handle Chat Message Error",
+            "teleZombieCheck": "Teleport Zombie Check",
+            "teleDisableTip": "Teleport Disable Tip",
+            "killZombieTrigger": {
+                "isEnabled": "Enable Kill Zombie Trigger",
+                "executeCommands": "Execute Commands\n(one per line)"
+            },
+            "deathTrigger": {
+                "isEnabled": "Enable Death Trigger",
+                "executeCommands": "Execute Commands\n(one per line)"
+            },
+            "autoRestart": {
+                "isEnabled": "Enable Auto Restart",
+                "time": "Restart Time",
+                "messages": "Messages\n(one per line)"
+            },
+            "blockFamilySharingAccount": "Block Family Sharing Account",
+            "removeSleepingBagFromPOI": "Remove Sleeping Bag From POI",
+            "isEnablePlayerInitialSpawnPoint": "Enable Player Initial Spawn Point",
+            "playerInitialPosition": "Player Initial Position"
+        },
+        "autoBackup":{
+            "isEnabled": "Enable Auto Backup",
+            "interval": "Backup Interval (seconds)",
+            "retainedFileCountLimit": "Retained File Count Limit",
+            "resetIntervalAfterManualBackup": "Reset Interval After Manual Backup",
+            "skipIfThereAreNoPlayers": "Skip If There Are No Players",
+            "autoBackupOnServerStartup": "Auto Backup On Server Startup",
+            "archiveFolder": "Archive Folder",
+            "tableHeader":{
+                "serverVersion": "Server Version",
+                "gameWorld": "Game World",
+                "gameName": "Game Name",
+                "gameTime": "Game Time",
+                "formatGameTime": "Day {days}, Hour {hours}",
+                "createdAt": "Date Time",
+                "size": "File Size"
+            }
         }
     }
 }

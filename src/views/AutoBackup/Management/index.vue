@@ -16,22 +16,20 @@
             :operationColumnWidth="90"
         >
             <template #columns>
-                <!-- <el-table-column prop="name" label="名称" sortable show-overflow-tooltip> </el-table-column> -->
-                <el-table-column prop="serverVersion" label="服务端版本" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="gameWorld" label="游戏世界" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="gameName" label="游戏名称" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="gameName" label="游戏时间" show-overflow-tooltip>
-                    <template #default="{row}">
-                        {{ `${row.days} 天 ${row.hours}小时` }}
+                <el-table-column prop="serverVersion" :label="t('views.autoBackup.tableHeader.serverVersion')" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="gameWorld" :label="t('views.autoBackup.tableHeader.gameWorld')" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="gameName" :label="t('views.autoBackup.tableHeader.gameName')" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column :label="t('views.autoBackup.tableHeader.gameTime')" show-overflow-tooltip>
+                    <template #default="{ row }">
+                        {{ t('views.autoBackup.tableHeader.formatGameTime', { days: row.days, hours: row.hours }) }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="createdAt" label="创建日期" width="150px" sortable> </el-table-column>
-                <el-table-column prop="size" label="大小" width="120px" sortable>
+                <el-table-column prop="createdAt" :label="t('views.autoBackup.tableHeader.createdAt')" min-width="80px" sortable> </el-table-column>
+                <el-table-column prop="size" :label="t('views.autoBackup.tableHeader.size')" width="120px" sortable>
                     <template #default="{ row }">
                         {{ `${Math.round(row.size / 1024 / 1024)} MB` }}
                     </template>
                 </el-table-column>
-
             </template>
         </MyTableEx>
     </div>
@@ -46,6 +44,7 @@ export default {
 <script setup>
 import * as api from '~/api/autobackup.js';
 
+const { t } = useI18n();
 const tableData = ref([]);
 
 const getData = async () => {

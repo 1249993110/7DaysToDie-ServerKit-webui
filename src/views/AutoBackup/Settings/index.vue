@@ -4,26 +4,26 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" ref="formRef" label-width="200px" status-icon>
-                        <el-form-item label="是否启用" prop="isEnabled">
+                    <el-form :model="formModel" ref="formRef" label-width="250px" status-icon>
+                        <el-form-item :label="t('views.autoBackup.isEnabled')" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="自动备份间隔 (秒)" prop="interval" required>
+                        <el-form-item :label="t('views.autoBackup.interval')" prop="interval" required>
                             <el-input-number v-model="formModel.interval" :min="10" />
                         </el-form-item>
-                        <el-form-item label="保留文件数量限制" prop="retainedFileCountLimit" required>
+                        <el-form-item :label="t('views.autoBackup.retainedFileCountLimit')" prop="retainedFileCountLimit" required>
                             <el-input-number v-model="formModel.retainedFileCountLimit" :min="0" />
                         </el-form-item>
-                        <el-form-item label="是否在手动备份后重置计时" prop="resetIntervalAfterManualBackup">
+                        <el-form-item :label="t('views.autoBackup.resetIntervalAfterManualBackup')" prop="resetIntervalAfterManualBackup">
                             <el-switch v-model="formModel.resetIntervalAfterManualBackup" />
                         </el-form-item>
-                        <el-form-item label="是否在没有玩家时跳过备份" prop="skipIfThereAreNoPlayers">
+                        <el-form-item :label="t('views.autoBackup.skipIfThereAreNoPlayers')" prop="skipIfThereAreNoPlayers">
                             <el-switch v-model="formModel.skipIfThereAreNoPlayers" />
                         </el-form-item>
-                        <el-form-item label="是否在服务器启动时自动备份" prop="autoBackupOnServerStartup">
+                        <el-form-item :label="t('views.autoBackup.autoBackupOnServerStartup')" prop="autoBackupOnServerStartup">
                             <el-switch v-model="formModel.autoBackupOnServerStartup" />
                         </el-form-item>
-                        <el-form-item label="备份文件夹" prop="archiveFolder">
+                        <el-form-item :label="t('views.autoBackup.archiveFolder')" prop="archiveFolder">
                             <el-input v-model="formModel.archiveFolder" />
                         </el-form-item>
                         <el-form-item>
@@ -68,7 +68,7 @@ const save = async () => {
 
 const reset = async () => {
     try {
-        if (await myconfirm(ElMessage.success(t('global.message.resetConfirm')))) {
+        if (await myconfirm(t('global.message.resetConfirm'))) {
             await api.resetSettings('AutoBackup', localeStore.getLanguage());
             await getData();
             ElMessage.success(t('global.message.resetSuccess'));
