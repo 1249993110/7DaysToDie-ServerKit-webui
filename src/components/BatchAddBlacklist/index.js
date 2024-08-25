@@ -1,14 +1,15 @@
 import Dialog from './index.vue';
 import { createVNode, render } from 'vue';
+import { i18n } from '~/plugins/i18n';
 
 export const batchBan = async (playerIds, displayNames) => {
     const container = document.createElement('div');
 
     let title = '';
     if (playerIds.length > 1) {
-        title = `封禁: ${displayNames.join(', ')}`;
+        title = `${i18n.global.t('components.batchAddBlacklist.ban')}: ${displayNames.join(', ')}`;
     } else {
-        title = `封禁: ${playerIds[0]} (${displayNames[0]})`;
+        title = `${i18n.global.t('components.batchAddBlacklist.ban')}: ${playerIds[0]} (${displayNames[0]})`;
     }
 
     const vNode = createVNode(Dialog, {

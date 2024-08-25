@@ -293,6 +293,11 @@
             "count": "数量",
             "quality": "质量",
             "durability": "耐久度%"
+        },
+        "batchAddBlacklist":{
+            "ban": "封禁玩家",
+            "banUntil": "解封时间",
+            "reason": "封禁原因"
         }
     },
     "layout": {

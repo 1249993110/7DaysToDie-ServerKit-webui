@@ -293,6 +293,11 @@
             "count": "Count",
             "quality": "Quality",
             "durability": "Durability"
+        },
+        "batchAddBlacklist":{
+            "ban": "Ban",
+            "banUntil": "Ban Until",
+            "reason": "Reason"
         }
     },
     "layout": {
