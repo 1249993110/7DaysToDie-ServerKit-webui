@@ -45,6 +45,7 @@ export default {
 import * as api from '~/api/command-list.js';
 import AddOrEditCommandList from '~/components/AddOrEditCommandList/index.vue';
 
+const {t} = useI18n();
 const searchFormModel = reactive({
     keyword: '',
 });

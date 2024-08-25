@@ -4,47 +4,47 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" ref="formRef" label-width="200px" status-icon>
-                        <el-form-item label="是否启用" prop="isEnabled">
+                    <el-form :model="formModel" ref="formRef" label-width="250px" status-icon>
+                        <el-form-item :label="t('views.pointsSystem.isEnabled')" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="可用变量">
+                        <el-form-item :label="t('views.pointsSystem.variables')">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="签到命令" prop="signInCmd" required>
+                        <el-form-item :label="t('views.pointsSystem.signInCmd')" prop="signInCmd" required>
                             <el-input v-model="formModel.signInCmd" />
                         </el-form-item>
-                        <el-form-item label="签到间隔秒数" prop="signInInterval" required>
+                        <el-form-item :label="t('views.pointsSystem.signInInterval')" prop="signInInterval" required>
                             <el-input-number v-model="formModel.signInInterval" :min="1" />
                         </el-form-item>
-                        <el-form-item label="签到奖励积分" prop="signInRewardPoints" required>
+                        <el-form-item :label="t('views.pointsSystem.signInRewardPoints')" prop="signInRewardPoints" required>
                             <el-input-number v-model="formModel.signInRewardPoints" />
                         </el-form-item>
-                        <el-form-item label="签到成功提示" prop="signInSuccessTip" required>
+                        <el-form-item :label="t('views.pointsSystem.signInSuccessTip')" prop="signInSuccessTip" required>
                             <el-input v-model="formModel.signInSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="签到失败提示" prop="signInFailureTip" required>
+                        <el-form-item :label="t('views.pointsSystem.signInFailureTip')" prop="signInFailureTip" required>
                             <el-input v-model="formModel.signInFailureTip" />
                         </el-form-item>
-                        <el-form-item label="查询积分命令" prop="queryPointsCmd" required>
+                        <el-form-item :label="t('views.pointsSystem.queryPointsCmd')" prop="queryPointsCmd" required>
                             <el-input v-model="formModel.queryPointsCmd" />
                         </el-form-item>
-                        <el-form-item label="查询积分提示" prop="queryPointsTip" required>
+                        <el-form-item :label="t('views.pointsSystem.queryPointsTip')" prop="queryPointsTip" required>
                             <el-input v-model="formModel.queryPointsTip" />
                         </el-form-item>
-                        <el-form-item label="是否启用游戏内货币兑换积分" prop="isCurrencyExchangeEnabled">
+                        <el-form-item :label="t('views.pointsSystem.isCurrencyExchangeEnabled')" prop="isCurrencyExchangeEnabled">
                             <el-switch v-model="formModel.isCurrencyExchangeEnabled" />
                         </el-form-item>
-                        <el-form-item label="游戏内货币与积分兑换比例" prop="currencyToPointsExchangeRate" required>
+                        <el-form-item :label="t('views.pointsSystem.currencyToPointsExchangeRate')" prop="currencyToPointsExchangeRate" required>
                             <el-input-number v-model="formModel.currencyToPointsExchangeRate" :min="0.0" :precision="3" />
                         </el-form-item>
-                        <el-form-item label="兑换命令" prop="currencyExchangeCmd" required>
+                        <el-form-item :label="t('views.pointsSystem.currencyExchangeCmd')" prop="currencyExchangeCmd" required>
                             <el-input v-model="formModel.currencyExchangeCmd" />
                         </el-form-item>
-                        <el-form-item label="兑换成功提示" prop="exchangeSuccessTip" required>
+                        <el-form-item :label="t('views.pointsSystem.exchangeSuccessTip')" prop="exchangeSuccessTip" required>
                             <el-input v-model="formModel.exchangeSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="兑换失败提示" prop="exchangeFailureTip" required>
+                        <el-form-item :label="t('views.pointsSystem.exchangeFailureTip')" prop="exchangeFailureTip" required>
                             <el-input v-model="formModel.exchangeFailureTip" />
                         </el-form-item>
                         <el-form-item>
@@ -66,6 +66,8 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
+
+const {t} = useI18n();
 
 const formModel = reactive({});
 const formRef = ref();

@@ -27,7 +27,9 @@
 
 <script setup>
 import * as api from '~/api/item-list.js';
+import { i18n } from '~/plugins/i18n';
 
+const { t } = i18n.global;
 const formModel = reactive({
     count: 1,
     quality: 6,

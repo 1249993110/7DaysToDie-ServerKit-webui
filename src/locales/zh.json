@@ -463,7 +463,7 @@
             "isEnablePlayerInitialSpawnPoint": "是否启用玩家初始出生点",
             "playerInitialPosition": "玩家初始坐标 (X, Y, Z)"
         },
-        "autoBackup":{
+        "autoBackup": {
             "isEnabled": "是否启用",
             "interval": "自动备份间隔 (秒)",
             "retainedFileCountLimit": "保留文件数量限制",
@@ -471,7 +471,7 @@
             "skipIfThereAreNoPlayers": "是否在没有玩家时跳过备份",
             "autoBackupOnServerStartup": "是否在服务器启动时自动备份",
             "archiveFolder": "备份文件夹",
-            "tableHeader":{
+            "tableHeader": {
                 "serverVersion": "服务端版本",
                 "gameWorld": "游戏世界",
                 "gameName": "游戏名称",
@@ -479,6 +479,42 @@
                 "formatGameTime": "{days} 天 {hours} 小时",
                 "createdAt": "创建时间",
                 "size": "文件大小"
+            }
+        },
+        "gameNotice": {
+            "isEnabled": "是否启用",
+            "variables": "可用变量",
+            "welcomeNotice": "欢迎通知",
+            "rotatingNotices": "轮播通知\n(每行一条)",
+            "rotatingInterval": "轮播间隔 (秒)",
+            "bloodMoonNotice1": "血月通知1",
+            "bloodMoonNotice2": "血月通知2",
+            "bloodMoonNotice3": "血月通知3"
+        },
+        "pointsSystem": {
+            "isEnabled": "是否启用",
+            "variables": "可用变量",
+            "signInCmd": "签到命令",
+            "signInInterval": "签到间隔 (秒)",
+            "signInRewardPoints": "签到奖励积分",
+            "signInSuccessTip": "签到成功提示",
+            "signInFailureTip": "签到失败提示",
+            "queryPointsCmd": "查询积分命令",
+            "queryPointsTip": "查询积分提示",
+            "isCurrencyExchangeEnabled": "是否启用游戏内货币兑换积分",
+            "currencyToPointsExchangeRate": "游戏内货币与积分兑换比例",
+            "currencyExchangeCmd": "兑换命令",
+            "exchangeSuccessTip": "兑换成功提示",
+            "exchangeFailureTip": "兑换失败提示",
+            "resetPoints": "重置所有玩家积分",
+            "resetSignIn": "重置所有签到时间",
+            "resetPointsConfirm": "您确定要重置所有玩家的积分吗?",
+            "resetSignInConfirm": "您确定要重置所有玩家的签到时间吗?",
+            "tableHeader": {
+                "playerId": "玩家 ID",
+                "playerName": "玩家名称",
+                "points": "积分",
+                "lastSignInAt": "上次签到时间"
             }
         }
     }

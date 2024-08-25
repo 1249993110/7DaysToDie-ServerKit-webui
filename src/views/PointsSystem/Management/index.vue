@@ -15,19 +15,19 @@
             :add-or-edit-component="AddOrEditPointsInfo"
         >
             <template #searchFormItems>
-                <el-form-item label="关键词" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
+                <el-form-item :label="t('global.keyworld')" prop="keyword">
+                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
             </template>
             <template #toolbarPost>
-                <el-button @click="handleResetPoints" type="danger">重置所有玩家积分</el-button>
-                <el-button @click="handleResetSignIn" type="danger">重置所有签到时间</el-button>
+                <el-button @click="handleResetPoints" type="danger">{{ t('views.pointsSystem.resetPoints') }}</el-button>
+                <el-button @click="handleResetSignIn" type="danger">{{ t('views.pointsSystem.resetSignIn') }}</el-button>
             </template>
             <template #columns>
-                <el-table-column prop="playerName" label="玩家名称" sortable> </el-table-column>
-                <el-table-column prop="id" label="玩家Id" sortable> </el-table-column>
-                <el-table-column prop="points" label="积分数量" sortable> </el-table-column>
-                <el-table-column prop="lastSignInAt" label="上次签到日期" sortable> </el-table-column>
+                <el-table-column prop="playerName" :label="t('views.pointsSystem.tableHeader.playerName')" sortable> </el-table-column>
+                <el-table-column prop="id" :label="t('views.pointsSystem.tableHeader.playerId')" sortable> </el-table-column>
+                <el-table-column prop="points" :label="t('views.pointsSystem.tableHeader.points')" sortable> </el-table-column>
+                <el-table-column prop="lastSignInAt" :label="t('views.pointsSystem.tableHeader.lastSignInAt')" sortable> </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -43,7 +43,7 @@ export default {
 import * as api from '~/api/points-info.js';
 import AddOrEditPointsInfo from './AddOrEditPointsInfo.vue';
 
-
+const { t } = useI18n();
 const searchFormModel = reactive({
     keyword: '',
 });
@@ -67,7 +67,7 @@ const batchDeleteRequest = async (rows) => {
 
 const handleResetPoints = async () => {
     try {
-        if (await myconfirm('您确定要清空所有玩家的积分吗？这个操作不可逆!')) {
+        if (await myconfirm(t('views.pointsSystem.resetPointsConfirm'))) {
             await api.deletePointsInfoByIds({ resetPoints: true });
             await getData();
         }
@@ -76,7 +76,7 @@ const handleResetPoints = async () => {
 
 const handleResetSignIn = async () => {
     try {
-        if (await myconfirm('您确定要重置所有玩家的签到时间吗?')) {
+        if (await myconfirm(t('views.pointsSystem.resetSignInConfirm'))) {
             await api.deletePointsInfoByIds({ resetSignIn: true });
             await getData();
         }

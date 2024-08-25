@@ -4,29 +4,29 @@
         <el-card class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" ref="formRef" label-width="150px" status-icon>
-                        <el-form-item label="是否启用" prop="isEnabled">
+                    <el-form :model="formModel" ref="formRef" label-width="250px" status-icon>
+                        <el-form-item :label="t('views.gameNotice.isEnabled')" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="可用变量">
+                        <el-form-item :label="t('views.gameNotice.variables')">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="欢迎通知" prop="welcomeNotice" required>
+                        <el-form-item :label="t('views.gameNotice.welcomeNotice')" prop="welcomeNotice" required>
                             <el-input v-model="formModel.welcomeNotice" />
                         </el-form-item>
-                        <el-form-item :label="`轮播通知\n(每行一条)`" prop="rotatingNotices">
+                        <el-form-item :label="t('views.gameNotice.rotatingNotices')" prop="rotatingNotices">
                             <MyTextarea v-model="formModel.rotatingNotices"></MyTextarea>
                         </el-form-item>
-                        <el-form-item label="轮播间隔" prop="rotatingInterval" required>
+                        <el-form-item :label="t('views.gameNotice.rotatingInterval')" prop="rotatingInterval" required>
                             <el-input-number v-model="formModel.rotatingInterval" />
                         </el-form-item>
-                        <el-form-item label="血月通知1" prop="bloodMoonNotice1">
+                        <el-form-item :label="t('views.gameNotice.bloodMoonNotice1')" prop="bloodMoonNotice1">
                             <el-input v-model="formModel.bloodMoonNotice1" />
                         </el-form-item>
-                        <el-form-item label="血月通知2" prop="bloodMoonNotice2">
+                        <el-form-item :label="t('views.gameNotice.bloodMoonNotice2')" prop="bloodMoonNotice2">
                             <el-input v-model="formModel.bloodMoonNotice2" />
                         </el-form-item>
-                        <el-form-item label="血月通知3" prop="bloodMoonNotice3">
+                        <el-form-item :label="t('views.gameNotice.bloodMoonNotice3')" prop="bloodMoonNotice3">
                             <el-input v-model="formModel.bloodMoonNotice3" />
                         </el-form-item>
                         <el-form-item>

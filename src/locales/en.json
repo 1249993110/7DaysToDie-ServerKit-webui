@@ -480,6 +480,42 @@
                 "createdAt": "Date Time",
                 "size": "File Size"
             }
+        },
+        "gameNotice": {
+            "isEnabled": "Enable Game Notice",
+            "variables": "Variables",
+            "welcomeNotice": "Welcome Notice",
+            "rotatingNotices": "Rotating Notices\n(one per line)",
+            "rotatingInterval": "Rotating Interval (seconds)",
+            "bloodMoonNotice1": "Blood Moon Notice 1",
+            "bloodMoonNotice2": "Blood Moon Notice 2",
+            "bloodMoonNotice3": "Blood Moon Notice 3"
+        },
+        "pointsSystem": {
+            "isEnabled": "Enable Points System",
+            "variables": "Variables",
+            "signInCmd": "Sign-in Command",
+            "signInInterval": "Sign-in Interval (seconds)",
+            "signInRewardPoints": "Sign-in Reward Points",
+            "signInSuccessTip": "Sign-in Success Tip",
+            "signInFailureTip": "Sign-in Failure Tip",
+            "queryPointsCmd": "Query Points Command",
+            "queryPointsTip": "Query Points Tip",
+            "isCurrencyExchangeEnabled": "Enable Currency Exchange",
+            "currencyToPointsExchangeRate": "Currency To Points Exchange Rate",
+            "currencyExchangeCmd": "Currency Exchange Command",
+            "exchangeSuccessTip": "Exchange Success Tip",
+            "exchangeFailureTip": "Exchange Failure Tip",
+            "resetPoints": "Reset All Points",
+            "resetSignIn": "Reset All Sign-in Time",
+            "resetPointsConfirm": "Are you sure you want to reset all player points?",
+            "resetSignInConfirm": "Are you sure you want to reset all player sign-in date time?",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "playerName": "Player Name",
+                "points": "Points",
+                "lastSignInAt": "Last Sign-in"
+            }
         }
     }
 }

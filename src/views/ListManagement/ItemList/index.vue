@@ -48,6 +48,7 @@ export default {
 import * as api from '~/api/item-list.js';
 import AddOrEditItemList from '~/components/AddOrEditItemList/index.vue';
 
+const {t} = useI18n();
 const searchFormModel = reactive({
     keyword: '',
 });
