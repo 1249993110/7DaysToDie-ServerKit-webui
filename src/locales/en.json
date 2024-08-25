@@ -257,11 +257,19 @@
             "removeItem": "Remove Selected Item",
             "removeItemConfirm": "Are you sure you want to remove all {name} from the player's bag and belt?"
         },
-        "myTableEx":{
-            "tableHeader":{
+        "myTableEx": {
+            "tableHeader": {
                 "index": "Index",
                 "operate": "Operate"
             }
+        },
+        "itemBlockSelector": {
+            "title": "Select Item or Block",
+            "id": "ID",
+            "icon": "Icon",
+            "itemName": "Item Name",
+            "localizationName": "Localization Name",
+            "maxStackAllowed": "Max Stack Allowed"
         }
     },
     "layout": {
@@ -414,7 +422,7 @@
                 "message": "Message",
                 "playerId": "Player ID"
             },
-            "chatType":{
+            "chatType": {
                 "global": "Global",
                 "friends": "Friends",
                 "party": "Party",
@@ -422,7 +430,7 @@
                 "unknown": "Unknown"
             }
         },
-        "blacklist":{
+        "blacklist": {
             "tableHeader": {
                 "playerId": "Player ID",
                 "displayName": "Display Name",
@@ -430,7 +438,7 @@
                 "reason": "Reason"
             }
         },
-        "itemBlocks":{
+        "itemBlocks": {
             "item": "Item",
             "block": "Block",
             "devItem": "Dev Item (hidden from users)",
@@ -464,7 +472,7 @@
             "isEnablePlayerInitialSpawnPoint": "Enable Player Initial Spawn Point",
             "playerInitialPosition": "Player Initial Position"
         },
-        "autoBackup":{
+        "autoBackup": {
             "isEnabled": "Enable Auto Backup",
             "interval": "Backup Interval (seconds)",
             "retainedFileCountLimit": "Retained File Count Limit",
@@ -472,7 +480,7 @@
             "skipIfThereAreNoPlayers": "Skip If There Are No Players",
             "autoBackupOnServerStartup": "Auto Backup On Server Startup",
             "archiveFolder": "Archive Folder",
-            "tableHeader":{
+            "tableHeader": {
                 "serverVersion": "Server Version",
                 "gameWorld": "Game World",
                 "gameName": "Game Name",
@@ -518,7 +526,7 @@
                 "lastSignInAt": "Last Sign-in"
             }
         },
-        "listManagement":{
+        "listManagement": {
             "tableHeader": {
                 "id": "ID",
                 "icon": "Icon",

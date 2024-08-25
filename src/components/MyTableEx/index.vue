@@ -81,8 +81,8 @@
 </template>
 
 <script setup>
-import { i18n } from '~/plugins/i18n';
 import { Edit, Plus, Delete, Refresh, Search, UploadFilled, ArrowDown } from '@element-plus/icons-vue';
+import { i18n } from '~/plugins/i18n';
 const { t } = i18n.global;
 
 const props = defineProps({

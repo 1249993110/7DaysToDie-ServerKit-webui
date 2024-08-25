@@ -262,6 +262,14 @@
                 "index": "序号",
                 "operate": "操作"
             }
+        },
+        "itemBlockSelector":{
+            "title": "选择物品或方块",
+            "id":"ID",
+            "icon":"图标",
+            "itemName": "名称",
+            "localizationName": "本地化名称",
+            "maxStackAllowed": "最大堆叠数量"
         }
     },
     "layout": {

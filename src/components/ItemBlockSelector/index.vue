@@ -1,22 +1,29 @@
 <template>
-    <el-dialog title="选择物品或方块" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
+    <el-dialog :title="t('components.itemBlockSelector.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
         <el-table :data="tableData" border height="calc(64vh)" highlight-current-row v-loading="loading">
-            <el-table-column prop="id" label="Id" width="80px"> </el-table-column>
-            <el-table-column label="图标" width="120px" class-name="table-icon-col">
+            <el-table-column prop="id" :label="t('components.itemBlockSelector.id')" width="80px"> </el-table-column>
+            <el-table-column :label="t('components.itemBlockSelector.icon')" width="120px" class-name="table-icon-col">
                 <template #default="{ row }">
                     <GameIcon :name="row.itemName" />
                 </template>
             </el-table-column>
-            <el-table-column prop="itemName" label="物品名称" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="localizationName" label="本地化名称" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="maxStackAllowed" label="最大堆叠数量" width="120px"> </el-table-column>
+            <el-table-column prop="itemName" :label="t('components.itemBlockSelector.itemName')" show-overflow-tooltip> </el-table-column>
+            <el-table-column prop="localizationName" :label="t('components.itemBlockSelector.localizationName')" show-overflow-tooltip> </el-table-column>
+            <el-table-column prop="maxStackAllowed" :label="t('components.itemBlockSelector.maxStackAllowed')" width="120px"> </el-table-column>
             <el-table-column align="center" width="200px">
                 <template #header>
-                    <el-input v-model="searchModel.keyword" placeholder="搜索" clearable style="width: calc(100% - 32px)" @keyup.enter="getData" :validate-event="false" />
+                    <el-input
+                        v-model="searchModel.keyword"
+                        :placeholder="t('global.button.search')"
+                        clearable
+                        style="width: calc(100% - 32px)"
+                        @keyup.enter="getData"
+                        :validate-event="false"
+                    />
                     <el-button :icon="Search" circle @click="getData" />
                 </template>
                 <template #default="{ row }">
-                    <el-button type="primary" @click="handleSelect(row)">选择</el-button>
+                    <el-button type="primary" @click="handleSelect(row)">{{ t('global.button.select') }}</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -38,6 +45,8 @@
 <script setup>
 import { getItemBlocks } from '~/api/item-blocks';
 import { Search } from '@element-plus/icons-vue';
+import { i18n } from '~/plugins/i18n';
+const { t } = i18n.global;
 
 const tableData = ref([]);
 const total = ref(0);
