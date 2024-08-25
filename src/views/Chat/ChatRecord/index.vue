@@ -15,24 +15,23 @@
             :batch-delete="batchDeleteRequest"
             @onSortChange="handleSortChange"
             :default-sort="{ prop: 'createdAt', order: 'descending' }"
-            tableSize="small"
             :pageSize="100"
         >
             <template #searchFormItems>
-                <el-form-item label="关键词" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
+                <el-form-item :label="$t('global.keyworld')" prop="keyword">
+                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="$t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
             </template>
             <template #toolbarPost>
-                <el-button @click="handleDeleteAll" type="danger">删除所有记录</el-button>
+                <el-button @click="handleDeleteAll" type="danger">{{ $t('global.button.deleteAll') }}</el-button>
             </template>
             <template #columns>
-                <el-table-column prop="createdAt" label="日期" width="165" sortable="custom"> </el-table-column>
-                <el-table-column prop="senderName" label="发送者名称" width="180" show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="chatType" label="类型" width="80" :formatter="formatChatType"> </el-table-column>
-                <el-table-column prop="message" label="消息内容" min-width="120" show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="entityId" label="实体Id" width="90"> </el-table-column>
-                <el-table-column prop="playerId" label="玩家Id" width="280" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="createdAt" :label="$t('views.chat.tableHeader.createdAt')" width="165" sortable="custom"> </el-table-column>
+                <el-table-column prop="senderName" :label="$t('views.chat.tableHeader.senderName')" width="180" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="chatType" :label="$t('views.chat.tableHeader.chatType')" width="80" :formatter="formatChatType"> </el-table-column>
+                <el-table-column prop="message" :label="$t('views.chat.tableHeader.message')" min-width="120" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="entityId" :label="$t('views.chat.tableHeader.entityId')" width="90"> </el-table-column>
+                <el-table-column prop="playerId" :label="$t('views.chat.tableHeader.playerId')" width="280" show-overflow-tooltip> </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -44,6 +43,8 @@ export default {
 </script>
 <script setup>
 import * as api from '~/api/chat-record';
+
+const {t} = useI18n();
 
 const searchFormModel = reactive({
     keyword: '',
@@ -65,23 +66,23 @@ const formatChatType = (row) => {
     switch (row.chatType) {
         // Global
         case 'Global':
-            type = '公屏';
+            type = t('views.chat.chatType.global');
             break;
         // Friends
         case 'Friends':
-            type = '好友';
+            type = t('views.chat.chatType.friends');
             break;
         // Party
         case 'Party':
-            type = '阵营';
+            type = t('views.chat.chatType.party');
             break;
         // Whisper
         case 'Whisper':
-            type = '私聊';
+            type = t('views.chat.chatType.whisper');
             break;
         // Unknown
         default:
-            type = '未知';
+            type = t('views.chat.chatType.unknown');
     }
     return type;
 };
@@ -89,17 +90,17 @@ const formatChatType = (row) => {
 const handleExport = (command) => {
     switch (command) {
         case 'csv':
-            fileHelper.exportCsv(tableData.value, '聊天记录', {
-                createdAt: '日期',
-                entityId: '实体Id',
-                senderName: '发送者名称',
-                chatType: '类型',
-                message: '消息内容',
-                playerId: '玩家Id',
+            fileHelper.exportCsv(tableData.value, t('menus.chat.chatRecord'), {
+                createdAt: t('views.chat.tableHeader.createdAt'),
+                entityId: t('views.chat.tableHeader.entityId'),
+                senderName: t('views.chat.tableHeader.senderName'),
+                chatType: t('views.chat.tableHeader.chatType'),
+                message: t('views.chat.tableHeader.message'),
+                playerId: t('views.chat.tableHeader.playerId'),
             });
             break;
         case 'json':
-            fileHelper.exportJson(tableData.value, '聊天记录');
+            fileHelper.exportJson(tableData.value, t('menus.chat.chatRecord'));
             break;
     }
 };
@@ -114,7 +115,7 @@ const batchDeleteRequest = async (rows) => {
 
 const handleDeleteAll = async () => {
     try {
-        if (await myconfirm('确定删除所有记录吗?')) {
+        if (await myconfirm(t('global.message.deleteConfirm'))) {
             await api.deleteChatRecordByIds({ deleteAll: true });
             await getData();
         }

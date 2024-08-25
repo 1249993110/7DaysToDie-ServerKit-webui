@@ -8,8 +8,8 @@
                 </el-scrollbar>
             </div>
             <div class="send-container">
-                <el-input placeholder="请输入内容" v-model="message" clearable @keyup.enter.native="sendMessage"> </el-input>
-                <el-button class="button" type="primary" @click="sendMessage">发送消息</el-button>
+                <el-input :placeholder="$t('global.message.inputText')" v-model="message" clearable @keyup.enter.native="sendMessage"> </el-input>
+                <el-button class="button" type="primary" @click="sendMessage">{{ $t('playerOperation.sendMessage') }}</el-button>
             </div>
         </el-card>
     </div>

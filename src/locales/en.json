@@ -22,6 +22,7 @@
         "button": {
             "add": "Add",
             "delete": "Delete",
+            "deleteAll": "Delete All",
             "edit": "Edit",
             "save": "Save",
             "enable": "Enable",
@@ -34,7 +35,9 @@
             "cancel": "Cancel",
             "import": "Import",
             "export": "Export",
-            "batchOperation": "Batch Operation"
+            "batchOperation": "Batch Operation",
+            "batchDelete": "Batch Delete",
+            "send": "Send"
         },
         "message": {
             "title": "Hint",
@@ -247,6 +250,12 @@
             "copyLocalizationName": "Copy Localization Name",
             "removeItem": "Remove Selected Item",
             "removeItemConfirm": "Are you sure you want to remove all {name} from the player's bag and belt?"
+        },
+        "myTableEx":{
+            "tableHeader":{
+                "index": "Index",
+                "operate": "Operate"
+            }
         }
     },
     "layout": {
@@ -388,6 +397,23 @@
                 "totalTimePlayed": "Total Time Played",
                 "currentLife": "Current Survival Time",
                 "longestLife": "Longest Survival Time"
+            }
+        },
+        "chat": {
+            "tableHeader": {
+                "createdAt": "Date Time",
+                "entityId": "Entity ID",
+                "senderName": "Sender Name",
+                "chatType": "Type",
+                "message": "Message",
+                "playerId": "Player ID"
+            },
+            "chatType":{
+                "global": "Global",
+                "friends": "Friends",
+                "party": "Party",
+                "whisper": "Whisper",
+                "unknown": "Unknown"
             }
         }
     }

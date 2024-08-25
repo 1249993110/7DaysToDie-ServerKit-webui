@@ -4,27 +4,27 @@
             <el-form ref="searchFormRef" :model="searchFormModel" label-position="right" :inline="true">
                 <slot name="searchFormItems"></slot>
                 <el-form-item>
-                    <el-button :icon="Search" @click="handleSearch" type="primary">查 询</el-button>
-                    <el-button :icon="Refresh" @click="handleReset">重 置</el-button>
+                    <el-button :icon="Search" @click="handleSearch" type="primary">{{ t('global.button.search') }}</el-button>
+                    <el-button :icon="Refresh" @click="handleReset">{{ t('global.button.reset') }}</el-button>
                 </el-form-item>
             </el-form>
         </el-card>
         <el-card class="table-card" shadow="always" v-loading="loading">
             <div class="toolbar">
                 <slot name="toolbar"></slot>
-                <el-button v-if="showAddBtn" type="primary" :icon="Plus" @click="handleAdd">新 增</el-button>
+                <el-button v-if="showAddBtn" type="primary" :icon="Plus" @click="handleAdd">{{ t('global.button.add') }}</el-button>
                 <el-button v-if="showBatchDeleteBtn" type="danger" :icon="Delete" @click="handleBatchDelete" :disabled="batchDeleteDisabled">{{ batchDeleteLabel }}</el-button>
                 <slot name="toolbarPost"></slot>
                 <div style="margin-left: auto">
-                    <el-button v-if="showImportBtn" style="margin-right: 12px" type="primary" :icon="UploadFilled" @click="handleImport">导 入</el-button>
+                    <el-button v-if="showImportBtn" style="margin-right: 12px" type="primary" :icon="UploadFilled" @click="handleImport">{{ t('global.button.import') }}</el-button>
                     <el-dropdown v-if="showExportBtn" @command="handleExportCommand">
                         <el-button type="success">
-                            导 出<el-icon class="el-icon--right"><arrow-down /></el-icon>
+                            {{ t('global.button.export') }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
                         </el-button>
                         <template #dropdown>
                             <el-dropdown-menu>
-                                <el-dropdown-item command="csv">导出为csv</el-dropdown-item>
-                                <el-dropdown-item command="json">导出为json</el-dropdown-item>
+                                <el-dropdown-item command="csv">{{ t('global.button.export') }} csv</el-dropdown-item>
+                                <el-dropdown-item command="json">{{ t('global.button.export') }} json</el-dropdown-item>
                             </el-dropdown-menu>
                         </template>
                     </el-dropdown>
@@ -44,9 +44,9 @@
                     :size="tableSize"
                 >
                     <el-table-column v-if="showTableSelection" type="selection" width="50" align="center" />
-                    <el-table-column v-if="showTableIndex" type="index" label="序号" width="60" />
+                    <el-table-column v-if="showTableIndex" type="index" :label="$t('components.myTableEx.tableHeader.index')" width="64" />
                     <slot name="columns"></slot>
-                    <el-table-column v-if="showOperationColumn" label="操作" :width="operationColumnWidth" header-align="center" show-overflow-tooltip fixed="right">
+                    <el-table-column v-if="showOperationColumn" :label="$t('components.myTableEx.tableHeader.operate')" :width="operationColumnWidth" header-align="center" show-overflow-tooltip fixed="right">
                         <template #default="{ row }">
                             <el-button v-if="showEditBtn" size="small" type="primary" :icon="Edit" @click="handleEdit(row)">{{ editLabel }}</el-button>
                             <el-button v-if="showDeleteBtn" size="small" type="danger" :icon="Delete" @click="handleDelete(row)">{{ deleteLabel }}</el-button>
@@ -81,7 +81,9 @@
 </template>
 
 <script setup>
+import { i18n } from '~/plugins/i18n';
 import { Edit, Plus, Delete, Refresh, Search, UploadFilled, ArrowDown } from '@element-plus/icons-vue';
+const { t } = i18n.global;
 
 const props = defineProps({
     tableSize: {
@@ -103,18 +105,18 @@ const props = defineProps({
     },
     editLabel: {
         type: String,
-        default: '编辑',
+        default: i18n.global.t('global.button.edit'),
     },
     deleteLabel: {
         type: String,
-        default: '删除',
+        default: i18n.global.t('global.button.delete'),
     },
     batchDelete: {
         type: Function,
     },
     batchDeleteLabel: {
         type: String,
-        default: '批量删除',
+        default: i18n.global.t('global.button.batchDelete'),
     },
     showToolbar: {
         type: Boolean,
@@ -241,7 +243,7 @@ const handleEdit = (row) => {
 
 const handleDelete = async (row) => {
     try {
-        if (await myconfirm('确定删除选中的内容吗?')) {
+        if (await myconfirm(t('global.message.deleteConfirm'))) {
             await Promise.resolve(props.delete(row));
             await getData();
         }
@@ -250,7 +252,7 @@ const handleDelete = async (row) => {
 
 const handleBatchDelete = async () => {
     try {
-        if (await myconfirm('确定删除选中的内容吗?')) {
+        if (await myconfirm(t('global.message.deleteConfirm'))) {
             await Promise.resolve(props.batchDelete(multipleSelection));
             await getData();
         }
