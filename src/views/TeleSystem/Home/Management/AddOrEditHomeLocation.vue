@@ -23,9 +23,9 @@ import * as api from '~/api/home-location';
 const formModel = reactive({});
 
 const rules = {
-    playerId: [{ required: true, message: '必填项', trigger: 'blur' }],
-    homeName: [{ required: true, message: '必填项', trigger: 'blur' }],
-    position: [{ required: true, message: '必填项', trigger: 'blur' }],
+    playerId: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    homeName: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    position: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const request = async (isAdd) => {

@@ -35,8 +35,8 @@ const formModel = reactive({
 });
 
 const rules = {
-    itemName: [{ required: true, message: '必填项', trigger: 'blur' }],
-    count: [{ required: true, message: '必填项', trigger: 'blur' }],
+    itemName: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    count: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const request = async (isAdd) => {

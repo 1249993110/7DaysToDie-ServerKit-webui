@@ -88,14 +88,14 @@ const reset = async () => {
 const variables = ['CityId', 'CityName', 'TeleInterval', 'PointsRequired', 'CooldownSeconds', 'EntityId', 'PlayerId', 'PlayerName'];
 
 const rules = {
-    queryListCmd: [{ required: true, message: '必填项', trigger: 'blur' }],
-    teleCmdPrefix: [{ required: true, message: '必填项', trigger: 'blur' }],
-    teleInterval: [{ required: true, message: '必填项', trigger: 'blur' }],
-    locationItemTip: [{ required: true, message: '必填项', trigger: 'blur' }],
-    teleSuccessTip: [{ required: true, message: '必填项', trigger: 'blur' }],
-    pointsNotEnoughTip: [{ required: true, message: '必填项', trigger: 'blur' }],
-    coolingTip: [{ required: true, message: '必填项', trigger: 'blur' }],
-    noLocation: [{ required: true, message: '必填项', trigger: 'blur' }],
+    queryListCmd: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    teleCmdPrefix: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    teleInterval: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    locationItemTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    teleSuccessTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    pointsNotEnoughTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    coolingTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    noLocation: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 </script>
 

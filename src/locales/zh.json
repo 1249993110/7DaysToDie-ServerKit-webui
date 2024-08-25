@@ -63,7 +63,8 @@
             "cmdSentSuccess": "命令发送成功",
             "cmdExecResult": "命令执行结果",
             "inputText": "请输入文本",
-            "inputNumber": "请输入数字"
+            "inputNumber": "请输入数字",
+            "datePickerPlaceholder": "选择日期"
         }
     },
     "copy": "复制",
@@ -406,7 +407,7 @@
                 "senderName": "发送者名称",
                 "chatType": "类型",
                 "message": "消息内容",
-                "playerId": "玩家Id"
+                "playerId": "玩家 ID"
             },
             "chatType":{
                 "global": "公屏",
@@ -414,6 +415,14 @@
                 "party": "阵营",
                 "whisper": "私聊",
                 "unknown": "未知"
+            }
+        },
+        "blacklist":{
+            "tableHeader": {
+                "playerId": "玩家 ID",
+                "displayName": "名称",
+                "bannedUntil": "解封日期",
+                "reason": "封禁原因"
             }
         }
     }

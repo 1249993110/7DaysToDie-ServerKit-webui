@@ -90,7 +90,7 @@ const formatChatType = (row) => {
 const handleExport = (command) => {
     switch (command) {
         case 'csv':
-            fileHelper.exportCsv(tableData.value, t('menus.chat.chatRecord'), {
+            exportCsv(tableData.value, t('menus.chat.chatRecord'), {
                 createdAt: t('views.chat.tableHeader.createdAt'),
                 entityId: t('views.chat.tableHeader.entityId'),
                 senderName: t('views.chat.tableHeader.senderName'),
@@ -100,7 +100,7 @@ const handleExport = (command) => {
             });
             break;
         case 'json':
-            fileHelper.exportJson(tableData.value, t('menus.chat.chatRecord'));
+            exportJson(tableData.value, t('menus.chat.chatRecord'));
             break;
     }
 };

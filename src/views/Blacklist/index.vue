@@ -13,18 +13,24 @@
             style="margin-top: 20px"
         >
             <template #searchFormItems>
-                <el-form-item label="玩家Id" prop="playerId">
-                    <el-input v-model="searchFormModel.playerId" style="width: 340px" placeholder="请输入内容" clearable autofocus></el-input>
+                <el-form-item :label="t('views.blacklist.tableHeader.playerId')" prop="playerId">
+                    <el-input v-model="searchFormModel.playerId" style="width: 340px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
-                <el-form-item label="名称" prop="displayName">
-                    <el-input v-model="searchFormModel.displayName" placeholder="请输入内容" clearable></el-input>
+                <el-form-item :label="t('views.blacklist.tableHeader.displayName')" prop="displayName">
+                    <el-input v-model="searchFormModel.displayName" :placeholder="t('global.message.inputText')" clearable></el-input>
                 </el-form-item>
             </template>
             <template #columns>
-                <el-table-column prop="playerId" label="玩家Id" width="320" sortable />
-                <el-table-column prop="displayName" label="名称" width="150" sortable />
-                <el-table-column prop="bannedUntil" label="解封日期" width="170" sortable :formatter="(row) => row.bannedUntil.substr(0, 16)" />
-                <el-table-column prop="reason" label="封禁原因" min-width="170" />
+                <el-table-column prop="playerId" :label="t('views.blacklist.tableHeader.playerId')" width="320" sortable />
+                <el-table-column prop="displayName" :label="t('views.blacklist.tableHeader.displayName')" width="150" sortable />
+                <el-table-column
+                    prop="bannedUntil"
+                    :label="t('views.blacklist.tableHeader.bannedUntil')"
+                    width="170"
+                    sortable
+                    :formatter="(row) => row.bannedUntil.substr(0, 16)"
+                />
+                <el-table-column prop="reason" :label="t('views.blacklist.tableHeader.reason')" min-width="170" />
             </template>
         </MyTableEx>
     </div>
@@ -39,6 +45,8 @@ export default {
 <script setup>
 import * as api from '~/api/blacklist';
 import AddBlacklist from './Add.vue';
+
+const { t } = useI18n();
 
 const searchFormModel = reactive({
     playerId: '',
@@ -76,10 +84,15 @@ const batchDeleteRequest = async (rows) => {
 const handleExport = (command) => {
     switch (command) {
         case 'csv':
-            fileHelper.exportCsv(tableData.value, '黑名单', { playerId: '玩家Id', displayName: '名称', bannedUntil: '解封日期', reason: '封禁原因' });
+            exportCsv(tableData.value, t('menus.blacklist'), {
+                playerId: t('views.blacklist.tableHeader.playerId'),
+                displayName: t('views.blacklist.tableHeader.displayName'),
+                bannedUntil: t('views.blacklist.tableHeader.bannedUntil'),
+                reason: t('views.blacklist.tableHeader.reason'),
+            });
             break;
         case 'json':
-            fileHelper.exportJson(tableData.value, '黑名单');
+            exportJson(tableData.value, t('menus.blacklist'));
             break;
     }
 };

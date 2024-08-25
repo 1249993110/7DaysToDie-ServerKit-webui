@@ -63,7 +63,8 @@
             "cmdSentSuccess": "Command sent success",
             "cmdExecResult": "Command execution result",
             "inputText": "Please enter text",
-            "inputNumber": "Please enter a number"
+            "inputNumber": "Please enter a number",
+            "datePickerPlaceholder": "Select date"
         }
     },
     "copy": "Copy",
@@ -414,6 +415,14 @@
                 "party": "Party",
                 "whisper": "Whisper",
                 "unknown": "Unknown"
+            }
+        },
+        "blacklist":{
+            "tableHeader": {
+                "playerId": "Player ID",
+                "displayName": "Display Name",
+                "bannedUntil": "Banned Until",
+                "reason": "Reason"
             }
         }
     }

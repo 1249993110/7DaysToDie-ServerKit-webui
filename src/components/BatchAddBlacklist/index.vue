@@ -25,7 +25,7 @@ const formModel = reactive({
 });
 
 const rules = {
-    bannedUntil: [{ required: true, message: '必填项', trigger: 'blur' }],
+    bannedUntil: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const request = async () => {

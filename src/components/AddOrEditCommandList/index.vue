@@ -22,7 +22,7 @@ const formModel = reactive({
 });
 
 const rules = {
-    command: [{ required: true, message: '必填项', trigger: 'blur' }],
+    command: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const request = async (isAdd) => {

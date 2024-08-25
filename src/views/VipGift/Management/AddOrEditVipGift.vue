@@ -32,10 +32,10 @@ const formModel = reactive({
 });
 
 const rules = {
-    id: [{ required: true, message: '必填项', trigger: 'blur' }],
-    name: [{ required: true, message: '必填项', trigger: 'blur' }],
-    claimState: [{ required: true, message: '必填项', trigger: 'blur' }],
-    totalClaimCount: [{ required: true, message: '必填项', trigger: 'blur' }],
+    id: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    name: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    claimState: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    totalClaimCount: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const request = async (isAdd) => {

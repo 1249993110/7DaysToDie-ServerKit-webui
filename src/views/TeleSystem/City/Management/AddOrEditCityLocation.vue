@@ -34,10 +34,10 @@ const formModel = reactive({
 });
 
 const rules = {
-    id: [{ required: true, message: '必填项', trigger: 'blur' }],
-    cityName: [{ required: true, message: '必填项', trigger: 'blur' }],
-    pointsRequired: [{ required: true, message: '必填项', trigger: 'blur' }],
-    position: [{ required: true, message: '必填项', trigger: 'blur' }],
+    id: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    cityName: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    pointsRequired: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    position: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const request = async (isAdd) => {
