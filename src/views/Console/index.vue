@@ -3,8 +3,8 @@
         <RouterButton :names="['console']"> </RouterButton>
         <div id="console-content"></div>
         <div class="send-container">
-            <el-input placeholder="请输入内容" v-model="command" clearable @keyup.enter.native="sendCommand"> </el-input>
-            <el-button class="button" type="primary" @click="sendCommand">发送命令</el-button>
+            <el-input :placeholder="$t('global.message.inputText')" v-model="command" clearable @keyup.enter.native="sendCommand"> </el-input>
+            <el-button class="button" type="primary" @click="sendCommand">{{ $t('global.button.send') }}</el-button>
         </div>
     </div>
 </template>
@@ -24,7 +24,7 @@ const sendCommand = async () => {
     const data = await executeConsoleCommand(command.value);
     command.value = '';
     data.forEach((item) => {
-        appendMessage(item, 1);
+        appendMessage(item, 'Assert');
     });
 };
 
