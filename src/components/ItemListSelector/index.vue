@@ -7,7 +7,7 @@
         </div>
         <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="42" :selectable="checkSelectable" />
-            <el-table-column prop="id" label="Id" width="60px"> </el-table-column>
+            <el-table-column prop="id" label="Id" width="65px"> </el-table-column>
             <el-table-column label="图标" width="65px" class-name="table-icon-col">
                 <template #default="{ row }">
                     <GameIcon :name="row.itemName" :size="40" />
@@ -17,7 +17,7 @@
             <el-table-column prop="count" label="数量" width="60px"> </el-table-column>
             <el-table-column prop="quality" label="品质" width="60px"> </el-table-column>
             <el-table-column prop="durability" label="耐久度%" width="85px"> </el-table-column>
-            <el-table-column prop="description" label="说明"> </el-table-column>
+            <el-table-column prop="description" label="说明" show-overflow-tooltip> </el-table-column>
             <el-table-column label="选择" align="center" width="100px">
                 <template #default="{ row }">
                     <el-button color="#40e0d0" @click="handleSelect(row)" :disabled="checkDisabled(row.id)">选择</el-button>
@@ -42,7 +42,8 @@
 <script setup>
 import { getItemListPaged } from '~/api/item-list';
 import { Search } from '@element-plus/icons-vue';
-
+import { i18n } from '~/plugins/i18n';
+const { t } = i18n.global;
 const props = defineProps({
     disabledIds: {
         type: Array,

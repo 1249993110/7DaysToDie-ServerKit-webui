@@ -1,26 +1,26 @@
 <template>
-    <el-dialog title="绑定物品" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
+    <el-dialog :title="t('components.associatedItems.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
         <div style="margin-bottom: 8px">
-            <el-button type="primary" @click="handleAdd">添加物品</el-button>
-            <el-button color="#626aef" @click="handleAddFromList">从清单添加物品</el-button>
-            <el-button type="danger" @click="handleBatchDelete" :disabled="batchDeleteDisabled">批量删除</el-button>
+            <el-button type="primary" @click="handleAdd">{{ t('components.associatedItems.add') }}</el-button>
+            <el-button color="#626aef" @click="handleAddFromList">{{ t('components.associatedItems.addFromList') }}</el-button>
+            <el-button type="danger" @click="handleBatchDelete" :disabled="batchDeleteDisabled">{{ t('global.button.batchDelete') }}</el-button>
         </div>
         <el-table :data="tableData" border height="calc(64vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="42" />
             <!-- <el-table-column prop="id" label="Id" width="80px"> </el-table-column> -->
-            <el-table-column label="图标" width="65px" class-name="table-icon-col">
+            <el-table-column :label="t('views.listManagement.tableHeader.icon')" width="65px" class-name="table-icon-col">
                 <template #default="{ row }">
                     <GameIcon :name="row.itemName" :size="40" />
                 </template>
             </el-table-column>
-            <el-table-column prop="itemName" label="物品名称" sortable show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="count" label="数量" sortable> </el-table-column>
-            <el-table-column prop="quality" label="品质" sortable> </el-table-column>
-            <el-table-column prop="durability" label="耐久度%" sortable> </el-table-column>
-            <el-table-column prop="description" label="说明" sortable> </el-table-column>
-            <el-table-column label="操作" align="center" width="120px">
+            <el-table-column prop="itemName" :label="t('views.listManagement.tableHeader.itemName')" sortable show-overflow-tooltip> </el-table-column>
+            <el-table-column prop="count" :label="t('views.listManagement.tableHeader.count')" sortable> </el-table-column>
+            <el-table-column prop="quality" :label="t('views.listManagement.tableHeader.quality')" sortable> </el-table-column>
+            <el-table-column prop="durability" :label="t('views.listManagement.tableHeader.durability')" sortable> </el-table-column>
+            <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" show-overflow-tooltip> </el-table-column>
+            <el-table-column :label="t('views.listManagement.operate')" align="center" width="120px">
                 <template #default="{ row }">
-                    <el-button type="danger" @click="handleDelete(row)">删除</el-button>
+                    <el-button type="danger" @click="handleDelete(row)">{{ t('global.button.delete') }}</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -31,6 +31,8 @@
 
 <script setup>
 import { getItemById } from '~/api/item-list';
+import { i18n } from '~/plugins/i18n';
+const { t } = i18n.global;
 
 const props = defineProps({
     tableData: {

@@ -270,6 +270,16 @@
             "itemName": "Item Name",
             "localizationName": "Localization Name",
             "maxStackAllowed": "Max Stack Allowed"
+        },
+        "associatedItems":{
+            "title": "Bind Items",
+            "add": "Add",
+            "addFromList": "Add From List"
+        },
+        "associatedCommands":{
+            "title": "Bind Commands",
+            "add": "Add",
+            "addFromList": "Add From List"
         }
     },
     "layout": {
@@ -527,6 +537,7 @@
             }
         },
         "listManagement": {
+            "operate": "Operate",
             "tableHeader": {
                 "id": "ID",
                 "icon": "Icon",

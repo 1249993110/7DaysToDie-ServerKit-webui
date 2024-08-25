@@ -14,7 +14,7 @@
                     {{ `${row.inMainThread ? t('global.true') : t('global.false')}` }}
                 </template>
             </el-table-column>
-            <el-table-column prop="description" label="说明"> </el-table-column>
+            <el-table-column prop="description" label="说明" show-overflow-tooltip> </el-table-column>
             <el-table-column label="选择" align="center" width="100px">
                 <template #default="{ row }">
                     <el-button color="#40e0d0" @click="handleSelect(row)" :disabled="checkDisabled(row.id)">选择</el-button>
@@ -39,7 +39,8 @@
 <script setup>
 import { getCommandListPaged } from '~/api/command-list';
 import { Search } from '@element-plus/icons-vue';
-
+import { i18n } from '~/plugins/i18n';
+const { t } = i18n.global;
 const props = defineProps({
     disabledIds: {
         type: Array,

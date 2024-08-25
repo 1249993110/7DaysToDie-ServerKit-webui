@@ -270,6 +270,16 @@
             "itemName": "名称",
             "localizationName": "本地化名称",
             "maxStackAllowed": "最大堆叠数量"
+        },
+        "associatedItems":{
+            "title": "绑定物品",
+            "add": "添加物品",
+            "addFromList": "从清单添加物品"
+        },
+        "associatedCommands":{
+            "title": "绑定命令",
+            "add": "添加命令",
+            "addFromList": "从清单添加命令"
         }
     },
     "layout": {
@@ -527,6 +537,7 @@
             }
         },
         "listManagement": {
+            "operate": "操作",
             "tableHeader": {
                 "id": "ID",
                 "icon": "图标",
