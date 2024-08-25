@@ -101,14 +101,14 @@ const handleContextMenu = (event) => {
                 label: t('components.gameIconEx.copyItemName'),
                 onClick: async () => {
                     await copy(props.itemName);
-                    ElMessage.success('复制成功');
+                    ElMessage.success(t('global.message.copySuccess'));
                 },
             },
             {
                 label: t('components.gameIconEx.copyLocalizationName'),
                 onClick: async () => {
                     await copy(props.localizationName);
-                    ElMessage.success('复制成功');
+                    ElMessage.success(t('global.message.copySuccess'));
                 },
             },
             {

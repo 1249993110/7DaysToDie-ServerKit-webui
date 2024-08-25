@@ -69,8 +69,8 @@
                             <el-input v-model="formModel.teleSuccessTip" />
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="save">保存</el-button>
-                            <el-button type="danger" @click="reset">重置</el-button>
+                            <el-button type="primary" @click="save">{{ $t('global.button.save') }}</el-button>
+                            <el-button type="danger" @click="reset">{{ $t('global.button.reset') }}</el-button>
                         </el-form-item>
                     </el-form>
                     <div>
@@ -105,16 +105,16 @@ const save = async () => {
     try {
         await formRef.value.validate();
         await api.updateSettings('TeleportHome', formModel);
-        ElMessage.success('保存成功');
+        ElMessage.success(t('global.message.saveSuccess'));
     } catch {}
 };
 
 const reset = async () => {
     try {
-        if (await myconfirm('确定重置配置吗?')) {
+        if (await myconfirm(ElMessage.success(t('global.message.resetConfirm')))) {
             await api.resetSettings('TeleportHome', localeStore.getLanguage());
             await getData();
-            ElMessage.success('重置成功');
+            ElMessage.success(t('global.message.resetSuccess'));
         }
     } catch {}
 };

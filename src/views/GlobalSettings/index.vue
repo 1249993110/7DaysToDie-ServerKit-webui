@@ -6,14 +6,11 @@
                 <div style="margin-right: 16px">
                     <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
                         <el-form-item>
-                            <el-button type="primary" @click="save">保存</el-button>
-                            <el-button type="danger" @click="reset">重置</el-button>
+                            <el-button type="primary" @click="save">{{ $t('global.button.save') }}</el-button>
+                            <el-button type="danger" @click="reset">{{ $t('global.button.reset') }}</el-button>
                         </el-form-item>
                         <!-- <el-form-item label="是否启用">
                             <el-switch v-model="formModel.isEnabled" />
-                        </el-form-item> -->
-                        <!-- <el-form-item label="服务器名称" prop="serverName">
-                            <el-input v-model="formModel.serverName" />
                         </el-form-item> -->
                         <el-form-item label="聊天命令前缀" prop="chatCommandPrefix">
                             <el-input v-model="formModel.chatCommandPrefix" />
@@ -64,8 +61,8 @@
                             <Coordinate v-model="formModel.playerInitialPosition"></Coordinate>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="save">保存</el-button>
-                            <el-button type="danger" @click="reset">重置</el-button>
+                            <el-button type="primary" @click="save">{{ $t('global.button.save') }}</el-button>
+                            <el-button type="danger" @click="reset">{{ $t('global.button.reset') }}</el-button>
                         </el-form-item>
                     </el-form>
                 </div>
@@ -82,6 +79,8 @@ export default {
 
 <script setup>
 import * as api from '~/api/settings.js';
+
+const {t} = useI18n();
 
 const autoRestartTime = computed({
     get() {
@@ -124,8 +123,7 @@ const formModel = reactive({
 const formRef = ref();
 
 const rules = {
-    // serverName: [{ required: true, message: '请输入服务器名称', trigger: 'blur' }],
-    handleChatMessageError: [{ required: true, message: '请输入聊天消息错误提示', trigger: 'blur' }],
+    handleChatMessageError: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 
 const localeStore = useLocaleStore();
@@ -139,16 +137,16 @@ const save = async () => {
     try {
         await formRef.value.validate();
         await api.updateSettings('GlobalSettings', formModel);
-        ElMessage.success('保存成功');
+        ElMessage.success(t('global.message.saveSuccess'));
     } catch {}
 };
 
 const reset = async () => {
     try {
-        if (await myconfirm('确定重置配置吗?')) {
+        if (await myconfirm(t('global.message.resetConfirm'))) {
             await api.resetSettings('GlobalSettings', localeStore.getLanguage());
             await getData();
-            ElMessage.success('重置成功');
+            ElMessage.success(t('global.message.resetSuccess'));
         }
     } catch {}
 };

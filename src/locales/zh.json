@@ -49,6 +49,8 @@
             "deleteConfirm": "您确定要删除吗?",
             "deleteSuccess": "删除成功",
             "deleteFailed": "删除失败",
+            "resetConfirm": "您确定要重置吗?",
+            "resetSuccess": "重置成功",
             "saveSuccess": "保存成功",
             "saveFailed": "保存失败",
             "enableSuccess": "启用成功",

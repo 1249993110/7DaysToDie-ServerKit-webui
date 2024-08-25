@@ -49,6 +49,8 @@
             "deleteConfirm": "Are you sure you want to delete?",
             "deleteSuccess": "Delete success",
             "deleteFailed": "Delete failed",
+            "resetConfirm": "Are you sure you want to reset?",
+            "resetSuccess": "Reset success",
             "saveSuccess": "Save success",
             "saveFailed": "Save failed",
             "enableSuccess": "Enable success",
