@@ -39,7 +39,8 @@
             "batchOperation": "Batch Operation",
             "batchDelete": "Batch Delete",
             "send": "Send",
-            "select": "Select"
+            "select": "Select",
+            "batchSelect": "Batch Select"
         },
         "message": {
             "title": "Hint",
@@ -280,6 +281,12 @@
             "title": "Bind Commands",
             "add": "Add",
             "addFromList": "Add From List"
+        },
+        "itemListSelector":{
+            "title": "Select From List"
+        },
+        "commandListSelector":{
+            "title": "Select From List"
         }
     },
     "layout": {

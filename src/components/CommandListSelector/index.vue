@@ -1,23 +1,23 @@
 <template>
-    <el-dialog title="从清单选择命令" draggable append-to-body align-center :close-on-click-modal="false" width="800px" @open="handleOpen">
+    <el-dialog :title="t('components.commandListSelector.title')" draggable append-to-body align-center :close-on-click-modal="false" width="800px" @open="handleOpen">
         <div style="margin-bottom: 8px">
             <el-input v-model="searchModel.keyword" :placeholder="t('global.message.inputText')" clearable autofocus style="width: 200px"></el-input>
-            <el-button :icon="Search" @click="getData" type="primary" style="margin-left: 8px">查 询</el-button>
-            <el-button @click="handleBatchSelect" color="#40e0d0" :disabled="batchSelectDisabled">批量选择</el-button>
+            <el-button :icon="Search" @click="getData" type="primary" style="margin-left: 8px">{{ t('global.button.search') }}</el-button>
+            <el-button @click="handleBatchSelect" color="#40e0d0" :disabled="batchSelectDisabled">{{ t('global.button.batchSelect') }}</el-button>
         </div>
         <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="42" :selectable="checkSelectable" />
-            <el-table-column prop="id" label="Id" width="60px"> </el-table-column>
-            <el-table-column prop="command" label="命令" show-overflow-tooltip> </el-table-column>
-            <el-table-column label="在主线程执行" width="140px" sortable>
+            <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" width="60px"> </el-table-column>
+            <el-table-column prop="command" :label="t('views.listManagement.tableHeader.command')" show-overflow-tooltip> </el-table-column>
+            <el-table-column :label="t('views.listManagement.tableHeader.inMainThread')" width="150px" sortable>
                 <template #default="{ row }">
                     {{ `${row.inMainThread ? t('global.true') : t('global.false')}` }}
                 </template>
             </el-table-column>
-            <el-table-column prop="description" label="说明" show-overflow-tooltip> </el-table-column>
-            <el-table-column label="选择" align="center" width="100px">
+            <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" show-overflow-tooltip> </el-table-column>
+            <el-table-column :label="t('global.button.select')" align="center" width="100px">
                 <template #default="{ row }">
-                    <el-button color="#40e0d0" @click="handleSelect(row)" :disabled="checkDisabled(row.id)">选择</el-button>
+                    <el-button color="#40e0d0" @click="handleSelect(row)" :disabled="checkDisabled(row.id)">{{ t('global.button.select') }}</el-button>
                 </template>
             </el-table-column>
         </el-table>

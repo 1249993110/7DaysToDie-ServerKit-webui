@@ -39,7 +39,8 @@
             "batchOperation": "批量操作",
             "batchDelete": "批量删除",
             "send": "发送",
-            "select": "选择"
+            "select": "选择",
+            "batchSelect": "批量选择"
         },
         "message": {
             "title": "提示",
@@ -280,6 +281,12 @@
             "title": "绑定命令",
             "add": "添加命令",
             "addFromList": "从清单添加命令"
+        },
+        "itemListSelector":{
+            "title": "从清单选择物品"
+        },
+        "commandListSelector":{
+            "title": "从清单选择命令"
         }
     },
     "layout": {
