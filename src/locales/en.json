@@ -3,7 +3,8 @@
         "language": "English",
         "appTitle": "TianYi 7 Days to Die Server Tools",
         "formRule": {
-            "required": "Required"
+            "required": "Required",
+            "selectAtLeastOne": "Please select at least one"
         },
         "true": "Yes",
         "false": "No",
@@ -64,7 +65,8 @@
             "cmdExecResult": "Command execution result",
             "inputText": "Please enter text",
             "inputNumber": "Please enter a number",
-            "datePickerPlaceholder": "Select date"
+            "datePickerPlaceholder": "Select date",
+            "noMoreData": "No more data"
         }
     },
     "copy": "Copy",
@@ -424,6 +426,16 @@
                 "bannedUntil": "Banned Until",
                 "reason": "Reason"
             }
+        },
+        "itemBlocks":{
+            "item": "Item",
+            "block": "Block",
+            "devItem": "Dev Item (hidden from users)",
+            "itemName": "Item Name",
+            "localizationName": "Localization Name",
+            "iconName": "Icon Name",
+            "iconColor": "Icon Color",
+            "maxStackAllowed": "Max Stack Allowed"
         }
     }
 }

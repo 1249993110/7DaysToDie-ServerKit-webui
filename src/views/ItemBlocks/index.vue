@@ -2,11 +2,11 @@
     <div class="item-blocks">
         <el-card shadow="always">
             <div class="search-container">
-                <el-checkbox v-model="itemsChecked" label="物品" />
-                <el-checkbox v-model="blocksChecked" label="方块" />
-                <el-checkbox v-model="devItemsChecked" label="开发(对用户隐藏的类型)" />
+                <el-checkbox v-model="itemsChecked" :label="t('views.itemBlocks.item')" />
+                <el-checkbox v-model="blocksChecked" :label="t('views.itemBlocks.block')" />
+                <el-checkbox v-model="devItemsChecked" :label="t('views.itemBlocks.devItem')" />
                 <el-input class="input" v-model="searchModel.keyword" placeholder clearable @keyup.enter.native="search"></el-input>
-                <el-button class="button" type="primary" @click="search"> 搜 索 </el-button>
+                <el-button class="button" type="primary" @click="search">{{ t('global.button.search') }}</el-button>
             </div>
             <div class="items-container">
                 <el-scrollbar always>
@@ -38,6 +38,8 @@ import { getItemBlocks } from '~/api/item-blocks';
 import { showTooltip } from '~/components/SingletonTooltip/index.js';
 import { getItemIconUrl } from '~/utils/imageHelper';
 
+const {t} = useI18n();
+
 const items = reactive([]);
 const itemsChecked = ref(true);
 const blocksChecked = ref(false);
@@ -66,7 +68,7 @@ const getData = async () => {
         } else if (!itemsChecked.value && blocksChecked.value) {
             searchModel.itemBlockKind = 2;
         } else {
-            ElMessage.info('您必须至少选中一个种类');
+            ElMessage.info(t("global.formRule.selectAtLeastOne"));
             return;
         }
 
@@ -75,7 +77,7 @@ const getData = async () => {
         const data = (await getItemBlocks(searchModel)).items;
         const len = data.length;
         if (len === 0) {
-            ElMessage.success('没有更多数据了');
+            ElMessage.success(t('global.message.noMoreData'));
             return;
         }
 
@@ -104,12 +106,12 @@ const load = async () => {
 
 const handleMouseover = (item, event) => {
     const content = `
-        ${item.isBlock ? '方块' : '物品'}Id: ${item.id}<br />
-        名称: ${item.itemName}<br />
-        本地化名称: ${item.localizationName}<br />
-        图标: ${item.iconName}<br />
-        图标颜色: ${item.iconColor}<br />
-        最大堆叠数量: ${item.maxStackAllowed}<br />`;
+        ${item.isBlock ? t('views.itemBlocks.block') : t('views.itemBlocks.item')} ID: ${item.id}<br />
+        ${t('views.itemBlocks.itemName')}: ${item.itemName}<br />
+        ${t('views.itemBlocks.localizationName')}: ${item.localizationName}<br />
+        ${t('views.itemBlocks.iconName')}: ${item.iconName}<br />
+        ${t('views.itemBlocks.iconColor')}: ${item.iconColor}<br />
+        ${t('views.itemBlocks.maxStackAllowed')}: ${item.maxStackAllowed}<br />`;
 
     showTooltip({ trigger: event.target, content: content, rawContent: true });
 };

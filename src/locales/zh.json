@@ -3,7 +3,8 @@
         "language": "简体中文",
         "appTitle": "天依七日杀服主工具",
         "formRule": {
-            "required": "必填项"
+            "required": "必填项",
+            "selectAtLeastOne": "至少选择一项"
         },
         "true": "是",
         "false": "否",
@@ -64,7 +65,8 @@
             "cmdExecResult": "命令执行结果",
             "inputText": "请输入文本",
             "inputNumber": "请输入数字",
-            "datePickerPlaceholder": "选择日期"
+            "datePickerPlaceholder": "选择日期",
+            "noMoreData": "没有更多数据了"
         }
     },
     "copy": "复制",
@@ -424,6 +426,16 @@
                 "bannedUntil": "解封日期",
                 "reason": "封禁原因"
             }
+        },
+        "itemBlocks":{
+            "item": "物品",
+            "block": "方块",
+            "devItem": "开发(对用户隐藏的类型)",
+            "itemName": "名称",
+            "localizationName": "本地化名称",
+            "iconName": "图标名称",
+            "iconColor": "图标颜色",
+            "maxStackAllowed": "最大堆叠数量"
         }
     }
 }

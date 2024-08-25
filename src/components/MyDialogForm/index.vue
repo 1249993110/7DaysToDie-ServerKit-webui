@@ -13,6 +13,9 @@
 </template>
 
 <script setup>
+import { i18n } from '~/plugins/i18n';
+const { t } = i18n.global;
+
 const props = defineProps({
     titleSuffix: {
         type: String,
@@ -48,19 +51,19 @@ const props = defineProps({
     },
     successMessage: {
         type: String,
-        default: '保存成功',
+        default: i18n.global.t('global.message.saveSuccess'),
     },
     cancelBtnText: {
         type: String,
-        default: '取消',
+        default: i18n.global.t('global.button.cancel'),
     },
     confirmBtnText: {
         type: String,
-        default: '确认',
+        default: i18n.global.t('global.button.confirm'),
     },
 });
 
-const title = computed(() => (props.isAdd ? '添加' : '编辑') + props.titleSuffix);
+const title = computed(() => (props.isAdd ? t('global.button.add') : t('global.button.edit')) + props.titleSuffix);
 
 const dialogRef = ref();
 const formRef = ref();
