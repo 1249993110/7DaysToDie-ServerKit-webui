@@ -16,20 +16,20 @@
             :add-or-edit-component="AddOrEditCommandList"
         >
             <template #searchFormItems>
-                <el-form-item label="关键词" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
+                <el-form-item :label="t('global.keyworld')" prop="keyword">
+                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
             </template>
             <template #columns>
-                <el-table-column prop="id" label="Id" sortable width="80px"></el-table-column>
-                <el-table-column prop="command" label="命令" sortable how-overflow-tooltip></el-table-column>
-                <el-table-column label="在主线程执行" width="140px" sortable>
+                <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" sortable width="80px"></el-table-column>
+                <el-table-column prop="command" :label="t('views.listManagement.tableHeader.command')" sortable how-overflow-tooltip></el-table-column>
+                <el-table-column :label="t('views.listManagement.tableHeader.inMainThread')" width="150px" sortable>
                     <template #default="{ row }">
-                        {{ `${row.inMainThread ? '是' : '否'}` }}
+                        {{ `${row.inMainThread ? t('global.true') : t('global.false')}` }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="description" label="说明" sortable how-overflow-tooltip></el-table-column>
-                <el-table-column prop="createdAt" label="创建日期" sortable></el-table-column>
+                <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" sortable how-overflow-tooltip></el-table-column>
+                <el-table-column prop="createdAt" :label="t('views.listManagement.tableHeader.createdAt')" sortable></el-table-column>
             </template>
         </MyTableEx>
     </div>

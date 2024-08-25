@@ -1,13 +1,13 @@
 <template>
-    <MyDialogForm titleSuffix="命令" :formModel="formModel" :rules="rules" :request="request">
+    <MyDialogForm :titleSuffix="t('views.listManagement.tableHeader.command')" :formModel="formModel" :rules="rules" :request="request">
         <template #default="{ isAdd }">
-            <el-form-item label="自定义命令" prop="command">
+            <el-form-item :label="t('views.listManagement.tableHeader.command')" prop="command">
                 <el-input v-model="formModel.command"></el-input>
             </el-form-item>
-            <el-form-item label="在主线程执行" prop="inMainThread">
+            <el-form-item :label="t('views.listManagement.tableHeader.inMainThread')" prop="inMainThread">
                 <el-switch v-model="formModel.inMainThread" />
             </el-form-item>
-            <el-form-item label="说明" prop="description">
+            <el-form-item :label="t('views.listManagement.tableHeader.description')" prop="description">
                 <el-input v-model="formModel.description" />
             </el-form-item>
         </template>
@@ -16,7 +16,9 @@
 
 <script setup>
 import * as api from '~/api/command-list.js';
+import { i18n } from '~/plugins/i18n';
 
+const { t } = i18n.global;
 const formModel = reactive({
     inMainThread: true
 });

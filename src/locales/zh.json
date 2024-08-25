@@ -38,7 +38,8 @@
             "export": "导出",
             "batchOperation": "批量操作",
             "batchDelete": "批量删除",
-            "send": "发送"
+            "send": "发送",
+            "select": "选择"
         },
         "message": {
             "title": "提示",
@@ -515,6 +516,21 @@
                 "playerName": "玩家名称",
                 "points": "积分",
                 "lastSignInAt": "上次签到时间"
+            }
+        },
+        "listManagement": {
+            "tableHeader": {
+                "id": "ID",
+                "icon": "图标",
+                "itemName": "物品名称",
+                "count": "数量",
+                "quality": "质量",
+                "durability": "耐久度%",
+                "description": "说明",
+                "createdAt": "创建时间",
+                "command": "命令",
+                "inMainThread": "在主线程执行",
+                "item": "物品"
             }
         }
     }

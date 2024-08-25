@@ -15,8 +15,8 @@
             :add-or-edit-component="AddOrEditHomeLocation"
         >
             <template #searchFormItems>
-                <el-form-item label="关键词" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
+                <el-form-item :label="t('global.keyworld')" prop="keyword">
+                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
             </template>
             <template #toolbarPost>

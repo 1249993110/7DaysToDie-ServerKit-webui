@@ -16,23 +16,23 @@
             :add-or-edit-component="AddOrEditItemList"
         >
             <template #searchFormItems>
-                <el-form-item label="关键词" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" placeholder="请输入内容" clearable autofocus></el-input>
+                <el-form-item :label="t('global.keyworld')" prop="keyword">
+                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
             </template>
             <template #columns>
-                <el-table-column prop="id" label="Id" sortable width="80px"></el-table-column>
-                <el-table-column label="图标" width="120px" class-name="table-icon-col">
+                <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" sortable width="80px"></el-table-column>
+                <el-table-column :label="t('views.listManagement.tableHeader.icon')" width="120px" class-name="table-icon-col">
                     <template #default="{ row }">
                         <GameIcon :name="row.itemName" :size="40"/>
                     </template>
                 </el-table-column>
-                <el-table-column prop="itemName" label="物品名称" sortable show-overflow-tooltip></el-table-column>
-                <el-table-column prop="count" label="数量" sortable></el-table-column>
-                <el-table-column prop="quality" label="品质" sortable></el-table-column>
-                <el-table-column prop="durability" label="耐久度%" sortable width="120px"></el-table-column>
-                <el-table-column prop="description" label="说明" sortable how-overflow-tooltip></el-table-column>
-                <el-table-column prop="createdAt" label="创建日期" sortable></el-table-column>
+                <el-table-column prop="itemName" :label="t('views.listManagement.tableHeader.itemName')" sortable show-overflow-tooltip></el-table-column>
+                <el-table-column prop="count" :label="t('views.listManagement.tableHeader.count')" sortable></el-table-column>
+                <el-table-column prop="quality" :label="t('views.listManagement.tableHeader.quality')" sortable></el-table-column>
+                <el-table-column prop="durability" :label="t('views.listManagement.tableHeader.durability')" sortable width="120px"></el-table-column>
+                <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" sortable how-overflow-tooltip></el-table-column>
+                <el-table-column prop="createdAt" :label="t('views.listManagement.tableHeader.createdAt')" sortable></el-table-column>
             </template>
         </MyTableEx>
     </div>

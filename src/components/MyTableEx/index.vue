@@ -246,8 +246,11 @@ const handleDelete = async (row) => {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
             await Promise.resolve(props.delete(row));
             await getData();
+            ElMessage.success(t('global.message.deleteSuccess'));
         }
-    } catch {}
+    } catch {
+        ElMessage.error(t('global.message.deleteFailed'));
+    }
 };
 
 const handleBatchDelete = async () => {
@@ -255,8 +258,11 @@ const handleBatchDelete = async () => {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
             await Promise.resolve(props.batchDelete(multipleSelection));
             await getData();
+            ElMessage.success(t('global.message.deleteSuccess'));
         }
-    } catch {}
+    } catch {
+        ElMessage.error(t('global.message.deleteFailed'));
+    }
 };
 
 const handlePaginationChange = async () => {

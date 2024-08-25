@@ -38,7 +38,8 @@
             "export": "Export",
             "batchOperation": "Batch Operation",
             "batchDelete": "Batch Delete",
-            "send": "Send"
+            "send": "Send",
+            "select": "Select"
         },
         "message": {
             "title": "Hint",
@@ -406,7 +407,7 @@
         },
         "chat": {
             "tableHeader": {
-                "createdAt": "Date Time",
+                "createdAt": "Created At",
                 "entityId": "Entity ID",
                 "senderName": "Sender Name",
                 "chatType": "Type",
@@ -477,7 +478,7 @@
                 "gameName": "Game Name",
                 "gameTime": "Game Time",
                 "formatGameTime": "Day {days}, Hour {hours}",
-                "createdAt": "Date Time",
+                "createdAt": "Created At",
                 "size": "File Size"
             }
         },
@@ -515,6 +516,21 @@
                 "playerName": "Player Name",
                 "points": "Points",
                 "lastSignInAt": "Last Sign-in"
+            }
+        },
+        "listManagement":{
+            "tableHeader": {
+                "id": "ID",
+                "icon": "Icon",
+                "itemName": "Item Name",
+                "count": "Count",
+                "quality": "Quality",
+                "durability": "Durability",
+                "description": "Description",
+                "createdAt": "Created At",
+                "command": "Command",
+                "inMainThread": "In Main Thread",
+                "item": "Item"
             }
         }
     }

@@ -1,24 +1,24 @@
 <template>
-    <MyDialogForm titleSuffix="物品" :formModel="formModel" :rules="rules" :request="request">
+    <MyDialogForm :titleSuffix="t('views.listManagement.tableHeader.item')" :formModel="formModel" :rules="rules" :request="request">
         <template #default="{ isAdd }">
-            <el-form-item label="物品名称" prop="itemName">
+            <el-form-item :label="t('views.listManagement.tableHeader.itemName')" prop="itemName">
                 <ItemBlockSelector v-model="itemBlockSelectorVisible" @on-select="handleSelect" />
                 <div style="display: flex; align-items: center">
                     <GameIcon :name="formModel.itemName" />
-                    <el-button @click="itemBlockSelectorVisible = true" style="margin-left: 8px">选择物品</el-button>
+                    <el-button @click="itemBlockSelectorVisible = true" style="margin-left: 8px">{{ t('global.button.select') + ' ' + t('views.listManagement.tableHeader.item') }}</el-button>
                 </div>
                 <el-input v-model="formModel.itemName"></el-input>
             </el-form-item>
-            <el-form-item label="数量" prop="count">
+            <el-form-item :label="t('views.listManagement.tableHeader.count')" prop="count">
                 <el-input-number v-model="formModel.count" :min="1" :max="1000000" />
             </el-form-item>
-            <el-form-item label="品质" prop="quality">
+            <el-form-item :label="t('views.listManagement.tableHeader.quality')" prop="quality">
                 <el-input-number v-model="formModel.quality" :min="0" :max="7" />
             </el-form-item>
-            <el-form-item label="耐久度%" prop="durability">
+            <el-form-item :label="t('views.listManagement.tableHeader.durability')" prop="durability">
                 <el-input-number v-model="formModel.durability" :min="0" :max="100" />
             </el-form-item>
-            <el-form-item label="说明" prop="description">
+            <el-form-item :label="t('views.listManagement.tableHeader.description')" prop="description">
                 <el-input v-model="formModel.description" />
             </el-form-item>
         </template>

@@ -1,7 +1,7 @@
 <template>
     <el-dialog title="从清单选择命令" draggable append-to-body align-center :close-on-click-modal="false" width="800px" @open="handleOpen">
         <div style="margin-bottom: 8px">
-            <el-input v-model="searchModel.keyword" placeholder="请输入内容" clearable autofocus style="width: 200px"></el-input>
+            <el-input v-model="searchModel.keyword" :placeholder="t('global.message.inputText')" clearable autofocus style="width: 200px"></el-input>
             <el-button :icon="Search" @click="getData" type="primary" style="margin-left: 8px">查 询</el-button>
             <el-button @click="handleBatchSelect" color="#40e0d0" :disabled="batchSelectDisabled">批量选择</el-button>
         </div>
@@ -11,7 +11,7 @@
             <el-table-column prop="command" label="命令" show-overflow-tooltip> </el-table-column>
             <el-table-column label="在主线程执行" width="140px" sortable>
                 <template #default="{ row }">
-                    {{ `${row.inMainThread ? '是' : '否'}` }}
+                    {{ `${row.inMainThread ? t('global.true') : t('global.false')}` }}
                 </template>
             </el-table-column>
             <el-table-column prop="description" label="说明"> </el-table-column>
