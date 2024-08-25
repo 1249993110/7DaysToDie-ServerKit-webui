@@ -16,23 +16,23 @@
             :add-or-edit-component="AddOrEditVipGift"
         >
             <template #toolbarPost>
-                <el-button @click="handleResetAll" type="danger">重置所有领取状态</el-button>
+                <el-button @click="handleResetAll" type="danger">{{t('views.vipGift.resetAll')}}</el-button>
             </template>
             <template #columns>
-                <el-table-column prop="id" label="玩家Id" sortable> </el-table-column>
-                <el-table-column prop="name" label="礼包名称" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column label="领取状态" width="140px" sortable>
+                <el-table-column prop="id" :label="t('views.vipGift.tableHeader.playerId')" sortable> </el-table-column>
+                <el-table-column prop="name" :label="t('views.vipGift.tableHeader.name')" sortable show-overflow-tooltip> </el-table-column>
+                <el-table-column :label="t('views.vipGift.tableHeader.claimState')" width="160px" sortable>
                     <template #default="{ row }">
-                        {{ `${row.claimState ? '已领取' : '未领取'}` }}
+                        {{ `${row.claimState ? t('global.true') : t('global.false')}` }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="totalClaimCount" label="总领取次数" width="120px" sortable> </el-table-column>
-                <el-table-column prop="lastClaimAt" label="上次领取日期" sortable> </el-table-column>
-                <el-table-column prop="description" label="说明" show-overflow-tooltip> </el-table-column>
-                <el-table-column label="绑定" :width="200" header-align="center" show-overflow-tooltip>
+                <el-table-column prop="totalClaimCount" :label="t('views.vipGift.tableHeader.totalClaimCount')" width="170px" sortable> </el-table-column>
+                <el-table-column prop="lastClaimAt" :label="t('views.vipGift.tableHeader.lastClaimAt')" sortable> </el-table-column>
+                <el-table-column prop="description" :label="t('views.vipGift.tableHeader.description')" show-overflow-tooltip> </el-table-column>
+                <el-table-column :label="t('views.vipGift.tableHeader.bind')" :width="220" header-align="center" show-overflow-tooltip>
                     <template #default="{ row }">
-                        <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">绑定物品</el-button>
-                        <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">绑定命令</el-button>
+                        <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.vipGift.tableHeader.bindItem') }}</el-button>
+                        <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.vipGift.tableHeader.bindCmd') }}</el-button>
                     </template>
                 </el-table-column>
             </template>
@@ -52,7 +52,7 @@ export default {
 import * as api from '~/api/vip-gift.js';
 import AddOrEditVipGift from './AddOrEditVipGift.vue';
 
-
+const { t } = useI18n();
 const tableData = ref([]);
 
 const getData = async () => {
@@ -70,7 +70,7 @@ const batchDeleteRequest = async (rows) => {
 
 const handleResetAll = async () => {
     try {
-        if (await myconfirm('确定重置所有玩家的领取状态为未领取吗?')) {
+        if (await myconfirm(t('views.vipGift.resetAllConfirm'))) {
             await api.deleteVipGiftByIds({ resetAll: true });
             await getData();
         }

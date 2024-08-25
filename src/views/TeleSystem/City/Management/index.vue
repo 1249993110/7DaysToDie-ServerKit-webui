@@ -17,16 +17,16 @@
             :addOrEditComponentProps="addOrEditComponentProps"
         >
             <template #columns>
-                <el-table-column prop="id" label="城镇Id" width="120px" sortable> </el-table-column>
-                <el-table-column prop="cityName" label="城镇名称" sortable> </el-table-column>
-                <el-table-column prop="pointsRequired" label="传送需要积分" sortable> </el-table-column>
-                <el-table-column prop="position" label="三维坐标"> </el-table-column>
-                <el-table-column label="视角方向">
+                <el-table-column prop="id" :label="t('views.teleSystem.city.tableHeader.id')" width="120px" sortable> </el-table-column>
+                <el-table-column prop="cityName" :label="t('views.teleSystem.city.tableHeader.cityName')" sortable> </el-table-column>
+                <el-table-column prop="pointsRequired" :label="t('views.teleSystem.city.tableHeader.pointsRequired')" sortable> </el-table-column>
+                <el-table-column prop="position" :label="t('views.teleSystem.city.tableHeader.position')"> </el-table-column>
+                <el-table-column :label="t('views.teleSystem.city.tableHeader.viewDirection')">
                     <template #default="{ row }">
                         {{ getViewDirectionLabel(row.viewDirection) }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="createdAt" label="创建日期" sortable> </el-table-column>
+                <el-table-column prop="createdAt" :label="t('views.teleSystem.city.tableHeader.createdAt')" sortable> </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -43,6 +43,7 @@ import * as api from '~/api/city-location.js';
 import AddOrEditCityLocation from './AddOrEditCityLocation.vue';
 import { getViewDirectionLabel } from '../viewDirectionOptions.js';
 
+const {t} = useI18n();
 const tableData = ref([]);
 
 const addOrEditComponentProps = ref({});

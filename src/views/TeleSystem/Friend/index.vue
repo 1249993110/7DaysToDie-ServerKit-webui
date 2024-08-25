@@ -4,35 +4,35 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="200px" status-icon>
-                        <el-form-item label="是否启用">
+                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
+                        <el-form-item :label="t('views.teleSystem.friend.isEnabled')">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="可用变量">
+                        <el-form-item :label="t('views.teleSystem.friend.variables')">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="传送命令" prop="teleCmdPrefix">
+                        <el-form-item :label="t('views.teleSystem.friend.teleCmdPrefix')" prop="teleCmdPrefix">
                             <el-input v-model="formModel.teleCmdPrefix" />
                         </el-form-item>
-                        <el-form-item label="传送间隔 (单位: 秒)" prop="teleInterval">
+                        <el-form-item :label="t('views.teleSystem.friend.teleInterval')" prop="teleInterval">
                             <el-input-number v-model="formModel.teleInterval" />
                         </el-form-item>
-                        <el-form-item label="需要积分" prop="pointsRequired">
+                        <el-form-item :label="t('views.teleSystem.friend.pointsRequired')" prop="pointsRequired">
                             <el-input-number v-model="formModel.pointsRequired" />
                         </el-form-item>
-                        <el-form-item label="传送成功提示" prop="teleSuccessTip">
+                        <el-form-item :label="t('views.teleSystem.friend.teleSuccessTip')" prop="teleSuccessTip">
                             <el-input v-model="formModel.teleSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="积分不足提示" prop="pointsNotEnoughTip">
+                        <el-form-item :label="t('views.teleSystem.friend.pointsNotEnoughTip')" prop="pointsNotEnoughTip">
                             <el-input v-model="formModel.pointsNotEnoughTip" />
                         </el-form-item>
-                        <el-form-item label="正在冷却提示" prop="coolingTip">
+                        <el-form-item :label="t('views.teleSystem.friend.coolingTip')" prop="coolingTip">
                             <el-input v-model="formModel.coolingTip" />
                         </el-form-item>
-                        <el-form-item label="传送目标没有找到提示" prop="targetNotFoundTip">
+                        <el-form-item :label="t('views.teleSystem.friend.targetNotFoundTip')" prop="targetNotFoundTip">
                             <el-input v-model="formModel.targetNotFoundTip" />
                         </el-form-item>
-                        <el-form-item label="传送目标不是您的好友提示" prop="targetNotFriendTip">
+                        <el-form-item :label="t('views.teleSystem.friend.targetNotFriendTip')" prop="targetNotFriendTip">
                             <el-input v-model="formModel.targetNotFriendTip" />
                         </el-form-item>
                         <el-form-item>
@@ -41,7 +41,7 @@
                         </el-form-item>
                     </el-form>
                     <div>
-                        <el-text style="color: green">提示: 游戏内输入tele+横杠(-)+好友名称 进行传送</el-text>
+                        <el-text style="color: green">{{ t('views.teleSystem.friend.useTips') }}</el-text>
                     </div>
                 </div>
             </el-scrollbar>
@@ -58,6 +58,7 @@ export default {
 <script setup>
 import * as api from '~/api/settings.js';
 
+const { t } = useI18n();
 const formModel = reactive({});
 const formRef = ref();
 const localeStore = useLocaleStore();

@@ -4,23 +4,23 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" ref="formRef" label-width="150px" status-icon>
-                        <el-form-item label="是否启用" prop="isEnabled">
+                    <el-form :model="formModel" ref="formRef" label-width="250px" status-icon>
+                        <el-form-item :label="t('views.vipGift.isEnabled')" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="可用变量">
+                        <el-form-item :label="t('views.vipGift.variables')">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="领取命令" prop="claimCmd" required>
+                        <el-form-item :label="t('views.vipGift.claimCmd')" prop="claimCmd" required>
                             <el-input v-model="formModel.claimCmd" />
                         </el-form-item>
-                        <el-form-item label="已经领取过提示" prop="hasClaimedTip" required>
+                        <el-form-item :label="t('views.vipGift.hasClaimedTip')" prop="hasClaimedTip" required>
                             <el-input v-model="formModel.hasClaimedTip" />
                         </el-form-item>
-                        <el-form-item label="非VIP提示" prop="nonVipTip" required>
+                        <el-form-item :label="t('views.vipGift.nonVipTip')" prop="nonVipTip" required>
                             <el-input v-model="formModel.nonVipTip" />
                         </el-form-item>
-                        <el-form-item label="领取成功提示" prop="claimSuccessTip" required>
+                        <el-form-item :label="t('views.vipGift.claimSuccessTip')" prop="claimSuccessTip" required>
                             <el-input v-model="formModel.claimSuccessTip" />
                         </el-form-item>
                         <el-form-item>
@@ -43,6 +43,7 @@ export default {
 <script setup>
 import * as api from '~/api/settings.js';
 
+const { t } = useI18n();
 const formModel = reactive({});
 
 const formRef = ref();

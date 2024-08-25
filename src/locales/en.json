@@ -272,20 +272,20 @@
             "localizationName": "Localization Name",
             "maxStackAllowed": "Max Stack Allowed"
         },
-        "associatedItems":{
+        "associatedItems": {
             "title": "Bind Items",
             "add": "Add",
             "addFromList": "Add From List"
         },
-        "associatedCommands":{
+        "associatedCommands": {
             "title": "Bind Commands",
             "add": "Add",
             "addFromList": "Add From List"
         },
-        "itemListSelector":{
+        "itemListSelector": {
             "title": "Select From List"
         },
-        "commandListSelector":{
+        "commandListSelector": {
             "title": "Select From List"
         }
     },
@@ -578,6 +578,75 @@
                 "bind": "Bind",
                 "bindItem": "Bind Item",
                 "bindCmd": "Bind Command"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "Enable VIP Gift",
+            "variables": "Variables",
+            "claimCmd": "Claim Command",
+            "hasClaimedTip": "Has Claimed Tip",
+            "nonVipTip": "Non VIP Tip",
+            "claimSuccessTip": "Claim Success Tip",
+            "gift": "Gift",
+            "resetAll": "Reset All Claim State",
+            "resetAllConfirm": "Are you sure you want to reset all player claim state?",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "name": "Name",
+                "claimState": "Already Claimed",
+                "totalClaimCount": "Total Claim Count",
+                "lastClaimAt": "Last Claim At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "Enable Friend Teleport",
+                "variables": "Variables",
+                "teleCmdPrefix": "Teleport Command Prefix",
+                "teleInterval": "Teleport Interval (seconds)",
+                "pointsRequired": "Points Required",
+                "teleSuccessTip": "Teleport Success Tip",
+                "pointsNotEnoughTip": "Points Not Enough Tip",
+                "coolingTip": "Cooling Tip",
+                "targetNotFoundTip": "Target Not Found Tip",
+                "targetNotFriendTip": "Target Not Friend Tip",
+                "useTips": "Tips: Enter tele-{'{'}player name{'}'} in the game to teleport"
+            },
+            "city": {
+                "isEnabled": "Enable City Teleport",
+                "variables": "Variables",
+                "queryListCmd": "Query List Command",
+                "teleCmdPrefix": "Teleport Command Prefix",
+                "teleInterval": "Teleport Interval (seconds)",
+                "locationItemTip": "Location Item Tip",
+                "teleSuccessTip": "Teleport Success Tip",
+                "pointsNotEnoughTip": "Points Not Enough Tip",
+                "coolingTip": "Cooling Tip",
+                "noLocation": "No Location",
+                "useTips": "Tips: Enter hc-{'{'}id{'}'} in the game to teleport",
+                "titleSuffix": "City",
+                "viewDirection": {
+                    "north": "North",
+                    "northeast": "Northeast",
+                    "east": "East",
+                    "southeast": "Southeast",
+                    "south": "South",
+                    "southwest": "Southwest",
+                    "west": "West",
+                    "northwest": "Northwest"
+                },
+                "tableHeader": {
+                    "id": "ID",
+                    "cityName": "City Name",
+                    "pointsRequired": "Points Required",
+                    "position": "Position",
+                    "viewDirection": "View Direction",
+                    "createdAt": "Created At"
+                }
             }
         }
     }

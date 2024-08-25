@@ -272,20 +272,20 @@
             "localizationName": "本地化名称",
             "maxStackAllowed": "最大堆叠数量"
         },
-        "associatedItems":{
+        "associatedItems": {
             "title": "绑定物品",
             "add": "添加物品",
             "addFromList": "从清单添加物品"
         },
-        "associatedCommands":{
+        "associatedCommands": {
             "title": "绑定命令",
             "add": "添加命令",
             "addFromList": "从清单添加命令"
         },
-        "itemListSelector":{
+        "itemListSelector": {
             "title": "从清单选择物品"
         },
-        "commandListSelector":{
+        "commandListSelector": {
             "title": "从清单选择命令"
         }
     },
@@ -578,6 +578,75 @@
                 "bind": "绑定",
                 "bindItem": "绑定物品",
                 "bindCmd": "绑定命令"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "是否启用",
+            "variables": "可用变量",
+            "claimCmd": "领取命令",
+            "hasClaimedTip": "已经领取过提示",
+            "nonVipTip": "非VIP提示",
+            "claimSuccessTip": "领取成功提示",
+            "gift": "礼包",
+            "resetAll": "重置所有领取状态",
+            "resetAllConfirm": "您确定要重置所有玩家的领取状态吗?",
+            "tableHeader": {
+                "playerId": "玩家 ID",
+                "name": "礼包名称",
+                "claimState": "是否已领取",
+                "totalClaimCount": "总领取次数",
+                "lastClaimAt": "上次领取时间",
+                "description": "说明",
+                "bind": "绑定",
+                "bindItem": "绑定物品",
+                "bindCmd": "绑定命令"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "是否启用",
+                "variables": "可用变量",
+                "teleCmdPrefix": "传送命令前缀",
+                "teleInterval": "传送间隔 (单位: 秒)",
+                "pointsRequired": "需要积分",
+                "teleSuccessTip": "传送成功提示",
+                "pointsNotEnoughTip": "积分不足提示",
+                "coolingTip": "正在冷却提示",
+                "targetNotFoundTip": "传送目标没有找到提示",
+                "targetNotFriendTip": "传送目标不是您的好友提示",
+                "useTips": "提示: 游戏内输入tele+横杠(-)+好友名称 进行传送"
+            },
+            "city": {
+                "isEnabled": "是否启用",
+                "variables": "可用变量",
+                "queryListCmd": "查询列表命令",
+                "teleCmdPrefix": "传送命令前缀",
+                "teleInterval": "传送间隔, 单位: 秒",
+                "locationItemTip": "查询列表提示",
+                "teleSuccessTip": "传送成功提示",
+                "pointsNotEnoughTip": "积分不足提示",
+                "coolingTip": "正在冷却提示",
+                "noLocation": "无城市信息提示",
+                "useTips": "提示: 游戏内输入hc+横杠(-)+城镇ID 进行传送",
+                "titleSuffix": "城镇",
+                "viewDirection": {
+                    "north": "北",
+                    "northeast": "东北",
+                    "east": "东",
+                    "southeast": "东南",
+                    "south": "南",
+                    "southwest": "西南",
+                    "west": "西",
+                    "northwest": "西北"
+                },
+                "tableHeader": {
+                    "id": "ID",
+                    "cityName": "城镇名称",
+                    "pointsRequired": "传送需要积分",
+                    "position": "坐标",
+                    "viewDirection": "视角方向",
+                    "createdAt": "创建时间"
+                }
             }
         }
     }

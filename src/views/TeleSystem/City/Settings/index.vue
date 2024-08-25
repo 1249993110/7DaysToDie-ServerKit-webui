@@ -4,35 +4,35 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="150px" status-icon>
-                        <el-form-item label="是否启用" prop="isEnabled">
+                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
+                        <el-form-item :label="t('views.teleSystem.city.isEnabled')" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="可用变量">
+                        <el-form-item :label="t('views.teleSystem.city.variables')">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="查询列表命令" prop="queryListCmd">
+                        <el-form-item :label="t('views.teleSystem.city.queryListCmd')" prop="queryListCmd">
                             <el-input v-model="formModel.queryListCmd" />
                         </el-form-item>
-                        <el-form-item label="传送命令前缀" prop="teleCmdPrefix">
+                        <el-form-item :label="t('views.teleSystem.city.teleCmdPrefix')" prop="teleCmdPrefix">
                             <el-input v-model="formModel.teleCmdPrefix" />
                         </el-form-item>
-                        <el-form-item label="传送间隔, 单位: 秒" prop="teleInterval">
+                        <el-form-item :label="t('views.teleSystem.city.teleInterval')" prop="teleInterval">
                             <el-input-number v-model="formModel.teleInterval" />
                         </el-form-item>
-                        <el-form-item label="查询列表提示" prop="locationItemTip">
+                        <el-form-item :label="t('views.teleSystem.city.locationItemTip')" prop="locationItemTip">
                             <el-input v-model="formModel.locationItemTip" />
                         </el-form-item>
-                        <el-form-item label="传送成功提示" prop="teleSuccessTip">
+                        <el-form-item :label="t('views.teleSystem.city.teleSuccessTip')" prop="teleSuccessTip">
                             <el-input v-model="formModel.teleSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="积分不足提示" prop="pointsNotEnoughTip">
+                        <el-form-item :label="t('views.teleSystem.city.pointsNotEnoughTip')" prop="pointsNotEnoughTip">
                             <el-input v-model="formModel.pointsNotEnoughTip" />
                         </el-form-item>
-                        <el-form-item label="正在冷却提示" prop="coolingTip">
+                        <el-form-item :label="t('views.teleSystem.city.coolingTip')" prop="coolingTip">
                             <el-input v-model="formModel.coolingTip" />
                         </el-form-item>
-                        <el-form-item label="无城市信息提示" prop="noLocation">
+                        <el-form-item :label="t('views.teleSystem.city.noLocation')"prop="noLocation">
                             <el-input v-model="formModel.noLocation" />
                         </el-form-item>
                         <el-form-item>
@@ -41,7 +41,7 @@
                         </el-form-item>
                     </el-form>
                     <div>
-                        <el-text style="color: green">提示: 游戏内输入hc+横杠(-)+城镇名称 进行传送</el-text>
+                        <el-text style="color: green">{{ t('views.teleSystem.city.useTips') }}</el-text>
                     </div>
                 </div>
             </el-scrollbar>
@@ -58,6 +58,7 @@ export default {
 <script setup>
 import * as api from '~/api/settings.js';
 
+const {t} = useI18n();
 const formModel = reactive({});
 const formRef = ref();
 const localeStore = useLocaleStore();

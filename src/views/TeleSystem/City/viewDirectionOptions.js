@@ -1,45 +1,16 @@
-export const viewDirectionOptions = [
-    {
-        value: 'n',
-        label: '北',
-    },
-    {
-        value: 'ne',
-        label: '东北',
-    },
-    {
-        value: 'e',
-        label: '东',
-    },
-    {
-        value: 'se',
-        label: '东南',
-    },
-    {
-        value: 's',
-        label: '南',
-    },
-    {
-        value: 'sw',
-        label: '西南',
-    },
-    {
-        value: 'w',
-        label: '西',
-    },
-    {
-        value: 'nw',
-        label: '西北',
-    },
-    {
-        value: 'north',
-        label: '北',
-    },
-    {
-        value: 'northeast',
-        label: '东北',
-    },
-];
+import { i18n } from '~/plugins/i18n';
+
+const directions = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest'];
+
+const viewDirectionOptions = [];
+for (let i = 0; i < directions.length; i++) {
+    viewDirectionOptions.push({
+        value: directions[i],
+        label: i18n.global.t('views.teleSystem.city.viewDirection.' + directions[i]),
+    });
+}
+
+export { viewDirectionOptions };
 
 export const getViewDirectionLabel = (val) => {
     for (let i = 0; i < viewDirectionOptions.length; i++) {

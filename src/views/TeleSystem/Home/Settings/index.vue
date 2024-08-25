@@ -4,7 +4,7 @@
         <el-card shadow="always" class="card">
             <el-scrollbar always>
                 <div style="margin-right: 16px">
-                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="150px" status-icon>
+                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
                         <el-form-item label="是否启用" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
