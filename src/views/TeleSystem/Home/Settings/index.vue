@@ -5,67 +5,67 @@
             <el-scrollbar always>
                 <div style="margin-right: 16px">
                     <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
-                        <el-form-item label="是否启用" prop="isEnabled">
+                        <el-form-item :label="t('views.teleSystem.home.isEnabled')" prop="isEnabled">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item>
-                        <el-form-item label="可用变量">
+                        <el-form-item :label="t('views.teleSystem.home.variables')">
                             <el-tag v-for="(item, index) in variables" :key="index" class="tag">{{ '{' + item + '}' }}</el-tag>
                         </el-form-item>
-                        <el-form-item label="查询Home列表命令" prop="queryListCmd">
+                        <el-form-item :label="t('views.teleSystem.home.queryListCmd')" prop="queryListCmd">
                             <el-input v-model="formModel.queryListCmd" />
                         </el-form-item>
-                        <el-form-item label="传送间隔, 单位: 秒" prop="teleInterval">
+                        <el-form-item :label="t('views.teleSystem.home.teleInterval')" prop="teleInterval">
                             <el-input-number v-model="formModel.teleInterval" />
                         </el-form-item>
-                        <el-form-item label="设置Home命令前缀" prop="setHomeCmdPrefix">
+                        <el-form-item :label="t('views.teleSystem.home.setHomeCmdPrefix')" prop="setHomeCmdPrefix">
                             <el-input v-model="formModel.setHomeCmdPrefix" />
                         </el-form-item>
-                        <el-form-item label="最大可设置数量" prop="setCountLimit">
+                        <el-form-item :label="t('views.teleSystem.home.setCountLimit')" prop="setCountLimit">
                             <el-input-number v-model="formModel.setCountLimit" />
                         </el-form-item>
-                        <el-form-item label="设置需要积分" prop="pointsRequiredForSet">
+                        <el-form-item :label="t('views.teleSystem.home.pointsRequiredForSet')" prop="pointsRequiredForSet">
                             <el-input-number v-model="formModel.pointsRequiredForSet" />
                         </el-form-item>
-                        <el-form-item label="删除Home命令前缀" prop="deleteHomeCmdPrefix">
+                        <el-form-item :label="t('views.teleSystem.home.deleteHomeCmdPrefix')" prop="deleteHomeCmdPrefix">
                             <el-input v-model="formModel.deleteHomeCmdPrefix" />
                         </el-form-item>
-                        <el-form-item label="传送Home命令前缀" prop="teleHomeCmdPrefix">
+                        <el-form-item :label="t('views.teleSystem.home.teleHomeCmdPrefix')" prop="teleHomeCmdPrefix">
                             <el-input v-model="formModel.teleHomeCmdPrefix" />
                         </el-form-item>
-                        <el-form-item label="传送需要积分" prop="pointsRequiredForTele">
+                        <el-form-item :label="t('views.teleSystem.home.pointsRequiredForTele')" prop="pointsRequiredForTele">
                             <el-input-number v-model="formModel.pointsRequiredForTele" />
                         </el-form-item>
-                        <el-form-item label="没有Home提示" prop="noHomeTip">
+                        <el-form-item :label="t('views.teleSystem.home.noHomeTip')" prop="noHomeTip">
                             <el-input v-model="formModel.noHomeTip" />
                         </el-form-item>
-                        <el-form-item label="查询列表提示" prop="locationItemTip">
+                        <el-form-item :label="t('views.teleSystem.home.locationItemTip')" prop="locationItemTip">
                             <el-input v-model="formModel.locationItemTip" />
                         </el-form-item>
-                        <el-form-item label="超出限制提示" prop="overLimitTip">
+                        <el-form-item :label="t('views.teleSystem.home.overLimitTip')" prop="overLimitTip">
                             <el-input v-model="formModel.overLimitTip" />
                         </el-form-item>
-                        <el-form-item label="设置积分不足提示" prop="setPointsNotEnoughTip">
+                        <el-form-item :label="t('views.teleSystem.home.setPointsNotEnoughTip')" prop="setPointsNotEnoughTip">
                             <el-input v-model="formModel.setPointsNotEnoughTip" />
                         </el-form-item>
-                        <el-form-item label="设置成功提示" prop="setSuccessTip">
+                        <el-form-item :label="t('views.teleSystem.home.setSuccessTip')" prop="setSuccessTip">
                             <el-input v-model="formModel.setSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="覆盖成功提示" prop="overwriteSuccessTip">
+                        <el-form-item :label="t('views.teleSystem.home.overwriteSuccessTip')" prop="overwriteSuccessTip">
                             <el-input v-model="formModel.overwriteSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="删除成功提示" prop="deleteSuccessTip">
+                        <el-form-item :label="t('views.teleSystem.home.deleteSuccessTip')" prop="deleteSuccessTip">
                             <el-input v-model="formModel.deleteSuccessTip" />
                         </el-form-item>
-                        <el-form-item label="Home没有找到提示" prop="homeNotFoundTip">
+                        <el-form-item :label="t('views.teleSystem.home.homeNotFoundTip')" prop="homeNotFoundTip">
                             <el-input v-model="formModel.homeNotFoundTip" />
                         </el-form-item>
-                        <el-form-item label="正在冷却提示" prop="coolingTip">
+                        <el-form-item :label="t('views.teleSystem.home.coolingTip')" prop="coolingTip">
                             <el-input v-model="formModel.coolingTip" />
                         </el-form-item>
-                        <el-form-item label="传送积分不足提示" prop="telePointsNotEnoughTip">
+                        <el-form-item :label="t('views.teleSystem.home.telePointsNotEnoughTip')" prop="telePointsNotEnoughTip">
                             <el-input v-model="formModel.telePointsNotEnoughTip" />
                         </el-form-item>
-                        <el-form-item label="传送成功提示" prop="teleSuccessTip">
+                        <el-form-item :label="t('views.teleSystem.home.teleSuccessTip')" prop="teleSuccessTip">
                             <el-input v-model="formModel.teleSuccessTip" />
                         </el-form-item>
                         <el-form-item>
@@ -74,7 +74,7 @@
                         </el-form-item>
                     </el-form>
                     <div>
-                        <el-text style="color: green">提示: 游戏内输入setHome+横杠(-)+home名称 保存当前坐标, 输入delHome+横杠(-)+home名称 删除home</el-text>
+                        <el-text style="color: green">{{ t('views.teleSystem.home.useTips') }}</el-text>
                     </div>
                 </div>
             </el-scrollbar>
@@ -91,7 +91,7 @@ export default {
 <script setup>
 import * as api from '~/api/settings.js';
 
-
+const { t } = useI18n();
 const formModel = reactive({});
 const formRef = ref();
 const localeStore = useLocaleStore();

@@ -647,6 +647,40 @@
                     "viewDirection": "View Direction",
                     "createdAt": "Created At"
                 }
+            },
+            "home": {
+                "isEnabled": "Enable Home Teleport",
+                "variables": "Variables",
+                "queryListCmd": "Query List Command",
+                "teleInterval": "Teleport Interval (seconds)",
+                "setHomeCmdPrefix": "Set Home Command Prefix",
+                "setCountLimit": "Set Count Limit",
+                "pointsRequiredForSet": "Points Required For Set",
+                "deleteHomeCmdPrefix": "Delete Home Command Prefix",
+                "teleHomeCmdPrefix": "Teleport Home Command Prefix",
+                "pointsRequiredForTele": "Points Required For Teleport",
+                "noHomeTip": "No Home Tip",
+                "locationItemTip": "Location Item Tip",
+                "overLimitTip": "Over Limit Tip",
+                "setPointsNotEnoughTip": "Set Points Not Enough Tip",
+                "setSuccessTip": "Set Success Tip",
+                "overwriteSuccessTip": "Overwrite Success Tip",
+                "deleteSuccessTip": "Delete Success Tip",
+                "homeNotFoundTip": "Home Not Found Tip",
+                "coolingTip": "Cooling Tip",
+                "telePointsNotEnoughTip": "Teleport Points Not Enough Tip",
+                "teleSuccessTip": "Teleport Success Tip",
+                "useTips": "Tips: Enter home-{'{'}name{'}'} in the game to teleport, enter sethome-{'{'}name{'}'} to set home, enter delhome-{'{'}name{'}'} to delete home",
+                "titleSuffix": "Home",
+                "deleteAll": "Delete All",
+                "deleteAllConfirm": "Are you sure you want to delete all records?",
+                "tableHeader": {
+                    "playerName": "Player Name",
+                    "playerId": "Player ID",
+                    "createdAt": "Created At",
+                    "homeName": "Home Name",
+                    "position": "Position"
+                }
             }
         }
     }

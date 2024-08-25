@@ -20,14 +20,14 @@
                 </el-form-item>
             </template>
             <template #toolbarPost>
-                <el-button @click="handleDeleteAll" type="danger">删除所有记录</el-button>
+                <el-button @click="handleDeleteAll" type="danger">{{ t('views.teleSystem.home.deleteAll') }}</el-button>
             </template>
             <template #columns>
-                <el-table-column prop="playerName" label="玩家名称" sortable> </el-table-column>
-                <el-table-column prop="playerId" label="玩家Id" sortable> </el-table-column>
-                <el-table-column prop="createdAt" label="创建日期" sortable> </el-table-column>
-                <el-table-column prop="homeName" label="Home名称" sortable> </el-table-column>
-                <el-table-column prop="position" label="三维坐标" sortable> </el-table-column>
+                <el-table-column prop="playerName" :label="t('views.teleSystem.home.tableHeader.playerName')" sortable> </el-table-column>
+                <el-table-column prop="playerId" :label="t('views.teleSystem.home.tableHeader.playerId')" sortable> </el-table-column>
+                <el-table-column prop="createdAt" :label="t('views.teleSystem.home.tableHeader.createdAt')" sortable> </el-table-column>
+                <el-table-column prop="homeName" :label="t('views.teleSystem.home.tableHeader.homeName')" sortable> </el-table-column>
+                <el-table-column prop="position" :label="t('views.teleSystem.home.tableHeader.position')" sortable> </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -43,7 +43,7 @@ export default {
 import * as api from '~/api/home-location.js';
 import AddOrEditHomeLocation from './AddOrEditHomeLocation.vue';
 
-
+const { t } = useI18n();
 const searchFormModel = reactive({
     keyword: '',
 });
@@ -67,7 +67,7 @@ const batchDeleteRequest = async (rows) => {
 
 const handleDeleteAll = async () => {
     try {
-        if (await myconfirm('确定删除所有记录吗?')) {
+        if (await myconfirm(t('views.teleSystem.home.deleteAllConfirm'))) {
             await api.deleteHomeLocationByIds({ deleteAll: true });
             await getData();
         }

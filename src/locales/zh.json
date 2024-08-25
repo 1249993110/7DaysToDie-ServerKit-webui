@@ -643,9 +643,43 @@
                     "id": "ID",
                     "cityName": "城镇名称",
                     "pointsRequired": "传送需要积分",
-                    "position": "坐标",
+                    "position": "坐标 (X, Y, Z)",
                     "viewDirection": "视角方向",
                     "createdAt": "创建时间"
+                }
+            },
+            "home": {
+                "isEnabled": "是否启用",
+                "variables": "可用变量",
+                "queryListCmd": "查询Home列表命令",
+                "teleInterval": "传送间隔, 单位: 秒",
+                "setHomeCmdPrefix": "设置Home命令前缀",
+                "setCountLimit": "最大可设置数量",
+                "pointsRequiredForSet": "设置需要积分",
+                "deleteHomeCmdPrefix": "删除Home命令前缀",
+                "teleHomeCmdPrefix": "传送Home命令前缀",
+                "pointsRequiredForTele": "传送需要积分",
+                "noHomeTip": "没有Home提示",
+                "locationItemTip": "查询列表提示",
+                "overLimitTip": "超出限制提示",
+                "setPointsNotEnoughTip": "设置积分不足提示",
+                "setSuccessTip": "设置成功提示",
+                "overwriteSuccessTip": "覆盖成功提示",
+                "deleteSuccessTip": "删除成功提示",
+                "homeNotFoundTip": "Home没有找到提示",
+                "coolingTip": "正在冷却提示",
+                "telePointsNotEnoughTip": "传送积分不足提示",
+                "teleSuccessTip": "传送成功提示",
+                "useTips": "提示: 游戏内输入setHome+横杠(-)+home名称 保存当前坐标, 输入delHome+横杠(-)+home名称 删除home",
+                "titleSuffix": "Home",
+                "deleteAll": "删除全部",
+                "deleteAllConfirm": "您确定要删除所有的记录吗?",
+                "tableHeader": {
+                    "playerName": "玩家名称",
+                    "playerId": "玩家 ID",
+                    "createdAt": "创建时间",
+                    "homeName": "Home名称",
+                    "position": "坐标 (X, Y, Z)"
                 }
             }
         }
