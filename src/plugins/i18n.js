@@ -23,7 +23,8 @@ const preferredLocale = () => {
         case 'zh-tw':
             return 'tw';
         default:
-            console.error('Unsupported language:', lang);
+            console.error('Unsupported language: ' + lang + ', fallback to en.');
+            return 'en';
     }
 };
 
