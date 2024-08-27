@@ -5,27 +5,32 @@ import { createI18n } from 'vue-i18n';
  */
 import messages from '@intlify/unplugin-vue-i18n/messages';
 
+const supportedLanguages = ['en', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pl', 'pt', 'ru', 'tr', 'zh'];
+
+function getLanguageCode(lang) {
+    const langCode = lang.substring(0, 2);
+    if (supportedLanguages.includes(langCode)) {
+        return langCode;
+    } else {
+        console.error('Unsupported language: ' + lang + ', fallback to en.');
+        return 'en';
+    }
+}
+
 const preferredLocale = () => {
     let lang = localStorage.getItem('lang');
     if(lang){
         return lang;
     }
 
-    lang = navigator.language;
-    switch (lang.toLowerCase()) {
-        case 'en':
-        case 'en-us':
-        case 'en-gb':
-            return 'en';
-        case 'zh':
-        case 'zh-cn':
-            return 'zh';
-        case 'zh-tw':
-            return 'tw';
-        default:
-            console.error('Unsupported language: ' + lang + ', fallback to en.');
-            return 'en';
+    lang = navigator.language.toLowerCase();
+
+    if(lang === 'zh-tw' || lang === 'zh-hk'){
+        return 'tw';
     }
+
+    console.log('lang', lang);
+    return getLanguageCode(lang);
 };
 
 export const i18n = createI18n({

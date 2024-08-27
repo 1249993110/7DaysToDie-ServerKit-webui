@@ -1,5 +1,698 @@
 {
     "global": {
-        "language": "繁體中文"
+        "language": "簡體中文",
+        "appTitle": "天依七日殺服主工具",
+        "formRule": {
+            "required": "必填項目",
+            "selectAtLeastOne": "至少選擇一項"
+        },
+        "true": "是",
+        "false": "否",
+        "unknown": "未知",
+        "loading": "載入中...",
+        "empty": "空",
+        "days": "天",
+        "hours": "小時",
+        "minutes": "分鐘",
+        "oneMinute": "1 分鐘",
+        "seconds": "秒",
+        "lessThan": "小於",
+        "moreThan": "大於",
+        "equal": "等於",
+        "keyworld": "關鍵字",
+        "button": {
+            "add": "新增",
+            "delete": "刪除",
+            "deleteAll": "刪除全部",
+            "edit": "編輯",
+            "save": "儲存",
+            "enable": "啟用",
+            "disable": "停用",
+            "search": "搜尋",
+            "reset": "重置",
+            "back": "返回",
+            "close": "關閉",
+            "confirm": "確認",
+            "cancel": "取消",
+            "import": "導入",
+            "export": "導出",
+            "batchOperation": "批次操作",
+            "batchDelete": "批次刪除",
+            "send": "發送",
+            "select": "選擇",
+            "batchSelect": "批次選擇"
+        },
+        "message": {
+            "title": "提示",
+            "success": "成功",
+            "failed": "失敗",
+            "inputNewValue": "請輸入新的值",
+            "inputError": "輸入錯誤",
+            "deleteConfirm": "您確定要刪除嗎?",
+            "deleteSuccess": "刪除成功",
+            "deleteFailed": "刪除失敗",
+            "resetConfirm": "您確定要重設嗎?",
+            "resetSuccess": "重置成功",
+            "saveSuccess": "保存成功",
+            "saveFailed": "儲存失敗",
+            "enableSuccess": "啟用成功",
+            "enableFailed": "啟用失敗",
+            "disableSuccess": "停用成功",
+            "disableFailed": "停用失敗",
+            "importSuccess": "導入成功",
+            "importFailed": "導入失敗",
+            "exportSuccess": "匯出成功",
+            "exportFailed": "匯出失敗",
+            "copySuccess": "複製成功",
+            "example": "例如",
+            "cmdSentSuccess": "指令發送成功",
+            "cmdExecResult": "指令執行結果",
+            "inputText": "請輸入文字",
+            "inputNumber": "請輸入數字",
+            "datePickerPlaceholder": "選擇日期",
+            "noMoreData": "沒有更多資料了"
+        }
+    },
+    "copy": "複製",
+    "player": "玩家",
+    "playerOperation": {
+        "showInventory": "檢視背包",
+        "showSkills": "檢視技能",
+        "showDetails": "查看詳情",
+        "sendMessage": "傳送訊息",
+        "giveItem": "給予物品",
+        "changePoints": "給予積分",
+        "spawnEntity": "生成實體",
+        "teleport": "傳送玩家",
+        "kick": "踢出玩家",
+        "ban": "封鎖玩家",
+        "setSuperAdmin": "設定為超級管理者",
+        "cancelAdmin": "取消管理者",
+        "removeLandClaims": "移除領地石",
+        "resetPlayer": "刪除玩家存檔",
+        "copyPlayerId": "複製玩家 ID",
+        "copyPlayerName": "複製玩家名稱",
+        "copyPlayerPos": "複製玩家位置"
+    },
+    "menus": {
+        "dashboard": "儀表板",
+        "serverSettings": "伺服器設定",
+        "map": "GPS地圖",
+        "playerList": {
+            "": "玩家列表",
+            "onlinePlayers": "線上玩家",
+            "historyPlayers": "歷史玩家"
+        },
+        "chat": {
+            "": "遊戲聊天",
+            "liveChat": "即時聊天",
+            "chatRecord": "聊天記錄"
+        },
+        "permission": "權限管理",
+        "blacklist": "黑名單",
+        "whitelist": "白名單",
+        "itemBlocks": "物品方塊",
+        "console": "控制台",
+        "globalSettings": "功能配置",
+        "autobackup": {
+            "": "自動備份",
+            "settings": "備份配置",
+            "management": "備份管理"
+        },
+        "gameNotice": "遊戲公告",
+        "pointsSystem": {
+            "": "積分系統",
+            "settings": "簽到配置",
+            "management": "積分管理"
+        },
+        "listManagement": {
+            "": "清單管理",
+            "itemList": "物品清單",
+            "commandList": "命令清單"
+        },
+        "gameStore": {
+            "": "遊戲商城",
+            "settings": "商店配置",
+            "management": "商品管理"
+        },
+        "vipGift": {
+            "": "VIP禮包",
+            "settings": "禮包配置",
+            "management": "禮包管理"
+        },
+        "teleSystem": {
+            "": "傳送系統",
+            "friend": "好友傳送",
+            "city": {
+                "": "城鎮傳送",
+                "settings": "城鎮配置",
+                "management": "城鎮管理"
+            },
+            "home": {
+                "": "私人傳送",
+                "settings": "Home配置",
+                "management": "Home管理"
+            }
+        },
+        "swagger": "介面文件"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "刷新",
+            "fullscreen": "全螢幕",
+            "exitFullscreen": "退出全螢幕",
+            "fullscreenNotSupport": "您的瀏覽器不支援全螢幕"
+        },
+        "serverToolBar": {
+            "restart": "重啟伺服器",
+            "restartConfirm": "您確定要重新啟動伺服器嗎? 這可能需要幾分鐘的時間",
+            "restartSuccess": "伺服器重新啟動成功",
+            "shutdown": "關閉伺服器",
+            "shutdownConfirm": "您確定要關閉伺服器嗎? 伺服器將無法存取",
+            "shutdownSuccess": "伺服器關閉成功"
+        },
+        "inventoryDialog": {
+            "title": "玩家: {playerName} ({playerId}) 的背包",
+            "grid": "網格",
+            "list": "列表",
+            "bag": "背包",
+            "belt": "皮帶",
+            "equipment": "裝備",
+            "tableHeader": {
+                "icon": "圖示",
+                "itemName": "物品名稱",
+                "localizationName": "本地化名稱",
+                "mod": "模組"
+            }
+        },
+        "playerSkillsDialog": {
+            "title": "玩家: {playerName} ({playerId}) 的技能",
+            "fullscreen": "全螢幕",
+            "exitFullscreen": "退出全螢幕",
+            "fold": "折疊",
+            "expand": "展開",
+            "tableHeader": {
+                "name": "技能名稱",
+                "icon": "圖示",
+                "localizationName": "本地化名稱",
+                "level": "等級",
+                "maxLevel": "最大等級",
+                "costForNextLevel": "升級消耗",
+                "type": "型別",
+                "localizationDesc": "說明"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "玩家: {playerName} ({playerId}) 的詳情",
+            "active": "啟動",
+            "inactive": "未啟動",
+            "tableHeader": {
+                "playerName": "玩家暱稱",
+                "entityId": "實體 ID",
+                "playerId": "玩家 ID",
+                "platformId": "平台 ID",
+                "isAdmin": "是否為管理者",
+                "isOnline": "是否在線",
+                "ip": "IP位址",
+                "ping": "延遲",
+                "currentPosition": "目前位置",
+                "lastSpawnPosition": "上次重生位置",
+                "gameStage": "遊戲階段",
+                "lastLogin": "上次線上",
+                "playerKills": "殺死玩家",
+                "zombieKills": "殺死殭屍",
+                "deaths": "死亡次數",
+                "score": "分數",
+                "health": "生命值",
+                "stamina": "體力值",
+                "coreTemp": "溫度",
+                "food": "食物",
+                "water": "水",
+                "pointsCount": "積分",
+                "level": "等級",
+                "expToNextLevel": "至下一級的經驗",
+                "skillPoints": "技能點數",
+                "landProtectionActive": "領地石保護狀態",
+                "distanceWalked": "步行距離",
+                "totalItemsCrafted": "製作項目總數",
+                "totalTimePlayed": "總遊戲時間",
+                "currentLife": "當前存活時長",
+                "longestLife": "最長存活時長",
+                "alreadyCraftedList": "已製作物品清單",
+                "unlockedRecipeList": "已解鎖配方清單",
+                "rentedVMPosition": "租賃座標",
+                "rentalEndDay": "租約結束日期"
+            }
+        },
+        "gameIconEx": {
+            "itemName": "名稱",
+            "localizationName": "本地化名稱",
+            "count": "數量",
+            "maxStackAllowed": "最大堆疊數量",
+            "quality": "品質",
+            "useTimes": "使用時長",
+            "maxUseTimes": "最大使用時長",
+            "isMod": "模組",
+            "copyItemName": "複製物品名稱",
+            "copyLocalizationName": "複製本地化名稱",
+            "removeItem": "移除選取物品",
+            "removeItemConfirm": "您確定要從玩家的背包和腰帶中移除所有的 {name} 嗎?"
+        },
+        "myTableEx": {
+            "tableHeader": {
+                "index": "序號",
+                "operate": "操作"
+            }
+        },
+        "itemBlockSelector": {
+            "title": "選擇物品或方塊",
+            "id": "ID",
+            "icon": "圖示",
+            "itemName": "名稱",
+            "localizationName": "本地化名稱",
+            "maxStackAllowed": "最大堆疊數量"
+        },
+        "associatedItems": {
+            "title": "綁定物品",
+            "add": "新增物品",
+            "addFromList": "從清單新增物品"
+        },
+        "associatedCommands": {
+            "title": "綁定指令",
+            "add": "新增指令",
+            "addFromList": "從清單新增指令"
+        },
+        "itemListSelector": {
+            "title": "從清單選擇物品"
+        },
+        "commandListSelector": {
+            "title": "從清單選擇指令"
+        },
+        "batchGiveItem": {
+            "itemName": "物品名稱",
+            "count": "數量",
+            "quality": "品質",
+            "durability": "耐久度%"
+        },
+        "batchAddBlacklist": {
+            "ban": "封鎖玩家",
+            "banUntil": "解封時間",
+            "reason": "封鎖原因"
+        }
+    },
+    "layout": {
+        "footer": {
+            "codeRepository": "代碼倉庫",
+            "copyright": "Copyright © 2024 洛水天依Team 版權所有",
+            "group": {
+                "title": "加入Discord伺服器",
+                "url": "https://discord.gg/zdnmngsBK4"
+            }
+        }
+    },
+    "store": {},
+    "utils": {
+        "playerHelper": {
+            "title": "負數將扣除積分",
+            "inputCount": "請輸入積分數",
+            "deductPoints": "您被扣除了 {0} 積分",
+            "addPoints": "您成功儲值了 {0} 積分",
+            "inputEntityIdOrName": "請輸入實體ID或名稱",
+            "teleportTarget": "請輸入傳送目標, 可為玩家名稱、玩家ID或三維座標",
+            "kickPlayerReason": "請輸入踢出玩家的原因",
+            "kickPlayerConfirm": "此動作將踢出選定玩家, 是否繼續?",
+            "setSuperAdminConfirm": "此動作將把選定玩家設定為超級管理員, 是否繼續?",
+            "cancelAdminConfirm": "此動作將取消選取玩家的管理者權限, 是否繼續?",
+            "removeLandClaimConfirm": "此動作將移除所有選定玩家的領地石, 是否繼續?",
+            "resetPlayerConfirm": "此動作將刪除選取玩家的檔案, 是否繼續?"
+        }
+    },
+    "views": {
+        "dashboard": {
+            "header": {
+                "overview": "概覽",
+                "status": "狀態",
+                "fps": "FPS",
+                "entities": "實體數",
+                "rss": "RSS",
+                "chunks": "區塊數",
+                "cgo": "CGO",
+                "items": "Items",
+                "systemInfo": "系統資訊"
+            },
+            "overview": {
+                "serverName": "伺服器名稱",
+                "region": "伺服器區域",
+                "language": "伺服器語言",
+                "serverIp": "伺服器 IP",
+                "uptime": "服務端正常運作時長",
+                "gameTime": "遊戲時間",
+                "serverPort": "伺服器連接埠",
+                "gameName": "遊戲名稱",
+                "gameMode": "遊戲模式",
+                "serverVersion": "服務端版本",
+                "gameWorld": "遊戲世界",
+                "gameDifficulty": "遊戲難度",
+                "gameDifficultys": {
+                    "0": "拾荒者",
+                    "1": "冒險家",
+                    "2": "流浪者",
+                    "3": "戰士",
+                    "4": "遺族",
+                    "5": "瘋狂"
+                },
+                "formatDuration": "{days} 天 {hours} 小時 {minutes} 分 {seconds} 秒",
+                "formatGameTime": "{days} 天 {hours} 小時 {minutes} 分鐘"
+            },
+            "status": {
+                "players": "玩家數",
+                "zombies": "殭屍數",
+                "animals": "動物數",
+                "heap": "堆疊記憶體"
+            },
+            "systemInfo": {
+                "deviceName": "主機名稱",
+                "deviceModel": "裝置平台",
+                "deviceType": "裝置類型",
+                "deviceUniqueIdentifier": "裝置唯一識別",
+                "operatingSystem": "系統版本",
+                "processorType": "處理器類型",
+                "processorCount": "處理器個數",
+                "systemMemorySize": "記憶體大小"
+            }
+        },
+        "map": {
+            "region": "區域檔案",
+            "landClaim": "領地石",
+            "zombie": "殭屍",
+            "animal": "動物",
+            "historyPlayer": "玩家 (歷史)",
+            "onlinePlayer": "玩家 (線上)",
+            "mousePos": "滑鼠位置",
+            "lastClick": "上次點擊",
+            "renderExploredArea": "渲染已探索區域",
+            "renderExploredAreaConfirm": "確認渲染已探索區域嗎? 這可能需要幾分鐘的時間, 您可以前往控制台查看進度",
+            "renderFullMap": "渲染全圖",
+            "renderFullMapConfirm": "確認渲染全圖嗎? 這可能需要幾分鐘的時間, 您可以前往控制台查看進度, 此操作一般僅在開服後執行一次",
+            "refreshMap": "刷新地圖",
+            "autoReload": "自動刷新",
+            "seconds": "秒",
+            "landOwner": "領地擁有者",
+            "removeLandClaim": "移除領地石",
+            "removeLandClaimConfirm": "您確定要移除領地石嗎?",
+            "dragendTelePlayerConfirm": "確定將玩家: {playerName} 傳送到目標地點 {pos} 嗎?"
+        },
+        "login": {
+            "username": "使用者名稱",
+            "password": "密碼",
+            "login": "登 錄",
+            "logout": "退出登入",
+            "logoutConfirm": "您確定要登出登入嗎?",
+            "loginFailed": "登入失敗",
+            "loginSuccess": "登入成功",
+            "logoutSuccess": "退出成功"
+        },
+        "playerList": {
+            "autoRefresh": "自動刷新",
+            "searchPlaceholder": "請輸入玩家ID或名稱",
+            "tableHeader": {
+                "index": "序號",
+                "playerName": "玩家名稱",
+                "admin": "超級管理員",
+                "level": "等級",
+                "gameStage": "遊戲階段",
+                "zombieKills": "擊殺敵人",
+                "playerKills": "殺死玩家",
+                "deaths": "死亡次數",
+                "skillPoints": "技能點數",
+                "pointsCount": "積分",
+                "currentPosition": "目前位置",
+                "ip": "IP 位址",
+                "ipAttribution": "IP 歸屬地",
+                "ping": "延遲",
+                "entityId": "實體 ID",
+                "playerId": "玩家 ID",
+                "platformId": "平台 ID",
+                "operate": "操作",
+                "isOnline": "是否在線",
+                "lastLogin": "上次線上",
+                "totalTimePlayed": "總遊戲時間",
+                "currentLife": "當前存活時長",
+                "longestLife": "最長存活時長"
+            }
+        },
+        "chat": {
+            "tableHeader": {
+                "createdAt": "創建時間",
+                "entityId": "實體Id",
+                "senderName": "發送者名稱",
+                "chatType": "類型",
+                "message": "訊息內容",
+                "playerId": "玩家 ID"
+            },
+            "chatType": {
+                "global": "公屏",
+                "friends": "好友",
+                "party": "陣營",
+                "whisper": "私聊",
+                "unknown": "未知"
+            }
+        },
+        "blacklist": {
+            "tableHeader": {
+                "playerId": "玩家 ID",
+                "displayName": "名稱",
+                "bannedUntil": "解封日期",
+                "reason": "封鎖原因"
+            }
+        },
+        "itemBlocks": {
+            "item": "物品",
+            "block": "方塊",
+            "devItem": "開發(對使用者隱藏的型別)",
+            "itemName": "名稱",
+            "localizationName": "本地化名稱",
+            "iconName": "圖示名稱",
+            "iconColor": "圖標顏色",
+            "maxStackAllowed": "最大堆疊數量"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "聊天指令前綴",
+            "chatCommandSeparator": "聊天指令分隔符號",
+            "handleChatMessageError": "聊天訊息錯誤提示",
+            "teleZombieCheck": "傳送前是否檢查玩家周圍是否有殭屍",
+            "teleDisableTip": "禁止傳送提示",
+            "killZombieTrigger": {
+                "isEnabled": "是否啟用殭屍擊殺獎勵",
+                "executeCommands": "執行指令\n(每行一條)"
+            },
+            "deathTrigger": {
+                "isEnabled": "是否啟用死亡懲罰",
+                "executeCommands": "執行指令\n(每行一條)"
+            },
+            "autoRestart": {
+                "isEnabled": "是否啟用自動重新啟動",
+                "time": "自動重新啟動時間",
+                "messages": "自動重新啟動提示\n(每行一條)"
+            },
+            "blockFamilySharingAccount": "是否禁止家庭共享帳號",
+            "removeSleepingBagFromPOI": "是否啟用POI保護",
+            "isEnablePlayerInitialSpawnPoint": "是否啟用玩家初始出生點",
+            "playerInitialPosition": "玩家初始座標 (X, Y, Z)"
+        },
+        "autoBackup": {
+            "isEnabled": "是否啟用",
+            "interval": "自動備份間隔 (秒)",
+            "retainedFileCountLimit": "保留檔案數量限制",
+            "resetIntervalAfterManualBackup": "是否在手動備份後重置計時",
+            "skipIfThereAreNoPlayers": "沒有玩家時是否跳過備份",
+            "autoBackupOnServerStartup": "是否在伺服器啟動時自動備份",
+            "archiveFolder": "備份資料夾",
+            "tableHeader": {
+                "serverVersion": "服務端版本",
+                "gameWorld": "遊戲世界",
+                "gameName": "遊戲名稱",
+                "gameTime": "遊戲時間",
+                "formatGameTime": "{days} 天 {hours} 小時",
+                "createdAt": "創建時間",
+                "size": "檔案大小"
+            }
+        },
+        "gameNotice": {
+            "isEnabled": "是否啟用",
+            "variables": "可用變數",
+            "welcomeNotice": "歡迎通知",
+            "rotatingNotices": "輪播通知\n(每行一條)",
+            "rotatingInterval": "輪播間隔 (秒)",
+            "bloodMoonNotice1": "血月通知1",
+            "bloodMoonNotice2": "血月通知2",
+            "bloodMoonNotice3": "血月通知3"
+        },
+        "pointsSystem": {
+            "isEnabled": "是否啟用",
+            "variables": "可用變數",
+            "signInCmd": "簽到指令",
+            "signInInterval": "簽到間隔 (秒)",
+            "signInRewardPoints": "簽到獎勵點數",
+            "signInSuccessTip": "簽到成功提示",
+            "signInFailureTip": "簽到失敗提示",
+            "queryPointsCmd": "查詢積分指令",
+            "queryPointsTip": "查詢積分提示",
+            "isCurrencyExchangeEnabled": "是否啟用遊戲內貨幣兌換積分",
+            "currencyToPointsExchangeRate": "遊戲內貨幣與積分兌換比例",
+            "currencyExchangeCmd": "兌換指令",
+            "exchangeSuccessTip": "兌換成功提示",
+            "exchangeFailureTip": "兌換失敗提示",
+            "resetPoints": "重置所有玩家積分",
+            "resetSignIn": "重置所有簽到時間",
+            "resetPointsConfirm": "您確定要重置所有玩家的積分嗎?",
+            "resetSignInConfirm": "您確定要重置所有玩家的簽到時間嗎?",
+            "tableHeader": {
+                "playerId": "玩家 ID",
+                "playerName": "玩家名稱",
+                "points": "積分",
+                "lastSignInAt": "上次簽到時間"
+            }
+        },
+        "listManagement": {
+            "operate": "操作",
+            "tableHeader": {
+                "id": "ID",
+                "icon": "圖示",
+                "itemName": "物品名稱",
+                "count": "數量",
+                "quality": "品質",
+                "durability": "耐久度%",
+                "description": "說明",
+                "createdAt": "創建時間",
+                "command": "命令",
+                "inMainThread": "在主執行緒執行",
+                "item": "物品"
+            }
+        },
+        "gameStore": {
+            "isEnabled": "是否啟用",
+            "variables": "可用變數",
+            "queryListCmd": "查詢商品清單指令",
+            "buyCmdPrefix": "購買指令前綴",
+            "goodsItemTip": "商品項目提示",
+            "buySuccessTip": "購買成功提示",
+            "pointsNotEnoughTip": "積分不足提示",
+            "noGoods": "沒有商品提示",
+            "useTips": "提示: 遊戲內輸入buy+橫槓(-)+商品Id 購買",
+            "goods": "商品",
+            "tableHeader": {
+                "id": "ID",
+                "name": "商品名稱",
+                "price": "售價",
+                "description": "說明",
+                "bind": "綁定",
+                "bindItem": "綁定物品",
+                "bindCmd": "綁定指令"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "是否啟用",
+            "variables": "可用變數",
+            "claimCmd": "領取命令",
+            "hasClaimedTip": "已經領過提示",
+            "nonVipTip": "非VIP提示",
+            "claimSuccessTip": "領取成功提示",
+            "gift": "禮包",
+            "resetAll": "重置所有領取狀態",
+            "resetAllConfirm": "您確定要重置所有玩家的領取狀態嗎?",
+            "tableHeader": {
+                "playerId": "玩家 ID",
+                "name": "禮包名稱",
+                "claimState": "是否已領取",
+                "totalClaimCount": "總領取次數",
+                "lastClaimAt": "上次領取時間",
+                "description": "說明",
+                "bind": "綁定",
+                "bindItem": "綁定物品",
+                "bindCmd": "綁定指令"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "是否啟用",
+                "variables": "可用變數",
+                "teleCmdPrefix": "傳送指令前綴",
+                "teleInterval": "傳送間隔 (單位: 秒)",
+                "pointsRequired": "需要積分",
+                "teleSuccessTip": "傳送成功提示",
+                "pointsNotEnoughTip": "積分不足提示",
+                "coolingTip": "正在冷卻提示",
+                "targetNotFoundTip": "傳送目標沒有找到提示",
+                "targetNotFriendTip": "傳送目標不是您的好友提示",
+                "useTips": "提示: 遊戲內輸入tele+橫槓(-)+好友名稱 進行傳送"
+            },
+            "city": {
+                "isEnabled": "是否啟用",
+                "variables": "可用變數",
+                "queryListCmd": "查詢清單指令",
+                "teleCmdPrefix": "傳送指令前綴",
+                "teleInterval": "傳送間隔, 單位: 秒",
+                "locationItemTip": "查詢清單提示",
+                "teleSuccessTip": "傳送成功提示",
+                "pointsNotEnoughTip": "積分不足提示",
+                "coolingTip": "正在冷卻提示",
+                "noLocation": "無城市資訊提示",
+                "useTips": "提示: 遊戲內輸入hc+橫槓(-)+城鎮ID 進行傳送",
+                "titleSuffix": "城鎮",
+                "viewDirection": {
+                    "north": "北",
+                    "northeast": "東北",
+                    "east": "東",
+                    "southeast": "東南",
+                    "south": "南",
+                    "southwest": "西南",
+                    "west": "西",
+                    "northwest": "西北"
+                },
+                "tableHeader": {
+                    "id": "ID",
+                    "cityName": "城鎮名稱",
+                    "pointsRequired": "傳送需要積分",
+                    "position": "座標 (X, Y, Z)",
+                    "viewDirection": "視角方向",
+                    "createdAt": "創建時間"
+                }
+            },
+            "home": {
+                "isEnabled": "是否啟用",
+                "variables": "可用變數",
+                "queryListCmd": "查詢Home清單指令",
+                "teleInterval": "傳送間隔, 單位: 秒",
+                "setHomeCmdPrefix": "設定Home指令前綴",
+                "setCountLimit": "最大可設定數量",
+                "pointsRequiredForSet": "設定需要積分",
+                "deleteHomeCmdPrefix": "刪除Home指令前綴",
+                "teleHomeCmdPrefix": "傳送Home指令前綴",
+                "pointsRequiredForTele": "傳送需要積分",
+                "noHomeTip": "沒有Home提示",
+                "locationItemTip": "查詢清單提示",
+                "overLimitTip": "超出限制提示",
+                "setPointsNotEnoughTip": "設定積分不足提示",
+                "setSuccessTip": "設定成功提示",
+                "overwriteSuccessTip": "覆蓋成功提示",
+                "deleteSuccessTip": "刪除成功提示",
+                "homeNotFoundTip": "Home沒有找到提示",
+                "coolingTip": "正在冷卻提示",
+                "telePointsNotEnoughTip": "傳送積分不足提示",
+                "teleSuccessTip": "傳送成功提示",
+                "useTips": "提示: 遊戲內輸入setHome+橫槓(-)+home名稱 儲存目前座標, 輸入delHome+橫槓(-)+home名稱 刪除home",
+                "titleSuffix": "Home",
+                "deleteAll": "刪除全部",
+                "deleteAllConfirm": "您確定要刪除所有的記錄嗎?",
+                "tableHeader": {
+                    "playerName": "玩家名稱",
+                    "playerId": "玩家 ID",
+                    "createdAt": "創建時間",
+                    "homeName": "Home名稱",
+                    "position": "座標 (X, Y, Z)"
+                }
+            }
+        }
     }
 }
