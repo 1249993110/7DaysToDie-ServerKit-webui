@@ -486,7 +486,7 @@
                 "isEnabled": "是否启用僵尸击杀奖励",
                 "executeCommands": "执行指令\n(每行一条)"
             },
-            "deathTriggerd": {
+            "deathTrigger": {
                 "isEnabled": "是否启用死亡惩罚",
                 "executeCommands": "执行指令\n(每行一条)"
             },
