@@ -1,0 +1,698 @@
+{
+    "global": {
+        "language": "Русский",
+        "appTitle": "TianYi 7 Days to Die Server Tools",
+        "formRule": {
+            "required": "Обязательно",
+            "selectAtLeastOne": "Выберите хотя бы один"
+        },
+        "true": "Да",
+        "false": "Нет",
+        "unknown": "Неизвестно",
+        "loading": "Загрузка...",
+        "empty": "Пусто",
+        "days": "Дни",
+        "hours": "Часы",
+        "minutes": "Минуты",
+        "oneMinute": "Одна минута",
+        "seconds": "Секунды",
+        "lessThan": "Меньше",
+        "moreThan": "Больше",
+        "equal": "Равно",
+        "keyworld": "Keyworld",
+        "button": {
+            "add": "Добавить",
+            "delete": "Удалить",
+            "deleteAll": "Удалить все",
+            "edit": "Изменить",
+            "save": "Сохранить",
+            "enable": "Включить",
+            "disable": "Отключить",
+            "search": "Поиск",
+            "reset": "Сброс",
+            "back": "Назад",
+            "close": "Закрыть",
+            "confirm": "Подтвердить",
+            "cancel": "Отмена",
+            "import": "Импорт",
+            "export": "Экспорт",
+            "batchOperation": "Пакетная операция",
+            "batchDelete": "Пакетное удаление",
+            "send": "Отправить",
+            "select": "Выбрать",
+            "batchSelect": "Пакетный выбор"
+        },
+        "message": {
+            "title": "Подсказка",
+            "success": "Успех",
+            "failed": "Неудача",
+            "inputNewValue": "Введите новое значение",
+            "inputError": "Ошибка ввода",
+            "deleteConfirm": "Вы уверены, что хотите удалить?",
+            "deleteSuccess": "Успешное удаление",
+            "deleteFailed": "Не удалось удалить",
+            "resetConfirm": "Вы уверены, что хотите сбросить?",
+            "resetSuccess": "Успешное восстановление",
+            "saveSuccess": "Успешное сохранение",
+            "saveFailed": "Не удалось сохранить",
+            "enableSuccess": "Успешное включение",
+            "enableFailed": "Не удалось включение",
+            "disableSuccess": "Успешное отключение",
+            "disableFailed": "Не удалось отключение",
+            "importSuccess": "Успешное импортирование",
+            "importFailed": "Не удалось импортирование",
+            "exportSuccess": "Успешное экспортирование",
+            "exportFailed": "Не удалось экспортирование",
+            "copySuccess": "Успешное копирование",
+            "example": "Example",
+            "cmdSentSuccess": "Команда отправлена ​​успешно",
+            "cmdExecResult": "Результат выполнения команды",
+            "inputText": "Введите текст",
+            "inputNumber": "Введите число",
+            "datePickerPlaceholder": "Выберите дату",
+            "noMoreData": "Больше данных нет"
+        }
+    },
+    "copy": "Копировать",
+    "player": "Игрок",
+    "playerOperation": {
+        "showInventory": "Показать инвентарь",
+        "showSkills": "Показать навыки",
+        "showDetails": "Показать подробности",
+        "sendMessage": "Отправить сообщение",
+        "giveItem": "Дать предмет",
+        "changePoints": "Изменить очки",
+        "spawnEntity": "Создать сущность",
+        "teleport": "Телепортировать игрока",
+        "kick": "Выгнать игрока",
+        "ban": "Забанить игрока",
+        "setSuperAdmin": "Назначить суперадминистратора",
+        "cancelAdmin": "Отменить администрирование",
+        "removeLandClaims": "Удалить земельные претензии",
+        "resetPlayer": "Сбросить игрока",
+        "copyPlayerId": "Копировать ID игрока",
+        "copyPlayerName": "Копировать имя игрока",
+        "copyPlayerPos": "Копировать позицию игрока"
+    },
+    "menus": {
+        "dashboard": "Панель управления",
+        "serverSettings": "Настройки сервера",
+        "map": "Карта GPS",
+        "playerList": {
+            "": "Список игроков",
+            "onlinePlayers": "Игроки онлайн",
+            "historyPlayers": "История игроков"
+        },
+        "chat": {
+            "": "Игровой чат",
+            "liveChat": "Живой чат",
+            "chatRecord": "Запись чата"
+        },
+        "permission": "Разрешение",
+        "blacklist": "Черный список",
+        "whitelist": "Белый список",
+        "itemBlocks": "Блокировка предметов",
+        "console": "Консоль",
+        "globalSettings": "Глобальные настройки",
+        "autobackup": {
+            "": "Автоматическое резервное копирование",
+            "settings": "Настройки резервного копирования",
+            "management": "Управление резервным копированием"
+        },
+        "gameNotice": "Уведомление об игре",
+        "pointsSystem": {
+            "": "Система очков",
+            "settings": "Настройки входа",
+            "management": "Управление очками"
+        },
+        "listManagement": {
+            "": "Управление списками",
+            "itemList": "Список предметов",
+            "commandList": "Список команд"
+        },
+        "gameStore": {
+            "": "Магазин игр",
+            "settings": "Настройки магазина",
+            "management": "Управление продуктом"
+        },
+        "vipGift": {
+            "": "VIP Gift",
+            "settings": "Настройки подарка",
+            "management": "Управление подарком"
+        },
+        "teleSystem": {
+            "": "Телепорт",
+            "friend": "Friend Tele",
+            "city": {
+                "": "City Tele",
+                "settings": "Настройки города",
+                "management": "Управление городом"
+            },
+            "home": {
+                "": "Home Tele",
+                "settings": "Настройки дома",
+                "management": "Управление домом"
+            }
+        },
+        "swagger": "Документ API"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "Обновить",
+            "fullscreen": "Полный экран",
+            "exitFullscreen": "Выйти из полноэкранного режима",
+            "fullscreenNotSupport": "Ваш браузер не поддерживает полноэкранный режим"
+        },
+        "serverToolBar": {
+            "restart": "Перезапустить сервер",
+            "restartConfirm": "Вы уверены, что хотите перезапустить сервер? Это может занять несколько минут",
+            "restartSuccess": "Перезапуск сервера выполнен успешно",
+            "shutdown": "Завершить работу сервера",
+            "shutdownConfirm": "Вы уверены, что хотите выключить сервер? Сервер будет недоступен",
+            "shutdownSuccess": "Сервер успешно выключен"
+        },
+        "inventoryDialog": {
+            "title": "Игрок: {0} Инвентарь",
+            "grid": "Сетка",
+            "list": "Список",
+            "bag": "Сумка",
+            "belt": "Ремень",
+            "equipment": "Снаряжение",
+            "tableHeader": {
+                "icon": "Значок",
+                "itemName": "Название предмета",
+                "localizationName": "Название локализации",
+                "mod": "Мод"
+            }
+        },
+        "playerSkillsDialog": {
+            "title": "Игрок: {0} Очков навыков",
+            "fullscreen": "Полный экран",
+            "exitFullscreen": "Выйти из полноэкранного режима",
+            "fold": "Свернуть",
+            "expand": "Развернуть",
+            "tableHeader": {
+                "name": "Name",
+                "icon": "Иконка",
+                "localizationName": "Имя локализации",
+                "level": "Уровень",
+                "maxLevel": "Макс. уровень",
+                "costForNextLevel": "Стоимость следующего уровня",
+                "type": "Тип",
+                "localizationDesc": "Описание"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "Игрок: {0} Подробности",
+            "active": "Активный",
+            "inactive": "Неактивный",
+            "tableHeader": {
+                "playerName": "Имя игрока",
+                "entityId": "ID сущности",
+                "playerId": "ID игрока",
+                "platformId": "ID платформы",
+                "isAdmin": "Администратор",
+                "isOnline": "В сети",
+                "ip": "IP-адрес",
+                "ping": "Пинг",
+                "currentPosition": "Текущая позиция",
+                "lastSpawnPosition": "Последняя Позиция возрождения",
+                "gameStage": "Игровая стадия",
+                "lastLogin": "Последний вход",
+                "playerKills": "Убийства игроков",
+                "zombieKills": "Убийства зомби",
+                "deaths": "Смерти",
+                "score": "Очки",
+                "health": "Здоровье",
+                "stamina": "Выносливость",
+                "coreTemp": "Температура",
+                "food": "Еда",
+                "water": "Вода",
+                "pointsCount": "Очки ТяньИ",
+                "level": "Уровень",
+                "expToNextLevel": "Опыт до следующего уровня",
+                "skillPoints": "Очки навыков",
+                "landProtectionActive": "Статус защиты Landstone",
+                "distanceWalked": "Пройденное расстояние",
+                "totalItemsCrafted": "Всего создано предметов",
+                "totalTimePlayed": "Всего времени Played",
+                "currentLife": "Текущее время выживания",
+                "longestLife": "Самое долгое время выживания",
+                "alreadyCraftedList": "Список уже созданных",
+                "unlockedRecipeList": "Список разблокированных рецептов",
+                "rentedVMPosition": "Позиции аренды",
+                "rentalEndDay": "Дата окончания аренды"
+            }
+        },
+        "gameIconEx": {
+            "itemName": "Название",
+            "localizationName": "Название локализации",
+            "count": "Количество",
+            "maxStackAllowed": "Максимально допустимый стек",
+            "quality": "Качество",
+            "useTimes": "Количество использований",
+            "maxUseTimes": "Максимальное количество использований",
+            "isMod": "Является ли модификатором",
+            "copyItemName": "Копировать название предмета",
+            "copyLocalizationName": "Копировать название локализации",
+            "removeItem": "Удалить выбранный предмет",
+            "removeItemConfirm": "Вы уверены, что хотите удалить все {0} из сумки и пояса игрока?"
+        },
+        "myTableEx": {
+            "tableHeader": {
+                "index": "Индекс",
+                "operate": "Управление"
+            }
+        },
+        "itemBlockSelector": {
+            "title": "Выбрать предмет или блок",
+            "id": "ИД",
+            "icon": "Значок",
+            "itemName": "Имя предмета",
+            "localizationName": "Имя локализации",
+            "maxStackAllowed": "Максимально допустимый стек"
+        },
+        "associatedItems": {
+            "title": "Связать элементы",
+            "add": "Добавить",
+            "addFromList": "Добавить из списка"
+        },
+        "associatedCommands": {
+            "title": "Связать команды",
+            "add": "Добавить",
+            "addFromList": "Добавить из списка"
+        },
+        "itemListSelector": {
+            "title": "Выбрать из списка"
+        },
+        "commandListSelector": {
+            "title": "Выбрать из списка"
+        },
+        "batchGiveItem": {
+            "itemName": "Имя элемента",
+            "count": "Количество",
+            "quality": "Качество",
+            "durability": "Долговечность"
+        },
+        "batchAddBlacklist": {
+            "ban": "Запретить",
+            "banUntil": "Запретить до",
+            "reason": "Причина"
+        }
+    },
+    "layout": {
+        "footer": {
+            "codeRepository": "Репозиторий кода",
+            "copyright": "© 2024 Все права защищены командой TianYi",
+            "group": {
+                "title": "Присоединяйтесь к серверу Discord",
+                "url": "https://discord.gg/zdnmngsBK4"
+            }
+        }
+    },
+    "store": {},
+    "utils": {
+        "playerHelper": {
+            "title": "Отрицательные числа будут вычитать баллы",
+            "inputCount": "Введите количество баллов",
+            "deductPoints": "С вас было вычтено {0} баллов",
+            "addPoints": "Вы успешно пополнили {0} баллов",
+            "inputEntityIdOrName": "Введите идентификатор или имя сущности",
+            "teleportTarget": "Введите цель телепортации",
+            "kickPlayerReason": "Введите причина исключения игрока",
+            "kickPlayerConfirm": "Вы уверены, что хотите исключить выбранного игрока или игроков",
+            "setSuperAdminConfirm": "Вы уверены, что хотите назначить выбранного игрока или игроков суперадминистратором",
+            "cancelAdminConfirm": "Вы уверены, что хотите отменить выбранного игрока или игроков как администратора",
+            "removeLandClaimConfirm": "Вы уверены, что хотите удалить земельный участок выбранного игрока или игроков",
+            "resetPlayerConfirm": "Вы уверены, что хотите сбросить выбранного игрока или игроков"
+        }
+    },
+    "views": {
+        "dashboard": {
+            "header": {
+                "overview": "Обзор",
+                "status": "Статус",
+                "fps": "FPS",
+                "entities": "Сущности",
+                "rss": "RSS",
+                "chunks": "Фрагменты",
+                "cgo": "CGO",
+                "items": "Предметы",
+                "systemInfo": "Системная информация"
+            },
+            "overview": {
+                "serverName": "Имя сервера",
+                "region": "Регион сервера",
+                "language": "Язык сервера",
+                "serverIp": "IP-адрес сервера",
+                "uptime": "Время работы сервера",
+                "gameTime": "Время игры",
+                "serverPort": "Порт сервера",
+                "gameName": "Имя игры",
+                "gameMode": "Режим игры",
+                "serverVersion": "Версия сервера",
+                "gameWorld": "Игровой мир",
+                "gameDifficulty": "Сложность игры",
+                "gameDifficultys": {
+                    "0": "Мусорщик",
+                    "1": "Искатель приключений",
+                    "2": "Кочевник",
+                    "3": "Воин",
+                    "4": "Выживальщик",
+                    "5": "Безумный"
+                },
+                "formatDuration": "{0}:{1}:{2}:{3}",
+                "formatGameTime": "День {0}, {1}:{2}"
+            },
+            "status": {
+                "players": "Игроки",
+                "zombies": "Зомби",
+                "animals": "Животные",
+                "heap": "Куча"
+            },
+            "systemInfo": {
+                "deviceName": "Имя устройства",
+                "deviceModel": "Модель устройства",
+                "deviceType": "Тип устройства",
+                "deviceUniqueIdentifier": "Уникальный идентификатор устройства",
+                "operatingSystem": "Операционная система",
+                "processorType": "Тип процессора",
+                "processorCount": "Количество процессоров",
+                "systemMemorySize": "Объем системной памяти"
+            }
+        },
+        "map": {
+            "region": "Файл региона",
+            "landClaim": "Земельный иск",
+            "zombie": "Зомби",
+            "animal": "Животное",
+            "historyPlayer": "Игрок (История)",
+            "onlinePlayer": "Игрок (В сети)",
+            "mousePos": "Положение мыши",
+            "lastClick": "Последний щелчок",
+            "renderExploredArea": "Отрисовка исследованной области",
+            "renderExploredAreaConfirm": "Вы уверены, что хотите отрисовать исследованную область? Это может занять несколько минут, вы можете проверить ход выполнения в консоли",
+            "renderFullMap": "Отрисовка полной карты",
+            "renderFullMapConfirm": "Вы уверены, что хотите отрисовать полную карту? Это может занять несколько минут, вы можете проверить ход выполнения в консоли, эта операция обычно выполняется только один раз после запуска сервера",
+            "refreshMap": "Обновить карту",
+            "autoReload": "Перезагружать каждые",
+            "seconds": "секунд",
+            "landOwner": "Владелец земли",
+            "removeLandClaim": "Удалить",
+            "removeLandClaimConfirm": "Вы уверены, что хотите удалить притязание на землю?",
+            "dragendTelePlayerConfirm": "Вы уверены, что хотите телепортировать игрока: {0} в целевое местоположение {1}?"
+        },
+        "login": {
+            "username": "Имя пользователя",
+            "password": "Пароль",
+            "login": "Войти",
+            "logout": "Выйти",
+            "logoutConfirm": "Вы уверены, что хотите выйти?",
+            "loginFailed": "Не удалось войти",
+            "loginSuccess": "Успешный вход",
+            "logoutSuccess": "Успешный выход"
+        },
+        "playerList": {
+            "autoRefresh": "Автоматическое обновление",
+            "searchPlaceholder": "Введите свой идентификатор игрока или имя",
+            "tableHeader": {
+                "index": "Индекс",
+                "playerName": "Имя игрока",
+                "admin": "Администратор",
+                "level": "Уровень",
+                "gameStage": "Игровой этап",
+                "zombieKills": "Убийства зомби",
+                "playerKills": "Убийства игроков",
+                "deaths": "Смерти",
+                "skillPoints": "Очки навыков",
+                "pointsCount": "Очки TianYi",
+                "currentPosition": "Текущая позиция",
+                "ip": "IP-адрес",
+                "ipAttribution": "Атрибуция IP",
+                "ping": "Пинг",
+                "entityId": "ИД сущности",
+                "playerId": "ИД игрока",
+                "platformId": "ИД платформы",
+                "operate": "Работать",
+                "isOnline": "В сети",
+                "lastLogin": "Последний вход",
+                "totalTimePlayed": "Общее время игры",
+                "currentLife": "Текущее время выживания",
+                "longestLife": "Самое длительное время выживания"
+            }
+        },
+        "chat": {
+            "tableHeader": {
+                "createdAt": "Создано в",
+                "entityId": "ИД сущности",
+                "senderName": "Имя отправителя",
+                "chatType": "Type",
+                "message": "Сообщение",
+                "playerId": "ID игрока"
+            },
+            "chatType": {
+                "global": "Глобальный",
+                "friends": "Друзья",
+                "party": "Вечеринка",
+                "whisper": "Шепот",
+                "unknown": "Неизвестно"
+            }
+        },
+        "blacklist": {
+            "tableHeader": {
+                "playerId": "ID игрока",
+                "displayName": "Отображаемое имя",
+                "bannedUntil": "Забанен до",
+                "reason": "Причина"
+            }
+        },
+        "itemBlocks": {
+            "item": "Элемент",
+            "block": "Блокировать",
+            "devItem": "Элемент разработки (скрыт от пользователей)",
+            "itemName": "Имя элемента",
+            "localizationName": "Имя локализации",
+            "iconName": "Имя значка",
+            "iconColor": "Цвет значка",
+            "maxStackAllowed": "Максимально допустимый стек"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "Префикс команды чата",
+            "chatCommandSeparator": "Разделитель команды чата",
+            "handleChatMessageError": "Обработка ошибки сообщения чата",
+            "teleZombieCheck": "Проверка телепортации зомби",
+            "teleDisableTip": "Подсказка по отключению телепортации",
+            "killZombieTrigger": {
+                "isEnabled": "Включить триггер убийства зомби",
+                "executeCommands": "Выполнить команды\n(по одной в строке)"
+            },
+            "deathTrigger": {
+                "isEnabled": "Включить триггер смерти",
+                "executeCommands": "Выполнить команды\n(по одной в строке)"
+            },
+            "autoRestart": {
+                "isEnabled": "Включить авто Перезапустить",
+                "time": "Время перезапустить",
+                "messages": "Сообщения\n(по одному в строке)"
+            },
+            "blockFamilySharingAccount": "Заблокировать учетную запись Family Sharing",
+            "removeSleepingBagFromPOI": "Удалить спальный мешок из POI",
+            "isEnablePlayerInitialSpawnPoint": "Включить начальную точку появления игрока",
+            "playerInitialPosition": "Начальная позиция игрока"
+        },
+        "autoBackup": {
+            "isEnabled": "Включить автоматическое резервное копирование",
+            "interval": "Интервал резервного копирования (секунды)",
+            "retainedFileCountLimit": "Ограничение количества сохраненных файлов",
+            "resetIntervalAfterManualBackup": "Сбросить интервал после ручного резервного копирования",
+            "skipIfThereAreNoPlayers": "Пропустить, если нет игроков",
+            "autoBackupOnServerStartup": "Авто Резервное копирование при запуске сервера",
+            "archiveFolder": "Папка архива",
+            "tableHeader": {
+                "serverVersion": "Версия сервера",
+                "gameWorld": "Игровой мир",
+                "gameName": "Название игры",
+                "gameTime": "Время игры",
+                "formatGameTime": "День {0}, Час {1}",
+                "createdAt": "Создано в",
+                "size": "Размер файла"
+            }
+        },
+        "gameNotice": {
+            "isEnabled": "Включить игровое уведомление",
+            "variables": "Переменные",
+            "welcomeNotice": "Приветственное уведомление",
+            "rotatingNotices": "Сменяющиеся уведомления\n(по одному в строке)",
+            "rotatingInterval": "Интервал смены (секунд)",
+            "bloodMoonNotice1": "Уведомление Blood Moon 1",
+            "bloodMoonNotice2": "Уведомление Blood Moon 2",
+            "bloodMoonNotice3": "Blood Moon Notice 3"
+        },
+        "pointsSystem": {
+            "isEnabled": "Включить систему баллов",
+            "variables": "Переменные",
+            "signInCmd": "Команда входа",
+            "signInInterval": "Интервал входа (секунды)",
+            "signInRewardPoints": "Бонусы за вход",
+            "signInSuccessTip": "Совет по успешному входу",
+            "signInFailureTip": "Совет по неудачному входу",
+            "queryPointsCmd": "Команда запроса баллов",
+            "queryPointsTip": "Совет по запросу баллов",
+            "isCurrencyExchangeEnabled": "Включить обмен валюты",
+            "currencyToPointsExchangeRate": "Курс обмена валюты на баллы",
+            "currencyExchangeCmd": "Команда обмена валюты",
+            "exchangeSuccessTip": "Совет по успешному обмену",
+            "exchangeFailureTip": "Совет по неудачному обмену",
+            "resetPoints": "Сбросить все баллы",
+            "resetSignIn": "Сбросить все время входа",
+            "resetPointsConfirm": "Вы уверены, что хотите сбросить все баллы игрока?",
+            "resetSignInConfirm": "Вы уверены, что хотите сбросить все даты и время входа игрока?",
+            "tableHeader": {
+                "playerId": "ID игрока",
+                "playerName": "Имя игрока",
+                "points": "Очки",
+                "lastSignInAt": "Последний вход"
+            }
+        },
+        "listManagement": {
+            "operate": "Оперировать",
+            "tableHeader": {
+                "id": "ID",
+                "icon": "Значок",
+                "itemName": "Имя элемента",
+                "count": "Количество",
+                "quality": "Качество",
+                "durability": "Прочность",
+                "description": "Описание",
+                "createdAt": "Создано в",
+                "command": "Команда",
+                "inMainThread": "В главном потоке",
+                "item": "Предмет"
+            }
+        },
+        "gameStore": {
+            "isEnabled": "Включить игровой магазин",
+            "variables": "Переменные",
+            "queryListCmd": "Команда запроса списка",
+            "buyCmdPrefix": "Префикс команды покупки",
+            "goodsItemTip": "Совет по предмету товара",
+            "buySuccessTip": "Совет по успешной покупке",
+            "pointsNotEnoughTip": "Совет по недостаточному количеству очков",
+            "noGoods": "Нет товаров",
+            "useTips": "Советы: введите buy-{'{'}id{'}'} в игре, чтобы купить",
+            "goods": "Товары",
+            "tableHeader": {
+                "id": "ID",
+                "name": "Имя",
+                "price": "Цена",
+                "description": "Описание",
+                "bind": "Привязать",
+                "bindItem": "Привязать элемент",
+                "bindCmd": "Команда привязки"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "Включить VIP-подарок",
+            "variables": "Переменные",
+            "claimCmd": "Команда получения",
+            "hasClaimedTip": "Затребовал чаевые",
+            "nonVipTip": "Не VIP-чаевые",
+            "claimSuccessTip": "Затребовать чаевые",
+            "gift": "Подарок",
+            "resetAll": "Сбросить все состояния заявок",
+            "resetAllConfirm": "Вы уверены, что хотите сбросить все состояния заявок игроков?",
+            "tableHeader": {
+                "playerId": "ID игрока",
+                "name": "Имя",
+                "claimState": "Уже заявлено",
+                "totalClaimCount": "Общее количество заявлений",
+                "lastClaimAt": "Последнее заявление",
+                "description": "Описание",
+                "bind": "Привязать",
+                "bindItem": "Элемент привязки",
+                "bindCmd": "Команда привязки"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "Включить телепорт друга",
+                "variables": "Переменные",
+                "teleCmdPrefix": "Префикс команды телепортации",
+                "teleInterval": "Интервал телепортации (секунды)",
+                "pointsRequired": "Требуется очков",
+                "teleSuccessTip": "Совет по успешной телепортации",
+                "pointsNotEnoughTip": "Недостаточно очков",
+                "coolingTip": "Совет по охлаждению",
+                "targetNotFoundTip": "Совет: цель не найдена",
+                "targetNotFriendTip": "Подсказка Цель не друг",
+                "useTips": "Подсказки: введите tele-{'{'}имя игрока{'}'} в игре, чтобы телепортироваться"
+            },
+            "city": {
+                "isEnabled": "Включить телепортацию в город",
+                "variables": "Переменные",
+                "queryListCmd": "Команда запроса списка",
+                "teleCmdPrefix": "Префикс команды телепортации",
+                "teleInterval": "Интервал телепортации (секунды)",
+                "locationItemTip": "Подсказка по предмету локации",
+                "teleSuccessTip": "Подсказка по успешной телепортации",
+                "pointsNotEnoughTip": "Подсказка по количеству очков",
+                "coolingTip": "Подсказка по охлаждению",
+                "noLocation": "Нет локации",
+                "useTips": "Подсказки: введите hc-{'{'}id{'}'} в игре, чтобы teleport",
+                "titleSuffix": "Город",
+                "viewDirection": {
+                    "north": "Север",
+                    "northeast": "Северо-Восток",
+                    "east": "Восток",
+                    "southeast": "Юго-Восток",
+                    "south": "Юг",
+                    "southwest": "Юго-Запад",
+                    "west": "Запад",
+                    "northwest": "Северо-Запад"
+                },
+                "tableHeader": {
+                    "id": "ИД",
+                    "cityName": "Название города",
+                    "pointsRequired": "Требуется количество точек",
+                    "position": "Позиция",
+                    "viewDirection": "Направление просмотра",
+                    "createdAt": "Создано в"
+                }
+            },
+            "home": {
+                "isEnabled": "Включить домашний телепорт",
+                "variables": "Переменные",
+                "queryListCmd": "Команда запроса списка",
+                "teleInterval": "Телепорт Интервал (секунды)",
+                "setHomeCmdPrefix": "Установить префикс команды \"Домой\"",
+                "setCountLimit": "Установить лимит количества",
+                "pointsRequiredForSet": "Требуется очков для установки",
+                "deleteHomeCmdPrefix": "Удалить префикс команды \"Домой\"",
+                "teleHomeCmdPrefix": "Телепортировать префикс команды \"Домой\"",
+                "pointsRequiredForTele": "Требуется очков для телепортации",
+                "noHomeTip": "Нет подсказки \"Домой\"",
+                "locationItemTip": "Подсказка для элемента местоположения",
+                "overLimitTip": "Подсказка \"Превышение лимита\"",
+                "setPointsNotEnoughTip": "Установить недостаточно очков подсказки",
+                "setSuccessTip": "Установить подсказку об успешном завершении",
+                "overwriteSuccessTip": "Перезаписать подсказку об успешном завершении",
+                "deleteSuccessTip": "Удалить подсказку об успешном завершении",
+                "homeNotFoundTip": "Совет: дом не найден",
+                "coolingTip": "Совет: охладиться",
+                "telePointsNotEnoughTip": "Совет: недостаточно очков телепортации",
+                "teleSuccessTip": "Совет: телепортация прошла",
+                "useTips": "Советы: введите home-{'{'}name{'}'} в игре, чтобы телепортироваться, введите sethome-{'{'}name{'}'}, чтобы установить дом, введите delhome-{'{'}name{'}'}, чтобы удалить дом",
+                "titleSuffix": "Домой",
+                "deleteAll": "Удалить все",
+                "deleteAllConfirm": "Вы уверены, что хотите удалить все записи?",
+                "tableHeader": {
+                    "playerName": "Имя игрока",
+                    "playerId": "ID игрока",
+                    "createdAt": "Создано в",
+                    "homeName": "Имя дома",
+                    "position": "Позиция"
+                }
+            }
+        }
+    }
+}
