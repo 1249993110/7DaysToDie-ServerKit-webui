@@ -24,12 +24,12 @@ const preferredLocale = () => {
     }
 
     lang = navigator.language.toLowerCase();
+    console.log('Navigator lang:', lang);
 
     if(lang === 'zh-tw' || lang === 'zh-hk'){
         return 'tw';
     }
 
-    console.log('lang', lang);
     return getLanguageCode(lang);
 };
 
