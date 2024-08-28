@@ -1,0 +1,698 @@
+{
+    "global": {
+        "language": "한국어",
+        "appTitle": "TianYi 7 Days to Die 서버 도구",
+        "formRule": {
+            "required": "필수",
+            "selectAtLeastOne": "최소한 하나를 선택하세요"
+        },
+        "true": "예",
+        "false": "아니요",
+        "unknown": "알 수 없음",
+        "loading": "로딩 중...",
+        "empty": "비어 있음",
+        "days": "일",
+        "hours": "시간",
+        "minutes": "분",
+        "oneMinute": "1분",
+        "seconds": "초",
+        "lessThan": "미달",
+        "moreThan": "초 초과",
+        "equal": "같음",
+        "keyworld": "Keyworld",
+        "button": {
+            "add": "추가",
+            "delete": "삭제",
+            "deleteAll": "모두 삭제",
+            "edit": "편집",
+            "save": "저장",
+            "enable": "활성화",
+            "disable": "비활성화",
+            "search": "검색",
+            "reset": "재설정",
+            "back": "뒤로",
+            "close": "닫기",
+            "confirm": "확인",
+            "cancel": "취소",
+            "import": "가져오기",
+            "export": "내보내기",
+            "batchOperation": "일괄 작업",
+            "batchDelete": "일괄 삭제",
+            "send": "보내기",
+            "select": "선택",
+            "batchSelect": "일괄 선택"
+        },
+        "message": {
+            "title": "힌트",
+            "success": "성공",
+            "failed": "실패",
+            "inputNewValue": "새 값을 입력하세요",
+            "inputError": "입력 오류",
+            "deleteConfirm": "정말로 삭제하시겠습니까?",
+            "deleteSuccess": "삭제 성공",
+            "deleteFailed": "삭제 실패",
+            "resetConfirm": "정말로 재설정하시겠습니까?",
+            "resetSuccess": "재설정 성공",
+            "saveSuccess": "저장 성공",
+            "saveFailed": "저장 실패",
+            "enableSuccess": "활성화 성공",
+            "enableFailed": "활성화 실패",
+            "disableSuccess": "비활성화 성공",
+            "disableFailed": "비활성화 실패",
+            "importSuccess": "가져오기 성공",
+            "importFailed": "가져오기 실패",
+            "exportSuccess": "내보내기 성공",
+            "exportFailed": "내보내기 실패",
+            "copySuccess": "복사 성공",
+            "example": "예",
+            "cmdSentSuccess": "명령 전송 성공",
+            "cmdExecResult": "명령 실행 결과",
+            "inputText": "텍스트를 입력하세요",
+            "inputNumber": "숫자를 입력하세요",
+            "datePickerPlaceholder": "날짜 선택",
+            "noMoreData": "더 이상 데이터가 없습니다"
+        }
+    },
+    "copy": "복사",
+    "player": "플레이어",
+    "playerOperation": {
+        "showInventory": "인벤토리 표시",
+        "showSkills": "스킬 표시",
+        "showDetails": "세부 정보 표시",
+        "sendMessage": "메시지 보내기",
+        "giveItem": "아이템 주기",
+        "changePoints": "포인트 변경",
+        "spawnEntity": "엔터티 스폰",
+        "teleport": "플레이어 순간이동",
+        "kick": "플레이어 추방",
+        "ban": "플레이어 금지",
+        "setSuperAdmin": "슈퍼 관리자 설정",
+        "cancelAdmin": "관리자 취소",
+        "removeLandClaims": "토지 권리 주장 제거",
+        "resetPlayer": "플레이어 재설정",
+        "copyPlayerId": "플레이어 ID 복사",
+        "copyPlayerName": "플레이어 이름 복사",
+        "copyPlayerPos": "플레이어 위치 복사"
+    },
+    "menus": {
+        "dashboard": "대시보드",
+        "serverSettings": "서버 설정",
+        "map": "GPS 지도",
+        "playerList": {
+            "": "플레이어 목록",
+            "onlinePlayers": "온라인 플레이어",
+            "historyPlayers": "히스토리 플레이어"
+        },
+        "chat": {
+            "": "게임 채팅",
+            "liveChat": "라이브 채팅",
+            "chatRecord": "채팅 기록"
+        },
+        "permission": "허가",
+        "blacklist": "블랙리스트",
+        "whitelist": "허용리스트",
+        "itemBlocks": "아이템 블록",
+        "console": "콘솔",
+        "globalSettings": "전역 설정",
+        "autobackup": {
+            "": "자동 백업",
+            "settings": "백업 설정",
+            "management": "백업 관리"
+        },
+        "gameNotice": "게임 공지",
+        "pointsSystem": {
+            "": "포인트 시스템",
+            "settings": "로그인 설정",
+            "management": "포인트 관리"
+        },
+        "listManagement": {
+            "": "목록 관리",
+            "itemList": "아이템 목록",
+            "commandList": "명령 목록"
+        },
+        "gameStore": {
+            "": "게임 매장",
+            "settings": "매장 설정",
+            "management": "제품 관리"
+        },
+        "vipGift": {
+            "": "VIP 선물",
+            "settings": "선물 설정",
+            "management": "선물 관리"
+        },
+        "teleSystem": {
+            "": "순간이동",
+            "friend": "친구 텔레",
+            "city": {
+                "": "도시 텔레",
+                "settings": "도시 설정",
+                "management": "도시 관리"
+            },
+            "home": {
+                "": "홈 텔레",
+                "settings": "홈 설정",
+                "management": "홈 관리"
+            }
+        },
+        "swagger": "API 문서"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "새로 고침",
+            "fullscreen": "전체 화면",
+            "exitFullscreen": "전체 화면 종료",
+            "fullscreenNotSupport": "브라우저가 전체 화면을 지원하지 않습니다"
+        },
+        "serverToolBar": {
+            "restart": "서버 다시 시작",
+            "restartConfirm": "서버를 다시 시작하시겠습니까? 몇 분 정도 걸릴 수 있습니다",
+            "restartSuccess": "서버 다시 시작 성공",
+            "shutdown": "서버 종료",
+            "shutdownConfirm": "서버를 종료하시겠습니까? 서버에 접근할 수 없습니다",
+            "shutdownSuccess": "서버 종료 성공"
+        },
+        "inventoryDialog": {
+            "title": "플레이어: {0} 인벤토리",
+            "grid": "격자",
+            "list": "목록",
+            "bag": "가방",
+            "belt": "벨트",
+            "equipment": "장비",
+            "tableHeader": {
+                "icon": "아이콘",
+                "itemName": "아이템 이름",
+                "localizationName": "현지화 이름",
+                "mod": "모드"
+            }
+        },
+        "playerSkillsDialog": {
+            "title": "플레이어: {0} 스킬 포인트",
+            "fullscreen": "전체 화면",
+            "exitFullscreen": "전체 화면 종료",
+            "fold": "접기",
+            "expand": "확장",
+            "tableHeader": {
+                "name": "이름",
+                "icon": "아이콘",
+                "localizationName": "현지화 이름",
+                "level": "레벨",
+                "maxLevel": "최대 레벨",
+                "costForNextLevel": "다음 레벨 비용",
+                "type": "유형",
+                "localizationDesc": "설명"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "플레이어: {0} 세부 정보",
+            "active": "활성",
+            "inactive": "비활성",
+            "tableHeader": {
+                "playerName": "플레이어 이름",
+                "entityId": "엔터티 ID",
+                "playerId": "플레이어 ID",
+                "platformId": "플랫폼 ID",
+                "isAdmin": "관리자",
+                "isOnline": "온라인",
+                "ip": "IP 주소",
+                "ping": "핑",
+                "currentPosition": "현재 위치",
+                "lastSpawnPosition": "마지막 리스폰 위치",
+                "gameStage": "게임 단계",
+                "lastLogin": "마지막 로그인",
+                "playerKills": "플레이어 처치",
+                "zombieKills": "좀비 처치",
+                "deaths": "사망",
+                "score": "점수",
+                "health": "건강",
+                "stamina": "체력",
+                "coreTemp": "온도",
+                "food": "음식",
+                "water": "물",
+                "pointsCount": "TianYi Points",
+                "level": "레벨",
+                "expToNextLevel": "다음 레벨로 가는 경험치",
+                "skillPoints": "스킬 포인트",
+                "landProtectionActive": "랜드스톤 보호 상태",
+                "distanceWalked": "걸어간 거리",
+                "totalItemsCrafted": "제작한 총 아이템",
+                "totalTimePlayed": "플레이한 총 시간",
+                "currentLife": "현재 생존 시간",
+                "longestLife": "가장 긴 생존 시간",
+                "alreadyCraftedList": "이미 제작한 목록",
+                "unlockedRecipeList": "잠금 해제된 레시피 목록",
+                "rentedVMPosition": "렌털 위치",
+                "rentalEndDay": "렌털 종료 날짜"
+            }
+        },
+        "gameIconEx": {
+            "itemName": "이름",
+            "localizationName": "현지화 이름",
+            "count": "개수",
+            "maxStackAllowed": "허용되는 최대 스택",
+            "quality": "품질",
+            "useTimes": "사용 횟수",
+            "maxUseTimes": "최대 사용 횟수",
+            "isMod": "Mod 여부",
+            "copyItemName": "아이템 이름 복사",
+            "copyLocalizationName": "현지화 이름 복사",
+            "removeItem": "선택한 아이템 제거",
+            "removeItemConfirm": "플레이어의 가방과 벨트에서 모든 {0}을 제거하시겠습니까?"
+        },
+        "myTableEx": {
+            "tableHeader": {
+                "index": "인덱스",
+                "operate": "운영"
+            }
+        },
+        "itemBlockSelector": {
+            "title": "항목 또는 블록 선택",
+            "id": "ID",
+            "icon": "아이콘",
+            "itemName": "항목 이름",
+            "localizationName": "현지화 이름",
+            "maxStackAllowed": "허용되는 최대 스택"
+        },
+        "associatedItems": {
+            "title": "아이템 바인딩",
+            "add": "추가",
+            "addFromList": "목록에서 추가"
+        },
+        "associatedCommands": {
+            "title": "명령 바인딩",
+            "add": "추가",
+            "addFromList": "목록에서 추가"
+        },
+        "itemListSelector": {
+            "title": "목록에서 선택"
+        },
+        "commandListSelector": {
+            "title": "목록에서 선택"
+        },
+        "batchGiveItem": {
+            "itemName": "아이템 이름",
+            "count": "개수",
+            "quality": "품질",
+            "durability": "내구성"
+        },
+        "batchAddBlacklist": {
+            "ban": "금지",
+            "banUntil": "금지까지",
+            "reason": "이유"
+        }
+    },
+    "layout": {
+        "footer": {
+            "codeRepository": "코드 저장소",
+            "copyright": "© 2024 TianYi Team의 모든 권리 보유",
+            "group": {
+                "title": "Discord 서버에 가입하세요",
+                "url": "https://discord.gg/zdnmngsBK4"
+            }
+        }
+    },
+    "store": {},
+    "utils": {
+        "playerHelper": {
+            "title": "음수는 포인트를 차감합니다",
+            "inputCount": "포인트 수를 입력하세요",
+            "deductPoints": "{0}포인트가 차감되었습니다",
+            "addPoints": "{0}포인트를 성공적으로 충전했습니다",
+            "inputEntityIdOrName": "엔터티 ID 또는 이름을 입력하세요",
+            "teleportTarget": "텔레포트 대상을 입력하세요",
+            "kickPlayerReason": "플레이어를 추방하는 이유를 입력하세요",
+            "kickPlayerConfirm": "선택한 플레이어를 추방하시겠습니까?",
+            "setSuperAdminConfirm": "선택한 플레이어를 슈퍼 관리자로 설정하시겠습니까?",
+            "cancelAdminConfirm": "선택한 플레이어를 관리자 권한에서 취소하시겠습니까?",
+            "removeLandClaimConfirm": "선택한 플레이어의 토지 소유권 주장을 제거하시겠습니까?",
+            "resetPlayerConfirm": "선택한 플레이어를 재설정하시겠습니까?"
+        }
+    },
+    "views": {
+        "dashboard": {
+            "header": {
+                "overview": "개요",
+                "status": "상태",
+                "fps": "FPS",
+                "entities": "엔터티",
+                "rss": "RSS",
+                "chunks": "청크",
+                "cgo": "CGO",
+                "items": "아이템",
+                "systemInfo": "시스템 정보"
+            },
+            "overview": {
+                "serverName": "서버 이름",
+                "region": "서버 지역",
+                "language": "서버 언어",
+                "serverIp": "서버 IP",
+                "uptime": "서버 가동 시간",
+                "gameTime": "게임 시간",
+                "serverPort": "서버 포트",
+                "gameName": "게임 이름",
+                "gameMode": "게임 모드",
+                "serverVersion": "서버 버전",
+                "gameWorld": "게임 세계",
+                "gameDifficulty": "게임 난이도",
+                "gameDifficultys": {
+                    "0": "Scavenger",
+                    "1": "모험가",
+                    "2": "유목민",
+                    "3": "전사",
+                    "4": "생존주의자",
+                    "5": "미친"
+                },
+                "formatDuration": "{0}:{1}:{2}:{3}",
+                "formatGameTime": "일 {0}, {1}:{2}"
+            },
+            "status": {
+                "players": "플레이어",
+                "zombies": "좀비",
+                "animals": "동물",
+                "heap": "힙"
+            },
+            "systemInfo": {
+                "deviceName": "장치 이름",
+                "deviceModel": "장치 모델",
+                "deviceType": "장치 유형",
+                "deviceUniqueIdentifier": "장치 고유 식별자",
+                "operatingSystem": "운영 체제",
+                "processorType": "프로세서 유형",
+                "processorCount": "프로세서 수",
+                "systemMemorySize": "시스템 메모리 크기"
+            }
+        },
+        "map": {
+            "region": "지역 파일",
+            "landClaim": "토지 청구",
+            "zombie": "좀비",
+            "animal": "동물",
+            "historyPlayer": "플레이어(기록)",
+            "onlinePlayer": "플레이어(온라인)",
+            "mousePos": "마우스 위치",
+            "lastClick": "마지막 클릭",
+            "renderExploredArea": "탐험한 지역 렌더링",
+            "renderExploredAreaConfirm": "탐험한 지역을 렌더링하시겠습니까? 몇 분 정도 걸릴 수 있습니다. 콘솔에서 진행 상황을 확인할 수 있습니다",
+            "renderFullMap": "전체 맵 렌더링",
+            "renderFullMapConfirm": "전체 지도를 렌더링하시겠습니까? 몇 분 정도 걸릴 수 있습니다. 콘솔에서 진행 상황을 확인할 수 있습니다. 이 작업은 일반적으로 서버가 시작된 후 한 번만 수행됩니다.",
+            "refreshMap": "지도 새로 고침",
+            "autoReload": "매번 다시 로드",
+            "seconds": "초",
+            "landOwner": "토지 소유자",
+            "removeLandClaim": "제거",
+            "removeLandClaimConfirm": "토지 소유권을 제거하시겠습니까?",
+            "dragendTelePlayerConfirm": "플레이어: {0}을 대상 위치 {1}로 순간이동하시겠습니까?"
+        },
+        "login": {
+            "username": "사용자 이름",
+            "password": "비밀번호",
+            "login": "로그인",
+            "logout": "로그아웃",
+            "logoutConfirm": "정말 로그아웃하시겠습니까?",
+            "loginFailed": "로그인 실패",
+            "loginSuccess": "로그인 성공",
+            "logoutSuccess": "로그아웃 성공"
+        },
+        "playerList": {
+            "autoRefresh": "자동 새로 고침",
+            "searchPlaceholder": "플레이어 ID 또는 이름을 입력하세요",
+            "tableHeader": {
+                "index": "인덱스",
+                "playerName": "플레이어 이름",
+                "admin": "관리자",
+                "level": "레벨",
+                "gameStage": "게임 스테이지",
+                "zombieKills": "좀비 킬",
+                "playerKills": "플레이어 킬",
+                "deaths": "죽음",
+                "skillPoints": "스킬 포인트",
+                "pointsCount": "TianYi 포인트",
+                "currentPosition": "현재 위치",
+                "ip": "IP 주소",
+                "ipAttribution": "IP 귀속",
+                "ping": "핑",
+                "entityId": "엔터티 ID",
+                "playerId": "플레이어 ID",
+                "platformId": "플랫폼 ID",
+                "operate": "운영",
+                "isOnline": "온라인",
+                "lastLogin": "마지막 로그인",
+                "totalTimePlayed": "총 플레이 시간",
+                "currentLife": "현재 생존 시간",
+                "longestLife": "가장 긴 생존 시간"
+            }
+        },
+        "chat": {
+            "tableHeader": {
+                "createdAt": "생성 시간",
+                "entityId": "엔터티 ID",
+                "senderName": "발신자 이름",
+                "chatType": "유형",
+                "message": "메시지",
+                "playerId": "플레이어 ID"
+            },
+            "chatType": {
+                "global": "전역",
+                "friends": "친구",
+                "party": "파티",
+                "whisper": "속삭임",
+                "unknown": "알 수 없음"
+            }
+        },
+        "blacklist": {
+            "tableHeader": {
+                "playerId": "플레이어 ID",
+                "displayName": "표시 이름",
+                "bannedUntil": "금지 기간",
+                "reason": "이유"
+            }
+        },
+        "itemBlocks": {
+            "item": "아이템",
+            "block": "블록",
+            "devItem": "개발 아이템(사용자에게 숨김)",
+            "itemName": "아이템 이름",
+            "localizationName": "현지화 이름",
+            "iconName": "아이콘 이름",
+            "iconColor": "아이콘 색상",
+            "maxStackAllowed": "허용되는 최대 스택"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "채팅 명령 접두사",
+            "chatCommandSeparator": "채팅 명령 구분 기호",
+            "handleChatMessageError": "채팅 메시지 오류 처리",
+            "teleZombieCheck": "순간이동 좀비 확인",
+            "teleDisableTip": "순간이동 비활성화 팁",
+            "killZombieTrigger": {
+                "isEnabled": "킬 좀비 트리거 활성화",
+                "executeCommands": "명령 실행\n(줄당 하나씩)"
+            },
+            "deathTrigger": {
+                "isEnabled": "죽음 트리거 활성화",
+                "executeCommands": "명령 실행\n(줄당 하나씩)"
+            },
+            "autoRestart": {
+                "isEnabled": "자동 재시작 활성화",
+                "time": "재시작 시간",
+                "messages": "메시지\n(줄당 하나씩)"
+            },
+            "blockFamilySharingAccount": "가족 공유 계정 차단",
+            "removeSleepingBagFromPOI": "POI에서 침낭 제거",
+            "isEnablePlayerInitialSpawnPoint": "플레이어 초기 스폰 지점 활성화",
+            "playerInitialPosition": "플레이어 초기 위치"
+        },
+        "autoBackup": {
+            "isEnabled": "활성화 자동 백업",
+            "interval": "백업 간격(초)",
+            "retainedFileCountLimit": "보관된 파일 수 제한",
+            "resetIntervalAfterManualBackup": "수동 백업 후 간격 재설정",
+            "skipIfThereAreNoPlayers": "플레이어가 없으면 건너뜁니다",
+            "autoBackupOnServerStartup": "서버 시작 시 자동 백업",
+            "archiveFolder": "보관 폴더",
+            "tableHeader": {
+                "serverVersion": "서버 버전",
+                "gameWorld": "게임 세계",
+                "gameName": "게임 이름",
+                "gameTime": "게임 시간",
+                "formatGameTime": "일 {0}, 시간 {1}",
+                "createdAt": "생성 시간",
+                "size": "파일 크기"
+            }
+        },
+        "gameNotice": {
+            "isEnabled": "게임 알림 사용",
+            "variables": "변수",
+            "welcomeNotice": "환영 알림",
+            "rotatingNotices": "회전 알림\n(줄당 하나씩)",
+            "rotatingInterval": "회전 간격(초)",
+            "bloodMoonNotice1": "블러드 문 알림 1",
+            "bloodMoonNotice2": "블러드 문 알림 2",
+            "bloodMoonNotice3": "블러드 문 공지 3"
+        },
+        "pointsSystem": {
+            "isEnabled": "포인트 시스템 활성화",
+            "variables": "변수",
+            "signInCmd": "로그인 명령",
+            "signInInterval": "로그인 간격(초)",
+            "signInRewardPoints": "로그인 보상 포인트",
+            "signInSuccessTip": "로그인 성공 팁",
+            "signInFailureTip": "로그인 실패 팁",
+            "queryPointsCmd": "쿼리 포인트 명령",
+            "queryPointsTip": "쿼리 포인트 팁",
+            "isCurrencyExchangeEnabled": "환전 활성화",
+            "currencyToPointsExchangeRate": "환전 대 포인트 환율",
+            "currencyExchangeCmd": "통화 교환 명령",
+            "exchangeSuccessTip": "교환 성공 팁",
+            "exchangeFailureTip": "교환 실패 팁",
+            "resetPoints": "모든 포인트 재설정",
+            "resetSignIn": "모든 로그인 시간 재설정",
+            "resetPointsConfirm": "모든 플레이어 포인트를 재설정하시겠습니까?",
+            "resetSignInConfirm": "모든 플레이어 로그인 날짜 시간을 재설정하시겠습니까?",
+            "tableHeader": {
+                "playerId": "플레이어 ID",
+                "playerName": "플레이어 이름",
+                "points": "포인트",
+                "lastSignInAt": "마지막 로그인"
+            }
+        },
+        "listManagement": {
+            "operate": "운영",
+            "tableHeader": {
+                "id": "ID",
+                "icon": "아이콘",
+                "itemName": "아이템 이름",
+                "count": "개수",
+                "quality": "품질",
+                "durability": "내구성",
+                "description": "설명",
+                "createdAt": "생성 시간",
+                "command": "명령",
+                "inMainThread": "메인 스레드에서",
+                "item": "아이템"
+            }
+        },
+        "gameStore": {
+            "isEnabled": "게임 스토어 활성화",
+            "variables": "변수",
+            "queryListCmd": "쿼리 목록 명령",
+            "buyCmdPrefix": "구매 명령 접두사",
+            "goodsItemTip": "상품 아이템 팁",
+            "buySuccessTip": "구매 성공 팁",
+            "pointsNotEnoughTip": "포인트가 팁이 부족합니다",
+            "noGoods": "상품 없음",
+            "useTips": "팁: 구매하려면 게임에 buy-{'{'}id{'}'}를 입력하세요",
+            "goods": "상품",
+            "tableHeader": {
+                "id": "ID",
+                "name": "이름",
+                "price": "가격",
+                "description": "설명",
+                "bind": "바인딩",
+                "bindItem": "아이템 바인딩",
+                "bindCmd": "명령어 바인딩"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "VIP 선물 사용",
+            "variables": "변수",
+            "claimCmd": "명령어 청구",
+            "hasClaimedTip": "팁 청구됨",
+            "nonVipTip": "VIP가 아님 팁",
+            "claimSuccessTip": "클레임 성공 팁",
+            "gift": "선물",
+            "resetAll": "모든 클레임 상태 재설정",
+            "resetAllConfirm": "모든 플레이어 클레임 상태를 재설정하시겠습니까?",
+            "tableHeader": {
+                "playerId": "플레이어 ID",
+                "name": "이름",
+                "claimState": "이미 클레임됨",
+                "totalClaimCount": "총 클레임 수",
+                "lastClaimAt": "마지막 클레임 시간",
+                "description": "설명",
+                "bind": "바인딩",
+                "bindItem": "아이템 바인딩",
+                "bindCmd": "명령 바인딩"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "친구 텔레포트 활성화",
+                "variables": "변수",
+                "teleCmdPrefix": "순간이동 명령 접두사",
+                "teleInterval": "순간이동 간격(초)",
+                "pointsRequired": "필요한 포인트",
+                "teleSuccessTip": "순간이동 성공 팁",
+                "pointsNotEnoughTip": "포인트가 충분하지 않은 팁",
+                "coolingTip": "냉각 팁",
+                "targetNotFoundTip": "대상을 찾을 수 없음 팁",
+                "targetNotFriendTip": "대상이 아닌 친구 팁",
+                "useTips": "팁: 텔레포트하려면 게임에서 tele-{'{'}플레이어 이름{'}'}을 입력하세요"
+            },
+            "city": {
+                "isEnabled": "도시 텔레포트 활성화",
+                "variables": "변수",
+                "queryListCmd": "쿼리 목록 명령",
+                "teleCmdPrefix": "텔레포트 명령 접두사",
+                "teleInterval": "텔레포트 간격(초)",
+                "locationItemTip": "위치 아이템 팁",
+                "teleSuccessTip": "텔레포트 성공 팁",
+                "pointsNotEnoughTip": "포인트가 충분하지 않은 팁",
+                "coolingTip": "냉각 팁",
+                "noLocation": "위치 없음",
+                "useTips": "팁: 입력 hc-{'{'}id{'}'}를 게임에서 순간이동하려면",
+                "titleSuffix": "도시",
+                "viewDirection": {
+                    "north": "북쪽",
+                    "northeast": "북동쪽",
+                    "east": "동쪽",
+                    "southeast": "남동쪽",
+                    "south": "남쪽",
+                    "southwest": "남서쪽",
+                    "west": "서쪽",
+                    "northwest": "북서쪽"
+                },
+                "tableHeader": {
+                    "id": "ID",
+                    "cityName": "도시 이름",
+                    "pointsRequired": "필요한 포인트",
+                    "position": "위치",
+                    "viewDirection": "보기 방향",
+                    "createdAt": "생성 위치"
+                }
+            },
+            "home": {
+                "isEnabled": "홈 사용 순간이동",
+                "variables": "변수",
+                "queryListCmd": "쿼리 목록 명령",
+                "teleInterval": "순간이동 간격(초)",
+                "setHomeCmdPrefix": "홈 명령 접두사 설정",
+                "setCountLimit": "카운트 제한 설정",
+                "pointsRequiredForSet": "설정에 필요한 포인트",
+                "deleteHomeCmdPrefix": "홈 명령 접두사 삭제",
+                "teleHomeCmdPrefix": "순간이동 홈 명령 접두사",
+                "pointsRequiredForTele": "순간이동에 필요한 포인트",
+                "noHomeTip": "홈 팁 없음",
+                "locationItemTip": "위치 항목 팁",
+                "overLimitTip": "제한 초과 팁",
+                "setPointsNotEnoughTip": "설정 포인트가 충분하지 않음 팁",
+                "setSuccessTip": "성공 팁 설정",
+                "overwriteSuccessTip": "성공 팁 덮어쓰기",
+                "deleteSuccessTip": "성공 팁 삭제",
+                "homeNotFoundTip": "집을 찾을 수 없음 팁",
+                "coolingTip": "냉각 팁",
+                "telePointsNotEnoughTip": "순간이동 포인트가 충분하지 않음 팁",
+                "teleSuccessTip": "순간이동 성공 팁",
+                "useTips": "팁: 순간이동하려면 게임에서 home-{'{'}name{'}'}을 입력하고, 집을 설정하려면 sethome-{'{'}name{'}'}을 입력하고, 집을 삭제하려면 delhome-{'{'}name{'}'}을 입력합니다.",
+                "titleSuffix": "집",
+                "deleteAll": "모두 삭제",
+                "deleteAllConfirm": "정말 삭제하시겠습니까? 모든 기록?",
+                "tableHeader": {
+                    "playerName": "플레이어 이름",
+                    "playerId": "플레이어 ID",
+                    "createdAt": "생성 시간",
+                    "homeName": "홈 이름",
+                    "position": "포지션"
+                }
+            }
+        }
+    }
+}
