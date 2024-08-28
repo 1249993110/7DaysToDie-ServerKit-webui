@@ -365,7 +365,7 @@
                 "formatGameTime": "Tag {0}, {1}:{2}"
             },
             "status": {
-                "Spieler": "Players",
+                "players": "Players",
                 "zombies": "Zombies",
                 "animals": "Tiere",
                 "heap": "Heap"
