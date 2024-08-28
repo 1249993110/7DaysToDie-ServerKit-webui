@@ -1,0 +1,698 @@
+{
+    "global": {
+        "language": "Português (Brasil)",
+        "appTitle": "TianYi 7 Days to Die Server Tools",
+        "formRule": {
+            "required": "Obrigatório",
+            "selectAtLeastOne": "Selecione pelo menos um"
+        },
+        "true": "Sim",
+        "false": "Não",
+        "unknown": "Desconhecido",
+        "loading": "Carregando...",
+        "empty": "Vazio",
+        "days": "Dias",
+        "hours": "Horas",
+        "minutes": "Minutos",
+        "oneMinute": "Um minuto",
+        "seconds": "Segundos",
+        "lessThan": "Menos que",
+        "moreThan": "Mais que",
+        "equal": "Igual",
+        "keyworld": "Keyworld",
+        "button": {
+            "add": "Adicionar",
+            "delete": "Excluir",
+            "deleteAll": "Excluir tudo",
+            "edit": "Editar",
+            "save": "Salvar",
+            "enable": "Habilitar",
+            "disable": "Desabilitar",
+            "search": "Pesquisar",
+            "reset": "Redefinir",
+            "back": "Voltar",
+            "close": "Fechar",
+            "confirm": "Confirmar",
+            "cancel": "Cancelar",
+            "import": "Importar",
+            "export": "Exportar",
+            "batchOperation": "Operação em lote",
+            "batchDelete": "Excluir lote",
+            "send": "Enviar",
+            "select": "Selecionar",
+            "batchSelect": "Selecionar lote"
+        },
+        "message": {
+            "title": "Dica",
+            "success": "Sucesso",
+            "failed": "Falha",
+            "inputNewValue": "Por favor, insira um novo valor",
+            "inputError": "Erro de entrada",
+            "deleteConfirm": "Tem certeza de que deseja excluir?",
+            "deleteSuccess": "Exclusão bem-sucedida",
+            "deleteFailed": "Falha na exclusão",
+            "resetConfirm": "Tem certeza de que deseja redefinir?",
+            "resetSuccess": "Redefinição bem-sucedida",
+            "saveSuccess": "Salvar com sucesso",
+            "saveFailed": "Falha no salvamento",
+            "enableSuccess": "Habilitar com sucesso",
+            "enableFailed": "Habilitar com falha",
+            "disableSuccess": "Desabilitar com sucesso",
+            "disableFailed": "Falha na desabilitação",
+            "importSuccess": "Importação bem-sucedida",
+            "importFailed": "Falha na importação",
+            "exportSuccess": "Exportação bem-sucedida",
+            "exportFailed": "Falha na exportação",
+            "copySuccess": "Cópia bem-sucedida",
+            "example": "Exemplo",
+            "cmdSentSuccess": "Comando enviado com sucesso",
+            "cmdExecResult": "Resultado da execução do comando",
+            "inputText": "Digite o texto",
+            "inputNumber": "Digite um número",
+            "datePickerPlaceholder": "Selecione a data",
+            "noMoreData": "Não há mais dados"
+        }
+    },
+    "copy": "Copiar",
+    "player": "Jogador",
+    "playerOperation": {
+        "showInventory": "Mostrar inventário",
+        "showSkills": "Mostrar habilidades",
+        "showDetails": "Mostrar detalhes",
+        "sendMessage": "Enviar mensagem",
+        "giveItem": "Dar item",
+        "changePoints": "Alterar pontos",
+        "spawnEntity": "Gerar Entidade",
+        "teleport": "Teleportar Jogador",
+        "kick": "Expulsar Jogador",
+        "ban": "Banir Jogador",
+        "setSuperAdmin": "Definir Super Admin",
+        "cancelAdmin": "Cancelar Admin",
+        "removeLandClaims": "Remover Reivindicações de Terra",
+        "resetPlayer": "Redefinir Jogador",
+        "copyPlayerId": "Copiar ID do Jogador",
+        "copyPlayerName": "Copiar Nome do Jogador",
+        "copyPlayerPos": "Copiar Posição do Jogador"
+    },
+    "menus": {
+        "dashboard": "Painel",
+        "serverSettings": "Configurações do Servidor",
+        "map": "Mapa GPS",
+        "playerList": {
+            "": "Lista de Jogadores",
+            "onlinePlayers": "Jogadores Online",
+            "historyPlayers": "Histórico de Jogadores"
+        },
+        "chat": {
+            "": "Game Chat",
+            "liveChat": "Bate-papo ao vivo",
+            "chatRecord": "Registro de bate-papo"
+        },
+        "permission": "Permissão",
+        "blacklist": "Lista negra",
+        "whitelist": "Lista branca",
+        "itemBlocks": "Blocos de itens",
+        "console": "Console",
+        "globalSettings": "Configurações globais",
+        "autobackup": {
+            "": "Backup automático",
+            "settings": "Configurações de backup",
+            "management": "Gerenciamento de backup"
+        },
+        "gameNotice": "Aviso do jogo",
+        "pointsSystem": {
+            "": "Sistema de pontos",
+            "settings": "Configurações de login",
+            "management": "Gerenciamento de pontos"
+        },
+        "listManagement": {
+            "": "Gerenciamento de listas",
+            "itemList": "Lista de itens",
+            "commandList": "Lista de Comandos"
+        },
+        "gameStore": {
+            "": "Loja de Jogos",
+            "settings": "Configurações da Loja",
+            "management": "Gerenciamento de Produtos"
+        },
+        "vipGift": {
+            "": "Presente VIP",
+            "settings": "Configurações de Presente",
+            "management": "Gerenciamento de Presentes"
+        },
+        "teleSystem": {
+            "": "Teletransporte",
+            "friend": "Tele de Amigo",
+            "city": {
+                "": "Tele da Cidade",
+                "settings": "Configurações da cidade",
+                "management": "Gerenciamento da cidade"
+            },
+            "home": {
+                "": "Telefone residencial",
+                "settings": "Configurações residenciais",
+                "management": "Gerenciamento residencial"
+            }
+        },
+        "swagger": "Documento da API"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "Atualizar",
+            "fullscreen": "Tela cheia",
+            "exitFullscreen": "Sair da tela cheia",
+            "fullscreenNotSupport": "Seu navegador não suporta tela cheia"
+        },
+        "serverToolBar": {
+            "restart": "Reiniciar servidor",
+            "restartConfirm": "Tem certeza de que deseja reiniciar o servidor? Isso pode levar alguns minutos",
+            "restartSuccess": "Reinicialização do servidor bem-sucedida",
+            "shutdown": "Desligar servidor",
+            "shutdownConfirm": "Tem certeza de que deseja desligar o servidor? O servidor ficará inacessível",
+            "shutdownSuccess": "Desligamento do servidor bem-sucedido"
+        },
+        "inventoryDialog": {
+            "title": "Jogador: {0} Inventário",
+            "grid": "Grade",
+            "list": "Lista",
+            "bag": "Bolsa",
+            "belt": "Cinto",
+            "equipment": "Equipamento",
+            "tableHeader": {
+                "icon": "Ícone",
+                "itemName": "Nome do item",
+                "localizationName": "Nome da localização",
+                "mod": "Mod"
+            }
+        },
+        "playerSkillsDialog": {
+            "title": "Jogador: {0} Pontos de habilidade",
+            "fullscreen": "Tela cheia",
+            "exitFullscreen": "Sair da tela cheia",
+            "fold": "Dobrar",
+            "expand": "Expandir",
+            "tableHeader": {
+                "name": "Nome",
+                "icon": "Ícone",
+                "localizationName": "Nome da localização",
+                "level": "Nível",
+                "maxLevel": "Nível máximo",
+                "costForNextLevel": "Custo para o próximo nível",
+                "type": "Tipo",
+                "localizationDesc": "Descrição"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "Jogador: {0} Detalhes",
+            "active": "Ativo",
+            "inactive": "Inativo",
+            "tableHeader": {
+                "playerName": "Nome do jogador",
+                "entityId": "ID da entidade",
+                "playerId": "ID do jogador",
+                "platformId": "ID da plataforma",
+                "isAdmin": "Administrador",
+                "isOnline": "Online",
+                "ip": "IP Endereço",
+                "ping": "Ping",
+                "currentPosition": "Posição atual",
+                "lastSpawnPosition": "Última posição de respawn",
+                "gameStage": "Estágio do jogo",
+                "lastLogin": "Último login",
+                "playerKills": "Mortes de jogadores",
+                "zombieKills": "Mortes de zumbis",
+                "deaths": "Mortes",
+                "score": "Pontuação",
+                "health": "Saúde",
+                "stamina": "Resistência",
+                "coreTemp": "Temperatura",
+                "food": "Comida",
+                "water": "Água",
+                "pointsCount": "Pontos TianYi",
+                "level": "Nível",
+                "expToNextLevel": "Experiência para o próximo nível",
+                "skillPoints": "Pontos de habilidade",
+                "landProtectionActive": "Status de proteção do Landstone",
+                "distanceWalked": "Distância Percorrida",
+                "totalItemsCrafted": "Total de Itens Criados",
+                "totalTimePlayed": "Tempo Total Jogado",
+                "currentLife": "Tempo de Sobrevivência Atual",
+                "longestLife": "Tempo de Sobrevivência Mais Longo",
+                "alreadyCraftedList": "Lista Já Criada",
+                "unlockedRecipeList": "Lista de Receitas Desbloqueadas",
+                "rentedVMPosition": "Posições de Aluguel",
+                "rentalEndDay": "Data de Término do Aluguel"
+            }
+        },
+        "gameIconEx": {
+            "itemName": "Nome",
+            "localizationName": "Nome da Localização",
+            "count": "Contagem",
+            "maxStackAllowed": "Pilha Máxima Permitida",
+            "quality": "Qualidade",
+            "useTimes": "Tempos de Uso",
+            "maxUseTimes": "Tempos Máximos de Uso",
+            "isMod": "É Mod",
+            "copyItemName": "Copiar Nome do Item",
+            "copyLocalizationName": "Copiar Nome da Localização",
+            "removeItem": "Remover Item Selecionado",
+            "removeItemConfirm": "Tem certeza de que deseja remover todos os {0} da bolsa e cinto do jogador?"
+        },
+        "myTableEx": {
+            "tableHeader": {
+                "index": "Índice",
+                "operate": "Operar"
+            }
+        },
+        "itemBlockSelector": {
+            "title": "Selecionar Item ou Bloco",
+            "id": "ID",
+            "icon": "Ícone",
+            "itemName": "Nome do Item",
+            "localizationName": "Nome da Localização",
+            "maxStackAllowed": "Pilha Máxima Permitida"
+        },
+        "associatedItems": {
+            "title": "Vincular itens",
+            "add": "Adicionar",
+            "addFromList": "Adicionar da lista"
+        },
+        "associatedCommands": {
+            "title": "Vincular comandos",
+            "add": "Adicionar",
+            "addFromList": "Adicionar da lista"
+        },
+        "itemListSelector": {
+            "title": "Selecionar da lista"
+        },
+        "commandListSelector": {
+            "title": "Selecionar da lista"
+        },
+        "batchGiveItem": {
+            "itemName": "Nome do item",
+            "count": "Contagem",
+            "quality": "Qualidade",
+            "durability": "Durabilidade"
+        },
+        "batchAddBlacklist": {
+            "ban": "Banir",
+            "banUntil": "Banir até",
+            "reason": "Motivo"
+        }
+    },
+    "layout": {
+        "footer": {
+            "codeRepository": "Repositório de código",
+            "copyright": "© 2024 Todos os direitos reservados pela Equipe TianYi",
+            "group": {
+                "title": "Entre no servidor do Discord",
+                "url": "https://discord.gg/zdnmngsBK4"
+            }
+        }
+    },
+    "store": {},
+    "utils": {
+        "playerHelper": {
+            "title": "Números negativos deduzirão pontos",
+            "inputCount": "Digite a contagem de pontos",
+            "deductPoints": "Você foi deduzido de {0} pontos",
+            "addPoints": "Você recarregou {0} pontos com sucesso",
+            "inputEntityIdOrName": "Digite o ID ou nome da entidade",
+            "teleportTarget": "Digite o alvo do teletransporte",
+            "kickPlayerReason": "Por favor, informe o motivo da expulsão do jogador",
+            "kickPlayerConfirm": "Tem certeza de que deseja expulsar o jogador ou jogadores selecionados",
+            "setSuperAdminConfirm": "Tem certeza de que deseja definir o jogador ou jogadores selecionados como superadministrador",
+            "cancelAdminConfirm": "Tem certeza de que deseja cancelar o jogador ou jogadores selecionados como administrador",
+            "removeLandClaimConfirm": "Tem certeza de que deseja remover a reivindicação de terra do jogador ou jogadores selecionados",
+            "resetPlayerConfirm": "Tem certeza de que deseja redefinir o jogador ou jogadores selecionados"
+        }
+    },
+    "views": {
+        "dashboard": {
+            "header": {
+                "overview": "Visão geral",
+                "status": "Status",
+                "fps": "FPS",
+                "entities": "Entidades",
+                "rss": "RSS",
+                "chunks": "Chunks",
+                "cgo": "CGO",
+                "items": "Itens",
+                "systemInfo": "Informações do sistema"
+            },
+            "overview": {
+                "serverName": "Nome do servidor",
+                "region": "Região do servidor",
+                "language": "Idioma do servidor",
+                "serverIp": "IP do servidor",
+                "uptime": "Tempo de atividade do servidor",
+                "gameTime": "Horário do jogo",
+                "serverPort": "Porta do servidor",
+                "gameName": "Nome do jogo",
+                "gameMode": "Modo de jogo",
+                "serverVersion": "Versão do servidor",
+                "gameWorld": "Mundo do jogo",
+                "gameDifficulty": "Dificuldade do jogo",
+                "gameDifficultys": {
+                    "0": "Scavenger",
+                    "1": "Adventurer",
+                    "2": "Nomad",
+                    "3": "Warrior",
+                    "4": "Survivalist",
+                    "5": "Insano"
+                },
+                "formatDuration": "{0}:{1}:{2}:{3}",
+                "formatGameTime": "Dia {0}, {1}:{2}"
+            },
+            "status": {
+                "players": "Jogadores",
+                "zombies": "Zumbis",
+                "animals": "Animais",
+                "heap": "Monte"
+            },
+            "systemInfo": {
+                "deviceName": "Nome do dispositivo",
+                "deviceModel": "Modelo do dispositivo",
+                "deviceType": "Tipo de dispositivo",
+                "deviceUniqueIdentifier": "Identificador exclusivo do dispositivo",
+                "operatingSystem": "Sistema operacional",
+                "processorType": "Tipo de processador",
+                "processorCount": "Contagem de processadores",
+                "systemMemorySize": "Tamanho da memória do sistema"
+            }
+        },
+        "map": {
+            "region": "Arquivo de região",
+            "landClaim": "Reivindicação de terra",
+            "zombie": "Zumbi",
+            "animal": "Animal",
+            "historyPlayer": "Jogador (Histórico)",
+            "onlinePlayer": "Jogador (online)",
+            "mousePos": "Pos do mouse",
+            "lastClick": "Último clique",
+            "renderExploredArea": "Renderizar área explorada",
+            "renderExploredAreaConfirm": "Tem certeza de que deseja renderizar a área explorada? Isso pode levar alguns minutos, você pode verificar o progresso no console",
+            "renderFullMap": "Renderizar mapa completo",
+            "renderFullMapConfirm": "Tem certeza de que deseja renderizar o mapa completo? Isso pode levar alguns minutos, você pode verificar o progresso no console, esta operação geralmente é realizada apenas uma vez após o servidor ser iniciado",
+            "refreshMap": "Atualizar mapa",
+            "autoReload": "Recarregar a cada",
+            "seconds": "segundos",
+            "landOwner": "Proprietário do terreno",
+            "removeLandClaim": "Remover",
+            "removeLandClaimConfirm": "Tem certeza de que deseja remover a reivindicação do terreno?",
+            "dragendTelePlayerConfirm": "Tem certeza de que deseja teletransportar o jogador: {0} para o local de destino {1}?"
+        },
+        "login": {
+            "username": "Nome de usuário",
+            "password": "Senha",
+            "login": "Login",
+            "logout": "Logout",
+            "logoutConfirm": "Tem certeza de que deseja sair?",
+            "loginFailed": "Falha no login",
+            "loginSuccess": "Login bem-sucedido",
+            "logoutSuccess": "Logout bem-sucedido"
+        },
+        "playerList": {
+            "autoRefresh": "Atualização automática",
+            "searchPlaceholder": "Digite seu ID ou nome de jogador",
+            "tableHeader": {
+                "index": "Índice",
+                "playerName": "Nome do jogador",
+                "admin": "Admin",
+                "level": "Nível",
+                "gameStage": "Estágio do jogo",
+                "zombieKills": "Mortes de zumbis",
+                "playerKills": "Jogador Mortes",
+                "deaths": "Mortes",
+                "skillPoints": "Pontos de Habilidade",
+                "pointsCount": "Pontos TianYi",
+                "currentPosition": "Posição Atual",
+                "ip": "Endereço IP",
+                "ipAttribution": "Atribuição de IP",
+                "ping": "Ping",
+                "entityId": "ID da Entidade",
+                "playerId": "ID do Jogador",
+                "platformId": "ID da Plataforma",
+                "operate": "Operar",
+                "isOnline": "Online",
+                "lastLogin": "Último Login",
+                "totalTimePlayed": "Tempo Total Jogado",
+                "currentLife": "Tempo de Sobrevivência Atual",
+                "longestLife": "Maior Tempo de Sobrevivência"
+            }
+        },
+        "chat": {
+            "tableHeader": {
+                "createdAt": "Criado em",
+                "entityId": "ID da entidade",
+                "senderName": "Nome do remetente",
+                "chatType": "Tipo",
+                "message": "Mensagem",
+                "playerId": "ID do jogador"
+            },
+            "chatType": {
+                "global": "Global",
+                "friends": "Amigos",
+                "party": "Festa",
+                "whisper": "Sussurro",
+                "unknown": "Desconhecido"
+            }
+        },
+        "blacklist": {
+            "tableHeader": {
+                "playerId": "ID do jogador",
+                "displayName": "Nome de exibição",
+                "bannedUntil": "Banido até",
+                "reason": "Motivo"
+            }
+        },
+        "itemBlocks": {
+            "item": "Item",
+            "block": "Bloquear",
+            "devItem": "Item de desenvolvimento (oculto dos usuários)",
+            "itemName": "Nome do item",
+            "localizationName": "Nome da localização",
+            "iconName": "Nome do ícone",
+            "iconColor": "Cor do ícone",
+            "maxStackAllowed": "Pilha máxima permitida"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "Prefixo do comando de bate-papo",
+            "chatCommandSeparator": "Separador do comando de bate-papo",
+            "handleChatMessageError": "Lidar com erro de mensagem de bate-papo",
+            "teleZombieCheck": "Verificação de teletransporte de zumbis",
+            "teleDisableTip": "Dica para desabilitar teletransporte",
+            "killZombieTrigger": {
+                "isEnabled": "Habilitar gatilho para matar zumbis",
+                "executeCommands": "Executar comandos\n(um por linha)"
+            },
+            "deathTrigger": {
+                "isEnabled": "Habilitar gatilho de morte",
+                "executeCommands": "Executar comandos\n(um por linha)"
+            },
+            "autoRestart": {
+                "isEnabled": "Habilitar reinicialização automática",
+                "time": "Hora da reinicialização",
+                "messages": "Mensagens\n(uma por linha)"
+            },
+            "blockFamilySharingAccount": "Bloquear conta de compartilhamento familiar",
+            "removeSleepingBagFromPOI": "Remover saco de dormir do POI",
+            "isEnablePlayerInitialSpawnPoint": "Habilitar ponto de geração inicial do jogador",
+            "playerInitialPosition": "Posição inicial do jogador"
+        },
+        "autoBackup": {
+            "isEnabled": "Habilitar backup automático",
+            "interval": "Intervalo de backup (segundos)",
+            "retainedFileCountLimit": "Retido Limite de contagem de arquivos",
+            "resetIntervalAfterManualBackup": "Redefinir intervalo após backup manual",
+            "skipIfThereAreNoPlayers": "Ignorar se não houver jogadores",
+            "autoBackupOnServerStartup": "Backup automático na inicialização do servidor",
+            "archiveFolder": "Pasta de arquivo",
+            "tableHeader": {
+                "serverVersion": "Versão do servidor",
+                "gameWorld": "Mundo do jogo",
+                "gameName": "Nome do jogo",
+                "gameTime": "Hora do jogo",
+                "formatGameTime": "Dia {0}, Hora {1}",
+                "createdAt": "Criado em",
+                "size": "Tamanho do arquivo"
+            }
+        },
+        "gameNotice": {
+            "isEnabled": "Habilitar aviso do jogo",
+            "variables": "Variáveis",
+            "welcomeNotice": "Aviso de boas-vindas",
+            "rotatingNotices": "Avisos de rotação\n(um por linha)",
+            "rotatingInterval": "Intervalo de rotação (segundos)",
+            "bloodMoonNotice1": "Aviso de lua de sangue 1",
+            "bloodMoonNotice2": "Aviso de lua de sangue 2",
+            "bloodMoonNotice3": "Lua de sangue Aviso 3"
+        },
+        "pointsSystem": {
+            "isEnabled": "Habilitar sistema de pontos",
+            "variables": "Variáveis",
+            "signInCmd": "Comando de login",
+            "signInInterval": "Intervalo de login (segundos)",
+            "signInRewardPoints": "Pontos de recompensa de login",
+            "signInSuccessTip": "Dica de sucesso de login",
+            "signInFailureTip": "Dica de falha de login",
+            "queryPointsCmd": "Comando de consulta de pontos",
+            "queryPointsTip": "Dica de consulta de pontos",
+            "isCurrencyExchangeEnabled": "Habilitar câmbio de moeda",
+            "currencyToPointsExchangeRate": "Taxa de câmbio de moeda para pontos",
+            "currencyExchangeCmd": "Comando de câmbio de moeda",
+            "exchangeSuccessTip": "Dica de sucesso de troca",
+            "exchangeFailureTip": "Dica de falha de troca",
+            "resetPoints": "Redefinir todos os pontos",
+            "resetSignIn": "Redefinir todos os horários de login",
+            "resetPointsConfirm": "Tem certeza de que deseja redefinir todos os pontos do jogador?",
+            "resetSignInConfirm": "Tem certeza de que deseja redefinir todas as datas e horas de login do jogador?",
+            "tableHeader": {
+                "playerId": "ID do jogador",
+                "playerName": "Nome do jogador",
+                "points": "Pontos",
+                "lastSignInAt": "Último login"
+            }
+        },
+        "listManagement": {
+            "operate": "Operar",
+            "tableHeader": {
+                "id": "ID",
+                "icon": "Ícone",
+                "itemName": "Nome do item",
+                "count": "Contagem",
+                "quality": "Qualidade",
+                "durabilidade": "Durabilidade",
+                "descrição": "Descrição",
+                "createdAt": "Criado em",
+                "comando": "Comando",
+                "inMainThread": "No tópico principal",
+                "item": "Item"
+            }
+        },
+        "gameStore": {
+            "isEnabled": "Habilitar loja de jogos",
+            "variables": "Variáveis",
+            "queryListCmd": "Comando da lista de consultas",
+            "buyCmdPrefix": "Prefixo do comando de compra",
+            "goodsItemTip": "Dica de item de mercadorias",
+            "buySuccessTip": "Dica de sucesso de compra",
+            "pointsNotEnoughTip": "Dica de pontos insuficientes",
+            "noGoods": "Nenhuma mercadoria",
+            "useTips": "Dicas: insira buy-{'{'}id{'}'} no jogo para comprar",
+            "goods": "Produtos",
+            "tableHeader": {
+                "id": "ID",
+                "name": "Nome",
+                "price": "Preço",
+                "description": "Descrição",
+                "bind": "Vincular",
+                "bindItem": "Vincular item",
+                "bindCmd": "Comando de vinculação"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "Habilitar presente VIP",
+            "variables": "Variáveis",
+            "claimCmd": "Comando de reivindicação",
+            "hasClaimedTip": "Reivindica dica",
+            "nonVipTip": "Dica não VIP",
+            "claimSuccessTip": "Dica de sucesso de reivindicação",
+            "gift": "Presente",
+            "resetAll": "Redefinir todos os estados de reivindicação",
+            "resetAllConfirm": "Tem certeza de que deseja redefinir todas as reivindicações de jogadores state?",
+            "tableHeader": {
+                "playerId": "ID do jogador",
+                "name": "Nome",
+                "claimState": "Já reivindicado",
+                "totalClaimCount": "Contagem total de reivindicações",
+                "lastClaimAt": "Última reivindicação em",
+                "description": "Descrição",
+                "bind": "Vincular",
+                "bindItem": "Vincular item",
+                "bindCmd": "Vincular comando"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "Habilitar teletransporte de amigo",
+                "variables": "Variáveis",
+                "teleCmdPrefix": "Prefixo do comando de teletransporte",
+                "teleInterval": "Intervalo de teletransporte (segundos)",
+                "pointsRequired": "Pontos necessários",
+                "teleSuccessTip": "Teletransporte bem-sucedido Dica",
+                "pointsNotEnoughTip": "Pontos não são suficientes",
+                "coolingTip": "Dica de resfriamento",
+                "targetNotFoundTip": "Dica de alvo não encontrado",
+                "targetNotFriendTip": "Dica de alvo não amigo",
+                "useTips": "Dicas: Insira tele-{'{'}nome do jogador{'}'} no jogo para se teletransportar"
+            },
+            "city": {
+                "isEnabled": "Habilitar teletransporte da cidade",
+                "variables": "Variáveis",
+                "queryListCmd": "Comando da lista de consultas",
+                "teleCmdPrefix": "Prefixo do comando de teletransporte",
+                "teleInterval": "Intervalo de teletransporte (segundos)",
+                "locationItemTip": "Dica do item de localização",
+                "teleSuccessTip": "Dica de sucesso de teletransporte",
+                "pointsNotEnoughTip": "Dica de pontos insuficientes",
+                "coolingTip": "Dica de resfriamento",
+                "noLocation": "Sem localização",
+                "useTips": "Dicas: Insira hc-{'{'}id{'}'} no jogo para teletransportar",
+                "titleSuffix": "Cidade",
+                "viewDirection": {
+                    "north": "Norte",
+                    "northeast": "Nordeste",
+                    "east": "Leste",
+                    "southeast": "Sudeste",
+                    "south": "Sul",
+                    "southwest": "Sudoeste",
+                    "west": "Oeste",
+                    "northwest": "Noroeste"
+                },
+                "tableHeader": {
+                    "id": "ID",
+                    "cityName": "Nome da cidade",
+                    "pointsRequired": "Pontos necessários",
+                    "position": "Posição",
+                    "viewDirection": "Direção da visualização",
+                    "createdAt": "Criado em"
+                }
+            },
+            "home": {
+                "isEnabled": "Habilitar teletransporte para casa",
+                "variables": "Variáveis",
+                "queryListCmd": "Comando de lista de consulta",
+                "teleInterval": "Intervalo de teletransporte (segundos)",
+                "setHomeCmdPrefix": "Definir prefixo de comando inicial",
+                "setCountLimit": "Definir limite de contagem",
+                "pointsRequiredForSet": "Pontos necessários para definir",
+                "deleteHomeCmdPrefix": "Excluir prefixo de comando inicial",
+                "teleHomeCmdPrefix": "Teletransportar prefixo de comando inicial",
+                "pointsRequiredForTele": "Pontos necessários para teletransporte",
+                "noHomeTip": "Nenhuma dica inicial",
+                "locationItemTip": "Dica de item de localização",
+                "overLimitTip": "Dica de limite excedido",
+                "setPointsNotEnoughTip": "Dica de pontos definidos insuficientes",
+                "setSuccessTip": "Definir dica de sucesso",
+                "overwriteSuccessTip": "Substituir Dica de sucesso",
+                "deleteSuccessTip": "Excluir dica de sucesso",
+                "homeNotFoundTip": "Dica de casa não encontrada",
+                "coolingTip": "Dica de resfriamento",
+                "telePointsNotEnoughTip": "Dica de pontos de teletransporte insuficientes",
+                "teleSuccessTip": "Dica de sucesso de teletransporte",
+                "useTips": "Dicas: digite home-{'{'}name{'}'} no jogo para se teletransportar, digite sethome-{'{'}name{'}'} para definir home, digite delhome-{'{'}name{'}'} para excluir home",
+                "titleSuffix": "Home",
+                "deleteAll": "Excluir tudo",
+                "deleteAllConfirm": "Tem certeza de que deseja excluir todos os registros?",
+                "tableHeader": {
+                    "playerName": "Nome do jogador",
+                    "playerId": "ID do jogador",
+                    "createdAt": "Criado em",
+                    "homeName": "Nome da casa",
+                    "position": "Posição"
+                }
+            }
+        }
+    }
+}
