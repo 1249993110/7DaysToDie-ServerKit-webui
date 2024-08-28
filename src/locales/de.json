@@ -172,7 +172,7 @@
             "shutdownSuccess": "Server herunterfahren Erfolg"
         },
         "inventoryDialog": {
-            "title": "Spieler: {playerName} ({playerId}) Inventar",
+            "title": "Spieler: {0} Inventar",
             "grid": "Raster",
             "list": "Liste",
             "bag": "Tasche",
@@ -186,7 +186,7 @@
             }
         },
         "playerSkillsDialog": {
-            "title": "Spieler: {playerName} ({playerId}) Fertigkeitspunkte",
+            "title": "Spieler: {0} Fertigkeitspunkte",
             "fullscreen": "Vollbild",
             "exitFullscreen": "Vollbild verlassen",
             "fold": "Falten",
@@ -203,7 +203,7 @@
             }
         },
         "playerDetailsDialog": {
-            "title": "Spieler: {playerName} ({playerId}) Details",
+            "title": "Spieler: {0} Details",
             "active": "Aktiv",
             "inactive": "Inaktiv",
             "tableHeader": {
@@ -256,7 +256,7 @@
             "copyItemName": "Artikelname kopieren",
             "copyLocalizationName": "Lokalisierungsname kopieren",
             "removeItem": "Ausgewählten Artikel entfernen",
-            "removeItemConfirm": "Möchten Sie wirklich alle {name} aus der Tasche und dem Gürtel des Spielers entfernen?"
+            "removeItemConfirm": "Möchten Sie wirklich alle {0} aus der Tasche und dem Gürtel des Spielers entfernen?"
         },
         "myTableEx": {
             "tableHeader": {
@@ -361,8 +361,8 @@
                     "4": "Überlebenskünstler",
                     "5": "Wahnsinnig"
                 },
-                "formatDuration": "{Tage}:{Stunden}:{Minuten}:{Sekunden}",
-                "formatGameTime": "Tag {Tage}, {Stunden}:{Minuten}"
+                "formatDuration": "{0}:{1}:{2}:{3}",
+                "formatGameTime": "Tag {0}, {1}:{2}"
             },
             "status": {
                 "Spieler": "Players",
@@ -400,7 +400,7 @@
             "landOwner": "Grundstückseigentümer",
             "removeLandClaim": "Entfernen",
             "removeLandClaimConfirm": "Möchten Sie den Landanspruch wirklich entfernen?",
-            "dragendTelePlayerConfirm": "Möchten Sie den Spieler {playerName} wirklich zum Zielort {pos} teleportieren?"
+            "dragendTelePlayerConfirm": "Möchten Sie den Spieler {0} wirklich zum Zielort {1} teleportieren?"
         },
         "login": {
             "username": "Benutzername",
@@ -513,7 +513,7 @@
                 "gameWorld": "Spielwelt",
                 "gameName": "Spielname",
                 "gameTime": "Spielzeit",
-                "formatGameTime": "Tag {Tage}, Stunde {Stunden}",
+                "formatGameTime": "Tag {0}, Stunde {1}",
                 "createdAt": "Erstellt am",
                 "size": "Dateigröße"
             }

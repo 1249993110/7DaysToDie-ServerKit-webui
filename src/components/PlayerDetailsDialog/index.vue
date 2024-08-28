@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :title="title" draggable :close-on-click-modal="false">
+    <el-dialog draggable :close-on-click-modal="false">
         <el-scrollbar max-height="64vh" always>
             <el-descriptions :column="2" border>
                 <el-descriptions-item v-for="(item, index) in details" :key="index" :label="item.label">
@@ -23,7 +23,6 @@ const props = defineProps({
     data: Object,
 });
 
-const title = t('components.playerDetailsDialog.title', { playerName: props.data.playerName, playerId: props.data.playerId });
 const formatDayTime = (days, time) => {
     return `${days} ${t('global.days')} ${time} ${t('global.hours')}`;
 };

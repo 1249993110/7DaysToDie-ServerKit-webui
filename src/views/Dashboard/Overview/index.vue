@@ -91,7 +91,7 @@ const formatDuration = (time) => {
     const hours = dur.hours().toString().padStart(2, '0');
     const minutes = dur.minutes().toString().padStart(2, '0');
     const seconds = dur.seconds().toString().padStart(2, '0');
-    return t('views.dashboard.overview.formatDuration', { days, hours, minutes, seconds });
+    return t('views.dashboard.overview.formatDuration', [days, hours, minutes, seconds]);
 };
 
 const formatGameTime = (time) => {
@@ -101,7 +101,7 @@ const formatGameTime = (time) => {
     const days = time.days;
     const hours = time.hours.toString().padStart(2, '0');
     const minutes = time.minutes.toString().padStart(2, '0');
-    return t('views.dashboard.overview.formatGameTime', { days, hours, minutes });
+    return t('views.dashboard.overview.formatGameTime', [days, hours, minutes]);
 };
 
 const formatGameDifficulty = (gameDifficulty) => {

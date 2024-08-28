@@ -172,7 +172,7 @@
             "shutdownSuccess": "Server shutdown success"
         },
         "inventoryDialog": {
-            "title": "Player: {playerName} ({playerId}) Inventory",
+            "title": "Player: {0} Inventory",
             "grid": "Grid",
             "list": "List",
             "bag": "Bag",
@@ -186,7 +186,7 @@
             }
         },
         "playerSkillsDialog": {
-            "title": "Player: {playerName} ({playerId}) Skill Points",
+            "title": "Player: {0} Skill Points",
             "fullscreen": "Fullscreen",
             "exitFullscreen": "Exit Fullscreen",
             "fold": "Fold",
@@ -203,7 +203,7 @@
             }
         },
         "playerDetailsDialog": {
-            "title": "Player: {playerName} ({playerId}) Details",
+            "title": "Player: {0} Details",
             "active": "Active",
             "inactive": "Inactive",
             "tableHeader": {
@@ -256,7 +256,7 @@
             "copyItemName": "Copy Item Name",
             "copyLocalizationName": "Copy Localization Name",
             "removeItem": "Remove Selected Item",
-            "removeItemConfirm": "Are you sure you want to remove all {name} from the player's bag and belt?"
+            "removeItemConfirm": "Are you sure you want to remove all {0} from the player's bag and belt?"
         },
         "myTableEx": {
             "tableHeader": {
@@ -361,8 +361,8 @@
                     "4": "Survivalist",
                     "5": "Insane"
                 },
-                "formatDuration": "{days}:{hours}:{minutes}:{seconds}",
-                "formatGameTime": "Day {days}, {hours}:{minutes}"
+                "formatDuration": "{0}:{1}:{2}:{3}",
+                "formatGameTime": "Day {0}, {1}:{2}"
             },
             "status": {
                 "players": "Players",
@@ -400,7 +400,7 @@
             "landOwner": "Land Owner",
             "removeLandClaim": "Remove",
             "removeLandClaimConfirm": "Are you sure you want to remove the land claim?",
-            "dragendTelePlayerConfirm": "Are you sure you want to teleport player: {playerName} to the target location {pos}?"
+            "dragendTelePlayerConfirm": "Are you sure you want to teleport player: {0} to the target location {1}?"
         },
         "login": {
             "username": "Username",
@@ -513,7 +513,7 @@
                 "gameWorld": "Game World",
                 "gameName": "Game Name",
                 "gameTime": "Game Time",
-                "formatGameTime": "Day {days}, Hour {hours}",
+                "formatGameTime": "Day {0}, Hour {1}",
                 "createdAt": "Created At",
                 "size": "File Size"
             }

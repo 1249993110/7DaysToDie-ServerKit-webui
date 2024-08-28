@@ -21,7 +21,7 @@
                 <el-table-column prop="gameName" :label="t('views.autoBackup.tableHeader.gameName')" sortable show-overflow-tooltip> </el-table-column>
                 <el-table-column :label="t('views.autoBackup.tableHeader.gameTime')" show-overflow-tooltip>
                     <template #default="{ row }">
-                        {{ t('views.autoBackup.tableHeader.formatGameTime', { days: row.days, hours: row.hours }) }}
+                        {{ t('views.autoBackup.tableHeader.formatGameTime', [row.days, row.hours]) }}
                     </template>
                 </el-table-column>
                 <el-table-column prop="createdAt" :label="t('views.autoBackup.tableHeader.createdAt')" min-width="80px" sortable> </el-table-column>

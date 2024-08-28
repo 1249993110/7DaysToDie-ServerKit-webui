@@ -172,7 +172,7 @@
             "shutdownSuccess": "服务器关闭成功"
         },
         "inventoryDialog": {
-            "title": "玩家: {playerName} ({playerId}) 的背包",
+            "title": "玩家: {0} 的背包",
             "grid": "网格",
             "list": "列表",
             "bag": "背包",
@@ -186,7 +186,7 @@
             }
         },
         "playerSkillsDialog": {
-            "title": "玩家: {playerName} ({playerId}) 的技能",
+            "title": "玩家: {0} 的技能",
             "fullscreen": "全屏",
             "exitFullscreen": "退出全屏",
             "fold": "折叠",
@@ -203,7 +203,7 @@
             }
         },
         "playerDetailsDialog": {
-            "title": "玩家: {playerName} ({playerId}) 的详情",
+            "title": "玩家: {0} 的详情",
             "active": "激活",
             "inactive": "未激活",
             "tableHeader": {
@@ -256,7 +256,7 @@
             "copyItemName": "复制物品名称",
             "copyLocalizationName": "复制本地化名称",
             "removeItem": "移除选中物品",
-            "removeItemConfirm": "您确定要从玩家的背包和腰带中移除所有的 {name} 吗?"
+            "removeItemConfirm": "您确定要从玩家的背包和腰带中移除所有的 {0} 吗?"
         },
         "myTableEx": {
             "tableHeader": {
@@ -361,8 +361,8 @@
                     "4": "幸存者",
                     "5": "疯狂"
                 },
-                "formatDuration": "{days} 天 {hours} 小时 {minutes} 分钟 {seconds} 秒",
-                "formatGameTime": "{days} 天 {hours} 小时 {minutes} 分钟"
+                "formatDuration": "{0} 天 {1} 小时 {2} 分钟 {3} 秒",
+                "formatGameTime": "{0} 天 {1} 小时 {2} 分钟"
             },
             "status": {
                 "players": "玩家数",
@@ -400,7 +400,7 @@
             "landOwner": "领地所有者",
             "removeLandClaim": "移除领地石",
             "removeLandClaimConfirm": "您确定要移除领地石吗?",
-            "dragendTelePlayerConfirm": "确定将玩家: {playerName} 传送到目标地点 {pos} 吗?"
+            "dragendTelePlayerConfirm": "确定将玩家: {0} 传送到目标地点 {1} 吗?"
         },
         "login": {
             "username": "用户名",
@@ -513,7 +513,7 @@
                 "gameWorld": "游戏世界",
                 "gameName": "游戏名称",
                 "gameTime": "游戏时间",
-                "formatGameTime": "{days} 天 {hours} 小时",
+                "formatGameTime": "{0} 天 {1} 小时",
                 "createdAt": "创建时间",
                 "size": "文件大小"
             }

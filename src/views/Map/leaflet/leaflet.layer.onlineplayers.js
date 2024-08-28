@@ -63,7 +63,7 @@ export function getOnlinePlayersLayer(map, mapInfo) {
             // 监听拖拽结束事件
             marker.on('dragend', async (e) => {
                 const newPos = e.target.getLatLng(); // 获取新的位置
-                const message = i18n.global.t('views.map.dragendTelePlayerConfirm', { playerName: entityName, pos: formatCoord(newPos) });
+                const message = i18n.global.t('views.map.dragendTelePlayerConfirm', [entityName, formatCoord(newPos)]);
                 if (await myconfirm(message)) {
                     // console.log(`Marker dragged to new position: ${newPos}`);
                     // 在这里执行你想要的方法
