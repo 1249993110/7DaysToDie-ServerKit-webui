@@ -1,0 +1,698 @@
+{
+    "global": {
+        "language": "日本語",
+        "appTitle": "天依7日間殺サーバー管理ツール",
+        "formRule": {
+            "required": "必須項目",
+            "selectAtLeastOne": "少なくとも1つ選択してください"
+        },
+        "true": "はい",
+        "false": "いいえ",
+        "unknown": "不明",
+        "loading": "読み込み中...",
+        "empty": "空",
+        "days": "日",
+        "hours": "時間",
+        "minutes": "分",
+        "oneMinute": "1 分",
+        "seconds": "秒",
+        "lessThan": "未満",
+        "moreThan": "以上",
+        "equal": "等しい",
+        "keyworld": "キーワード",
+        "button": {
+            "add": "追加",
+            "delete": "削除",
+            "deleteAll": "すべて削除",
+            "edit": "編集",
+            "save": "保存",
+            "enable": "有効化",
+            "disable": "無効化",
+            "search": "検索",
+            "reset": "リセット",
+            "back": "戻る",
+            "close": "閉じる",
+            "confirm": "確認",
+            "cancel": "キャンセル",
+            "import": "インポート",
+            "export": "エクスポート",
+            "batchOperation": "バッチ操作",
+            "batchDelete": "バッチ削除",
+            "send": "送信",
+            "select": "選択",
+            "batchSelect": "バッチ選択"
+        },
+        "message": {
+            "title": "ヒント",
+            "success": "成功",
+            "failed": "失敗",
+            "inputNewValue": "新しい値を入力してください",
+            "inputError": "入力エラー",
+            "deleteConfirm": "本当に削除しますか?",
+            "deleteSuccess": "削除成功",
+            "deleteFailed": "削除失敗",
+            "resetConfirm": "本当にリセットしますか?",
+            "resetSuccess": "リセット成功",
+            "saveSuccess": "保存成功",
+            "saveFailed": "保存失敗",
+            "enableSuccess": "有効化成功",
+            "enableFailed": "有効化失敗",
+            "disableSuccess": "無効化成功",
+            "disableFailed": "無効化失敗",
+            "importSuccess": "インポート成功",
+            "importFailed": "インポート失敗",
+            "exportSuccess": "エクスポート成功",
+            "exportFailed": "エクスポート失敗",
+            "copySuccess": "コピー成功",
+            "example": "例",
+            "cmdSentSuccess": "コマンド送信成功",
+            "cmdExecResult": "コマンド実行結果",
+            "inputText": "テキストを入力してください",
+            "inputNumber": "数字を入力してください",
+            "datePickerPlaceholder": "日付を選択",
+            "noMoreData": "これ以上のデータはありません"
+        }
+    },
+    "copy": "コピー",
+    "player": "プレイヤー",
+    "playerOperation": {
+        "showInventory": "インベントリを見る",
+        "showSkills": "スキルを見る",
+        "showDetails": "詳細を見る",
+        "sendMessage": "メッセージを送る",
+        "giveItem": "アイテムを与える",
+        "changePoints": "ポイントを与える",
+        "spawnEntity": "エンティティを生成",
+        "teleport": "プレイヤーをテレポート",
+        "kick": "プレイヤーをキック",
+        "ban": "プレイヤーをBAN",
+        "setSuperAdmin": "スーパー管理者に設定",
+        "cancelAdmin": "管理者をキャンセル",
+        "removeLandClaims": "領地石を削除",
+        "resetPlayer": "プレイヤーの保存データを削除",
+        "copyPlayerId": "プレイヤーIDをコピー",
+        "copyPlayerName": "プレイヤー名をコピー",
+        "copyPlayerPos": "プレイヤーの位置をコピー"
+    },
+    "menus": {
+        "dashboard": "ダッシュボード",
+        "serverSettings": "サーバー設定",
+        "map": "GPSマップ",
+        "playerList": {
+            "": "プレイヤーリスト",
+            "onlinePlayers": "オンラインプレイヤー",
+            "historyPlayers": "履歴プレイヤー"
+        },
+        "chat": {
+            "": "ゲームチャット",
+            "liveChat": "リアルタイムチャット",
+            "chatRecord": "チャット履歴"
+        },
+        "permission": "権限管理",
+        "blacklist": "ブラックリスト",
+        "whitelist": "ホワイトリスト",
+        "itemBlocks": "アイテムブロック",
+        "console": "コンソール",
+        "globalSettings": "機能設定",
+        "autobackup": {
+            "": "自動バックアップ",
+            "settings": "バックアップ設定",
+            "management": "バックアップ管理"
+        },
+        "gameNotice": "ゲーム告知",
+        "pointsSystem": {
+            "": "ポイントシステム",
+            "settings": "サインイン設定",
+            "management": "ポイント管理"
+        },
+        "listManagement": {
+            "": "リスト管理",
+            "itemList": "アイテムリスト",
+            "commandList": "コマンドリスト"
+        },
+        "gameStore": {
+            "": "ゲームストア",
+            "settings": "ストア設定",
+            "management": "商品管理"
+        },
+        "vipGift": {
+            "": "VIPギフト",
+            "settings": "ギフト設定",
+            "management": "ギフト管理"
+        },
+        "teleSystem": {
+            "": "テレポートシステム",
+            "friend": "友達テレポート",
+            "city": {
+                "": "都市テレポート",
+                "settings": "都市設定",
+                "management": "都市管理"
+            },
+            "home": {
+                "": "ホームテレポート",
+                "settings": "Home設定",
+                "management": "Home管理"
+            }
+        },
+        "swagger": "インターフェースドキュメント"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "リフレッシュ",
+            "fullscreen": "全画面",
+            "exitFullscreen": "全画面を終了",
+            "fullscreenNotSupport": "お使いのブラウザは全画面表示をサポートしていません"
+        },
+        "serverToolBar": {
+            "restart": "サーバーを再起動",
+            "restartConfirm": "本当にサーバーを再起動しますか？ 数分かかる場合があります",
+            "restartSuccess": "サーバーの再起動が成功しました",
+            "shutdown": "サーバーをシャットダウン",
+            "shutdownConfirm": "本当にサーバーをシャットダウンしますか？ サーバーにアクセスできなくなります",
+            "shutdownSuccess": "サーバーのシャットダウンが成功しました"
+        },
+        "inventoryDialog": {
+            "title": "プレイヤー: {0} のインベントリ",
+            "grid": "グリッド",
+            "list": "リスト",
+            "bag": "バッグ",
+            "belt": "ベルト",
+            "equipment": "装備",
+            "tableHeader": {
+                "icon": "アイコン",
+                "itemName": "アイテム名",
+                "localizationName": "ローカライズ名",
+                "mod": "MOD"
+            }
+        },
+        "playerSkillsDialog": {
+            "title": "プレイヤー: {0} のスキル",
+            "fullscreen": "全画面",
+            "exitFullscreen": "全画面を終了",
+            "fold": "折りたたむ",
+            "expand": "展開",
+            "tableHeader": {
+                "name": "スキル名",
+                "icon": "アイコン",
+                "localizationName": "ローカライズ名",
+                "level": "レベル",
+                "maxLevel": "最大レベル",
+                "costForNextLevel": "次のレベルへのコスト",
+                "type": "タイプ",
+                "localizationDesc": "説明"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "プレイヤー: {0} の詳細",
+            "active": "アクティブ",
+            "inactive": "非アクティブ",
+            "tableHeader": {
+                "playerName": "プレイヤーニックネーム",
+                "entityId": "エンティティ ID",
+                "playerId": "プレイヤー ID",
+                "platformId": "プラットフォーム ID",
+                "isAdmin": "管理者かどうか",
+                "isOnline": "オンラインかどうか",
+                "ip": "IPアドレス",
+                "ping": "遅延",
+                "currentPosition": "現在の位置",
+                "lastSpawnPosition": "最後のスポーン位置",
+                "gameStage": "ゲームステージ",
+                "lastLogin": "最後のログイン",
+                "playerKills": "プレイヤーキル数",
+                "zombieKills": "ゾンビキル数",
+                "deaths": "死亡回数",
+                "score": "スコア",
+                "health": "体力",
+                "stamina": "スタミナ",
+                "coreTemp": "温度",
+                "food": "食べ物",
+                "water": "水",
+                "pointsCount": "ポイント",
+                "level": "レベル",
+                "expToNextLevel": "次のレベルまでの経験値",
+                "skillPoints": "スキルポイント",
+                "landProtectionActive": "領地石保護状態",
+                "distanceWalked": "歩行距離",
+                "totalItemsCrafted": "作成したアイテム数",
+                "totalTimePlayed": "総プレイ時間",
+                "currentLife": "現在の生存時間",
+                "longestLife": "最長生存時間",
+                "alreadyCraftedList": "作成済みアイテムリスト",
+                "unlockedRecipeList": "解放済みレシピリスト",
+                "rentedVMPosition": "レンタル座標",
+                "rentalEndDay": "レンタル終了日"
+            }
+        },
+        "gameIconEx": {
+            "itemName": "名前",
+            "localizationName": "ローカライズ名",
+            "count": "数量",
+            "maxStackAllowed": "最大スタック数",
+            "quality": "品質",
+            "useTimes": "使用時間",
+            "maxUseTimes": "最大使用時間",
+            "isMod": "MOD",
+            "copyItemName": "アイテム名をコピー",
+            "copyLocalizationName": "ローカライズ名をコピー",
+            "removeItem": "選択したアイテムを削除",
+            "removeItemConfirm": "本当にプレイヤーのバッグとベルトからすべての {0} を削除しますか？"
+        },
+        "myTableEx": {
+            "tableHeader": {
+                "index": "番号",
+                "operate": "操作"
+            }
+        },
+        "itemBlockSelector": {
+            "title": "アイテムまたはブロックを選択",
+            "id": "ID",
+            "icon": "アイコン",
+            "itemName": "名前",
+            "localizationName": "ローカライズ名",
+            "maxStackAllowed": "最大スタック数"
+        },
+        "associatedItems": {
+            "title": "バインドアイテム",
+            "add": "アイテムを追加",
+            "addFromList": "リストからアイテムを追加"
+        },
+        "associatedCommands": {
+            "title": "バインドコマンド",
+            "add": "コマンドを追加",
+            "addFromList": "リストからコマンドを追加"
+        },
+        "itemListSelector": {
+            "title": "リストからアイテムを選択"
+        },
+        "commandListSelector": {
+            "title": "リストからコマンドを選択"
+        },
+        "batchGiveItem": {
+            "itemName": "アイテム名",
+            "count": "数量",
+            "quality": "品質",
+            "durability": "耐久度%"
+        },
+        "batchAddBlacklist": {
+            "ban": "プレイヤーをBAN",
+            "banUntil": "解除時間",
+            "reason": "BAN理由"
+        }
+    },
+    "layout": {
+        "footer": {
+            "codeRepository": "コードリポジトリ",
+            "copyright": "Copyright © 2024 洛水天依Team All Rights Reserved",
+            "group": {
+                "title": "天依7日間殺サーバー管理グループに参加",
+                "url": "https://qm.qq.com/cgi-bin/qm/qr?k=p3TKGDnBAxxyVsR79pF-WYHI3BjsYiHe&jump_from=webapi&authKey=wTpnGpOGOsAaNTD4TqL4kukLQnxT+TmDFQx803v+Q2zWU0E7LYuSkBQQI+WhrqFB"
+            }
+        }
+    },
+    "store": {},
+    "utils": {
+        "playerHelper": {
+            "title": "負の数はポイントを差し引きます",
+            "inputCount": "ポイント数を入力してください",
+            "deductPoints": "{0} ポイントが差し引かれました",
+            "addPoints": "{0} ポイントが正常にチャージされました",
+            "inputEntityIdOrName": "エンティティIDまたは名前を入力してください",
+            "teleportTarget": "テレポート先を入力してください。プレイヤー名、プレイヤーID、または三次元座標が可能です",
+            "kickPlayerReason": "プレイヤーをキックする理由を入力してください",
+            "kickPlayerConfirm": "この操作は選択されたプレイヤーをキックします。続行しますか？",
+            "setSuperAdminConfirm": "この操作は選択されたプレイヤーをスーパー管理者に設定します。続行しますか？",
+            "cancelAdminConfirm": "この操作は選択されたプレイヤーの管理者権限をキャンセルします。続行しますか？",
+            "removeLandClaimConfirm": "この操作は選択されたプレイヤーのすべての領地石を削除します。続行しますか？",
+            "resetPlayerConfirm": "この操作は選択されたプレイヤーの保存データを削除します。続行しますか？"
+        }
+    },
+    "views": {
+        "dashboard": {
+            "header": {
+                "overview": "概要",
+                "status": "ステータス",
+                "fps": "FPS",
+                "entities": "エンティティ数",
+                "rss": "RSS",
+                "chunks": "チャンク数",
+                "cgo": "CGO",
+                "items": "アイテム",
+                "systemInfo": "システム情報"
+            },
+            "overview": {
+                "serverName": "サーバー名",
+                "region": "サーバー地域",
+                "language": "サーバー言語",
+                "serverIp": "サーバー IP",
+                "uptime": "サーバーの稼働時間",
+                "gameTime": "ゲーム時間",
+                "serverPort": "サーバーポート",
+                "gameName": "ゲーム名",
+                "gameMode": "ゲームモード",
+                "serverVersion": "サーバーバージョン",
+                "gameWorld": "ゲームワールド",
+                "gameDifficulty": "ゲーム難易度",
+                "gameDifficultys": {
+                    "0": "スカベンジャー",
+                    "1": "冒険者",
+                    "2": "放浪者",
+                    "3": "戦士",
+                    "4": "サバイバー",
+                    "5": "狂気"
+                },
+                "formatDuration": "{0} 日 {1} 時間 {2} 分 {3} 秒",
+                "formatGameTime": "{0} 日 {1} 時間 {2} 分"
+            },
+            "status": {
+                "players": "プレイヤー数",
+                "zombies": "ゾンビ数",
+                "animals": "動物数",
+                "heap": "ヒープメモリ"
+            },
+            "systemInfo": {
+                "deviceName": "ホスト名",
+                "deviceModel": "デバイスプラットフォーム",
+                "deviceType": "デバイスタイプ",
+                "deviceUniqueIdentifier": "デバイスユニークID",
+                "operatingSystem": "OSバージョン",
+                "processorType": "プロセッサタイプ",
+                "processorCount": "プロセッサ数",
+                "systemMemorySize": "メモリサイズ"
+            }
+        },
+        "map": {
+            "region": "地域ファイル",
+            "landClaim": "領地石",
+            "zombie": "ゾンビ",
+            "animal": "動物",
+            "historyPlayer": "プレイヤー (履歴)",
+            "onlinePlayer": "プレイヤー (オンライン)",
+            "mousePos": "マウス位置",
+            "lastClick": "最後のクリック",
+            "renderExploredArea": "探索済みエリアをレンダリング",
+            "renderExploredAreaConfirm": "探索済みエリアをレンダリングしますか？ これには数分かかる場合があります。コンソールで進行状況を確認できます",
+            "renderFullMap": "全体マップをレンダリング",
+            "renderFullMapConfirm": "全体マップをレンダリングしますか？ これには数分かかる場合があります。コンソールで進行状況を確認できます。この操作は通常、サーバー起動時に一度だけ実行されます",
+            "refreshMap": "マップをリフレッシュ",
+            "autoReload": "自動リロード",
+            "seconds": "秒",
+            "landOwner": "領地所有者",
+            "removeLandClaim": "領地石を削除",
+            "removeLandClaimConfirm": "本当に領地石を削除しますか？",
+            "dragendTelePlayerConfirm": "プレイヤー: {0} をターゲット地点 {1} にテレポートしますか？"
+        },
+        "login": {
+            "username": "ユーザー名",
+            "password": "パスワード",
+            "login": "ログイン",
+            "logout": "ログアウト",
+            "logoutConfirm": "本当にログアウトしますか？",
+            "loginFailed": "ログイン失敗",
+            "loginSuccess": "ログイン成功",
+            "logoutSuccess": "ログアウト成功"
+        },
+        "playerList": {
+            "autoRefresh": "自動リフレッシュ",
+            "searchPlaceholder": "プレイヤーIDまたは名前を入力してください",
+            "tableHeader": {
+                "index": "番号",
+                "playerName": "プレイヤー名",
+                "admin": "スーパー管理者",
+                "level": "レベル",
+                "gameStage": "ゲームステージ",
+                "zombieKills": "敵を倒した数",
+                "playerKills": "プレイヤーを倒した数",
+                "deaths": "死亡回数",
+                "skillPoints": "スキルポイント",
+                "pointsCount": "ポイント",
+                "currentPosition": "現在の位置",
+                "ip": "IP アドレス",
+                "ipAttribution": "IP 所属地",
+                "ping": "遅延",
+                "entityId": "エンティティ ID",
+                "playerId": "プレイヤー ID",
+                "platformId": "プラットフォーム ID",
+                "operate": "操作",
+                "isOnline": "オンラインかどうか",
+                "lastLogin": "最後のログイン",
+                "totalTimePlayed": "総プレイ時間",
+                "currentLife": "現在の生存時間",
+                "longestLife": "最長生存時間"
+            }
+        },
+        "chat": {
+            "tableHeader": {
+                "createdAt": "作成時間",
+                "entityId": "エンティティId",
+                "senderName": "送信者名",
+                "chatType": "タイプ",
+                "message": "メッセージ内容",
+                "playerId": "プレイヤー ID"
+            },
+            "chatType": {
+                "global": "全体チャット",
+                "friends": "友達",
+                "party": "パーティー",
+                "whisper": "プライベートチャット",
+                "unknown": "不明"
+            }
+        },
+        "blacklist": {
+            "tableHeader": {
+                "playerId": "プレイヤー ID",
+                "displayName": "名前",
+                "bannedUntil": "解除日",
+                "reason": "BAN理由"
+            }
+        },
+        "itemBlocks": {
+            "item": "アイテム",
+            "block": "ブロック",
+            "devItem": "開発(ユーザーに隠されたタイプ)",
+            "itemName": "名前",
+            "localizationName": "ローカライズ名",
+            "iconName": "アイコン名",
+            "iconColor": "アイコン色",
+            "maxStackAllowed": "最大スタック数"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "チャットコマンドプレフィックス",
+            "chatCommandSeparator": "チャットコマンドセパレータ",
+            "handleChatMessageError": "チャットメッセージエラーのヒント",
+            "teleZombieCheck": "テレポート前にプレイヤー周辺にゾンビがいるか確認するかどうか",
+            "teleDisableTip": "テレポート禁止のヒント",
+            "killZombieTrigger": {
+                "isEnabled": "ゾンビキル報酬を有効にするかどうか",
+                "executeCommands": "コマンドを実行\n(1行に1つ)"
+            },
+            "deathTrigger": {
+                "isEnabled": "デスペナルティを有効にするかどうか",
+                "executeCommands": "コマンドを実行\n(1行に1つ)"
+            },
+            "autoRestart": {
+                "isEnabled": "自動再起動を有効にするかどうか",
+                "time": "自動再起動時間",
+                "messages": "自動再起動通知\n(1行に1つ)"
+            },
+            "blockFamilySharingAccount": "ファミリーシェアリングアカウントを禁止するかどうか",
+            "removeSleepingBagFromPOI": "POI保護を有効にするかどうか",
+            "isEnablePlayerInitialSpawnPoint": "プレイヤー初期スポーンポイントを有効にするかどうか",
+            "playerInitialPosition": "プレイヤー初期座標 (X, Y, Z)"
+        },
+        "autoBackup": {
+            "isEnabled": "有効にするかどうか",
+            "interval": "自動バックアップ間隔 (秒)",
+            "retainedFileCountLimit": "保持するファイル数の制限",
+            "resetIntervalAfterManualBackup": "手動バックアップ後にタイマーをリセットするかどうか",
+            "skipIfThereAreNoPlayers": "プレイヤーがいない場合、バックアップをスキップするかどうか",
+            "autoBackupOnServerStartup": "サーバー起動時に自動バックアップを実行するかどうか",
+            "archiveFolder": "バックアップフォルダー",
+            "tableHeader": {
+                "serverVersion": "サーバーバージョン",
+                "gameWorld": "ゲームワールド",
+                "gameName": "ゲーム名",
+                "gameTime": "ゲーム時間",
+                "formatGameTime": "{0} 日 {1} 時間",
+                "createdAt": "作成時間",
+                "size": "ファイルサイズ"
+            }
+        },
+        "gameNotice": {
+            "isEnabled": "有効にするかどうか",
+            "variables": "使用可能な変数",
+            "welcomeNotice": "ウェルカム通知",
+            "rotatingNotices": "ローテーション通知\n(1行に1つ)",
+            "rotatingInterval": "ローテーション間隔 (秒)",
+            "bloodMoonNotice1": "ブラッドムーン通知1",
+            "bloodMoonNotice2": "ブラッドムーン通知2",
+            "bloodMoonNotice3": "ブラッドムーン通知3"
+        },
+        "pointsSystem": {
+            "isEnabled": "有効にするかどうか",
+            "variables": "使用可能な変数",
+            "signInCmd": "サインインコマンド",
+            "signInInterval": "サインイン間隔 (秒)",
+            "signInRewardPoints": "サインイン報酬ポイント",
+            "signInSuccessTip": "サインイン成功のヒント",
+            "signInFailureTip": "サインイン失敗のヒント",
+            "queryPointsCmd": "ポイントクエリコマンド",
+            "queryPointsTip": "ポイントクエリのヒント",
+            "isCurrencyExchangeEnabled": "ゲーム内通貨交換を有効にするかどうか",
+            "currencyToPointsExchangeRate": "ゲーム内通貨とポイントの交換レート",
+            "currencyExchangeCmd": "交換コマンド",
+            "exchangeSuccessTip": "交換成功のヒント",
+            "exchangeFailureTip": "交換失敗のヒント",
+            "resetPoints": "すべてのプレイヤーポイントをリセット",
+            "resetSignIn": "すべてのサインイン時間をリセット",
+            "resetPointsConfirm": "本当にすべてのプレイヤーのポイントをリセットしますか？",
+            "resetSignInConfirm": "本当にすべてのプレイヤーのサインイン時間をリセットしますか？",
+            "tableHeader": {
+                "playerId": "プレイヤー ID",
+                "playerName": "プレイヤー名",
+                "points": "ポイント",
+                "lastSignInAt": "最後のサインイン時間"
+            }
+        },
+        "listManagement": {
+            "operate": "操作",
+            "tableHeader": {
+                "id": "ID",
+                "icon": "アイコン",
+                "itemName": "アイテム名",
+                "count": "数量",
+                "quality": "品質",
+                "durability": "耐久度%",
+                "description": "説明",
+                "createdAt": "作成時間",
+                "command": "コマンド",
+                "inMainThread": "メインスレッドで実行",
+                "item": "アイテム"
+            }
+        },
+        "gameStore": {
+            "isEnabled": "有効にするかどうか",
+            "variables": "使用可能な変数",
+            "queryListCmd": "商品リストクエリコマンド",
+            "buyCmdPrefix": "購入コマンドプレフィックス",
+            "goodsItemTip": "商品アイテムのヒント",
+            "buySuccessTip": "購入成功のヒント",
+            "pointsNotEnoughTip": "ポイント不足のヒント",
+            "noGoods": "商品がありません",
+            "useTips": "ヒント: ゲーム内でbuy+ハイフン(-)+商品IDを入力して購入します",
+            "goods": "商品",
+            "tableHeader": {
+                "id": "ID",
+                "name": "商品名",
+                "price": "価格",
+                "description": "説明",
+                "bind": "バインド",
+                "bindItem": "バインドアイテム",
+                "bindCmd": "バインドコマンド"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "有効にするかどうか",
+            "variables": "使用可能な変数",
+            "claimCmd": "クレームコマンド",
+            "hasClaimedTip": "既にクレーム済みのヒント",
+            "nonVipTip": "VIPではないヒント",
+            "claimSuccessTip": "クレーム成功のヒント",
+            "gift": "ギフト",
+            "resetAll": "すべてのクレーム状態をリセット",
+            "resetAllConfirm": "本当にすべてのプレイヤーのクレーム状態をリセットしますか？",
+            "tableHeader": {
+                "playerId": "プレイヤー ID",
+                "name": "ギフト名",
+                "claimState": "クレーム済みかどうか",
+                "totalClaimCount": "総クレーム回数",
+                "lastClaimAt": "最後のクレーム時間",
+                "description": "説明",
+                "bind": "バインド",
+                "bindItem": "バインドアイテム",
+                "bindCmd": "バインドコマンド"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "有効にするかどうか",
+                "variables": "使用可能な変数",
+                "teleCmdPrefix": "テレポートコマンドプレフィックス",
+                "teleInterval": "テレポート間隔 (単位: 秒)",
+                "pointsRequired": "必要ポイント",
+                "teleSuccessTip": "テレポート成功のヒント",
+                "pointsNotEnoughTip": "ポイント不足のヒント",
+                "coolingTip": "クールダウン中のヒント",
+                "targetNotFoundTip": "テレポート先が見つかりません",
+                "targetNotFriendTip": "テレポート先が友達ではありません",
+                "useTips": "ヒント: ゲーム内でtele+ハイフン(-)+友達の名前を入力してテレポートします"
+            },
+            "city": {
+                "isEnabled": "有効にするかどうか",
+                "variables": "使用可能な変数",
+                "queryListCmd": "リストクエリコマンド",
+                "teleCmdPrefix": "テレポートコマンドプレフィックス",
+                "teleInterval": "テレポート間隔, 単位: 秒",
+                "locationItemTip": "リストクエリのヒント",
+                "teleSuccessTip": "テレポート成功のヒント",
+                "pointsNotEnoughTip": "ポイント不足のヒント",
+                "coolingTip": "クールダウン中のヒント",
+                "noLocation": "都市情報がありません",
+                "useTips": "ヒント: ゲーム内でhc+ハイフン(-)+都市IDを入力してテレポートします",
+                "titleSuffix": "都市",
+                "viewDirection": {
+                    "north": "北",
+                    "northeast": "北東",
+                    "east": "東",
+                    "southeast": "南東",
+                    "south": "南",
+                    "southwest": "南西",
+                    "west": "西",
+                    "northwest": "北西"
+                },
+                "tableHeader": {
+                    "id": "ID",
+                    "cityName": "都市名",
+                    "pointsRequired": "テレポートに必要なポイント",
+                    "position": "座標 (X, Y, Z)",
+                    "viewDirection": "視点方向",
+                    "createdAt": "作成時間"
+                }
+            },
+            "home": {
+                "isEnabled": "有効にするかどうか",
+                "variables": "使用可能な変数",
+                "queryListCmd": "Homeリストクエリコマンド",
+                "teleInterval": "テレポート間隔, 単位: 秒",
+                "setHomeCmdPrefix": "Home設定コマンドプレフィックス",
+                "setCountLimit": "設定可能な最大数",
+                "pointsRequiredForSet": "設定に必要なポイント",
+                "deleteHomeCmdPrefix": "Home削除コマンドプレフィックス",
+                "teleHomeCmdPrefix": "Homeテレポートコマンドプレフィックス",
+                "pointsRequiredForTele": "テレポートに必要なポイント",
+                "noHomeTip": "Homeがありません",
+                "locationItemTip": "リストクエリのヒント",
+                "overLimitTip": "制限を超えています",
+                "setPointsNotEnoughTip": "設定ポイントが不足しています",
+                "setSuccessTip": "設定成功のヒント",
+                "overwriteSuccessTip": "上書き成功のヒント",
+                "deleteSuccessTip": "削除成功のヒント",
+                "homeNotFoundTip": "Homeが見つかりません",
+                "coolingTip": "クールダウン中のヒント",
+                "telePointsNotEnoughTip": "テレポートポイントが不足しています",
+                "teleSuccessTip": "テレポート成功のヒント",
+                "useTips": "ヒント: ゲーム内でsetHome+ハイフン(-)+home名を入力して現在の座標を保存し、delHome+ハイフン(-)+home名を入力してhomeを削除します",
+                "titleSuffix": "Home",
+                "deleteAll": "すべて削除",
+                "deleteAllConfirm": "本当にすべての記録を削除しますか？",
+                "tableHeader": {
+                    "playerName": "プレイヤー名",
+                    "playerId": "プレイヤー ID",
+                    "createdAt": "作成時間",
+                    "homeName": "Home名",
+                    "position": "座標 (X, Y, Z)"
+                }
+            }
+        }
+    }
+}
