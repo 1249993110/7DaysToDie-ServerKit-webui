@@ -1,0 +1,698 @@
+{
+    "global": {
+        "language": "Türkçe",
+        "appTitle": "TianYi 7 Days to Die Server Tools",
+        "formRule": {
+            "required": "Gerekli",
+            "selectAtLeastOne": "En az birini seçin"
+        },
+        "true": "Evet",
+        "false": "Hayır",
+        "unknown": "Bilinmeyen",
+        "loading": "Yükleniyor...",
+        "empty": "Boş",
+        "days": "günler",
+        "hours": "saatler",
+        "minutes": "dakikalar",
+        "oneMinute": "1 dakika",
+        "seconds": "saniyeler",
+        "lessThan": "Daha az",
+        "moreThan": "Daha fazla",
+        "equal": "Eşit",
+        "keyworld": "Anahtar kelime",
+        "button": {
+            "add": "Ekle",
+            "delete": "Sil",
+            "deleteAll": "Hepsini Sil",
+            "edit": "Düzenle",
+            "save": "Kaydet",
+            "enable": "Etkinleştir",
+            "disable": "Devre Dışı Bırak",
+            "search": "Ara",
+            "reset": "Sıfırla",
+            "back": "Geri",
+            "close": "Kapat",
+            "confirm": "Onayla",
+            "cancel": "İptal",
+            "import": "İçe Aktar",
+            "export": "Dışa Aktar",
+            "batchOperation": "Toplu İşlem",
+            "batchDelete": "Toplu Silme",
+            "send": "Gönder",
+            "select": "Seç",
+            "batchSelect": "Toplu Seçim"
+        },
+        "message": {
+            "title": "İpucu",
+            "success": "Başarılı",
+            "failed": "Başarısız",
+            "inputNewValue": "Yeni değeri girin",
+            "inputError": "Giriş hatası",
+            "deleteConfirm": "Silmek istediğinizden emin misiniz?",
+            "deleteSuccess": "Başarıyla silindi",
+            "deleteFailed": "Silme işlemi başarısız oldu",
+            "resetConfirm": "Sıfırlamak istediğinizden emin misiniz?",
+            "resetSuccess": "Başarıyla sıfırlandı",
+            "saveSuccess": "Başarıyla kaydedildi",
+            "saveFailed": "Kaydetme işlemi başarısız oldu",
+            "enableSuccess": "Başarıyla etkinleştirildi",
+            "enableFailed": "Etkinleştirme işlemi başarısız oldu",
+            "disableSuccess": "Başarıyla devre dışı bırakıldı",
+            "disableFailed": "Devre dışı bırakma işlemi başarısız oldu",
+            "importSuccess": "Başarıyla içe aktarıldı",
+            "importFailed": "İçe aktarma işlemi başarısız oldu",
+            "exportSuccess": "Başarıyla dışa aktarıldı",
+            "exportFailed": "Dışa aktarma işlemi başarısız oldu",
+            "copySuccess": "Başarıyla kopyalandı",
+            "example": "Örnek",
+            "cmdSentSuccess": "Komut başarıyla gönderildi",
+            "cmdExecResult": "Komut yürütme sonucu",
+            "inputText": "Metin girin",
+            "inputNumber": "Sayı girin",
+            "datePickerPlaceholder": "Tarih seçin",
+            "noMoreData": "Daha fazla veri yok"
+        }
+    },
+    "copy": "Kopyala",
+    "player": "Oyuncu",
+    "playerOperation": {
+        "showInventory": "Envanteri Göster",
+        "showSkills": "Becerileri Göster",
+        "showDetails": "Detayları Göster",
+        "sendMessage": "Mesaj Gönder",
+        "giveItem": "Öğe Ver",
+        "changePoints": "Puanları Değiştir",
+        "spawnEntity": "Varlık Yarat",
+        "teleport": "Oyuncuyu Teleport Et",
+        "kick": "Oyuncuyu At",
+        "ban": "Oyuncuyu Yasakla",
+        "setSuperAdmin": "Süper Yönetici Yap",
+        "cancelAdmin": "Yöneticiliği İptal Et",
+        "removeLandClaims": "Arazi Taleplerini Kaldır",
+        "resetPlayer": "Oyuncu Verilerini Sıfırla",
+        "copyPlayerId": "Oyuncu ID'sini Kopyala",
+        "copyPlayerName": "Oyuncu Adını Kopyala",
+        "copyPlayerPos": "Oyuncu Konumunu Kopyala"
+    },
+    "menus": {
+        "dashboard": "Panel",
+        "serverSettings": "Sunucu Ayarları",
+        "map": "GPS Haritası",
+        "playerList": {
+            "": "Oyuncu Listesi",
+            "onlinePlayers": "Çevrimiçi Oyuncular",
+            "historyPlayers": "Oyuncu Geçmişi"
+        },
+        "chat": {
+            "": "Oyun Sohbeti",
+            "liveChat": "Canlı Sohbet",
+            "chatRecord": "Sohbet Geçmişi"
+        },
+        "permission": "İzin Yönetimi",
+        "blacklist": "Kara Liste",
+        "whitelist": "Beyaz Liste",
+        "itemBlocks": "Öğe Blokları",
+        "console": "Konsol",
+        "globalSettings": "Genel Ayarlar",
+        "autobackup": {
+            "": "Otomatik Yedekleme",
+            "settings": "Yedekleme Ayarları",
+            "management": "Yedekleme Yönetimi"
+        },
+        "gameNotice": "Oyun Duyuruları",
+        "pointsSystem": {
+            "": "Puan Sistemi",
+            "settings": "Giriş Ayarları",
+            "management": "Puan Yönetimi"
+        },
+        "listManagement": {
+            "": "Liste Yönetimi",
+            "itemList": "Öğe Listesi",
+            "commandList": "Komut Listesi"
+        },
+        "gameStore": {
+            "": "Oyun Mağazası",
+            "settings": "Mağaza Ayarları",
+            "management": "Ürün Yönetimi"
+        },
+        "vipGift": {
+            "": "VIP Hediye",
+            "settings": "Hediye Ayarları",
+            "management": "Hediye Yönetimi"
+        },
+        "teleSystem": {
+            "": "Teleport Sistemi",
+            "friend": "Arkadaşa Teleport",
+            "city": {
+                "": "Şehre Teleport",
+                "settings": "Şehir Ayarları",
+                "management": "Şehir Yönetimi"
+            },
+            "home": {
+                "": "Eve Teleport",
+                "settings": "Ev Ayarları",
+                "management": "Ev Yönetimi"
+            }
+        },
+        "swagger": "Arayüz Belgeleri"
+    },
+    "components": {
+        "routerButton": {
+            "refresh": "Yenile",
+            "fullscreen": "Tam Ekran",
+            "exitFullscreen": "Tam Ekrandan Çık",
+            "fullscreenNotSupport": "Tarayıcınız tam ekran modunu desteklemiyor"
+        },
+        "serverToolBar": {
+            "restart": "Sunucuyu Yeniden Başlat",
+            "restartConfirm": "Sunucuyu yeniden başlatmak istediğinizden emin misiniz? Bu birkaç dakika sürebilir",
+            "restartSuccess": "Sunucu başarıyla yeniden başlatıldı",
+            "shutdown": "Sunucuyu Kapat",
+            "shutdownConfirm": "Sunucuyu kapatmak istediğinizden emin misiniz? Sunucu erişilemez hale gelecek",
+            "shutdownSuccess": "Sunucu başarıyla kapatıldı"
+        },
+        "inventoryDialog": {
+            "title": "Oyuncu Envanteri: {0}",
+            "grid": "Izgara",
+            "list": "Liste",
+            "bag": "Çanta",
+            "belt": "Kemer",
+            "equipment": "Ekipman",
+            "tableHeader": {
+                "icon": "Simge",
+                "itemName": "Öğe Adı",
+                "localizationName": "Yerelleştirme Adı",
+                "mod": "MOD"
+            }
+        },
+        "playerSkillsDialog": {
+            "title": "Oyuncu Becerileri: {0}",
+            "fullscreen": "Tam Ekran",
+            "exitFullscreen": "Tam Ekrandan Çık",
+            "fold": "Katla",
+            "expand": "Genişlet",
+            "tableHeader": {
+                "name": "Beceri Adı",
+                "icon": "Simge",
+                "localizationName": "Yerelleştirme Adı",
+                "level": "Seviye",
+                "maxLevel": "Maksimum Seviye",
+                "costForNextLevel": "Sonraki Seviye İçin Maliyet",
+                "type": "Tür",
+                "localizationDesc": "Açıklama"
+            }
+        },
+        "playerDetailsDialog": {
+            "title": "Oyuncu Detayları: {0}",
+            "active": "Aktif",
+            "inactive": "Aktif Değil",
+            "tableHeader": {
+                "playerName": "Oyuncu Adı",
+                "entityId": "Varlık ID'si",
+                "playerId": "Oyuncu ID'si",
+                "platformId": "Platform ID'si",
+                "isAdmin": "Yönetici mi",
+                "isOnline": "Çevrimiçi mi",
+                "ip": "IP Adresi",
+                "ping": "Ping",
+                "currentPosition": "Mevcut Konum",
+                "lastSpawnPosition": "Son Doğma Konumu",
+                "gameStage": "Oyun Aşaması",
+                "lastLogin": "Son Giriş",
+                "playerKills": "Oyuncu Öldürme",
+                "zombieKills": "Zombi Öldürme",
+                "deaths": "Ölümler",
+                "score": "Skor",
+                "health": "Sağlık",
+                "stamina": "Dayanıklılık",
+                "coreTemp": "Çekirdek Sıcaklığı",
+                "food": "Yiyecek",
+                "water": "Su",
+                "pointsCount": "Puanlar",
+                "level": "Seviye",
+                "expToNextLevel": "Sonraki Seviyeye Kadar Deneyim",
+                "skillPoints": "Beceri Puanları",
+                "landProtectionActive": "Arazi Koruması Aktif",
+                "distanceWalked": "Yürüyüş Mesafesi",
+                "totalItemsCrafted": "Toplam Üretilen Öğeler",
+                "totalTimePlayed": "Toplam Oynama Süresi",
+                "currentLife": "Mevcut Hayat Süresi",
+                "longestLife": "En Uzun Hayat Süresi",
+                "alreadyCraftedList": "Üretilmiş Öğeler Listesi",
+                "unlockedRecipeList": "Açılmış Tarifler Listesi",
+                "rentedVMPosition": "Kiralanan VM Konumu",
+                "rentalEndDay": "Kiralık Bitiş Günü"
+            }
+        },
+        "gameIconEx": {
+            "itemName": "Ad",
+            "localizationName": "Yerelleştirme Adı",
+            "count": "Miktar",
+            "maxStackAllowed": "İzin Verilen Maksimum Yığın",
+            "quality": "Kalite",
+            "useTimes": "Kullanım Süresi",
+            "maxUseTimes": "Maksimum Kullanım Süresi",
+            "isMod": "MOD",
+            "copyItemName": "Öğe Adını Kopyala",
+            "copyLocalizationName": "Yerelleştirme Adını Kopyala",
+            "removeItem": "Seçilen Öğeyi Kaldır",
+            "removeItemConfirm": "Oyuncunun çantasından ve kemerinden tüm {0} öğelerini kaldırmak istediğinizden emin misiniz?"
+        },
+        "myTableEx": {
+            "tableHeader": {
+                "index": "Numara",
+                "operate": "İşlem"
+            }
+        },
+        "itemBlockSelector": {
+            "title": "Öğe veya Blok Seç",
+            "id": "ID",
+            "icon": "Simge",
+            "itemName": "Ad",
+            "localizationName": "Yerelleştirme Adı",
+            "maxStackAllowed": "İzin Verilen Maksimum Yığın"
+        },
+        "associatedItems": {
+            "title": "İlişkili Öğeler",
+            "add": "Öğe Ekle",
+            "addFromList": "Listeden Öğe Ekle"
+        },
+        "associatedCommands": {
+            "title": "İlişkili Komutlar",
+            "add": "Komut Ekle",
+            "addFromList": "Listeden Komut Ekle"
+        },
+        "itemListSelector": {
+            "title": "Listeden Öğe Seç"
+        },
+        "commandListSelector": {
+            "title": "Listeden Komut Seç"
+        },
+        "batchGiveItem": {
+            "itemName": "Öğe Adı",
+            "count": "Miktar",
+            "quality": "Kalite",
+            "durability": "Dayanıklılık%"
+        },
+        "batchAddBlacklist": {
+            "ban": "Oyuncuyu Yasakla",
+            "banUntil": "Yasak Kaldırma Tarihi",
+            "reason": "Yasaklama Nedeni"
+        }
+    },
+    "layout": {
+        "footer": {
+            "codeRepository": "Kod Deposu",
+            "copyright": "Telif Hakkı © 2024 Luoshu Tianyi Ekibi. Tüm hakları saklıdır",
+            "group": {
+                "title": "Tianyi 7 Days to Die Sunucu Yönetim Grubuna Katılın",
+                "url": "https://qm.qq.com/cgi-bin/qm/qr?k=p3TKGDnBAxxyVsR79pF-WYHI3BjsYiHe&jump_from=webapi&authKey=wTpnGpOGOsAaNTD4TqL4kukLQnxT+TmDFQx803v+Q2zWU0E7LYuSkBQQI+WhrqFB"
+            }
+        }
+    },
+    "store": {},
+    "utils": {
+        "playerHelper": {
+            "title": "Negatif sayılar puanları düşürür",
+            "inputCount": "Puan sayısını girin",
+            "deductPoints": "{0} puan düşürüldü",
+            "addPoints": "{0} puan başarıyla eklendi",
+            "inputEntityIdOrName": "Varlık ID'sini veya adını girin",
+            "teleportTarget": "Teleport hedefini girin. Oyuncu adı, oyuncu ID'si veya 3D koordinatları kullanılabilir",
+            "kickPlayerReason": "Oyuncuyu atma nedenini girin",
+            "kickPlayerConfirm": "Bu işlem seçilen oyuncuyu atacak. Devam etmek istiyor musunuz?",
+            "setSuperAdminConfirm": "Bu işlem seçilen oyuncuyu Süper Yönetici yapacak. Devam etmek istiyor musunuz?",
+            "cancelAdminConfirm": "Bu işlem seçilen oyuncunun yönetici yetkilerini iptal edecek. Devam etmek istiyor musunuz?",
+            "removeLandClaimConfirm": "Bu işlem seçilen oyuncunun tüm arazi taleplerini kaldıracak. Devam etmek istiyor musunuz?",
+            "resetPlayerConfirm": "Bu işlem seçilen oyuncunun kaydedilen verilerini sıfırlayacak. Devam etmek istiyor musunuz?"
+        }
+    },
+    "views": {
+        "dashboard": {
+            "header": {
+                "overview": "Genel Bakış",
+                "status": "Durum",
+                "fps": "FPS",
+                "entities": "Varlık Sayısı",
+                "rss": "RSS",
+                "chunks": "Parça Sayısı",
+                "cgo": "CGO",
+                "items": "Öğeler",
+                "systemInfo": "Sistem Bilgisi"
+            },
+            "overview": {
+                "serverName": "Sunucu Adı",
+                "region": "Sunucu Bölgesi",
+                "language": "Sunucu Dili",
+                "serverIp": "Sunucu IP'si",
+                "uptime": "Sunucu Çalışma Süresi",
+                "gameTime": "Oyun Süresi",
+                "serverPort": "Sunucu Portu",
+                "gameName": "Oyun Adı",
+                "gameMode": "Oyun Modu",
+                "serverVersion": "Sunucu Sürümü",
+                "gameWorld": "Oyun Dünyası",
+                "gameDifficulty": "Oyun Zorluğu",
+                "gameDifficultys": {
+                    "0": "Toplayıcı",
+                    "1": "Maceracı",
+                    "2": "Gezgin",
+                    "3": "Savaşçı",
+                    "4": "Hayatta Kalma",
+                    "5": "Çılgınlık"
+                },
+                "formatDuration": "{0} gün {1} saat {2} dakika {3} saniye",
+                "formatGameTime": "{0} gün {1} saat {2} dakika"
+            },
+            "status": {
+                "players": "Oyuncu Sayısı",
+                "zombies": "Zombi Sayısı",
+                "animals": "Hayvan Sayısı",
+                "heap": "Yığın Belleği"
+            },
+            "systemInfo": {
+                "deviceName": "Ana Bilgisayar Adı",
+                "deviceModel": "Cihaz Platformu",
+                "deviceType": "Cihaz Türü",
+                "deviceUniqueIdentifier": "Benzersiz Cihaz Tanımlayıcısı",
+                "operatingSystem": "İşletim Sistemi Sürümü",
+                "processorType": "İşlemci Türü",
+                "processorCount": "İşlemci Sayısı",
+                "systemMemorySize": "Bellek Boyutu"
+            }
+        },
+        "map": {
+            "region": "Bölge Dosyası",
+            "landClaim": "Arazi Talebi",
+            "zombie": "Zombi",
+            "animal": "Hayvan",
+            "historyPlayer": "Oyuncu (geçmiş)",
+            "onlinePlayer": "Oyuncu (çevrimiçi)",
+            "mousePos": "Fare Konumu",
+            "lastClick": "Son Tıklama",
+            "renderExploredArea": "Keşfedilen Alanı Render Et",
+            "renderExploredAreaConfirm": "Keşfedilen alanı render etmek istiyor musunuz? Bu birkaç dakika sürebilir. İlerlemeyi konsoldan takip edebilirsiniz",
+            "renderFullMap": "Tam Haritayı Render Et",
+            "renderFullMapConfirm": "Tam haritayı render etmek istiyor musunuz? Bu birkaç dakika sürebilir. İlerlemeyi konsoldan takip edebilirsiniz. Bu işlem genellikle sunucu başlatıldıktan sonra bir kez yapılır",
+            "refreshMap": "Haritayı Yenile",
+            "autoReload": "Otomatik Yeniden Yükleme",
+            "seconds": "saniye",
+            "landOwner": "Arazi Sahibi",
+            "removeLandClaim": "Arazi Talebini Kaldır",
+            "removeLandClaimConfirm": "Arazi talebini kaldırmak istediğinizden emin misiniz?",
+            "dragendTelePlayerConfirm": "{0} oyuncusunu {1} hedefine teleport etmek istiyor musunuz?"
+        },
+        "login": {
+            "username": "Kullanıcı Adı",
+            "password": "Şifre",
+            "login": "Giriş Yap",
+            "logout": "Çıkış Yap",
+            "logoutConfirm": "Çıkış yapmak istediğinizden emin misiniz?",
+            "loginFailed": "Giriş başarısız oldu",
+            "loginSuccess": "Başarıyla giriş yapıldı",
+            "logoutSuccess": "Başarıyla çıkış yapıldı"
+        },
+        "playerList": {
+            "autoRefresh": "Otomatik Yenileme",
+            "searchPlaceholder": "Oyuncu ID'si veya adını girin",
+            "tableHeader": {
+                "index": "Numara",
+                "playerName": "Oyuncu Adı",
+                "admin": "Süper Yönetici",
+                "level": "Seviye",
+                "gameStage": "Oyun Aşaması",
+                "zombieKills": "Öldürülen Düşman Sayısı",
+                "playerKills": "Öldürülen Oyuncu Sayısı",
+                "deaths": "Ölüm Sayısı",
+                "skillPoints": "Beceri Puanları",
+                "pointsCount": "Puanlar",
+                "currentPosition": "Mevcut Konum",
+                "ip": "IP Adresi",
+                "ipAttribution": "IP Ataması",
+                "ping": "Ping",
+                "entityId": "Varlık ID'si",
+                "playerId": "Oyuncu ID'si",
+                "platformId": "Platform ID'si",
+                "operate": "İşlem",
+                "isOnline": "Çevrimiçi mi",
+                "lastLogin": "Son Giriş",
+                "totalTimePlayed": "Toplam Oynama Süresi",
+                "currentLife": "Mevcut Hayat Süresi",
+                "longestLife": "En Uzun Hayat Süresi"
+            }
+        },
+        "chat": {
+            "tableHeader": {
+                "createdAt": "Oluşturulma Zamanı",
+                "entityId": "Varlık ID'si",
+                "senderName": "Gönderen Adı",
+                "chatType": "Tür",
+                "message": "Mesaj İçeriği",
+                "playerId": "Oyuncu ID'si"
+            },
+            "chatType": {
+                "global": "Küresel Sohbet",
+                "friends": "Arkadaşlar",
+                "party": "Grup",
+                "whisper": "Özel Sohbet",
+                "unknown": "Bilinmeyen"
+            }
+        },
+        "blacklist": {
+            "tableHeader": {
+                "playerId": "Oyuncu ID'si",
+                "displayName": "Ad",
+                "bannedUntil": "Yasak Kaldırma Tarihi",
+                "reason": "Yasaklama Nedeni"
+            }
+        },
+        "itemBlocks": {
+            "item": "Öğe",
+            "block": "Blok",
+            "devItem": "Geliştirme (kullanıcıya gizli tür)",
+            "itemName": "Ad",
+            "localizationName": "Yerelleştirme Adı",
+            "iconName": "Simge Adı",
+            "iconColor": "Simge Rengi",
+            "maxStackAllowed": "İzin Verilen Maksimum Yığın"
+        },
+        "globalSettings": {
+            "chatCommandPrefix": "Sohbet Komutu Öneki",
+            "chatCommandSeparator": "Sohbet Komutu Ayırıcı",
+            "handleChatMessageError": "Sohbet Mesajı Hata İpucu",
+            "teleZombieCheck": "Teleport öncesi oyuncunun etrafındaki zombileri kontrol et",
+            "teleDisableTip": "Teleport devre dışı bırakma ipucu",
+            "killZombieTrigger": {
+                "isEnabled": "Zombi öldürme ödüllerini etkinleştir",
+                "executeCommands": "Komutları çalıştır\n(Her satırda bir tane)"
+            },
+            "deathTrigger": {
+                "isEnabled": "Ölüm cezasını etkinleştir",
+                "executeCommands": "Komutları çalıştır\n(Her satırda bir tane)"
+            },
+            "autoRestart": {
+                "isEnabled": "Otomatik yeniden başlatmayı etkinleştir",
+                "time": "Otomatik yeniden başlatma zamanı",
+                "messages": "Otomatik yeniden başlatma bildirimleri\n(Her satırda bir tane)"
+            },
+            "blockFamilySharingAccount": "Aile Paylaşımı Hesabını Engelle",
+            "removeSleepingBagFromPOI": "POI korumasını etkinleştir",
+            "isEnablePlayerInitialSpawnPoint": "Oyuncu başlangıç doğma noktasını etkinleştir",
+            "playerInitialPosition": "Oyuncu başlangıç koordinatları (X, Y, Z)"
+        },
+        "autoBackup": {
+            "isEnabled": "Etkin mi",
+            "interval": "Otomatik yedekleme aralığı (saniye)",
+            "retainedFileCountLimit": "Saklanan dosya sayısı sınırı",
+            "resetIntervalAfterManualBackup": "Manuel yedeklemeden sonra zamanlayıcıyı sıfırla",
+            "skipIfThereAreNoPlayers": "Oyuncu yoksa yedeklemeyi atla",
+            "autoBackupOnServerStartup": "Sunucu başlatıldığında otomatik yedekleme yap",
+            "archiveFolder": "Yedekleme Klasörü",
+            "tableHeader": {
+                "serverVersion": "Sunucu Sürümü",
+                "gameWorld": "Oyun Dünyası",
+                "gameName": "Oyun Adı",
+                "gameTime": "Oyun Süresi",
+                "formatGameTime": "{0} gün {1} saat",
+                "createdAt": "Oluşturulma Zamanı",
+                "size": "Dosya Boyutu"
+            }
+        },
+        "gameNotice": {
+            "isEnabled": "Etkin mi",
+            "variables": "Kullanılabilir Değişkenler",
+            "welcomeNotice": "Hoş Geldiniz Bildirimi",
+            "rotatingNotices": "Dönüşümlü Bildirimler\n(Her satırda bir tane)",
+            "rotatingInterval": "Dönüşüm Aralığı (saniye)",
+            "bloodMoonNotice1": "Kanlı Ay Bildirimi 1",
+            "bloodMoonNotice2": "Kanlı Ay Bildirimi 2",
+            "bloodMoonNotice3": "Kanlı Ay Bildirimi 3"
+        },
+        "pointsSystem": {
+            "isEnabled": "Etkin mi",
+            "variables": "Kullanılabilir Değişkenler",
+            "signInCmd": "Giriş Komutu",
+            "signInInterval": "Giriş Aralığı (saniye)",
+            "signInRewardPoints": "Giriş Ödül Puanları",
+            "signInSuccessTip": "Başarılı giriş ipucu",
+            "signInFailureTip": "Başarısız giriş ipucu",
+            "queryPointsCmd": "Puan Sorgulama Komutu",
+            "queryPointsTip": "Puan sorgulama ipucu",
+            "isCurrencyExchangeEnabled": "Oyun içi para birimi değişimini etkinleştir",
+            "currencyToPointsExchangeRate": "Para birimi-puan değişim oranı",
+            "currencyExchangeCmd": "Değişim Komutu",
+            "exchangeSuccessTip": "Başarılı değişim ipucu",
+            "exchangeFailureTip": "Başarısız değişim ipucu",
+            "resetPoints": "Tüm oyuncu puanlarını sıfırla",
+            "resetSignIn": "Tüm giriş zamanlarını sıfırla",
+            "resetPointsConfirm": "Tüm oyuncu puanlarını sıfırlamak istediğinizden emin misiniz?",
+            "resetSignInConfirm": "Tüm oyuncu giriş zamanlarını sıfırlamak istediğinizden emin misiniz?",
+            "tableHeader": {
+                "playerId": "Oyuncu ID'si",
+                "playerName": "Oyuncu Adı",
+                "points": "Puanlar",
+                "lastSignInAt": "Son Giriş Zamanı"
+            }
+        },
+        "listManagement": {
+            "operate": "İşlem",
+            "tableHeader": {
+                "id": "ID",
+                "icon": "Simge",
+                "itemName": "Öğe Adı",
+                "count": "Miktar",
+                "quality": "Kalite",
+                "durability": "Dayanıklılık%",
+                "description": "Açıklama",
+                "createdAt": "Oluşturulma Zamanı",
+                "command": "Komut",
+                "inMainThread": "Ana iş parçacığında çalıştır",
+                "item": "Öğe"
+            }
+        },
+        "gameStore": {
+            "isEnabled": "Etkin mi",
+            "variables": "Kullanılabilir Değişkenler",
+            "queryListCmd": "Ürün Listesi Sorgulama Komutu",
+            "buyCmdPrefix": "Satın Alma Komutu Öneki",
+            "goodsItemTip": "Ürün İpucu",
+            "buySuccessTip": "Başarılı satın alma ipucu",
+            "pointsNotEnoughTip": "Yetersiz puan ipucu",
+            "noGoods": "Ürün Yok",
+            "useTips": "İpucu: Oyun içinde buy+çizgi(-)+ürün ID'si girerek satın alma işlemi yapın",
+            "goods": "Ürünler",
+            "tableHeader": {
+                "id": "ID",
+                "name": "Ürün Adı",
+                "price": "Fiyat",
+                "description": "Açıklama",
+                "bind": "Bağla",
+                "bindItem": "Bağlı Öğe",
+                "bindCmd": "Bağlı Komut"
+            }
+        },
+        "vipGift": {
+            "isEnabled": "Etkin mi",
+            "variables": "Kullanılabilir Değişkenler",
+            "claimCmd": "Talep Komutu",
+            "hasClaimedTip": "Zaten alınmış hediye ipucu",
+            "nonVipTip": "VIP statüsü yok ipucu",
+            "claimSuccessTip": "Başarılı talep ipucu",
+            "gift": "Hediye",
+            "resetAll": "Tüm talep durumlarını sıfırla",
+            "resetAllConfirm": "Tüm oyuncu talep durumlarını sıfırlamak istediğinizden emin misiniz?",
+            "tableHeader": {
+                "playerId": "Oyuncu ID'si",
+                "name": "Hediye Adı",
+                "claimState": "Alındı mı",
+                "totalClaimCount": "Toplam Talep Sayısı",
+                "lastClaimAt": "Son Talep Zamanı",
+                "description": "Açıklama",
+                "bind": "Bağla",
+                "bindItem": "Bağlı Öğe",
+                "bindCmd": "Bağlı Komut"
+            }
+        },
+        "teleSystem": {
+            "friend": {
+                "isEnabled": "Etkin mi",
+                "variables": "Kullanılabilir Değişkenler",
+                "teleCmdPrefix": "Teleport Komutu Öneki",
+                "teleInterval": "Teleport Aralığı (saniye)",
+                "pointsRequired": "Gerekli Puanlar",
+                "teleSuccessTip": "Başarılı teleport ipucu",
+                "pointsNotEnoughTip": "Yetersiz puan ipucu",
+                "coolingTip": "Soğuma süresi ipucu",
+                "targetNotFoundTip": "Teleport hedefi bulunamadı",
+                "targetNotFriendTip": "Teleport hedefi arkadaş değil",
+                "useTips": "İpucu: Oyun içinde tele+çizgi(-)+arkadaş adı girerek teleport yapın"
+            },
+            "city": {
+                "isEnabled": "Etkin mi",
+                "variables": "Kullanılabilir Değişkenler",
+                "queryListCmd": "Liste Sorgulama Komutu",
+                "teleCmdPrefix": "Teleport Komutu Öneki",
+                "teleInterval": "Teleport Aralığı, saniye",
+                "locationItemTip": "Konum Sorgulama İpucu",
+                "teleSuccessTip": "Başarılı teleport ipucu",
+                "pointsNotEnoughTip": "Yetersiz puan ipucu",
+                "coolingTip": "Soğuma süresi ipucu",
+                "noLocation": "Şehir bilgisi yok",
+                "useTips": "İpucu: Oyun içinde hc+çizgi(-)+şehir ID'si girerek teleport yapın",
+                "titleSuffix": "Şehir",
+                "viewDirection": {
+                    "north": "Kuzey",
+                    "northeast": "Kuzeydoğu",
+                    "east": "Doğu",
+                    "southeast": "Güneydoğu",
+                    "south": "Güney",
+                    "southwest": "Güneybatı",
+                    "west": "Batı",
+                    "northwest": "Kuzeybatı"
+                },
+                "tableHeader": {
+                    "id": "ID",
+                    "cityName": "Şehir Adı",
+                    "pointsRequired": "Teleport için Gerekli Puanlar",
+                    "position": "Koordinatlar (X, Y, Z)",
+                    "viewDirection": "Görüş Yönü",
+                    "createdAt": "Oluşturulma Zamanı"
+                }
+            },
+            "home": {
+                "isEnabled": "Etkin mi",
+                "variables": "Kullanılabilir Değişkenler",
+                "queryListCmd": "Ev Listesi Sorgulama Komutu",
+                "teleInterval": "Teleport Aralığı, saniye",
+                "setHomeCmdPrefix": "Ev Ayarlama Komutu Öneki",
+                "setCountLimit": "Maksimum Ayarlama Sayısı",
+                "pointsRequiredForSet": "Ayarlama için Gerekli Puanlar",
+                "deleteHomeCmdPrefix": "Ev Silme Komutu Öneki",
+                "teleHomeCmdPrefix": "Eve Teleport Komutu Öneki",
+                "pointsRequiredForTele": "Teleport için Gerekli Puanlar",
+                "noHomeTip": "Ev Yok",
+                "locationItemTip": "Konum Sorgulama İpucu",
+                "overLimitTip": "Limit Aşıldı",
+                "setPointsNotEnoughTip": "Ayarlama için yetersiz puan",
+                "setSuccessTip": "Başarılı ayarlama ipucu",
+                "overwriteSuccessTip": "Başarılı üzerine yazma ipucu",
+                "deleteSuccessTip": "Başarılı silme ipucu",
+                "homeNotFoundTip": "Ev bulunamadı",
+                "coolingTip": "Soğuma süresi ipucu",
+                "telePointsNotEnoughTip": "Teleport için yetersiz puan",
+                "teleSuccessTip": "Başarılı teleport ipucu",
+                "useTips": "İpucu: Oyun içinde setHome+çizgi(-)+ev adı girerek mevcut koordinatları kaydedin ve delHome+çizgi(-)+ev adı girerek evi silin",
+                "titleSuffix": "Ev",
+                "deleteAll": "Hepsini Sil",
+                "deleteAllConfirm": "Tüm kayıtları silmek istediğinizden emin misiniz?",
+                "tableHeader": {
+                    "playerName": "Oyuncu Adı",
+                    "playerId": "Oyuncu ID'si",
+                    "createdAt": "Oluşturulma Zamanı",
+                    "homeName": "Ev Adı",
+                    "position": "Koordinatlar (X, Y, Z)"
+                }
+            }
+        }
+    }
+}
