@@ -154,7 +154,31 @@ import { formatPosition } from '~/utils/formatHelper';
 
 const loading = ref(false);
 const tableData = ref([]);
-const { t } = useI18n();
+const { t, locale } = useI18n();
+
+const getIpApiLangParam = () => {
+    switch (locale.value) {
+        case 'en':
+            return 'en';
+        case 'de':
+            return 'de';
+        case 'es':
+            return 'es';
+        case 'pt':
+            return 'pt-BR';
+        case 'fr':
+            return 'fr';
+        case 'ja':
+            return 'ja';
+        case 'ru':
+            return 'ru';
+        case 'zh':
+        case 'tw':
+            return 'zh-CN';
+        default:
+            return 'en';
+    }
+};
 
 const getData = async () => {
     loading.value = true;
@@ -164,7 +188,7 @@ const getData = async () => {
         if (data.length) {
             axios
                 .post(
-                    'http://ip-api.com/batch?lang=zh-CN&fields=status,country,regionName,city',
+                    `http://ip-api.com/batch?lang=${getIpApiLangParam()}&fields=status,country,regionName,city`,
                     data.map((i) => i.ip)
                 )
                 .then((response) => {
