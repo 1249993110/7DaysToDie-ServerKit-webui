@@ -6,21 +6,21 @@
             </div>
             <el-form :model="formModel" :rules="rules" ref="loginRef" label-width="0px" class="login-box-content">
                 <el-form-item prop="username">
-                    <el-input :placeholder="$t('views.login.username')" v-model="formModel.username" tabindex="-1" autofocus>
+                    <el-input :placeholder="t('views.login.username')" v-model="formModel.username" tabindex="-1" autofocus>
                         <template #prepend>
                             <el-button :icon="User" tabindex="-1"></el-button>
                         </template>
                     </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input :placeholder="$t('views.login.password')" v-model="formModel.password" type="password" @keyup.enter="submitForm" tabindex="1">
+                    <el-input :placeholder="t('views.login.password')" v-model="formModel.password" type="password" @keyup.enter="submitForm" tabindex="1">
                         <template #prepend>
                             <el-button :icon="Lock" tabindex="-1"></el-button>
                         </template>
                     </el-input>
                 </el-form-item>
                 <div class="login-btn">
-                    <el-button type="primary" @click="submitForm" tabindex="-1">{{ $t('views.login.login') }}</el-button>
+                    <el-button type="primary" @click="submitForm" tabindex="-1">{{ t('views.login.login') }}</el-button>
                 </div>
             </el-form>
         </div>

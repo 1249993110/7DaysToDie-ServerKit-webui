@@ -7,47 +7,47 @@
         </RouterButton>
         <el-row :gutter="20">
             <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16">
-                <CardWithHeader :header="$t('views.dashboard.header.overview')">
+                <CardWithHeader :header="t('views.dashboard.header.overview')">
                     <template #body><Overview :data="stats" /></template>
                 </CardWithHeader>
-                <CardWithHeader :header="$t('views.dashboard.header.status')" min-height="260px">
+                <CardWithHeader :header="t('views.dashboard.header.status')" min-height="260px">
                     <template #body><Status :data="stats" /></template>
                 </CardWithHeader>
                 <el-row :gutter="20">
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader :header="$t('views.dashboard.header.fps')" height="146px" class="moniter">
+                        <CardWithHeader :header="t('views.dashboard.header.fps')" height="146px" class="moniter">
                             <template #body>{{ stats.fps?.toFixed(2) }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader :header="$t('views.dashboard.header.entities')" height="146px" class="moniter">
+                        <CardWithHeader :header="t('views.dashboard.header.entities')" height="146px" class="moniter">
                             <template #body>{{ stats.entities }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader :header="$t('views.dashboard.header.rss')" height="146px" class="moniter">
+                        <CardWithHeader :header="t('views.dashboard.header.rss')" height="146px" class="moniter">
                             <template #body>{{ stats.residentSetSize?.toFixed() }} MB</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader :header="$t('views.dashboard.header.chunks')" height="146px" class="moniter">
+                        <CardWithHeader :header="t('views.dashboard.header.chunks')" height="146px" class="moniter">
                             <template #body>{{ stats.chunks }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader :header="$t('views.dashboard.header.cgo')" height="146px" class="moniter">
+                        <CardWithHeader :header="t('views.dashboard.header.cgo')" height="146px" class="moniter">
                             <template #body>{{ stats.cgo }}</template>
                         </CardWithHeader>
                     </el-col>
                     <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
-                        <CardWithHeader :header="$t('views.dashboard.header.items')" height="146px" class="moniter">
+                        <CardWithHeader :header="t('views.dashboard.header.items')" height="146px" class="moniter">
                             <template #body>{{ stats.items }}</template>
                         </CardWithHeader>
                     </el-col>
                 </el-row>
             </el-col>
             <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-                <CardWithHeader :header="$t('views.dashboard.header.systemInfo')">
+                <CardWithHeader :header="t('views.dashboard.header.systemInfo')">
                     <template #body>
                         <SystemInfo />
                     </template>
@@ -69,6 +69,7 @@ import Status from './Status/index.vue';
 import SystemInfo from './SystemInfo/index.vue';
 import { getStats } from '~/api/server';
 
+const { t } = useI18n();
 const stats = ref({});
 const getData = async () => {
     stats.value = await getStats();

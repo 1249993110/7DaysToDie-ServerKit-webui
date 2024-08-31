@@ -3,49 +3,49 @@
         <el-descriptions :column="1" class="description">
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceName') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.deviceName') }}</span>
                 </template>
                 {{ systemInfo.deviceName }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceModel') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.deviceModel') }}</span>
                 </template>
                 {{ systemInfo.deviceModel }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceType') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.deviceType') }}</span>
                 </template>
                 {{ systemInfo.deviceType }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.deviceUniqueIdentifier') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.deviceUniqueIdentifier') }}</span>
                 </template>
                 {{ systemInfo.deviceUniqueIdentifier }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.operatingSystem') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.operatingSystem') }}</span>
                 </template>
                 {{ systemInfo.operatingSystem }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.processorType') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.processorType') }}</span>
                 </template>
                 {{ systemInfo.processorType }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.processorCount') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.processorCount') }}</span>
                 </template>
                 {{ systemInfo.processorCount }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.systemInfo.systemMemorySize') }}</span>
+                    <span class="label">{{ t('views.dashboard.systemInfo.systemMemorySize') }}</span>
                 </template>
                 {{ Math.round(systemInfo.systemMemorySize / 1024) }} GB
             </el-descriptions-item>
@@ -56,6 +56,7 @@
 <script setup>
 import { getSystemInfo } from '~/api/server';
 
+const { t } = useI18n();
 const systemInfo = ref({
     deviceModel: '',
     deviceName: '',

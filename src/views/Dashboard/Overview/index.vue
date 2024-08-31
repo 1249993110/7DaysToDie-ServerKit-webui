@@ -3,73 +3,73 @@
         <el-descriptions :column="3" class="description" direction="vertical">
             <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.serverName') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.serverName') }}</span>
                 </template>
                 {{ data.serverName }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.region') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.region') }}</span>
                 </template>
                 {{ data.region }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.language') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.language') }}</span>
                 </template>
                 {{ data.language }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.serverIp') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.serverIp') }}</span>
                 </template>
                 {{ data.serverIp }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label" min-width="150px">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.uptime') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.uptime') }}</span>
                 </template>
                 {{ formatDuration(data.uptime) }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.gameTime') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.gameTime') }}</span>
                 </template>
                 {{ formatGameTime(data.gameTime) }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.serverPort') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.serverPort') }}</span>
                 </template>
                 {{ data.serverPort }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.gameName') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.gameName') }}</span>
                 </template>
                 {{ data.gameName }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.gameMode') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.gameMode') }}</span>
                 </template>
                 {{ data.gameMode }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.serverVersion') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.serverVersion') }}</span>
                 </template>
                 {{ data.serverVersion }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.gameWorld') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.gameWorld') }}</span>
                 </template>
                 {{ data.gameWorld }}
             </el-descriptions-item>
             <el-descriptions-item class-name="content" label-class-name="label">
                 <template #label>
-                    <span class="label">{{ $t('views.dashboard.overview.gameDifficulty') }}</span>
+                    <span class="label">{{ t('views.dashboard.overview.gameDifficulty') }}</span>
                 </template>
                 {{ formatGameDifficulty(data.gameDifficulty) }}
             </el-descriptions-item>

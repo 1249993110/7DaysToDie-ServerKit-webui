@@ -31,7 +31,7 @@
                         </el-table-column>
                         <el-table-column width="90" fixed="right">
                             <template #default="scope">
-                                <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">{{ $t('global.button.edit') }}</el-button>
+                                <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">{{ t('global.button.edit') }}</el-button>
                             </template>
                         </el-table-column>
                     </el-table>

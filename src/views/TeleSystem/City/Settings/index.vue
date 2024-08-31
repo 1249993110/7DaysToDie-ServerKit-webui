@@ -32,12 +32,12 @@
                         <el-form-item :label="t('views.teleSystem.city.coolingTip')" prop="coolingTip">
                             <el-input v-model="formModel.coolingTip" />
                         </el-form-item>
-                        <el-form-item :label="t('views.teleSystem.city.noLocation')"prop="noLocation">
+                        <el-form-item :label="t('views.teleSystem.city.noLocation')" prop="noLocation">
                             <el-input v-model="formModel.noLocation" />
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="save">{{ $t('global.button.save') }}</el-button>
-                            <el-button type="danger" @click="reset">{{ $t('global.button.reset') }}</el-button>
+                            <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
+                            <el-button type="danger" @click="reset">{{ t('global.button.reset') }}</el-button>
                         </el-form-item>
                     </el-form>
                     <div>
@@ -58,7 +58,7 @@ export default {
 <script setup>
 import * as api from '~/api/settings.js';
 
-const {t} = useI18n();
+const { t } = useI18n();
 const formModel = reactive({});
 const formRef = ref();
 const localeStore = useLocaleStore();

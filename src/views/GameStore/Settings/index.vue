@@ -30,8 +30,8 @@
                             <el-input v-model="formModel.noGoods" />
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="save">{{ $t('global.button.save') }}</el-button>
-                            <el-button type="danger" @click="reset">{{ $t('global.button.reset') }}</el-button>
+                            <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
+                            <el-button type="danger" @click="reset">{{ t('global.button.reset') }}</el-button>
                         </el-form-item>
                     </el-form>
                     <div>

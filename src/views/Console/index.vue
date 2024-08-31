@@ -3,8 +3,8 @@
         <RouterButton :names="['console']"> </RouterButton>
         <div id="console-content"></div>
         <div class="send-container">
-            <el-input :placeholder="$t('global.message.inputText')" v-model="command" clearable @keyup.enter.native="sendCommand"> </el-input>
-            <el-button class="button" type="primary" @click="sendCommand">{{ $t('global.button.send') }}</el-button>
+            <el-input :placeholder="t('global.message.inputText')" v-model="command" clearable @keyup.enter.native="sendCommand"> </el-input>
+            <el-button class="button" type="primary" @click="sendCommand">{{ t('global.button.send') }}</el-button>
         </div>
     </div>
 </template>
@@ -18,6 +18,7 @@ export default {
 <script setup>
 import { executeConsoleCommand } from '~/api/server';
 
+const { t } = useI18n();
 const command = ref('');
 
 const sendCommand = async () => {

@@ -6,8 +6,8 @@
                 <div style="margin-right: 16px">
                     <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
                         <el-form-item>
-                            <el-button type="primary" @click="save">{{ $t('global.button.save') }}</el-button>
-                            <el-button type="danger" @click="reset">{{ $t('global.button.reset') }}</el-button>
+                            <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
+                            <el-button type="danger" @click="reset">{{ t('global.button.reset') }}</el-button>
                         </el-form-item>
                         <!-- <el-form-item label="是否启用">
                             <el-switch v-model="formModel.isEnabled" />
@@ -43,7 +43,14 @@
                             <el-switch v-model="formModel.autoRestart.isEnabled" />
                         </el-form-item>
                         <el-form-item :label="t('views.globalSettings.autoRestart.time')">
-                            <el-time-select v-model="autoRestartTime" style="width: 240px" start="00:00" step="00:30" end="23:59" :placeholder="t('global.message.datePickerPlaceholder')" />
+                            <el-time-select
+                                v-model="autoRestartTime"
+                                style="width: 240px"
+                                start="00:00"
+                                step="00:30"
+                                end="23:59"
+                                :placeholder="t('global.message.datePickerPlaceholder')"
+                            />
                         </el-form-item>
                         <el-form-item class="label" :label="t('views.globalSettings.autoRestart.messages')">
                             <MyTextarea v-model="formModel.autoRestart.messages"></MyTextarea>
@@ -61,8 +68,8 @@
                             <Coordinate v-model="formModel.playerInitialPosition"></Coordinate>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="save">{{ $t('global.button.save') }}</el-button>
-                            <el-button type="danger" @click="reset">{{ $t('global.button.reset') }}</el-button>
+                            <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
+                            <el-button type="danger" @click="reset">{{ t('global.button.reset') }}</el-button>
                         </el-form-item>
                     </el-form>
                 </div>
@@ -80,7 +87,7 @@ export default {
 <script setup>
 import * as api from '~/api/settings.js';
 
-const {t} = useI18n();
+const { t } = useI18n();
 
 const autoRestartTime = computed({
     get() {

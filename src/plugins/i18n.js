@@ -38,7 +38,7 @@ export const i18n = createI18n({
     fallbackLocale: 'en',
     legacy: false,
     messages,
-    globalInjection: true, // In <template> can use $t
+    globalInjection: false, // In <template> can use $t
 });
 
 export default (app) => {

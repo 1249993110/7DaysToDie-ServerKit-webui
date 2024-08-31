@@ -1,8 +1,8 @@
 <template>
     <div class="route-button">
-        <el-button link type="primary" @click="handleRestart">{{ $t('components.serverToolBar.restart') }}</el-button>
+        <el-button link type="primary" @click="handleRestart">{{ t('components.serverToolBar.restart') }}</el-button>
         <el-divider direction="vertical" />
-        <el-button link type="danger" @click="handleShutdown">{{ $t('components.serverToolBar.shutdown') }}</el-button>
+        <el-button link type="danger" @click="handleShutdown">{{ t('components.serverToolBar.shutdown') }}</el-button>
     </div>
 </template>
 

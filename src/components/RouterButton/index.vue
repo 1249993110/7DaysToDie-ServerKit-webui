@@ -2,17 +2,17 @@
     <el-card class="router-card">
         <el-radio-group v-model="defaultActive" @change="handleChange">
             <el-radio-button class="router-card-button" v-for="name in names" size="large" :key="name" :value="name">
-                <span>{{ $t('menus.' + name) }}</span>
+                <span>{{ t('menus.' + name) }}</span>
             </el-radio-button>
         </el-radio-group>
         <div class="router-card-right">
             <slot name="route-button"></slot>
-            <el-tooltip effect="dark" :content="$t('components.routerButton.refresh')" placement="bottom">
+            <el-tooltip effect="dark" :content="t('components.routerButton.refresh')" placement="bottom">
                 <el-icon class="icon-button reload" size="22" @click="handleReload">
                     <icon-mdi-reload />
                 </el-icon>
             </el-tooltip>
-            <el-tooltip effect="dark" :content="isFullscreen ? $t('components.routerButton.exitFullscreen') : $t('components.routerButton.fullscreen')" placement="bottom">
+            <el-tooltip effect="dark" :content="isFullscreen ? t('components.routerButton.exitFullscreen') : t('components.routerButton.fullscreen')" placement="bottom">
                 <el-icon class="icon-button fullscreen" size="24" @click="handleScreenfull">
                     <icon-mdi-fullscreen-exit v-if="isFullscreen" />
                     <icon-mdi-fullscreen v-else />

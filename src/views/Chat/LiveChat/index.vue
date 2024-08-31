@@ -8,8 +8,8 @@
                 </el-scrollbar>
             </div>
             <div class="send-container">
-                <el-input :placeholder="$t('global.message.inputText')" v-model="message" clearable @keyup.enter.native="sendMessage"> </el-input>
-                <el-button class="button" type="primary" @click="sendMessage">{{ $t('playerOperation.sendMessage') }}</el-button>
+                <el-input :placeholder="t('global.message.inputText')" v-model="message" clearable @keyup.enter.native="sendMessage"> </el-input>
+                <el-button class="button" type="primary" @click="sendMessage">{{ t('playerOperation.sendMessage') }}</el-button>
             </div>
         </el-card>
     </div>
@@ -25,6 +25,7 @@ export default {
 import { sendGlobalMessage } from '~/api/server';
 import * as api from '~/api/chat-record';
 
+const { t } = useI18n();
 const message = ref('');
 const sendMessage = async () => {
     if (!!message.value) {

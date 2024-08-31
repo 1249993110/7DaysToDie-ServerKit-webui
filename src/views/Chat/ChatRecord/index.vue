@@ -18,20 +18,20 @@
             :pageSize="100"
         >
             <template #searchFormItems>
-                <el-form-item :label="$t('global.keyworld')" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="$t('global.message.inputText')" clearable autofocus></el-input>
+                <el-form-item :label="t('global.keyworld')" prop="keyword">
+                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
             </template>
             <template #toolbarPost>
-                <el-button @click="handleDeleteAll" type="danger">{{ $t('global.button.deleteAll') }}</el-button>
+                <el-button @click="handleDeleteAll" type="danger">{{ t('global.button.deleteAll') }}</el-button>
             </template>
             <template #columns>
-                <el-table-column prop="createdAt" :label="$t('views.chat.tableHeader.createdAt')" width="165" sortable="custom"> </el-table-column>
-                <el-table-column prop="senderName" :label="$t('views.chat.tableHeader.senderName')" width="180" show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="chatType" :label="$t('views.chat.tableHeader.chatType')" width="80" :formatter="formatChatType"> </el-table-column>
-                <el-table-column prop="message" :label="$t('views.chat.tableHeader.message')" min-width="120" show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="entityId" :label="$t('views.chat.tableHeader.entityId')" width="90"> </el-table-column>
-                <el-table-column prop="playerId" :label="$t('views.chat.tableHeader.playerId')" width="280" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="createdAt" :label="t('views.chat.tableHeader.createdAt')" width="165" sortable="custom"> </el-table-column>
+                <el-table-column prop="senderName" :label="t('views.chat.tableHeader.senderName')" width="180" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="chatType" :label="t('views.chat.tableHeader.chatType')" width="80" :formatter="formatChatType"> </el-table-column>
+                <el-table-column prop="message" :label="t('views.chat.tableHeader.message')" min-width="120" show-overflow-tooltip> </el-table-column>
+                <el-table-column prop="entityId" :label="t('views.chat.tableHeader.entityId')" width="90"> </el-table-column>
+                <el-table-column prop="playerId" :label="t('views.chat.tableHeader.playerId')" width="280" show-overflow-tooltip> </el-table-column>
             </template>
         </MyTableEx>
     </div>
@@ -44,7 +44,7 @@ export default {
 <script setup>
 import * as api from '~/api/chat-record';
 
-const {t} = useI18n();
+const { t } = useI18n();
 
 const searchFormModel = reactive({
     keyword: '',
