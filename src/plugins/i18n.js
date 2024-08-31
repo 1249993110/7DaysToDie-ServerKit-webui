@@ -5,7 +5,7 @@ import { createI18n } from 'vue-i18n';
  */
 import messages from '@intlify/unplugin-vue-i18n/messages';
 
-export const supportedLanguages = ['en', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pl', 'pt', 'ru', 'tr', 'zh'];
+export const supportedLanguages = ['en', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pl', 'pt', 'ru', 'tr', 'zh', 'tw'];
 
 function getLanguageCode(lang) {
     const langCode = lang.substring(0, 2);
