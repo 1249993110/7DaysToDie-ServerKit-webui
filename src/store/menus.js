@@ -59,7 +59,7 @@ const tree = [
     },
     {
         name: 'pointsSystem',
-        icon: getIcon(() => import('~icons/mdi/bitcoin')),
+        icon: getIcon(() => import('~icons/tabler/coin-filled')),
     },
     {
         name: 'listManagement',
