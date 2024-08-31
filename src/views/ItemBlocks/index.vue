@@ -11,14 +11,7 @@
             <div class="items-container">
                 <el-scrollbar always>
                     <div class="scroll-area" v-infinite-scroll="load">
-                        <el-image
-                            class="image"
-                            v-for="(item, index) in items"
-                            :key="index"
-                            :src="item.url"
-                            lazy
-                            @mouseover="handleMouseover(item, $event)"
-                        />
+                        <el-image class="image" v-for="(item, index) in items" :key="index" :src="item.url" lazy @mouseover="handleMouseover(item, $event)" />
                         <el-empty :image-size="200" v-if="items.length === 0" style="width: 100%" />
                     </div>
                 </el-scrollbar>
@@ -38,7 +31,8 @@ import { getItemBlocks } from '~/api/item-blocks';
 import { showTooltip } from '~/components/SingletonTooltip/index.js';
 import { getItemIconUrl } from '~/utils/imageHelper';
 
-const {t} = useI18n();
+const { t } = useI18n();
+const localeStore = useLocaleStore();
 
 const items = reactive([]);
 const itemsChecked = ref(true);
@@ -68,13 +62,13 @@ const getData = async () => {
         } else if (!itemsChecked.value && blocksChecked.value) {
             searchModel.itemBlockKind = 2;
         } else {
-            ElMessage.info(t("global.formRule.selectAtLeastOne"));
+            ElMessage.info(t('global.formRule.selectAtLeastOne'));
             return;
         }
 
         searchModel.showUserHidden = devItemsChecked.value;
 
-        const data = (await getItemBlocks(searchModel)).items;
+        const data = (await getItemBlocks({ ...searchModel, language: localeStore.getLanguage() })).items;
         const len = data.length;
         if (len === 0) {
             ElMessage.success(t('global.message.noMoreData'));
@@ -115,7 +109,6 @@ const handleMouseover = (item, event) => {
 
     showTooltip({ trigger: event.target, content: content, rawContent: true });
 };
-
 </script>
 
 <style scoped lang="scss">

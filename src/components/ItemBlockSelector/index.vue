@@ -46,7 +46,9 @@
 import { getItemBlocks } from '~/api/item-blocks';
 import { Search } from '@element-plus/icons-vue';
 import { i18n } from '~/plugins/i18n';
+
 const { t } = i18n.global;
+const localeStore = useLocaleStore();
 
 const tableData = ref([]);
 const total = ref(0);
@@ -57,13 +59,13 @@ const searchModel = reactive({
     pageSize: 20,
     keyword: '',
     itemBlockKind: 0,
-    showUserHidden: true,
+    showUserHidden: TextTrackCueList,
 });
 
 const getData = async () => {
     try {
         loading.value = true;
-        const data = await getItemBlocks(searchModel);
+        const data = await getItemBlocks({ ...searchModel, language: localeStore.getLanguage() });
         tableData.value = data.items;
         total.value = data.total;
     } finally {

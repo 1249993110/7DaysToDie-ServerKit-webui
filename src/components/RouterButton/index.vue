@@ -9,7 +9,7 @@
             <slot name="route-button"></slot>
             <el-dropdown style="margin-right: 12px" trigger="click" @command="handleCommand">
                 <IconButton>
-                    <icon-material-symbols-language />
+                    <icon-ion-language />
                 </IconButton>
                 <template #dropdown>
                     <el-dropdown-menu>
