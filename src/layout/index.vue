@@ -26,8 +26,18 @@ import { useSidebarStore } from '~/store/sidebar';
 import { useUserInfoStore } from '~/store/user-info';
 import { getAppSettings } from '~/api/app-settings';
 
+const { locale } = useI18n();
 const sidebarStore = useSidebarStore();
-const sidebarWidth = computed(() => (sidebarStore.isCollapse ? '80px' : '180px'));
+const sidebarWidth = computed(() => {
+    if(sidebarStore.isCollapse){
+        return '80px';
+    }else{
+        if(locale.value === 'en' || locale.value === 'zh' || locale.value === 'tw'){
+            return '180px';
+        }
+        return '220px';
+    }
+});
 
 const userInfoStore = useUserInfoStore();
 const isLoggedIn = computedAsync(async () => await userInfoStore.isLoggedIn());
