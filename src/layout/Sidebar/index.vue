@@ -39,6 +39,14 @@ watch(
     { immediate: true }
 );
 
+const logout = async () => {
+    if (await myconfirm(t('views.login.logoutConfirm'))) {
+        ElMessage.success(t('views.login.logoutSuccess'));
+        await userInfoStore.logout();
+        router.push('/login');
+    }
+};
+
 const handleSelectMenu = async (name) => {
     if (name === 'logout') {
         await logout();
@@ -53,13 +61,6 @@ const handleSelectMenu = async (name) => {
     }
 };
 
-const logout = async () => {
-    if (await myconfirm(t('views.login.logoutConfirm'))) {
-        ElMessage.success(t('views.login.logoutSuccess'));
-        await userInfoStore.logout();
-        router.push('/login');
-    }
-};
 </script>
 
 <style scoped lang="scss">

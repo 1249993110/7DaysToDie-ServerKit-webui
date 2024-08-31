@@ -32,7 +32,7 @@ const sidebarWidth = computed(() => {
     if(sidebarStore.isCollapse){
         return '80px';
     }else{
-        if(locale.value === 'en' || locale.value === 'zh' || locale.value === 'tw'){
+        if(locale.value === 'en' || locale.value === 'zh' || locale.value === 'tw' || locale.value === 'ko'){
             return '180px';
         }
         return '220px';

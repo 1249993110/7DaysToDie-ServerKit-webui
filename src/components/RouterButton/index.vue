@@ -7,13 +7,23 @@
         </el-radio-group>
         <div class="router-card-right">
             <slot name="route-button"></slot>
+            <el-dropdown style="margin-right: 12px" trigger="click" @command="handleCommand">
+                <IconButton>
+                    <icon-material-symbols-language />
+                </IconButton>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item v-for="item in availableLocales" :key="item.value" :command="item.value" :disabled="locale === item.value">{{ item.label }}</el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
             <el-tooltip effect="dark" :content="t('components.routerButton.refresh')" placement="bottom">
-                <el-icon class="icon-button reload" size="22" @click="handleReload">
+                <el-icon class="icon-button reload" size="22" @click="handleReload" style="margin-right: 12px">
                     <icon-mdi-reload />
                 </el-icon>
             </el-tooltip>
             <el-tooltip effect="dark" :content="isFullscreen ? t('components.routerButton.exitFullscreen') : t('components.routerButton.fullscreen')" placement="bottom">
-                <el-icon class="icon-button fullscreen" size="24" @click="handleScreenfull">
+                <el-icon class="icon-button fullscreen" size="24" @click="handleScreenfull" style="margin-right: 12px">
                     <icon-mdi-fullscreen-exit v-if="isFullscreen" />
                     <icon-mdi-fullscreen v-else />
                 </el-icon>
@@ -33,7 +43,9 @@ const props = defineProps({
     },
 });
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const localeStore = useLocaleStore();
+const availableLocales = localeStore.getAvailableLocales();
 
 const route = useRoute();
 const defaultActive = ref('');
@@ -73,6 +85,10 @@ onKeyStroke('F11', (e) => {
     e.preventDefault();
     handleScreenfull();
 });
+
+const handleCommand = (locale) => {
+    localeStore.setLocale(locale);
+};
 </script>
 
 <style lang="scss">
@@ -109,9 +125,6 @@ onKeyStroke('F11', (e) => {
                 transform: rotate(360deg);
                 transition: 0.6s linear;
             }
-        }
-        .fullscreen {
-            margin: 0 12px;
         }
     }
 }

@@ -9,7 +9,7 @@
                     <el-text style="margin: 0 4px" type="primary">{{ t('components.playerSkillsDialog.expand') }}</el-text>
                 </span>
                 <el-tooltip effect="dark" :content="fullscreen ? t('components.playerSkillsDialog.exitFullscreen') : t('components.playerSkillsDialog.fullscreen')" placement="right">
-                    <IconButton :size="24" @click="fullscreen = !fullscreen">
+                    <IconButton @click="fullscreen = !fullscreen">
                         <icon-mdi-fullscreen-exit v-show="fullscreen" />
                         <icon-mdi-fullscreen v-show="!fullscreen" />
                     </IconButton>
