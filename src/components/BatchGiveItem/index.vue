@@ -13,7 +13,7 @@
                 <el-input-number v-model="formModel.count" :min="1" :max="1000000" />
             </el-form-item>
             <el-form-item :label="t('components.batchGiveItem.quality')" prop="quality">
-                <el-input-number v-model="formModel.quality" :min="0" :max="7" />
+                <el-input-number v-model="formModel.quality" :min="0" />
             </el-form-item>
             <el-form-item :label="t('components.batchGiveItem.durability')" prop="durability">
                 <el-input-number v-model="formModel.durability" :min="0" :max="100" />
@@ -34,7 +34,7 @@ const itemBlockSelectorVisible = ref(false);
 const formModel = reactive({
     itemName: '',
     count: 1,
-    quality: 1,
+    quality: 7,
     durability: 100,
     iconColor: '',
 });

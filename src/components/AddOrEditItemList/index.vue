@@ -13,7 +13,7 @@
                 <el-input-number v-model="formModel.count" :min="1" :max="1000000" />
             </el-form-item>
             <el-form-item :label="t('views.listManagement.tableHeader.quality')" prop="quality">
-                <el-input-number v-model="formModel.quality" :min="0" :max="7" />
+                <el-input-number v-model="formModel.quality" :min="0" />
             </el-form-item>
             <el-form-item :label="t('views.listManagement.tableHeader.durability')" prop="durability">
                 <el-input-number v-model="formModel.durability" :min="0" :max="100" />
@@ -32,7 +32,7 @@ import { i18n } from '~/plugins/i18n';
 const { t } = i18n.global;
 const formModel = reactive({
     count: 1,
-    quality: 6,
+    quality: 7,
     durability: 100,
 });
 
