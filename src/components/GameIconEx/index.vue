@@ -123,7 +123,7 @@ const handleContextMenu = (event) => {
                         });
                     }
                 },
-                disabled: !props.playerId,
+                disabled: !props.playerId || props.isMod,
             },
         ],
     });
