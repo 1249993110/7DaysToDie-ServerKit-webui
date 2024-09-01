@@ -59,7 +59,7 @@ const searchModel = reactive({
     pageSize: 20,
     keyword: '',
     itemBlockKind: 0,
-    showUserHidden: TextTrackCueList,
+    showUserHidden: true,
 });
 
 const getData = async () => {
