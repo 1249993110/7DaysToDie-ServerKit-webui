@@ -32,7 +32,7 @@ import { i18n } from '~/plugins/i18n';
 const { t } = i18n.global;
 const formModel = reactive({
     count: 1,
-    quality: 6,
+    quality: 1,
     durability: 100,
 });
 

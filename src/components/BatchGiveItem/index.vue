@@ -34,7 +34,7 @@ const itemBlockSelectorVisible = ref(false);
 const formModel = reactive({
     itemName: '',
     count: 1,
-    quality: 6,
+    quality: 1,
     durability: 100,
     iconColor: '',
 });
