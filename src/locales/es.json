@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Mensaje puntos insuficientes",
                 "coolingTip": "Mensaje de enfriamiento",
                 "targetNotFoundTip": "Mensaje objetivo no encontrado",
-                "targetNotFriendTip": "Mensaje objetivo no es amigo",
+                "isFriendBypass": "Los amigos no necesitan estar de acuerdo",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "Acepto transmitir",
+                "rejectTele": "RejectTele",
+                "targetRejectTeleTip": "Rechazar sugerencia de transmisión",
+                "keepDuration": "Duración de la espera",
                 "useTips": "Consejo: ingresa tele-{'{'}nombre del jugador{'}'} en el juego para teletransportarte"
             },
             "city": {

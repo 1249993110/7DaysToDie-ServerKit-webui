@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Wskazówka o niewystarczającej liczbie punktów",
                 "coolingTip": "Wskazówka o czasie odnowienia",
                 "targetNotFoundTip": "Cel teleportacji nie znaleziony",
-                "targetNotFriendTip": "Cel teleportacji nie jest przyjacielem",
+                "isFriendBypass": "Przyjaciele nie muszą się zgadzać",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "Zgadzam się na transmisję",
+                "odrzućTele": "OdrzućTele",
+                "targetRejectTeleTip": "Odrzuć wskazówkę dotyczącą transmisji",
+                "keepDuration": "Czas oczekiwania",
                 "useTips": "Wskazówka: Wprowadź w grze tele+myślnik(-)+nazwa przyjaciela, aby się teleportować"
             },
             "city": {

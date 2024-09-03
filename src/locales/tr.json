@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Yetersiz puan ipucu",
                 "coolingTip": "Soğuma süresi ipucu",
                 "targetNotFoundTip": "Teleport hedefi bulunamadı",
-                "targetNotFriendTip": "Teleport hedefi arkadaş değil",
+                "isFriendBypass": "Arkadaşların aynı fikirde olmasına gerek yoktur",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "İletmeyi kabul ediyorum",
+                "RejectTele": "ReddetTele",
+                "targetRejectTeleTip": "İletim ipucunu reddet",
+                "keepDuration": "Bekleme süresi",
                 "useTips": "İpucu: Oyun içinde tele+çizgi(-)+arkadaş adı girerek teleport yapın"
             },
             "city": {

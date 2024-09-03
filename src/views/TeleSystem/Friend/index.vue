@@ -32,8 +32,23 @@
                         <el-form-item :label="t('views.teleSystem.friend.targetNotFoundTip')" prop="targetNotFoundTip">
                             <el-input v-model="formModel.targetNotFoundTip" />
                         </el-form-item>
-                        <el-form-item :label="t('views.teleSystem.friend.targetNotFriendTip')" prop="targetNotFriendTip">
-                            <el-input v-model="formModel.targetNotFriendTip" />
+                        <el-form-item :label="t('views.teleSystem.friend.isFriendBypass')">
+                            <el-switch v-model="formModel.isFriendBypass" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.teleSystem.friend.teleConfirmTip')" prop="teleConfirmTip">
+                            <el-input v-model="formModel.teleConfirmTip" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.teleSystem.friend.acceptTele')" prop="acceptTele">
+                            <el-input v-model="formModel.acceptTele" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.teleSystem.friend.rejectTele')" prop="rejectTele">
+                            <el-input v-model="formModel.rejectTele" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.teleSystem.friend.targetRejectTeleTip')" prop="targetRejectTeleTip">
+                            <el-input v-model="formModel.targetRejectTeleTip" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.teleSystem.friend.keepDuration')" prop="keepDuration">
+                            <el-input-number v-model="formModel.keepDuration" :min="1" />
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
@@ -96,7 +111,10 @@ const rules = {
     pointsNotEnoughTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
     coolingTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
     targetNotFoundTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
-    targetNotFriendTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    teleConfirmTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    acceptTele: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    rejectTele: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+    targetRejectTeleTip: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
 };
 </script>
 

@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Недостаточно очков",
                 "coolingTip": "Совет по охлаждению",
                 "targetNotFoundTip": "Совет: цель не найдена",
-                "targetNotFriendTip": "Подсказка Цель не друг",
+                "isFriendBypass": "Друзьям не обязательно соглашаться",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "Согласен на передачу",
+                "rejectTele": "RejectTele",
+                "targetRejectTeleTip": "Отклонить подсказку о передаче",
+                "keepDuration": "Продолжительность ожидания",
                 "useTips": "Подсказки: введите tele-{'{'}имя игрока{'}'} в игре, чтобы телепортироваться"
             },
             "city": {

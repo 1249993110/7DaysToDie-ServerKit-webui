@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Astuce de points insuffisants",
                 "coolingTip": "Astuce de refroidissement",
                 "targetNotFoundTip": "Astuce de cible introuvable",
-                "targetNotFriendTip": "Astuce pour ne pas être ami avec la cible",
+                "isFriendBypass": "Les amis n'ont pas besoin d'être d'accord",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "Accepter de transmettre",
+                "rejectTele": "RejectTele",
+                "targetRejectTeleTip": "Rejeter le conseil de transmission",
+                "keepDuration": "Durée d'attente",
                 "useTips": "Astuces: saisissez tele-{'{'}player name{'}'} dans le jeu pour vous téléporter"
             },
             "city": {

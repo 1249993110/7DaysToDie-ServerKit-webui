@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "積分不足提示",
                 "coolingTip": "正在冷卻提示",
                 "targetNotFoundTip": "傳送目標沒有找到提示",
-                "targetNotFriendTip": "傳送目標不是您的好友提示",
+                "isFriendBypass": "好友無須同意",
+                "teleConfirmTip": "傳送確認提示",
+                "acceptTele": "同意傳送",
+                "rejectTele": "拒絕傳送",
+                "targetRejectTeleTip": "拒絕傳送提示",
+                "keepDuration": "等待時間",
                 "useTips": "提示: 遊戲內輸入tele+橫槓(-)+好友名稱 進行傳送"
             },
             "city": {

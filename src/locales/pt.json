@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Pontos não são suficientes",
                 "coolingTip": "Dica de resfriamento",
                 "targetNotFoundTip": "Dica de alvo não encontrado",
-                "targetNotFriendTip": "Dica de alvo não amigo",
+                "isFriendBypass": "Amigos não precisam concordar",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "Concordo em transmitir",
+                "rejectTele": "RejectTele",
+                "targetRejectTeleTip": "Rejeitar dica de transmissão",
+                "keepDuration": "Duração da espera",
                 "useTips": "Dicas: Insira tele-{'{'}nome do jogador{'}'} no jogo para se teletransportar"
             },
             "city": {

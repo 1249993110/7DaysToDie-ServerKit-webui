@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Points Not Enough Tip",
                 "coolingTip": "Cooling Tip",
                 "targetNotFoundTip": "Target Not Found Tip",
-                "targetNotFriendTip": "Target Not Friend Tip",
+                "isFriendBypass": "Friends do not need to agree",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "Agree to transmit",
+                "rejectTele": "RejectTele",
+                "targetRejectTeleTip": "Reject transmission tip",
+                "keepDuration": "Wait duration",
                 "useTips": "Tips: Enter tele-{'{'}player name{'}'} in the game to teleport"
             },
             "city": {

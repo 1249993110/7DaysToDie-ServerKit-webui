@@ -624,7 +624,12 @@
                 "pointsNotEnoughTip": "Suggerimento punti insufficienti",
                 "coolingTip": "Suggerimento raffreddamento",
                 "targetNotFoundTip": "Suggerimento bersaglio non trovato",
-                "targetNotFriendTip": "Suggerimento bersaglio non amico",
+                "isFriendBypass": "Non è necessario che gli amici siano d'accordo",
+                "teleConfirmTip": "TeleConfirmTip",
+                "acceptTele": "Accetto di trasmettere",
+                "rejectTele": "RejectTele",
+                "targetRejectTeleTip": "Rifiuta suggerimento di trasmissione",
+                "keepDuration": "Durata dell'attesa",
                 "useTips": "Suggerimenti: inserisci tele-{'{'}nome giocatore{'}'} nel gioco per teletrasportarti"
             },
             "city": {
