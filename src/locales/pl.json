@@ -627,7 +627,7 @@
                 "isFriendBypass": "Przyjaciele nie muszą się zgadzać",
                 "teleConfirmTip": "TeleConfirmTip",
                 "acceptTele": "Zgadzam się na transmisję",
-                "odrzućTele": "OdrzućTele",
+                "rejectTele": "RejectTele",
                 "targetRejectTeleTip": "Odrzuć wskazówkę dotyczącą transmisji",
                 "keepDuration": "Czas oczekiwania",
                 "useTips": "Wskazówka: Wprowadź w grze tele+myślnik(-)+nazwa przyjaciela, aby się teleportować"
