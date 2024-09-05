@@ -142,11 +142,11 @@
         },
         "teleSystem": {
             "": "Teletransportarse",
-            "amigo": "Amigo Tele",
-            "ciudad": {
-                "": "Ciudad Tele",
-                "settings": "Configuración de la ciudad",
-                "management": "Administración de la ciudad"
+            "friend": "Friend Tele",
+            "city": {
+                "": "City Tele",
+                "settings": "City Settings",
+                "management": "City Management"
             },
             "home": {
                 "": "Televisión del hogar",
