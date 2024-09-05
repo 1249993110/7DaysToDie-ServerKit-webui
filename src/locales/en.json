@@ -288,13 +288,13 @@
         "commandListSelector": {
             "title": "Select From List"
         },
-        "batchGiveItem":{
+        "batchGiveItem": {
             "itemName": "Item Name",
             "count": "Count",
             "quality": "Quality",
             "durability": "Durability"
         },
-        "batchAddBlacklist":{
+        "batchAddBlacklist": {
             "ban": "Ban",
             "banUntil": "Ban Until",
             "reason": "Reason"
