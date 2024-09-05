@@ -562,10 +562,10 @@
                 "itemName": "Nome do item",
                 "count": "Contagem",
                 "quality": "Qualidade",
-                "durabilidade": "Durabilidade",
-                "descrição": "Descrição",
+                "durability": "Durability",
+                "description": "Description",
                 "createdAt": "Criado em",
-                "comando": "Comando",
+                "command": "Command",
                 "inMainThread": "No tópico principal",
                 "item": "Item"
             }

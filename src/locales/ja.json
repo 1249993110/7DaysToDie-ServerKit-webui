@@ -625,9 +625,9 @@
                 "coolingTip": "クールダウン中のヒント",
                 "targetNotFoundTip": "テレポート先が見つかりません",
                 "isFriendBypass": "友達が同意する必要はありません",
-                "テレコンファームチップ": "テレコンファームチップ",
+                "teleConfirmTip": "TeleConfirmTip",
                 "acceptTele": "送信に同意します",
-                "拒否テレ": "拒否テレ",
+                "rejectTele": "RejectTele",
                 "targetRejectTeleTip": "送信チップを拒否",
                 "keepDuration": "待機時間",
                 "useTips": "ヒント: ゲーム内でtele+ハイフン(-)+友達の名前を入力してテレポートします"
