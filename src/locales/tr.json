@@ -627,7 +627,7 @@
                 "isFriendBypass": "Arkadaşların aynı fikirde olmasına gerek yoktur",
                 "teleConfirmTip": "TeleConfirmTip",
                 "acceptTele": "İletmeyi kabul ediyorum",
-                "rejectTele": "RejectTele",
+                "rejectTele": "Oyuncunun ışınlanmasını reddet",
                 "targetRejectTeleTip": "İletim ipucunu reddet",
                 "keepDuration": "Bekleme süresi",
                 "useTips": "İpucu: Oyun içinde tele+çizgi(-)+arkadaş adı girerek teleport yapın"
