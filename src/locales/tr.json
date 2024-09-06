@@ -83,12 +83,12 @@
         "giveItem": "Öğe Ver",
         "changePoints": "Puanları Değiştir",
         "spawnEntity": "Varlık Yarat",
-        "teleport": "Oyuncuyu Teleport Et",
+        "teleport": "Oyuncuyu Işınla",
         "kick": "Oyuncuyu At",
         "ban": "Oyuncuyu Yasakla",
         "setSuperAdmin": "Süper Yönetici Yap",
         "cancelAdmin": "Yöneticiliği İptal Et",
-        "removeLandClaims": "Arazi Taleplerini Kaldır",
+        "removeLandClaims": "Arazi Sahiplenme Bloklarini  Kaldır",
         "resetPlayer": "Oyuncu Verilerini Sıfırla",
         "copyPlayerId": "Oyuncu ID'sini Kopyala",
         "copyPlayerName": "Oyuncu Adını Kopyala",
@@ -180,13 +180,13 @@
             "equipment": "Ekipman",
             "tableHeader": {
                 "icon": "Simge",
-                "itemName": "Öğe Adı",
-                "localizationName": "Yerelleştirme Adı",
+                "itemName": "Eşya Adı",
+                "localizationName": "Çeviri Adı",
                 "mod": "MOD"
             }
         },
         "playerSkillsDialog": {
-            "title": "Oyuncu Becerileri: {0}",
+            "title": "Oyuncu : {0} Beceri Puanlari",
             "fullscreen": "Tam Ekran",
             "exitFullscreen": "Tam Ekrandan Çık",
             "fold": "Katla",
@@ -194,7 +194,7 @@
             "tableHeader": {
                 "name": "Beceri Adı",
                 "icon": "Simge",
-                "localizationName": "Yerelleştirme Adı",
+                "localizationName": "Çeviri Adı",
                 "level": "Seviye",
                 "maxLevel": "Maksimum Seviye",
                 "costForNextLevel": "Sonraki Seviye İçin Maliyet",
@@ -203,7 +203,7 @@
             }
         },
         "playerDetailsDialog": {
-            "title": "Oyuncu Detayları: {0}",
+            "title": "Oyuncu: {0} Detayları",
             "active": "Aktif",
             "inactive": "Aktif Değil",
             "tableHeader": {
@@ -228,16 +228,16 @@
                 "coreTemp": "Çekirdek Sıcaklığı",
                 "food": "Yiyecek",
                 "water": "Su",
-                "pointsCount": "Puanlar",
+                "pointsCount": "TianYi Puanları",
                 "level": "Seviye",
-                "expToNextLevel": "Sonraki Seviyeye Kadar Deneyim",
+                "expToNextLevel": "Sonraki Seviyeye ulaşmak için gereken Deneyim",
                 "skillPoints": "Beceri Puanları",
-                "landProtectionActive": "Arazi Koruması Aktif",
-                "distanceWalked": "Yürüyüş Mesafesi",
+                "landProtectionActive": "Arazi Koruma Blogu Aktif",
+                "distanceWalked": "Toplam Yürüyüş Mesafesi",
                 "totalItemsCrafted": "Toplam Üretilen Öğeler",
                 "totalTimePlayed": "Toplam Oynama Süresi",
-                "currentLife": "Mevcut Hayat Süresi",
-                "longestLife": "En Uzun Hayat Süresi",
+                "currentLife": "Mevcut Hayatta Kalma Süresi",
+                "longestLife": "En Uzun Hayatta Kalma  Süresi",
                 "alreadyCraftedList": "Üretilmiş Öğeler Listesi",
                 "unlockedRecipeList": "Açılmış Tarifler Listesi",
                 "rentedVMPosition": "Kiralanan VM Konumu",
@@ -246,7 +246,7 @@
         },
         "gameIconEx": {
             "itemName": "Ad",
-            "localizationName": "Yerelleştirme Adı",
+            "localizationName": "Çeviri Adı",
             "count": "Miktar",
             "maxStackAllowed": "İzin Verilen Maksimum Yığın",
             "quality": "Kalite",
@@ -254,7 +254,7 @@
             "maxUseTimes": "Maksimum Kullanım Süresi",
             "isMod": "MOD",
             "copyItemName": "Öğe Adını Kopyala",
-            "copyLocalizationName": "Yerelleştirme Adını Kopyala",
+            "copyLocalizationName": "Çeviri Adını Kopyala",
             "removeItem": "Seçilen Öğeyi Kaldır",
             "removeItemConfirm": "Oyuncunun çantasından ve kemerinden tüm {0} öğelerini kaldırmak istediğinizden emin misiniz?"
         },
@@ -268,8 +268,8 @@
             "title": "Öğe veya Blok Seç",
             "id": "ID",
             "icon": "Simge",
-            "itemName": "Ad",
-            "localizationName": "Yerelleştirme Adı",
+            "itemName": "Eşya Adı",
+            "localizationName": "Çeviri Adı",
             "maxStackAllowed": "İzin Verilen Maksimum Yığın"
         },
         "associatedItems": {
@@ -306,7 +306,7 @@
             "copyright": "Telif Hakkı © 2024 Luoshu Tianyi Ekibi. Tüm hakları saklıdır",
             "group": {
                 "title": "Tianyi 7 Days to Die Sunucu Yönetim Grubuna Katılın",
-                "url": "https://qm.qq.com/cgi-bin/qm/qr?k=p3TKGDnBAxxyVsR79pF-WYHI3BjsYiHe&jump_from=webapi&authKey=wTpnGpOGOsAaNTD4TqL4kukLQnxT+TmDFQx803v+Q2zWU0E7LYuSkBQQI+WhrqFB"
+                "url": "https://discord.gg/zdnmngsBK4"
             }
         }
     },
@@ -323,7 +323,7 @@
             "kickPlayerConfirm": "Bu işlem seçilen oyuncuyu atacak. Devam etmek istiyor musunuz?",
             "setSuperAdminConfirm": "Bu işlem seçilen oyuncuyu Süper Yönetici yapacak. Devam etmek istiyor musunuz?",
             "cancelAdminConfirm": "Bu işlem seçilen oyuncunun yönetici yetkilerini iptal edecek. Devam etmek istiyor musunuz?",
-            "removeLandClaimConfirm": "Bu işlem seçilen oyuncunun tüm arazi taleplerini kaldıracak. Devam etmek istiyor musunuz?",
+            "removeLandClaimConfirm": "Bu işlem seçilen oyuncunun tüm arazi Sahiplenme Bloklarini kaldıracak. Devam etmek istiyor musunuz?",
             "resetPlayerConfirm": "Bu işlem seçilen oyuncunun kaydedilen verilerini sıfırlayacak. Devam etmek istiyor musunuz?"
         }
     },
@@ -337,7 +337,7 @@
                 "rss": "RSS",
                 "chunks": "Parça Sayısı",
                 "cgo": "CGO",
-                "items": "Öğeler",
+                "items": "Eşyalar",
                 "systemInfo": "Sistem Bilgisi"
             },
             "overview": {
@@ -372,7 +372,7 @@
             },
             "systemInfo": {
                 "deviceName": "Ana Bilgisayar Adı",
-                "deviceModel": "Cihaz Platformu",
+                "deviceModel": "Cihaz Modeli",
                 "deviceType": "Cihaz Türü",
                 "deviceUniqueIdentifier": "Benzersiz Cihaz Tanımlayıcısı",
                 "operatingSystem": "İşletim Sistemi Sürümü",
@@ -383,7 +383,7 @@
         },
         "map": {
             "region": "Bölge Dosyası",
-            "landClaim": "Arazi Talebi",
+            "landClaim": "Arazi Blogu",
             "zombie": "Zombi",
             "animal": "Hayvan",
             "historyPlayer": "Oyuncu (geçmiş)",
@@ -398,8 +398,8 @@
             "autoReload": "Otomatik Yeniden Yükleme",
             "seconds": "saniye",
             "landOwner": "Arazi Sahibi",
-            "removeLandClaim": "Arazi Talebini Kaldır",
-            "removeLandClaimConfirm": "Arazi talebini kaldırmak istediğinizden emin misiniz?",
+            "removeLandClaim": "Arazi Blogunu Kaldır",
+            "removeLandClaimConfirm": "Arazi Blogunu kaldırmak istediğinizden emin misiniz?",
             "dragendTelePlayerConfirm": "{0} oyuncusunu {1} hedefine teleport etmek istiyor musunuz?"
         },
         "login": {
@@ -469,9 +469,9 @@
         "itemBlocks": {
             "item": "Öğe",
             "block": "Blok",
-            "devItem": "Geliştirme (kullanıcıya gizli tür)",
-            "itemName": "Ad",
-            "localizationName": "Yerelleştirme Adı",
+            "devItem": "Geliştirici Öğesi (kullanıcıya gizli tür)",
+            "itemName": "Öğe Adı",
+            "localizationName": "Çeviri Adı",
             "iconName": "Simge Adı",
             "iconColor": "Simge Rengi",
             "maxStackAllowed": "İzin Verilen Maksimum Yığın"
@@ -501,7 +501,7 @@
             "playerInitialPosition": "Oyuncu başlangıç koordinatları (X, Y, Z)"
         },
         "autoBackup": {
-            "isEnabled": "Etkin mi",
+            "isEnabled": "Otomatik Yedeklemeyi Etkinleştir",
             "interval": "Otomatik yedekleme aralığı (saniye)",
             "retainedFileCountLimit": "Saklanan dosya sayısı sınırı",
             "resetIntervalAfterManualBackup": "Manuel yedeklemeden sonra zamanlayıcıyı sıfırla",
@@ -562,7 +562,7 @@
                 "itemName": "Öğe Adı",
                 "count": "Miktar",
                 "quality": "Kalite",
-                "durability": "Dayanıklılık%",
+                "durability": "Dayanıklılık",
                 "description": "Açıklama",
                 "createdAt": "Oluşturulma Zamanı",
                 "command": "Komut",
@@ -579,7 +579,7 @@
             "buySuccessTip": "Başarılı satın alma ipucu",
             "pointsNotEnoughTip": "Yetersiz puan ipucu",
             "noGoods": "Ürün Yok",
-            "useTips": "İpucu: Oyun içinde buy+çizgi(-)+ürün ID'si girerek satın alma işlemi yapın",
+            "useTips": "İpucu: Oyun içinde buy{'{'}item numarasi{'}'} 'si girerek satın alma işlemi yapın",
             "goods": "Ürünler",
             "tableHeader": {
                 "id": "ID",
@@ -609,13 +609,13 @@
                 "lastClaimAt": "Son Talep Zamanı",
                 "description": "Açıklama",
                 "bind": "Bağla",
-                "bindItem": "Bağlı Öğe",
-                "bindCmd": "Bağlı Komut"
+                "bindItem": "Öğe Bağla ",
+                "bindCmd": "Komut Bağla "
             }
         },
         "teleSystem": {
             "friend": {
-                "isEnabled": "Etkin mi",
+                "isEnabled": "Arkadaşa Işınlanmayi Etkinleştir",
                 "variables": "Kullanılabilir Değişkenler",
                 "teleCmdPrefix": "Teleport Komutu Öneki",
                 "teleInterval": "Teleport Aralığı (saniye)",
@@ -624,26 +624,26 @@
                 "pointsNotEnoughTip": "Yetersiz puan ipucu",
                 "coolingTip": "Soğuma süresi ipucu",
                 "targetNotFoundTip": "Teleport hedefi bulunamadı",
-                "isFriendBypass": "Arkadaşların aynı fikirde olmasına gerek yoktur",
-                "teleConfirmTip": "TeleConfirmTip",
-                "acceptTele": "İletmeyi kabul ediyorum",
+                "isFriendBypass": "Arkadaşların Teleport u kabul etmesi gerekmez",
+                "teleConfirmTip": "Işınlanma kabul etme ipucu",
+                "acceptTele": "Işınlanmayi kabul et",
                 "rejectTele": "Oyuncunun ışınlanmasını reddet",
-                "targetRejectTeleTip": "İletim ipucunu reddet",
+                "targetRejectTeleTip": "Işınlanmayi reddet",
                 "keepDuration": "Bekleme süresi",
-                "useTips": "İpucu: Oyun içinde tele+çizgi(-)+arkadaş adı girerek teleport yapın"
+                "useTips": "İpucu: Oyun içinde tele-{'{'}Arkadaş Adi{'}'} girerek teleport yapın"
             },
             "city": {
-                "isEnabled": "Etkin mi",
+                "isEnabled": "Şehre işinlanmayi etkinleştir",
                 "variables": "Kullanılabilir Değişkenler",
                 "queryListCmd": "Liste Sorgulama Komutu",
-                "teleCmdPrefix": "Teleport Komutu Öneki",
-                "teleInterval": "Teleport Aralığı, saniye",
+                "teleCmdPrefix": "Işınlanma Komutu Öneki",
+                "teleInterval": "Işınlanma Aralığı, saniye",
                 "locationItemTip": "Konum Sorgulama İpucu",
-                "teleSuccessTip": "Başarılı teleport ipucu",
+                "teleSuccessTip": "Başarılı Işınlanma ipucu",
                 "pointsNotEnoughTip": "Yetersiz puan ipucu",
                 "coolingTip": "Soğuma süresi ipucu",
                 "noLocation": "Şehir bilgisi yok",
-                "useTips": "İpucu: Oyun içinde hc+çizgi(-)+şehir ID'si girerek teleport yapın",
+                "useTips": "İpucu: Oyun içinde hc--{'{'}şehir id{'}'}'si girerek teleport yapın",
                 "titleSuffix": "Şehir",
                 "viewDirection": {
                     "north": "Kuzey",
@@ -658,7 +658,7 @@
                 "tableHeader": {
                     "id": "ID",
                     "cityName": "Şehir Adı",
-                    "pointsRequired": "Teleport için Gerekli Puanlar",
+                    "pointsRequired": "Işınlanmak için Gerekli Puanlar",
                     "position": "Koordinatlar (X, Y, Z)",
                     "viewDirection": "Görüş Yönü",
                     "createdAt": "Oluşturulma Zamanı"
@@ -686,7 +686,7 @@
                 "coolingTip": "Soğuma süresi ipucu",
                 "telePointsNotEnoughTip": "Teleport için yetersiz puan",
                 "teleSuccessTip": "Başarılı teleport ipucu",
-                "useTips": "İpucu: Oyun içinde setHome+çizgi(-)+ev adı girerek mevcut koordinatları kaydedin ve delHome+çizgi(-)+ev adı girerek evi silin",
+                "useTips": "İpucu: Oyun içinde ev-{'{'}ev adi{'}'} ile eve işinlanabilir, evAyarla-{'{'}ev adi{'}'} girerek mevcut yerinizi ev olarak kayit edebilirsiniz. evsil-{'{'}ev adi{'}'} ile de evi silebilirsiniz",
                 "titleSuffix": "Ev",
                 "deleteAll": "Hepsini Sil",
                 "deleteAllConfirm": "Tüm kayıtları silmek istediğinizden emin misiniz?",
