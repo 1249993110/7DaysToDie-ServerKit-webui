@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "Bloquer le compte de partage familial",
             "removeSleepingBagFromPOI": "Supprimer le sac de couchage du POI",
             "isEnablePlayerInitialSpawnPoint": "Activer le point d'apparition initial du joueur",
-            "playerInitialPosition": "Position initiale du joueur"
+            "playerInitialPosition": "Position initiale du joueur",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "Activer la sauvegarde automatique",
