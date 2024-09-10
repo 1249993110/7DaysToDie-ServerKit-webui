@@ -477,6 +477,8 @@
             "maxStackAllowed": "Максимально допустимый стек"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "Префикс команды чата",
             "chatCommandSeparator": "Разделитель команды чата",
             "handleChatMessageError": "Обработка ошибки сообщения чата",
