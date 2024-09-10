@@ -501,8 +501,8 @@
             "removeSleepingBagFromPOI": "是否启用POI保护",
             "isEnablePlayerInitialSpawnPoint": "是否启用玩家初始出生点",
             "playerInitialPosition": "玩家初始坐标 (X, Y, Z)",
-            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
-            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
+            "enableAutoZombieCleanup": "启用自动僵尸清理",
+            "autoZombieCleanupThreshold": "自动僵尸清理阈值"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
