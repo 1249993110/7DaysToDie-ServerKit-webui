@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "Aile Paylaşımı Hesabını Engelle",
             "removeSleepingBagFromPOI": "POI korumasını etkinleştir",
             "isEnablePlayerInitialSpawnPoint": "Oyuncu başlangıç doğma noktasını etkinleştir",
-            "playerInitialPosition": "Oyuncu başlangıç koordinatları (X, Y, Z)"
+            "playerInitialPosition": "Oyuncu başlangıç koordinatları (X, Y, Z)",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "Otomatik Yedeklemeyi Etkinleştir",
