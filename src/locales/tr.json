@@ -477,6 +477,8 @@
             "maxStackAllowed": "İzin Verilen Maksimum Yığın"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "Sohbet Komutu Öneki",
             "chatCommandSeparator": "Sohbet Komutu Ayırıcı",
             "handleChatMessageError": "Sohbet Mesajı Hata İpucu",

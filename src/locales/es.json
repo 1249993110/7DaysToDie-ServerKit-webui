@@ -477,6 +477,8 @@
             "maxStackAllowed": "Máxima pila permitida"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "Prefijo de comando de chat",
             "chatCommandSeparator": "Separador de comando de chat",
             "handleChatMessageError": "Establecer mensaje de error en chat",

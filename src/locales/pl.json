@@ -477,6 +477,8 @@
             "maxStackAllowed": "Maksymalna ilość w stosie"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "Prefiks polecenia czatu",
             "chatCommandSeparator": "Separator polecenia czatu",
             "handleChatMessageError": "Wskazówka błędu wiadomości czatu",

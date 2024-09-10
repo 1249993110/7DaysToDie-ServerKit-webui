@@ -477,6 +477,8 @@
             "maxStackAllowed": "最大堆疊數量"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "聊天指令前綴",
             "chatCommandSeparator": "聊天指令分隔符號",
             "handleChatMessageError": "聊天訊息錯誤提示",

@@ -477,6 +477,8 @@
             "maxStackAllowed": "Pilha máxima permitida"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "Prefixo do comando de bate-papo",
             "chatCommandSeparator": "Separador do comando de bate-papo",
             "handleChatMessageError": "Lidar com erro de mensagem de bate-papo",

@@ -477,6 +477,8 @@
             "maxStackAllowed": "허용되는 최대 스택"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "채팅 명령 접두사",
             "chatCommandSeparator": "채팅 명령 구분 기호",
             "handleChatMessageError": "채팅 메시지 오류 처리",
