@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "Czy zablokować konto Family Sharing",
             "removeSleepingBagFromPOI": "Czy włączyć ochronę POI",
             "isEnablePlayerInitialSpawnPoint": "Czy włączyć początkowy punkt odrodzenia gracza",
-            "playerInitialPosition": "Początkowe współrzędne gracza (X, Y, Z)"
+            "playerInitialPosition": "Początkowe współrzędne gracza (X, Y, Z)",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "Czy włączyć",
