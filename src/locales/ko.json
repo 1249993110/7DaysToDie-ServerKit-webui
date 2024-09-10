@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "가족 공유 계정 차단",
             "removeSleepingBagFromPOI": "POI에서 침낭 제거",
             "isEnablePlayerInitialSpawnPoint": "플레이어 초기 스폰 지점 활성화",
-            "playerInitialPosition": "플레이어 초기 위치"
+            "playerInitialPosition": "플레이어 초기 위치",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "활성화 자동 백업",
