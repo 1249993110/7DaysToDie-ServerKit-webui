@@ -477,6 +477,8 @@
             "maxStackAllowed": "最大スタック数"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "チャットコマンドプレフィックス",
             "chatCommandSeparator": "チャットコマンドセパレータ",
             "handleChatMessageError": "チャットメッセージエラーのヒント",
