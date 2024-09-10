@@ -77,7 +77,7 @@
                             <el-switch v-model="formModel.enableAutoZombieCleanup" />
                         </el-form-item>
                         <el-form-item :label="t('views.globalSettings.autoZombieCleanupThreshold')" prop="autoZombieCleanupThreshold">
-                            <Coordinate v-model="formModel.autoZombieCleanupThreshold"></Coordinate>
+                            <el-input-number v-model="formModel.autoZombieCleanupThreshold"></el-input-number>
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
