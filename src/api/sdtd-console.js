@@ -1,20 +1,7 @@
+import * as api from '~/api/server';
 
-
-export const sendConsoleCommand = function (command, inMainThread = false) {
-    return http.post('/Server/ExecuteConsoleCommand', null, {
-        params: {
-            command: command,
-            inMainThread: inMainThread,
-        },
-    });
-};
-
-export const sendGlobalMessage = function (message) {
-    return sendConsoleCommand(`ty-say \"${message}\"`);
-};
-
-export const sendMessageToPlayer = function (playerIdOrName, message) {
-    return sendConsoleCommand(`ty-pm ${playerIdOrName} \"${message}\"`);
+export const sendConsoleCommand = function (command, inMainThread = true) {
+    return api.executeConsoleCommand(command, inMainThread);
 };
 
 export const telePlayer = function (playerIdOrName, target) {

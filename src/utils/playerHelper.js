@@ -1,4 +1,5 @@
 import * as sdtdConsole from '~/api/sdtd-console';
+import { sendPrivateMessage } from '~/api/server';
 import { showPlayerInventory } from '~/components/InventoryDialog/index';
 import { showPlayerDetails } from '~/components/PlayerDetailsDialog/index';
 import { showPlayerSkills } from '~/components/PlayerSkillsDialog/index';
@@ -6,11 +7,11 @@ import { batchBan } from '~/components/BatchAddBlacklist/index';
 import { batchGiveItem } from '~/components/BatchGiveItem/index';
 import { i18n } from '~/plugins/i18n';
 
-export const sendMessageToPlayers = async (playerIds) => {
+export const sendMessageToPlayers = async (playerIds, senderName) => {
     const val = await myprompt('', i18n.global.t('global.message.inputText'));
     for (let i = 0; i < playerIds.length; i++) {
         const playerId = playerIds[i];
-        await sdtdConsole.sendMessageToPlayer(playerId, val);
+        await sendPrivateMessage(playerId, val, senderName);
     }
     ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
 };
@@ -25,9 +26,9 @@ export const changePlayerPoints = async (playerIds) => {
         const playerId = playerIds[i];
         await sdtdConsole.changePlayerPoints(playerId, count);
         if (count < 0) {
-            await sdtdConsole.sendMessageToPlayer(playerId, i18n.global.t('utils.playerHelper.deductPoints', [-count]));
+            await sendPrivateMessage(playerId, i18n.global.t('utils.playerHelper.deductPoints', [-count]));
         } else {
-            await sdtdConsole.sendMessageToPlayer(playerId, i18n.global.t('utils.playerHelper.addPoints', [count]));
+            await sendPrivateMessage(playerId, i18n.global.t('utils.playerHelper.addPoints', [count]));
         }
     }
     ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));

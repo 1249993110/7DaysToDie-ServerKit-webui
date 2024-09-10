@@ -12,6 +12,12 @@
                         <!-- <el-form-item label="是否启用">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item> -->
+                        <el-form-item :label="t('views.globalSettings.globalServerName')" prop="globalServerName">
+                            <el-input v-model="formModel.globalServerName" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.whisperServerName')" prop="whisperServerName">
+                            <el-input v-model="formModel.whisperServerName" />
+                        </el-form-item>
                         <el-form-item :label="t('views.globalSettings.chatCommandPrefix')" prop="chatCommandPrefix">
                             <el-input v-model="formModel.chatCommandPrefix" />
                         </el-form-item>
@@ -101,7 +107,8 @@ const autoRestartTime = computed({
 });
 
 const formModel = reactive({
-    // serverName: '',
+    globalServerName: '',
+    whisperServerName: '',
     chatCommandPrefix: '',
     chatCommandSeparator: '',
     handleChatMessageError: '',
