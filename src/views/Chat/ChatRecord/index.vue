@@ -38,7 +38,7 @@
 </template>
 <script>
 export default {
-    name: 'chatRecord',
+    name: 'chat.chatRecord',
 };
 </script>
 <script setup>
