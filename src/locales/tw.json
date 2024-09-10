@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "是否禁止家庭共享帳號",
             "removeSleepingBagFromPOI": "是否啟用POI保護",
             "isEnablePlayerInitialSpawnPoint": "是否啟用玩家初始出生點",
-            "playerInitialPosition": "玩家初始座標 (X, Y, Z)"
+            "playerInitialPosition": "玩家初始座標 (X, Y, Z)",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "是否啟用",
