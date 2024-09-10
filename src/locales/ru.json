@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "Заблокировать учетную запись Family Sharing",
             "removeSleepingBagFromPOI": "Удалить спальный мешок из POI",
             "isEnablePlayerInitialSpawnPoint": "Включить начальную точку появления игрока",
-            "playerInitialPosition": "Начальная позиция игрока"
+            "playerInitialPosition": "Начальная позиция игрока",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "Включить автоматическое резервное копирование",
