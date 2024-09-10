@@ -7,11 +7,11 @@ import { batchBan } from '~/components/BatchAddBlacklist/index';
 import { batchGiveItem } from '~/components/BatchGiveItem/index';
 import { i18n } from '~/plugins/i18n';
 
-export const sendMessageToPlayers = async (playerIds, senderName) => {
+export const sendMessageToPlayers = async (playerIds) => {
     const val = await myprompt('', i18n.global.t('global.message.inputText'));
     for (let i = 0; i < playerIds.length; i++) {
         const playerId = playerIds[i];
-        await sendPrivateMessage(playerId, val, senderName);
+        await sendPrivateMessage(playerId, val);
     }
     ElMessage.success(i18n.global.t('global.message.cmdSentSuccess'));
 };

@@ -73,6 +73,12 @@
                         <el-form-item :label="t('views.globalSettings.playerInitialPosition')" prop="playerInitialPosition">
                             <Coordinate v-model="formModel.playerInitialPosition"></Coordinate>
                         </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.enableAutoZombieCleanup')" prop="enableAutoZombieCleanup">
+                            <el-switch v-model="formModel.enableAutoZombieCleanup" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.autoZombieCleanupThreshold')" prop="autoZombieCleanupThreshold">
+                            <Coordinate v-model="formModel.autoZombieCleanupThreshold"></Coordinate>
+                        </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
                             <el-button type="danger" @click="reset">{{ t('global.button.reset') }}</el-button>
@@ -132,6 +138,8 @@ const formModel = reactive({
     removeSleepingBagFromPOI: false,
     isEnablePlayerInitialSpawnPoint: false,
     playerInitialPosition: '',
+    enableAutoZombieCleanup: false,
+    autoZombieCleanupThreshold: 128,
 });
 
 const formRef = ref();

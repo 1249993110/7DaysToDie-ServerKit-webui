@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "Block Family Sharing Account",
             "removeSleepingBagFromPOI": "Remove Sleeping Bag From POI",
             "isEnablePlayerInitialSpawnPoint": "Enable Player Initial Spawn Point",
-            "playerInitialPosition": "Player Initial Position"
+            "playerInitialPosition": "Player Initial Position",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "Enable Auto Backup",
