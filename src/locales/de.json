@@ -477,6 +477,8 @@
             "maxStackAllowed": "Max. zulässiger Stapel"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "Chat-Befehlspräfix",
             "chatCommandSeparator": "Chat-Befehlstrennzeichen",
             "handleChatMessageError": "Chat-Nachrichtenfehler behandeln",
