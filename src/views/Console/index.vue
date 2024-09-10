@@ -22,7 +22,7 @@ const { t } = useI18n();
 const command = ref('');
 
 const sendCommand = async () => {
-    const data = await executeConsoleCommand(command.value);
+    const data = await executeConsoleCommand(command.value, true);
     command.value = '';
     data.forEach((item) => {
         appendMessage(item, 'Assert');

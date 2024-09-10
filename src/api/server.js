@@ -52,7 +52,7 @@ export const resetPlayer = (playerId) => {
  * 执行控制台命令
  * @returns
  */
-export const executeConsoleCommand = (command, inMainThread = false) => {
+export const executeConsoleCommand = (command, inMainThread = true) => {
     return http.post('/Server/ExecuteConsoleCommand', null, {
         params: {
             command,
