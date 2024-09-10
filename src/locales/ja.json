@@ -500,7 +500,9 @@
             "blockFamilySharingAccount": "ファミリーシェアリングアカウントを禁止するかどうか",
             "removeSleepingBagFromPOI": "POI保護を有効にするかどうか",
             "isEnablePlayerInitialSpawnPoint": "プレイヤー初期スポーンポイントを有効にするかどうか",
-            "playerInitialPosition": "プレイヤー初期座標 (X, Y, Z)"
+            "playerInitialPosition": "プレイヤー初期座標 (X, Y, Z)",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
         },
         "autoBackup": {
             "isEnabled": "有効にするかどうか",
