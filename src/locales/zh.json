@@ -503,7 +503,7 @@
             "playerInitialPosition": "玩家初始坐标 (X, Y, Z)",
             "enableAutoZombieCleanup": "启用自动僵尸清理",
             "autoZombieCleanupThreshold": "自动僵尸清理阈值",
-            "enableXmlsSecondaryOverwrite": "启用Xmls防偷"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
