@@ -502,7 +502,8 @@
             "isEnablePlayerInitialSpawnPoint": "Oyuncu başlangıç doğma noktasını etkinleştir",
             "playerInitialPosition": "Oyuncu başlangıç koordinatları (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
-            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "Otomatik Yedeklemeyi Etkinleştir",
