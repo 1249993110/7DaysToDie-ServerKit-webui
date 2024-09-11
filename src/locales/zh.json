@@ -502,7 +502,8 @@
             "isEnablePlayerInitialSpawnPoint": "是否启用玩家初始出生点",
             "playerInitialPosition": "玩家初始坐标 (X, Y, Z)",
             "enableAutoZombieCleanup": "启用自动僵尸清理",
-            "autoZombieCleanupThreshold": "自动僵尸清理阈值"
+            "autoZombieCleanupThreshold": "自动僵尸清理阈值",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
