@@ -502,7 +502,8 @@
             "isEnablePlayerInitialSpawnPoint": "Включить начальную точку появления игрока",
             "playerInitialPosition": "Начальная позиция игрока",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
-            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "Включить автоматическое резервное копирование",
