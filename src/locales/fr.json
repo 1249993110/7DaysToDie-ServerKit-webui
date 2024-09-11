@@ -502,7 +502,8 @@
             "isEnablePlayerInitialSpawnPoint": "Activer le point d'apparition initial du joueur",
             "playerInitialPosition": "Position initiale du joueur",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
-            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "Activer la sauvegarde automatique",
