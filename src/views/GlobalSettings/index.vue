@@ -77,7 +77,10 @@
                             <el-switch v-model="formModel.enableAutoZombieCleanup" />
                         </el-form-item>
                         <el-form-item :label="t('views.globalSettings.autoZombieCleanupThreshold')" prop="autoZombieCleanupThreshold">
-                            <el-input-number v-model="formModel.autoZombieCleanupThreshold"></el-input-number>
+                            <el-input-number :min="1" v-model="formModel.autoZombieCleanupThreshold"></el-input-number>
+                        </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.enableXmlsSecondaryOverwrite')" prop="enableXmlsSecondaryOverwrite">
+                            <el-switch v-model="formModel.enableXmlsSecondaryOverwrite" />
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
