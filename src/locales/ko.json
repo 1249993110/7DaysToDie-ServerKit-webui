@@ -502,7 +502,8 @@
             "isEnablePlayerInitialSpawnPoint": "플레이어 초기 스폰 지점 활성화",
             "playerInitialPosition": "플레이어 초기 위치",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
-            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "활성화 자동 백업",
