@@ -502,7 +502,8 @@
             "isEnablePlayerInitialSpawnPoint": "Czy włączyć początkowy punkt odrodzenia gracza",
             "playerInitialPosition": "Początkowe współrzędne gracza (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
-            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold"
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "Czy włączyć",
