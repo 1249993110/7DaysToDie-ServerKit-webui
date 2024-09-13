@@ -154,6 +154,11 @@
                 "management": "Home管理"
             }
         },
+        "coloredChat": {
+            "": "Colored Chat",
+            "settings": "Chat Settings",
+            "management": "Chat Management"
+        },
         "swagger": "インターフェースドキュメント"
     },
     "components": {
@@ -702,6 +707,21 @@
                     "homeName": "Home名",
                     "position": "座標 (X, Y, Z)"
                 }
+            }
+        },
+        "coloredChat": {
+            "isEnabled": "Enable Colored Chat",
+            "globalDefault": "Global Default",
+            "whisperDefault": "Whisper Default",
+            "friendsDefault": "Friends Default",
+            "partyDefault": "Party Default",
+            "titleSuffix": "ColoredChat",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "nameColor": "Name Color",
+                "textColor": "Text Color",
+                "createdAt": "Created At",
+                "description": "Description"
             }
         }
     }
