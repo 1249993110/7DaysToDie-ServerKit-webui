@@ -718,6 +718,7 @@
             "titleSuffix": "ColoredChat",
             "tableHeader": {
                 "playerId": "Player ID",
+                "customName": "Custom Name",
                 "nameColor": "Name Color",
                 "textColor": "Text Color",
                 "createdAt": "Created At",
