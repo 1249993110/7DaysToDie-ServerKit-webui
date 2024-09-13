@@ -155,9 +155,9 @@
             }
         },
         "coloredChat": {
-            "": "Colored Chat",
-            "settings": "Chat Settings",
-            "management": "Chat Management"
+            "": "彩色聊天",
+            "settings": "聊天设置",
+            "management": "聊天管理"
         },
         "swagger": "接口文档"
     },
@@ -710,18 +710,18 @@
             }
         },
         "coloredChat": {
-            "isEnabled": "Enable Colored Chat",
-            "globalDefault": "Global Default",
-            "whisperDefault": "Whisper Default",
-            "friendsDefault": "Friends Default",
-            "partyDefault": "Party Default",
-            "titleSuffix": "ColoredChat",
+            "isEnabled": "启用彩色聊天",
+            "globalDefault": "全局默认值",
+            "whisperDefault": "私聊默认值",
+            "friendsDefault": "好友默认值",
+            "partyDefault": "组队默认值",
+            "titleSuffix": "彩色聊天",
             "tableHeader": {
-                "playerId": "Player ID",
-                "nameColor": "Name Color",
-                "textColor": "Text Color",
-                "createdAt": "Created At",
-                "description": "Description"
+                "playerId": "玩家 ID",
+                "nameColor": "名称颜色",
+                "textColor": "文本颜色",
+                "createdAt": "创建时间",
+                "description": "说明"
             }
         }
     }
