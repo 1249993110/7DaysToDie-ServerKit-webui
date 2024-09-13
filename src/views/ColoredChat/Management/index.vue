@@ -16,7 +16,8 @@
             :add-or-edit-component="AddOrEditColoredChat"
         >
             <template #columns>
-                <el-table-column prop="id" :label="t('views.coloredChat.tableHeader.playerId')" sortable> </el-table-column>
+                <el-table-column prop="id" :label="t('views.coloredChat.tableHeader.playerId')" sortable width="320px"> </el-table-column>
+                <el-table-column prop="customName" :label="t('views.coloredChat.tableHeader.customName')" sortable> </el-table-column>
                 <el-table-column prop="nameColor" :label="t('views.coloredChat.tableHeader.nameColor')" sortable>
                     <template #default="{ row }">
                         <span class="tableColColor">

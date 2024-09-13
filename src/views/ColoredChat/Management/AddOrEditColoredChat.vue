@@ -4,6 +4,9 @@
             <el-form-item :label="t('views.coloredChat.tableHeader.playerId')" prop="id">
                 <el-input :disabled="!isAdd" v-model="formModel.id"></el-input>
             </el-form-item>
+            <el-form-item :label="t('views.coloredChat.tableHeader.customName')" prop="customName">
+                <el-input v-model="formModel.customName"></el-input>
+            </el-form-item>
             <el-form-item :label="t('views.coloredChat.tableHeader.nameColor')" prop="nameColor">
                 <MyColorPicker v-model="formModel.nameColor"></MyColorPicker>
             </el-form-item>
