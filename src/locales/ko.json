@@ -154,6 +154,11 @@
                 "management": "홈 관리"
             }
         },
+        "coloredChat": {
+            "": "Colored Chat",
+            "settings": "Chat Settings",
+            "management": "Chat Management"
+        },
         "swagger": "API 문서"
     },
     "components": {
@@ -702,6 +707,21 @@
                     "homeName": "홈 이름",
                     "position": "포지션"
                 }
+            }
+        },
+        "coloredChat": {
+            "isEnabled": "Enable Colored Chat",
+            "globalDefault": "Global Default",
+            "whisperDefault": "Whisper Default",
+            "friendsDefault": "Friends Default",
+            "partyDefault": "Party Default",
+            "titleSuffix": "ColoredChat",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "nameColor": "Name Color",
+                "textColor": "Text Color",
+                "createdAt": "Created At",
+                "description": "Description"
             }
         }
     }
