@@ -242,6 +242,25 @@ const routes = [
                     },
                 ],
             },
+            {
+                path: '/coloredChat',
+                name: 'coloredChat',
+                redirect: '/coloredChat/settings',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'coloredChat.settings',
+                        component: () => import('../views/ColoredChat/Settings/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'management',
+                        name: 'coloredChat.management',
+                        component: () => import('../views/ColoredChat/Management/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
         ],
     },
     {
