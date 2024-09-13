@@ -155,9 +155,9 @@
             }
         },
         "coloredChat": {
-            "": "Colored Chat",
-            "settings": "Chat Settings",
-            "management": "Chat Management"
+            "": "Chat colorido",
+            "settings": "Configuración del chat",
+            "management": "Gestión de chat"
         },
         "swagger": "Documento de API"
     },
@@ -710,19 +710,19 @@
             }
         },
         "coloredChat": {
-            "isEnabled": "Enable Colored Chat",
-            "globalDefault": "Global Default",
-            "whisperDefault": "Whisper Default",
-            "friendsDefault": "Friends Default",
-            "partyDefault": "Party Default",
+            "isEnabled": "Habilitar Chat Coloreado",
+            "globalDefault": "Global por defecto",
+            "whisperDefault": "Susurro por defecto",
+            "friendsDefault": "Amigos por defecto",
+            "partyDefault": "Fiesta por defecto",
             "titleSuffix": "ColoredChat",
             "tableHeader": {
-                "playerId": "Player ID",
-                "customName": "Custom Name",
-                "nameColor": "Name Color",
-                "textColor": "Text Color",
-                "createdAt": "Created At",
-                "description": "Description"
+                "playerId": "ID de jugador",
+                "customName": "Nombre personalizado",
+                "nameColor": "Color del nombre",
+                "textColor": "Color del texto",
+                "createdAt": "Creado el",
+                "description": "Descripción"
             }
         }
     }
