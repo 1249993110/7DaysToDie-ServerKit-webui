@@ -718,7 +718,7 @@
             "titleSuffix": "彩色聊天",
             "tableHeader": {
                 "playerId": "玩家 ID",
-                "customName": "Custom Name",
+                "customName": "自定义名称",
                 "nameColor": "名称颜色",
                 "textColor": "文本颜色",
                 "createdAt": "创建时间",
