@@ -154,6 +154,11 @@
                 "management": "Homeverwaltung"
             }
         },
+        "coloredChat": {
+            "": "Colored Chat",
+            "settings": "Chat Settings",
+            "management": "Chat Management"
+        },
         "swagger": "API-Dokument"
     },
     "components": {
@@ -702,6 +707,21 @@
                     "homeName": "Zuhausename",
                     "position": "Position"
                 }
+            }
+        },
+        "coloredChat": {
+            "isEnabled": "Enable Colored Chat",
+            "globalDefault": "Global Default",
+            "whisperDefault": "Whisper Default",
+            "friendsDefault": "Friends Default",
+            "partyDefault": "Party Default",
+            "titleSuffix": "ColoredChat",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "nameColor": "Name Color",
+                "textColor": "Text Color",
+                "createdAt": "Created At",
+                "description": "Description"
             }
         }
     }
