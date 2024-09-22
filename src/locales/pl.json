@@ -40,7 +40,8 @@
             "batchDelete": "Usuwanie wsadowe",
             "send": "Wyślij",
             "select": "Wybierz",
-            "batchSelect": "Wybór wsadowy"
+            "batchSelect": "Wybór wsadowy",
+            "undo": "Undo"
         },
         "message": {
             "title": "Wskazówka",
@@ -158,6 +159,10 @@
             "": "Colored Chat",
             "settings": "Chat Settings",
             "management": "Chat Management"
+        },
+        "prefab": {
+            "": "Prefab",
+            "prefabPlace": "Prefab Place"
         },
         "swagger": "Dokumentacja interfejsu"
     },
@@ -303,6 +308,12 @@
             "ban": "Zablokuj gracza",
             "banUntil": "Czas odblokowania",
             "reason": "Powód blokady"
+        },
+        "availablePrefabSelector": {
+            "title": "Select Prefab",
+            "name": "Name",
+            "localizationName": "Localization Name",
+            "fullPath": "Full Path"
         }
     },
     "layout": {
@@ -724,6 +735,19 @@
                 "createdAt": "Created At",
                 "description": "Description"
             }
+        },
+        "prefab": {
+            "prefabPath": "Prefab Path",
+            "position": "Position",
+            "rotation": "Rotate Left",
+            "noSleepers": "No Sleepers",
+            "addToRWG": "Add To RWG",
+            "place": "Place",
+            "history": "History",
+            "id": "ID",
+            "prefabName": "Prefab Name",
+            "createdAt": "Created At",
+            "undoConfirm": "Are you sure you want to undo?"
         }
     }
 }
