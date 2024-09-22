@@ -40,7 +40,8 @@
             "batchDelete": "バッチ削除",
             "send": "送信",
             "select": "選択",
-            "batchSelect": "バッチ選択"
+            "batchSelect": "バッチ選択",
+            "undo": "Undo"
         },
         "message": {
             "title": "ヒント",
@@ -158,6 +159,10 @@
             "": "Colored Chat",
             "settings": "Chat Settings",
             "management": "Chat Management"
+        },
+        "prefab": {
+            "": "Prefab",
+            "prefabPlace": "Prefab Place"
         },
         "swagger": "インターフェースドキュメント"
     },
@@ -303,6 +308,12 @@
             "ban": "プレイヤーをBAN",
             "banUntil": "解除時間",
             "reason": "BAN理由"
+        },
+        "availablePrefabSelector": {
+            "title": "Select Prefab",
+            "name": "Name",
+            "localizationName": "Localization Name",
+            "fullPath": "Full Path"
         }
     },
     "layout": {
@@ -724,6 +735,19 @@
                 "createdAt": "Created At",
                 "description": "Description"
             }
+        },
+        "prefab": {
+            "prefabPath": "Prefab Path",
+            "position": "Position",
+            "rotation": "Rotate Left",
+            "noSleepers": "No Sleepers",
+            "addToRWG": "Add To RWG",
+            "place": "Place",
+            "history": "History",
+            "id": "ID",
+            "prefabName": "Prefab Name",
+            "createdAt": "Created At",
+            "undoConfirm": "Are you sure you want to undo?"
         }
     }
 }
