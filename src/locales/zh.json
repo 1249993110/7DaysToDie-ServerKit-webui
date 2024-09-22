@@ -41,7 +41,7 @@
             "send": "发送",
             "select": "选择",
             "batchSelect": "批量选择",
-            "undo": "Undo"
+            "undo": "撤销"
         },
         "message": {
             "title": "提示",
@@ -161,8 +161,8 @@
             "management": "聊天管理"
         },
         "prefab": {
-            "": "Prefab",
-            "prefabPlace": "Prefab Place"
+            "": "预制件",
+            "prefabPlace": "预制件放置"
         },
         "swagger": "接口文档"
     },
@@ -310,10 +310,10 @@
             "reason": "封禁原因"
         },
         "availablePrefabSelector": {
-            "title": "Select Prefab",
-            "name": "Name",
-            "localizationName": "Localization Name",
-            "fullPath": "Full Path"
+            "title": "选择预制件",
+            "name": "预制件名称",
+            "localizationName": "本地化名称",
+            "fullPath": "完整路径"
         }
     },
     "layout": {
@@ -737,17 +737,17 @@
             }
         },
         "prefab": {
-            "prefabPath": "Prefab Path",
-            "position": "Position",
-            "rotation": "Rotate Left",
-            "noSleepers": "No Sleepers",
-            "addToRWG": "Add To RWG",
-            "place": "Place",
-            "history": "History",
+            "prefabPath": "预制件路径",
+            "position": "坐标 (X, Y, Z)",
+            "rotation": "向左旋转",
+            "noSleepers": "无睡眠者",
+            "addToRWG": "添加到 RWG",
+            "place": "放置",
+            "history": "历史记录",
             "id": "ID",
-            "prefabName": "Prefab Name",
-            "createdAt": "Created At",
-            "undoConfirm": "Are you sure you want to undo?"
+            "prefabName": "预制件名称",
+            "createdAt": "创建时间",
+            "undoConfirm": "您确定要撤销吗?"
         }
     }
 }
