@@ -100,9 +100,15 @@ getHistory();
 
 const handleUndo = async (row) => {
     if (await myconfirm(t('views.prefab.undoConfirm'))) {
-        await api.undoPrefab(row.id);
+        const result = await api.undoPrefab(row.id);
+        const msg = result.join('\n');
+        ElNotification({
+            title: t('global.message.cmdExecResult'),
+            type: 'info',
+            message: h('i', { style: 'color: teal' }, msg),
+        });
+
         await getHistory();
-        ElMessage.success(t('global.message.success'));
     }
 };
 
@@ -119,7 +125,6 @@ const place = async () => {
         });
 
         const msg = result.join('\n');
-
         ElNotification({
             title: t('global.message.cmdExecResult'),
             type: 'info',
