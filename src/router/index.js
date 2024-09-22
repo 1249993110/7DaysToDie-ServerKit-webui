@@ -261,6 +261,19 @@ const routes = [
                     },
                 ],
             },
+            {
+                path: '/prefab',
+                name: 'prefab',
+                redirect: '/prefab/prefabPlace',
+                children: [
+                    {
+                        path: 'prefabPlace',
+                        name: 'prefab.prefabPlace',
+                        component: () => import('../views/Prefab/PrefabPlace/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
         ],
     },
     {

@@ -1,15 +1,9 @@
 <template>
-    <el-dialog :title="t('components.itemBlockSelector.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
-        <el-table :data="tableData" border height="calc(64vh)" highlight-current-row v-loading="loading">
-            <el-table-column prop="id" :label="t('components.itemBlockSelector.id')" width="80px"> </el-table-column>
-            <el-table-column :label="t('components.itemBlockSelector.icon')" width="120px" class-name="table-icon-col">
-                <template #default="{ row }">
-                    <GameIcon :name="row.itemName" />
-                </template>
-            </el-table-column>
-            <el-table-column prop="itemName" :label="t('components.itemBlockSelector.itemName')" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="localizationName" :label="t('components.itemBlockSelector.localizationName')" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="maxStackAllowed" :label="t('components.itemBlockSelector.maxStackAllowed')" width="120px"> </el-table-column>
+    <el-dialog :title="t('components.availablePrefabSelector.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
+        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading">
+            <el-table-column prop="name" :label="t('components.availablePrefabSelector.name')" width="180px" show-overflow-tooltip> </el-table-column>
+            <el-table-column prop="localizationName" :label="t('components.availablePrefabSelector.localizationName')" width="160px" show-overflow-tooltip> </el-table-column>
+            <el-table-column prop="fullPath" :label="t('components.availablePrefabSelector.fullPath')" show-overflow-tooltip> </el-table-column>
             <el-table-column align="center" width="200px">
                 <template #header>
                     <el-input
@@ -43,7 +37,7 @@
 </template>
 
 <script setup>
-import { getItemBlocks } from '~/api/item-blocks';
+import * as api from '~/api/prefab';
 import { Search } from '@element-plus/icons-vue';
 import { i18n } from '~/plugins/i18n';
 
@@ -58,14 +52,12 @@ const searchModel = reactive({
     pageNumber: 1,
     pageSize: 20,
     keyword: '',
-    itemBlockKind: 0,
-    showUserHidden: true,
 });
 
 const getData = async () => {
     try {
         loading.value = true;
-        const data = await getItemBlocks({ ...searchModel, language: localeStore.getLanguage() });
+        const data = await api.getAvailablePrefabs({ ...searchModel, language: localeStore.getLanguage() });
         tableData.value = data.items;
         total.value = data.total;
     } finally {
