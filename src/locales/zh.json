@@ -40,7 +40,8 @@
             "batchDelete": "批量删除",
             "send": "发送",
             "select": "选择",
-            "batchSelect": "批量选择"
+            "batchSelect": "批量选择",
+            "undo": "Undo"
         },
         "message": {
             "title": "提示",
@@ -158,6 +159,10 @@
             "": "彩色聊天",
             "settings": "聊天设置",
             "management": "聊天管理"
+        },
+        "prefab": {
+            "": "Prefab",
+            "prefabPlace": "Prefab Place"
         },
         "swagger": "接口文档"
     },
@@ -303,6 +308,12 @@
             "ban": "封禁玩家",
             "banUntil": "解封时间",
             "reason": "封禁原因"
+        },
+        "availablePrefabSelector": {
+            "title": "Select Prefab",
+            "name": "Name",
+            "localizationName": "Localization Name",
+            "fullPath": "Full Path"
         }
     },
     "layout": {
@@ -724,6 +735,19 @@
                 "createdAt": "创建时间",
                 "description": "说明"
             }
+        },
+        "prefab": {
+            "prefabPath": "Prefab Path",
+            "position": "Position",
+            "rotation": "Rotate Left",
+            "noSleepers": "No Sleepers",
+            "addToRWG": "Add To RWG",
+            "place": "Place",
+            "history": "History",
+            "id": "ID",
+            "prefabName": "Prefab Name",
+            "createdAt": "Created At",
+            "undoConfirm": "Are you sure you want to undo?"
         }
     }
 }
