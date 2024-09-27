@@ -1,5 +1,5 @@
 <template>
-    <el-input v-model="textareaValue" type="textarea" :rows="5"></el-input>
+    <el-input v-model="innerModel" type="textarea" :rows="5"></el-input>
 </template>
 
 <script setup>
@@ -8,7 +8,7 @@ const modelValue = defineModel({
     default: [],
 });
 
-const textareaValue = computed({
+const innerModel = computed({
     get() {
         return modelValue.value.join('\n');
     },

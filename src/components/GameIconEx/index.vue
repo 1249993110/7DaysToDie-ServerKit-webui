@@ -144,7 +144,7 @@ const handleContextMenu = (event) => {
 
     .count {
         color: white;
-        font-size: 28px;
+        font-size: 24px;
         line-height: 23px;
         position: absolute;
         right: 1px;
@@ -154,7 +154,7 @@ const handleContextMenu = (event) => {
 
     .quality {
         color: white;
-        font-size: 28px;
+        font-size: 24px;
         line-height: 23px;
         position: absolute;
         left: calc(50% - 7px);

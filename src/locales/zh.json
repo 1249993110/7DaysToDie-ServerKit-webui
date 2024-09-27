@@ -40,7 +40,8 @@
             "batchDelete": "批量删除",
             "send": "发送",
             "select": "选择",
-            "batchSelect": "批量选择"
+            "batchSelect": "批量选择",
+            "undo": "撤销"
         },
         "message": {
             "title": "提示",
@@ -153,6 +154,15 @@
                 "settings": "Home配置",
                 "management": "Home管理"
             }
+        },
+        "coloredChat": {
+            "": "彩色聊天",
+            "settings": "聊天设置",
+            "management": "聊天管理"
+        },
+        "prefab": {
+            "": "预制件",
+            "prefabPlace": "预制件放置"
         },
         "swagger": "接口文档"
     },
@@ -298,6 +308,12 @@
             "ban": "封禁玩家",
             "banUntil": "解封时间",
             "reason": "封禁原因"
+        },
+        "availablePrefabSelector": {
+            "title": "选择预制件",
+            "name": "预制件名称",
+            "localizationName": "本地化名称",
+            "fullPath": "完整路径"
         }
     },
     "layout": {
@@ -477,6 +493,8 @@
             "maxStackAllowed": "最大堆叠数量"
         },
         "globalSettings": {
+            "globalServerName": "全局服务器名称",
+            "whisperServerName": "私聊服务器名称",
             "chatCommandPrefix": "聊天命令前缀",
             "chatCommandSeparator": "聊天命令分隔符",
             "handleChatMessageError": "聊天消息错误提示",
@@ -498,7 +516,10 @@
             "blockFamilySharingAccount": "是否禁止家庭共享账号",
             "removeSleepingBagFromPOI": "是否启用POI保护",
             "isEnablePlayerInitialSpawnPoint": "是否启用玩家初始出生点",
-            "playerInitialPosition": "玩家初始坐标 (X, Y, Z)"
+            "playerInitialPosition": "玩家初始坐标 (X, Y, Z)",
+            "enableAutoZombieCleanup": "启用自动僵尸清理",
+            "autoZombieCleanupThreshold": "自动僵尸清理阈值",
+            "enableXmlsSecondaryOverwrite": "启用Xmls防偷"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
@@ -698,6 +719,35 @@
                     "position": "坐标 (X, Y, Z)"
                 }
             }
+        },
+        "coloredChat": {
+            "isEnabled": "启用彩色聊天",
+            "globalDefault": "全局默认值",
+            "whisperDefault": "私聊默认值",
+            "friendsDefault": "好友默认值",
+            "partyDefault": "组队默认值",
+            "titleSuffix": "彩色聊天",
+            "tableHeader": {
+                "playerId": "玩家 ID",
+                "customName": "自定义名称",
+                "nameColor": "名称颜色",
+                "textColor": "文本颜色",
+                "createdAt": "创建时间",
+                "description": "说明"
+            }
+        },
+        "prefab": {
+            "prefabPath": "预制件路径",
+            "position": "坐标 (X, Y, Z)",
+            "rotation": "向左旋转",
+            "noSleepers": "无睡眠者",
+            "addToRWG": "添加到 RWG",
+            "place": "放置",
+            "history": "历史记录",
+            "id": "ID",
+            "prefabName": "预制件名称",
+            "createdAt": "创建时间",
+            "undoConfirm": "您确定要撤销吗?"
         }
     }
 }

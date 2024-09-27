@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'liveChat',
+    name: 'chat.liveChat',
 };
 </script>
 

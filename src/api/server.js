@@ -17,7 +17,7 @@ export const getSystemInfo = () => {
 };
 
 /**
- * 重启服务器
+ * Restart server
  * @returns 
  */
 export const restart = () => {
@@ -25,7 +25,7 @@ export const restart = () => {
 };
 
 /**
- * 关闭服务器
+ * Shutdown server
  * @returns 
  */
 export const shutdown = () => {
@@ -33,15 +33,23 @@ export const shutdown = () => {
 };
 
 /**
- * 发送全局消息
+ * Send global message
  * @returns
  */
-export const sendGlobalMessage = (message) => {
-    return http.post('/Server/SendGlobalMessage', { message });
+export const sendGlobalMessage = (message, senderName) => {
+    return http.post('/Server/SendGlobalMessage', { message, senderName });
 };
 
 /**
-* 重置玩家
+ * Send private message
+ * @returns
+ */
+export const sendPrivateMessage = (playerIdOrName, message, senderName) => {
+    return http.post('/Server/SendPrivateMessage', { targetPlayerIdOrName: playerIdOrName, message, senderName });
+};
+
+/**
+* Reset player
 * @returns
 */
 export const resetPlayer = (playerId) => {
@@ -49,7 +57,7 @@ export const resetPlayer = (playerId) => {
 };
 
 /**
- * 执行控制台命令
+ * Execute console command
  * @returns
  */
 export const executeConsoleCommand = (command, inMainThread = true) => {
@@ -76,3 +84,7 @@ export const getSettings = (lang) => {
 export const putSettings = (data) => {
     return http.put('/Server/Settings', data);
 };
+
+export const getAllowedCommands = () => {
+    return http.get('/Server/AllowedCommands');
+}

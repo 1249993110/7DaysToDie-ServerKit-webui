@@ -40,7 +40,8 @@
             "batchDelete": "Usuwanie wsadowe",
             "send": "Wyślij",
             "select": "Wybierz",
-            "batchSelect": "Wybór wsadowy"
+            "batchSelect": "Wybór wsadowy",
+            "undo": "Undo"
         },
         "message": {
             "title": "Wskazówka",
@@ -153,6 +154,15 @@
                 "settings": "Ustawienia Home",
                 "management": "Zarządzanie Home"
             }
+        },
+        "coloredChat": {
+            "": "Colored Chat",
+            "settings": "Chat Settings",
+            "management": "Chat Management"
+        },
+        "prefab": {
+            "": "Prefab",
+            "prefabPlace": "Prefab Place"
         },
         "swagger": "Dokumentacja interfejsu"
     },
@@ -298,6 +308,12 @@
             "ban": "Zablokuj gracza",
             "banUntil": "Czas odblokowania",
             "reason": "Powód blokady"
+        },
+        "availablePrefabSelector": {
+            "title": "Select Prefab",
+            "name": "Name",
+            "localizationName": "Localization Name",
+            "fullPath": "Full Path"
         }
     },
     "layout": {
@@ -477,6 +493,8 @@
             "maxStackAllowed": "Maksymalna ilość w stosie"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "Prefiks polecenia czatu",
             "chatCommandSeparator": "Separator polecenia czatu",
             "handleChatMessageError": "Wskazówka błędu wiadomości czatu",
@@ -498,7 +516,10 @@
             "blockFamilySharingAccount": "Czy zablokować konto Family Sharing",
             "removeSleepingBagFromPOI": "Czy włączyć ochronę POI",
             "isEnablePlayerInitialSpawnPoint": "Czy włączyć początkowy punkt odrodzenia gracza",
-            "playerInitialPosition": "Początkowe współrzędne gracza (X, Y, Z)"
+            "playerInitialPosition": "Początkowe współrzędne gracza (X, Y, Z)",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "Czy włączyć",
@@ -698,6 +719,35 @@
                     "position": "Współrzędne (X, Y, Z)"
                 }
             }
+        },
+        "coloredChat": {
+            "isEnabled": "Enable Colored Chat",
+            "globalDefault": "Global Default",
+            "whisperDefault": "Whisper Default",
+            "friendsDefault": "Friends Default",
+            "partyDefault": "Party Default",
+            "titleSuffix": "ColoredChat",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "customName": "Custom Name",
+                "nameColor": "Name Color",
+                "textColor": "Text Color",
+                "createdAt": "Created At",
+                "description": "Description"
+            }
+        },
+        "prefab": {
+            "prefabPath": "Prefab Path",
+            "position": "Position",
+            "rotation": "Rotate Left",
+            "noSleepers": "No Sleepers",
+            "addToRWG": "Add To RWG",
+            "place": "Place",
+            "history": "History",
+            "id": "ID",
+            "prefabName": "Prefab Name",
+            "createdAt": "Created At",
+            "undoConfirm": "Are you sure you want to undo?"
         }
     }
 }

@@ -12,6 +12,12 @@
                         <!-- <el-form-item label="是否启用">
                             <el-switch v-model="formModel.isEnabled" />
                         </el-form-item> -->
+                        <el-form-item :label="t('views.globalSettings.globalServerName')" prop="globalServerName">
+                            <el-input v-model="formModel.globalServerName" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.whisperServerName')" prop="whisperServerName">
+                            <el-input v-model="formModel.whisperServerName" />
+                        </el-form-item>
                         <el-form-item :label="t('views.globalSettings.chatCommandPrefix')" prop="chatCommandPrefix">
                             <el-input v-model="formModel.chatCommandPrefix" />
                         </el-form-item>
@@ -67,6 +73,15 @@
                         <el-form-item :label="t('views.globalSettings.playerInitialPosition')" prop="playerInitialPosition">
                             <Coordinate v-model="formModel.playerInitialPosition"></Coordinate>
                         </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.enableAutoZombieCleanup')" prop="enableAutoZombieCleanup">
+                            <el-switch v-model="formModel.enableAutoZombieCleanup" />
+                        </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.autoZombieCleanupThreshold')" prop="autoZombieCleanupThreshold">
+                            <el-input-number :min="1" v-model="formModel.autoZombieCleanupThreshold"></el-input-number>
+                        </el-form-item>
+                        <el-form-item :label="t('views.globalSettings.enableXmlsSecondaryOverwrite')" prop="enableXmlsSecondaryOverwrite">
+                            <el-switch v-model="formModel.enableXmlsSecondaryOverwrite" />
+                        </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="save">{{ t('global.button.save') }}</el-button>
                             <el-button type="danger" @click="reset">{{ t('global.button.reset') }}</el-button>
@@ -101,7 +116,8 @@ const autoRestartTime = computed({
 });
 
 const formModel = reactive({
-    // serverName: '',
+    globalServerName: '',
+    whisperServerName: '',
     chatCommandPrefix: '',
     chatCommandSeparator: '',
     handleChatMessageError: '',
@@ -125,6 +141,8 @@ const formModel = reactive({
     removeSleepingBagFromPOI: false,
     isEnablePlayerInitialSpawnPoint: false,
     playerInitialPosition: '',
+    enableAutoZombieCleanup: false,
+    autoZombieCleanupThreshold: 128,
 });
 
 const formRef = ref();

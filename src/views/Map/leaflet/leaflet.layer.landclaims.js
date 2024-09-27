@@ -60,6 +60,11 @@ export function getLandClaimsLayer(map, mapInfo) {
 
                 L.DomUtil.create('br', null, container);
 
+                const lastLoginText = L.DomUtil.create('span', null, container);
+                lastLoginText.innerText = i18n.global.t('components.playerDetailsDialog.tableHeader.lastLogin') + ': ' + claimOwner.lastLogin;
+
+                L.DomUtil.create('br', null, container);
+
                 const inventoryButton = L.DomUtil.create('a', null, container);
                 inventoryButton.innerText = i18n.global.t('views.map.removeLandClaim');
                 inventoryButton.href = 'javascript:void(0);';

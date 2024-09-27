@@ -40,7 +40,8 @@
             "batchDelete": "批次刪除",
             "send": "發送",
             "select": "選擇",
-            "batchSelect": "批次選擇"
+            "batchSelect": "批次選擇",
+            "undo": "Undo"
         },
         "message": {
             "title": "提示",
@@ -153,6 +154,15 @@
                 "settings": "Home配置",
                 "management": "Home管理"
             }
+        },
+        "coloredChat": {
+            "": "Colored Chat",
+            "settings": "Chat Settings",
+            "management": "Chat Management"
+        },
+        "prefab": {
+            "": "Prefab",
+            "prefabPlace": "Prefab Place"
         },
         "swagger": "介面文件"
     },
@@ -298,6 +308,12 @@
             "ban": "封鎖玩家",
             "banUntil": "解封時間",
             "reason": "封鎖原因"
+        },
+        "availablePrefabSelector": {
+            "title": "Select Prefab",
+            "name": "Name",
+            "localizationName": "Localization Name",
+            "fullPath": "Full Path"
         }
     },
     "layout": {
@@ -477,6 +493,8 @@
             "maxStackAllowed": "最大堆疊數量"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "聊天指令前綴",
             "chatCommandSeparator": "聊天指令分隔符號",
             "handleChatMessageError": "聊天訊息錯誤提示",
@@ -498,7 +516,10 @@
             "blockFamilySharingAccount": "是否禁止家庭共享帳號",
             "removeSleepingBagFromPOI": "是否啟用POI保護",
             "isEnablePlayerInitialSpawnPoint": "是否啟用玩家初始出生點",
-            "playerInitialPosition": "玩家初始座標 (X, Y, Z)"
+            "playerInitialPosition": "玩家初始座標 (X, Y, Z)",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "是否啟用",
@@ -698,6 +719,35 @@
                     "position": "座標 (X, Y, Z)"
                 }
             }
+        },
+        "coloredChat": {
+            "isEnabled": "Enable Colored Chat",
+            "globalDefault": "Global Default",
+            "whisperDefault": "Whisper Default",
+            "friendsDefault": "Friends Default",
+            "partyDefault": "Party Default",
+            "titleSuffix": "ColoredChat",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "customName": "Custom Name",
+                "nameColor": "Name Color",
+                "textColor": "Text Color",
+                "createdAt": "Created At",
+                "description": "Description"
+            }
+        },
+        "prefab": {
+            "prefabPath": "Prefab Path",
+            "position": "Position",
+            "rotation": "Rotate Left",
+            "noSleepers": "No Sleepers",
+            "addToRWG": "Add To RWG",
+            "place": "Place",
+            "history": "History",
+            "id": "ID",
+            "prefabName": "Prefab Name",
+            "createdAt": "Created At",
+            "undoConfirm": "Are you sure you want to undo?"
         }
     }
 }

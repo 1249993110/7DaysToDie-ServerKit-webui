@@ -40,7 +40,8 @@
             "batchDelete": "バッチ削除",
             "send": "送信",
             "select": "選択",
-            "batchSelect": "バッチ選択"
+            "batchSelect": "バッチ選択",
+            "undo": "Undo"
         },
         "message": {
             "title": "ヒント",
@@ -153,6 +154,15 @@
                 "settings": "Home設定",
                 "management": "Home管理"
             }
+        },
+        "coloredChat": {
+            "": "Colored Chat",
+            "settings": "Chat Settings",
+            "management": "Chat Management"
+        },
+        "prefab": {
+            "": "Prefab",
+            "prefabPlace": "Prefab Place"
         },
         "swagger": "インターフェースドキュメント"
     },
@@ -298,6 +308,12 @@
             "ban": "プレイヤーをBAN",
             "banUntil": "解除時間",
             "reason": "BAN理由"
+        },
+        "availablePrefabSelector": {
+            "title": "Select Prefab",
+            "name": "Name",
+            "localizationName": "Localization Name",
+            "fullPath": "Full Path"
         }
     },
     "layout": {
@@ -477,6 +493,8 @@
             "maxStackAllowed": "最大スタック数"
         },
         "globalSettings": {
+            "globalServerName": "Global Server Name",
+            "whisperServerName": "Whisper Server Name",
             "chatCommandPrefix": "チャットコマンドプレフィックス",
             "chatCommandSeparator": "チャットコマンドセパレータ",
             "handleChatMessageError": "チャットメッセージエラーのヒント",
@@ -498,7 +516,10 @@
             "blockFamilySharingAccount": "ファミリーシェアリングアカウントを禁止するかどうか",
             "removeSleepingBagFromPOI": "POI保護を有効にするかどうか",
             "isEnablePlayerInitialSpawnPoint": "プレイヤー初期スポーンポイントを有効にするかどうか",
-            "playerInitialPosition": "プレイヤー初期座標 (X, Y, Z)"
+            "playerInitialPosition": "プレイヤー初期座標 (X, Y, Z)",
+            "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
+            "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
         },
         "autoBackup": {
             "isEnabled": "有効にするかどうか",
@@ -698,6 +719,35 @@
                     "position": "座標 (X, Y, Z)"
                 }
             }
+        },
+        "coloredChat": {
+            "isEnabled": "Enable Colored Chat",
+            "globalDefault": "Global Default",
+            "whisperDefault": "Whisper Default",
+            "friendsDefault": "Friends Default",
+            "partyDefault": "Party Default",
+            "titleSuffix": "ColoredChat",
+            "tableHeader": {
+                "playerId": "Player ID",
+                "customName": "Custom Name",
+                "nameColor": "Name Color",
+                "textColor": "Text Color",
+                "createdAt": "Created At",
+                "description": "Description"
+            }
+        },
+        "prefab": {
+            "prefabPath": "Prefab Path",
+            "position": "Position",
+            "rotation": "Rotate Left",
+            "noSleepers": "No Sleepers",
+            "addToRWG": "Add To RWG",
+            "place": "Place",
+            "history": "History",
+            "id": "ID",
+            "prefabName": "Prefab Name",
+            "createdAt": "Created At",
+            "undoConfirm": "Are you sure you want to undo?"
         }
     }
 }
