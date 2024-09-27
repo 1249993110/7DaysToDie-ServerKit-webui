@@ -84,3 +84,7 @@ export const getSettings = (lang) => {
 export const putSettings = (data) => {
     return http.put('/Server/Settings', data);
 };
+
+export const getAllowedCommands = () => {
+    return http.get('/Server/AllowedCommands');
+}
