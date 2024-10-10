@@ -41,7 +41,7 @@ const checkTouch = useDebounceFn(async () => {
     dispose();
 }, 100);
 
-export const showTooltip = useDebounceFn(async (props) => {
+export const showTooltip = async (props) => {
     trigger = props.trigger;
     if (!trigger.checkVisibility()) {
         return;
@@ -70,4 +70,4 @@ export const showTooltip = useDebounceFn(async (props) => {
     mouseInPopper = useMouseInElement(container.firstElementChild);
 
     checkTouch(); // do not await
-}, 100);
+};
