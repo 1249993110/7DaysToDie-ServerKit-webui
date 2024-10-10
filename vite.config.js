@@ -107,6 +107,7 @@ export default defineConfig(({ mode }) => {
         css: {
             preprocessorOptions: {
                 scss: {
+                    api: 'modern-compiler', // or 'modern'
                     // define global scss variable
                     additionalData: `@use '~/assets/styles/var.scss' as *;`,
                 },
