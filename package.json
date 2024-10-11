@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@imengyu/vue3-context-menu": "^1.4.2",
+    "@imengyu/vue3-context-menu": "^1.4.3",
     "@trevoreyre/autocomplete-vue": "^3.0.3",
     "@vueuse/core": "^11.1.0",
     "axios": "^1.7.7",
@@ -51,7 +51,7 @@
     "@iconify-json/uiw": "^1.2.1",
     "@intlify/unplugin-vue-i18n": "^5.2.0",
     "@vitejs/plugin-vue": "^5.1.4",
-    "sass": "^1.79.4",
+    "sass": "^1.79.5",
     "unplugin-auto-import": "^0.18.3",
     "unplugin-icons": "^0.19.3",
     "unplugin-vue-components": "^0.27.4",
