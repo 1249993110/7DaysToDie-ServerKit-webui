@@ -88,8 +88,8 @@ const parsePosition = (val) => {
 
 const tableData = ref([]);
 const getHistory = async () => {
+    loading.value = true;
     try {
-        loading.value = true;
         const data = await api.getUndoHistory();
         tableData.value = data;
     } finally {
@@ -113,8 +113,8 @@ const handleUndo = async (row) => {
 };
 
 const place = async () => {
+    loading.value = true;
     try {
-        loading.value = true;
         await formRef.value.validate();
         const result = await api.placePrefab({
             prefabFileName: formModel.prefabPath,

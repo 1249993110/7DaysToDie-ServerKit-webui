@@ -68,8 +68,8 @@ const searchModel = reactive({
 });
 
 const getData = async () => {
+    loading.value = true;
     try {
-        loading.value = true;
         const data = await getItemListPaged(searchModel);
         tableData.value = data.items;
         total.value = data.total;

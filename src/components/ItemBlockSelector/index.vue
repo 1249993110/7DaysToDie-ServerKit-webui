@@ -63,8 +63,8 @@ const searchModel = reactive({
 });
 
 const getData = async () => {
+    loading.value = true;
     try {
-        loading.value = true;
         const data = await getItemBlocks({ ...searchModel, language: localeStore.getLanguage() });
         tableData.value = data.items;
         total.value = data.total;
