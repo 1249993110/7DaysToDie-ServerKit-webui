@@ -320,7 +320,7 @@ const handleSortChange = async ({ prop, order }) => {
     }
 
     .table-card {
-        flex: 1;
+        flex-grow: 1;
         background-color: #ffffffaf;
         :deep(.el-card__body) {
             height: calc(100% - 40px);

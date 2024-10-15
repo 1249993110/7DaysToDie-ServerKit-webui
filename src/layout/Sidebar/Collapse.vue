@@ -66,7 +66,7 @@ const handleCommand = async (command) => {
     }
 
     .username {
-        flex: 1;
+        flex-grow: 1;
         text-align: center;
         max-width: 108px;
 
