@@ -4,7 +4,8 @@ html {
 
 #app {
     height: 100vh;
-    min-width: 800px; // (1024 - 48)
+    //min-width: 800px; // (1024 - 48)
+    min-width: 720px;
     background-image: url('../images/background.png');
 
     --el-menu-active-color: #005eeb;
