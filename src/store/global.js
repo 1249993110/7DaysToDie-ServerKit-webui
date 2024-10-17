@@ -2,11 +2,12 @@ import { defineStore } from 'pinia';
 
 export const useGlobalStore = defineStore('global', {
     state: () => {
+        const windowSize = useWindowSize();
         return {
             tableSize: 'small',
-            isLoading: false,
-            isFullScreen: false,
+            isLoading: false, // no use
             isRouterAlive: true,
+            isSmallScreen: computed(() => windowSize.width.value < 768),
         };
     },
     getters: {},
