@@ -7,7 +7,7 @@ export const useGlobalStore = defineStore('global', {
             tableSize: 'small',
             isLoading: false, // no use
             isRouterAlive: true,
-            isSmallScreen: computed(() => windowSize.width.value < 768),
+            isSmallScreen: computed(() => windowSize.width.value < 1200),
         };
     },
     getters: {},
