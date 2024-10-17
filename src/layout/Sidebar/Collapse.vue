@@ -24,10 +24,19 @@
 <script setup>
 import { useSidebarStore } from '~/store/sidebar';
 import { useUserInfoStore } from '~/store/user-info';
+import { useGlobalStore } from '~/store/global';
 import Logout from '~icons/uiw/logout';
 
 const sidebarStore = useSidebarStore();
 const userInfoStore = useUserInfoStore();
+const globalStore = useGlobalStore();
+
+watch(
+    () => globalStore.isSmallScreen,
+    (isSmallScreen) => {
+        sidebarStore.isCollapse = isSmallScreen;
+    }
+);
 
 const { t } = useI18n();
 const router = useRouter();
