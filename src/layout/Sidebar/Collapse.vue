@@ -55,6 +55,7 @@ const handleCommand = async (command) => {
     box-sizing: border-box;
     border-top: 1px solid #d4d7de;
     height: 48px;
+    min-height: 48px;
     overflow: hidden;
 
     .collapse-icon {
