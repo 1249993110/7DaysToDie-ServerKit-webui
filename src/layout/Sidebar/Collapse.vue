@@ -22,9 +22,6 @@
 </template>
 
 <script setup>
-import { useSidebarStore } from '~/store/sidebar';
-import { useUserInfoStore } from '~/store/user-info';
-import { useGlobalStore } from '~/store/global';
 import Logout from '~icons/uiw/logout';
 
 const sidebarStore = useSidebarStore();

@@ -33,7 +33,6 @@
 </template>
 
 <script setup>
-import { useGlobalStore } from '~/store/global';
 import screenfull from 'screenfull';
 
 const props = defineProps({

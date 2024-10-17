@@ -10,7 +10,6 @@
 
 <script setup>
 import { keepAlives } from '~/router';
-import { useGlobalStore } from '~/store/global';
 
 const globalStore = useGlobalStore();
 </script>
