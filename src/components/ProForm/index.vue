@@ -4,14 +4,7 @@
             <el-col v-for="item in fields" :key="item.name" v-bind="colSpan">
                 <el-form-item v-bind="item" :prop="item.name">
                     <component v-if="item.render" :is="item.render" v-model="model[item.name]" v-bind="item.props" />
-                    <!-- <slot v-else-if="item.type === 'slot'" :name="item.slot" v-model="modelValue[item.name]" v-bind="item.props" /> -->
-                    <el-input v-else-if="item.type === 'input'" v-model="model[item.name]" clearable v-bind="item.props" />
-                    <!-- <component
-                        :is="item.type"
-                        v-model="formModel[item.model]"
-                        :placeholder="item.placeholder"
-                        v-bind="item.options ? { options: item.options } : {}"
-                    ></component> -->
+                    <el-input v-else-if="item.type === 'input'" v-model.trim="model[item.name]" clearable v-bind="item.props" />
                 </el-form-item>
             </el-col>
             <el-col v-if="btnGroup && btnGroup.inline" v-bind="colSpan">
@@ -32,8 +25,6 @@
 
 <script setup>
 import BtnGroup from './BtnGroup.vue';
-
-const { t } = useI18n();
 
 const props = defineProps({
     rowGutter: {
