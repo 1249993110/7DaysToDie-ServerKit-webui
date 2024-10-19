@@ -2,7 +2,11 @@
     <div class="pro-table">
         <el-card class="search-card" v-loading="loading" shadow="always" v-if="search" v-show="searchVisible">
             <slot name="search">
-                <ProForm ref="searchRef" :request="getTableData" label-position="right" :model="searchModel" v-bind="search" />
+                <ProForm ref="searchRef" :request="getTableData" label-position="right" :model="searchModel" v-bind="search">
+                    <template #btnGroup v-if="$slots.btnGroup">
+                        <slot name="btnGroup"></slot>
+                    </template>
+                </ProForm>
             </slot>
         </el-card>
         <el-card class="table-card" v-loading="loading" shadow="always">
