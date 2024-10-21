@@ -27,11 +27,10 @@ const props = defineProps({
 
 const visible = ref(false);
 
-const openColSetting = () => {
+const open = () => {
     visible.value = true;
 };
 defineExpose({
-    openColSetting,
+    open: open,
 });
-
 </script>
