@@ -1,5 +1,5 @@
 <template>
-    <el-form :model="model" ref="formRef" status-icon class="pro-form">
+    <el-form :model="model" ref="formRef" status-icon class="pro-form" :rules="rules">
         <el-row :gutter="rowGutter">
             <el-col v-for="item in fields" :key="item.name" v-bind="colSpan">
                 <el-form-item v-bind="item" :prop="item.name">
@@ -28,6 +28,9 @@
 import BtnGroup from './BtnGroup.vue';
 
 const props = defineProps({
+    rules: {
+        type: Object,
+    },
     rowGutter: {
         type: Number,
         default: 20,
@@ -52,6 +55,20 @@ const props = defineProps({
         type: Function,
         required: true,
     },
+});
+
+const { t } = useI18n();
+
+const rules = computed(() => {
+    const result = {};
+    for (let i = 0, len = props.fields.length; i < len; i++) {
+        const field = props.fields[i];
+        if (field.name && field.required) {
+            result[field.name] = [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }];
+        }
+    }
+
+    return { ...props.rules, ...result };
 });
 
 const colSpan = computed(() => {
