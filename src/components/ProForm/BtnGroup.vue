@@ -41,6 +41,14 @@ const props = defineProps({
         type: [String, Number],
         default: 12,
     },
+    padding: {
+        type: [String, Number],
+        default: 15,
+    },
+    margin: {
+        type: [String, Number],
+        default: 0,
+    },
     cancel: {
         type: Object,
         default() {
@@ -73,6 +81,8 @@ const props = defineProps({
 const emit = defineEmits(['cancel', 'submit', 'reset']);
 
 const gutter = computed(() => addUnit(props.gutter));
+const padding = computed(() => addUnit(props.padding));
+const margin = computed(() => addUnit(props.margin));
 </script>
 
 <style scoped lang="scss">
@@ -80,6 +90,11 @@ const gutter = computed(() => addUnit(props.gutter));
     display: flex;
     justify-content: v-bind(position);
     width: 100%;
+    margin: v-bind(margin);
+    .el-button{
+        padding-left: v-bind(padding);
+        padding-right: v-bind(padding);
+    }
     .el-button + .el-button {
         margin-left: v-bind(gutter);
     }
