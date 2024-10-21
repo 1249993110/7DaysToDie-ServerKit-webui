@@ -34,7 +34,7 @@ const props = defineProps({
     },
     colSpan: {
         type: [Number, Object],
-        default: 12,
+        default: 24,
     },
     fields: {
         type: Object,
