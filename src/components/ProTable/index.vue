@@ -270,7 +270,7 @@ columns.forEach((item) => {
 
 const colSettingRef = ref(null);
 const handleOpenColSetting = () => {
-    colSettingRef.value.openColSetting();
+    colSettingRef.value.open();
 };
 
 const handleEdit = (scope) => {
