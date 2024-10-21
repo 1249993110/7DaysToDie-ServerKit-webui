@@ -17,7 +17,7 @@
                             v-for="item in batchOperationItems"
                             :key="item"
                             :command="item.command"
-                            :disabled="typeof item.disabled === 'function' ? item.disabled(isSelected) : item.disabled"
+                            :disabled="item.disabledIfNoSelection ? !isSelected : item.disabled"
                             :divided="item.divided"
                             :icon="item.icon"
                             @click="item.onClick?.call(item, selectedListIds, selectedList)"
