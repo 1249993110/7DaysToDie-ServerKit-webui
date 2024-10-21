@@ -5,6 +5,7 @@
                 <el-form-item v-bind="item" :prop="item.name">
                     <component v-if="item.render" :is="item.render" v-model="model[item.name]" v-bind="item.props" />
                     <el-input v-else-if="item.type === 'input'" v-model.trim="model[item.name]" clearable v-bind="item.props" />
+                    <el-date-picker v-else-if="item.type === 'date-picker'" v-model="model[item.name]" clearable v-bind="item.props" />
                 </el-form-item>
             </el-col>
             <el-col v-if="btnGroup && btnGroup.inline" v-bind="colSpan">
