@@ -11,14 +11,14 @@
             <el-col v-if="btnGroup && btnGroup.inline" v-bind="colSpan">
                 <el-form-item v-if="btnGroup" class="footer-btns">
                     <slot name="btnGroup">
-                        <BtnGroup v-bind="btnGroup" @cancel="emit('cancel')" @submit="handleSubmit" @reset="resetForm" />
+                        <BtnGroup v-bind="btnGroup" @cancel="emit('cancel')" @submit="handleSubmit" @reset="resetFields" />
                     </slot>
                 </el-form-item>
             </el-col>
         </el-row>
         <el-form-item v-if="btnGroup && !btnGroup.inline" class="footer-btns">
             <slot name="btnGroup">
-                <BtnGroup v-bind="btnGroup" @cancel="emit('cancel')" @submit="handleSubmit" @reset="resetForm" />
+                <BtnGroup v-bind="btnGroup" @cancel="emit('cancel')" @submit="handleSubmit" @reset="resetFields" />
             </slot>
         </el-form-item>
     </el-form>
@@ -82,10 +82,14 @@ const handleSubmit = async () => {
         loading.close();
     }
 };
-const resetForm = () => {
+const resetFields = () => {
     formRef.value.resetFields();
     emit('reset');
 };
+
+defineExpose({
+    resetFields,
+});
 </script>
 
 <style scoped lang="scss">
