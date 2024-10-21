@@ -79,6 +79,7 @@ const gutter = computed(() => addUnit(props.gutter));
 .btn-group {
     display: flex;
     justify-content: v-bind(position);
+    width: 100%;
     .el-button + .el-button {
         margin-left: v-bind(gutter);
     }
