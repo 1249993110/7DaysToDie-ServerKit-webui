@@ -12,7 +12,7 @@
         @batchDeleteClick="handleBatchDelete"
     />
     <MyFormDialog
-        ref="addOrEditRef"
+        ref="addEditRef"
         :title="addEditDialogTitle"
         :fields="addEditFormFields"
         :form-model="addOrEditFormModel"
@@ -61,7 +61,7 @@ const { t } = useI18n();
 const globalStore = useGlobalStore();
 
 const proTableRef = ref(null);
-const addOrEditRef = ref(null);
+const addEditRef = ref(null);
 
 const search = computed(() => {
     return {
@@ -106,7 +106,7 @@ watch(isAdd, (val) => {
 
 const handleAdd = () => {
     isAdd.value = true;
-    addOrEditRef.value.open();
+    addEditRef.value.open();
 };
 
 const toolbar = computed(() => {
@@ -135,7 +135,7 @@ const toolbar = computed(() => {
 const handleEdit = (row) => {
     Object.assign(addOrEditFormModel, row);
     isAdd.value = false;
-    addOrEditRef.value.open(row);
+    addEditRef.value.open(row);
 };
 
 const handleDelete = async (id, row) => {
