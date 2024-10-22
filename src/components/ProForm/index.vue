@@ -2,7 +2,7 @@
     <el-form :model="model" ref="formRef" status-icon class="pro-form" :rules="rules">
         <el-row :gutter="rowGutter">
             <el-col v-for="item in fields" :key="item.name" v-bind="getColSpan(item.span)">
-                <el-form-item v-bind="item" :prop="item.name">
+                <el-form-item v-bind="item" :prop="item.name" v-if="item.type !== 'divided'">
                     <component v-if="item.render" :is="item.render" v-model="model[item.name]" v-bind="item.props" />
                     <slot v-else-if="item.slot && $slots[item.slot]" :name="item.slot" />
                     <el-input
