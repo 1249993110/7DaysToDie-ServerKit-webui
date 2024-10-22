@@ -9,22 +9,44 @@
         @edit-click="handleEdit"
         @deleteClick="handleDelete"
         @batchDeleteClick="handleBatchDelete"
-    ></ProTable>
-    <AddOrEdit ref="addOrEditRef" v-bind="$attrs" @submit="proTableRef.getTableData()" />
+    />
+    <MyFormDialog
+        ref="addOrEditRef"
+        :title="addOrEditDialogTitle"
+        :fields="addOrEditFormFields"
+        :form-model="addOrEditFormModel"
+        :request="addOrEditRequest"
+        @submit="proTableRef.getTableData()"
+    />
 </template>
 
 <script setup>
-import AddOrEdit from './AddOrEdit.vue';
-
 const props = defineProps({
     toolbar: {
         type: Object,
+    },
+    modelName: {
+        type: String,
+        default: '',
+    },
+    formFields: {
+        type: Array,
+    },
+    requestAdd: {
+        type: Function,
+    },
+    requestEdit: {
+        type: Function,
     },
     requestDelete: {
         type: Function,
     },
     requestBatchDelete: {
         type: Function,
+    },
+    disableIdOnEdit: {
+        type: Boolean,
+        default: true,
     },
 });
 
@@ -34,7 +56,25 @@ const globalStore = useGlobalStore();
 const proTableRef = ref(null);
 const addOrEditRef = ref(null);
 
+const isAdd = ref(false);
+const addOrEditFormModel = reactive({});
+const addOrEditDialogTitle = computed(() => (isAdd.value ? t('global.button.add') : t('global.button.edit')) + ' ' + props.modelName);
+const addOrEditRequest = async () => {
+    isAdd.value ? await props.requestAdd(addOrEditFormModel) : await props.requestEdit(addOrEditFormModel);
+};
+
+const addOrEditFormFields = reactive([...props.formFields]);
+watch(isAdd, (val) => {
+    if (props.disableIdOnEdit) {
+        const field = addOrEditFormFields.find((item) => item.name === proTableRef.value.rowKey);
+        if (field) {
+            field.props.disabled = !val;
+        }
+    }
+});
+
 const handleAdd = () => {
+    isAdd.value = true;
     addOrEditRef.value.open();
 };
 
@@ -62,32 +102,40 @@ const toolbar = computed(() => {
 });
 
 const handleEdit = (row) => {
+    Object.assign(addOrEditFormModel, row);
+    isAdd.value = false;
     addOrEditRef.value.open(row);
 };
 
-const handleDelete = async (row) => {
+const handleDelete = async (id, row) => {
     try {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
-            await Promise.resolve(props.requestDelete(row));
+            proTableRef.value.loading = true;
+            await Promise.resolve(props.requestDelete(id, row));
             await proTableRef.value.getTableData();
             ElMessage.success(t('global.message.deleteSuccess'));
         }
-    } catch (e) {
-        console.error(e);
+    } catch (error) {
+        console.error(error);
         ElMessage.error(t('global.message.deleteFailed'));
+    } finally {
+        proTableRef.value.loading = false;
     }
 };
 
 const handleBatchDelete = async (selectedIds, selectedRows) => {
     try {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
+            proTableRef.value.loading = true;
             await Promise.resolve(props.requestBatchDelete(selectedIds, selectedRows));
             await proTableRef.value.getTableData();
             ElMessage.success(t('global.message.deleteSuccess'));
         }
-    } catch (e) {
-        console.error(e);
+    } catch (error) {
+        console.error(error);
         ElMessage.error(t('global.message.deleteFailed'));
+    } finally {
+        proTableRef.value.loading = false;
     }
 };
 </script>
