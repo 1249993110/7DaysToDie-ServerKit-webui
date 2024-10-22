@@ -20,7 +20,7 @@
                             :disabled="item.disabledIfNoSelection ? !isSelected : item.disabled"
                             :divided="item.divided"
                             :icon="item.icon"
-                            @click="item.onClick?.call(item, selectedListIds, selectedList)"
+                            @click="item.onClick?.call(item, selectedIds, selectedRows)"
                         >
                             <template #default="scope">
                                 <component v-if="item.render" :is="item.render" v-bind="scope" />
@@ -43,11 +43,11 @@
 import { Plus, Delete, Refresh, Search, ArrowDown, Operation } from '@element-plus/icons-vue';
 
 const props = defineProps({
-    selectedListIds: {
+    selectedIds: {
         type: Array,
         default: [],
     },
-    selectedList: {
+    selectedRows: {
         type: Array,
         default: [],
     },
