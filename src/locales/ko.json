@@ -29,6 +29,7 @@
             "enable": "활성화",
             "disable": "비활성화",
             "search": "검색",
+            "submit": "Submit",
             "reset": "재설정",
             "back": "뒤로",
             "close": "닫기",
@@ -271,7 +272,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "인덱스",
-                "operate": "운영"
+                "operate": "운영",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
