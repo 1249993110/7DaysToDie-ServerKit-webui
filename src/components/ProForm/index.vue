@@ -114,5 +114,10 @@ defineExpose({
     .footer-btns {
         margin-bottom: 0;
     }
+    .el-form-item {
+        :deep(.el-form-item__label) {
+            white-space: pre-wrap;
+        }
+    }
 }
 </style>
