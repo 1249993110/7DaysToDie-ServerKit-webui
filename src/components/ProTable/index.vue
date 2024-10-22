@@ -10,13 +10,13 @@
             </slot>
         </el-card>
         <el-card class="table-card" v-loading="loading" shadow="always">
-            <slot name="toolbar" :selected-list="selectedList" :selected-list-ids="selectedListIds" :is-selected="isSelected">
+            <slot name="toolbar" :selected-list="selectedRows" :selected-list-ids="selectedIds" :is-selected="isSelected">
                 <Toolbar
                     v-if="toolbar"
                     v-bind="toolbar"
                     :btn-label-visible="btnLabelVisible"
-                    :selected-list-ids="selectedListIds"
-                    :selected-list="selectedList"
+                    :selectedIds="selectedIds"
+                    :selectedRows="selectedRows"
                     :is-selected="isSelected"
                     @add-click="handleAdd"
                     @batch-delete-click="handleBatchDelete"
@@ -212,10 +212,10 @@ const defaultRenderCell = (item, scope) => {
 };
 
 const isSelected = ref(false);
-const selectedList = ref([]);
-const selectedListIds = computed(() => selectedList.value.map((item) => item[props.rowKey]));
+const selectedRows = ref([]);
+const selectedIds = computed(() => selectedRows.value.map((item) => item[props.rowKey]));
 const handleSelectionChange = (val) => {
-    selectedList.value = val;
+    selectedRows.value = val;
     isSelected.value = val.length !== 0;
 };
 
@@ -230,11 +230,11 @@ const handleAdd = () => {
 };
 
 const handleBatchDelete = () => {
-    emit('batchDeleteClick', selectedListIds.value, selectedList.value);
+    emit('batchDeleteClick', selectedIds.value, selectedRows.value);
 };
 
 const handleBatchOperationCommand = (command) => {
-    emit('batchOperationCommand', command, selectedListIds.value, selectedList.value);
+    emit('batchOperationCommand', command, selectedIds.value, selectedRows.value);
 };
 
 const columns = reactive([...props.columns]);
