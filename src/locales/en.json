@@ -29,6 +29,7 @@
             "enable": "Enable",
             "disable": "Disable",
             "search": "Search",
+            "submit": "Submit",
             "reset": "Reset",
             "back": "Back",
             "close": "Close",
@@ -271,7 +272,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "Index",
-                "operate": "Operate"
+                "operate": "Operate",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
