@@ -48,7 +48,7 @@ export function startWebsocket(url) {
     try {
         connection?.close();
         connection = createConnection(url);
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
+        console.error(error);
     }
 }
