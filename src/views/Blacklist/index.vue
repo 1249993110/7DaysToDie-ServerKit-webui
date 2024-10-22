@@ -2,13 +2,13 @@
     <div>
         <RouterButton :names="['blacklist']"></RouterButton>
         <MyTable
-            :search="search"
-            :columns="columns"
-            :request-get="requestGet"
             row-key="playerId"
+            :columns="columns"
             :model-name="t('menus.blacklist')"
             :toolbar="toolbar"
-            :form-fields="formFields"
+            :search-form-fields="searchFormFields"
+            :add-edit-form-fields="addEditFormFields"
+            :request-get="requestGet"
             :request-add="requestAdd"
             :request-edit="requestEdit"
             :request-delete="requestDetele"
@@ -25,48 +25,8 @@ export default {
 
 <script setup>
 import * as api from '~/api/blacklist';
-import { Search, Refresh } from '@element-plus/icons-vue';
 
 const { t } = useI18n();
-
-const search = {
-    fields: [
-        {
-            type: 'input',
-            name: 'playerId',
-            label: t('views.blacklist.tableHeader.playerId'),
-            props: {
-                placeholder: t('global.message.inputText'),
-            },
-        },
-        {
-            type: 'input',
-            name: 'displayName',
-            label: t('views.blacklist.tableHeader.displayName'),
-            props: {
-                placeholder: t('global.message.inputText'),
-            },
-        },
-    ],
-    btnGroup: {
-        inline: true,
-        position: 'left',
-        submit: {
-            label: t('global.button.search'),
-            icon: Search,
-        },
-        reset: {
-            icon: Refresh,
-        },
-    },
-    colSpan: {
-        xs: 24,
-        sm: 12,
-        md: 12,
-        lg: 8,
-        xl: 6,
-    },
-};
 
 const columns = [
     {
@@ -104,38 +64,6 @@ const columns = [
     },
 ];
 
-const requestGet = async (params) => {
-    let data = await api.getBlacklist();
-
-    data = data.filter((i) => new RegExp(params.playerId, 'i').test(i.playerId));
-    data = data.filter((i) => new RegExp(params.displayName, 'i').test(i.displayName));
-
-    if (params.sortOrder) {
-        const desc = params.sortOrder === 'descending';
-        const sortPorp = params.sortPorp;
-        data = data.sort((a, b) => {
-            if (desc) {
-                return a[sortPorp] < b[sortPorp] ? 1 : -1;
-            }
-
-            return a[sortPorp] > b[sortPorp] ? 1 : -1;
-        });
-    } else {
-        data.reverse();
-    }
-
-    if (params.pageSize < 0) {
-        return {
-            items: data,
-            total: data.length,
-        };
-    }
-    return {
-        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
-        total: data.length,
-    };
-};
-
 const toolbar = {
     exportFileName: t('menus.blacklist'),
     exportLocaleKeyPrefix: 'views.blacklist.tableHeader',
@@ -146,7 +74,26 @@ const toolbar = {
     ],
 };
 
-const formFields = [
+const searchFormFields = [
+    {
+        type: 'input',
+        name: 'playerId',
+        label: t('views.blacklist.tableHeader.playerId'),
+        props: {
+            placeholder: t('global.message.inputText'),
+        },
+    },
+    {
+        type: 'input',
+        name: 'displayName',
+        label: t('views.blacklist.tableHeader.displayName'),
+        props: {
+            placeholder: t('global.message.inputText'),
+        },
+    },
+];
+
+const addEditFormFields = [
     {
         type: 'input',
         name: 'playerId',
@@ -187,6 +134,38 @@ const formFields = [
     },
 ];
 
+const requestGet = async (params) => {
+    let data = await api.getBlacklist();
+
+    data = data.filter((i) => new RegExp(params.playerId, 'i').test(i.playerId));
+    data = data.filter((i) => new RegExp(params.displayName, 'i').test(i.displayName));
+
+    if (params.sortOrder) {
+        const desc = params.sortOrder === 'descending';
+        const sortPorp = params.sortPorp;
+        data = data.sort((a, b) => {
+            if (desc) {
+                return a[sortPorp] < b[sortPorp] ? 1 : -1;
+            }
+
+            return a[sortPorp] > b[sortPorp] ? 1 : -1;
+        });
+    } else {
+        data.reverse();
+    }
+
+    if (params.pageSize < 0) {
+        return {
+            items: data,
+            total: data.length,
+        };
+    }
+    return {
+        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: data.length,
+    };
+};
+
 const requestAdd = async (formModel) => {
     await api.addBlacklist([formModel]);
 };
@@ -196,7 +175,7 @@ const requestEdit = async (formModel) => {
     await api.addBlacklist([formModel]);
 };
 
-const requestDetele = async (id, row) => {
+const requestDetele = async (id) => {
     await api.deleteBlacklist([id]);
 };
 
