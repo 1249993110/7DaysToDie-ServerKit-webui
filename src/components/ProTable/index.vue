@@ -10,7 +10,7 @@
             </slot>
         </el-card>
         <el-card class="table-card" v-loading="loading" shadow="always">
-            <slot name="toolbar" :selected-list="selectedRows" :selected-list-ids="selectedIds" :is-selected="isSelected">
+            <slot name="toolbar" :selected-rows="selectedRows" :selected-ids="selectedIds" :is-selected="isSelected">
                 <Toolbar
                     v-if="toolbar"
                     v-bind="toolbar"
