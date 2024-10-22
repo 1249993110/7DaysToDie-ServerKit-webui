@@ -29,6 +29,7 @@
             "enable": "Включить",
             "disable": "Отключить",
             "search": "Поиск",
+            "submit": "Submit",
             "reset": "Сброс",
             "back": "Назад",
             "close": "Закрыть",
@@ -271,7 +272,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "Индекс",
-                "operate": "Управление"
+                "operate": "Управление",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
