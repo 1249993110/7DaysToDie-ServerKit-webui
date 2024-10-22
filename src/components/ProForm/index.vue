@@ -1,12 +1,24 @@
 <template>
     <el-form :model="model" ref="formRef" status-icon class="pro-form" :rules="rules">
         <el-row :gutter="rowGutter">
-            <el-col v-for="item in fields" :key="item.name" v-bind="colSpan">
+            <el-col v-for="item in fields" :key="item.name" v-bind="getColSpan(item.span)">
                 <el-form-item v-bind="item" :prop="item.name">
                     <component v-if="item.render" :is="item.render" v-model="model[item.name]" v-bind="item.props" />
                     <slot v-else-if="item.slot && $slots[item.slot]" :name="item.slot" />
-                    <el-input v-else-if="item.type === 'input'" v-model.trim="model[item.name]" clearable :placeholder="t('global.message.inputText')" v-bind="item.props" />
+                    <el-input
+                        v-else-if="item.type === 'input'"
+                        v-model="model[item.name]"
+                        clearable
+                        :placeholder="t('global.message.inputText')"
+                        v-bind="item.props"
+                        @blur="
+                            if (item.trim ?? true) {
+                                model[item.name] = model[item.name].trim();
+                            }
+                        "
+                    />
                     <el-date-picker v-else-if="item.type === 'date-picker'" v-model="model[item.name]" clearable v-bind="item.props" />
+                    <el-switch v-else-if="item.type === 'switch'" v-model="model[item.name]" :active-text="t('global.on')" :inactive-text="t('global.off')" v-bind="item.props" />
                 </el-form-item>
             </el-col>
             <el-col v-if="btnGroup && btnGroup.inline" v-bind="colSpan">
@@ -76,14 +88,19 @@ const rules = computed(() => {
     return { ...props.rules, ...result };
 });
 
-const colSpan = computed(() => {
+const getColSpan = (itemSpan) => {
+    if (itemSpan) {
+        return {
+            span: itemSpan,
+        };
+    }
     if (typeof props.colSpan === 'number') {
         return {
             span: props.colSpan,
         };
     }
     return props.colSpan;
-});
+};
 
 const emit = defineEmits(['cancel', 'submit', 'reset', 'error']);
 
