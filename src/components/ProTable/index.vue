@@ -290,6 +290,7 @@ defineExpose({
     tableData: tableData,
     requestGet: props.requestGet,
     requestGetParams: requestGetParams,
+    getTableData: getTableData,
 });
 </script>
 
