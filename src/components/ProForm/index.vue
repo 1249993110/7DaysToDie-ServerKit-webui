@@ -4,7 +4,8 @@
             <el-col v-for="item in fields" :key="item.name" v-bind="colSpan">
                 <el-form-item v-bind="item" :prop="item.name">
                     <component v-if="item.render" :is="item.render" v-model="model[item.name]" v-bind="item.props" />
-                    <el-input v-else-if="item.type === 'input'" v-model.trim="model[item.name]" clearable v-bind="item.props" />
+                    <slot v-else-if="item.slot && $slots[item.slot]" :name="item.slot" />
+                    <el-input v-else-if="item.type === 'input'" v-model.trim="model[item.name]" clearable :placeholder="t('global.message.inputText')" v-bind="item.props" />
                     <el-date-picker v-else-if="item.type === 'date-picker'" v-model="model[item.name]" clearable v-bind="item.props" />
                 </el-form-item>
             </el-col>
@@ -55,6 +56,10 @@ const props = defineProps({
         type: Function,
         required: true,
     },
+    preventDefaultReset: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const { t } = useI18n();
@@ -100,7 +105,10 @@ const handleSubmit = async () => {
     }
 };
 const resetFields = () => {
-    formRef.value.resetFields();
+    if (!props.preventDefaultReset) {
+        formRef.value.resetFields();
+    }
+
     emit('reset');
 };
 
