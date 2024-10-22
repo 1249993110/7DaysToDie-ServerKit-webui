@@ -51,7 +51,7 @@
     "@iconify-json/uiw": "^1.2.1",
     "@intlify/unplugin-vue-i18n": "^5.2.0",
     "@vitejs/plugin-vue": "^5.1.4",
-    "sass": "^1.80.3",
+    "sass": "^1.79.6",
     "unplugin-auto-import": "^0.18.3",
     "unplugin-icons": "^0.19.3",
     "unplugin-vue-components": "^0.27.4",
