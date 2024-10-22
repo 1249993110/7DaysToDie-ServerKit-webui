@@ -118,14 +118,14 @@ const toolbar = computed(() => {
             const columns = {};
             proTableRef.value.columns.forEach((i) => {
                 if (i.prop) {
-                    columns[i.prop] = t(toolbar.exportLocaleKeyPrefix + '.' + i.prop) ?? i.prop;
+                    columns[i.prop] = t(item.exportLocaleKeyPrefix + '.' + i.prop) ?? i.prop;
                 }
             });
 
             let data = await proTableRef.value.requestGet({ ...proTableRef.value.requestGetParams, pageSize: -1 });
             data = Array.isArray(data.items) ? data.items : data;
 
-            exportCsv(data, toolbar.exportFileName, columns);
+            exportCsv(data, item.exportFileName, columns);
         };
     }
 

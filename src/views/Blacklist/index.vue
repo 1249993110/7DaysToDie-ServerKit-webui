@@ -65,11 +65,11 @@ const columns = [
 ];
 
 const toolbar = {
-    exportFileName: t('menus.blacklist'),
-    exportLocaleKeyPrefix: 'views.blacklist.tableHeader',
     batchOperationItems: [
         {
             type: 'export',
+            exportFileName: t('menus.blacklist'),
+            exportLocaleKeyPrefix: 'views.blacklist.tableHeader',
         },
     ],
 };
