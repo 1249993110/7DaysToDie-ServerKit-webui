@@ -29,6 +29,7 @@
             "enable": "Etkinleştir",
             "disable": "Devre Dışı Bırak",
             "search": "Ara",
+            "submit": "Submit",
             "reset": "Sıfırla",
             "back": "Geri",
             "close": "Kapat",
@@ -271,7 +272,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "Numara",
-                "operate": "İşlem"
+                "operate": "İşlem",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
