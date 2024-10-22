@@ -79,17 +79,11 @@ const searchFormFields = [
         type: 'input',
         name: 'playerId',
         label: t('views.blacklist.tableHeader.playerId'),
-        props: {
-            placeholder: t('global.message.inputText'),
-        },
     },
     {
         type: 'input',
         name: 'displayName',
         label: t('views.blacklist.tableHeader.displayName'),
-        props: {
-            placeholder: t('global.message.inputText'),
-        },
     },
 ];
 
@@ -99,17 +93,11 @@ const addEditFormFields = [
         name: 'playerId',
         label: t('views.blacklist.tableHeader.playerId'),
         required: true,
-        props: {
-            placeholder: t('global.message.inputText'),
-        },
     },
     {
         type: 'input',
         name: 'displayName',
         label: t('views.blacklist.tableHeader.displayName'),
-        props: {
-            placeholder: t('global.message.inputText'),
-        },
     },
     {
         type: 'date-picker',
