@@ -29,6 +29,7 @@
             "enable": "啟用",
             "disable": "停用",
             "search": "搜尋",
+            "submit": "Submit",
             "reset": "重置",
             "back": "返回",
             "close": "關閉",
@@ -271,7 +272,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "序號",
-                "operate": "操作"
+                "operate": "操作",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
