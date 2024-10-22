@@ -285,6 +285,7 @@ const tableSize = useVModel(props, 'size', emit);
 
 defineExpose({
     loading: loading,
+    rowKey: props.rowKey,
     columns: columns,
     columnTypes: columnTypes,
     tableData: tableData,
