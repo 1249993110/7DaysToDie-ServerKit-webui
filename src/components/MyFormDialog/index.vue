@@ -9,6 +9,7 @@
             @cancel="handleCancel"
             @submit="handleConfirm"
             :btn-group="btnGroup"
+            :col-span="24"
         />
     </el-dialog>
 </template>
