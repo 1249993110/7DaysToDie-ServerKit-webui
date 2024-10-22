@@ -68,8 +68,8 @@ const toolbar = {
     batchOperationItems: [
         {
             type: 'export',
-            exportFileName: t('menus.blacklist'),
-            exportLocaleKeyPrefix: 'views.blacklist.tableHeader',
+            fileName: t('menus.blacklist'),
+            localeKeyPrefix: 'views.blacklist.tableHeader',
         },
     ],
 };
