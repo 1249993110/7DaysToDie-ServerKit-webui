@@ -1,5 +1,5 @@
 <template>
-    <div class="my-table">
+    <div class="pro-table">
         <el-card class="search-card" shadow="always" v-loading="loading" v-if="showSearcher">
             <el-form ref="searchFormRef" :model="searchFormModel" label-position="right" :inline="true">
                 <slot name="searchFormItems"></slot>
@@ -307,7 +307,7 @@ const handleSortChange = async ({ prop, order }) => {
 </script>
 
 <style scoped lang="scss">
-.my-table {
+.pro-table {
     height: calc(100vh - 160px);
     display: flex;
     flex-direction: column;
