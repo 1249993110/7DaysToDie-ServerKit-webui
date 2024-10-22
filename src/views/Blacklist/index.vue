@@ -1,38 +1,19 @@
 <template>
     <div>
         <RouterButton :names="['blacklist']"></RouterButton>
-        <MyTableEx
-            @on-export="handleExport"
-            :search-form-model="searchFormModel"
-            :get-data="getData"
-            :table-data="tableData"
-            :total="total"
-            :add-or-edit-component="AddBlacklist"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            style="margin-top: 20px"
-        >
-            <template #searchFormItems>
-                <el-form-item :label="t('views.blacklist.tableHeader.playerId')" prop="playerId">
-                    <el-input v-model="searchFormModel.playerId" style="width: 340px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
-                </el-form-item>
-                <el-form-item :label="t('views.blacklist.tableHeader.displayName')" prop="displayName">
-                    <el-input v-model="searchFormModel.displayName" :placeholder="t('global.message.inputText')" clearable></el-input>
-                </el-form-item>
-            </template>
-            <template #columns>
-                <el-table-column prop="playerId" :label="t('views.blacklist.tableHeader.playerId')" width="320" sortable />
-                <el-table-column prop="displayName" :label="t('views.blacklist.tableHeader.displayName')" width="150" sortable />
-                <el-table-column
-                    prop="bannedUntil"
-                    :label="t('views.blacklist.tableHeader.bannedUntil')"
-                    width="170"
-                    sortable
-                    :formatter="(row) => row.bannedUntil.substr(0, 16)"
-                />
-                <el-table-column prop="reason" :label="t('views.blacklist.tableHeader.reason')" min-width="170" />
-            </template>
-        </MyTableEx>
+        <MyTable
+            :search="search"
+            :columns="columns"
+            :request-get="requestGet"
+            row-key="playerId"
+            :model-name="t('menus.blacklist')"
+            :toolbar="toolbar"
+            :form-fields="formFields"
+            :request-add="requestAdd"
+            :request-edit="requestEdit"
+            :request-delete="requestDetele"
+            :request-batch-delete="requestBatchDelete"
+        ></MyTable>
     </div>
 </template>
 
@@ -44,56 +25,182 @@ export default {
 
 <script setup>
 import * as api from '~/api/blacklist';
-import AddBlacklist from './Add.vue';
+import { Search, Refresh } from '@element-plus/icons-vue';
 
 const { t } = useI18n();
 
-const searchFormModel = reactive({
-    playerId: '',
-    displayName: '',
-});
+const search = {
+    fields: [
+        {
+            type: 'input',
+            name: 'playerId',
+            label: t('views.blacklist.tableHeader.playerId'),
+            props: {
+                placeholder: t('global.message.inputText'),
+            },
+        },
+        {
+            type: 'input',
+            name: 'displayName',
+            label: t('views.blacklist.tableHeader.displayName'),
+            props: {
+                placeholder: t('global.message.inputText'),
+            },
+        },
+    ],
+    btnGroup: {
+        inline: true,
+        position: 'left',
+        submit: {
+            label: t('global.button.search'),
+            icon: Search,
+        },
+        reset: {
+            icon: Refresh,
+        },
+    },
+    colSpan: {
+        xs: 24,
+        sm: 12,
+        md: 12,
+        lg: 8,
+        xl: 6,
+    },
+};
 
-const tableData = ref([]);
-const total = ref(0);
+const columns = [
+    {
+        type: 'selection',
+    },
+    {
+        type: 'index',
+    },
+    {
+        prop: 'playerId',
+        label: t('views.blacklist.tableHeader.playerId'),
+        width: 320,
+        sortable: 'custom',
+    },
+    {
+        prop: 'displayName',
+        label: t('views.blacklist.tableHeader.displayName'),
+        width: 150,
+        sortable: 'custom',
+        tag: true,
+    },
+    {
+        prop: 'bannedUntil',
+        label: t('views.blacklist.tableHeader.bannedUntil'),
+        width: 160,
+        sortable: 'custom',
+        formatter: (row) => row.bannedUntil.substr(0, 16),
+    },
+    {
+        prop: 'reason',
+        label: t('views.blacklist.tableHeader.reason'),
+    },
+    {
+        type: 'operation',
+    },
+];
 
-const getData = async ({ pageNumber, pageSize }) => {
+const requestGet = async (params) => {
     let data = await api.getBlacklist();
-    data.reverse();
-    const filter = (propName) => {
-        if (searchFormModel[propName]) {
-            const regex = new RegExp(searchFormModel[propName], 'i');
-            data = data.filter((i) => regex.test(i[propName]));
-        }
-    };
 
-    filter('playerId');
-    filter('displayName');
+    data = data.filter((i) => new RegExp(params.playerId, 'i').test(i.playerId));
+    data = data.filter((i) => new RegExp(params.displayName, 'i').test(i.displayName));
 
-    tableData.value = data.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
-    total.value = data.length;
-};
+    if (params.sortOrder) {
+        const desc = params.sortOrder === 'descending';
+        const sortPorp = params.sortPorp;
+        data = data.sort((a, b) => {
+            if (desc) {
+                return a[sortPorp] < b[sortPorp] ? 1 : -1;
+            }
 
-const deleteRequest = async (row) => {
-    return await api.deleteBlacklist([row.playerId]);
-};
-
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteBlacklist(rows.map((i) => i.playerId));
-};
-
-const handleExport = (command) => {
-    switch (command) {
-        case 'csv':
-            exportCsv(tableData.value, t('menus.blacklist'), {
-                playerId: t('views.blacklist.tableHeader.playerId'),
-                displayName: t('views.blacklist.tableHeader.displayName'),
-                bannedUntil: t('views.blacklist.tableHeader.bannedUntil'),
-                reason: t('views.blacklist.tableHeader.reason'),
-            });
-            break;
-        case 'json':
-            exportJson(tableData.value, t('menus.blacklist'));
-            break;
+            return a[sortPorp] > b[sortPorp] ? 1 : -1;
+        });
+    } else {
+        data.reverse();
     }
+
+    if (params.pageSize < 0) {
+        return {
+            items: data,
+            total: data.length,
+        };
+    }
+    return {
+        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: data.length,
+    };
+};
+
+const toolbar = {
+    exportFileName: t('menus.blacklist'),
+    exportLocaleKeyPrefix: 'views.blacklist.tableHeader',
+    batchOperationItems: [
+        {
+            type: 'export',
+        },
+    ],
+};
+
+const formFields = [
+    {
+        type: 'input',
+        name: 'playerId',
+        label: t('views.blacklist.tableHeader.playerId'),
+        required: true,
+        props: {
+            placeholder: t('global.message.inputText'),
+        },
+    },
+    {
+        type: 'input',
+        name: 'displayName',
+        label: t('views.blacklist.tableHeader.displayName'),
+        props: {
+            placeholder: t('global.message.inputText'),
+        },
+    },
+    {
+        type: 'date-picker',
+        name: 'bannedUntil',
+        label: t('views.blacklist.tableHeader.bannedUntil'),
+        required: true,
+        props: {
+            type: 'datetime',
+            placeholder: t('global.message.datePickerPlaceholder'),
+            format: 'YYYY-MM-DD HH:mm',
+            valueFormat: 'YYYY-MM-DD HH:mm:00',
+        },
+    },
+    {
+        type: 'input',
+        name: 'reason',
+        label: t('views.blacklist.tableHeader.reason'),
+        props: {
+            type: 'textarea',
+            rows: 5,
+        },
+    },
+];
+
+const requestAdd = async (formModel) => {
+    await api.addBlacklist([formModel]);
+};
+
+const requestEdit = async (formModel) => {
+    await api.deleteBlacklist([formModel.playerId]);
+    await api.addBlacklist([formModel]);
+};
+
+const requestDetele = async (id, row) => {
+    await api.deleteBlacklist([id]);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteBlacklist(selectedIds);
 };
 </script>
