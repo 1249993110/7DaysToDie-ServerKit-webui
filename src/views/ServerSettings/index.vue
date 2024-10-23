@@ -1,7 +1,7 @@
 <template>
     <div class="server-settings">
         <RouterButton :names="['serverSettings']">
-            <template #route-button>
+            <template #routeButton>
                 <ServerToolBar />
             </template>
         </RouterButton>
