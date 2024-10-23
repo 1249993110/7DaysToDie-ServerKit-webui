@@ -19,6 +19,7 @@
                     />
                     <el-date-picker v-else-if="item.type === 'date-picker'" v-model="model[item.name]" clearable v-bind="item.props" />
                     <el-switch v-else-if="item.type === 'switch'" v-model="model[item.name]" :active-text="t('global.on')" :inactive-text="t('global.off')" v-bind="item.props" />
+                    <component v-else-if="customComponents && customComponents[item.type]" :is="customComponents[item.type]" v-model="model[item.name]" v-bind="item.props" />
                 </el-form-item>
             </el-col>
             <el-col v-if="btnGroup && btnGroup.inline" v-bind="colSpan">
@@ -41,6 +42,9 @@
 import BtnGroup from './BtnGroup.vue';
 
 const props = defineProps({
+    customComponents: {
+        type: Object,
+    },
     rules: {
         type: Object,
     },
