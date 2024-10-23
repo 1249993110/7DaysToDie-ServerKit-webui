@@ -237,36 +237,47 @@ const handleBatchOperationCommand = (command) => {
     emit('batchOperationCommand', command, selectedIds.value, selectedRows.value);
 };
 
-const columns = reactive([...props.columns]);
-columns.forEach((item) => {
-    if (item.type === 'selection') {
-        item.fixed ??= 'left';
-        item.width ??= 50;
-        item.label ??= '\u2610';
-        item.reserveSelection ??= true;
-        item.align ??= 'center';
-        item.showOverflowTooltip ??= false;
-    } else if (item.type === 'index') {
-        item.fixed ??= 'left';
-        item.width ??= 70;
-        item.label ??= t('components.myTableEx.tableHeader.index');
-        item.align ??= 'center';
-        item.showOverflowTooltip ??= false;
-    } else if (item.type === 'expand') {
-        // item.fixed ??= 'left';
-        item.align ??= 'center';
-        item.showOverflowTooltip ??= false;
-    } else if (item.type === 'operation') {
-        item.fixed ??= 'right';
-        item.minWidth ??= 120;
-        // item.width ??= 180;
-        item.label ??= t('components.myTableEx.tableHeader.operate');
-        item.align ??= 'center';
-        item.showOverflowTooltip ??= false;
-    }
+const columns = reactive([]);
+watch(
+    () => props.columns,
+    (val) => {
+        columns.length = 0;
+        columns.push(...val);
+        
+        columns.forEach((item) => {
+            if (item.type === 'selection') {
+                item.fixed ??= 'left';
+                item.width ??= 50;
+                item.label ??= '\u2610';
+                item.reserveSelection ??= true;
+                item.align ??= 'center';
+                item.showOverflowTooltip ??= false;
+            } else if (item.type === 'index') {
+                item.fixed ??= 'left';
+                item.width ??= 70;
+                item.label ??= t('components.myTableEx.tableHeader.index');
+                item.align ??= 'center';
+                item.showOverflowTooltip ??= false;
+            } else if (item.type === 'expand') {
+                // item.fixed ??= 'left';
+                item.align ??= 'center';
+                item.showOverflowTooltip ??= false;
+            } else if (item.type === 'operation') {
+                item.fixed ??= 'right';
+                item.minWidth ??= 120;
+                // item.width ??= 180;
+                item.label ??= t('components.myTableEx.tableHeader.operate');
+                item.align ??= 'center';
+                item.showOverflowTooltip ??= false;
+            }
 
-    item.visible ??= true;
-});
+            item.visible ??= true;
+        });
+    },
+    {
+        immediate: true,
+    }
+);
 
 const colSettingRef = ref(null);
 const handleOpenColSetting = () => {
@@ -285,7 +296,6 @@ const tableSize = useVModel(props, 'size', emit);
 
 defineExpose({
     loading: loading,
-    rowKey: props.rowKey,
     columns: columns,
     columnTypes: columnTypes,
     tableData: tableData,
