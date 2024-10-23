@@ -3,23 +3,23 @@
         <el-row :gutter="rowGutter">
             <el-col v-for="item in fields" :key="item.name" v-bind="getColSpan(item.span)">
                 <el-form-item v-bind="item" :prop="item.name" v-if="item.type !== 'divided'">
-                    <component v-if="item.render" :is="item.render" v-model="model[item.name]" v-bind="item.props" />
+                    <component v-if="item.render" :is="item.render" v-model="getProp(model, item.name).value" v-bind="item.props" />
                     <slot v-else-if="item.slot && $slots[item.slot]" :name="item.slot" />
                     <el-input
                         v-else-if="item.type === 'input'"
-                        v-model="model[item.name]"
+                        v-model="getProp(model, item.name).value"
                         clearable
                         :placeholder="t('global.message.inputText')"
                         v-bind="item.props"
                         @blur="
                             if (item.trim ?? true) {
-                                model[item.name] = model[item.name].trim();
+                                getProp(model, item.name).value = getProp(model, item.name).value.trim();
                             }
                         "
                     />
-                    <el-date-picker v-else-if="item.type === 'date-picker'" v-model="model[item.name]" clearable v-bind="item.props" />
-                    <el-switch v-else-if="item.type === 'switch'" v-model="model[item.name]" :active-text="t('global.on')" :inactive-text="t('global.off')" v-bind="item.props" />
-                    <component v-else-if="customComponents && customComponents[item.type]" :is="customComponents[item.type]" v-model="model[item.name]" v-bind="item.props" />
+                    <el-date-picker v-else-if="item.type === 'date-picker'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
+                    <el-switch v-else-if="item.type === 'switch'" v-model="getProp(model, item.name).value" :active-text="t('global.on')" :inactive-text="t('global.off')" v-bind="item.props" />
+                    <component v-else-if="customComponents && customComponents[item.type]" :is="customComponents[item.type]" v-model="getProp(model, item.name).value" v-bind="item.props" />
                 </el-form-item>
             </el-col>
             <el-col v-if="btnGroup && btnGroup.inline" v-bind="colSpan">
@@ -39,6 +39,7 @@
 </template>
 
 <script setup>
+import { getProp } from 'element-plus/es/utils/index';
 import BtnGroup from './BtnGroup.vue';
 
 const props = defineProps({
