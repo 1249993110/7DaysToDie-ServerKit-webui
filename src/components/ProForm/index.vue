@@ -146,6 +146,13 @@ defineExpose({
     .el-form-item {
         :deep(.el-form-item__label) {
             white-space: pre-wrap;
+
+            &::before {
+                width: 6px;
+
+                content: '';
+                margin-right: 4px;
+            }
         }
     }
 }
