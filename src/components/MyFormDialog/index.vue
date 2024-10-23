@@ -10,12 +10,15 @@
             @submit="handleConfirm"
             :btn-group="btnGroup"
             :col-span="24"
-        />
+        >
+            <template #[slot] v-for="slot in Object.keys($slots)">
+                <slot :name="slot" />
+            </template>
+        </ProForm>
     </el-dialog>
 </template>
 
 <script setup>
-
 const props = defineProps({
     formModel: {
         type: Object,
