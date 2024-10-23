@@ -8,6 +8,8 @@
         },
         "true": "是",
         "false": "否",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "未知",
         "loading": "載入中...",
         "empty": "空",
