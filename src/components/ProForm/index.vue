@@ -12,12 +12,14 @@
                         :placeholder="t('global.message.inputText')"
                         v-bind="item.props"
                         @blur="
-                            if (item.trim ?? true) {
-                                getProp(model, item.name).value = getProp(model, item.name).value.trim();
+                            if (item.props?.trim ?? true) {
+                                const computedValue = getProp(model, item.name);
+                                computedValue.value = computedValue.value.trim();
                             }
                         "
                     />
                     <el-date-picker v-else-if="item.type === 'date-picker'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
+                    <el-time-select v-else-if="item.type === 'time-select'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
                     <el-switch v-else-if="item.type === 'switch'" v-model="getProp(model, item.name).value" :active-text="t('global.on')" :inactive-text="t('global.off')" v-bind="item.props" />
                     <component v-else-if="customComponents && customComponents[item.type]" :is="customComponents[item.type]" v-model="getProp(model, item.name).value" v-bind="item.props" />
                 </el-form-item>
