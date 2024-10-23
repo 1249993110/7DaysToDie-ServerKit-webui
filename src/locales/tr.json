@@ -8,6 +8,8 @@
         },
         "true": "Evet",
         "false": "Hayır",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Bilinmeyen",
         "loading": "Yükleniyor...",
         "empty": "Boş",
