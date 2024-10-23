@@ -8,6 +8,8 @@
         },
         "true": "Sí",
         "false": "No",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Desconocido",
         "loading": "Cargando...",
         "empty": "Vacío",
