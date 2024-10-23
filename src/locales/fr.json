@@ -8,6 +8,8 @@
         },
         "true": "Oui",
         "false": "Non",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Inconnu",
         "loading": "Chargement...",
         "empty": "Vide",
