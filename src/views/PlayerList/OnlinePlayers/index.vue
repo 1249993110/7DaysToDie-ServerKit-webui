@@ -1,7 +1,7 @@
 <template>
     <div class="online-players">
         <RouterButton :names="['playerList.onlinePlayers', 'playerList.historyPlayers']">
-            <template #route-button>
+            <template #routeButton>
                 <div class="route-button">
                     <span style="font-size: 14px; margin-right: 4px">{{ t('views.playerList.autoRefresh') }}</span>
                     <el-switch v-model="autoRefrensh" />
