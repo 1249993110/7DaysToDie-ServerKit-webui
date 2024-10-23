@@ -25,6 +25,10 @@
 import { Search, Refresh } from '@element-plus/icons-vue';
 
 const props = defineProps({
+    rowKey: {
+        type: String,
+        default: 'id',
+    },
     searchFormFields: {
         type: Array,
     },
@@ -94,14 +98,20 @@ const addOrEditRequest = async () => {
     isAdd.value ? await props.requestAdd(addOrEditFormModel) : await props.requestEdit(addOrEditFormModel);
 };
 
-const addEditFormFields = reactive([...props.addEditFormFields]);
-watch(isAdd, (val) => {
-    if (props.disableIdOnEdit) {
-        const field = addEditFormFields.find((item) => item.name === proTableRef.value.rowKey);
-        if (field) {
-            field.props.disabled = !val;
-        }
+const addEditFormFields = computed(()=>{
+    const result = props.addEditFormFields;
+    if (!props.disableIdOnEdit) {
+        return result;
     }
+
+    const field = result.find((item) => item.name === props.rowKey);
+    if (!field) {
+        return result;
+    }
+
+    field.props = field.props ?? {};
+    field.props.disabled = !isAdd.value;
+    return result;
 });
 
 const handleAdd = () => {
