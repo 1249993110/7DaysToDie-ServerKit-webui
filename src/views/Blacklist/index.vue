@@ -28,7 +28,7 @@ import * as api from '~/api/blacklist';
 
 const { t } = useI18n();
 
-const columns = [
+const columns = computed(() => [
     {
         type: 'selection',
     },
@@ -62,9 +62,9 @@ const columns = [
     {
         type: 'operation',
     },
-];
+]);
 
-const toolbar = {
+const toolbar = computed(() => ({
     batchOperationItems: [
         {
             type: 'export',
@@ -72,9 +72,9 @@ const toolbar = {
             localeKeyPrefix: 'views.blacklist.tableHeader',
         },
     ],
-};
+}));
 
-const searchFormFields = [
+const searchFormFields = computed(() => [
     {
         type: 'input',
         name: 'playerId',
@@ -85,9 +85,9 @@ const searchFormFields = [
         name: 'displayName',
         label: t('views.blacklist.tableHeader.displayName'),
     },
-];
+]);
 
-const addEditFormFields = [
+const addEditFormFields = computed(() => [
     {
         type: 'input',
         name: 'playerId',
@@ -120,7 +120,7 @@ const addEditFormFields = [
             rows: 5,
         },
     },
-];
+]);
 
 const requestGet = async (params) => {
     let data = await api.getBlacklist();
