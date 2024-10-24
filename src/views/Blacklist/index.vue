@@ -69,7 +69,6 @@ const toolbar = computed(() => ({
         {
             type: 'export',
             fileName: t('menus.blacklist'),
-            localeKeyPrefix: 'views.blacklist.tableHeader',
         },
     ],
 }));
