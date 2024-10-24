@@ -203,4 +203,8 @@ const handleBatchDelete = async (selectedIds, selectedRows) => {
         proTableRef.value.loading = false;
     }
 };
+
+defineExpose({
+    getTableRef: () => proTableRef.value.tableRef,
+});
 </script>
