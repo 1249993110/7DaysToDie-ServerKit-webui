@@ -1,6 +1,6 @@
 <template>
     <div>
-        <RouterButton :names="['blacklist']"></RouterButton>
+        <RouterButton :names="['blacklist']" />
         <MyTable
             row-key="playerId"
             :columns="columns"
@@ -13,7 +13,7 @@
             :request-edit="requestEdit"
             :request-delete="requestDetele"
             :request-batch-delete="requestBatchDelete"
-        ></MyTable>
+        />
     </div>
 </template>
 
