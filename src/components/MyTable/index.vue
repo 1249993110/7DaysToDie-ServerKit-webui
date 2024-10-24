@@ -1,6 +1,7 @@
 <template>
     <ProTable
         ref="proTableRef"
+        :row-key="rowKey"
         :search="search"
         :toolbar="toolbar"
         v-model:size="globalStore.tableSize"
