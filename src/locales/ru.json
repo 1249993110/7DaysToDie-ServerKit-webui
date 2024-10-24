@@ -21,7 +21,7 @@
         "lessThan": "Меньше",
         "moreThan": "Больше",
         "equal": "Равно",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "Добавить",
             "delete": "Удалить",
@@ -541,6 +541,7 @@
             "autoBackupOnServerStartup": "Авто Резервное копирование при запуске сервера",
             "archiveFolder": "Папка архива",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Версия сервера",
                 "gameWorld": "Игровой мир",
                 "gameName": "Название игры",
