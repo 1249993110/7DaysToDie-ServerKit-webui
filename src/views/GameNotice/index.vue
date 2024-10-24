@@ -1,7 +1,7 @@
 <template>
     <div>
         <RouterButton :names="['gameNotice']" />
-        <MySettingsFormCard settings-name="GameNotice" :fields="fields" locale-key-prefix="views.gameNotice" :label-width="250" />
+        <MySettingsFormCard settings-name="GameNotice" :fields="fields" locale-key-prefix="views.gameNotice" />
     </div>
 </template>
 
