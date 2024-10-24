@@ -8,6 +8,8 @@
         },
         "true": "Sim",
         "false": "Não",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Desconhecido",
         "loading": "Carregando...",
         "empty": "Vazio",
@@ -19,7 +21,7 @@
         "lessThan": "Menos que",
         "moreThan": "Mais que",
         "equal": "Igual",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "Adicionar",
             "delete": "Excluir",
@@ -29,6 +31,7 @@
             "enable": "Habilitar",
             "disable": "Desabilitar",
             "search": "Pesquisar",
+            "submit": "Submit",
             "reset": "Redefinir",
             "back": "Voltar",
             "close": "Fechar",
@@ -271,7 +274,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "Índice",
-                "operate": "Operar"
+                "operate": "Operar",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -530,6 +541,7 @@
             "autoBackupOnServerStartup": "Backup automático na inicialização do servidor",
             "archiveFolder": "Pasta de arquivo",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Versão do servidor",
                 "gameWorld": "Mundo do jogo",
                 "gameName": "Nome do jogo",

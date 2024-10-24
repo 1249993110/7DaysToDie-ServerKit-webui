@@ -8,6 +8,8 @@
         },
         "true": "Да",
         "false": "Нет",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Неизвестно",
         "loading": "Загрузка...",
         "empty": "Пусто",
@@ -19,7 +21,7 @@
         "lessThan": "Меньше",
         "moreThan": "Больше",
         "equal": "Равно",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "Добавить",
             "delete": "Удалить",
@@ -29,6 +31,7 @@
             "enable": "Включить",
             "disable": "Отключить",
             "search": "Поиск",
+            "submit": "Submit",
             "reset": "Сброс",
             "back": "Назад",
             "close": "Закрыть",
@@ -271,7 +274,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "Индекс",
-                "operate": "Управление"
+                "operate": "Управление",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -530,6 +541,7 @@
             "autoBackupOnServerStartup": "Авто Резервное копирование при запуске сервера",
             "archiveFolder": "Папка архива",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Версия сервера",
                 "gameWorld": "Игровой мир",
                 "gameName": "Название игры",

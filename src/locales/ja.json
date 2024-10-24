@@ -8,6 +8,8 @@
         },
         "true": "はい",
         "false": "いいえ",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "不明",
         "loading": "読み込み中...",
         "empty": "空",
@@ -19,7 +21,7 @@
         "lessThan": "未満",
         "moreThan": "以上",
         "equal": "等しい",
-        "keyworld": "キーワード",
+        "keyword": "Keyword",
         "button": {
             "add": "追加",
             "delete": "削除",
@@ -29,6 +31,7 @@
             "enable": "有効化",
             "disable": "無効化",
             "search": "検索",
+            "submit": "Submit",
             "reset": "リセット",
             "back": "戻る",
             "close": "閉じる",
@@ -271,7 +274,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "番号",
-                "operate": "操作"
+                "operate": "操作",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -530,6 +541,7 @@
             "autoBackupOnServerStartup": "サーバー起動時に自動バックアップを実行するかどうか",
             "archiveFolder": "バックアップフォルダー",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "サーバーバージョン",
                 "gameWorld": "ゲームワールド",
                 "gameName": "ゲーム名",

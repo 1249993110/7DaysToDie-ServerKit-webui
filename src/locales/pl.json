@@ -8,6 +8,8 @@
         },
         "true": "Tak",
         "false": "Nie",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Nieznane",
         "loading": "Ładowanie...",
         "empty": "Puste",
@@ -19,7 +21,7 @@
         "lessThan": "Mniej niż",
         "moreThan": "Więcej niż",
         "equal": "Równe",
-        "keyworld": "Słowo kluczowe",
+        "keyword": "Keyword",
         "button": {
             "add": "Dodaj",
             "delete": "Usuń",
@@ -29,6 +31,7 @@
             "enable": "Włącz",
             "disable": "Wyłącz",
             "search": "Szukaj",
+            "submit": "Submit",
             "reset": "Resetuj",
             "back": "Wstecz",
             "close": "Zamknij",
@@ -271,7 +274,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "Numer",
-                "operate": "Operacja"
+                "operate": "Operacja",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -530,6 +541,7 @@
             "autoBackupOnServerStartup": "Czy wykonać automatyczną kopię zapasową po uruchomieniu serwera",
             "archiveFolder": "Folder kopii zapasowej",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Wersja serwera",
                 "gameWorld": "Świat gry",
                 "gameName": "Nazwa gry",

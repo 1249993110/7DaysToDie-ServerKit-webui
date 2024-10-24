@@ -8,6 +8,8 @@
         },
         "true": "Evet",
         "false": "Hayır",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Bilinmeyen",
         "loading": "Yükleniyor...",
         "empty": "Boş",
@@ -19,7 +21,7 @@
         "lessThan": "Daha az",
         "moreThan": "Daha fazla",
         "equal": "Eşit",
-        "keyworld": "Anahtar kelime",
+        "keyword": "Keyword",
         "button": {
             "add": "Ekle",
             "delete": "Sil",
@@ -29,6 +31,7 @@
             "enable": "Etkinleştir",
             "disable": "Devre Dışı Bırak",
             "search": "Ara",
+            "submit": "Submit",
             "reset": "Sıfırla",
             "back": "Geri",
             "close": "Kapat",
@@ -271,7 +274,15 @@
         "myTableEx": {
             "tableHeader": {
                 "index": "Numara",
-                "operate": "İşlem"
+                "operate": "İşlem",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -530,6 +541,7 @@
             "autoBackupOnServerStartup": "Sunucu başlatıldığında otomatik yedekleme yap",
             "archiveFolder": "Yedekleme Klasörü",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Sunucu Sürümü",
                 "gameWorld": "Oyun Dünyası",
                 "gameName": "Oyun Adı",
