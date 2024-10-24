@@ -77,13 +77,8 @@ const toolbar = computed(() => ({
 const searchFormFields = computed(() => [
     {
         type: 'input',
-        name: 'playerId',
-        label: t('views.blacklist.tableHeader.playerId'),
-    },
-    {
-        type: 'input',
-        name: 'displayName',
-        label: t('views.blacklist.tableHeader.displayName'),
+        name: 'keyword',
+        label: t('global.keyword'),
     },
 ]);
 
@@ -125,8 +120,7 @@ const addEditFormFields = computed(() => [
 const requestGet = async (params) => {
     let data = await api.getBlacklist();
 
-    data = data.filter((i) => new RegExp(params.playerId, 'i').test(i.playerId));
-    data = data.filter((i) => new RegExp(params.displayName, 'i').test(i.displayName));
+    data = searchByKeyword(data, params.keyword, ['playerId', 'displayName']);
 
     if (params.sortOrder) {
         const desc = params.sortOrder === 'descending';
