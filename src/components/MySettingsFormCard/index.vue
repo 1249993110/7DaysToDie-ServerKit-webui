@@ -6,7 +6,7 @@
                 label-position="left"
                 :fields="fields"
                 :col-span="24"
-                :label-width="250"
+                :label-width="labelWidth"
                 :model="formModel"
                 :btn-group="btnGroup"
                 :request="save"
@@ -27,6 +27,7 @@
 import * as api from '~/api/settings.js';
 import MyTextarea from '~/components/MyTextarea/index.vue';
 import Coordinate from '~/components/Coordinate/index.vue';
+import Variables from './Variables.vue';
 
 const props = defineProps({
     fields: {
@@ -40,12 +41,16 @@ const props = defineProps({
     localeKeyPrefix: {
         type: String,
         required: true,
-    }
+    },
+    labelWidth: {
+        type: [String, Number],
+        default: 250,
+    },
 });
 
 const { t } = useI18n();
 
-const fields = computed(()=>{
+const fields = computed(() => {
     props.fields.forEach((item) => {
         if (item.name) {
             item.label = t(`${props.localeKeyPrefix}.${item.name}`);
@@ -57,6 +62,7 @@ const fields = computed(()=>{
 const customComponents = {
     'my-textarea': MyTextarea,
     coordinate: Coordinate,
+    variables: Variables,
 };
 
 const formModel = reactive({});
