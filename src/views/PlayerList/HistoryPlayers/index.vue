@@ -18,7 +18,7 @@
                     </template>
                 </el-dropdown>
                 <el-form class="search-form" ref="searchFormRef" :model="searchFormModel" label-position="right" :inline="true">
-                    <el-form-item :label="t('global.keyworld')" prop="keyword">
+                    <el-form-item :label="t('global.keyword')" prop="keyword">
                         <el-input
                             v-model="searchFormModel.keyword"
                             style="width: 400px"

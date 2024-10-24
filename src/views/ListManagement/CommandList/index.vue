@@ -16,7 +16,7 @@
             :add-or-edit-component="AddOrEditCommandList"
         >
             <template #searchFormItems>
-                <el-form-item :label="t('global.keyworld')" prop="keyword">
+                <el-form-item :label="t('global.keyword')" prop="keyword">
                     <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
                 </el-form-item>
             </template>
