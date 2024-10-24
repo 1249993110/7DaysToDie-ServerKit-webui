@@ -21,7 +21,7 @@
         "lessThan": "미달",
         "moreThan": "초 초과",
         "equal": "같음",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "추가",
             "delete": "삭제",
@@ -541,6 +541,7 @@
             "autoBackupOnServerStartup": "서버 시작 시 자동 백업",
             "archiveFolder": "보관 폴더",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "서버 버전",
                 "gameWorld": "게임 세계",
                 "gameName": "게임 이름",
