@@ -19,14 +19,14 @@ function getLanguageCode(lang) {
 
 const preferredLocale = () => {
     let lang = localStorage.getItem('lang');
-    if(lang){
+    if (lang) {
         return lang;
     }
 
     lang = navigator.language.toLowerCase();
     console.log('Navigator lang:', lang);
 
-    if(lang === 'zh-tw' || lang === 'zh-hk'){
+    if (lang === 'zh-tw' || lang === 'zh-hk') {
         return 'tw';
     }
 
@@ -39,6 +39,21 @@ export const i18n = createI18n({
     legacy: false,
     messages,
     globalInjection: false, // In <template> can use $t
+    // missing: (locale, key, vm) => {        
+    //     const { t, te, tm, rt } = i18n.global;
+    
+    //     const localeMessages = tm(key);
+    //     if (Object.keys(localeMessages).length === 0) {
+    //         console.warn(`Missing translation for ${key}`);
+    //         return '';
+    //     }
+
+    //     if(localeMessages['']){
+    //         return rt(localeMessages['']);
+    //     }
+
+    //     return '';
+    // },
 });
 
 export default (app) => {
