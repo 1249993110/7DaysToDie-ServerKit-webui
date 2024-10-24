@@ -8,8 +8,8 @@
         },
         "true": "是",
         "false": "否",
-        "on": "ON",
-        "off": "OFF",
+        "on": "开启",
+        "off": "关闭",
         "unknown": "未知",
         "loading": "加载中...",
         "empty": "空",
@@ -21,7 +21,7 @@
         "lessThan": "小于",
         "moreThan": "大于",
         "equal": "等于",
-        "keyword": "Keyword",
+        "keyword": "关键词",
         "button": {
             "add": "添加",
             "delete": "删除",
@@ -31,7 +31,7 @@
             "enable": "启用",
             "disable": "停用",
             "search": "搜索",
-            "submit": "Submit",
+            "submit": "提交",
             "reset": "重置",
             "back": "返回",
             "close": "关闭",
@@ -275,14 +275,14 @@
             "tableHeader": {
                 "index": "序号",
                 "operate": "操作",
-                "columnSetting": "Column Setting",
-                "columnName": "Column Name",
-                "display": "Display"
+                "columnSetting": "列设置",
+                "columnName": "列名称",
+                "display": "显示"
             },
             "radio": {
-                "small": "Small",
-                "medium": "Medium",
-                "large": "Large"
+                "small": "小",
+                "medium": "中",
+                "large": "大"
             }
         },
         "itemBlockSelector": {
@@ -541,7 +541,7 @@
             "autoBackupOnServerStartup": "是否在服务器启动时自动备份",
             "archiveFolder": "备份文件夹",
             "tableHeader": {
-                "name": "Name",
+                "name": "名称",
                 "serverVersion": "服务端版本",
                 "gameWorld": "游戏世界",
                 "gameName": "游戏名称",
