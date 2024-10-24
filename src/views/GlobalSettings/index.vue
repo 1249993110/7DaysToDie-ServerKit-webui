@@ -5,7 +5,7 @@
             <template #autoRestartTime="{ formModel }">
                 <el-time-select
                     :model-value="getAutoRestartTime(formModel)"
-                    @update:model-value="setAutoRestartTime($event, formModel)"
+                    @update:model-value="(val) => setAutoRestartTime(val, formModel)"
                     clearable
                     style="width: 120px"
                     start="00:00"
