@@ -7,7 +7,7 @@
             <el-button v-if="batchDeleteBtnVisible" type="danger" :icon="Delete" @click="emit('batchDeleteClick')" :disabled="!isSelected">
                 <template #default v-if="btnLabelVisible">{{ t('global.button.batchDelete') }}</template>
             </el-button>
-            <el-dropdown v-if="batchOperationItems?.length" @command="emit('batchOperationCommand')">
+            <el-dropdown v-if="batchOperationItems?.length" @command="emit('batchOperationCommand', $event)">
                 <el-button type="success">
                     {{ t('global.button.batchOperation') }}<el-icon class="el-icon--right"><ArrowDown /></el-icon>
                 </el-button>
