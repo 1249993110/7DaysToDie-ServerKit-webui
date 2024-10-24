@@ -21,7 +21,7 @@
         "lessThan": "小于",
         "moreThan": "大于",
         "equal": "等于",
-        "keyworld": "关键词",
+        "keyword": "Keyword",
         "button": {
             "add": "添加",
             "delete": "删除",
@@ -541,6 +541,7 @@
             "autoBackupOnServerStartup": "是否在服务器启动时自动备份",
             "archiveFolder": "备份文件夹",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "服务端版本",
                 "gameWorld": "游戏世界",
                 "gameName": "游戏名称",
