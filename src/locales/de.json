@@ -21,7 +21,7 @@
         "lessThan": "Weniger als",
         "moreThan": "Mehr als",
         "equal": "Gleich",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "Hinzufügen",
             "delete": "Löschen",
@@ -541,6 +541,7 @@
             "autoBackupOnServerStartup": "Automatische Sicherung beim Serverstart",
             "archiveFolder": "Archivordner",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Serverversion",
                 "gameWorld": "Spielwelt",
                 "gameName": "Spielname",
