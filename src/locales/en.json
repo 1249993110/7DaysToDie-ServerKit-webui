@@ -541,7 +541,7 @@
             "autoBackupOnServerStartup": "Auto Backup On Server Startup",
             "archiveFolder": "Archive Folder",
             "tableHeader": {
-                "fullName": "Full Name",
+                "name": "Name",
                 "serverVersion": "Server Version",
                 "gameWorld": "Game World",
                 "gameName": "Game Name",
