@@ -21,7 +21,7 @@
         "lessThan": "未満",
         "moreThan": "以上",
         "equal": "等しい",
-        "keyworld": "キーワード",
+        "keyword": "Keyword",
         "button": {
             "add": "追加",
             "delete": "削除",
@@ -541,6 +541,7 @@
             "autoBackupOnServerStartup": "サーバー起動時に自動バックアップを実行するかどうか",
             "archiveFolder": "バックアップフォルダー",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "サーバーバージョン",
                 "gameWorld": "ゲームワールド",
                 "gameName": "ゲーム名",
