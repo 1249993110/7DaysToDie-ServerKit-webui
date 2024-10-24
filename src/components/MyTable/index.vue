@@ -11,7 +11,11 @@
         @edit-click="handleEdit"
         @deleteClick="handleDelete"
         @batchDeleteClick="handleBatchDelete"
-    />
+    >
+        <template #[slot]="scope" v-for="slot in Object.keys($slots)">
+            <slot :name="slot" v-bind="scope" />
+        </template>
+    </ProTable>
     <MyFormDialog
         ref="addEditRef"
         :title="addEditDialogTitle"
