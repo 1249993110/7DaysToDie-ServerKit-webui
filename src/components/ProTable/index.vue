@@ -236,7 +236,7 @@ watch(
     (val) => {
         columns.length = 0;
         columns.push(...val);
-        
+
         columns.forEach((item) => {
             if (item.type === 'selection') {
                 item.fixed ??= 'left';
@@ -294,6 +294,7 @@ defineExpose({
     columns: columns,
     columnTypes: columnTypes,
     tableData: tableData,
+    tableRef: tableRef,
     requestGet: props.requestGet,
     requestGetParams: requestGetParams,
     getTableData: getTableData,
