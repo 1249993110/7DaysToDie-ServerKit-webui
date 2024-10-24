@@ -51,6 +51,19 @@ export default {
 import { getSettings, putSettings } from '~/api/server';
 import { Edit } from '@element-plus/icons-vue';
 
+if (!Object.groupBy) {
+    Object.groupBy = function (array, callback) {
+        return array.reduce((acc, item) => {
+            const key = callback(item);
+            if (!acc[key]) {
+                acc[key] = [];
+            }
+            acc[key].push(item);
+            return acc;
+        }, {});
+    };
+}
+
 const tableData = ref([]);
 const localeStore = useLocaleStore();
 const getData = async () => {
@@ -90,8 +103,7 @@ const handleEdit = async ({ row }) => {
         dict[row.name] = value;
         await putSettings(dict);
         await getData();
-    } catch {
-    }
+    } catch {}
 };
 </script>
 
