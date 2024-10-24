@@ -37,9 +37,22 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    localeKeyPrefix: {
+        type: String,
+        required: true,
+    }
 });
 
 const { t } = useI18n();
+
+const fields = computed(()=>{
+    props.fields.forEach((item) => {
+        if (item.name) {
+            item.label = t(`${props.localeKeyPrefix}.${item.name}`);
+        }
+    });
+    return props.fields;
+});
 
 const customComponents = {
     'my-textarea': MyTextarea,
