@@ -75,9 +75,9 @@ const columns = computed(() => [
     {
         prop: 'playerName',
         label: t('views.playerList.tableHeader.playerName'),
-        tag: true,
         sortable: 'custom',
         minWidth: 145,
+        fixed: true,
     },
     {
         prop: 'isOnline',
