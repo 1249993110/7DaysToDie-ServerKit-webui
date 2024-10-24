@@ -1,8 +1,20 @@
 <template>
-    <div>
-        <el-input-number v-model="x"></el-input-number>
-        <el-input-number v-model="y" style="margin-left: 8px"></el-input-number>
-        <el-input-number v-model="z" style="margin-left: 8px"></el-input-number>
+    <div class="coordinate">
+        <el-input-number v-model="x" :controls="false">
+            <template #prefix>
+                <span>X</span>
+            </template>
+        </el-input-number>
+        <el-input-number v-model="y" :controls="false">
+            <template #prefix>
+                <span>Y</span>
+            </template>
+        </el-input-number>
+        <el-input-number v-model="z" :controls="false">
+            <template #prefix>
+                <span>Z</span>
+            </template>
+        </el-input-number>
     </div>
 </template>
 
@@ -44,3 +56,11 @@ watch(
     }
 );
 </script>
+
+<style scoped lang="scss">
+.coordinate {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+</style>
