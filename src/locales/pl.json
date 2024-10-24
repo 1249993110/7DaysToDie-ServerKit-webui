@@ -21,7 +21,7 @@
         "lessThan": "Mniej niż",
         "moreThan": "Więcej niż",
         "equal": "Równe",
-        "keyworld": "Słowo kluczowe",
+        "keyword": "Keyword",
         "button": {
             "add": "Dodaj",
             "delete": "Usuń",
@@ -541,6 +541,7 @@
             "autoBackupOnServerStartup": "Czy wykonać automatyczną kopię zapasową po uruchomieniu serwera",
             "archiveFolder": "Folder kopii zapasowej",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Wersja serwera",
                 "gameWorld": "Świat gry",
                 "gameName": "Nazwa gry",
