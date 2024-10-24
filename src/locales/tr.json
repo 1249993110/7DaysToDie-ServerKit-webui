@@ -21,7 +21,7 @@
         "lessThan": "Daha az",
         "moreThan": "Daha fazla",
         "equal": "Eşit",
-        "keyworld": "Anahtar kelime",
+        "keyword": "Keyword",
         "button": {
             "add": "Ekle",
             "delete": "Sil",
@@ -541,6 +541,7 @@
             "autoBackupOnServerStartup": "Sunucu başlatıldığında otomatik yedekleme yap",
             "archiveFolder": "Yedekleme Klasörü",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Sunucu Sürümü",
                 "gameWorld": "Oyun Dünyası",
                 "gameName": "Oyun Adı",
