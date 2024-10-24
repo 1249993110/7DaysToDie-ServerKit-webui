@@ -81,7 +81,6 @@ const toolbar = computed(() => ({
         {
             type: 'export',
             fileName: rt(tm('menus.autobackup')['']),
-            localeKeyPrefix: 'views.autoBackup.tableHeader',
         },
     ],
 }));
