@@ -49,13 +49,13 @@
                                 <component v-if="item.render" :is="item.render" v-bind="scope" />
                                 <slot v-else :name="item.type" v-bind="scope" />
                             </template>
-                            <template v-if="operation && item.type === 'operation'">
+                            <template v-if="item.type === 'operation'">
                                 <component v-if="item.render" :is="item.render" v-bind="scope" />
                                 <slot v-else :name="item.type" v-bind="scope">
-                                    <el-button v-if="operation.editBtnVisible ?? true" size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">
+                                    <el-button v-if="item.editBtnVisible" size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">
                                         <template #default v-if="btnLabelVisible">{{ t('global.button.edit') }}</template>
                                     </el-button>
-                                    <el-button v-if="operation.deleteBtnVisible ?? true" size="small" type="danger" :icon="Delete" @click="handleDelete(scope)">
+                                    <el-button v-if="item.deleteBtnVisible" size="small" type="danger" :icon="Delete" @click="handleDelete(scope)">
                                         <template #default v-if="btnLabelVisible">{{ t('global.button.delete') }}</template>
                                     </el-button>
                                 </slot>
@@ -141,13 +141,6 @@ const props = defineProps({
     toolbar: {
         type: [Boolean, Object],
         default: true,
-    },
-    operation: {
-        type: [Boolean, Object],
-        default: {
-            editBtnVisible: true,
-            deleteBtnVisible: true,
-        },
     },
     pagination: {
         type: [Boolean, Object],
@@ -269,6 +262,8 @@ watch(
                 item.label ??= t('components.myTableEx.tableHeader.operate');
                 item.align ??= 'center';
                 item.showOverflowTooltip ??= false;
+                item.editBtnVisible ??= true;
+                item.deleteBtnVisible ??= true;
             }
 
             item.visible ??= true;
