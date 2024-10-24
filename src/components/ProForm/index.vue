@@ -21,8 +21,19 @@
                     <el-date-picker v-else-if="item.type === 'date-picker'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
                     <el-time-select v-else-if="item.type === 'time-select'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
                     <el-input-number v-else-if="item.type === 'input-number'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
-                    <el-switch v-else-if="item.type === 'switch'" v-model="getProp(model, item.name).value" :active-text="t('global.on')" :inactive-text="t('global.off')" v-bind="item.props" />
-                    <component v-else-if="customComponents && customComponents[item.type]" :is="customComponents[item.type]" v-model="getProp(model, item.name).value" v-bind="item.props" />
+                    <el-switch
+                        v-else-if="item.type === 'switch'"
+                        v-model="getProp(model, item.name).value"
+                        :active-text="t('global.on')"
+                        :inactive-text="t('global.off')"
+                        v-bind="item.props"
+                    />
+                    <component
+                        v-else-if="customComponents && customComponents[item.type]"
+                        :is="customComponents[item.type]"
+                        v-model="getProp(model, item.name).value"
+                        v-bind="item.props"
+                    />
                 </el-form-item>
             </el-col>
             <el-col v-if="btnGroup && btnGroup.inline" v-bind="colSpan">
@@ -89,7 +100,12 @@ const rules = computed(() => {
     for (let i = 0, len = props.fields.length; i < len; i++) {
         const field = props.fields[i];
         if (field.name && field.required) {
-            result[field.name] = [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }];
+            const baseRule = [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }];
+            if (props.rules && Array.isArray(props.rules[field.name])) {
+                result[field.name] = [...baseRule, ...props.rules[field.name]];
+            } else {
+                result[field.name] = baseRule;
+            }
         }
     }
 
