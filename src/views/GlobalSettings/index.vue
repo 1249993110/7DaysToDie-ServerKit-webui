@@ -1,7 +1,7 @@
 <template>
     <div>
         <RouterButton :names="['globalSettings']" />
-        <MySettingsFormCard settings-name="GlobalSettings" :fields="fields">
+        <MySettingsFormCard settings-name="GlobalSettings" :fields="fields" locale-key-prefix="views.globalSettings">
             <template #autoRestartTime="{ formModel }">
                 <el-time-select
                     :model-value="getAutoRestartTime(formModel)"
@@ -24,132 +24,121 @@ export default {
 </script>
 
 <script setup>
-const { t } = useI18n();
+const fields = [
+    {
+        type: 'input',
+        name: 'globalServerName',
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'whisperServerName',
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'chatCommandPrefix',
+    },
+    {
+        type: 'input',
+        name: 'chatCommandSeparator',
+        props: {
+            trim: false,
+        },
+    },
+    {
+        type: 'input',
+        name: 'handleChatMessageError',
+        required: true,
+        props: {
+            type: 'textarea',
+            rows: 2,
+        },
+    },
+    {
+        type: 'switch',
+        name: 'teleZombieCheck',
+    },
 
-const fields = computed(() => {
-    const result = [
-        {
-            type: 'input',
-            name: 'globalServerName',
-            required: true,
+    {
+        type: 'input',
+        name: 'teleDisableTip',
+        required: true,
+        props: {
+            type: 'textarea',
+            rows: 2,
         },
-        {
-            type: 'input',
-            name: 'whisperServerName',
-            required: true,
+    },
+    {
+        type: 'switch',
+        name: 'killZombieTrigger.isEnabled',
+    },
+    {
+        type: 'my-textarea',
+        name: 'killZombieTrigger.executeCommands',
+        props: {
+            rows: 2,
         },
-        {
-            type: 'input',
-            name: 'chatCommandPrefix',
+    },
+    {
+        type: 'switch',
+        name: 'deathTrigger.isEnabled',
+    },
+    {
+        type: 'my-textarea',
+        name: 'deathTrigger.executeCommands',
+        props: {
+            rows: 2,
         },
-        {
-            type: 'input',
-            name: 'chatCommandSeparator',
-            props: {
-                trim: false,
-            },
+    },
+    {
+        type: 'switch',
+        name: 'autoRestart.isEnabled',
+    },
+    {
+        name: 'autoRestart.time',
+        slot: 'autoRestartTime',
+    },
+    {
+        type: 'my-textarea',
+        name: 'autoRestart.messages',
+        props: {
+            rows: 5,
         },
-        {
-            type: 'input',
-            name: 'handleChatMessageError',
-            required: true,
-            props: {
-                type: 'textarea',
-                rows: 2,
-            },
+    },
+    {
+        type: 'switch',
+        name: 'blockFamilySharingAccount',
+    },
+    {
+        type: 'switch',
+        name: 'removeSleepingBagFromPOI',
+    },
+    {
+        type: 'switch',
+        name: 'isEnablePlayerInitialSpawnPoint',
+    },
+    {
+        type: 'coordinate',
+        name: 'playerInitialPosition',
+    },
+    {
+        type: 'switch',
+        name: 'enableAutoZombieCleanup',
+    },
+    {
+        type: 'input-number',
+        name: 'autoZombieCleanupThreshold',
+        required: true,
+        props: {
+            min: 1,
         },
-        {
-            type: 'switch',
-            name: 'teleZombieCheck',
-        },
-
-        {
-            type: 'input',
-            name: 'teleDisableTip',
-            required: true,
-            props: {
-                type: 'textarea',
-                rows: 2,
-            },
-        },
-        {
-            type: 'switch',
-            name: 'killZombieTrigger.isEnabled',
-        },
-        {
-            type: 'my-textarea',
-            name: 'killZombieTrigger.executeCommands',
-            props: {
-                rows: 2,
-            },
-        },
-        {
-            type: 'switch',
-            name: 'deathTrigger.isEnabled',
-        },
-        {
-            type: 'my-textarea',
-            name: 'deathTrigger.executeCommands',
-            props: {
-                rows: 2,
-            },
-        },
-        {
-            type: 'switch',
-            name: 'autoRestart.isEnabled',
-        },
-        {
-            name: 'autoRestart.time',
-            slot: 'autoRestartTime',
-        },
-        {
-            type: 'my-textarea',
-            name: 'autoRestart.messages',
-            props: {
-                rows: 5,
-            },
-        },
-        {
-            type: 'switch',
-            name: 'blockFamilySharingAccount',
-        },
-        {
-            type: 'switch',
-            name: 'removeSleepingBagFromPOI',
-        },
-        {
-            type: 'switch',
-            name: 'isEnablePlayerInitialSpawnPoint',
-        },
-        {
-            type: 'coordinate',
-            name: 'playerInitialPosition',
-        },
-        {
-            type: 'switch',
-            name: 'enableAutoZombieCleanup',
-        },
-        {
-            type: 'input-number',
-            name: 'autoZombieCleanupThreshold',
-            required: true,
-            props: {
-                min: 1,
-            },
-        },
-        {
-            type: 'switch',
-            name: 'enableXmlsSecondaryOverwrite',
-        },
-    ];
-
-    result.forEach((item) => {
-        if (item.name) {
-            item.label = t(`views.globalSettings.${item.name}`);
-        }
-    });
-    return result;
-});
+    },
+    {
+        type: 'switch',
+        name: 'enableXmlsSecondaryOverwrite',
+    },
+];
 
 const getAutoRestartTime = (formModel) => {
     if (!formModel.autoRestart) {
@@ -163,5 +152,4 @@ const setAutoRestartTime = (val, formModel) => {
     formModel.autoRestart.restartHour = parseInt(split[0]);
     formModel.autoRestart.restartMinute = parseInt(split[1]);
 };
-
 </script>
