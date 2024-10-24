@@ -99,7 +99,7 @@ const addOrEditRequest = async () => {
     isAdd.value ? await props.requestAdd(addOrEditFormModel) : await props.requestEdit(addOrEditFormModel);
 };
 
-const addEditFormFields = computed(()=>{
+const addEditFormFields = computed(() => {
     const result = props.addEditFormFields;
     if (!props.disableIdOnEdit) {
         return result;
@@ -127,16 +127,35 @@ const toolbar = computed(() => {
         item.label ??= `${t('global.button.export')} csv`;
         item.onClick ??= async () => {
             const columns = {};
-            proTableRef.value.columns.forEach((i) => {
-                if (i.prop) {
-                    columns[i.prop] = t(item.localeKeyPrefix + '.' + i.prop) ?? i.prop;
-                }
-            });
+            const formatters = {};
 
             let data = await proTableRef.value.requestGet({ ...proTableRef.value.requestGetParams, pageSize: -1 });
             data = Array.isArray(data.items) ? data.items : data;
 
-            exportCsv(data, item.fileName, columns);
+            proTableRef.value.columns.forEach((col) => {
+                if (col.prop) {
+                    columns[col.prop] = col.label;
+                    if (col.formatter) {
+                        formatters[col.prop] = col.formatter;
+                    }
+                }
+            });
+
+            const array = [];
+            for (let i = 0; i < data.length; i++) {
+                const obj = {};
+                for (const key in columns) {
+                    const formatter = formatters[key];
+                    if (formatter) {
+                        obj[key] = formatter(data[i]);
+                    } else {
+                        obj[key] = data[i][key];
+                    }
+                }
+                array.push(obj);
+            }
+
+            exportCsv(array, item.fileName, columns);
         };
     }
 
