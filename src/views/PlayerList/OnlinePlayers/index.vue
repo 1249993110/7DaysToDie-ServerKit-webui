@@ -12,7 +12,7 @@
             row-key="playerId"
             :columns="columns"
             :toolbar="toolbar"
-            :search-form-fields="searchFormFields"
+            :search="search"
             :request-get="requestGet"
             :default-sort="{ prop: 'lastLogin', order: 'descending' }"
             @batch-operation-command="handleBatchOperationCommand"
@@ -256,13 +256,16 @@ const toolbar = computed(() => ({
     ],
 }));
 
-const searchFormFields = computed(() => [
-    {
-        type: 'input',
-        name: 'keyword',
-        label: t('global.keyword'),
-    },
-]);
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+        },
+    ],
+    visible: false,
+}));
 
 const getIpApiLangParam = () => {
     switch (locale.value) {
@@ -293,7 +296,7 @@ const requestGet = async (params) => {
         pageSize: -1,
     });
     data = data.items;
-    data = searchByKeyword(data, params.keyword, ['entityId', 'playerId', 'platformId', 'displayName']);
+    data = searchByKeyword(data, params.keyword, ['entityId', 'playerId', 'platformId', 'playerName']);
 
     if (params.sortOrder) {
         const desc = params.sortOrder === 'descending';
@@ -534,7 +537,7 @@ const onContextmenu = (row, column, event) => {
     });
 };
 
-const { pause, resume, isActive } = useIntervalFn(() => myTableRef.value.refresh(), 10000, { immediate: false, immediateCallback: true });
+const { pause, resume, isActive } = useIntervalFn(() => myTableRef.value.refresh(), 10000, { immediate: true, immediateCallback: false });
 
 onActivated(resume);
 onDeactivated(pause);
