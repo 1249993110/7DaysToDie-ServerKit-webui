@@ -6,9 +6,7 @@
             :columns="columns"
             :toolbar="toolbar"
             :search="search"
-            :request-get="requestGet"
-            :request-delete="requestDetele"
-            :request-batch-delete="requestBatchDelete"
+            :request="request"
             :default-sort="{ prop: 'createdAt', order: 'descending' }"
         />
     </div>
@@ -133,4 +131,12 @@ const requestDetele = async (id) => {
 const requestBatchDelete = async (selectedIds) => {
     await api.deletetBackupFiles(selectedIds);
 };
+
+const request = {
+    get: requestGet,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
+};
+
+console.log(request);
 </script>
