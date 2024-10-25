@@ -27,8 +27,9 @@ const props = defineProps({
         type: String,
         default: 'id',
     },
-    searchFormFields: {
-        type: Array,
+    search: {
+        type: [Boolean, Object],
+        default: true,
     },
     toolbar: {
         type: Object,
@@ -66,27 +67,29 @@ const proTableRef = ref(null);
 const addEditRef = ref(null);
 
 const search = computed(() => {
-    return {
-        fields: props.searchFormFields,
-        btnGroup: {
-            inline: true,
-            position: 'left',
-            submit: {
-                label: t('global.button.search'),
-                icon: Search,
+    return Object.assign(
+        {
+            btnGroup: {
+                inline: true,
+                position: 'left',
+                submit: {
+                    label: t('global.button.search'),
+                    icon: Search,
+                },
+                reset: {
+                    icon: Refresh,
+                },
             },
-            reset: {
-                icon: Refresh,
+            colSpan: {
+                xs: 24,
+                sm: 12,
+                md: 12,
+                lg: 8,
+                xl: 6,
             },
         },
-        colSpan: {
-            xs: 24,
-            sm: 12,
-            md: 12,
-            lg: 8,
-            xl: 6,
-        },
-    };
+        props.search
+    );
 });
 
 const isAdd = ref(false);
@@ -203,6 +206,6 @@ const refresh = async () => {
 
 defineExpose({
     getTableRef: () => proTableRef.value.tableRef,
-    refresh
+    refresh,
 });
 </script>
