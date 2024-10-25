@@ -273,8 +273,8 @@
         },
         "proTable": {
             "tableHeader": {
-                "index": "Index",
-                "operate": "Operate",
+                "index": "序號",
+                "operate": "操作",
                 "columnSetting": "Column Setting",
                 "columnName": "Column Name",
                 "display": "Display"
