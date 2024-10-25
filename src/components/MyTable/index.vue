@@ -6,6 +6,7 @@
         :toolbar="toolbar"
         v-model:size="globalStore.tableSize"
         :btn-label-visible="!globalStore.isSmallScreen"
+        :request="request.get"
         v-bind="$attrs"
         @add-click="handleAdd"
         @edit-click="handleEdit"
@@ -42,17 +43,16 @@ const props = defineProps({
         type: Array,
         default: () => [],
     },
-    requestAdd: {
-        type: Function,
-    },
-    requestEdit: {
-        type: Function,
-    },
-    requestDelete: {
-        type: Function,
-    },
-    requestBatchDelete: {
-        type: Function,
+    request: {
+        type: Object,
+        required: true,
+        default: {
+            get: null,
+            add: null,
+            edit: null,
+            delete: null,
+            batchDelete: null,
+        }
     },
     disableIdOnEdit: {
         type: Boolean,
@@ -96,7 +96,7 @@ const isAdd = ref(false);
 const addOrEditFormModel = reactive({});
 const addEditDialogTitle = computed(() => (isAdd.value ? t('global.button.add') : t('global.button.edit')) + ' ' + props.modelName);
 const addOrEditRequest = async () => {
-    isAdd.value ? await props.requestAdd(addOrEditFormModel) : await props.requestEdit(addOrEditFormModel);
+    isAdd.value ? await props.request.add(addOrEditFormModel) : await props.request.edit(addOrEditFormModel);
 };
 
 const addEditFormFields = computed(() => {
@@ -129,7 +129,7 @@ const toolbar = computed(() => {
             const columns = {};
             const formatters = {};
 
-            let data = await proTableRef.value.requestGet({ ...proTableRef.value.requestGetParams, pageSize: -1 });
+            let data = await props.request.get({ ...proTableRef.value.requestParams, pageSize: -1 });
             data = Array.isArray(data.items) ? data.items : data;
 
             proTableRef.value.columns.forEach((col) => {
@@ -172,7 +172,7 @@ const handleDelete = async (id, row) => {
     try {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
             proTableRef.value.loading = true;
-            await Promise.resolve(props.requestDelete(id, row));
+            await Promise.resolve(props.request.delete(id, row));
             await refresh();
             ElMessage.success(t('global.message.deleteSuccess'));
         }
@@ -188,7 +188,7 @@ const handleBatchDelete = async (selectedIds, selectedRows) => {
     try {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
             proTableRef.value.loading = true;
-            await Promise.resolve(props.requestBatchDelete(selectedIds, selectedRows));
+            await Promise.resolve(props.request.batchDelete(selectedIds, selectedRows));
             await refresh();
             ElMessage.success(t('global.message.deleteSuccess'));
         }
