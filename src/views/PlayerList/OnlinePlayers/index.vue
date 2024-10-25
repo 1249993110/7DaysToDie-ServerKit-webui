@@ -292,10 +292,7 @@ const getIpApiLangParam = () => {
 };
 
 const requestGet = async (params) => {
-    let data = await api.getHistoryPlayers({
-        pageSize: -1,
-    });
-    data = data.items;
+    let data = await api.getOnlinePlayers();
     data = searchByKeyword(data, params.keyword, ['entityId', 'playerId', 'platformId', 'playerName']);
 
     if (params.sortOrder) {
