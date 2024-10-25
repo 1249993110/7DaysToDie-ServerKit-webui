@@ -8,11 +8,7 @@
             :toolbar="toolbar"
             :search="search"
             :add-edit-form-fields="addEditFormFields"
-            :request-get="requestGet"
-            :request-add="requestAdd"
-            :request-edit="requestEdit"
-            :request-delete="requestDetele"
-            :request-batch-delete="requestBatchDelete"
+            :request="request"
         />
     </div>
 </template>
@@ -163,5 +159,13 @@ const requestDetele = async (id) => {
 
 const requestBatchDelete = async (selectedIds) => {
     await api.deleteBlacklist(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>
