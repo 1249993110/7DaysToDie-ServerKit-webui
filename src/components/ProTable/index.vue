@@ -131,7 +131,7 @@ const props = defineProps({
         type: String,
         default: 'defalut',
     },
-    requestGet: {
+    request: {
         type: Function,
     },
     search: {
@@ -181,7 +181,7 @@ const paginationModel = reactive({
     pageSize: props.pagination.defaultSize ?? 20,
     total: 0,
 });
-const requestGetParams = computed(() => ({
+const requestParams = computed(() => ({
     ...paginationModel,
     ...searchModel,
     ...sortModel,
@@ -190,7 +190,7 @@ const requestGetParams = computed(() => ({
 const getTableData = async () => {
     loading.value = true;
     try {
-        const data = await Promise.resolve(props.requestGet(requestGetParams.value));
+        const data = await Promise.resolve(props.request(requestParams.value));
         tableData.value = Array.isArray(data.items) ? data.items : data;
         paginationModel.total = data.total ?? 0;
         emit('dataLoaded', tableData.value);
@@ -304,8 +304,8 @@ defineExpose({
     columnTypes: columnTypes,
     tableData: tableData,
     tableRef: tableRef,
-    requestGet: props.requestGet,
-    requestGetParams: requestGetParams,
+    request: props.request,
+    requestParams: requestParams,
     refresh: getTableData,
 });
 
