@@ -161,7 +161,7 @@ const { t } = useI18n();
 const loading = ref(false);
 
 const searchRef = ref(null);
-const searchVisible = ref(true);
+const searchVisible = ref(props.search?.visible ?? true);
 
 const tableRef = ref(null);
 const tableData = ref([]);
