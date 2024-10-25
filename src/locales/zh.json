@@ -273,16 +273,16 @@
         },
         "proTable": {
             "tableHeader": {
-                "index": "Index",
-                "operate": "Operate",
-                "columnSetting": "Column Setting",
-                "columnName": "Column Name",
-                "display": "Display"
+                "index": "序号",
+                "operate": "操作",
+                "columnSetting": "列设置",
+                "columnName": "列名称",
+                "display": "显示"
             },
             "radio": {
-                "small": "Small",
-                "medium": "Medium",
-                "large": "Large"
+                "small": "小",
+                "medium": "中",
+                "large": "大"
             }
         },
         "itemBlockSelector": {
