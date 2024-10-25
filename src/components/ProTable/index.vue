@@ -152,6 +152,10 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    autoAdjustColumnWidth: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const emit = defineEmits(['addClick', 'batchDeleteClick', 'batchOperationCommand', 'editClick', 'deleteClick', 'update:size', 'update:pagination', 'dataLoaded']);
@@ -312,8 +316,12 @@ const tableSizeMap = {
 };
 
 watch(tableSize, (newVal, oldVal) => {
+    if (!props.autoAdjustColumnWidth) {
+        return;
+    }
+
     let delta = tableSizeMap[newVal] - tableSizeMap[oldVal];
-    if(delta == 0){
+    if (delta == 0) {
         return;
     }
 
