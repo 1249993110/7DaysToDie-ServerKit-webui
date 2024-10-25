@@ -211,6 +211,7 @@ const toolbar = computed(() => ({
         {
             type: 'export',
             fileName: t('menus.playerList.historyPlayers'),
+            divided: true,
         },
     ],
 }));
