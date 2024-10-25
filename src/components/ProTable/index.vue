@@ -129,7 +129,7 @@ const props = defineProps({
     },
     size: {
         type: String,
-        default: '',
+        default: 'defalut',
     },
     requestGet: {
         type: Function,
@@ -303,6 +303,31 @@ defineExpose({
     requestGet: props.requestGet,
     requestGetParams: requestGetParams,
     refresh: getTableData,
+});
+
+const tableSizeMap = {
+    small: 0,
+    default: 1,
+    large: 2,
+};
+
+watch(tableSize, (newVal, oldVal) => {
+    let delta = tableSizeMap[newVal] - tableSizeMap[oldVal];
+    if(delta == 0){
+        return;
+    }
+
+    delta = delta * 12;
+
+    for (let i = 0; i < columns.length; i++) {
+        const item = columns[i];
+        if (item.width) {
+            item.width += delta;
+        }
+        if (item.minWidth) {
+            item.minWidth += delta;
+        }
+    }
 });
 </script>
 
