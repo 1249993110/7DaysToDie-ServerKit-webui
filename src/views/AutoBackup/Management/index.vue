@@ -5,7 +5,7 @@
             row-key="name"
             :columns="columns"
             :toolbar="toolbar"
-            :search-form-fields="searchFormFields"
+            :search="search"
             :request-get="requestGet"
             :request-delete="requestDetele"
             :request-batch-delete="requestBatchDelete"
@@ -85,13 +85,15 @@ const toolbar = computed(() => ({
     ],
 }));
 
-const searchFormFields = computed(() => [
-    {
-        type: 'input',
-        name: 'keyword',
-        label: t('global.keyword'),
-    },
-]);
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+        },
+    ]
+}));
 
 const requestGet = async (params) => {
     let data = await api.getBackupFiles();
