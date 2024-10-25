@@ -297,7 +297,7 @@ defineExpose({
     tableRef: tableRef,
     requestGet: props.requestGet,
     requestGetParams: requestGetParams,
-    getTableData: getTableData,
+    refresh: getTableData,
 });
 </script>
 
