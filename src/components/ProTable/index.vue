@@ -86,9 +86,9 @@
             <slot name="footer">
                 <div class="footer">
                     <el-radio-group v-model="tableSize">
-                        <el-radio value="small" size="small">{{ t('components.myTableEx.radio.small') }}</el-radio>
-                        <el-radio value="default" size="default">{{ t('components.myTableEx.radio.medium') }}</el-radio>
-                        <el-radio value="large" size="large">{{ t('components.myTableEx.radio.large') }}</el-radio>
+                        <el-radio value="small" size="small">{{ t('components.proTable.radio.small') }}</el-radio>
+                        <el-radio value="default" size="default">{{ t('components.proTable.radio.medium') }}</el-radio>
+                        <el-radio value="large" size="large">{{ t('components.proTable.radio.large') }}</el-radio>
                     </el-radio-group>
                     <el-pagination
                         v-if="pagination"
@@ -257,7 +257,7 @@ watch(
             } else if (item.type === 'index') {
                 item.fixed ??= 'left';
                 item.width ??= 70;
-                item.label ??= t('components.myTableEx.tableHeader.index');
+                item.label ??= t('components.proTable.tableHeader.index');
                 item.align ??= 'center';
                 item.showOverflowTooltip ??= false;
             } else if (item.type === 'expand') {
@@ -268,7 +268,7 @@ watch(
                 item.fixed ??= 'right';
                 item.minWidth ??= 120;
                 // item.width ??= 180;
-                item.label ??= t('components.myTableEx.tableHeader.operate');
+                item.label ??= t('components.proTable.tableHeader.operate');
                 item.align ??= 'center';
                 item.showOverflowTooltip ??= false;
                 item.editBtnVisible ??= true;

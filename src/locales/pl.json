@@ -271,7 +271,7 @@
             "removeItem": "Usuń wybrany przedmiot",
             "removeItemConfirm": "Czy na pewno chcesz usunąć wszystkie {0} z torby i pasa gracza?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Numer",
                 "operate": "Operacja",

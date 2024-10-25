@@ -271,7 +271,7 @@
             "removeItem": "Remove Selected Item",
             "removeItemConfirm": "Are you sure you want to remove all {0} from the player's bag and belt?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Index",
                 "operate": "Operate",

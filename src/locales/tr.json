@@ -271,7 +271,7 @@
             "removeItem": "Seçilen Öğeyi Kaldır",
             "removeItemConfirm": "Oyuncunun çantasından ve kemerinden tüm {0} öğelerini kaldırmak istediğinizden emin misiniz?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Numara",
                 "operate": "İşlem",

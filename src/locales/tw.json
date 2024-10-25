@@ -271,7 +271,7 @@
             "removeItem": "移除選取物品",
             "removeItemConfirm": "您確定要從玩家的背包和腰帶中移除所有的 {0} 嗎?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "序號",
                 "operate": "操作",

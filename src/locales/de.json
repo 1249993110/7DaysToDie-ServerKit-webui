@@ -271,7 +271,7 @@
             "removeItem": "Ausgewählten Artikel entfernen",
             "removeItemConfirm": "Möchten Sie wirklich alle {0} aus der Tasche und dem Gürtel des Spielers entfernen?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Index",
                 "operate": "Operate",

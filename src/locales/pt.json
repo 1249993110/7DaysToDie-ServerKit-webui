@@ -271,7 +271,7 @@
             "removeItem": "Remover Item Selecionado",
             "removeItemConfirm": "Tem certeza de que deseja remover todos os {0} da bolsa e cinto do jogador?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Índice",
                 "operate": "Operar",

@@ -271,7 +271,7 @@
             "removeItem": "선택한 아이템 제거",
             "removeItemConfirm": "플레이어의 가방과 벨트에서 모든 {0}을 제거하시겠습니까?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "인덱스",
                 "operate": "운영",

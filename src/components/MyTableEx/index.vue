@@ -44,9 +44,9 @@
                     :size="tableSize"
                 >
                     <el-table-column v-if="showTableSelection" type="selection" width="50" align="center" />
-                    <el-table-column v-if="showTableIndex" type="index" :label="t('components.myTableEx.tableHeader.index')" width="64" />
+                    <el-table-column v-if="showTableIndex" type="index" :label="t('components.proTable.tableHeader.index')" width="64" />
                     <slot name="columns"></slot>
-                    <el-table-column v-if="showOperationColumn" :label="t('components.myTableEx.tableHeader.operate')" :width="operationColumnWidth" header-align="center" show-overflow-tooltip fixed="right">
+                    <el-table-column v-if="showOperationColumn" :label="t('components.proTable.tableHeader.operate')" :width="operationColumnWidth" header-align="center" show-overflow-tooltip fixed="right">
                         <template #default="{ row }">
                             <el-button v-if="showEditBtn" size="small" type="primary" :icon="Edit" @click="handleEdit(row)">{{ editLabel }}</el-button>
                             <el-button v-if="showDeleteBtn" size="small" type="danger" :icon="Delete" @click="handleDelete(row)">{{ deleteLabel }}</el-button>
