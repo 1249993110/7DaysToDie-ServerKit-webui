@@ -13,7 +13,7 @@
             :columns="columns"
             :toolbar="toolbar"
             :search="search"
-            :request-get="requestGet"
+            :request="{ get: requestGet }"
             :default-sort="{ prop: 'lastLogin', order: 'descending' }"
             @batch-operation-command="handleBatchOperationCommand"
             @row-contextmenu="onContextmenu"
