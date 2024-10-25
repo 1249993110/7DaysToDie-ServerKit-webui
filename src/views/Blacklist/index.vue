@@ -6,7 +6,7 @@
             :columns="columns"
             :model-name="t('menus.blacklist')"
             :toolbar="toolbar"
-            :search-form-fields="searchFormFields"
+            :search="search"
             :add-edit-form-fields="addEditFormFields"
             :request-get="requestGet"
             :request-add="requestAdd"
@@ -73,13 +73,15 @@ const toolbar = computed(() => ({
     ],
 }));
 
-const searchFormFields = computed(() => [
-    {
-        type: 'input',
-        name: 'keyword',
-        label: t('global.keyword'),
-    },
-]);
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+        },
+    ]
+}));
 
 const addEditFormFields = computed(() => [
     {
