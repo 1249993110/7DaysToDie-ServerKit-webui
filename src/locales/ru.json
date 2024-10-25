@@ -273,8 +273,8 @@
         },
         "proTable": {
             "tableHeader": {
-                "index": "Index",
-                "operate": "Operate",
+                "index": "Индекс",
+                "operate": "Управление",
                 "columnSetting": "Column Setting",
                 "columnName": "Column Name",
                 "display": "Display"
