@@ -118,7 +118,6 @@ const addEditFormFields = computed(() => [
 
 const requestGet = async (params) => {
     let data = await api.getBlacklist();
-
     data = searchByKeyword(data, params.keyword, ['playerId', 'displayName']);
 
     if (params.sortOrder) {
