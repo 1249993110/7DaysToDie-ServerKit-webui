@@ -96,8 +96,8 @@
                         :page-sizes="[5, 10, 20, 50, 100]"
                         layout="total, sizes, prev, pager, next, jumper"
                         :size="tableSize"
-                        @size-change="getTableData"
-                        @current-change="getTableData"
+                        @size-change="handlePaginationChange"
+                        @current-change="handlePaginationChange"
                         :total="paginationModel.total"
                         v-model:current-page="paginationModel.pageNumber"
                         v-model:page-size="paginationModel.pageSize"
@@ -154,7 +154,7 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['addClick', 'batchDeleteClick', 'batchOperationCommand', 'editClick', 'deleteClick', 'update:size', 'update:pagination']);
+const emit = defineEmits(['addClick', 'batchDeleteClick', 'batchOperationCommand', 'editClick', 'deleteClick', 'update:size', 'update:pagination', 'dataLoaded']);
 
 const { t } = useI18n();
 
@@ -189,12 +189,17 @@ const getTableData = async () => {
         const data = await Promise.resolve(props.requestGet(requestGetParams.value));
         tableData.value = Array.isArray(data.items) ? data.items : data;
         paginationModel.total = data.total ?? 0;
+        emit('dataLoaded', tableData.value);
     } finally {
         loading.value = false;
     }
 };
 
 getTableData();
+
+const handlePaginationChange = async () => {
+    await getTableData();
+};
 
 const defaultRenderCell = (item, scope) => {
     if (item.formatter) {
