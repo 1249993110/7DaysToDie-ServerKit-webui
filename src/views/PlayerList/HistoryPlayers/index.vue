@@ -6,7 +6,7 @@
             :columns="columns"
             :toolbar="toolbar"
             :search="search"
-            :request-get="requestGet"
+            :request="{ get: requestGet }"
             :default-sort="{ prop: 'lastLogin', order: 'descending' }"
             @batch-operation-command="handleBatchOperationCommand"
             @row-contextmenu="onContextmenu"
@@ -223,7 +223,7 @@ const search = computed(() => ({
             name: 'keyword',
             label: t('global.keyword'),
         },
-    ]
+    ],
 }));
 
 const requestGet = async (params) => {
@@ -310,7 +310,7 @@ const onContextmenu = (row, column, event) => {
         y: event.y,
         theme: 'mac dark',
         items: [
-        {
+            {
                 label: t('playerOperation.showInventory'),
                 onClick: () => {
                     showPlayerInventory(playerId, playerName);
@@ -389,5 +389,4 @@ const onContextmenu = (row, column, event) => {
         ],
     });
 };
-
 </script>
