@@ -274,7 +274,7 @@
         "proTable": {
             "tableHeader": {
                 "index": "Index",
-                "operate": "Operate",
+                "operate": "Fonctionner",
                 "columnSetting": "Column Setting",
                 "columnName": "Column Name",
                 "display": "Display"
