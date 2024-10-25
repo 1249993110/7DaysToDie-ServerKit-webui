@@ -16,14 +16,7 @@
             <slot :name="slot" v-bind="scope" />
         </template>
     </ProTable>
-    <MyFormDialog
-        ref="addEditRef"
-        :title="addEditDialogTitle"
-        :fields="addEditFormFields"
-        :form-model="addOrEditFormModel"
-        :request="addOrEditRequest"
-        @submit="proTableRef.getTableData()"
-    />
+    <MyFormDialog ref="addEditRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addOrEditFormModel" :request="addOrEditRequest" @submit="refresh" />
 </template>
 
 <script setup>
@@ -177,7 +170,7 @@ const handleDelete = async (id, row) => {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
             proTableRef.value.loading = true;
             await Promise.resolve(props.requestDelete(id, row));
-            await proTableRef.value.getTableData();
+            await refresh();
             ElMessage.success(t('global.message.deleteSuccess'));
         }
     } catch (error) {
@@ -193,7 +186,7 @@ const handleBatchDelete = async (selectedIds, selectedRows) => {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
             proTableRef.value.loading = true;
             await Promise.resolve(props.requestBatchDelete(selectedIds, selectedRows));
-            await proTableRef.value.getTableData();
+            await refresh();
             ElMessage.success(t('global.message.deleteSuccess'));
         }
     } catch (error) {
@@ -204,7 +197,12 @@ const handleBatchDelete = async (selectedIds, selectedRows) => {
     }
 };
 
+const refresh = async () => {
+    await proTableRef.value?.refresh();
+};
+
 defineExpose({
     getTableRef: () => proTableRef.value.tableRef,
+    refresh
 });
 </script>
