@@ -6,7 +6,7 @@ import Components from 'unplugin-vue-components/vite';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-import vueDevTools from 'vite-plugin-vue-devtools';
+// import vueDevTools from 'vite-plugin-vue-devtools';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 
 process.env.BROWSER = 'chrome';
@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
     return {
         plugins: [
             vue(),
-            vueDevTools(),
+            // vueDevTools(),
             AutoImport({
                 // targets to transform
                 include: [
