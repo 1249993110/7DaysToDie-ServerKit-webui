@@ -5,7 +5,7 @@
             row-key="playerId"
             :columns="columns"
             :toolbar="toolbar"
-            :search-form-fields="searchFormFields"
+            :search="search"
             :request-get="requestGet"
             :default-sort="{ prop: 'lastLogin', order: 'descending' }"
             @batch-operation-command="handleBatchOperationCommand"
@@ -216,13 +216,15 @@ const toolbar = computed(() => ({
     ],
 }));
 
-const searchFormFields = computed(() => [
-    {
-        type: 'input',
-        name: 'keyword',
-        label: t('global.keyword'),
-    },
-]);
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+        },
+    ]
+}));
 
 const requestGet = async (params) => {
     const data = await api.getHistoryPlayers({
