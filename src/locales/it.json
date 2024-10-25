@@ -273,8 +273,8 @@
         },
         "proTable": {
             "tableHeader": {
-                "index": "Indice",
-                "operate": "Opera",
+                "index": "Index",
+                "operate": "Operate",
                 "columnSetting": "Column Setting",
                 "columnName": "Column Name",
                 "display": "Display"
