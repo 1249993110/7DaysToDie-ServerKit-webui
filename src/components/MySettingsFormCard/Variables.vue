@@ -1,6 +1,6 @@
 <template>
     <div class="variables">
-        <el-tag v-for="item in values" :key="item" class="tag">{{ '{' + item + '}' }}</el-tag>
+        <el-tag v-for="item in values" :key="item">{{ '{' + item + '}' }}</el-tag>
     </div>
 </template>
 
@@ -17,9 +17,6 @@ const props = defineProps({
 .variables {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
-    .tag {
-        margin-right: 8px;
-    }
+    gap: 6px;
 }
 </style>
