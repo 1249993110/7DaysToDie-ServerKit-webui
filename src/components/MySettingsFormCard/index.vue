@@ -40,7 +40,6 @@ const props = defineProps({
     },
     localeKeyPrefix: {
         type: String,
-        required: true,
     },
     labelWidth: {
         type: [String, Number],
