@@ -75,8 +75,11 @@ const search = computed(() => ({
             type: 'input',
             name: 'keyword',
             label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            }
         },
-    ]
+    ],
 }));
 
 const addEditFormFields = computed(() => [
