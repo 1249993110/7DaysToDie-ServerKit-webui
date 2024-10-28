@@ -10,6 +10,7 @@
             @submit="handleConfirm"
             :btn-group="btnGroup"
             :col-span="24"
+            :custom-components="customComponents"
         >
             <template #[slot] v-for="slot in Object.keys($slots)">
                 <slot :name="slot" />
@@ -19,6 +20,8 @@
 </template>
 
 <script setup>
+import customComponents from '~/utils/customComponents';
+
 const props = defineProps({
     formModel: {
         type: Object,
