@@ -15,7 +15,9 @@
                             () => {
                                 if (item.props?.trim ?? true) {
                                     const computedValue = getProp(model, item.name);
-                                    computedValue.value = computedValue.value.trim();
+                                    if (computedValue.value) {
+                                        computedValue.value = computedValue.value.trim();
+                                    }
                                 }
                             }
                         "
