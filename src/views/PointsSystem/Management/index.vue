@@ -2,7 +2,7 @@
     <div>
         <RouterButton :names="['pointsSystem.settings', 'pointsSystem.management']" />
         <MyTable
-            :ref="myTableRef"
+            ref="myTableRef"
             row-key="id"
             :columns="columns"
             :model-name="t('views.pointsSystem.tableHeader.points')"
