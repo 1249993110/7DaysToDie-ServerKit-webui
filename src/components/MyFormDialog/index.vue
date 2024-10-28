@@ -81,7 +81,7 @@ const handleConfirm = async () => {
 };
 
 const handleClosed = () => {
-    formRef.value?.resetFields();
+    formRef.value.resetFields();
 };
 
 defineExpose({
