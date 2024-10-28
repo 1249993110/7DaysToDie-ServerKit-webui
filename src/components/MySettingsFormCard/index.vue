@@ -52,7 +52,7 @@ const { t } = useI18n();
 
 const fields = computed(() => {
     props.fields.forEach((item) => {
-        if (item.name) {
+        if (!item.label && item.name) {
             item.label = t(`${props.localeKeyPrefix}.${item.name}`);
         }
     });
