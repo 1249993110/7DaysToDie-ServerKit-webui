@@ -12,9 +12,11 @@
                         :placeholder="t('global.message.inputText')"
                         v-bind="item.props"
                         @blur="
-                            if (item.props?.trim ?? true) {
-                                const computedValue = getProp(model, item.name);
-                                computedValue.value = computedValue.value.trim();
+                            () => {
+                                if (item.props?.trim ?? true) {
+                                    const computedValue = getProp(model, item.name);
+                                    computedValue.value = computedValue.value.trim();
+                                }
                             }
                         "
                     />
