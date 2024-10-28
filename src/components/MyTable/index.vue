@@ -52,7 +52,7 @@ const props = defineProps({
             edit: null,
             delete: null,
             batchDelete: null,
-        }
+        },
     },
     disableIdOnEdit: {
         type: Boolean,
@@ -162,10 +162,11 @@ const toolbar = computed(() => {
     return toolbar;
 });
 
-const handleEdit = (row) => {
-    Object.assign(addOrEditFormModel, row);
+const handleEdit = async (row) => {
     isAdd.value = false;
     addEditRef.value.open(row);
+    await nextTick();
+    Object.assign(addOrEditFormModel, row);
 };
 
 const handleDelete = async (id, row) => {
