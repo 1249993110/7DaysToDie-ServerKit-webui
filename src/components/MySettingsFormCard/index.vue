@@ -74,6 +74,7 @@ const btnGroup = {
     },
     reset: {
         visable: true,
+        type: 'warning'
     },
 };
 
