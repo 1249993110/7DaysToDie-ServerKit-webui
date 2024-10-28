@@ -25,9 +25,7 @@
 
 <script setup>
 import * as api from '~/api/settings.js';
-import MyTextarea from '~/components/MyTextarea/index.vue';
-import Coordinate from '~/components/Coordinate/index.vue';
-import Variables from './Variables.vue';
+import customComponents from '~/utils/customComponents';
 
 const props = defineProps({
     fields: {
@@ -57,12 +55,6 @@ const fields = computed(() => {
     });
     return props.fields;
 });
-
-const customComponents = {
-    'my-textarea': MyTextarea,
-    coordinate: Coordinate,
-    variables: Variables,
-};
 
 const formModel = reactive({});
 
