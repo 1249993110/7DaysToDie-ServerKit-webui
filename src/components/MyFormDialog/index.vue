@@ -38,7 +38,7 @@ const props = defineProps({
     },
     labelPosition: {
         type: String,
-        default: 'right',
+        default: 'left',
     },
     successMessage: {
         type: String,
