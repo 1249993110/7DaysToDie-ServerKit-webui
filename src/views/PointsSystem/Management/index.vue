@@ -43,18 +43,20 @@ const columns = computed(() => [
     {
         prop: 'playerName',
         label: t('views.pointsSystem.tableHeader.playerName'),
-        width: 150,
+        minWidth: 150,
         // sortable: 'custom',
         tag: true,
     },
     {
         prop: 'points',
         label: t('views.pointsSystem.tableHeader.points'),
+        minWidth: 80,
         // sortable: 'custom',
     },
     {
         prop: 'lastSignInAt',
         label: t('views.pointsSystem.tableHeader.lastSignInAt'),
+        minWidth: 160,
         // sortable: 'custom',
     },
     {
