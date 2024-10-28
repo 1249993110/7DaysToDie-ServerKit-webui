@@ -349,7 +349,9 @@ watch(tableSize, (newVal, oldVal) => {
         margin-top: 20px;
         background-color: #ffffffaf;
         overflow: unset;
-        padding-bottom: 2px;
+        :deep(.el-card__body) {
+            padding-bottom: 2px;
+        }
     }
     .table-card {
         flex-grow: 1;
