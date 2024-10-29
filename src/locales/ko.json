@@ -310,6 +310,7 @@
             "title": "목록에서 선택"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "아이템 이름",
             "count": "개수",
             "quality": "품질",
