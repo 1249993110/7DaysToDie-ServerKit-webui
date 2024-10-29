@@ -64,6 +64,11 @@ const columns = computed(() => [
         width: 130,
     },
     {
+        prop: 'createdAt',
+        label: t('views.listManagement.tableHeader.createdAt'),
+        width: 160,
+    },
+    {
         prop: 'description',
         label: t('views.listManagement.tableHeader.description'),
         minWidth: 150,
