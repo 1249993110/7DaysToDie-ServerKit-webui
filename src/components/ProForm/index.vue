@@ -10,6 +10,7 @@
                         v-model="getProp(model, item.name).value"
                         clearable
                         :placeholder="t('global.message.inputText')"
+                        :autosize="{ minRows: 2, maxRows: 8 }"
                         v-bind="item.props"
                         @blur="
                             () => {
