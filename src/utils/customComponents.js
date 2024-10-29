@@ -4,12 +4,16 @@ import Variables from '~/components/MySettingsFormCard/Variables.vue';
 import GameIcon from '~/components/GameIcon/index.vue';
 import MyColorPicker from '~/components/MyColorPicker/index.vue';
 import ItemBlockSelector from '~/components/ItemBlockSelector/index.vue';
+import RotationSelector from '~/components/RotationSelector/index.vue';
+import AvailablePrefabSelector from '~/components/AvailablePrefabSelector/index.vue';
 
 export default {
     MyTextarea: MyTextarea,
-    coordinate: Coordinate,
+    Coordinate: Coordinate,
     Variables: Variables,
     GameIcon: GameIcon,
     MyColorPicker: MyColorPicker,
     ItemBlockSelector: ItemBlockSelector,
+    RotationSelector: RotationSelector,
+    AvailablePrefabSelector: AvailablePrefabSelector,
 };
