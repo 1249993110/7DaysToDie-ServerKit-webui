@@ -17,7 +17,7 @@
             <slot :name="slot" v-bind="scope" />
         </template>
     </ProTable>
-    <MyFormDialog ref="addEditRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addOrEditFormModel" :request="addOrEditRequest" @submit="refresh" />
+    <MyFormDialog ref="addEditRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addEditFormModel" :request="addEditRequest" @submit="refresh" />
 </template>
 
 <script setup>
@@ -93,10 +93,10 @@ const search = computed(() => {
 });
 
 const isAdd = ref(false);
-const addOrEditFormModel = reactive({});
+const addEditFormModel = reactive({});
 const addEditDialogTitle = computed(() => (isAdd.value ? t('global.button.add') : t('global.button.edit')) + ' ' + props.modelName);
-const addOrEditRequest = async () => {
-    isAdd.value ? await props.request.add(addOrEditFormModel) : await props.request.edit(addOrEditFormModel);
+const addEditRequest = async () => {
+    isAdd.value ? await props.request.add(addEditFormModel) : await props.request.edit(addEditFormModel);
 };
 
 const addEditFormFields = computed(() => {
@@ -166,7 +166,7 @@ const handleEdit = async (row) => {
     isAdd.value = false;
     addEditRef.value.open(row);
     await nextTick();
-    Object.assign(addOrEditFormModel, row);
+    Object.assign(addEditFormModel, row);
 };
 
 const handleDelete = async (id, row) => {
@@ -208,5 +208,6 @@ const refresh = async () => {
 defineExpose({
     getTableRef: () => proTableRef.value.tableRef,
     refresh,
+    addEditFormModel: addEditFormModel,
 });
 </script>
