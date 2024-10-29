@@ -21,6 +21,7 @@
 
 <script setup>
 import customComponents from '~/utils/customComponents';
+import { i18n } from '~/plugins/i18n';
 
 const props = defineProps({
     formModel: {
@@ -48,11 +49,11 @@ const props = defineProps({
     },
 });
 
-const { t } = useI18n();
+const { t } = i18n.global;
 
 const formRef = ref(null);
 
-const btnGroup = {
+const btnGroup = computed(() => ({
     inline: false,
     position: 'right',
     gutter: 30,
@@ -66,7 +67,7 @@ const btnGroup = {
         label: t('global.button.confirm'),
         visible: true,
     },
-};
+}));
 
 const visible = ref(false);
 
