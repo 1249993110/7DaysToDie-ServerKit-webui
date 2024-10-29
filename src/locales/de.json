@@ -735,6 +735,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
