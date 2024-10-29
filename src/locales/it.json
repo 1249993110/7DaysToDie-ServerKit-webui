@@ -310,6 +310,7 @@
             "title": "Seleziona dall'elenco"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Nome elemento",
             "count": "Conteggio",
             "quality": "Qualità",
