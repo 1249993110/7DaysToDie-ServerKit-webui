@@ -29,7 +29,6 @@ const fields = [
         name: 'welcomeNotice',
         props: {
             type: 'textarea',
-            rows: 2,
         },
     },
     {
@@ -37,7 +36,6 @@ const fields = [
         name: 'rotatingNotices',
         props: {
             type: 'textarea',
-            rows: 2,
         },
     },
     {
@@ -53,7 +51,6 @@ const fields = [
         name: 'bloodMoonNotice1',
         props: {
             type: 'textarea',
-            rows: 2,
         },
     },
     {
@@ -61,7 +58,6 @@ const fields = [
         name: 'bloodMoonNotice2',
         props: {
             type: 'textarea',
-            rows: 2,
         },
     },
     {
@@ -69,7 +65,6 @@ const fields = [
         name: 'bloodMoonNotice3',
         props: {
             type: 'textarea',
-            rows: 2,
         },
     },
 ];
