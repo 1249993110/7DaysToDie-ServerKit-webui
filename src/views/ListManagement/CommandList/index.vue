@@ -1,37 +1,16 @@
 <template>
     <div>
-        <RouterButton :names="['listManagement.itemList', 'listManagement.commandList']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :search-form-model="searchFormModel"
-            :get-data="getData"
-            :table-data="tableData"
-            :total="total"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :show-table-index="false"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditCommandList"
-        >
-            <template #searchFormItems>
-                <el-form-item :label="t('global.keyword')" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
-                </el-form-item>
-            </template>
-            <template #columns>
-                <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" sortable width="80px"></el-table-column>
-                <el-table-column prop="command" :label="t('views.listManagement.tableHeader.command')" sortable how-overflow-tooltip></el-table-column>
-                <el-table-column :label="t('views.listManagement.tableHeader.inMainThread')" width="150px" sortable>
-                    <template #default="{ row }">
-                        {{ `${row.inMainThread ? t('global.true') : t('global.false')}` }}
-                    </template>
-                </el-table-column>
-                <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" sortable how-overflow-tooltip></el-table-column>
-                <el-table-column prop="createdAt" :label="t('views.listManagement.tableHeader.createdAt')" sortable></el-table-column>
-            </template>
-        </MyTableEx>
+        <RouterButton :names="['listManagement.itemList', 'listManagement.commandList']" />
+        <MyTable
+            row-key="id"
+            :columns="columns"
+            :model-name="t('menus.listManagement.commandList')"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :request="request"
+            ref="myTableRef"
+        />
     </div>
 </template>
 
@@ -42,30 +21,140 @@ export default {
 </script>
 
 <script setup>
-import * as api from '~/api/command-list.js';
-import AddOrEditCommandList from '~/components/AddOrEditCommandList/index.vue';
+import * as api from '~/api/command-list';
+import { ElTag } from 'element-plus';
 
-const {t} = useI18n();
-const searchFormModel = reactive({
-    keyword: '',
-});
+const { t, tm, rt } = useI18n();
+const myTableRef = ref(null);
 
-const tableData = ref([]);
-const total = ref(0);
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        prop: 'id',
+        label: t('views.listManagement.tableHeader.id'),
+        width: 80,
+        align: 'center',
+        fixed: true,
+    },
+    {
+        prop: 'command',
+        label: t('views.listManagement.tableHeader.command'),
+        render: ({ row }) => {
+            const split = row.command?.split('\n');
+            if (!split) {
+                return;
+            }
+            const arr = [];
+            for (let i = 0; i < split.length; i++) {
+                const str = split[i].trim();
+                if (str) {
+                    arr.push(h(ElTag, { type: 'success', style: { marginLeft: '4px' } }, () => str));
+                }
+            }
+            return h('span', null, arr);
+        },
+        minWidth: 150,
+    },
+    {
+        prop: 'inMainThread',
+        label: t('views.listManagement.tableHeader.inMainThread'),
+        formatter: (row) => (row.inMainThread ? t('global.true') : t('global.false')),
+        width: 130,
+    },
+    {
+        prop: 'description',
+        label: t('views.listManagement.tableHeader.description'),
+        minWidth: 150,
+    },
+    {
+        type: 'operation',
+    },
+]);
 
-const getData = async (pagination) => {
-    const data = await api.getCommandListPaged({ ...pagination, ...searchFormModel });
-    tableData.value = data.items;
-    total.value = data.total;
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            type: 'export',
+            fileName: t('menus.listManagement.commandList'),
+            // divided: true,
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const addEditFormFields = computed(() => [
+    {
+        type: 'input',
+        name: 'command',
+        label: t('views.listManagement.tableHeader.command'),
+        required: true,
+        props: {
+            type: 'textarea',
+        },
+    },
+    {
+        type: 'switch',
+        name: 'inMainThread',
+        label: t('views.listManagement.tableHeader.inMainThread'),
+        default: true,
+    },
+    {
+        type: 'input',
+        name: 'description',
+        label: t('views.listManagement.tableHeader.description'),
+        props: {
+            type: 'textarea',
+        },
+    },
+]);
+
+const requestGet = async (params) => {
+    const data = await api.getCommandListPaged({
+        pageNumber: params.pageNumber,
+        pageSize: params.pageSize,
+        keyword: params.keyword,
+        // order: params.sortPorp,
+        // desc: params.sortOrder === 'descending',
+    });
+
+    return data;
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteCommandByIds([row.id]);
+const requestAdd = async (formModel) => {
+    await api.addCommand(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteCommandByIds(rows.map((i) => i.id));
+const requestEdit = async (formModel) => {
+    await api.updateCommand(formModel.id, formModel);
+};
+
+const requestDetele = async (id) => {
+    await api.deleteCommandById(id);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteCommandByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>
-
-<style scoped lang="scss"></style>
