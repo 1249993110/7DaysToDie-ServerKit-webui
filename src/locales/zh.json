@@ -735,6 +735,7 @@
         },
         "coloredChat": {
             "isEnabled": "启用彩色聊天",
+            "variables": "Variables",
             "globalDefault": "全局默认值",
             "whisperDefault": "私聊默认值",
             "friendsDefault": "好友默认值",
