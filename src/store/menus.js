@@ -74,14 +74,6 @@ const tree = [
         icon: getIcon(() => import('~icons/quill/vip')),
     },
     {
-        name: 'coloredChat',
-        icon: getIcon(() => import('~icons/hugeicons/text-color')),
-    },
-    {
-        name: 'prefab',
-        icon: getIcon(() => import('~icons/ph/buildings')),
-    },
-    {
         name: 'teleSystem',
         icon: getIcon(() => import('~icons/game-icons/teleport')),
         children: [
@@ -95,6 +87,14 @@ const tree = [
                 name: 'teleSystem.home',
             },
         ],
+    },
+    {
+        name: 'coloredChat',
+        icon: getIcon(() => import('~icons/hugeicons/text-color')),
+    },
+    {
+        name: 'prefab',
+        icon: getIcon(() => import('~icons/ph/buildings')),
     },
     {
         name: 'swagger',
