@@ -108,7 +108,7 @@ const fields = [
         name: 'isEnablePlayerInitialSpawnPoint',
     },
     {
-        type: 'coordinate',
+        type: 'Coordinate',
         name: 'playerInitialPosition',
     },
     {
