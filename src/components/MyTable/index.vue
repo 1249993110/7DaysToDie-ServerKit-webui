@@ -111,7 +111,7 @@ const addEditFormFields = computed(() => {
     }
 
     field.props = field.props ?? {};
-    field.props.disabled ??= !isAdd.value;
+    field.props.disabled = !isAdd.value;
     return result;
 });
 
