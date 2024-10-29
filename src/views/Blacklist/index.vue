@@ -112,7 +112,6 @@ const addEditFormFields = computed(() => [
         label: t('views.blacklist.tableHeader.reason'),
         props: {
             type: 'textarea',
-            rows: 5,
         },
     },
 ]);
