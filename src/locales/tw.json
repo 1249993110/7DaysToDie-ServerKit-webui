@@ -310,6 +310,7 @@
             "title": "從清單選擇指令"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "物品名稱",
             "count": "數量",
             "quality": "品質",
