@@ -1,74 +1,38 @@
 <template>
-    <el-dialog :title="t('components.availablePrefabSelector.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
-        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading">
-            <el-table-column prop="name" :label="t('components.availablePrefabSelector.name')" width="180px" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="localizationName" :label="t('components.availablePrefabSelector.localizationName')" width="160px" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="fullPath" :label="t('components.availablePrefabSelector.fullPath')" show-overflow-tooltip> </el-table-column>
-            <el-table-column align="center" width="200px">
-                <template #header>
-                    <el-input
-                        v-model="searchModel.keyword"
-                        :placeholder="t('global.button.search')"
-                        clearable
-                        style="width: calc(100% - 32px)"
-                        @keyup.enter="getData"
-                        :validate-event="false"
-                    />
-                    <el-button :icon="Search" circle @click="getData" />
-                </template>
-                <template #default="{ row }">
-                    <el-button type="primary" @click="handleSelect(row)">{{ t('global.button.select') }}</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-        <el-pagination
-            style="margin-top: 10px"
-            background
-            @size-change="getData"
-            @current-change="getData"
-            :page-sizes="[5, 10, 20, 50, 100]"
-            v-model:current-page="searchModel.pageNumber"
-            v-model:page-size="searchModel.pageSize"
-            :total="total"
-            layout="total, sizes, prev, pager, next, jumper"
-        >
-        </el-pagination>
-    </el-dialog>
+    <el-input
+        v-model="modelValue"
+        clearable
+        :placeholder="t('global.message.inputText')"
+        @blur="
+            () => {
+                modelValue = modelValue.trim();
+            }
+        "
+    />
+    <div style="display: flex; align-items: center; margin-top: 4px">
+        <Dialog v-model="dialogVisible" @select="handleSelect" />
+        <el-button @click="dialogVisible = true">{{ t('global.button.select') }}</el-button>
+    </div>
 </template>
 
 <script setup>
-import * as api from '~/api/prefab';
-import { Search } from '@element-plus/icons-vue';
+import Dialog from './Dialog.vue';
 import { i18n } from '~/plugins/i18n';
 
 const { t } = i18n.global;
-const localeStore = useLocaleStore();
 
-const tableData = ref([]);
-const total = ref(0);
-const loading = ref(false);
-
-const searchModel = reactive({
-    pageNumber: 1,
-    pageSize: 20,
-    keyword: '',
+const modelValue = defineModel({
+    type: String,
+    default: '',
 });
 
-const getData = async () => {
-    loading.value = true;
-    try {
-        const data = await api.getAvailablePrefabs({ ...searchModel, language: localeStore.getLanguage() });
-        tableData.value = data.items;
-        total.value = data.total;
-    } finally {
-        loading.value = false;
-    }
-};
+const dialogVisible = ref(false);
 
-getData();
+const emit = defineEmits(['select']);
 
-const emit = defineEmits(['onSelect']);
 const handleSelect = (row) => {
-    emit('onSelect', row);
+    modelValue.value = row.fullPath;
+    emit('select', row);
+    dialogVisible.value = false;
 };
 </script>
