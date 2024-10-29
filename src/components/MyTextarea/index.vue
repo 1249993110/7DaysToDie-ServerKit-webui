@@ -1,5 +1,5 @@
 <template>
-    <el-input v-model="innerModel" type="textarea" :rows="2" @blur="handleBlur"></el-input>
+    <el-input v-model="innerModel" type="textarea" :rows="2" @blur="handleBlur" :autosize="{ minRows: 2, maxRows: 8 }"></el-input>
 </template>
 
 <script setup>
