@@ -54,6 +54,7 @@
                 <BtnGroup v-bind="btnGroup" @cancel="emit('cancel')" @submit="handleSubmit" @reset="resetFields" />
             </slot>
         </el-form-item>
+        <slot name="append" />
     </el-form>
 </template>
 
