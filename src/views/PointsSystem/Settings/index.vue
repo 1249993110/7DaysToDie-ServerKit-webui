@@ -18,7 +18,7 @@ const fields = [
         name: 'isEnabled',
     },
     {
-        type: 'variables',
+        type: 'Variables',
         name: 'variables',
         props: {
             values: ['SignInRewardPoints', 'PlayerTotalPoints', 'CurrencyAmount', 'EntityId', 'PlayerId', 'PlayerName'],
