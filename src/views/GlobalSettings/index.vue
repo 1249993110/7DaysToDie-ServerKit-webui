@@ -52,7 +52,6 @@ const fields = [
         required: true,
         props: {
             type: 'textarea',
-            rows: 2,
         },
     },
     {
@@ -66,7 +65,6 @@ const fields = [
         required: true,
         props: {
             type: 'textarea',
-            rows: 2,
         },
     },
     {
@@ -76,9 +74,6 @@ const fields = [
     {
         type: 'MyTextarea',
         name: 'killZombieTrigger.executeCommands',
-        props: {
-            rows: 2,
-        },
     },
     {
         type: 'switch',
@@ -87,9 +82,6 @@ const fields = [
     {
         type: 'MyTextarea',
         name: 'deathTrigger.executeCommands',
-        props: {
-            rows: 2,
-        },
     },
     {
         type: 'switch',
@@ -102,9 +94,6 @@ const fields = [
     {
         type: 'MyTextarea',
         name: 'autoRestart.messages',
-        props: {
-            rows: 5,
-        },
     },
     {
         type: 'switch',
