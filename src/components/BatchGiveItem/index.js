@@ -1,5 +1,5 @@
 import Dialog from './index.vue';
-import { createVNode, render } from 'vue';
+import { createVNode, render, getCurrentInstance } from 'vue';
 import { i18n } from '~/plugins/i18n';
 
 export const batchGiveItem = async (playerIds, displayNames) => {
@@ -19,6 +19,7 @@ export const batchGiveItem = async (playerIds, displayNames) => {
             document.body.removeChild(container);
         },
     });
+    //vNode.appContext = getCurrentInstance().appContext;
     render(vNode, container);
     document.body.appendChild(container);
 };
