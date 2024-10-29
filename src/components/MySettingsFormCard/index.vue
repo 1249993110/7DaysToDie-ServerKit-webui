@@ -58,16 +58,16 @@ const fields = computed(() => {
 
 const formModel = reactive({});
 
-const btnGroup = {
+const btnGroup = computed(() => ({
     submit: {
         label: t('global.button.save'),
         visible: true,
     },
     reset: {
         visible: true,
-        type: 'warning'
+        type: 'warning',
     },
-};
+}));
 
 const localeStore = useLocaleStore();
 const getFormData = async () => {
