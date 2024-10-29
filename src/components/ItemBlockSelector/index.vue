@@ -4,7 +4,16 @@
         <GameIcon :name="modelValue" />
         <el-button @click="dialogVisible = true" style="margin-left: 8px">{{ t('global.button.select') }}</el-button>
     </div>
-    <el-input v-model="modelValue" />
+    <el-input
+        v-model="modelValue"
+        clearable
+        :placeholder="t('global.message.inputText')"
+        @blur="
+            () => {
+                modelValue = modelValue.trim();
+            }
+        "
+    />
 </template>
 
 <script setup>
@@ -15,7 +24,7 @@ const { t } = i18n.global;
 
 const modelValue = defineModel({
     type: String,
-    default: ''
+    default: '',
 });
 
 const dialogVisible = ref(false);
