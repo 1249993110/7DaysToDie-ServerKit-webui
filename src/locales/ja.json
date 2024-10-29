@@ -310,6 +310,7 @@
             "title": "リストからコマンドを選択"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "アイテム名",
             "count": "数量",
             "quality": "品質",
