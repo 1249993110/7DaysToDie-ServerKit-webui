@@ -77,7 +77,7 @@ const search = computed(() => ({
             label: t('global.keyword'),
             props: {
                 autofocus: true,
-            }
+            },
         },
     ],
 }));
@@ -147,7 +147,13 @@ const requestGet = async (params) => {
 };
 
 const requestAdd = async (formModel) => {
-    await api.addBlacklist([formModel]);
+    const result = await api.addBlacklist([formModel]);
+    const msg = result.join('\n');
+    ElNotification({
+        title: t('global.message.cmdExecResult'),
+        type: 'info',
+        message: h('i', { style: { color: 'teal', whiteSpace: 'pre-wrap', overflowWrap: 'break-word', width: '250px', display: 'inline-block' } }, msg),
+    });
 };
 
 const requestEdit = async (formModel) => {
