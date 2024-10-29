@@ -1,32 +1,20 @@
 <template>
     <div class="prefabPlace">
-        <RouterButton :names="['prefab.prefabPlace']"></RouterButton>
-        <el-card shadow="always" class="card">
-            <el-scrollbar always>
-                <div style="margin-right: 16px">
-                    <el-form :model="formModel" :rules="rules" ref="formRef" label-width="250px" status-icon>
-                        <el-form-item :label="t('views.prefab.prefabPath')" prop="prefabPath">
-                            <el-input v-model="formModel.prefabPath" />
-                            <el-button style="margin-top: 4px" @click="availablePrefabSelectorVisible = true">{{ t('global.button.select') }}</el-button>
-                        </el-form-item>
-                        <el-form-item :label="t('views.prefab.position')" prop="position">
-                            <Coordinate v-model="formModel.position" />
-                        </el-form-item>
-                        <el-form-item :label="t('views.prefab.rotation')" prop="rotation">
-                            <RotationSelector v-model="formModel.rotation" />
-                        </el-form-item>
-                        <el-form-item :label="t('views.prefab.noSleepers')" prop="noSleepers">
-                            <el-switch v-model="formModel.noSleepers" />
-                        </el-form-item>
-                        <el-form-item :label="t('views.prefab.addToRWG')" prop="addToRWG">
-                            <el-switch v-model="formModel.addToRWG" />
-                        </el-form-item>
-                        <el-form-item>
-                            <el-button type="primary" @click="place">{{ t('views.prefab.place') }}</el-button>
-                        </el-form-item>
-                    </el-form>
-                </div>
-                <div>{{ t('views.prefab.history') }}</div>
+        <RouterButton :names="['prefab.prefabPlace']" />
+        <el-card class="card" shadow="always">
+            <el-scrollbar always height="calc(100vh - 200px)">
+                <ProForm
+                    class="form"
+                    label-position="left"
+                    :fields="fields"
+                    :col-span="24"
+                    :label-width="180"
+                    :model="formModel"
+                    :btn-group="btnGroup"
+                    :request="place"
+                    :custom-components="customComponents"
+                />
+                <el-text style="color: green">{{ t('views.prefab.history') }}</el-text>
                 <el-table :data="tableData" border highlight-current-row v-loading="loading">
                     <el-table-column prop="id" :label="t('views.prefab.id')" width="100px"> </el-table-column>
                     <el-table-column prop="prefabName" :label="t('views.prefab.prefabName')" show-overflow-tooltip> </el-table-column>
@@ -44,7 +32,6 @@
                 </el-table>
             </el-scrollbar>
         </el-card>
-        <AvailablePrefabSelector v-model="availablePrefabSelectorVisible" @onSelect="handleSelect" />
     </div>
 </template>
 
@@ -56,6 +43,7 @@ export default {
 
 <script setup>
 import * as api from '~/api/prefab';
+import customComponents from '~/utils/customComponents';
 import { formatPosition } from '~/utils/formatHelper';
 
 const { t } = useI18n();
@@ -63,19 +51,48 @@ const { t } = useI18n();
 const formModel = reactive({
     rotation: 0,
 });
-const formRef = ref();
-const loading = ref(false);
-const rules = {
-    prefabPath: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
-    position: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
-    rotation: [{ required: true, message: t('global.formRule.required'), trigger: 'blur' }],
+
+const btnGroup = {
+    submit: {
+        label: t('views.prefab.place'),
+        visible: true,
+    },
+    reset: {
+        visible: false,
+    },
 };
 
-const availablePrefabSelectorVisible = ref(false);
-const handleSelect = (row) => {
-    formModel.prefabPath = row.fullPath;
-    availablePrefabSelectorVisible.value = false;
-};
+const fields = computed(() => [
+    {
+        type: 'AvailablePrefabSelector',
+        name: 'prefabPath',
+        label: t('views.prefab.prefabPath'),
+        required: true,
+    },
+    {
+        type: 'Coordinate',
+        name: 'position',
+        label: t('views.prefab.position'),
+        required: true,
+    },
+    {
+        type: 'RotationSelector',
+        name: 'rotation',
+        label: t('views.prefab.rotation'),
+    },
+    {
+        type: 'switch',
+        name: 'noSleepers',
+        label: t('views.prefab.noSleepers'),
+    },
+    {
+        type: 'switch',
+        name: 'addToRWG',
+        label: t('views.prefab.addToRWG'),
+    },
+]);
+
+const loading = ref(false);
 
 const parsePosition = (val) => {
     const split = val.split(' ');
@@ -105,7 +122,7 @@ const handleUndo = async (row) => {
         ElNotification({
             title: t('global.message.cmdExecResult'),
             type: 'info',
-            message: h('i', { style: 'color: teal' }, msg),
+            message: h('i', { style: { color: 'teal', whiteSpace: 'pre-wrap', overflowWrap: 'break-word', width: '250px', display: 'inline-block' } }, msg),
         });
 
         await getHistory();
@@ -113,40 +130,36 @@ const handleUndo = async (row) => {
 };
 
 const place = async () => {
-    loading.value = true;
-    try {
-        await formRef.value.validate();
-        const result = await api.placePrefab({
-            prefabFileName: formModel.prefabPath,
-            position: parsePosition(formModel.position),
-            rotation: formModel.rotation,
-            noSleepers: formModel.noSleepers,
-            addToRWG: formModel.addToRWG,
-        });
+    const result = await api.placePrefab({
+        prefabFileName: formModel.prefabPath,
+        position: parsePosition(formModel.position),
+        rotation: formModel.rotation,
+        noSleepers: formModel.noSleepers,
+        addToRWG: formModel.addToRWG,
+    });
 
-        const msg = result.join('\n');
-        ElNotification({
-            title: t('global.message.cmdExecResult'),
-            type: 'info',
-            message: h('i', { style: 'color: teal' }, msg),
-        });
-    } catch {
-    } finally {
-        loading.value = false;
-    }
+    const msg = result.join('\n');
+    ElNotification({
+        title: t('global.message.cmdExecResult'),
+        type: 'info',
+        message: h('i', { style: { color: 'teal', whiteSpace: 'pre-wrap', overflowWrap: 'break-word', width: '250px', display: 'inline-block' } }, msg),
+    });
 
     await getHistory();
 };
+
+const globalStore = useGlobalStore();
+const paddingRight = computed(() => (globalStore.isSmallScreen ? '20px' : 'calc(12vw + 20px)'));
 </script>
 
 <style scoped lang="scss">
 .prefabPlace {
     .card {
-        height: 100%;
         margin-top: 20px;
         background-color: #ffffffaf;
-        :deep(.el-card__body) {
-            height: calc(100% - 40px);
+        .form {
+            padding-left: 20px;
+            padding-right: v-bind(paddingRight);
         }
     }
 }
