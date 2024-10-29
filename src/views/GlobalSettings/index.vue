@@ -74,7 +74,7 @@ const fields = [
         name: 'killZombieTrigger.isEnabled',
     },
     {
-        type: 'my-textarea',
+        type: 'MyTextarea',
         name: 'killZombieTrigger.executeCommands',
         props: {
             rows: 2,
@@ -85,7 +85,7 @@ const fields = [
         name: 'deathTrigger.isEnabled',
     },
     {
-        type: 'my-textarea',
+        type: 'MyTextarea',
         name: 'deathTrigger.executeCommands',
         props: {
             rows: 2,
@@ -100,7 +100,7 @@ const fields = [
         slot: 'autoRestartTime',
     },
     {
-        type: 'my-textarea',
+        type: 'MyTextarea',
         name: 'autoRestart.messages',
         props: {
             rows: 5,
