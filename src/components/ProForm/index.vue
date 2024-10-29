@@ -59,6 +59,9 @@
 <script setup>
 import { getProp } from 'element-plus/es/utils/index';
 import BtnGroup from './BtnGroup.vue';
+import { i18n } from '~/plugins/i18n';
+
+const { t } = i18n.global;
 
 const props = defineProps({
     customComponents: {
@@ -96,8 +99,6 @@ const props = defineProps({
         default: false,
     },
 });
-
-const { t } = useI18n();
 
 const rules = computed(() => {
     const result = {};
