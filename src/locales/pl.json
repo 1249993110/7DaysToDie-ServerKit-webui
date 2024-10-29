@@ -310,6 +310,7 @@
             "title": "Wybierz polecenie z listy"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Nazwa przedmiotu",
             "count": "Ilość",
             "quality": "Jakość",
