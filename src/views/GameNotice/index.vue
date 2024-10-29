@@ -18,7 +18,7 @@ const fields = [
         name: 'isEnabled',
     },
     {
-        type: 'variables',
+        type: 'Variables',
         name: 'variables',
         props: {
             values: ['BloodMoonDays', 'BloodMoonStartTime', 'BloodMoonEndTime', 'EntityId', 'PlayerId', 'PlayerName'],
@@ -33,7 +33,7 @@ const fields = [
         },
     },
     {
-        type: 'my-textarea',
+        type: 'MyTextarea',
         name: 'rotatingNotices',
         props: {
             type: 'textarea',
