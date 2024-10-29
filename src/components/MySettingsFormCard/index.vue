@@ -61,10 +61,10 @@ const formModel = reactive({});
 const btnGroup = {
     submit: {
         label: t('global.button.save'),
-        visable: true,
+        visible: true,
     },
     reset: {
-        visable: true,
+        visible: true,
         type: 'warning'
     },
 };
