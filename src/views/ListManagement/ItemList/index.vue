@@ -21,7 +21,7 @@ export default {
 </script>
 
 <script setup>
-import * as api from '~/api/item-list.js';
+import * as api from '~/api/item-list';
 import GameIcon from '~/components/GameIcon/index.vue';
 
 const { t, tm, rt } = useI18n();
@@ -48,7 +48,7 @@ const columns = computed(() => [
     {
         prop: 'itemName',
         label: t('views.listManagement.tableHeader.itemName'),
-        width: 150,
+        width: 180,
         tag: true,
     },
     {
@@ -105,6 +105,14 @@ const search = computed(() => ({
 }));
 
 const addEditFormFields = computed(() => [
+    // {
+    //     type: 'input',
+    //     name: 'id',
+    //     label: t('views.listManagement.tableHeader.id'),
+    //     props: {
+    //         disabled: true,
+    //     },
+    // },
     {
         type: 'ItemBlockSelector',
         name: 'itemName',
@@ -150,6 +158,9 @@ const addEditFormFields = computed(() => [
         type: 'input',
         name: 'description',
         label: t('views.listManagement.tableHeader.description'),
+        props: {
+            type: 'textarea',
+        },
     },
 ]);
 
