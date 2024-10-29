@@ -310,6 +310,7 @@
             "title": "Listeden Komut Seç"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Öğe Adı",
             "count": "Miktar",
             "quality": "Kalite",
