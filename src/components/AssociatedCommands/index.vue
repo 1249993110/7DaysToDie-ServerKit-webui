@@ -40,7 +40,7 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['update:tableData', 'onEdit']);
+const emit = defineEmits(['update:tableData', 'edit']);
 const { tableData } = useVModels(props, emit);
 
 const batchDeleteDisabled = ref(true);
@@ -59,7 +59,7 @@ const handleAddConfirm = async (id) => {
     const cmd = await getCommandById(id);
     tableData.value.push(cmd);
     emit(
-        'onEdit',
+        'edit',
         tableData.value.map((i) => i.id)
     );
 };
@@ -73,7 +73,7 @@ const handleSelectCommandList = (rows) => {
     commandListSelectorVisible.value = false;
     const data = [...tableData.value, ...rows];
     emit(
-        'onEdit',
+        'edit',
         data.map((i) => i.id)
     );
     tableData.value = data;
@@ -82,7 +82,7 @@ const handleSelectCommandList = (rows) => {
 const handleDelete = (row) => {
     const data = tableData.value.filter((i) => i.id !== row.id);
     emit(
-        'onEdit',
+        'edit',
         data.map((i) => i.id)
     );
     tableData.value = data;
@@ -92,7 +92,7 @@ const handleBatchDelete = () => {
     const ids = multipleSelection.map((i) => i.id);
     const data = tableData.value.filter((i) => !ids.includes(i.id));
     emit(
-        'onEdit',
+        'edit',
         data.map((i) => i.id)
     );
     tableData.value = data;
