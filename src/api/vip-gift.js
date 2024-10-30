@@ -1,5 +1,3 @@
-
-
 /**
  * 获取VIP礼品
  * @returns
@@ -36,8 +34,8 @@ export const deleteVipGiftById = (id) => {
  * 通过Id集合删除VIP礼品
  * @returns
  */
-export const deleteVipGiftByIds = (params) => {
-    return http.delete('/VipGift', { params: params });
+export const deleteVipGiftByIds = (ids, resetAll = false) => {
+    return http.delete('/VipGift', { params: { ids, resetAll } });
 };
 
 /**

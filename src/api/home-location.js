@@ -1,10 +1,8 @@
-
-
 /**
  * 通过分页参数获取私人位置
  * @returns
  */
- export const getHomeLocationPaged = (params) => {
+export const getHomeLocationPaged = (params) => {
     return http.get('/HomeLocation', { params: params });
 };
 
@@ -36,14 +34,14 @@ export const deleteHomeLocationById = (id) => {
  * 通过Id集合删除私人位置
  * @returns
  */
-export const deleteHomeLocationByIds = (params) => {
-    return http.delete('/HomeLocation', { params: params });
+export const deleteHomeLocationByIds = (ids, deleteAll = false) => {
+    return http.delete('/HomeLocation', { params: { ids, deleteAll } });
 };
 
 /**
  * 更新私人位置
  * @returns
  */
- export const updateHomeLocation = (id, data) => {
+export const updateHomeLocation = (id, data) => {
     return http.put('/HomeLocation/' + id, data);
 };
