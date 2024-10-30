@@ -54,6 +54,7 @@ const columns = computed(() => [
         label: t('views.coloredChat.tableHeader.customName'),
         minWidth: 150,
         tag: true,
+        sortable: 'custom',
     },
     {
         prop: 'nameColor',
@@ -69,13 +70,13 @@ const columns = computed(() => [
         prop: 'createdAt',
         label: t('views.coloredChat.tableHeader.createdAt'),
         width: 160,
-        sort: 'custom',
+        sortable: 'custom',
     },
     {
         prop: 'description',
         label: t('views.coloredChat.tableHeader.description'),
         minWidth: 150,
-        sort: 'custom',
+        sortable: 'custom',
     },
     {
         type: 'operation',
