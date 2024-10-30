@@ -58,17 +58,17 @@ const getData = async (pagination) => {
 };
 
 const deleteRequest = async (row) => {
-    return await api.deleteHomeLocationByIds({ ids: [row.id] });
+    return await api.deleteHomeLocationByIds([row.id]);
 };
 
 const batchDeleteRequest = async (rows) => {
-    return await api.deleteHomeLocationByIds({ ids: rows.map((i) => i.id) });
+    return await api.deleteHomeLocationByIds(rows.map((i) => i.id));
 };
 
 const handleDeleteAll = async () => {
     try {
         if (await myconfirm(t('views.teleSystem.home.deleteAllConfirm'))) {
-            await api.deleteHomeLocationByIds({ deleteAll: true });
+            await api.deleteHomeLocationByIds([], deleteAll);
             await getData();
         }
     } catch {}

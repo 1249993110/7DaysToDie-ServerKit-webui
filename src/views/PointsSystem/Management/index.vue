@@ -71,7 +71,7 @@ const toolbar = computed(() => ({
             onClick: async () => {
                 try {
                     if (await myconfirm(t('views.pointsSystem.resetPointsConfirm'))) {
-                        await api.deletePointsInfoByIds({ resetPoints: true });
+                        await api.deletePointsInfoByIds([], true);
                         await myTableRef.value.refresh();
                     }
                 } catch {}
@@ -82,7 +82,7 @@ const toolbar = computed(() => ({
             onClick: async () => {
                 try {
                     if (await myconfirm(t('views.pointsSystem.resetSignInConfirm'))) {
-                        await api.deletePointsInfoByIds({ resetSignIn: true });
+                        await api.deletePointsInfoByIds([], false, true);
                         await myTableRef.value.refresh();
                     }
                 } catch {}

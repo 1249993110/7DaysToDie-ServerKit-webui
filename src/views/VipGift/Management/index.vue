@@ -61,17 +61,17 @@ const getData = async () => {
 };
 
 const deleteRequest = async (row) => {
-    return await api.deleteVipGiftByIds({ ids: [row.id] });
+    return await api.deleteVipGiftByIds([row.id]);
 };
 
 const batchDeleteRequest = async (rows) => {
-    return await api.deleteVipGiftByIds({ ids: rows.map((i) => i.id) });
+    return await api.deleteVipGiftByIds(rows.map((i) => i.id));
 };
 
 const handleResetAll = async () => {
     try {
         if (await myconfirm(t('views.vipGift.resetAllConfirm'))) {
-            await api.deleteVipGiftByIds({ resetAll: true });
+            await api.deleteVipGiftByIds([], true);
             await getData();
         }
     } catch {}

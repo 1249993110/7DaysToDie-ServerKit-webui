@@ -106,17 +106,17 @@ const handleExport = (command) => {
 };
 
 const deleteRequest = async (row) => {
-    return await api.deleteChatRecordByIds({ ids: [row.id] });
+    return await api.deleteChatRecordByIds([row.id]);
 };
 
 const batchDeleteRequest = async (rows) => {
-    return await api.deleteChatRecordByIds({ ids: rows.map((i) => i.id) });
+    return await api.deleteChatRecordByIds(rows.map((i) => i.id));
 };
 
 const handleDeleteAll = async () => {
     try {
         if (await myconfirm(t('global.message.deleteConfirm'))) {
-            await api.deleteChatRecordByIds({ deleteAll: true });
+            await api.deleteChatRecordByIds([], true);
             await getData();
         }
     } catch {}
