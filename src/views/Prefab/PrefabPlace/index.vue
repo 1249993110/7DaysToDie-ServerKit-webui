@@ -17,14 +17,14 @@
                 <div class="table">
                     <el-text style="color: green">{{ t('views.prefab.history') }}</el-text>
                     <el-table :data="tableData" border highlight-current-row v-loading="loading">
-                        <el-table-column prop="id" :label="t('views.prefab.id')" width="100px"> </el-table-column>
-                        <el-table-column prop="prefabName" :label="t('views.prefab.prefabName')" show-overflow-tooltip> </el-table-column>
+                        <el-table-column prop="id" :label="t('views.prefab.id')" width="100px" />
+                        <el-table-column prop="prefabName" :label="t('views.prefab.prefabName')" show-overflow-tooltip />
                         <el-table-column prop="position" :label="t('views.prefab.position')" show-overflow-tooltip>
                             <template #default="{ row }">
                                 {{ formatPosition(row.position) }}
                             </template>
                         </el-table-column>
-                        <el-table-column prop="createdAt" :label="t('views.prefab.createdAt')" width="160px"> </el-table-column>
+                        <el-table-column prop="createdAt" :label="t('views.prefab.createdAt')" width="160px" />
                         <el-table-column align="center" width="200px" :label="t('global.button.undo')">
                             <template #default="{ row }">
                                 <el-button :disabled="row.id !== 0" type="primary" @click="handleUndo(row)">{{ t('global.button.undo') }}</el-button>
