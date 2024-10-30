@@ -1,5 +1,3 @@
-
-
 /**
  * getColoredChat
  * @returns
@@ -36,8 +34,8 @@ export const deleteColoredChatById = (id) => {
  * deleteColoredChatByIds
  * @returns
  */
-export const deleteColoredChatByIds = (params) => {
-    return http.delete('/ColoredChat', { params: params });
+export const deleteColoredChatByIds = (ids) => {
+    return http.delete('/ColoredChat', { params: { ids } });
 };
 
 /**
