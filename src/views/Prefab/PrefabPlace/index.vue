@@ -164,8 +164,8 @@ const paddingRight = computed(() => (globalStore.isSmallScreen ? '20px' : 'calc(
             padding-right: v-bind(paddingRight);
         }
         .table {
-            margin-left: 20px;
-            margin-right: v-bind(paddingRight);
+            padding-left: 20px;
+            padding-right: v-bind(paddingRight);
         }
     }
 }
