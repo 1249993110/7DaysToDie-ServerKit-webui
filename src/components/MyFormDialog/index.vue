@@ -1,5 +1,5 @@
 <template>
-    <el-dialog v-model="visible" :title="title" draggable :close-on-click-modal="false" :width="width" @closed="handleClosed">
+    <el-dialog v-model="visible" :title="title" draggable :close-on-click-modal="false" :width="width" @closed="handleClosed" destroy-on-close>
         <ProForm
             ref="formRef"
             v-bind="$attrs"
