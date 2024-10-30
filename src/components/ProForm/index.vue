@@ -160,18 +160,18 @@ const resetFields = () => {
     emit('reset');
 };
 
-defineExpose({
-    resetFields,
-});
-
-onBeforeMount(() => {
+const applyDefaultValue = () => {
     for (let i = 0; i < props.fields.length; i++) {
         const item = props.fields[i];
         if (item.default != null && item.name) {
             props.model[item.name] = item.default;
         }
     }
-});
+};
+
+applyDefaultValue();
+
+defineExpose({ resetFields });
 </script>
 
 <style scoped lang="scss">
