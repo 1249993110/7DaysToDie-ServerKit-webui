@@ -102,10 +102,10 @@ const tree = [
         icon: getIcon(() => import('~icons/ep/document')),
         isExternalLink: true,
     },
-    {
-        name: 'logout',
-        icon: getIcon(() => import('~icons/uiw/logout')),
-    },
+    // {
+    //     name: 'logout',
+    //     icon: getIcon(() => import('~icons/uiw/logout')),
+    // },
 ];
 
 const dict = {};
