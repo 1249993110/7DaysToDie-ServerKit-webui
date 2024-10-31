@@ -17,7 +17,15 @@
             <slot :name="slot" v-bind="scope" />
         </template>
     </ProTable>
-    <MyFormDialog ref="addEditDialogRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addEditFormModel" :request="addEditRequest" @submit="refresh" />
+    <MyFormDialog
+        ref="addEditDialogRef"
+        :title="addEditDialogTitle"
+        :fields="addEditFormFields"
+        :form-model="addEditFormModel"
+        :request="addEditRequest"
+        @submit="refresh"
+        :label-width="addEditLabelWidth"
+    />
 </template>
 
 <script setup>
@@ -42,6 +50,10 @@ const props = defineProps({
     addEditFormFields: {
         type: Array,
         default: () => [],
+    },
+    addEditLabelWidth: {
+        type: [String, Number],
+        default: 120,
     },
     request: {
         type: Object,
