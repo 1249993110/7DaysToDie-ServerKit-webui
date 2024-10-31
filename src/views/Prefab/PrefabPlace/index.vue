@@ -120,13 +120,7 @@ getHistory();
 const handleUndo = async (row) => {
     if (await myconfirm(t('views.prefab.undoConfirm'))) {
         const result = await api.undoPrefab(row.id);
-        const msg = result.join('\n');
-        ElNotification({
-            title: t('global.message.cmdExecResult'),
-            type: 'info',
-            message: h('i', { style: { color: 'teal', whiteSpace: 'pre-wrap', overflowWrap: 'break-word', width: '250px', display: 'inline-block' } }, msg),
-        });
-
+        showCmdExecResult(result);
         await getHistory();
     }
 };
@@ -139,14 +133,7 @@ const place = async () => {
         noSleepers: formModel.noSleepers,
         addToRWG: formModel.addToRWG,
     });
-
-    const msg = result.join('\n');
-    ElNotification({
-        title: t('global.message.cmdExecResult'),
-        type: 'info',
-        message: h('i', { style: { color: 'teal', whiteSpace: 'pre-wrap', overflowWrap: 'break-word', width: '250px', display: 'inline-block' } }, msg),
-    });
-
+    showCmdExecResult(result);
     await getHistory();
 };
 
