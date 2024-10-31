@@ -164,7 +164,7 @@ const toolbar = computed(() => {
 
 const handleEdit = async (row) => {
     isAdd.value = false;
-    addEditDialogRef.value.open(row);
+    addEditDialogRef.value.open();
     await nextTick();
     Object.assign(addEditFormModel, row);
 };
