@@ -1,3 +1,5 @@
+import { i18n } from '~/plugins/i18n';
+
 /**
  * @description add unit
  * @param {String | Number} value 100
@@ -20,5 +22,14 @@ export const searchByKeyword = (data, keyword, fields = []) => {
         return keysToSearch.some((field) => {
             return item[field] && regex.test(item[field].toString());
         });
+    });
+};
+
+export const showCmdExecResult = (result) => {
+    const msg = Array.isArray(result) ? result.join('\n') : result;
+    ElNotification({
+        title: i18n.global.t('global.message.cmdExecResult'),
+        type: 'info',
+        message: h('i', { style: { color: 'teal', whiteSpace: 'pre-wrap', overflowWrap: 'break-word', width: '250px', display: 'inline-block' } }, msg),
     });
 };
