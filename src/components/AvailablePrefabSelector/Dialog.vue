@@ -1,6 +1,6 @@
 <template>
     <el-dialog :title="t('components.availablePrefabSelector.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
-        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading">
+        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" size="small">
             <el-table-column prop="name" :label="t('components.availablePrefabSelector.name')" width="180px" show-overflow-tooltip />
             <el-table-column prop="localizationName" :label="t('components.availablePrefabSelector.localizationName')" width="150px" show-overflow-tooltip />
             <el-table-column prop="fullPath" :label="t('components.availablePrefabSelector.fullPath')" show-overflow-tooltip />
