@@ -1,7 +1,11 @@
 <template>
     <div>
         <RouterButton :names="['teleSystem.home.settings', 'teleSystem.home.management']" />
-        <MySettingsFormCard settings-name="TeleportHome" :fields="fields" locale-key-prefix="views.teleSystem.home" />
+        <MySettingsFormCard settings-name="TeleportHome" :fields="fields" locale-key-prefix="views.teleSystem.home">
+            <template #append>
+                <el-text style="color: green; line-height: 50px">{{ t('views.teleSystem.home.useTips') }}</el-text>
+            </template>
+        </MySettingsFormCard>
     </div>
 </template>
 
@@ -12,6 +16,9 @@ export default {
 </script>
 
 <script setup>
+
+const { t } = useI18n(); 
+
 const fields = [
     {
         type: 'switch',
