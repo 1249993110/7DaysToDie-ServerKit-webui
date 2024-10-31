@@ -105,14 +105,6 @@ const search = computed(() => ({
 }));
 
 const addEditFormFields = computed(() => [
-    // {
-    //     type: 'input',
-    //     name: 'id',
-    //     label: t('views.listManagement.tableHeader.id'),
-    //     props: {
-    //         disabled: true,
-    //     },
-    // },
     {
         type: 'ItemBlockSelector',
         name: 'itemName',
