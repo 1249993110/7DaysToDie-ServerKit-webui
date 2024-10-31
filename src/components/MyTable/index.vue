@@ -17,7 +17,7 @@
             <slot :name="slot" v-bind="scope" />
         </template>
     </ProTable>
-    <MyFormDialog ref="addDialogRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addEditFormModel" :request="addEditRequest" @submit="refresh" />
+    <MyFormDialog ref="addEditDialogRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addEditFormModel" :request="addEditRequest" @submit="refresh" />
 </template>
 
 <script setup>
