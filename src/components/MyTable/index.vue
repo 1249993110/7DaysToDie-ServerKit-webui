@@ -17,7 +17,7 @@
             <slot :name="slot" v-bind="scope" />
         </template>
     </ProTable>
-    <MyFormDialog ref="addEditRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addEditFormModel" :request="addEditRequest" @submit="refresh" />
+    <MyFormDialog ref="addDialogRef" :title="addEditDialogTitle" :fields="addEditFormFields" :form-model="addEditFormModel" :request="addEditRequest" @submit="refresh" />
 </template>
 
 <script setup>
@@ -64,7 +64,7 @@ const { t } = useI18n();
 const globalStore = useGlobalStore();
 
 const proTableRef = ref(null);
-const addEditRef = ref(null);
+const addEditDialogRef = ref(null);
 
 const search = computed(() => {
     return Object.assign(
@@ -117,7 +117,7 @@ const addEditFormFields = computed(() => {
 
 const handleAdd = () => {
     isAdd.value = true;
-    addEditRef.value.open();
+    addEditDialogRef.value.open();
 };
 
 const toolbar = computed(() => {
@@ -164,7 +164,7 @@ const toolbar = computed(() => {
 
 const handleEdit = async (row) => {
     isAdd.value = false;
-    addEditRef.value.open(row);
+    addEditDialogRef.value.open(row);
     await nextTick();
     Object.assign(addEditFormModel, row);
 };
