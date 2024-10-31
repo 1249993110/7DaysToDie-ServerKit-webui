@@ -82,9 +82,9 @@ const handleOpen = async () => {
     await getTableData();
 };
 
-const emit = defineEmits(['onSelect']);
+const emit = defineEmits(['select']);
 const handleSelect = (row) => {
-    emit('onSelect', [row]);
+    emit('select', [row]);
 };
 
 const batchSelectDisabled = ref(true);
@@ -95,7 +95,7 @@ const handleSelectionChange = (val) => {
 };
 
 const handleBatchSelect = () => {
-    emit('onSelect', multipleSelection);
+    emit('select', multipleSelection);
 };
 </script>
 
