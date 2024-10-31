@@ -5,16 +5,16 @@
             <el-button :icon="Search" @click="getData" type="primary" style="margin-left: 8px">{{ t('global.button.search') }}</el-button>
             <el-button @click="handleBatchSelect" color="#40e0d0" :disabled="batchSelectDisabled">{{ t('global.button.batchSelect') }}</el-button>
         </div>
-        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
+        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange" size="small">
             <el-table-column type="selection" width="42" :selectable="checkSelectable" />
-            <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" width="60px"> </el-table-column>
-            <el-table-column prop="command" :label="t('views.listManagement.tableHeader.command')" show-overflow-tooltip> </el-table-column>
-            <el-table-column :label="t('views.listManagement.tableHeader.inMainThread')" width="150px" sortable>
+            <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" width="60px" align="center" />
+            <el-table-column prop="command" :label="t('views.listManagement.tableHeader.command')" show-overflow-tooltip />
+            <el-table-column :label="t('views.listManagement.tableHeader.inMainThread')" width="130px" sortable>
                 <template #default="{ row }">
                     {{ `${row.inMainThread ? t('global.true') : t('global.false')}` }}
                 </template>
             </el-table-column>
-            <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" show-overflow-tooltip> </el-table-column>
+            <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" show-overflow-tooltip />
             <el-table-column :label="t('global.button.select')" align="center" width="100px">
                 <template #default="{ row }">
                     <el-button color="#40e0d0" @click="handleSelect(row)" :disabled="checkDisabled(row.id)">{{ t('global.button.select') }}</el-button>
@@ -95,5 +95,3 @@ const handleBatchSelect = () => {
     emit('onSelect', multipleSelection);
 };
 </script>
-
-<style scoped lang="scss"></style>
