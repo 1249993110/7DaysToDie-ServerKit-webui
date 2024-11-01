@@ -326,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -484,7 +493,8 @@
                 "party": "Festa",
                 "whisper": "Sussurro",
                 "unknown": "Sconosciuto"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
