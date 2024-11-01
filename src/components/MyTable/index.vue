@@ -30,6 +30,7 @@
 
 <script setup>
 import { Search, Refresh } from '@element-plus/icons-vue';
+import customComponents from '~/utils/customComponents';
 
 const props = defineProps({
     rowKey: {
@@ -99,6 +100,7 @@ const search = computed(() => {
                 lg: 8,
                 xl: 6,
             },
+            customComponents: customComponents,
         },
         props.search
     );
