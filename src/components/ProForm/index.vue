@@ -1,9 +1,9 @@
 <template>
     <el-form :model="model" ref="formRef" status-icon class="pro-form" :rules="rules">
         <el-row :gutter="rowGutter">
-            <el-col v-for="item in fields" :key="item.name" v-bind="getColSpan(item.span)">
+            <el-col v-for="item in fields" :key="item.name" :style="{ minWidth: addUnit(item.minWidth) }" v-bind="getColSpan(item.span)">
                 <el-form-item v-bind="item" :prop="item.name" v-if="item.type !== 'divided'">
-                    <component v-if="item.render" :is="item.render" v-model="getProp(model, item.name).value" v-bind="item.props" />
+                    <component v-if="item.render" v-bind="item.props" :is="item.render" v-model="getProp(model, item.name).value" />
                     <slot v-else-if="item.slot && $slots[item.slot]" :name="item.slot" />
                     <el-input
                         v-else-if="item.type === 'input'"
@@ -44,8 +44,8 @@
                     <component
                         v-else-if="customComponents && customComponents[item.type]"
                         :is="customComponents[item.type]"
-                        v-model="getProp(model, item.name).value"
                         v-bind="item.props"
+                        v-model="getProp(model, item.name).value"
                     />
                 </el-form-item>
             </el-col>
@@ -70,6 +70,7 @@
 import { getProp } from 'element-plus/es/utils/index';
 import BtnGroup from './BtnGroup.vue';
 import { i18n } from '~/plugins/i18n';
+import { addUnit } from '~/utils/index';
 
 const { t } = i18n.global;
 
@@ -184,9 +185,6 @@ defineExpose({ resetFields });
 
 <style scoped lang="scss">
 .pro-form {
-    .footer-btns {
-        margin-bottom: 0;
-    }
     .el-form-item {
         :deep(.el-form-item__label) {
             white-space: pre-wrap;
