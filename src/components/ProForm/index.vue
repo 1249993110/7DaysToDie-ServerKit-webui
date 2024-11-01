@@ -26,6 +26,14 @@
                     <el-date-picker v-else-if="item.type === 'date-picker'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
                     <el-time-select v-else-if="item.type === 'time-select'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
                     <el-input-number v-else-if="item.type === 'input-number'" v-model="getProp(model, item.name).value" clearable v-bind="item.props" />
+                    <el-select-v2
+                        v-else-if="item.type === 'select-v2'"
+                        v-model="getProp(model, item.name).value"
+                        clearable
+                        scrollbar-always-on
+                        :placeholder="t('global.button.select')"
+                        v-bind="item.props"
+                    />
                     <el-switch
                         v-else-if="item.type === 'switch'"
                         v-model="getProp(model, item.name).value"
