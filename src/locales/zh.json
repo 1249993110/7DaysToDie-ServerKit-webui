@@ -326,6 +326,15 @@
             "name": "预制件名称",
             "localizationName": "本地化名称",
             "fullPath": "完整路径"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -484,7 +493,8 @@
                 "party": "阵营",
                 "whisper": "私聊",
                 "unknown": "未知"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
