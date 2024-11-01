@@ -1,34 +1,15 @@
 <template>
     <div>
-        <RouterButton :names="['teleSystem.city.settings', 'teleSystem.city.management']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-searcher="false"
-            :show-table-index="false"
-            :show-export-btn="false"
-            :show-pager="false"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :get-data="getData"
-            :table-data="tableData"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditCityLocation"
-            :addOrEditComponentProps="addOrEditComponentProps"
-        >
-            <template #columns>
-                <el-table-column prop="id" :label="t('views.teleSystem.city.tableHeader.id')" width="120px" sortable> </el-table-column>
-                <el-table-column prop="cityName" :label="t('views.teleSystem.city.tableHeader.cityName')" sortable> </el-table-column>
-                <el-table-column prop="pointsRequired" :label="t('views.teleSystem.city.tableHeader.pointsRequired')" sortable> </el-table-column>
-                <el-table-column prop="position" :label="t('views.teleSystem.city.tableHeader.position')"> </el-table-column>
-                <el-table-column :label="t('views.teleSystem.city.tableHeader.viewDirection')">
-                    <template #default="{ row }">
-                        {{ getViewDirectionLabel(row.viewDirection) }}
-                    </template>
-                </el-table-column>
-                <el-table-column prop="createdAt" :label="t('views.teleSystem.city.tableHeader.createdAt')" sortable> </el-table-column>
-            </template>
-        </MyTableEx>
+        <RouterButton :names="['teleSystem.city.settings', 'teleSystem.city.management']" />
+        <MyTable
+            row-key="id"
+            :columns="columns"
+            :model-name="rt(tm('menus.teleSystem.city')[''])"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :request="request"
+        />
     </div>
 </template>
 
@@ -40,27 +21,172 @@ export default {
 
 <script setup>
 import * as api from '~/api/city-location.js';
-import AddOrEditCityLocation from './AddOrEditCityLocation.vue';
-import { getViewDirectionLabel } from '../viewDirectionOptions.js';
+import { getViewDirectionLabel, getViewDirectionOptions } from '../viewDirectionOptions.js';
 
-const {t} = useI18n();
-const tableData = ref([]);
+const { t, rt, tm } = useI18n();
 
-const addOrEditComponentProps = ref({});
-const getData = async () => {
-    const data = await api.getCityLocations();
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        prop: 'id',
+        label: t('views.teleSystem.city.tableHeader.id'),
+        width: 80,
+        sortable: 'custom',
+        align: 'center',
+        fixed: true,
+    },
+    {
+        prop: 'cityName',
+        label: t('views.teleSystem.city.tableHeader.cityName'),
+        minWidth: 150,
+        sortable: 'custom',
+        tag: true,
+    },
+    {
+        prop: 'pointsRequired',
+        label: t('views.teleSystem.city.tableHeader.pointsRequired'),
+        width: 160,
+        sortable: 'custom',
+    },
+    {
+        prop: 'position',
+        label: t('views.teleSystem.city.tableHeader.position'),
+        width: 135,
+    },
+    {
+        label: t('views.teleSystem.city.tableHeader.viewDirection'),
+        render: ({ row }) => getViewDirectionLabel(row.viewDirection),
+        width: 135,
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.teleSystem.city.tableHeader.createdAt'),
+        width: 160,
+        sortable: 'custom',
+    },
+    {
+        type: 'operation',
+    },
+]);
+
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            type: 'export',
+            fileName: rt(tm('menus.teleSystem.city')['']),
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const newId = ref(0);
+const addEditFormFields = computed(() => [
+    {
+        type: 'input-number',
+        name: 'id',
+        label: t('views.teleSystem.city.tableHeader.id'),
+        required: true,
+        default: newId.value,
+    },
+    {
+        type: 'input',
+        name: 'cityName',
+        label: t('views.teleSystem.city.tableHeader.cityName'),
+        required: true,
+    },
+    {
+        type: 'input-number',
+        name: 'pointsRequired',
+        label: t('views.teleSystem.city.tableHeader.pointsRequired'),
+        required: true,
+        props: {
+            min: 0,
+        },
+    },
+    {
+        type: 'Coordinate',
+        name: 'position',
+        label: t('views.teleSystem.city.tableHeader.position'),
+        required: true,
+    },
+    {
+        type: 'select-v2',
+        name: 'viewDirection',
+        label: t('views.teleSystem.city.tableHeader.viewDirection'),
+        props: {
+            options: getViewDirectionOptions(),
+            style: { width: '150px' },
+        },
+    },
+]);
+
+const requestGet = async (params) => {
+    let data = await api.getCityLocations();
     if (data.length) {
-        addOrEditComponentProps.value = { id: data[data.length - 1].id + 1 };
+        newId.value = data[data.length - 1].id + 1;
     }
 
-    tableData.value = data;
+    data = searchByKeyword(data, params.keyword, ['id', 'cityName']);
+
+    if (params.sortOrder) {
+        const desc = params.sortOrder === 'descending';
+        const sortPorp = params.sortPorp;
+        data = data.sort((a, b) => {
+            if (desc) {
+                return a[sortPorp] < b[sortPorp] ? 1 : -1;
+            }
+
+            return a[sortPorp] > b[sortPorp] ? 1 : -1;
+        });
+    }
+
+    if (params.pageSize < 0) {
+        return {
+            items: data,
+            total: data.length,
+        };
+    }
+    return {
+        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: data.length,
+    };
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteCityLocationByIds([row.id]);
+const requestAdd = async (formModel) => {
+    await api.addCityLocation(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteCityLocationByIds(rows.map((i) => i.id));
+const requestEdit = async (formModel) => {
+    await api.updateCityLocation(formModel.id, formModel);
+};
+
+const requestDetele = async (id) => {
+    await api.deleteCityLocationById(id);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteCityLocationByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>
