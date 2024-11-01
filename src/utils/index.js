@@ -20,7 +20,7 @@ export const searchByKeyword = (data, keyword, fields = []) => {
         const keysToSearch = fields.length ? fields : Object.keys(item);
 
         return keysToSearch.some((field) => {
-            return item[field] && regex.test(item[field].toString());
+            return item[field] != null && regex.test(item[field].toString());
         });
     });
 };
