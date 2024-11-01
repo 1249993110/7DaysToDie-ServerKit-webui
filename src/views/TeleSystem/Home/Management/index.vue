@@ -1,35 +1,16 @@
 <template>
     <div>
-        <RouterButton :names="['teleSystem.home.settings', 'teleSystem.home.management']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :search-form-model="searchFormModel"
-            :get-data="getData"
-            :table-data="tableData"
-            :total="total"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditHomeLocation"
-        >
-            <template #searchFormItems>
-                <el-form-item :label="t('global.keyword')" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
-                </el-form-item>
-            </template>
-            <template #toolbarPost>
-                <el-button @click="handleDeleteAll" type="danger">{{ t('views.teleSystem.home.deleteAll') }}</el-button>
-            </template>
-            <template #columns>
-                <el-table-column prop="playerName" :label="t('views.teleSystem.home.tableHeader.playerName')" sortable> </el-table-column>
-                <el-table-column prop="playerId" :label="t('views.teleSystem.home.tableHeader.playerId')" sortable> </el-table-column>
-                <el-table-column prop="createdAt" :label="t('views.teleSystem.home.tableHeader.createdAt')" sortable> </el-table-column>
-                <el-table-column prop="homeName" :label="t('views.teleSystem.home.tableHeader.homeName')" sortable> </el-table-column>
-                <el-table-column prop="position" :label="t('views.teleSystem.home.tableHeader.position')" sortable> </el-table-column>
-            </template>
-        </MyTableEx>
+        <RouterButton :names="['teleSystem.home.settings', 'teleSystem.home.management']" />
+        <MyTable
+            row-key="playerId"
+            :columns="columns"
+            :model-name="rt(tm('menus.teleSystem.home')[''])"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :request="request"
+            ref="myTableRef"
+        />
     </div>
 </template>
 
@@ -41,36 +22,138 @@ export default {
 
 <script setup>
 import * as api from '~/api/home-location.js';
-import AddOrEditHomeLocation from './AddOrEditHomeLocation.vue';
 
-const { t } = useI18n();
-const searchFormModel = reactive({
-    keyword: '',
-});
+const { t, rt, tm } = useI18n();
 
-const tableData = ref([]);
-const total = ref(0);
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        prop: 'playerId',
+        label: t('views.teleSystem.home.tableHeader.playerId'),
+        width: 320,
+        sortable: 'custom',
+        fixed: true,
+    },
+    {
+        prop: 'playerName',
+        label: t('views.teleSystem.home.tableHeader.playerName'),
+        width: 120,
+    },
+    {
+        prop: 'homeName',
+        label: t('views.teleSystem.home.tableHeader.homeName'),
+        width: 120,
+    },
+    {
+        prop: 'position',
+        label: t('views.teleSystem.home.tableHeader.position'),
+        width: 135,
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.teleSystem.home.tableHeader.createdAt'),
+        width: 160,
+        sortable: 'custom',
+    },
+    {
+        type: 'operation',
+    },
+]);
 
-const getData = async (pagination) => {
-    const data = await api.getHomeLocationPaged({ ...pagination, ...searchFormModel });
-    tableData.value = data.items;
-    total.value = data.total;
+const myTableRef = ref(null);
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            label: t('views.teleSystem.home.deleteAll'),
+            onClick: async () => {
+                try {
+                    if (await myconfirm(t('views.teleSystem.home.deleteAllConfirm'))) {
+                        await api.deleteHomeLocationByIds([], true);
+                        await myTableRef.value.refresh();
+                    }
+                } catch {}
+            },
+        },
+        {
+            type: 'export',
+            fileName: rt(tm('menus.teleSystem.home')['']),
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const addEditFormFields = computed(() => [
+    {
+        type: 'input',
+        name: 'playerId',
+        label: t('views.teleSystem.home.tableHeader.playerId'),
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'playerName',
+        label: t('views.teleSystem.home.tableHeader.playerName'),
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'homeName',
+        label: t('views.teleSystem.home.tableHeader.homeName'),
+        required: true,
+    },
+    {
+        type: 'Coordinate',
+        name: 'position',
+        label: t('views.teleSystem.home.tableHeader.position'),
+        required: true,
+    },
+]);
+
+const requestGet = async (params) => {
+    return await api.getHomeLocationPaged({
+        pageNumber: params.pageNumber,
+        pageSize: params.pageSize,
+        keyword: params.keyword,
+        // order: params.sortPorp,
+        // desc: params.sortOrder === 'descending',
+    });
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteHomeLocationByIds([row.id]);
+const requestAdd = async (formModel) => {
+    await api.addHomeLocation(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteHomeLocationByIds(rows.map((i) => i.id));
+const requestEdit = async (formModel) => {
+    await api.updateHomeLocation(formModel.playerId, formModel);
 };
 
-const handleDeleteAll = async () => {
-    try {
-        if (await myconfirm(t('views.teleSystem.home.deleteAllConfirm'))) {
-            await api.deleteHomeLocationByIds([], deleteAll);
-            await getData();
-        }
-    } catch {}
+const requestDetele = async (id) => {
+    await api.deleteHomeLocationById(id);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteHomeLocationByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>
