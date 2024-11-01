@@ -40,6 +40,8 @@ const columns = computed(() => [
         label: t('views.gameStore.tableHeader.id'),
         width: 80,
         sortable: 'custom',
+        align: 'center',
+        fixed: true,
     },
     {
         prop: 'name',
