@@ -310,6 +310,7 @@
             "title": "Выбрать из списка"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Имя элемента",
             "count": "Количество",
             "quality": "Качество",
@@ -325,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -483,7 +493,8 @@
                 "party": "Вечеринка",
                 "whisper": "Шепот",
                 "unknown": "Неизвестно"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -618,6 +629,7 @@
                 "id": "ID",
                 "name": "Имя",
                 "price": "Цена",
+                "createdAt": "Created At",
                 "description": "Описание",
                 "bind": "Привязать",
                 "bindItem": "Привязать элемент",
@@ -640,6 +652,7 @@
                 "claimState": "Уже заявлено",
                 "totalClaimCount": "Общее количество заявлений",
                 "lastClaimAt": "Последнее заявление",
+                "createdAt": "Created At",
                 "description": "Описание",
                 "bind": "Привязать",
                 "bindItem": "Элемент привязки",
@@ -734,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

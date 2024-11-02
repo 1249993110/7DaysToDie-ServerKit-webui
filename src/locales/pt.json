@@ -310,6 +310,7 @@
             "title": "Selecionar da lista"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Nome do item",
             "count": "Contagem",
             "quality": "Qualidade",
@@ -325,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -483,7 +493,8 @@
                 "party": "Festa",
                 "whisper": "Sussurro",
                 "unknown": "Desconhecido"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -618,6 +629,7 @@
                 "id": "ID",
                 "name": "Nome",
                 "price": "Preço",
+                "createdAt": "Created At",
                 "description": "Descrição",
                 "bind": "Vincular",
                 "bindItem": "Vincular item",
@@ -640,6 +652,7 @@
                 "claimState": "Já reivindicado",
                 "totalClaimCount": "Contagem total de reivindicações",
                 "lastClaimAt": "Última reivindicação em",
+                "createdAt": "Created At",
                 "description": "Descrição",
                 "bind": "Vincular",
                 "bindItem": "Vincular item",
@@ -734,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

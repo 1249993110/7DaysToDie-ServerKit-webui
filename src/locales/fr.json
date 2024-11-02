@@ -310,6 +310,7 @@
             "title": "Sélectionner dans la liste"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Nom de l'élément",
             "count": "Nombre",
             "quality": "Qualité",
@@ -325,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -483,7 +493,8 @@
                 "party": "Partie",
                 "whisper": "Chuchote",
                 "unknown": "Inconnu"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -618,6 +629,7 @@
                 "id": "ID",
                 "name": "Nom",
                 "price": "Prix",
+                "createdAt": "Created At",
                 "description": "Description",
                 "bind": "Lier",
                 "bindItem": "Lier l'élément",
@@ -640,6 +652,7 @@
                 "claimState": "Déjà réclamé",
                 "totalClaimCount": "Nombre total de réclamations",
                 "lastClaimAt": "Dernière réclamation à",
+                "createdAt": "Created At",
                 "description": "Description",
                 "bind": "Bind",
                 "bindItem": "Lier l'élément",
@@ -734,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

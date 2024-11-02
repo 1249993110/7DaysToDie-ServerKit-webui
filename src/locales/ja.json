@@ -310,6 +310,7 @@
             "title": "リストからコマンドを選択"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "アイテム名",
             "count": "数量",
             "quality": "品質",
@@ -325,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -483,7 +493,8 @@
                 "party": "パーティー",
                 "whisper": "プライベートチャット",
                 "unknown": "不明"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -618,6 +629,7 @@
                 "id": "ID",
                 "name": "商品名",
                 "price": "価格",
+                "createdAt": "Created At",
                 "description": "説明",
                 "bind": "バインド",
                 "bindItem": "バインドアイテム",
@@ -640,6 +652,7 @@
                 "claimState": "クレーム済みかどうか",
                 "totalClaimCount": "総クレーム回数",
                 "lastClaimAt": "最後のクレーム時間",
+                "createdAt": "Created At",
                 "description": "説明",
                 "bind": "バインド",
                 "bindItem": "バインドアイテム",
@@ -734,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
