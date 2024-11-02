@@ -327,11 +327,7 @@
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
         },
-<<<<<<< HEAD
-        "myDateTimeSelector":{
-=======
         "myDateTimeSelector": {
->>>>>>> 5d8d2d5aba0722b63e9eb8d588387b86f2b3554e
             "rangeSeparator": "To",
             "startPlaceholder": "Start date",
             "endPlaceholder": "End date",
