@@ -310,7 +310,7 @@
             "title": "從清單選擇指令"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "給與 {0} 物品",
             "itemName": "物品名稱",
             "count": "數量",
             "quality": "品質",
@@ -328,13 +328,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "至",
+            "startPlaceholder": "開始日期",
+            "endPlaceholder": "結束日期",
+            "today": "今天",
+            "lastWeek": "過去一週",
+            "lastMonth": "過去一個月內",
+            "lastMonths": "最近 {0} 月份"
         }
     },
     "layout": {
@@ -494,7 +494,7 @@
                 "whisper": "私聊",
                 "unknown": "未知"
             },
-            "createdAt": "Created At"
+            "createdAt": "創建時間"
         },
         "blacklist": {
             "tableHeader": {
@@ -629,7 +629,7 @@
                 "id": "ID",
                 "name": "商品名稱",
                 "price": "售價",
-                "createdAt": "Created At",
+                "createdAt": "創建時間",
                 "description": "說明",
                 "bind": "綁定",
                 "bindItem": "綁定物品",
@@ -652,7 +652,7 @@
                 "claimState": "是否已領取",
                 "totalClaimCount": "總領取次數",
                 "lastClaimAt": "上次領取時間",
-                "createdAt": "Created At",
+                "createdAt": "創建時間",
                 "description": "說明",
                 "bind": "綁定",
                 "bindItem": "綁定物品",
@@ -747,7 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "可用變數",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
