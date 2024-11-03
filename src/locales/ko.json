@@ -8,6 +8,8 @@
         },
         "true": "예",
         "false": "아니요",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "알 수 없음",
         "loading": "로딩 중...",
         "empty": "비어 있음",
@@ -19,7 +21,7 @@
         "lessThan": "미달",
         "moreThan": "초 초과",
         "equal": "같음",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "추가",
             "delete": "삭제",
@@ -29,6 +31,7 @@
             "enable": "활성화",
             "disable": "비활성화",
             "search": "검색",
+            "submit": "Submit",
             "reset": "재설정",
             "back": "뒤로",
             "close": "닫기",
@@ -268,10 +271,18 @@
             "removeItem": "선택한 아이템 제거",
             "removeItemConfirm": "플레이어의 가방과 벨트에서 모든 {0}을 제거하시겠습니까?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "인덱스",
-                "operate": "운영"
+                "operate": "운영",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -299,6 +310,7 @@
             "title": "목록에서 선택"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "아이템 이름",
             "count": "개수",
             "quality": "품질",
@@ -314,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -472,7 +493,8 @@
                 "party": "파티",
                 "whisper": "속삭임",
                 "unknown": "알 수 없음"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -530,6 +552,7 @@
             "autoBackupOnServerStartup": "서버 시작 시 자동 백업",
             "archiveFolder": "보관 폴더",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "서버 버전",
                 "gameWorld": "게임 세계",
                 "gameName": "게임 이름",
@@ -606,6 +629,7 @@
                 "id": "ID",
                 "name": "이름",
                 "price": "가격",
+                "createdAt": "Created At",
                 "description": "설명",
                 "bind": "바인딩",
                 "bindItem": "아이템 바인딩",
@@ -628,6 +652,7 @@
                 "claimState": "이미 클레임됨",
                 "totalClaimCount": "총 클레임 수",
                 "lastClaimAt": "마지막 클레임 시간",
+                "createdAt": "Created At",
                 "description": "설명",
                 "bind": "바인딩",
                 "bindItem": "아이템 바인딩",
@@ -722,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

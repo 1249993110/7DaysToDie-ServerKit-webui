@@ -22,12 +22,18 @@
 </template>
 
 <script setup>
-import { useSidebarStore } from '~/store/sidebar';
-import { useUserInfoStore } from '~/store/user-info';
 import Logout from '~icons/uiw/logout';
 
 const sidebarStore = useSidebarStore();
 const userInfoStore = useUserInfoStore();
+const globalStore = useGlobalStore();
+
+watch(
+    () => globalStore.isSmallScreen,
+    (isSmallScreen) => {
+        sidebarStore.isCollapse = isSmallScreen;
+    }
+);
 
 const { t } = useI18n();
 const router = useRouter();
@@ -55,6 +61,7 @@ const handleCommand = async (command) => {
     box-sizing: border-box;
     border-top: 1px solid #d4d7de;
     height: 48px;
+    min-height: 48px;
     overflow: hidden;
 
     .collapse-icon {
@@ -66,7 +73,7 @@ const handleCommand = async (command) => {
     }
 
     .username {
-        flex: 1;
+        flex-grow: 1;
         text-align: center;
         max-width: 108px;
 

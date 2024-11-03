@@ -1,44 +1,24 @@
 <template>
     <div>
-        <RouterButton :names="['vipGift.settings', 'vipGift.management']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :show-searcher="false"
-            :show-table-index="false"
-            :show-pager="false"
-            :get-data="getData"
-            :table-data="tableData"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditVipGift"
+        <RouterButton :names="['vipGift.settings', 'vipGift.management']" />
+        <MyTable
+            ref="myTableRef"
+            row-key="id"
+            :columns="columns"
+            :model-name="rt(tm('menus.vipGift')[''])"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :add-edit-label-width="150"
+            :request="request"
         >
-            <template #toolbarPost>
-                <el-button @click="handleResetAll" type="danger">{{t('views.vipGift.resetAll')}}</el-button>
+            <template #bindCell="{ row }">
+                <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.vipGift.tableHeader.bindItem') }}</el-button>
+                <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.vipGift.tableHeader.bindCmd') }}</el-button>
             </template>
-            <template #columns>
-                <el-table-column prop="id" :label="t('views.vipGift.tableHeader.playerId')" sortable> </el-table-column>
-                <el-table-column prop="name" :label="t('views.vipGift.tableHeader.name')" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column :label="t('views.vipGift.tableHeader.claimState')" width="160px" sortable>
-                    <template #default="{ row }">
-                        {{ `${row.claimState ? t('global.true') : t('global.false')}` }}
-                    </template>
-                </el-table-column>
-                <el-table-column prop="totalClaimCount" :label="t('views.vipGift.tableHeader.totalClaimCount')" width="170px" sortable> </el-table-column>
-                <el-table-column prop="lastClaimAt" :label="t('views.vipGift.tableHeader.lastClaimAt')" sortable> </el-table-column>
-                <el-table-column prop="description" :label="t('views.vipGift.tableHeader.description')" show-overflow-tooltip> </el-table-column>
-                <el-table-column :label="t('views.vipGift.tableHeader.bind')" :width="220" header-align="center" show-overflow-tooltip>
-                    <template #default="{ row }">
-                        <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.vipGift.tableHeader.bindItem') }}</el-button>
-                        <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.vipGift.tableHeader.bindCmd') }}</el-button>
-                    </template>
-                </el-table-column>
-            </template>
-        </MyTableEx>
-        <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @on-edit="handleItemsEdit" />
-        <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @on-edit="handleCommandsEdit" />
+        </MyTable>
+        <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleItemsEdit" />
+        <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleCommandsEdit" />
     </div>
 </template>
 
@@ -50,31 +30,188 @@ export default {
 
 <script setup>
 import * as api from '~/api/vip-gift.js';
-import AddOrEditVipGift from './AddOrEditVipGift.vue';
 
-const { t } = useI18n();
-const tableData = ref([]);
+const { t, tm, rt } = useI18n();
 
-const getData = async () => {
-    const data = await api.getVipGift();
-    tableData.value = data;
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        prop: 'id',
+        label: t('views.vipGift.tableHeader.playerId'),
+        width: 320,
+        sortable: 'custom',
+    },
+    {
+        prop: 'name',
+        label: t('views.vipGift.tableHeader.name'),
+        minWidth: 150,
+        sortable: 'custom',
+        tag: true,
+    },
+    {
+        prop: 'claimState',
+        label: t('views.vipGift.tableHeader.claimState'),
+        width: 160,
+        sortable: 'custom',
+        formatter: (row) => (row.claimState ? t('global.true') : t('global.false')),
+    },
+    {
+        prop: 'totalClaimCount',
+        label: t('views.vipGift.tableHeader.totalClaimCount'),
+        width: 170,
+        sortable: 'custom',
+    },
+    {
+        prop: 'lastClaimAt',
+        label: t('views.vipGift.tableHeader.lastClaimAt'),
+        sortable: 'custom',
+        width: 160,
+    },
+    {
+        prop: 'description',
+        label: t('views.vipGift.tableHeader.description'),
+        sortable: 'custom',
+        minWidth: 150,
+    },
+    {
+        prop: 'bind',
+        label: t('views.vipGift.tableHeader.bind'),
+        width: 220,
+        headerAlign: 'center',
+    },
+    {
+        type: 'operation',
+    },
+]);
+
+const myTableRef = ref(null);
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            label: t('views.vipGift.resetAll'),
+            onClick: async () => {
+                try {
+                    if (await myconfirm(t('views.vipGift.resetAllConfirm'))) {
+                        await api.deleteVipGiftByIds([], true);
+                        await myTableRef.value.refresh();
+                    }
+                } catch {}
+            },
+        },
+        {
+            type: 'export',
+            fileName: rt(tm('menus.vipGift')['']),
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const newId = ref(0);
+const addEditFormFields = computed(() => [
+    {
+        type: 'input',
+        name: 'id',
+        label: t('views.vipGift.tableHeader.playerId'),
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'name',
+        label: t('views.vipGift.tableHeader.name'),
+        required: true,
+    },
+    {
+        type: 'switch',
+        name: 'claimState',
+        label: t('views.vipGift.tableHeader.claimState'),
+    },
+    {
+        type: 'input-number',
+        name: 'totalClaimCount',
+        label: t('views.vipGift.tableHeader.totalClaimCount'),
+        required: true,
+        default: 0,
+        props: {
+            min: 0,
+        },
+    },
+    {
+        type: 'input',
+        name: 'description',
+        label: t('views.vipGift.tableHeader.description'),
+        props: {
+            type: 'textarea',
+        },
+    },
+]);
+
+const requestGet = async (params) => {
+    let data = await api.getVipGift();
+    if (data.length) {
+        newId.value = data[data.length - 1].id + 1;
+    }
+
+    data = searchByKeyword(data, params.keyword, ['id', 'name', 'description']);
+    if (params.sortOrder) {
+        const desc = params.sortOrder === 'descending';
+        const sortPorp = params.sortPorp;
+        data = data.sort((a, b) => {
+            if (desc) {
+                return a[sortPorp] < b[sortPorp] ? 1 : -1;
+            }
+
+            return a[sortPorp] > b[sortPorp] ? 1 : -1;
+        });
+    }
+
+    if (params.pageSize < 0) {
+        return {
+            items: data,
+            total: data.length,
+        };
+    }
+    return {
+        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: data.length,
+    };
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteVipGiftByIds({ ids: [row.id] });
+const requestAdd = async (formModel) => {
+    await api.addVipGift(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteVipGiftByIds({ ids: rows.map((i) => i.id) });
+const requestEdit = async (formModel) => {
+    await api.updateVipGift(formModel.id, formModel);
 };
 
-const handleResetAll = async () => {
-    try {
-        if (await myconfirm(t('views.vipGift.resetAllConfirm'))) {
-            await api.deleteVipGiftByIds({ resetAll: true });
-            await getData();
-        }
-    } catch {}
+const requestDetele = async (id) => {
+    await api.deleteVipGiftById(id);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteVipGiftByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 
 const lastClickId = ref(0);
@@ -85,10 +222,10 @@ const associatedData = ref([]);
 const associatedLoading = ref(false);
 
 const handleAssociatedItem = async (row) => {
+    associatedLoading.value = true;
     associatedItemsVisible.value = true;
     lastClickId.value = row.id;
     try {
-        associatedLoading.value = true;
         const data = await api.getItemList(row.id);
         associatedData.value = data;
     } finally {
@@ -101,10 +238,10 @@ const handleItemsEdit = async (ids) => {
 };
 
 const handleAssociatedCommand = async (row) => {
+    associatedLoading.value = true;
     associatedCommandsVisible.value = true;
     lastClickId.value = row.id;
     try {
-        associatedLoading.value = true;
         const data = await api.getCommandList(row.id);
         associatedData.value = data;
     } finally {
@@ -116,5 +253,3 @@ const handleCommandsEdit = async (ids) => {
     await api.updateCommandList(lastClickId.value, ids);
 };
 </script>
-
-<style lang="scss"></style>

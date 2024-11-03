@@ -114,13 +114,9 @@ const handleContextMenu = (event) => {
             {
                 label: t('components.gameIconEx.removeItem'),
                 onClick: async () => {
-                    if (await myconfirm(t('components.gameIconEx.removeItemConfirm', [ props.itemName ]))) {
+                    if (await myconfirm(t('components.gameIconEx.removeItemConfirm', [props.itemName]))) {
                         const result = await removePlayerItems(props.playerId, props.itemName);
-                        ElNotification({
-                            title: t('global.message.cmdExecResult'),
-                            type: 'info',
-                            message: h('i', { style: 'color: teal' }, result[0]),
-                        });
+                        showCmdExecResult(result);
                     }
                 },
                 disabled: !props.playerId || props.isMod,

@@ -8,6 +8,8 @@
         },
         "true": "Ja",
         "false": "Nein",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Unbekannt",
         "loading": "Wird geladen...",
         "empty": "Leer",
@@ -19,7 +21,7 @@
         "lessThan": "Weniger als",
         "moreThan": "Mehr als",
         "equal": "Gleich",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "Hinzufügen",
             "delete": "Löschen",
@@ -29,6 +31,7 @@
             "enable": "Aktivieren",
             "disable": "Deaktivieren",
             "search": "Suchen",
+            "submit": "Submit",
             "reset": "Zurücksetzen",
             "back": "Zurück",
             "close": "Schließen",
@@ -268,10 +271,18 @@
             "removeItem": "Ausgewählten Artikel entfernen",
             "removeItemConfirm": "Möchten Sie wirklich alle {0} aus der Tasche und dem Gürtel des Spielers entfernen?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Index",
-                "operate": "Operate"
+                "operate": "Operate",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -299,6 +310,7 @@
             "title": "Aus Liste auswählen"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Elementname",
             "count": "Anzahl",
             "quality": "Qualität",
@@ -314,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -472,7 +493,8 @@
                 "party": "Party",
                 "whisper": "Flüstern",
                 "unknown": "Unbekannt"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -530,6 +552,7 @@
             "autoBackupOnServerStartup": "Automatische Sicherung beim Serverstart",
             "archiveFolder": "Archivordner",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Serverversion",
                 "gameWorld": "Spielwelt",
                 "gameName": "Spielname",
@@ -606,6 +629,7 @@
                 "id": "ID",
                 "name": "Name",
                 "price": "Preis",
+                "createdAt": "Created At",
                 "description": "Beschreibung",
                 "bind": "Binden",
                 "bindItem": "Artikel binden",
@@ -628,6 +652,7 @@
                 "claimState": "Bereits beansprucht",
                 "totalClaimCount": "Gesamtzahl der Ansprüche",
                 "lastClaimAt": "Letzter Anspruch am",
+                "createdAt": "Created At",
                 "description": "Beschreibung",
                 "bind": "Binden",
                 "bindItem": "Element binden",
@@ -722,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

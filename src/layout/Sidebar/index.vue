@@ -72,7 +72,7 @@ const handleSelectMenu = async (name) => {
     flex-direction: column;
 
     .el-scrollbar {
-        flex: 1;
+        flex-grow: 1;
         .el-menu {
             overflow: auto;
             overflow-x: hidden;

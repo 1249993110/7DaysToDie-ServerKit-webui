@@ -1,129 +1,187 @@
 <template>
     <div>
-        <RouterButton :names="['chat.liveChat', 'chat.chatRecord']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            @on-export="handleExport"
-            :search-form-model="searchFormModel"
-            :get-data="getData"
-            :table-data="tableData"
-            :total="total"
-            :show-add-btn="false"
-            :show-edit-btn="false"
-            :operation-column-width="90"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            @onSortChange="handleSortChange"
+        <RouterButton :names="['chat.liveChat', 'chat.chatRecord']" />
+        <MyTable
+            ref="myTableRef"
+            row-key="id"
+            :columns="columns"
+            :toolbar="toolbar"
+            :search="search"
+            :request="request"
             :default-sort="{ prop: 'createdAt', order: 'descending' }"
-            :pageSize="100"
-        >
-            <template #searchFormItems>
-                <el-form-item :label="t('global.keyworld')" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
-                </el-form-item>
-            </template>
-            <template #toolbarPost>
-                <el-button @click="handleDeleteAll" type="danger">{{ t('global.button.deleteAll') }}</el-button>
-            </template>
-            <template #columns>
-                <el-table-column prop="createdAt" :label="t('views.chat.tableHeader.createdAt')" width="165" sortable="custom"> </el-table-column>
-                <el-table-column prop="senderName" :label="t('views.chat.tableHeader.senderName')" width="180" show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="chatType" :label="t('views.chat.tableHeader.chatType')" width="80" :formatter="formatChatType"> </el-table-column>
-                <el-table-column prop="message" :label="t('views.chat.tableHeader.message')" min-width="120" show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="entityId" :label="t('views.chat.tableHeader.entityId')" width="90"> </el-table-column>
-                <el-table-column prop="playerId" :label="t('views.chat.tableHeader.playerId')" width="280" show-overflow-tooltip> </el-table-column>
-            </template>
-        </MyTableEx>
+        />
     </div>
 </template>
+
 <script>
 export default {
     name: 'chat.chatRecord',
 };
 </script>
+
 <script setup>
 import * as api from '~/api/chat-record';
 
-const { t } = useI18n();
+const { t, tm, rt } = useI18n();
 
-const searchFormModel = reactive({
-    keyword: '',
-    order: 'createdAt',
-    desc: true,
-});
+const myTableRef = ref(null);
 
-const tableData = ref([]);
-const total = ref(0);
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        type: 'index',
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.chat.tableHeader.createdAt'),
+        width: 160,
+        sortable: 'custom',
+    },
+    {
+        prop: 'senderName',
+        label: t('views.chat.tableHeader.senderName'),
+        minWidth: 150,
+        tag: true,
+    },
+    {
+        prop: 'chatType',
+        label: t('views.chat.tableHeader.chatType'),
+        width: 80,
+        formatter: (row) => {
+            let result;
+            switch (row.chatType) {
+                // Global
+                case 'Global':
+                    result = t('views.chat.chatType.global');
+                    break;
+                // Friends
+                case 'Friends':
+                    result = t('views.chat.chatType.friends');
+                    break;
+                // Party
+                case 'Party':
+                    result = t('views.chat.chatType.party');
+                    break;
+                // Whisper
+                case 'Whisper':
+                    result = t('views.chat.chatType.whisper');
+                    break;
+                // Unknown
+                default:
+                    result = t('views.chat.chatType.unknown');
+            }
+            return result;
+        },
+    },
+    {
+        prop: 'message',
+        label: t('views.chat.tableHeader.message'),
+        minWidth: 200,
+    },
+    {
+        prop: 'entityId',
+        label: t('views.chat.tableHeader.entityId'),
+        width: 110,
+    },
+    {
+        prop: 'playerId',
+        label: t('views.chat.tableHeader.playerId'),
+        width: 320,
+    },
 
-const getData = async (pagination) => {
-    const data = await api.getChatRecord({ ...pagination, ...searchFormModel });
-    tableData.value = data.items;
-    total.value = data.total;
+    {
+        type: 'operation',
+        editBtnVisible: false,
+    },
+]);
+
+const toolbar = computed(() => ({
+    addBtnVisible: false,
+    batchOperationItems: [
+        {
+            label: t('global.button.deleteAll'),
+            onClick: async () => {
+                try {
+                    if (await myconfirm(t('global.message.deleteConfirm'))) {
+                        await api.deleteChatRecordByIds([], true);
+                        await myTableRef.value.refresh();
+                    }
+                } catch {}
+            },
+        },
+        {
+            type: 'export',
+            fileName: t('menus.chat.chatRecord'),
+            divided: true,
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'MyDateTimeSelector',
+            name: 'datetimerange',
+            label: t('views.chat.createdAt'),
+            minWidth: 460,
+        },
+        {
+            type: 'select-v2',
+            name: 'chatType',
+            label: t('views.chat.tableHeader.chatType'),
+            span: 3,
+            minWidth: 200,
+            props: {
+                options: [
+                    { label: t('views.chat.chatType.global'), value: 'Global' },
+                    { label: t('views.chat.chatType.friends'), value: 'Friends' },
+                    { label: t('views.chat.chatType.party'), value: 'Party' },
+                    { label: t('views.chat.chatType.whisper'), value: 'Whisper' },
+                    { label: t('views.chat.chatType.unknown'), value: 'Unknown' },
+                ],
+            },
+        },
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const requestGet = async (params) => {
+    console.log(params);
+
+    const data = await api.getChatRecord({
+        pageNumber: params.pageNumber,
+        pageSize: params.pageSize,
+        keyword: params.keyword,
+        order: params.sortPorp,
+        desc: params.sortOrder === 'descending',
+        startDateTime: params.datetimerange ? params.datetimerange[0] : null,
+        endDateTime: params.datetimerange ? params.datetimerange[1] : null,
+        chatType: params.chatType,
+    });
+
+    return data;
 };
 
-const formatChatType = (row) => {
-    let type;
-    switch (row.chatType) {
-        // Global
-        case 'Global':
-            type = t('views.chat.chatType.global');
-            break;
-        // Friends
-        case 'Friends':
-            type = t('views.chat.chatType.friends');
-            break;
-        // Party
-        case 'Party':
-            type = t('views.chat.chatType.party');
-            break;
-        // Whisper
-        case 'Whisper':
-            type = t('views.chat.chatType.whisper');
-            break;
-        // Unknown
-        default:
-            type = t('views.chat.chatType.unknown');
-    }
-    return type;
+const requestDetele = async (id) => {
+    await api.deleteChatRecordById(id);
 };
 
-const handleExport = (command) => {
-    switch (command) {
-        case 'csv':
-            exportCsv(tableData.value, t('menus.chat.chatRecord'), {
-                createdAt: t('views.chat.tableHeader.createdAt'),
-                entityId: t('views.chat.tableHeader.entityId'),
-                senderName: t('views.chat.tableHeader.senderName'),
-                chatType: t('views.chat.tableHeader.chatType'),
-                message: t('views.chat.tableHeader.message'),
-                playerId: t('views.chat.tableHeader.playerId'),
-            });
-            break;
-        case 'json':
-            exportJson(tableData.value, t('menus.chat.chatRecord'));
-            break;
-    }
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteChatRecordByIds(selectedIds);
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteChatRecordByIds({ ids: [row.id] });
-};
-
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteChatRecordByIds({ ids: rows.map((i) => i.id) });
-};
-
-const handleDeleteAll = async () => {
-    try {
-        if (await myconfirm(t('global.message.deleteConfirm'))) {
-            await api.deleteChatRecordByIds({ deleteAll: true });
-            await getData();
-        }
-    } catch {}
-};
-
-const handleSortChange = async ({ prop, order }) => {
-    searchFormModel.order = prop;
-    searchFormModel.desc = order === 'descending';
+const request = {
+    get: requestGet,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>

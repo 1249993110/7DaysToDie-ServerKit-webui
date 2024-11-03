@@ -8,6 +8,8 @@
         },
         "true": "Sí",
         "false": "No",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Desconocido",
         "loading": "Cargando...",
         "empty": "Vacío",
@@ -19,7 +21,7 @@
         "lessThan": "Menos que",
         "moreThan": "Más que",
         "equal": "Igual",
-        "keyworld": "Mundo clave",
+        "keyword": "Keyword",
         "button": {
             "add": "Agregar",
             "delete": "Eliminar",
@@ -29,6 +31,7 @@
             "enable": "Habilitar",
             "disable": "Deshabilitar",
             "search": "Buscar",
+            "submit": "Submit",
             "reset": "Restablecer",
             "back": "Atrás",
             "close": "Cerrar",
@@ -268,10 +271,18 @@
             "removeItem": "Eliminar objeto seleccionado",
             "removeItemConfirm": "¿Está seguro de que desea eliminar todos los objetos {0} de la bolsa y el cinturón del jugador?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Índice",
-                "operate": "Operar"
+                "operate": "Operar",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -299,6 +310,7 @@
             "title": "Seleccionar desde la lista"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Nombre del objeto",
             "count": "Cantidad",
             "quality": "Calidad",
@@ -314,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -472,7 +493,8 @@
                 "party": "Grupo",
                 "whisper": "Susurro",
                 "unknown": "Desconocido"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -530,6 +552,7 @@
             "autoBackupOnServerStartup": "Copia de seguridad automática al iniciar el servidor",
             "archiveFolder": "Carpeta de destino",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Versión del servidor",
                 "gameWorld": "Mundo del juego",
                 "gameName": "Nombre del juego",
@@ -606,6 +629,7 @@
                 "id": "ID",
                 "name": "Nombre",
                 "price": "Precio",
+                "createdAt": "Created At",
                 "description": "Descripción",
                 "bind": "Vincular",
                 "bindItem": "Vincular objeto",
@@ -628,6 +652,7 @@
                 "claimState": "Ya reclamado",
                 "totalClaimCount": "Recuento total de reclamos",
                 "lastClaimAt": "Último reclamo en",
+                "createdAt": "Created At",
                 "description": "Descripción",
                 "bind": "Vincular",
                 "bindItem": "Vincular objeto",
@@ -722,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Habilitar Chat Coloreado",
+            "variables": "Variables",
             "globalDefault": "Global por defecto",
             "whisperDefault": "Susurro por defecto",
             "friendsDefault": "Amigos por defecto",

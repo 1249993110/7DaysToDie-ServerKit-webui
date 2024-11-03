@@ -1,6 +1,6 @@
 import Papa from 'papaparse';
 
-export const exportCsv = (array, fileName, columns, withBom = true) => {
+export const exportCsv = (array, fileName, columns, withBom) => {
     const data = [];
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
@@ -16,6 +16,7 @@ export const exportCsv = (array, fileName, columns, withBom = true) => {
         data: data,
     };
 
+    withBom ??= /Windows/i.test(navigator.userAgent);
     const csv = withBom ? '\ufeff' + Papa.unparse(obj) : Papa.unparse(obj);
 
     const content = new Blob([csv], { type: 'text/plain;charset=UTF-8' });

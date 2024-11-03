@@ -1,35 +1,16 @@
 <template>
-    <div class="points-management">
-        <RouterButton :names="['pointsSystem.settings', 'pointsSystem.management']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :search-form-model="searchFormModel"
-            :get-data="getData"
-            :table-data="tableData"
-            :total="total"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditPointsInfo"
-        >
-            <template #searchFormItems>
-                <el-form-item :label="t('global.keyworld')" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
-                </el-form-item>
-            </template>
-            <template #toolbarPost>
-                <el-button @click="handleResetPoints" type="danger">{{ t('views.pointsSystem.resetPoints') }}</el-button>
-                <el-button @click="handleResetSignIn" type="danger">{{ t('views.pointsSystem.resetSignIn') }}</el-button>
-            </template>
-            <template #columns>
-                <el-table-column prop="playerName" :label="t('views.pointsSystem.tableHeader.playerName')" sortable> </el-table-column>
-                <el-table-column prop="id" :label="t('views.pointsSystem.tableHeader.playerId')" sortable> </el-table-column>
-                <el-table-column prop="points" :label="t('views.pointsSystem.tableHeader.points')" sortable> </el-table-column>
-                <el-table-column prop="lastSignInAt" :label="t('views.pointsSystem.tableHeader.lastSignInAt')" sortable> </el-table-column>
-            </template>
-        </MyTableEx>
+    <div>
+        <RouterButton :names="['pointsSystem.settings', 'pointsSystem.management']" />
+        <MyTable
+            ref="myTableRef"
+            row-key="id"
+            :columns="columns"
+            :model-name="t('views.pointsSystem.tableHeader.points')"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :request="request"
+        />
     </div>
 </template>
 
@@ -41,47 +22,158 @@ export default {
 
 <script setup>
 import * as api from '~/api/points-info.js';
-import AddOrEditPointsInfo from './AddOrEditPointsInfo.vue';
 
-const { t } = useI18n();
-const searchFormModel = reactive({
-    keyword: '',
-});
+const { t, tm, rt } = useI18n();
 
-const tableData = ref([]);
-const total = ref(0);
+const myTableRef = ref(null);
 
-const getData = async (pagination) => {
-    const data = await api.getPointsInfoPaged({ ...pagination, ...searchFormModel });
-    tableData.value = data.items;
-    total.value = data.total;
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        type: 'index',
+    },
+    {
+        prop: 'id',
+        label: t('views.pointsSystem.tableHeader.playerId'),
+        width: 320,
+        // sortable: 'custom',
+    },
+    {
+        prop: 'playerName',
+        label: t('views.pointsSystem.tableHeader.playerName'),
+        minWidth: 150,
+        // sortable: 'custom',
+        tag: true,
+    },
+    {
+        prop: 'points',
+        label: t('views.pointsSystem.tableHeader.points'),
+        minWidth: 80,
+        // sortable: 'custom',
+    },
+    {
+        prop: 'lastSignInAt',
+        label: t('views.pointsSystem.tableHeader.lastSignInAt'),
+        minWidth: 160,
+        // sortable: 'custom',
+    },
+    {
+        type: 'operation',
+    },
+]);
+
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            label: t('views.pointsSystem.resetPoints'),
+            onClick: async () => {
+                try {
+                    if (await myconfirm(t('views.pointsSystem.resetPointsConfirm'))) {
+                        await api.deletePointsInfoByIds([], true);
+                        await myTableRef.value.refresh();
+                    }
+                } catch {}
+            },
+        },
+        {
+            label: t('views.pointsSystem.resetSignIn'),
+            onClick: async () => {
+                try {
+                    if (await myconfirm(t('views.pointsSystem.resetSignInConfirm'))) {
+                        await api.deletePointsInfoByIds([], false, true);
+                        await myTableRef.value.refresh();
+                    }
+                } catch {}
+            },
+        },
+        {
+            type: 'export',
+            fileName: rt(tm('menus.pointsSystem')['']),
+            divided: true,
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            }
+        },
+    ],
+}));
+
+const addEditFormFields = computed(() => [
+    {
+        type: 'input',
+        name: 'id',
+        label: t('views.pointsSystem.tableHeader.playerId'),
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'playerName',
+        label: t('views.pointsSystem.tableHeader.playerName'),
+    },
+    {
+        type: 'input',
+        name: 'points',
+        label: t('views.pointsSystem.tableHeader.points'),
+        required: true,
+    },
+    {
+        type: 'date-picker',
+        name: 'lastSignInAt',
+        label: t('views.pointsSystem.tableHeader.lastSignInAt'),
+        required: true,
+        props: {
+            type: 'datetime',
+            placeholder: t('global.message.datePickerPlaceholder'),
+            format: 'YYYY-MM-DD HH:mm',
+            valueFormat: 'YYYY-MM-DD HH:mm:00',
+        },
+    },
+]);
+
+const requestGet = async (params) => {
+    const data = await api.getPointsInfoPaged({
+        pageNumber: params.pageNumber,
+        pageSize: params.pageSize,
+        keyword: params.keyword,
+        // order: params.sortPorp,
+        // desc: params.sortOrder === 'descending',
+    });
+
+    return data;
 };
 
-const deleteRequest = async (row) => {
-    return await api.deletePointsInfoByIds({ ids: [row.id] });
+const requestAdd = async (formModel) => {
+    await api.addPointsInfo(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deletePointsInfoByIds({ ids: rows.map((i) => i.id) });
+const requestEdit = async (formModel) => {
+    await api.updatePointsInfo(formModel.id, formModel);
 };
 
-const handleResetPoints = async () => {
-    try {
-        if (await myconfirm(t('views.pointsSystem.resetPointsConfirm'))) {
-            await api.deletePointsInfoByIds({ resetPoints: true });
-            await getData();
-        }
-    } catch {}
+const requestDetele = async (id) => {
+    await api.deletePointsInfoById(id);
 };
 
-const handleResetSignIn = async () => {
-    try {
-        if (await myconfirm(t('views.pointsSystem.resetSignInConfirm'))) {
-            await api.deletePointsInfoByIds({ resetSignIn: true });
-            await getData();
-        }
-    } catch {}
+const requestBatchDelete = async (selectedIds) => {
+    await api.deletePointsInfoByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>
-
-<style scoped lang="scss"></style>

@@ -8,6 +8,8 @@
         },
         "true": "Evet",
         "false": "Hayır",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Bilinmeyen",
         "loading": "Yükleniyor...",
         "empty": "Boş",
@@ -19,7 +21,7 @@
         "lessThan": "Daha az",
         "moreThan": "Daha fazla",
         "equal": "Eşit",
-        "keyworld": "Anahtar kelime",
+        "keyword": "Keyword",
         "button": {
             "add": "Ekle",
             "delete": "Sil",
@@ -29,6 +31,7 @@
             "enable": "Etkinleştir",
             "disable": "Devre Dışı Bırak",
             "search": "Ara",
+            "submit": "Submit",
             "reset": "Sıfırla",
             "back": "Geri",
             "close": "Kapat",
@@ -268,10 +271,18 @@
             "removeItem": "Seçilen Öğeyi Kaldır",
             "removeItemConfirm": "Oyuncunun çantasından ve kemerinden tüm {0} öğelerini kaldırmak istediğinizden emin misiniz?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Numara",
-                "operate": "İşlem"
+                "operate": "İşlem",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -299,6 +310,7 @@
             "title": "Listeden Komut Seç"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Öğe Adı",
             "count": "Miktar",
             "quality": "Kalite",
@@ -314,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -472,7 +493,8 @@
                 "party": "Grup",
                 "whisper": "Özel Sohbet",
                 "unknown": "Bilinmeyen"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -530,6 +552,7 @@
             "autoBackupOnServerStartup": "Sunucu başlatıldığında otomatik yedekleme yap",
             "archiveFolder": "Yedekleme Klasörü",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Sunucu Sürümü",
                 "gameWorld": "Oyun Dünyası",
                 "gameName": "Oyun Adı",
@@ -606,6 +629,7 @@
                 "id": "ID",
                 "name": "Ürün Adı",
                 "price": "Fiyat",
+                "createdAt": "Created At",
                 "description": "Açıklama",
                 "bind": "Bağla",
                 "bindItem": "Bağlı Öğe",
@@ -628,6 +652,7 @@
                 "claimState": "Alındı mı",
                 "totalClaimCount": "Toplam Talep Sayısı",
                 "lastClaimAt": "Son Talep Zamanı",
+                "createdAt": "Created At",
                 "description": "Açıklama",
                 "bind": "Bağla",
                 "bindItem": "Öğe Bağla ",
@@ -722,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

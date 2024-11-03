@@ -19,14 +19,14 @@ function getLanguageCode(lang) {
 
 const preferredLocale = () => {
     let lang = localStorage.getItem('lang');
-    if(lang){
+    if (lang) {
         return lang;
     }
 
     lang = navigator.language.toLowerCase();
     console.log('Navigator lang:', lang);
 
-    if(lang === 'zh-tw' || lang === 'zh-hk'){
+    if (lang === 'zh-tw' || lang === 'zh-hk') {
         return 'tw';
     }
 

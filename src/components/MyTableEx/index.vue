@@ -1,5 +1,5 @@
 <template>
-    <div class="my-table">
+    <div class="pro-table">
         <el-card class="search-card" shadow="always" v-loading="loading" v-if="showSearcher">
             <el-form ref="searchFormRef" :model="searchFormModel" label-position="right" :inline="true">
                 <slot name="searchFormItems"></slot>
@@ -44,9 +44,9 @@
                     :size="tableSize"
                 >
                     <el-table-column v-if="showTableSelection" type="selection" width="50" align="center" />
-                    <el-table-column v-if="showTableIndex" type="index" :label="t('components.myTableEx.tableHeader.index')" width="64" />
+                    <el-table-column v-if="showTableIndex" type="index" :label="t('components.proTable.tableHeader.index')" width="64" />
                     <slot name="columns"></slot>
-                    <el-table-column v-if="showOperationColumn" :label="t('components.myTableEx.tableHeader.operate')" :width="operationColumnWidth" header-align="center" show-overflow-tooltip fixed="right">
+                    <el-table-column v-if="showOperationColumn" :label="t('components.proTable.tableHeader.operate')" :width="operationColumnWidth" header-align="center" show-overflow-tooltip fixed="right">
                         <template #default="{ row }">
                             <el-button v-if="showEditBtn" size="small" type="primary" :icon="Edit" @click="handleEdit(row)">{{ editLabel }}</el-button>
                             <el-button v-if="showDeleteBtn" size="small" type="danger" :icon="Delete" @click="handleDelete(row)">{{ deleteLabel }}</el-button>
@@ -307,7 +307,7 @@ const handleSortChange = async ({ prop, order }) => {
 </script>
 
 <style scoped lang="scss">
-.my-table {
+.pro-table {
     height: calc(100vh - 160px);
     display: flex;
     flex-direction: column;
@@ -320,7 +320,7 @@ const handleSortChange = async ({ prop, order }) => {
     }
 
     .table-card {
-        flex: 1;
+        flex-grow: 1;
         background-color: #ffffffaf;
         :deep(.el-card__body) {
             height: calc(100% - 40px);

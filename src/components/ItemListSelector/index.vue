@@ -2,22 +2,22 @@
     <el-dialog :title="t('components.itemListSelector.title')" draggable append-to-body align-center :close-on-click-modal="false" width="800px" @open="handleOpen">
         <div style="margin-bottom: 8px;">
             <el-input v-model="searchModel.keyword" :placeholder="t('global.message.inputText')" clearable autofocus style="width: 200px"></el-input>
-            <el-button :icon="Search" @click="getData" type="primary" style="margin-left: 8px">{{ t('global.button.search') }}</el-button>
+            <el-button :icon="Search" @click="getTableData" type="primary" style="margin-left: 8px">{{ t('global.button.search') }}</el-button>
             <el-button @click="handleBatchSelect" color="#40e0d0" :disabled="batchSelectDisabled">{{ t('global.button.batchSelect') }}</el-button>
         </div>
-        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange">
-            <el-table-column type="selection" width="42" :selectable="checkSelectable" />
-            <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" width="65px"> </el-table-column>
-            <el-table-column :label="t('views.listManagement.tableHeader.icon')" width="65px" class-name="table-icon-col">
+        <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange" size="small">
+            <el-table-column type="selection" width="42" :selectable="checkSelectable" align="center" />
+            <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" width="60px" align="center" />
+            <el-table-column :label="t('views.listManagement.tableHeader.icon')" width="60px" class-name="table-icon-col">
                 <template #default="{ row }">
                     <GameIcon :name="row.itemName" :size="40" />
                 </template>
             </el-table-column>
-            <el-table-column prop="itemName" :label="t('views.listManagement.tableHeader.itemName')" show-overflow-tooltip> </el-table-column>
-            <el-table-column prop="count" :label="t('views.listManagement.tableHeader.count')" width="66px"> </el-table-column>
-            <el-table-column prop="quality" :label="t('views.listManagement.tableHeader.quality')" width="74px"> </el-table-column>
-            <el-table-column prop="durability" :label="t('views.listManagement.tableHeader.durability')" width="90px"> </el-table-column>
-            <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" show-overflow-tooltip> </el-table-column>
+            <el-table-column prop="itemName" :label="t('views.listManagement.tableHeader.itemName')" show-overflow-tooltip />
+            <el-table-column prop="count" :label="t('views.listManagement.tableHeader.count')" width="60px" />
+            <el-table-column prop="quality" :label="t('views.listManagement.tableHeader.quality')" width="60px" />
+            <el-table-column prop="durability" :label="t('views.listManagement.tableHeader.durability')" width="75px" />
+            <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" show-overflow-tooltip />
             <el-table-column :label="t('global.button.select')" align="center" width="100px">
                 <template #default="{ row }">
                     <el-button color="#40e0d0" @click="handleSelect(row)" :disabled="checkDisabled(row.id)">{{t('global.button.select')}}</el-button>
@@ -27,8 +27,8 @@
         <el-pagination
             style="margin-top: 10px"
             background
-            @size-change="getData"
-            @current-change="getData"
+            @size-change="getTableData"
+            @current-change="getTableData"
             :page-sizes="[5, 10, 20, 50, 100]"
             v-model:current-page="searchModel.pageNumber"
             v-model:page-size="searchModel.pageSize"
@@ -67,9 +67,9 @@ const searchModel = reactive({
     keyword: '',
 });
 
-const getData = async () => {
+const getTableData = async () => {
+    loading.value = true;
     try {
-        loading.value = true;
         const data = await getItemListPaged(searchModel);
         tableData.value = data.items;
         total.value = data.total;
@@ -79,12 +79,12 @@ const getData = async () => {
 };
 
 const handleOpen = async () => {
-    await getData();
+    await getTableData();
 };
 
-const emit = defineEmits(['onSelect']);
+const emit = defineEmits(['select']);
 const handleSelect = (row) => {
-    emit('onSelect', [row]);
+    emit('select', [row]);
 };
 
 const batchSelectDisabled = ref(true);
@@ -95,8 +95,7 @@ const handleSelectionChange = (val) => {
 };
 
 const handleBatchSelect = () => {
-    emit('onSelect', multipleSelection);
+    emit('select', multipleSelection);
 };
 </script>
 
-<style scoped lang="scss"></style>

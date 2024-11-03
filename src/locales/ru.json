@@ -8,6 +8,8 @@
         },
         "true": "Да",
         "false": "Нет",
+        "on": "ON",
+        "off": "OFF",
         "unknown": "Неизвестно",
         "loading": "Загрузка...",
         "empty": "Пусто",
@@ -19,7 +21,7 @@
         "lessThan": "Меньше",
         "moreThan": "Больше",
         "equal": "Равно",
-        "keyworld": "Keyworld",
+        "keyword": "Keyword",
         "button": {
             "add": "Добавить",
             "delete": "Удалить",
@@ -29,6 +31,7 @@
             "enable": "Включить",
             "disable": "Отключить",
             "search": "Поиск",
+            "submit": "Submit",
             "reset": "Сброс",
             "back": "Назад",
             "close": "Закрыть",
@@ -268,10 +271,18 @@
             "removeItem": "Удалить выбранный предмет",
             "removeItemConfirm": "Вы уверены, что хотите удалить все {0} из сумки и пояса игрока?"
         },
-        "myTableEx": {
+        "proTable": {
             "tableHeader": {
                 "index": "Индекс",
-                "operate": "Управление"
+                "operate": "Управление",
+                "columnSetting": "Column Setting",
+                "columnName": "Column Name",
+                "display": "Display"
+            },
+            "radio": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             }
         },
         "itemBlockSelector": {
@@ -299,6 +310,7 @@
             "title": "Выбрать из списка"
         },
         "batchGiveItem": {
+            "title": "Give {0} Item",
             "itemName": "Имя элемента",
             "count": "Количество",
             "quality": "Качество",
@@ -314,6 +326,15 @@
             "name": "Name",
             "localizationName": "Localization Name",
             "fullPath": "Full Path"
+        },
+        "myDateTimeSelector": {
+            "rangeSeparator": "To",
+            "startPlaceholder": "Start date",
+            "endPlaceholder": "End date",
+            "today": "Today",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastMonths": "Last {0} months"
         }
     },
     "layout": {
@@ -472,7 +493,8 @@
                 "party": "Вечеринка",
                 "whisper": "Шепот",
                 "unknown": "Неизвестно"
-            }
+            },
+            "createdAt": "Created At"
         },
         "blacklist": {
             "tableHeader": {
@@ -530,6 +552,7 @@
             "autoBackupOnServerStartup": "Авто Резервное копирование при запуске сервера",
             "archiveFolder": "Папка архива",
             "tableHeader": {
+                "name": "Name",
                 "serverVersion": "Версия сервера",
                 "gameWorld": "Игровой мир",
                 "gameName": "Название игры",
@@ -606,6 +629,7 @@
                 "id": "ID",
                 "name": "Имя",
                 "price": "Цена",
+                "createdAt": "Created At",
                 "description": "Описание",
                 "bind": "Привязать",
                 "bindItem": "Привязать элемент",
@@ -628,6 +652,7 @@
                 "claimState": "Уже заявлено",
                 "totalClaimCount": "Общее количество заявлений",
                 "lastClaimAt": "Последнее заявление",
+                "createdAt": "Created At",
                 "description": "Описание",
                 "bind": "Привязать",
                 "bindItem": "Элемент привязки",
@@ -722,6 +747,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
+            "variables": "Variables",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

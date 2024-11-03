@@ -1,43 +1,28 @@
 <template>
     <div>
-        <RouterButton :names="['coloredChat.settings', 'coloredChat.management']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :show-searcher="false"
-            :show-table-index="false"
-            :show-pager="false"
-            :get-data="getData"
-            :table-data="tableData"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditColoredChat"
+        <RouterButton :names="['coloredChat.settings', 'coloredChat.management']" />
+        <MyTable
+            row-key="id"
+            :columns="columns"
+            :model-name="rt(tm('menus.coloredChat')[''])"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :request="request"
         >
-            <template #columns>
-                <el-table-column prop="id" :label="t('views.coloredChat.tableHeader.playerId')" sortable width="320px"> </el-table-column>
-                <el-table-column prop="customName" :label="t('views.coloredChat.tableHeader.customName')" sortable> </el-table-column>
-                <el-table-column prop="nameColor" :label="t('views.coloredChat.tableHeader.nameColor')" sortable>
-                    <template #default="{ row }">
-                        <span class="tableColColor">
-                            <div :style="{ backgroundColor: '#' + row.nameColor }"></div>
-                            {{ row.nameColor }}
-                        </span>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="textColor" :label="t('views.coloredChat.tableHeader.textColor')" sortable>
-                    <template #default="{ row }">
-                        <span class="tableColColor">
-                            <div :style="{ backgroundColor: '#' + row.textColor }"></div>
-                            {{ row.textColor }}
-                        </span>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="createdAt" :label="t('views.coloredChat.tableHeader.createdAt')" sortable> </el-table-column>
-                <el-table-column prop="description" :label="t('views.coloredChat.tableHeader.description')" show-overflow-tooltip> </el-table-column>
+            <template #nameColorCell="{ row }">
+                <span class="tableColColor">
+                    <div :style="{ backgroundColor: '#' + row.nameColor }"></div>
+                    {{ row.nameColor }}
+                </span>
             </template>
-        </MyTableEx>
+            <template #textColorCell="{ row }">
+                <span class="tableColColor">
+                    <div :style="{ backgroundColor: '#' + row.textColor }"></div>
+                    {{ row.textColor }}
+                </span>
+            </template>
+        </MyTable>
     </div>
 </template>
 
@@ -49,22 +34,158 @@ export default {
 
 <script setup>
 import * as api from '~/api/coloredChat.js';
-import AddOrEditColoredChat from './AddOrEditColoredChat.vue';
 
-const { t } = useI18n();
-const tableData = ref([]);
+const { t, tm, rt } = useI18n();
 
-const getData = async () => {
-    const data = await api.getColoredChat();
-    tableData.value = data;
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        type: 'index',
+    },
+    {
+        prop: 'id',
+        label: t('views.coloredChat.tableHeader.playerId'),
+        width: 320,
+    },
+    {
+        prop: 'customName',
+        label: t('views.coloredChat.tableHeader.customName'),
+        minWidth: 150,
+        tag: true,
+        sortable: 'custom',
+    },
+    {
+        prop: 'nameColor',
+        label: t('views.coloredChat.tableHeader.nameColor'),
+        minWidth: 105,
+    },
+    {
+        prop: 'textColor',
+        label: t('views.coloredChat.tableHeader.textColor'),
+        minWidth: 105,
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.coloredChat.tableHeader.createdAt'),
+        width: 160,
+        sortable: 'custom',
+    },
+    {
+        prop: 'description',
+        label: t('views.coloredChat.tableHeader.description'),
+        minWidth: 150,
+        sortable: 'custom',
+    },
+    {
+        type: 'operation',
+    },
+]);
+
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            type: 'export',
+            fileName: rt(tm('menus.coloredChat')['']),
+            divided: true,
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const addEditFormFields = computed(() => [
+    {
+        type: 'input',
+        name: 'id',
+        label: t('views.coloredChat.tableHeader.playerId'),
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'customName',
+        label: t('views.coloredChat.tableHeader.customName'),
+    },
+    {
+        type: 'MyColorPicker',
+        name: 'nameColor',
+        label: t('views.coloredChat.tableHeader.nameColor'),
+        required: true,
+    },
+    {
+        type: 'MyColorPicker',
+        name: 'textColor',
+        label: t('views.coloredChat.tableHeader.textColor'),
+        required: true,
+    },
+    {
+        type: 'input',
+        name: 'description',
+        label: t('views.coloredChat.tableHeader.description'),
+    },
+]);
+
+const requestGet = async (params) => {
+    let data = await api.getColoredChat();
+    data = searchByKeyword(data, params.keyword, ['id', 'customName', 'description']);
+    if (params.sortOrder) {
+        const desc = params.sortOrder === 'descending';
+        const sortPorp = params.sortPorp;
+        data = data.sort((a, b) => {
+            if (desc) {
+                return a[sortPorp] < b[sortPorp] ? 1 : -1;
+            }
+
+            return a[sortPorp] > b[sortPorp] ? 1 : -1;
+        });
+    }
+
+    if (params.pageSize < 0) {
+        return {
+            items: data,
+            total: data.length,
+        };
+    }
+    return {
+        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: data.length,
+    };
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteColoredChatByIds({ ids: [row.id] });
+const requestAdd = async (formModel) => {
+    await api.addColoredChat(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteColoredChatByIds({ ids: rows.map((i) => i.id) });
+const requestEdit = async (formModel) => {
+    await api.updateColoredChat(formModel.id, formModel);
+};
+
+const requestDetele = async (id) => {
+    await api.deleteColoredChatById(id);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteColoredChatByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>
 

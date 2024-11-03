@@ -37,7 +37,7 @@ export const deleteCityLocationById = (id) => {
  * @returns
  */
 export const deleteCityLocationByIds = (ids) => {
-    return http.delete('/CityLocation', { data: ids });
+    return http.delete('/CityLocation', { params: { ids } });
 };
 
 /**

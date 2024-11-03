@@ -36,8 +36,8 @@ export const deletePointsInfoById = (id) => {
  * 通过Id集合删除积分
  * @returns
  */
-export const deletePointsInfoByIds = (params) => {
-    return http.delete('/PointsInfo', { params: params });
+export const deletePointsInfoByIds = (ids, resetPoints = false, resetSignIn = false) => {
+    return http.delete('/PointsInfo', { params: {ids, resetPoints, resetSignIn} });
 };
 
 /**

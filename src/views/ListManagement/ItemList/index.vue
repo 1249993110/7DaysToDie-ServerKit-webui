@@ -1,40 +1,16 @@
 <template>
     <div>
-        <RouterButton :names="['listManagement.itemList', 'listManagement.commandList']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :search-form-model="searchFormModel"
-            :get-data="getData"
-            :table-data="tableData"
-            :total="total"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :show-table-index="false"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditItemList"
-        >
-            <template #searchFormItems>
-                <el-form-item :label="t('global.keyworld')" prop="keyword">
-                    <el-input v-model="searchFormModel.keyword" style="width: 400px" :placeholder="t('global.message.inputText')" clearable autofocus></el-input>
-                </el-form-item>
-            </template>
-            <template #columns>
-                <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" sortable width="80px"></el-table-column>
-                <el-table-column :label="t('views.listManagement.tableHeader.icon')" width="120px" class-name="table-icon-col">
-                    <template #default="{ row }">
-                        <GameIcon :name="row.itemName" :size="40"/>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="itemName" :label="t('views.listManagement.tableHeader.itemName')" sortable show-overflow-tooltip></el-table-column>
-                <el-table-column prop="count" :label="t('views.listManagement.tableHeader.count')" sortable></el-table-column>
-                <el-table-column prop="quality" :label="t('views.listManagement.tableHeader.quality')" sortable></el-table-column>
-                <el-table-column prop="durability" :label="t('views.listManagement.tableHeader.durability')" sortable width="120px"></el-table-column>
-                <el-table-column prop="description" :label="t('views.listManagement.tableHeader.description')" sortable how-overflow-tooltip></el-table-column>
-                <el-table-column prop="createdAt" :label="t('views.listManagement.tableHeader.createdAt')" sortable></el-table-column>
-            </template>
-        </MyTableEx>
+        <RouterButton :names="['listManagement.itemList', 'listManagement.commandList']" />
+        <MyTable
+            row-key="id"
+            :columns="columns"
+            :model-name="t('menus.listManagement.itemList')"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :request="request"
+            ref="myTableRef"
+        />
     </div>
 </template>
 
@@ -45,30 +21,174 @@ export default {
 </script>
 
 <script setup>
-import * as api from '~/api/item-list.js';
-import AddOrEditItemList from '~/components/AddOrEditItemList/index.vue';
+import * as api from '~/api/item-list';
+import GameIcon from '~/components/GameIcon/index.vue';
 
-const {t} = useI18n();
-const searchFormModel = reactive({
-    keyword: '',
-});
+const { t, tm, rt } = useI18n();
+const myTableRef = ref(null);
 
-const tableData = ref([]);
-const total = ref(0);
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        prop: 'id',
+        label: t('views.listManagement.tableHeader.id'),
+        width: 80,
+        align: 'center',
+        fixed: true,
+    },
+    {
+        prop: 'icon',
+        label: t('views.listManagement.tableHeader.icon'),
+        width: 72,
+        render: ({ row }) => h(GameIcon, { name: row.itemName, size: 40 }),
+        className: 'table-icon-col',
+    },
+    {
+        prop: 'itemName',
+        label: t('views.listManagement.tableHeader.itemName'),
+        width: 180,
+        tag: true,
+    },
+    {
+        prop: 'count',
+        label: t('views.listManagement.tableHeader.count'),
+        width: 80,
+    },
+    {
+        prop: 'quality',
+        label: t('views.listManagement.tableHeader.quality'),
+        width: 80,
+    },
+    {
+        prop: 'durability',
+        label: t('views.listManagement.tableHeader.durability'),
+        width: 100,
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.listManagement.tableHeader.createdAt'),
+        width: 160,
+    },
+    {
+        prop: 'description',
+        label: t('views.listManagement.tableHeader.description'),
+        minWidth: 150,
+    },
+    {
+        type: 'operation',
+    },
+]);
 
-const getData = async (pagination) => {
-    const data = await api.getItemListPaged({ ...pagination, ...searchFormModel });
-    tableData.value = data.items;
-    total.value = data.total;
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            type: 'export',
+            fileName: t('menus.listManagement.itemList'),
+            // divided: true,
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const addEditFormFields = computed(() => [
+    {
+        type: 'ItemBlockSelector',
+        name: 'itemName',
+        label: t('views.listManagement.tableHeader.itemName'),
+        required: true,
+        props: {
+            onSelect: (row) => {
+                myTableRef.value.addEditFormModel.description = row.localizationName;
+            },
+        },
+    },
+    {
+        type: 'input-number',
+        name: 'count',
+        label: t('views.listManagement.tableHeader.count'),
+        required: true,
+        default: 1,
+        props: {
+            min: 1,
+            max: 1000000,
+        },
+    },
+    {
+        type: 'input-number',
+        name: 'quality',
+        label: t('views.listManagement.tableHeader.quality'),
+        default: 1,
+        props: {
+            min: 0,
+        },
+    },
+    {
+        type: 'input-number',
+        name: 'durability',
+        label: t('views.listManagement.tableHeader.durability'),
+        default: 100,
+        props: {
+            min: 0,
+            max: 100,
+        },
+    },
+    {
+        type: 'input',
+        name: 'description',
+        label: t('views.listManagement.tableHeader.description'),
+        props: {
+            type: 'textarea',
+        },
+    },
+]);
+
+const requestGet = async (params) => {
+    const data = await api.getItemListPaged({
+        pageNumber: params.pageNumber,
+        pageSize: params.pageSize,
+        keyword: params.keyword,
+        // order: params.sortPorp,
+        // desc: params.sortOrder === 'descending',
+    });
+
+    return data;
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteItemByIds([row.id]);
+const requestAdd = async (formModel) => {
+    await api.addItem(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteItemByIds(rows.map((i) => i.id));
+const requestEdit = async (formModel) => {
+    await api.updateItem(formModel.id, formModel);
+};
+
+const requestDetele = async (id) => {
+    await api.deleteItemById(id);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteItemByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 </script>
-
-<style scoped lang="scss"></style>

@@ -20,6 +20,6 @@ export const deleteChatRecordById = (id) => {
  * 通过Id集合删除聊天记录
  * @returns
  */
-export const deleteChatRecordByIds = (params) => {
-    return http.delete('/ChatRecord', { params: params });
+export const deleteChatRecordByIds = (ids, deleteAll = false) => {
+    return http.delete('/ChatRecord', { params: {ids, deleteAll} });
 };

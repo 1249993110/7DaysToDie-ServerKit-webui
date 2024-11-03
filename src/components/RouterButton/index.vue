@@ -6,7 +6,7 @@
             </el-radio-button>
         </el-radio-group>
         <div class="router-card-right">
-            <slot name="route-button"></slot>
+            <slot name="routeButton"></slot>
             <el-dropdown style="margin-right: 12px" trigger="click" @command="handleCommand">
                 <IconButton>
                     <icon-ion-language />
@@ -33,7 +33,6 @@
 </template>
 
 <script setup>
-import { useGlobalStore } from '~/store/global';
 import screenfull from 'screenfull';
 
 const props = defineProps({

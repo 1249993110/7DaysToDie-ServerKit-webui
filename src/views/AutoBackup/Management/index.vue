@@ -1,37 +1,14 @@
 <template>
     <div class="autobackup-management">
-        <RouterButton :names="['autobackup.settings', 'autobackup.management']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :show-searcher="false"
-            :show-table-index="true"
-            :show-pager="false"
-            :get-data="getData"
-            :table-data="tableData"
-            :show-add-btn="false"
-            :show-edit-btn="false"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :operationColumnWidth="90"
-        >
-            <template #columns>
-                <el-table-column prop="serverVersion" :label="t('views.autoBackup.tableHeader.serverVersion')" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="gameWorld" :label="t('views.autoBackup.tableHeader.gameWorld')" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="gameName" :label="t('views.autoBackup.tableHeader.gameName')" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column :label="t('views.autoBackup.tableHeader.gameTime')" show-overflow-tooltip>
-                    <template #default="{ row }">
-                        {{ t('views.autoBackup.tableHeader.formatGameTime', [row.days, row.hours]) }}
-                    </template>
-                </el-table-column>
-                <el-table-column prop="createdAt" :label="t('views.autoBackup.tableHeader.createdAt')" min-width="80px" sortable> </el-table-column>
-                <el-table-column prop="size" :label="t('views.autoBackup.tableHeader.size')" width="120px" sortable>
-                    <template #default="{ row }">
-                        {{ `${Math.round(row.size / 1024 / 1024)} MB` }}
-                    </template>
-                </el-table-column>
-            </template>
-        </MyTableEx>
+        <RouterButton :names="['autobackup.settings', 'autobackup.management']" />
+        <MyTable
+            row-key="name"
+            :columns="columns"
+            :toolbar="toolbar"
+            :search="search"
+            :request="request"
+            :default-sort="{ prop: 'createdAt', order: 'descending' }"
+        />
     </div>
 </template>
 
@@ -44,22 +21,125 @@ export default {
 <script setup>
 import * as api from '~/api/autobackup.js';
 
-const { t } = useI18n();
-const tableData = ref([]);
+const { t, tm, rt } = useI18n();
 
-const getData = async () => {
-    const data = await api.getBackupFiles();
-    data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-    tableData.value = data;
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        type: 'index',
+    },
+    {
+        prop: 'name',
+        label: t('views.autoBackup.tableHeader.name'),
+        visible: false,
+    },
+    {
+        prop: 'serverVersion',
+        label: t('views.autoBackup.tableHeader.serverVersion'),
+        sortable: 'custom',
+    },
+    {
+        prop: 'gameWorld',
+        label: t('views.autoBackup.tableHeader.gameWorld'),
+        sortable: 'custom',
+    },
+    {
+        prop: 'gameName',
+        label: t('views.autoBackup.tableHeader.gameName'),
+        sortable: 'custom',
+    },
+    {
+        prop: 'gameTime',
+        label: t('views.autoBackup.tableHeader.gameTime'),
+        tag: true,
+        formatter: (row) => t('views.autoBackup.tableHeader.formatGameTime', [row.days, row.hours]),
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.autoBackup.tableHeader.createdAt'),
+        sortable: 'custom',
+    },
+    {
+        prop: 'size',
+        label: t('views.autoBackup.tableHeader.size'),
+        sortable: 'custom',
+        formatter: (row) => `${Math.round(row.size / 1024 / 1024)} MB`,
+    },
+    {
+        type: 'operation',
+        editBtnVisible: false,
+    },
+]);
+
+const toolbar = computed(() => ({
+    addBtnVisible: false,
+    batchOperationItems: [
+        {
+            type: 'export',
+            fileName: rt(tm('menus.autobackup')['']),
+        },
+    ],
+}));
+
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            }
+        },
+    ],
+}));
+
+const requestGet = async (params) => {
+    let data = await api.getBackupFiles();
+
+    data = searchByKeyword(data, params.keyword, ['serverVersion', 'gameWorld', 'gameName', 'gameTime', 'createdAt']);
+
+    if (params.sortOrder) {
+        const desc = params.sortOrder === 'descending';
+        const sortPorp = params.sortPorp;
+        data = data.sort((a, b) => {
+            if (desc) {
+                return a[sortPorp] < b[sortPorp] ? 1 : -1;
+            }
+
+            return a[sortPorp] > b[sortPorp] ? 1 : -1;
+        });
+    } else {
+        data.reverse();
+    }
+
+    if (params.pageSize < 0) {
+        return {
+            items: data,
+            total: data.length,
+        };
+    }
+    return {
+        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: data.length,
+    };
 };
 
-const deleteRequest = async (row) => {
-    return await api.deletetBackupFiles([row.name]);
+const requestDetele = async (id) => {
+    await api.deletetBackupFiles([id]);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deletetBackupFiles(rows.map((i) => i.name));
+const requestBatchDelete = async (selectedIds) => {
+    await api.deletetBackupFiles(selectedIds);
 };
+
+const request = {
+    get: requestGet,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
+};
+
+console.log(request);
 </script>
-
-<style lang="scss"></style>

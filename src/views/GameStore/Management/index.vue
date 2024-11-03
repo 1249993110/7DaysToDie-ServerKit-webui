@@ -1,36 +1,22 @@
 <template>
-    <div class="store-management">
-        <RouterButton :names="['gameStore.settings', 'gameStore.management']"></RouterButton>
-        <MyTableEx
-            style="margin-top: 20px"
-            :show-export-btn="false"
-            :show-searcher="false"
-            :show-table-index="false"
-            :show-pager="false"
-            :get-data="getData"
-            :table-data="tableData"
-            :show-add-btn="true"
-            :show-edit-btn="true"
-            :delete="deleteRequest"
-            :batch-delete="batchDeleteRequest"
-            :add-or-edit-component="AddOrEditGoods"
-            :addOrEditComponentProps="addOrEditComponentProps"
+    <div>
+        <RouterButton :names="['gameStore.settings', 'gameStore.management']" />
+        <MyTable
+            row-key="id"
+            :columns="columns"
+            :model-name="rt(tm('menus.gameStore')[''])"
+            :toolbar="toolbar"
+            :search="search"
+            :add-edit-form-fields="addEditFormFields"
+            :request="request"
         >
-            <template #columns>
-                <el-table-column prop="id" :label="t('views.gameStore.tableHeader.id')" width="120px" sortable> </el-table-column>
-                <el-table-column prop="name" :label="t('views.gameStore.tableHeader.name')" sortable show-overflow-tooltip> </el-table-column>
-                <el-table-column prop="price" :label="t('views.gameStore.tableHeader.price')" width="120px" sortable> </el-table-column>
-                <el-table-column prop="description" :label="t('views.gameStore.tableHeader.description')" show-overflow-tooltip> </el-table-column>
-                <el-table-column :label="t('views.gameStore.tableHeader.bind')" :width="220" header-align="center" show-overflow-tooltip>
-                    <template #default="{ row }">
-                        <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.gameStore.tableHeader.bindItem') }}</el-button>
-                        <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.gameStore.tableHeader.bindCmd') }}</el-button>
-                    </template>
-                </el-table-column>
+            <template #bindCell="{ row }">
+                <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.gameStore.tableHeader.bindItem') }}</el-button>
+                <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.gameStore.tableHeader.bindCmd') }}</el-button>
             </template>
-        </MyTableEx>
-        <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @on-edit="handleItemsEdit" />
-        <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @on-edit="handleCommandsEdit" />
+        </MyTable>
+        <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleItemsEdit" />
+        <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleCommandsEdit" />
     </div>
 </template>
 
@@ -42,29 +28,164 @@ export default {
 
 <script setup>
 import * as api from '~/api/goods.js';
-import AddOrEditGoods from './AddOrEditGoods.vue';
 
-const { t } = useI18n();
+const { t, tm, rt } = useI18n();
 
-const tableData = ref([]);
+const columns = computed(() => [
+    {
+        type: 'selection',
+    },
+    {
+        prop: 'id',
+        label: t('views.gameStore.tableHeader.id'),
+        width: 80,
+        sortable: 'custom',
+        align: 'center',
+        fixed: true,
+    },
+    {
+        prop: 'name',
+        label: t('views.gameStore.tableHeader.name'),
+        minWidth: 150,
+        sortable: 'custom',
+        tag: true,
+    },
+    {
+        prop: 'price',
+        label: t('views.gameStore.tableHeader.price'),
+        width: 120,
+        sortable: 'custom',
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.gameStore.tableHeader.createdAt'),
+        width: 160,
+        sortable: 'custom',
+    },
+    {
+        prop: 'description',
+        label: t('views.gameStore.tableHeader.description'),
+        minWidth: 150,
+        sortable: 'custom',
+    },
+    {
+        prop: 'bind',
+        label: t('views.gameStore.tableHeader.bind'),
+        width: 225,
+        headerAlign: 'center',
+    },
+    {
+        type: 'operation',
+    },
+]);
 
-const addOrEditComponentProps = ref({});
+const toolbar = computed(() => ({
+    batchOperationItems: [
+        {
+            type: 'export',
+            fileName: rt(tm('menus.gameStore')['']),
+        },
+    ],
+}));
 
-const getData = async () => {
-    const data = await api.getGoods();
+const search = computed(() => ({
+    fields: [
+        {
+            type: 'input',
+            name: 'keyword',
+            label: t('global.keyword'),
+            props: {
+                autofocus: true,
+            },
+        },
+    ],
+}));
+
+const newId = ref(0);
+const addEditFormFields = computed(() => [
+    {
+        type: 'input-number',
+        name: 'id',
+        label: t('views.gameStore.tableHeader.id'),
+        required: true,
+        default: newId.value,
+    },
+    {
+        type: 'input',
+        name: 'name',
+        label: t('views.gameStore.tableHeader.name'),
+        required: true,
+    },
+    {
+        type: 'input-number',
+        name: 'price',
+        label: t('views.gameStore.tableHeader.price'),
+        required: true,
+        default: 1,
+    },
+    {
+        type: 'input',
+        name: 'description',
+        label: t('views.gameStore.tableHeader.description'),
+        props: {
+            type: 'textarea',
+        },
+    },
+]);
+
+const requestGet = async (params) => {
+    let data = await api.getGoods();
     if (data.length) {
-        addOrEditComponentProps.value = { id: data[data.length - 1].id + 1 };
+        newId.value = data[data.length - 1].id + 1;
     }
 
-    tableData.value = data;
+    data = searchByKeyword(data, params.keyword, ['id', 'name', 'description']);
+    if (params.sortOrder) {
+        const desc = params.sortOrder === 'descending';
+        const sortPorp = params.sortPorp;
+        data = data.sort((a, b) => {
+            if (desc) {
+                return a[sortPorp] < b[sortPorp] ? 1 : -1;
+            }
+
+            return a[sortPorp] > b[sortPorp] ? 1 : -1;
+        });
+    }
+
+    if (params.pageSize < 0) {
+        return {
+            items: data,
+            total: data.length,
+        };
+    }
+    return {
+        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: data.length,
+    };
 };
 
-const deleteRequest = async (row) => {
-    return await api.deleteGoodsByIds([row.id]);
+const requestAdd = async (formModel) => {
+    await api.addGoods(formModel);
 };
 
-const batchDeleteRequest = async (rows) => {
-    return await api.deleteGoodsByIds(rows.map((i) => i.id));
+const requestEdit = async (formModel) => {
+    await api.updateGoods(formModel.id, formModel);
+};
+
+const requestDetele = async (id) => {
+    await api.deleteGoodsById(id);
+};
+
+const requestBatchDelete = async (selectedIds) => {
+    await api.deleteGoodsByIds(selectedIds);
+};
+
+const request = {
+    get: requestGet,
+    add: requestAdd,
+    edit: requestEdit,
+    delete: requestDetele,
+    batchDelete: requestBatchDelete,
 };
 
 const lastClickId = ref(0);
@@ -75,10 +196,10 @@ const associatedData = ref([]);
 const associatedLoading = ref(false);
 
 const handleAssociatedItem = async (row) => {
+    associatedLoading.value = true;
     associatedItemsVisible.value = true;
     lastClickId.value = row.id;
     try {
-        associatedLoading.value = true;
         const data = await api.getItemList(row.id);
         associatedData.value = data;
     } finally {
@@ -91,10 +212,10 @@ const handleItemsEdit = async (ids) => {
 };
 
 const handleAssociatedCommand = async (row) => {
+    associatedLoading.value = true;
     associatedCommandsVisible.value = true;
     lastClickId.value = row.id;
     try {
-        associatedLoading.value = true;
         const data = await api.getCommandList(row.id);
         associatedData.value = data;
     } finally {
@@ -106,5 +227,3 @@ const handleCommandsEdit = async (ids) => {
     await api.updateCommandList(lastClickId.value, ids);
 };
 </script>
-
-<style lang="scss"></style>
