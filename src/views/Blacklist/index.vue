@@ -153,7 +153,7 @@ const requestAdd = async (formModel) => {
 
 const requestEdit = async (formModel) => {
     await api.deleteBlacklist([formModel.playerId]);
-    await api.addBlacklist([formModel]);
+    await requestAdd(formModel);
 };
 
 const requestDetele = async (id) => {
