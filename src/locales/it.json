@@ -112,7 +112,11 @@
             "liveChat": "Chat Live",
             "chatRecord": "Registro Chat"
         },
-        "permission": "Autorizzazione",
+        "permissions": {
+            "": "Permissions",
+            "cmds": "Commands",
+            "admins": "Admins"
+        },
         "blacklist": "Lista Nera",
         "whitelist": "Lista Bianca",
         "itemBlocks": "Blocchi Item",
@@ -502,6 +506,22 @@
                 "displayName": "Nome visualizzato",
                 "bannedUntil": "Bannato fino a",
                 "reason": "Motivo"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Command",
+                    "permissionLevel": "Permission Level",
+                    "description": "Description"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Player ID",
+                    "permissionLevel": "Permission Level",
+                    "displayName": "Display Name"
+                }
             }
         },
         "itemBlocks": {
