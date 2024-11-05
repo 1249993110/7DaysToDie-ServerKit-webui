@@ -38,6 +38,18 @@ const tree = [
         icon: getIcon(() => import('~icons/mdi/playlist-remove')),
     },
     {
+        name: 'permissions',
+        icon: getIcon(() => import('~icons/icon-park-outline/permissions')),
+        children: [
+            {
+                name: 'permissions.cmds',
+            },
+            {
+                name: 'permissions.admins',
+            },
+        ],
+    },
+    {
         name: 'itemBlocks',
         icon: getIcon(() => import('~icons/mdi/menu')),
     },
