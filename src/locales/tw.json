@@ -112,7 +112,11 @@
             "liveChat": "即時聊天",
             "chatRecord": "聊天記錄"
         },
-        "permission": "權限管理",
+        "permissions": {
+            "": "Permissions",
+            "cmds": "Commands",
+            "admins": "Admins"
+        },
         "blacklist": "黑名單",
         "whitelist": "白名單",
         "itemBlocks": "物品方塊",
@@ -502,6 +506,22 @@
                 "displayName": "名稱",
                 "bannedUntil": "解封日期",
                 "reason": "封鎖原因"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Command",
+                    "permissionLevel": "Permission Level",
+                    "description": "Description"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Player ID",
+                    "permissionLevel": "Permission Level",
+                    "displayName": "Display Name"
+                }
             }
         },
         "itemBlocks": {
