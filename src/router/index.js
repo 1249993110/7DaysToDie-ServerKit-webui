@@ -73,6 +73,25 @@ const routes = [
                 meta: { requiresAuth: true, keepAlive: true },
             },
             {
+                path: 'permissions',
+                name: 'permissions',
+                redirect: '/permissions/cmds',
+                children: [
+                    {
+                        path: 'cmds',
+                        name: 'permissions.cmds',
+                        component: () => import('../views/Permissions/Cmds/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'admins',
+                        name: 'permissions.admins',
+                        component: () => import('../views/Permissions/Admins/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    }
+                ],
+            },
+            {
                 path: 'itemBlocks',
                 name: 'itemBlocks',
                 component: () => import('../views/ItemBlocks/index.vue'),
