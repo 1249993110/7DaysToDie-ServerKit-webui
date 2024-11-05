@@ -112,7 +112,11 @@
             "liveChat": "Живой чат",
             "chatRecord": "Запись чата"
         },
-        "permission": "Разрешение",
+        "permissions": {
+            "": "Permissions",
+            "cmds": "Commands",
+            "admins": "Admins"
+        },
         "blacklist": "Черный список",
         "whitelist": "Белый список",
         "itemBlocks": "Блокировка предметов",
@@ -502,6 +506,22 @@
                 "displayName": "Отображаемое имя",
                 "bannedUntil": "Забанен до",
                 "reason": "Причина"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Command",
+                    "permissionLevel": "Permission Level",
+                    "description": "Description"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Player ID",
+                    "permissionLevel": "Permission Level",
+                    "displayName": "Display Name"
+                }
             }
         },
         "itemBlocks": {
