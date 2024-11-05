@@ -112,7 +112,11 @@
             "liveChat": "Canlı Sohbet",
             "chatRecord": "Sohbet Geçmişi"
         },
-        "permission": "İzin Yönetimi",
+        "permissions": {
+            "": "Permissions",
+            "cmds": "Commands",
+            "admins": "Admins"
+        },
         "blacklist": "Kara Liste",
         "whitelist": "Beyaz Liste",
         "itemBlocks": "Öğe Blokları",
@@ -502,6 +506,22 @@
                 "displayName": "Ad",
                 "bannedUntil": "Yasak Kaldırma Tarihi",
                 "reason": "Yasaklama Nedeni"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Command",
+                    "permissionLevel": "Permission Level",
+                    "description": "Description"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Player ID",
+                    "permissionLevel": "Permission Level",
+                    "displayName": "Display Name"
+                }
             }
         },
         "itemBlocks": {
