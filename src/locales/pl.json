@@ -112,7 +112,11 @@
             "liveChat": "Czat na żywo",
             "chatRecord": "Historia czatu"
         },
-        "permission": "Zarządzanie uprawnieniami",
+        "permissions": {
+            "": "Permissions",
+            "cmds": "Commands",
+            "admins": "Admins"
+        },
         "blacklist": "Czarna lista",
         "whitelist": "Biała lista",
         "itemBlocks": "Bloki przedmiotów",
@@ -502,6 +506,22 @@
                 "displayName": "Nazwa",
                 "bannedUntil": "Data odblokowania",
                 "reason": "Powód blokady"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Command",
+                    "permissionLevel": "Permission Level",
+                    "description": "Description"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Player ID",
+                    "permissionLevel": "Permission Level",
+                    "displayName": "Display Name"
+                }
             }
         },
         "itemBlocks": {
