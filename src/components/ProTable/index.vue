@@ -251,7 +251,7 @@ watch(
                 item.fixed ??= 'left';
                 item.width ??= 50;
                 item.label ??= '\u2610';
-                item.reserveSelection ??= true;
+                // item.reserveSelection ??= true;
                 item.align ??= 'center';
                 item.showOverflowTooltip ??= false;
             } else if (item.type === 'index') {
