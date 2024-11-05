@@ -30,16 +30,16 @@ const rules = {
 };
 
 const request = async () => {
-    const data = [];
+    const task = [];
     for (let i = 0; i < props.playerIds.length; i++) {
-        data.push({
+        task.push(api.addBlacklist({
             playerId: props.playerIds[i],
             displayName: props.displayNames[i],
             bannedUntil: formModel.bannedUntil,
             reason: formModel.reason,
-        });
+        }));
     }
 
-    await api.addBlacklist(data);
+    await Promise.all(task);
 };
 </script>
