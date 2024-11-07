@@ -117,8 +117,11 @@
             "cmds": "Commands",
             "admins": "Admins"
         },
-        "blacklist": "Blacklist",
-        "whitelist": "Whitelist",
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Banlist",
+            "whitelist": "Whitelist"
+        },
         "itemBlocks": "Item Blocks",
         "console": "Console",
         "globalSettings": "Global Settings",
@@ -500,12 +503,18 @@
             },
             "createdAt": "Created At"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
                 "playerId": "Player ID",
                 "displayName": "Display Name",
                 "bannedUntil": "Banned Until",
                 "reason": "Reason"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "Player ID",
+                "displayName": "Display Name"
             }
         },
         "permissions": {
