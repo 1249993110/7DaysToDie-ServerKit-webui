@@ -147,7 +147,7 @@ const requestGet = async (params) => {
 };
 
 const requestAdd = async (formModel) => {
-    const result = await api.addBlacklist([formModel]);
+    const result = await api.addBlacklist(formModel);
     showCmdExecResult(result);
 };
 

@@ -116,7 +116,7 @@ const requestGet = async (params) => {
 };
 
 const requestAdd = async (formModel) => {
-    const result = await api.addWhitelist([formModel]);
+    const result = await api.addWhitelist(formModel);
     showCmdExecResult(result);
 };
 
