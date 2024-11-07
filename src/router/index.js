@@ -67,10 +67,42 @@ const routes = [
                 ],
             },
             {
-                path: 'blacklist',
-                name: 'blacklist',
-                component: () => import('../views/Blacklist/index.vue'),
-                meta: { requiresAuth: true, keepAlive: true },
+                path: 'banWhitelist',
+                name: 'banWhitelist',
+                redirect: '/banWhitelist/banlist',
+                children: [
+                    {
+                        path: 'banlist',
+                        name: 'banWhitelist.banlist',
+                        component: () => import('../views/BanWhitelist/Banlist/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'whitelist',
+                        name: 'banWhitelist.whitelist',
+                        component: () => import('../views/BanWhitelist/Whitelist/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    }
+                ],
+            },
+            {
+                path: 'permissions',
+                name: 'permissions',
+                redirect: '/permissions/cmds',
+                children: [
+                    {
+                        path: 'cmds',
+                        name: 'permissions.cmds',
+                        component: () => import('../views/Permissions/Cmds/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'admins',
+                        name: 'permissions.admins',
+                        component: () => import('../views/Permissions/Admins/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    }
+                ],
             },
             {
                 path: 'itemBlocks',

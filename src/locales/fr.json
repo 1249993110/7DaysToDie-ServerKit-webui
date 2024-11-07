@@ -112,9 +112,16 @@
             "liveChat": "Chat en direct",
             "chatRecord": "Enregistrement de discussion"
         },
-        "permission": "Autorisation",
-        "blacklist": "Liste noire",
-        "whitelist": "Liste blanche",
+        "permissions": {
+            "": "Permissions",
+            "cmds": "Commandes",
+            "admins": "Administrateurs"
+        },
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Liste des bannis",
+            "whitelist": "Liste blanche"
+        },
         "itemBlocks": "Blocs d'objets",
         "console": "Console",
         "globalSettings": "Paramètres globaux",
@@ -310,7 +317,7 @@
             "title": "Sélectionner dans la liste"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "Donner un objet {0}",
             "itemName": "Nom de l'élément",
             "count": "Nombre",
             "quality": "Qualité",
@@ -328,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "À",
+            "startPlaceholder": "Date de début",
+            "endPlaceholder": "Date de fin",
+            "today": "Aujourd'hui",
+            "lastWeek": "La semaine dernière",
+            "lastMonth": "Le mois dernier",
+            "lastMonths": "Derniers {0} mois"
         }
     },
     "layout": {
@@ -494,14 +501,36 @@
                 "whisper": "Chuchote",
                 "unknown": "Inconnu"
             },
-            "createdAt": "Created At"
+            "createdAt": "Créé le"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
                 "playerId": "ID du joueur",
-                "displayName": "Nom d'affichage",
-                "bannedUntil": "Banni jusqu'à",
+                "displayName": "Nom affiché",
+                "bannedUntil": "Banni jusqu'au",
                 "reason": "Raison"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "ID du joueur",
+                "displayName": "Nom affiché"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Commandes",
+                    "permissionLevel": "Niveau de permission",
+                    "description": "Libellé"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "ID du joueur",
+                    "permissionLevel": "Niveau de permission",
+                    "displayName": "Nom affiché"
+                }
             }
         },
         "itemBlocks": {
@@ -629,7 +658,7 @@
                 "id": "ID",
                 "name": "Nom",
                 "price": "Prix",
-                "createdAt": "Created At",
+                "createdAt": "Créé le",
                 "description": "Description",
                 "bind": "Lier",
                 "bindItem": "Lier l'élément",
@@ -652,7 +681,7 @@
                 "claimState": "Déjà réclamé",
                 "totalClaimCount": "Nombre total de réclamations",
                 "lastClaimAt": "Dernière réclamation à",
-                "createdAt": "Created At",
+                "createdAt": "Créé le",
                 "description": "Description",
                 "bind": "Bind",
                 "bindItem": "Lier l'élément",

@@ -1,10 +1,10 @@
 <template>
     <div>
-        <RouterButton :names="['blacklist']" />
+        <RouterButton :names="['banWhitelist.banlist', 'banWhitelist.whitelist']" />
         <MyTable
             row-key="playerId"
             :columns="columns"
-            :model-name="t('menus.blacklist')"
+            :model-name="t('menus.banWhitelist.whitelist')"
             :toolbar="toolbar"
             :search="search"
             :add-edit-form-fields="addEditFormFields"
@@ -15,12 +15,12 @@
 
 <script>
 export default {
-    name: 'blacklist',
+    name: 'banWhitelist.whitelist',
 };
 </script>
 
 <script setup>
-import * as api from '~/api/blacklist';
+import * as api from '~/api/whitelist';
 
 const { t } = useI18n();
 
@@ -33,27 +33,16 @@ const columns = computed(() => [
     },
     {
         prop: 'playerId',
-        label: t('views.blacklist.tableHeader.playerId'),
+        label: t('views.whitelist.tableHeader.playerId'),
         width: 320,
         sortable: 'custom',
     },
     {
         prop: 'displayName',
-        label: t('views.blacklist.tableHeader.displayName'),
+        label: t('views.whitelist.tableHeader.displayName'),
         width: 150,
         sortable: 'custom',
         tag: true,
-    },
-    {
-        prop: 'bannedUntil',
-        label: t('views.blacklist.tableHeader.bannedUntil'),
-        width: 160,
-        sortable: 'custom',
-        formatter: (row) => row.bannedUntil.substr(0, 16),
-    },
-    {
-        prop: 'reason',
-        label: t('views.blacklist.tableHeader.reason'),
     },
     {
         type: 'operation',
@@ -64,7 +53,7 @@ const toolbar = computed(() => ({
     batchOperationItems: [
         {
             type: 'export',
-            fileName: t('menus.blacklist'),
+            fileName: t('menus.banWhitelist.whitelist'),
         },
     ],
 }));
@@ -86,38 +75,18 @@ const addEditFormFields = computed(() => [
     {
         type: 'input',
         name: 'playerId',
-        label: t('views.blacklist.tableHeader.playerId'),
+        label: t('views.whitelist.tableHeader.playerId'),
         required: true,
     },
     {
         type: 'input',
         name: 'displayName',
-        label: t('views.blacklist.tableHeader.displayName'),
-    },
-    {
-        type: 'date-picker',
-        name: 'bannedUntil',
-        label: t('views.blacklist.tableHeader.bannedUntil'),
-        required: true,
-        props: {
-            type: 'datetime',
-            placeholder: t('global.message.datePickerPlaceholder'),
-            format: 'YYYY-MM-DD HH:mm',
-            valueFormat: 'YYYY-MM-DD HH:mm:00',
-        },
-    },
-    {
-        type: 'input',
-        name: 'reason',
-        label: t('views.blacklist.tableHeader.reason'),
-        props: {
-            type: 'textarea',
-        },
+        label: t('views.whitelist.tableHeader.displayName'),
     },
 ]);
 
 const requestGet = async (params) => {
-    let data = await api.getBlacklist();
+    let data = await api.getWhitelist();
     data = searchByKeyword(data, params.keyword, ['playerId', 'displayName']);
 
     if (params.sortOrder) {
@@ -147,21 +116,21 @@ const requestGet = async (params) => {
 };
 
 const requestAdd = async (formModel) => {
-    const result = await api.addBlacklist([formModel]);
+    const result = await api.addWhitelist(formModel);
     showCmdExecResult(result);
 };
 
 const requestEdit = async (formModel) => {
-    await api.deleteBlacklist([formModel.playerId]);
-    await api.addBlacklist([formModel]);
+    await api.deleteWhitelist([formModel.playerId]);
+    await requestAdd(formModel);
 };
 
 const requestDetele = async (id) => {
-    await api.deleteBlacklist([id]);
+    await api.deleteWhitelist([id]);
 };
 
 const requestBatchDelete = async (selectedIds) => {
-    await api.deleteBlacklist(selectedIds);
+    await api.deleteWhitelist(selectedIds);
 };
 
 const request = {

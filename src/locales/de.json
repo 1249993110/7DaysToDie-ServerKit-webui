@@ -112,9 +112,16 @@
             "liveChat": "Live-Chat",
             "chatRecord": "Chataufzeichnung"
         },
-        "permission": "Berechtigung",
-        "blacklist": "Schwarze Liste",
-        "whitelist": "Weiße Liste",
+        "permissions": {
+            "": "Berechtigungen",
+            "cmds": "Befehle",
+            "admins": "Admins"
+        },
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Bannliste",
+            "whitelist": "Whitelist"
+        },
         "itemBlocks": "Elementblöcke",
         "console": "Konsole",
         "globalSettings": "Globale Einstellungen",
@@ -310,7 +317,7 @@
             "title": "Aus Liste auswählen"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "Geben Sie {0} Element",
             "itemName": "Elementname",
             "count": "Anzahl",
             "quality": "Qualität",
@@ -328,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "An",
+            "startPlaceholder": "Startdatum",
+            "endPlaceholder": "Enddatum",
+            "today": "Heute",
+            "lastWeek": "Letzte Woche",
+            "lastMonth": "Letzten Monat",
+            "lastMonths": "Letzten {0} Monate"
         }
     },
     "layout": {
@@ -494,14 +501,36 @@
                 "whisper": "Flüstern",
                 "unknown": "Unbekannt"
             },
-            "createdAt": "Created At"
+            "createdAt": "Erstellt am"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
                 "playerId": "Spieler-ID",
                 "displayName": "Anzeigename",
                 "bannedUntil": "Gesperrt bis",
                 "reason": "Grund"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "Spieler-ID",
+                "displayName": "Anzeigename"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Befehl",
+                    "permissionLevel": "Berechtigungsstufe",
+                    "description": "Beschreibung"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Spieler-ID",
+                    "permissionLevel": "Berechtigungsstufe",
+                    "displayName": "Anzeigename"
+                }
             }
         },
         "itemBlocks": {
@@ -629,7 +658,7 @@
                 "id": "ID",
                 "name": "Name",
                 "price": "Preis",
-                "createdAt": "Created At",
+                "createdAt": "Erstellt am",
                 "description": "Beschreibung",
                 "bind": "Binden",
                 "bindItem": "Artikel binden",
@@ -652,7 +681,7 @@
                 "claimState": "Bereits beansprucht",
                 "totalClaimCount": "Gesamtzahl der Ansprüche",
                 "lastClaimAt": "Letzter Anspruch am",
-                "createdAt": "Created At",
+                "createdAt": "Erstellt am",
                 "description": "Beschreibung",
                 "bind": "Binden",
                 "bindItem": "Element binden",
@@ -747,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "Variablen",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

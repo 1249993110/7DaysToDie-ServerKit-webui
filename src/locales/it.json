@@ -112,9 +112,16 @@
             "liveChat": "Chat Live",
             "chatRecord": "Registro Chat"
         },
-        "permission": "Autorizzazione",
-        "blacklist": "Lista Nera",
-        "whitelist": "Lista Bianca",
+        "permissions": {
+            "": "Permessi",
+            "cmds": "Comandi",
+            "admins": "Amministratori"
+        },
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Banlist",
+            "whitelist": "Whitelist"
+        },
         "itemBlocks": "Blocchi Item",
         "console": "Console",
         "globalSettings": "Globale Impostazioni",
@@ -310,7 +317,7 @@
             "title": "Seleziona dall'elenco"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "Dai Elemento {0}",
             "itemName": "Nome elemento",
             "count": "Conteggio",
             "quality": "Qualità",
@@ -328,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "A",
+            "startPlaceholder": "Data di inizio",
+            "endPlaceholder": "Data di fine",
+            "today": "Oggi",
+            "lastWeek": "Ultima settimana",
+            "lastMonth": "Ultimo mese",
+            "lastMonths": "Ultimi {0} mesi"
         }
     },
     "layout": {
@@ -494,14 +501,36 @@
                 "whisper": "Sussurro",
                 "unknown": "Sconosciuto"
             },
-            "createdAt": "Created At"
+            "createdAt": "Creato Il"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
-                "playerId": "ID giocatore",
-                "displayName": "Nome visualizzato",
-                "bannedUntil": "Bannato fino a",
+                "playerId": "Id Giocatore",
+                "displayName": "Nome Visualizzato",
+                "bannedUntil": "Bannato Fino A",
                 "reason": "Motivo"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "Id Giocatore",
+                "displayName": "Nome Visualizzato"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Comando",
+                    "permissionLevel": "Livello Di Autorizzazione",
+                    "description": "Descrizione"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Id Giocatore",
+                    "permissionLevel": "Livello Di Autorizzazione",
+                    "displayName": "Nome Visualizzato"
+                }
             }
         },
         "itemBlocks": {
@@ -629,7 +658,7 @@
                 "id": "ID",
                 "name": "Nome",
                 "price": "Prezzo",
-                "createdAt": "Created At",
+                "createdAt": "Creato Il",
                 "description": "Descrizione",
                 "bind": "Associa",
                 "bindItem": "Associa elemento",
@@ -652,7 +681,7 @@
                 "claimState": "Già richiesto",
                 "totalClaimCount": "Conteggio totale richieste",
                 "lastClaimAt": "Ultima richiesta a",
-                "createdAt": "Created At",
+                "createdAt": "Creato Il",
                 "description": "Description",
                 "bind": "Bind",
                 "bindItem": "Bind Item",
@@ -747,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "Variabili",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
