@@ -114,13 +114,13 @@
         },
         "permissions": {
             "": "Permissions",
-            "cmds": "Commands",
-            "admins": "Admins"
+            "cmds": "Commandes",
+            "admins": "Administrateurs"
         },
         "banWhitelist": {
             "": "Ban / White",
-            "banlist": "Banlist",
-            "whitelist": "Whitelist"
+            "banlist": "Liste des bannis",
+            "whitelist": "Liste blanche"
         },
         "itemBlocks": "Blocs d'objets",
         "console": "Console",
@@ -317,7 +317,7 @@
             "title": "Sélectionner dans la liste"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "Donner un objet {0}",
             "itemName": "Nom de l'élément",
             "count": "Nombre",
             "quality": "Qualité",
@@ -335,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "À",
+            "startPlaceholder": "Date de début",
+            "endPlaceholder": "Date de fin",
+            "today": "Aujourd'hui",
+            "lastWeek": "La semaine dernière",
+            "lastMonth": "Le mois dernier",
+            "lastMonths": "Derniers {0} mois"
         }
     },
     "layout": {
@@ -501,35 +501,35 @@
                 "whisper": "Chuchote",
                 "unknown": "Inconnu"
             },
-            "createdAt": "Created At"
+            "createdAt": "Créé le"
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "ID du joueur",
+                "displayName": "Nom affiché",
+                "bannedUntil": "Banni jusqu'au",
+                "reason": "Raison"
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "ID du joueur",
+                "displayName": "Nom affiché"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "Commandes",
+                    "permissionLevel": "Niveau de permission",
+                    "description": "Libellé"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "ID du joueur",
+                    "permissionLevel": "Niveau de permission",
+                    "displayName": "Nom affiché"
                 }
             }
         },
@@ -658,7 +658,7 @@
                 "id": "ID",
                 "name": "Nom",
                 "price": "Prix",
-                "createdAt": "Created At",
+                "createdAt": "Créé le",
                 "description": "Description",
                 "bind": "Lier",
                 "bindItem": "Lier l'élément",
@@ -681,7 +681,7 @@
                 "claimState": "Déjà réclamé",
                 "totalClaimCount": "Nombre total de réclamations",
                 "lastClaimAt": "Dernière réclamation à",
-                "createdAt": "Created At",
+                "createdAt": "Créé le",
                 "description": "Description",
                 "bind": "Bind",
                 "bindItem": "Lier l'élément",
