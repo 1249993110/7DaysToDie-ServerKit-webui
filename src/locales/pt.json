@@ -113,14 +113,14 @@
             "chatRecord": "Registro de bate-papo"
         },
         "permissions": {
-            "": "Permissions",
-            "cmds": "Commands",
-            "admins": "Admins"
+            "": "Permissões",
+            "cmds": "Comandos",
+            "admins": "Administradores"
         },
         "banWhitelist": {
             "": "Ban / White",
             "banlist": "Banlist",
-            "whitelist": "Whitelist"
+            "whitelist": "Lista Branca"
         },
         "itemBlocks": "Blocos de itens",
         "console": "Console",
@@ -335,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "Para",
+            "startPlaceholder": "Data de início",
+            "endPlaceholder": "Data de término",
+            "today": "hoje",
+            "lastWeek": "A semana passada",
+            "lastMonth": "Mês anterior",
+            "lastMonths": "Últimos {0} meses"
         }
     },
     "layout": {
@@ -501,35 +501,35 @@
                 "whisper": "Sussurro",
                 "unknown": "Desconhecido"
             },
-            "createdAt": "Created At"
+            "createdAt": "Criado em"
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "ID do Jogador",
+                "displayName": "Nome para exibição",
+                "bannedUntil": "Banido Até",
+                "reason": "Motivo"
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "ID do Jogador",
+                "displayName": "Nome para exibição"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "Comando",
+                    "permissionLevel": "Nível de permissão",
+                    "description": "Descrição:"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "ID do Jogador",
+                    "permissionLevel": "Nível de permissão",
+                    "displayName": "Nome para exibição"
                 }
             }
         },
@@ -658,7 +658,7 @@
                 "id": "ID",
                 "name": "Nome",
                 "price": "Preço",
-                "createdAt": "Created At",
+                "createdAt": "Criado em",
                 "description": "Descrição",
                 "bind": "Vincular",
                 "bindItem": "Vincular item",
@@ -681,7 +681,7 @@
                 "claimState": "Já reivindicado",
                 "totalClaimCount": "Contagem total de reivindicações",
                 "lastClaimAt": "Última reivindicação em",
-                "createdAt": "Created At",
+                "createdAt": "Criado em",
                 "description": "Descrição",
                 "bind": "Vincular",
                 "bindItem": "Vincular item",
@@ -776,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "Variáveis",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
