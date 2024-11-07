@@ -117,8 +117,11 @@
             "cmds": "Commands",
             "admins": "Admins"
         },
-        "blacklist": "黑名单",
-        "whitelist": "白名单",
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Banlist",
+            "whitelist": "Whitelist"
+        },
         "itemBlocks": "物品方块",
         "console": "控制台",
         "globalSettings": "功能配置",
@@ -500,12 +503,18 @@
             },
             "createdAt": "创建时间"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
-                "playerId": "玩家 ID",
-                "displayName": "名称",
-                "bannedUntil": "解封日期",
-                "reason": "封禁原因"
+                "playerId": "Player ID",
+                "displayName": "Display Name",
+                "bannedUntil": "Banned Until",
+                "reason": "Reason"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "Player ID",
+                "displayName": "Display Name"
             }
         },
         "permissions": {
