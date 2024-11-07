@@ -113,13 +113,13 @@
             "chatRecord": "Chataufzeichnung"
         },
         "permissions": {
-            "": "Permissions",
-            "cmds": "Commands",
+            "": "Berechtigungen",
+            "cmds": "Befehle",
             "admins": "Admins"
         },
         "banWhitelist": {
             "": "Ban / White",
-            "banlist": "Banlist",
+            "banlist": "Bannliste",
             "whitelist": "Whitelist"
         },
         "itemBlocks": "Elementblöcke",
@@ -317,7 +317,7 @@
             "title": "Aus Liste auswählen"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "Geben Sie {0} Element",
             "itemName": "Elementname",
             "count": "Anzahl",
             "quality": "Qualität",
@@ -335,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "An",
+            "startPlaceholder": "Startdatum",
+            "endPlaceholder": "Enddatum",
+            "today": "Heute",
+            "lastWeek": "Letzte Woche",
+            "lastMonth": "Letzten Monat",
+            "lastMonths": "Letzten {0} Monate"
         }
     },
     "layout": {
@@ -501,35 +501,35 @@
                 "whisper": "Flüstern",
                 "unknown": "Unbekannt"
             },
-            "createdAt": "Created At"
+            "createdAt": "Erstellt am"
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "Spieler-ID",
+                "displayName": "Anzeigename",
+                "bannedUntil": "Gesperrt bis",
+                "reason": "Grund"
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "Spieler-ID",
+                "displayName": "Anzeigename"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "Befehl",
+                    "permissionLevel": "Berechtigungsstufe",
+                    "description": "Beschreibung"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "Spieler-ID",
+                    "permissionLevel": "Berechtigungsstufe",
+                    "displayName": "Anzeigename"
                 }
             }
         },
@@ -658,7 +658,7 @@
                 "id": "ID",
                 "name": "Name",
                 "price": "Preis",
-                "createdAt": "Created At",
+                "createdAt": "Erstellt am",
                 "description": "Beschreibung",
                 "bind": "Binden",
                 "bindItem": "Artikel binden",
@@ -681,7 +681,7 @@
                 "claimState": "Bereits beansprucht",
                 "totalClaimCount": "Gesamtzahl der Ansprüche",
                 "lastClaimAt": "Letzter Anspruch am",
-                "createdAt": "Created At",
+                "createdAt": "Erstellt am",
                 "description": "Beschreibung",
                 "bind": "Binden",
                 "bindItem": "Element binden",
@@ -776,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "Variablen",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
