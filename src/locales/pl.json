@@ -113,14 +113,14 @@
             "chatRecord": "Historia czatu"
         },
         "permissions": {
-            "": "Permissions",
-            "cmds": "Commands",
-            "admins": "Admins"
+            "": "Uprawnienia",
+            "cmds": "Polecenia",
+            "admins": "Administratorzy"
         },
         "banWhitelist": {
             "": "Ban / White",
-            "banlist": "Banlist",
-            "whitelist": "Whitelist"
+            "banlist": "Lista zablokowanych",
+            "whitelist": "Biała lista"
         },
         "itemBlocks": "Bloki przedmiotów",
         "console": "Konsola",
@@ -335,12 +335,12 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
+            "rangeSeparator": "Do",
+            "startPlaceholder": "Data rozpoczęcia",
+            "endPlaceholder": "Data zakończenia",
+            "today": "Dziś",
+            "lastWeek": "Ostatni tydzień",
+            "lastMonth": "Ostatni miesiąc",
             "lastMonths": "Last {0} months"
         }
     },
@@ -501,35 +501,35 @@
                 "whisper": "Czat prywatny",
                 "unknown": "Nieznane"
             },
-            "createdAt": "Created At"
+            "createdAt": "Utworzono w"
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "ID gracza",
+                "displayName": "Wyświetlana nazwa",
+                "bannedUntil": "Zbanowany do",
+                "reason": "Powód"
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "ID gracza",
+                "displayName": "Wyświetlana nazwa"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "Polecenie",
+                    "permissionLevel": "Poziom uprawnień",
+                    "description": "Opis"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "ID gracza",
+                    "permissionLevel": "Poziom uprawnień",
+                    "displayName": "Wyświetlana nazwa"
                 }
             }
         },
@@ -658,7 +658,7 @@
                 "id": "ID",
                 "name": "Nazwa produktu",
                 "price": "Cena",
-                "createdAt": "Created At",
+                "createdAt": "Utworzono w",
                 "description": "Opis",
                 "bind": "Powiązanie",
                 "bindItem": "Powiązany przedmiot",
@@ -681,7 +681,7 @@
                 "claimState": "Czy odebrano",
                 "totalClaimCount": "Łączna liczba odbiorów",
                 "lastClaimAt": "Ostatni czas odbioru",
-                "createdAt": "Created At",
+                "createdAt": "Utworzono w",
                 "description": "Opis",
                 "bind": "Powiązanie",
                 "bindItem": "Powiązany przedmiot",
@@ -776,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "Zmienne",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
