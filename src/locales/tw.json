@@ -8,8 +8,8 @@
         },
         "true": "是",
         "false": "否",
-        "on": "ON",
-        "off": "OFF",
+        "on": "開啓",
+        "off": "關閉",
         "unknown": "未知",
         "loading": "載入中...",
         "empty": "空",
@@ -112,9 +112,16 @@
             "liveChat": "即時聊天",
             "chatRecord": "聊天記錄"
         },
-        "permission": "權限管理",
-        "blacklist": "黑名單",
-        "whitelist": "白名單",
+        "permissions": {
+            "": "權限管理",
+            "cmds": "命令",
+            "admins": "管理員"
+        },
+        "banWhitelist": {
+            "": "黑/白",
+            "banlist": "黑名單",
+            "whitelist": "白名單"
+        },
         "itemBlocks": "物品方塊",
         "console": "控制台",
         "globalSettings": "功能配置",
@@ -496,12 +503,34 @@
             },
             "createdAt": "創建時間"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
-                "playerId": "玩家 ID",
+                "playerId": "Player ID",
                 "displayName": "名稱",
                 "bannedUntil": "解封日期",
                 "reason": "封鎖原因"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "Player ID",
+                "displayName": "名稱"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "命令",
+                    "permissionLevel": "權限級別",
+                    "description": "Description"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Player ID",
+                    "permissionLevel": "權限級別",
+                    "displayName": "名稱"
+                }
             }
         },
         "itemBlocks": {

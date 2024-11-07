@@ -112,9 +112,16 @@
             "liveChat": "Czat na żywo",
             "chatRecord": "Historia czatu"
         },
-        "permission": "Zarządzanie uprawnieniami",
-        "blacklist": "Czarna lista",
-        "whitelist": "Biała lista",
+        "permissions": {
+            "": "Uprawnienia",
+            "cmds": "Polecenia",
+            "admins": "Administratorzy"
+        },
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Lista zablokowanych",
+            "whitelist": "Biała lista"
+        },
         "itemBlocks": "Bloki przedmiotów",
         "console": "Konsola",
         "globalSettings": "Ustawienia globalne",
@@ -328,12 +335,12 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
+            "rangeSeparator": "Do",
+            "startPlaceholder": "Data rozpoczęcia",
+            "endPlaceholder": "Data zakończenia",
+            "today": "Dziś",
+            "lastWeek": "Ostatni tydzień",
+            "lastMonth": "Ostatni miesiąc",
             "lastMonths": "Last {0} months"
         }
     },
@@ -494,14 +501,36 @@
                 "whisper": "Czat prywatny",
                 "unknown": "Nieznane"
             },
-            "createdAt": "Created At"
+            "createdAt": "Utworzono w"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
                 "playerId": "ID gracza",
-                "displayName": "Nazwa",
-                "bannedUntil": "Data odblokowania",
-                "reason": "Powód blokady"
+                "displayName": "Wyświetlana nazwa",
+                "bannedUntil": "Zbanowany do",
+                "reason": "Powód"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "ID gracza",
+                "displayName": "Wyświetlana nazwa"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Polecenie",
+                    "permissionLevel": "Poziom uprawnień",
+                    "description": "Opis"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "ID gracza",
+                    "permissionLevel": "Poziom uprawnień",
+                    "displayName": "Wyświetlana nazwa"
+                }
             }
         },
         "itemBlocks": {
@@ -629,7 +658,7 @@
                 "id": "ID",
                 "name": "Nazwa produktu",
                 "price": "Cena",
-                "createdAt": "Created At",
+                "createdAt": "Utworzono w",
                 "description": "Opis",
                 "bind": "Powiązanie",
                 "bindItem": "Powiązany przedmiot",
@@ -652,7 +681,7 @@
                 "claimState": "Czy odebrano",
                 "totalClaimCount": "Łączna liczba odbiorów",
                 "lastClaimAt": "Ostatni czas odbioru",
-                "createdAt": "Created At",
+                "createdAt": "Utworzono w",
                 "description": "Opis",
                 "bind": "Powiązanie",
                 "bindItem": "Powiązany przedmiot",
@@ -747,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "Zmienne",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",

@@ -112,9 +112,16 @@
             "liveChat": "라이브 채팅",
             "chatRecord": "채팅 기록"
         },
-        "permission": "허가",
-        "blacklist": "블랙리스트",
-        "whitelist": "허용리스트",
+        "permissions": {
+            "": "Permissions",
+            "cmds": "Commands",
+            "admins": "Admins"
+        },
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Banlist",
+            "whitelist": "Whitelist"
+        },
         "itemBlocks": "아이템 블록",
         "console": "콘솔",
         "globalSettings": "전역 설정",
@@ -496,12 +503,34 @@
             },
             "createdAt": "Created At"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
-                "playerId": "플레이어 ID",
-                "displayName": "표시 이름",
-                "bannedUntil": "금지 기간",
-                "reason": "이유"
+                "playerId": "Player ID",
+                "displayName": "Display Name",
+                "bannedUntil": "Banned Until",
+                "reason": "Reason"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "Player ID",
+                "displayName": "Display Name"
+            }
+        },
+        "permissions": {
+            "cmds": {
+                "tableHeader": {
+                    "command": "Command",
+                    "permissionLevel": "Permission Level",
+                    "description": "Description"
+                }
+            },
+            "admins": {
+                "tableHeader": {
+                    "playerId": "Player ID",
+                    "permissionLevel": "Permission Level",
+                    "displayName": "Display Name"
+                }
             }
         },
         "itemBlocks": {
