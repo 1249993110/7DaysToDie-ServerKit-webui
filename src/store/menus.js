@@ -34,8 +34,18 @@ const tree = [
         icon: getIcon(() => import('~icons/ep/chat-dot-round')),
     },
     {
-        name: 'blacklist',
-        icon: getIcon(() => import('~icons/mdi/playlist-remove')),
+        name: 'banWhitelist',
+        icon: getIcon(() => import('~icons/material-symbols/format-list-numbered')),
+        children: [
+            {
+                name: 'banWhitelist.banlist',
+                icon: getIcon(() => import('~icons/mdi/playlist-remove')),
+            },
+            {
+                name: 'banWhitelist.whitelist',
+                icon: getIcon(() => import('~icons/mdi/playlist-check')),
+            },
+        ],
     },
     {
         name: 'permissions',
