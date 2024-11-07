@@ -113,14 +113,14 @@
             "chatRecord": "Запись чата"
         },
         "permissions": {
-            "": "Permissions",
-            "cmds": "Commands",
-            "admins": "Admins"
+            "": "Права доступа",
+            "cmds": "Команды",
+            "admins": "Админы"
         },
         "banWhitelist": {
             "": "Ban / White",
-            "banlist": "Banlist",
-            "whitelist": "Whitelist"
+            "banlist": "Банлист",
+            "whitelist": "Белый список"
         },
         "itemBlocks": "Блокировка предметов",
         "console": "Консоль",
@@ -317,7 +317,7 @@
             "title": "Выбрать из списка"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "Дать {0} Предмет",
             "itemName": "Имя элемента",
             "count": "Количество",
             "quality": "Качество",
@@ -335,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "Кому",
+            "startPlaceholder": "Начальная дата",
+            "endPlaceholder": "Конечная дата",
+            "today": "Сегодня",
+            "lastWeek": "Прошлая неделя",
+            "lastMonth": "Прошлый месяц",
+            "lastMonths": "Последняя {0} месяцев"
         }
     },
     "layout": {
@@ -501,35 +501,35 @@
                 "whisper": "Шепот",
                 "unknown": "Неизвестно"
             },
-            "createdAt": "Created At"
+            "createdAt": "Создано в"
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "ID игрока",
+                "displayName": "Показать имя",
+                "bannedUntil": "Забанен до",
+                "reason": "Причина"
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "ID игрока",
+                "displayName": "Показать имя"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "Команда",
+                    "permissionLevel": "Уровень разрешений",
+                    "description": "Описание"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "ID игрока",
+                    "permissionLevel": "Уровень разрешений",
+                    "displayName": "Показать имя"
                 }
             }
         },
@@ -658,7 +658,7 @@
                 "id": "ID",
                 "name": "Имя",
                 "price": "Цена",
-                "createdAt": "Created At",
+                "createdAt": "Создано в",
                 "description": "Описание",
                 "bind": "Привязать",
                 "bindItem": "Привязать элемент",
@@ -681,7 +681,7 @@
                 "claimState": "Уже заявлено",
                 "totalClaimCount": "Общее количество заявлений",
                 "lastClaimAt": "Последнее заявление",
-                "createdAt": "Created At",
+                "createdAt": "Создано в",
                 "description": "Описание",
                 "bind": "Привязать",
                 "bindItem": "Элемент привязки",
@@ -776,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "Переменные",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
