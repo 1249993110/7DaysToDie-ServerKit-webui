@@ -113,14 +113,14 @@
             "chatRecord": "チャット履歴"
         },
         "permissions": {
-            "": "Permissions",
-            "cmds": "Commands",
-            "admins": "Admins"
+            "": "アクセス許可",
+            "cmds": "マーク",
+            "admins": "管理者"
         },
         "banWhitelist": {
             "": "Ban / White",
-            "banlist": "Banlist",
-            "whitelist": "Whitelist"
+            "banlist": "禁止リスト",
+            "whitelist": "ホワイトリスト"
         },
         "itemBlocks": "アイテムブロック",
         "console": "コンソール",
@@ -317,7 +317,7 @@
             "title": "リストからコマンドを選択"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "{0} アイテムを与える",
             "itemName": "アイテム名",
             "count": "数量",
             "quality": "品質",
@@ -335,11 +335,11 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
+            "rangeSeparator": "終了日",
+            "startPlaceholder": "開始日",
+            "endPlaceholder": "終了日",
+            "today": "今日",
+            "lastWeek": "先週の",
             "lastMonth": "Last month",
             "lastMonths": "Last {0} months"
         }
@@ -501,35 +501,35 @@
                 "whisper": "プライベートチャット",
                 "unknown": "不明"
             },
-            "createdAt": "Created At"
+            "createdAt": "作成日時"
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "プレイヤーID",
+                "displayName": "表示名",
+                "bannedUntil": "禁止された期限",
+                "reason": "理由："
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "プレイヤーID",
+                "displayName": "表示名"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "(Command)",
+                    "permissionLevel": "権限レベル",
+                    "description": "説明"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "プレイヤーID",
+                    "permissionLevel": "権限レベル",
+                    "displayName": "表示名"
                 }
             }
         },
@@ -658,7 +658,7 @@
                 "id": "ID",
                 "name": "商品名",
                 "price": "価格",
-                "createdAt": "Created At",
+                "createdAt": "作成日時",
                 "description": "説明",
                 "bind": "バインド",
                 "bindItem": "バインドアイテム",
@@ -681,7 +681,7 @@
                 "claimState": "クレーム済みかどうか",
                 "totalClaimCount": "総クレーム回数",
                 "lastClaimAt": "最後のクレーム時間",
-                "createdAt": "Created At",
+                "createdAt": "作成日時",
                 "description": "説明",
                 "bind": "バインド",
                 "bindItem": "バインドアイテム",
@@ -776,7 +776,7 @@
         },
         "coloredChat": {
             "isEnabled": "Enable Colored Chat",
-            "variables": "Variables",
+            "variables": "変数",
             "globalDefault": "Global Default",
             "whisperDefault": "Whisper Default",
             "friendsDefault": "Friends Default",
