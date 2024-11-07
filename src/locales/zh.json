@@ -113,14 +113,14 @@
             "chatRecord": "聊天记录"
         },
         "permissions": {
-            "": "Permissions",
-            "cmds": "Commands",
-            "admins": "Admins"
+            "": "权限管理",
+            "cmds": "命令",
+            "admins": "管理员"
         },
         "banWhitelist": {
-            "": "Ban / White",
-            "banlist": "Banlist",
-            "whitelist": "Whitelist"
+            "": "黑/白名单",
+            "banlist": "黑名单",
+            "whitelist": "白名单"
         },
         "itemBlocks": "物品方块",
         "console": "控制台",
@@ -505,31 +505,31 @@
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "玩家 ID",
+                "displayName": "显示名称",
+                "bannedUntil": "封禁至",
+                "reason": "原因"
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "玩家 ID",
+                "displayName": "显示名称"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "命令",
+                    "permissionLevel": "权限级别",
+                    "description": "描述"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "玩家 ID",
+                    "permissionLevel": "权限级别",
+                    "displayName": "显示名称"
                 }
             }
         },
