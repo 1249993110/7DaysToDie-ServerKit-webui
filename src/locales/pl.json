@@ -117,8 +117,11 @@
             "cmds": "Commands",
             "admins": "Admins"
         },
-        "blacklist": "Czarna lista",
-        "whitelist": "Biała lista",
+        "banWhitelist": {
+            "": "Ban / White",
+            "banlist": "Banlist",
+            "whitelist": "Whitelist"
+        },
         "itemBlocks": "Bloki przedmiotów",
         "console": "Konsola",
         "globalSettings": "Ustawienia globalne",
@@ -500,12 +503,18 @@
             },
             "createdAt": "Created At"
         },
-        "blacklist": {
+        "banlist": {
             "tableHeader": {
-                "playerId": "ID gracza",
-                "displayName": "Nazwa",
-                "bannedUntil": "Data odblokowania",
-                "reason": "Powód blokady"
+                "playerId": "Player ID",
+                "displayName": "Display Name",
+                "bannedUntil": "Banned Until",
+                "reason": "Reason"
+            }
+        },
+        "whitelist": {
+            "tableHeader": {
+                "playerId": "Player ID",
+                "displayName": "Display Name"
             }
         },
         "permissions": {
