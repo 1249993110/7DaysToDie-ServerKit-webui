@@ -113,14 +113,14 @@
             "chatRecord": "Registro de chat"
         },
         "permissions": {
-            "": "Permissions",
-            "cmds": "Commands",
-            "admins": "Admins"
+            "": "Permisos",
+            "cmds": "Comandos",
+            "admins": "Administradores"
         },
         "banWhitelist": {
             "": "Ban / White",
-            "banlist": "Banlist",
-            "whitelist": "Whitelist"
+            "banlist": "Lista de baneos",
+            "whitelist": "Lista blanca"
         },
         "itemBlocks": "Bloqueo de objetos",
         "console": "Consola",
@@ -317,7 +317,7 @@
             "title": "Seleccionar desde la lista"
         },
         "batchGiveItem": {
-            "title": "Give {0} Item",
+            "title": "Dar un objeto {0}",
             "itemName": "Nombre del objeto",
             "count": "Cantidad",
             "quality": "Calidad",
@@ -335,13 +335,13 @@
             "fullPath": "Full Path"
         },
         "myDateTimeSelector": {
-            "rangeSeparator": "To",
-            "startPlaceholder": "Start date",
-            "endPlaceholder": "End date",
-            "today": "Today",
-            "lastWeek": "Last week",
-            "lastMonth": "Last month",
-            "lastMonths": "Last {0} months"
+            "rangeSeparator": "A",
+            "startPlaceholder": "Fecha de inicio",
+            "endPlaceholder": "Fecha de fin",
+            "today": "Hoy",
+            "lastWeek": "Última semana",
+            "lastMonth": "Último mes",
+            "lastMonths": "Últimos {0} meses"
         }
     },
     "layout": {
@@ -501,35 +501,35 @@
                 "whisper": "Susurro",
                 "unknown": "Desconocido"
             },
-            "createdAt": "Created At"
+            "createdAt": "Creado el"
         },
         "banlist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name",
-                "bannedUntil": "Banned Until",
-                "reason": "Reason"
+                "playerId": "ID de jugador",
+                "displayName": "Mostrar nombre",
+                "bannedUntil": "Baneado hasta",
+                "reason": "Razón"
             }
         },
         "whitelist": {
             "tableHeader": {
-                "playerId": "Player ID",
-                "displayName": "Display Name"
+                "playerId": "ID de jugador",
+                "displayName": "Mostrar nombre"
             }
         },
         "permissions": {
             "cmds": {
                 "tableHeader": {
-                    "command": "Command",
-                    "permissionLevel": "Permission Level",
-                    "description": "Description"
+                    "command": "Comando",
+                    "permissionLevel": "Nivel de permisos",
+                    "description": "Descripción"
                 }
             },
             "admins": {
                 "tableHeader": {
-                    "playerId": "Player ID",
-                    "permissionLevel": "Permission Level",
-                    "displayName": "Display Name"
+                    "playerId": "ID de jugador",
+                    "permissionLevel": "Nivel de permisos",
+                    "displayName": "Mostrar nombre"
                 }
             }
         },
@@ -658,7 +658,7 @@
                 "id": "ID",
                 "name": "Nombre",
                 "price": "Precio",
-                "createdAt": "Created At",
+                "createdAt": "Creado el",
                 "description": "Descripción",
                 "bind": "Vincular",
                 "bindItem": "Vincular objeto",
@@ -681,7 +681,7 @@
                 "claimState": "Ya reclamado",
                 "totalClaimCount": "Recuento total de reclamos",
                 "lastClaimAt": "Último reclamo en",
-                "createdAt": "Created At",
+                "createdAt": "Creado el",
                 "description": "Descripción",
                 "bind": "Vincular",
                 "bindItem": "Vincular objeto",
