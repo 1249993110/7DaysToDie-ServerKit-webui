@@ -67,10 +67,18 @@ const routes = [
                 ],
             },
             {
-                path: 'blacklist',
-                name: 'blacklist',
-                component: () => import('../views/Blacklist/index.vue'),
-                meta: { requiresAuth: true, keepAlive: true },
+                path: 'banWhitelist',
+                name: 'banWhitelist',
+                redirect: '/banWhitelist/banlist',
+                children: [
+                    {
+                        path: 'banlist',
+                        name: 'banWhitelist.banlist',
+                        component: () => import('../views/Blacklist/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    
+                ],
             },
             {
                 path: 'permissions',
