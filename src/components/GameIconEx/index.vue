@@ -3,7 +3,7 @@
         <GameIcon :name="itemName" :size="size" :backgroundColor="backgroundColor"></GameIcon>
         <span v-if="quality < 0" class="count">{{ count }}</span>
         <span v-if="quality > 0" :style="style"></span>
-        <span v-if="quality > 0" class="quality">{{ quality }}</span>
+        <span v-if="quality > 0" class="quality"><span>{{ quality }}</span></span>
     </div>
 </template>
 
@@ -153,9 +153,13 @@ const handleContextMenu = (event) => {
         font-size: 24px;
         line-height: 23px;
         position: absolute;
-        left: calc(50% - 7px);
+        //left: calc(50% - 7px);
+        left: 0;
         bottom: 1px;
         text-shadow: 0 0 4px #32003c, 0 0 4px #32003c;
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 }
 </style>
