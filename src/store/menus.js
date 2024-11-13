@@ -53,9 +53,11 @@ const tree = [
         children: [
             {
                 name: 'permissions.cmds',
+                icon: getIcon(() => import('~icons/nonicons/vim-command-mode-16')),
             },
             {
                 name: 'permissions.admins',
+                icon: getIcon(() => import('~icons/ri/admin-line')),
             },
         ],
     },
