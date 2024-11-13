@@ -48,6 +48,11 @@ onDeactivated(() => {
 });
 
 const appendMessage = (chatMessage, prepend = false) => {
+    if (chatMessage.entityId <= 0) {
+        //color = 'red';
+        return;
+    }
+
     const message = chatMessage.createdAt + "   '" + chatMessage.senderName + "': " + chatMessage.message;
 
     const element = document.getElementById('live-chat-content');
@@ -72,10 +77,6 @@ const appendMessage = (chatMessage, prepend = false) => {
             break;
         default:
             color = 'black';
-    }
-
-    if (chatMessage.entityId <= 0) {
-        color = 'red';
     }
 
     const p = document.createElement('p');
