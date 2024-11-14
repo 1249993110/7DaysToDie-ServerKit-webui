@@ -33,7 +33,7 @@ export function getRegionLayer(mapInfo) {
         canvas.height = mapInfo.tileSize;
         const ctx = canvas.getContext('2d');
 
-        ctx.strokeStyle = 'lightblue';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
         ctx.fillStyle = 'lightblue';
         ctx.lineWidth = 1;
         ctx.font = '14px Arial';
