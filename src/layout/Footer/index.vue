@@ -19,8 +19,8 @@ const { t } = useI18n();
     align-items: center;
     justify-content: space-between;
     height: 48px;
-    background: #ffffffaf;
-    border-top: 1px solid #d4d7de;
+    background-color: var(--ty-main-bg-color);
+    border-top: var(--ty-border);
     box-sizing: border-box;
     padding: 10px 20px;
     a {

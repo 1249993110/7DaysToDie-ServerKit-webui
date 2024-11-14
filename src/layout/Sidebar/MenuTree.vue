@@ -49,41 +49,40 @@ const getTitle = (name) => {
 <style lang="scss">
 .sidebar-menu-popper {
     .el-menu {
-        background-color: #d3e3fddf;
         padding: 4px 8px;
         user-select: none;
         width: 100%;
 
         .el-menu-item {
             border-radius: 4px;
-            background-color: var(--el-menu-item-bg-color);
             margin: 6px 0;
             height: 46px;
-            box-shadow: 0px 0px 4px rgba(0, 94, 235, 0.1);
+            background-color: var(--el-menu-item-bg-color);
 
-            &:hover {
-                .el-icon {
-                    color: $primary-color;
-                }
-
-                span {
-                    color: $primary-color;
-                }
-            }
             &.is-active {
-                background-color: var(--el-menu-item-bg-color-active);
-                border: 2px solid $primary-color;
+                    background-color: var(--el-menu-item-bg-color-active);
+                    border: 2px solid $primary-color;
 
-                &::before {
-                    position: absolute;
-                    border-radius: 4px;
-                    left: 12px;
-                    width: 4px;
-                    height: 14px;
-                    content: '';
-                    background: $primary-color;
+                    &::before {
+                        position: absolute;
+                        border-radius: 4px;
+                        left: 12px;
+                        width: 4px;
+                        height: 14px;
+                        content: '';
+                        background: var(--el-menu-active-color);
+                    }
                 }
-            }
+                
+                &:not(.is-active):hover {
+                    .el-icon {
+                        color: $primary-color;
+                    }
+
+                    span {
+                        color: $primary-color;
+                    }
+                }
         }
         .el-sub-menu {
             &.is-active {
@@ -99,10 +98,9 @@ const getTitle = (name) => {
             }
             .el-sub-menu__title {
                 border-radius: 4px;
-                background-color: var(--el-menu-item-bg-color);
                 //margin: 6px 0;
                 height: 46px;
-                box-shadow: 0px 0px 4px rgba(0, 94, 235, 0.1);
+                background-color: var(--el-menu-item-bg-color);
 
                 &:hover {
                     .el-icon {

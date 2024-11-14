@@ -7,13 +7,25 @@
         </el-radio-group>
         <div class="router-card-right">
             <slot name="routeButton"></slot>
+            <el-switch
+                v-model="isDark"
+                :active-icon="Moon"
+                :inactive-icon="Sunny"
+                inline-prompt
+                active-color="var(--el-fill-color-dark)"
+                inactive-color="var(--el-color-primary)"
+                @change="toggleDark"
+                style="margin-right: 12px"
+            />
             <el-dropdown style="margin-right: 12px" trigger="click" @command="handleCommand">
                 <IconButton>
                     <icon-ion-language />
                 </IconButton>
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item v-for="item in availableLocales" :key="item.value" :command="item.value" :disabled="locale === item.value">{{ item.label }}</el-dropdown-item>
+                        <el-dropdown-item v-for="item in availableLocales" :key="item.value" :command="item.value" :disabled="locale === item.value">{{
+                            item.label
+                        }}</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -34,6 +46,7 @@
 
 <script setup>
 import screenfull from 'screenfull';
+import { Moon, Sunny } from '@element-plus/icons-vue';
 
 const props = defineProps({
     names: {
@@ -88,6 +101,9 @@ onKeyStroke('F11', (e) => {
 const handleCommand = (locale) => {
     localeStore.setLocale(locale);
 };
+
+const isDark = useDark();
+const toggleDark = () => useToggle(isDark);
 </script>
 
 <style lang="scss">
@@ -103,13 +119,13 @@ const handleCommand = (locale) => {
         .el-radio-button__inner {
             min-width: 100px;
             height: 100%;
-            background-color: white !important;
+            color: var(--el-text-color-regular) !important;
+            background-color: var(--ty-button-active) !important;
             box-shadow: none !important;
             border: 2px solid transparent !important;
         }
 
         .el-radio-button__original-radio:checked + .el-radio-button__inner {
-            color: $primary-color;
             border-color: $primary-color !important;
             border-radius: 4px;
         }

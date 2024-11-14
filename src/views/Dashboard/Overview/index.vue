@@ -121,7 +121,6 @@ const formatGameDifficulty = (gameDifficulty) => {
         .label {
             font-weight: 400 !important;
             font-size: 15px !important;
-            color: #1f2329;
             padding-bottom: 2px;
         }
 

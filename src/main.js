@@ -9,6 +9,8 @@ import './plugins/dayjs';
 import 'normalize.css';
 import './assets/styles/common.scss';
 import '@imengyu/vue3-context-menu/lib/vue3-context-menu.css'
+import '~/assets/styles/element-dark.scss';
+import '~/assets/styles/element-light.scss';
 
 const app = createApp(App);
 usePinia(app);

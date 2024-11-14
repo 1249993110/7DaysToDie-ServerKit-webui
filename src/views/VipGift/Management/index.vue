@@ -78,11 +78,12 @@ const columns = computed(() => [
     {
         prop: 'bind',
         label: t('views.vipGift.tableHeader.bind'),
-        width: 220,
+        width: 225,
         headerAlign: 'center',
     },
     {
         type: 'operation',
+        minWidth: 200,
     },
 ]);
 

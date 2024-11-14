@@ -61,7 +61,7 @@ const appendMessage = (chatMessage, prepend = false) => {
     switch (chatMessage.chatType) {
         // Global
         case 'Global':
-            color = 'black';
+            color = 'var(--el-text-color-regular)';
             break;
         // Friends
         case 'Friends':
@@ -80,7 +80,8 @@ const appendMessage = (chatMessage, prepend = false) => {
     }
 
     const p = document.createElement('p');
-    p.innerHTML = `<font color="${color}">${message}</font>`;
+    p.style = `color: ${color}`;
+    p.innerHTML = `<font>${message}</font>`;
 
     if (prepend) {
         element.prepend(p);
@@ -140,7 +141,6 @@ onMounted(async () => {
 .live-chat {
     .card {
         margin-top: 20px;
-        background-color: #ffffffaf;
         :deep(.el-card__body) {
             .live-chat-container {
                 height: calc(100vh - 240px);

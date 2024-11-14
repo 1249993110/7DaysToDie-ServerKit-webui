@@ -1,6 +1,6 @@
 <template>
     <div class="collapse">
-        <IconButton color="#383838" @click="sidebarStore.setCollapse" style="min-width: 40px">
+        <IconButton :color="isDark ? 'white' : '#383838'" @click="sidebarStore.setCollapse" style="min-width: 40px">
             <icon-ep-expand v-if="sidebarStore.isCollapse" />
             <icon-ep-fold v-else />
         </IconButton>
@@ -9,7 +9,7 @@
         </div>
 
         <el-dropdown style="margin-left: auto" trigger="click" @command="handleCommand">
-            <IconButton color="#383838" circle :btnSize="40" hoverBackgroundColor="#e9e9e9aa" activeBackgroundColor="#dcdcdcaa">
+            <IconButton :color="isDark ? 'white' : '#383838'" circle :btnSize="40" hoverBackgroundColor="#e9e9e9aa" activeBackgroundColor="#dcdcdcaa">
                 <icon-ic-baseline-more-vert />
             </IconButton>
             <template #dropdown>
@@ -52,6 +52,8 @@ const handleCommand = async (command) => {
             break;
     }
 };
+
+const isDark = useDark();
 </script>
 
 <style scoped lang="scss">
@@ -59,7 +61,7 @@ const handleCommand = async (command) => {
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    border-top: 1px solid #d4d7de;
+    border-top: var(--ty-border);
     height: 48px;
     min-height: 48px;
     overflow: hidden;
@@ -85,7 +87,7 @@ const handleCommand = async (command) => {
             font-weight: 700;
             font-size: 16px;
             line-height: 24px;
-            color: black;
+            color: var(--el-text-color-regular);
         }
     }
 }

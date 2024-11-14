@@ -1,0 +1,32 @@
+html.dark {
+
+    --ty-color-primary: #005eeb; //#3D8EFF;
+    --ty-main-bg-color: #0c0c0c;
+    --ty-main-bg-color-1: #383b3b;
+    --ty-border: 1px solid #1d2023;
+    --ty-button-active: var(--ty-color-primary);
+    --ty-menu-bg-color: #111417;
+
+    --el-color-primary: var(--ty-color-primary);
+
+    --el-menu-bg-color: var(--ty-menu-bg-color) !important;
+    --el-menu-active-color: white;
+    --el-menu-item-bg-color: var(--ty-menu-bg-color);
+    --el-menu-item-bg-color-active: var(--ty-color-primary);
+    --el-menu-hover-bg-color: #272c25;
+    --el-menu-text-color: white;
+
+    --el-text-color-regular: #bbbfc4 !important;
+    .el-card {
+        border: none !important;
+    }
+
+    .router-card .el-radio-button__inner {
+        background: none !important;
+    }
+    .router-card .el-radio-button__original-radio:checked+.el-radio-button__inner {
+        color: white;
+        background-color: var(--ty-button-active) !important;
+        border: 2px solid var(--el-card-bg-color) !important;
+    }
+}

@@ -116,7 +116,6 @@ defineExpose({
 <style scoped lang="scss">
 .card {
     margin-top: 20px;
-    background-color: #ffffffaf;
     .form {
         padding-left: 20px;
         padding-right: v-bind(paddingRight);

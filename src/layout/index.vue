@@ -66,7 +66,7 @@ watch(
             transition: width 0.3s;
         }
         .el-container {
-            background-color: #f4f4f4df;
+            background-color: var(--ty-main-bg-color);
             .el-main {
                 transition: margin-left 0.3s;
                 overflow: hidden;

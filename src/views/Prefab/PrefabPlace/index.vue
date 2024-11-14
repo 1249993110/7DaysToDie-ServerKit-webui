@@ -145,7 +145,6 @@ const paddingRight = computed(() => (globalStore.isSmallScreen ? '20px' : 'calc(
 .prefabPlace {
     .card {
         margin-top: 20px;
-        background-color: #ffffffaf;
         .form {
             padding-left: 20px;
             padding-right: v-bind(paddingRight);

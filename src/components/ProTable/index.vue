@@ -347,7 +347,6 @@ watch(tableSize, (newVal, oldVal) => {
 
     .search-card {
         margin-top: 20px;
-        background-color: #ffffffaf;
         overflow: unset;
         :deep(.el-card__body) {
             padding-bottom: 2px;
@@ -356,7 +355,6 @@ watch(tableSize, (newVal, oldVal) => {
     .table-card {
         flex-grow: 1;
         margin-top: 20px;
-        background-color: #ffffffaf;
         :deep(.el-card__body) {
             display: flex;
             flex-direction: column;
