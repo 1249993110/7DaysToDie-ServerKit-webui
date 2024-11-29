@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import { promiseTimeout } from '@vueuse/core';
 import { giveItem } from '~/api/sdtd-console';
 import { i18n } from '~/plugins/i18n';
 
@@ -57,6 +58,7 @@ const request = async () => {
     for (let i = 0; i < props.playerIds.length; i++) {
         const playerId = props.playerIds[i];
         await giveItem(playerId, formModel.itemName, formModel.count, formModel.quality, formModel.durability);
+        await promiseTimeout(100);
     }
 };
 
