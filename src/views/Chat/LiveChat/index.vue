@@ -48,10 +48,10 @@ onDeactivated(() => {
 });
 
 const appendMessage = (chatMessage, prepend = false) => {
-    if (chatMessage.entityId <= 0) {
-        //color = 'red';
-        return;
-    }
+    // if (chatMessage.entityId <= 0) {
+    //     //color = 'red';
+    //     return;
+    // }
 
     const message = chatMessage.createdAt + "   '" + chatMessage.senderName + "': " + chatMessage.message;
 
@@ -74,7 +74,8 @@ const appendMessage = (chatMessage, prepend = false) => {
         // Whisper
         case 'Whisper':
             color = '#00C814';
-            break;
+            // break;
+            return;
         default:
             color = 'black';
     }
