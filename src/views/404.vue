@@ -1,12 +1,12 @@
 <template>
     <div class="error-page">
         <div class="error-code">4<span>0</span>4</div>
-        <div class="error-desc">抱歉，您所访问的页面不存在。</div>
+        <div class="error-desc">Sorry, the page you visited does not exist.</div>
         <div class="error-handle">
             <router-link to="/">
-                <el-button type="primary" size="large">返回首页</el-button>
+                <el-button type="primary" size="large">Go back to Home</el-button>
             </router-link>
-            <el-button class="error-btn" type="primary" size="large" @click="goBack">返回上一页</el-button>
+            <el-button class="error-btn" type="primary" size="large" @click="goBack">Go back to previous page</el-button>
         </div>
     </div>
 </template>
