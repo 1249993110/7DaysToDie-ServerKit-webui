@@ -5,7 +5,7 @@
             <icon-ep-fold v-else />
         </IconButton>
         <div class="username" v-show="!sidebarStore.isCollapse">
-            <el-text truncated>{{ userInfoStore.username }}</el-text>
+            <el-text truncated>{{ userInfoStore.displayName }}</el-text>
         </div>
 
         <el-dropdown style="margin-left: auto" trigger="click" @command="handleCommand">
