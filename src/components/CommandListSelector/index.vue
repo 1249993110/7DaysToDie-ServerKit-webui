@@ -8,7 +8,11 @@
         <el-table :data="tableData" border height="calc(50vh)" highlight-current-row v-loading="loading" @selection-change="handleSelectionChange" size="small">
             <el-table-column type="selection" width="42" :selectable="checkSelectable" />
             <el-table-column prop="id" :label="t('views.listManagement.tableHeader.id')" width="60px" align="center" />
-            <el-table-column prop="command" :label="t('views.listManagement.tableHeader.command')" show-overflow-tooltip />
+            <el-table-column prop="command" :label="t('views.listManagement.tableHeader.command')" show-overflow-tooltip>
+                <template #default="{ row }">
+                    <el-tag v-for="item in row.command.split('\n').filter((i) => i.trim())" type="success" style="margin-left: 4px">{{ item }}</el-tag>
+                </template>
+            </el-table-column>
             <el-table-column :label="t('views.listManagement.tableHeader.inMainThread')" width="130px" sortable>
                 <template #default="{ row }">
                     {{ `${row.inMainThread ? t('global.true') : t('global.false')}` }}
