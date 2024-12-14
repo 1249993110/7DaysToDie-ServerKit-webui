@@ -86,10 +86,6 @@ const tree = [
         icon: getIcon(() => import('~icons/tabler/coin-filled')),
     },
     {
-        name: 'listManagement',
-        icon: getIcon(() => import('~icons/material-symbols/checklist')),
-    },
-    {
         name: 'gameStore',
         icon: getIcon(() => import('~icons/mdi/store')),
     },
@@ -119,6 +115,10 @@ const tree = [
     {
         name: 'prefab',
         icon: getIcon(() => import('~icons/ph/buildings')),
+    },
+    {
+        name: 'listManagement',
+        icon: getIcon(() => import('~icons/material-symbols/checklist')),
     },
     {
         name: 'swagger',
