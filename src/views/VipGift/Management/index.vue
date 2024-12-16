@@ -29,7 +29,7 @@ export default {
 </script>
 
 <script setup>
-import * as api from '~/api/vip-gift.js';
+import * as api from '~/api/vip-gift';
 
 const { t, tm, rt } = useI18n();
 
