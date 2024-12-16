@@ -117,6 +117,10 @@ const tree = [
         icon: getIcon(() => import('~icons/ph/buildings')),
     },
     {
+        name: 'taskSchedule',
+        icon: getIcon(() => import('~icons/ant-design/schedule-outlined')),
+    },
+    {
         name: 'listManagement',
         icon: getIcon(() => import('~icons/material-symbols/checklist')),
     },
