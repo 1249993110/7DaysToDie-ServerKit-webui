@@ -177,8 +177,9 @@
                     </el-row>
                     <el-row>
                         <el-radio v-model="state.day.cronEvery" label="9">
+                            {{ t('components.cronSelector.day.beforeEndMonth.prefix') }}
                             <el-input-number v-model="state.day.cronDaysBeforeEomMinus" :min="1" :max="31"></el-input-number>
-                            {{ t('components.cronSelector.day.beforeEndMonth') }}
+                            {{ t('components.cronSelector.day.beforeEndMonth.middle') }}
                         </el-radio>
                     </el-row>
                     <el-row>
@@ -192,10 +193,11 @@
                         <el-radio v-model="state.day.cronEvery" label="11"
                             >{{ t('components.cronSelector.day.someWeekday.prefix') }}
                             <el-input-number v-model="state.week.cronNthDayNth" :min="1" :max="5"></el-input-number>
+                            {{ t('components.cronSelector.day.someWeekday.middle') }}
                             <el-select v-model="state.week.cronNthDayDay" style="margin-left: 4px">
                                 <el-option v-for="(val, index) in tm('components.cronSelector.weeks')" :key="index" :label="rt(val)" :value="index"></el-option>
                             </el-select>
-                            {{ t('components.cronSelector.day.someWeekday.middle') }}
+                            {{ t('components.cronSelector.day.someWeekday.suffix') }}
                         </el-radio>
                     </el-row>
                 </el-scrollbar>
