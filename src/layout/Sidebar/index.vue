@@ -60,16 +60,16 @@ const handleSelectMenu = async (name) => {
         router.push({ name: name });
     }
 };
-
 </script>
 
 <style scoped lang="scss">
 .sidebar {
     height: 100%;
-    background: url('~/assets/images/logo-title-bg.png') #e5eefdef no-repeat top;
+    background: url('~/assets/images/logo-title-bg.png') var(--el-menu-bg-color) no-repeat top;
     background-size: 100%;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid var(--el-border-color-light);
 
     .el-scrollbar {
         flex-grow: 1;
@@ -84,20 +84,10 @@ const handleSelectMenu = async (name) => {
 
             :deep(.el-menu-item) {
                 border-radius: 4px;
-                background-color: var(--el-menu-item-bg-color);
                 margin: 6px 0;
                 height: 46px;
-                box-shadow: 0px 0px 4px rgba(0, 94, 235, 0.1);
+                background-color: var(--el-menu-item-bg-color);
 
-                &:hover {
-                    .el-icon {
-                        color: $primary-color;
-                    }
-
-                    span {
-                        color: $primary-color;
-                    }
-                }
                 &.is-active {
                     background-color: var(--el-menu-item-bg-color-active);
                     border: 2px solid $primary-color;
@@ -109,7 +99,17 @@ const handleSelectMenu = async (name) => {
                         width: 4px;
                         height: 14px;
                         content: '';
-                        background: $primary-color;
+                        background: var(--el-menu-active-color);
+                    }
+                }
+
+                &:not(.is-active):hover {
+                    .el-icon {
+                        color: $primary-color;
+                    }
+
+                    span {
+                        color: $primary-color;
                     }
                 }
             }
@@ -127,10 +127,9 @@ const handleSelectMenu = async (name) => {
                 }
                 .el-sub-menu__title {
                     border-radius: 4px;
-                    background-color: var(--el-menu-item-bg-color);
                     //margin: 6px 0;
                     height: 46px;
-                    box-shadow: 0px 0px 4px rgba(0, 94, 235, 0.1);
+                    background-color: var(--el-menu-item-bg-color);
 
                     &:hover {
                         .el-icon {
@@ -145,6 +144,7 @@ const handleSelectMenu = async (name) => {
                 .el-menu {
                     background: none;
                     padding: 0;
+                    
                     .el-menu-item {
                         box-shadow: none;
                         padding-left: 35px;

@@ -7,6 +7,7 @@ import ItemBlockSelector from '~/components/ItemBlockSelector/index.vue';
 import RotationSelector from '~/components/RotationSelector/index.vue';
 import AvailablePrefabSelector from '~/components/AvailablePrefabSelector/index.vue';
 import MyDateTimeSelector from '~/components/MyDateTimeSelector/index.vue';
+import CronSelector from '~/components/CronSelector/index.vue';
 
 export default {
     MyTextarea: MyTextarea,
@@ -18,4 +19,5 @@ export default {
     RotationSelector: RotationSelector,
     AvailablePrefabSelector: AvailablePrefabSelector,
     MyDateTimeSelector: MyDateTimeSelector,
+    CronSelector: CronSelector
 };

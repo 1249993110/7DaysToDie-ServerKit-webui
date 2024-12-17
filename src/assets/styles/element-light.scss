@@ -1,0 +1,15 @@
+:root {
+
+    --ty-color-primary: #005eeb;
+    --ty-main-bg-color: #f4f4f4;
+    --ty-main-bg-color-1: #eee;
+    --ty-border: 1px solid #e4e7ed;
+    --ty-button-active: white;
+
+    --el-color-primary: var(--ty-color-primary);
+
+    --el-menu-bg-color: #e5eefdef !important;
+    --el-menu-active-color: var(--ty-color-primary);;
+    --el-menu-item-bg-color: rgba(255, 255, 255, 0.3);
+    --el-menu-item-bg-color-active: white;
+}

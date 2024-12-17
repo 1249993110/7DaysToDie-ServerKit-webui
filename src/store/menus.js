@@ -53,9 +53,11 @@ const tree = [
         children: [
             {
                 name: 'permissions.cmds',
+                icon: getIcon(() => import('~icons/nonicons/vim-command-mode-16')),
             },
             {
                 name: 'permissions.admins',
+                icon: getIcon(() => import('~icons/ri/admin-line')),
             },
         ],
     },
@@ -82,10 +84,6 @@ const tree = [
     {
         name: 'pointsSystem',
         icon: getIcon(() => import('~icons/tabler/coin-filled')),
-    },
-    {
-        name: 'listManagement',
-        icon: getIcon(() => import('~icons/material-symbols/checklist')),
     },
     {
         name: 'gameStore',
@@ -117,6 +115,14 @@ const tree = [
     {
         name: 'prefab',
         icon: getIcon(() => import('~icons/ph/buildings')),
+    },
+    {
+        name: 'taskSchedule',
+        icon: getIcon(() => import('~icons/ant-design/schedule-outlined')),
+    },
+    {
+        name: 'listManagement',
+        icon: getIcon(() => import('~icons/material-symbols/checklist')),
     },
     {
         name: 'swagger',

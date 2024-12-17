@@ -74,6 +74,7 @@
             "inputText": "请输入文本",
             "inputNumber": "请输入数字",
             "datePickerPlaceholder": "选择日期",
+            "cronPickerPlaceholder": "选择 cron",
             "noMoreData": "没有更多数据了"
         }
     },
@@ -136,11 +137,6 @@
             "settings": "签到配置",
             "management": "积分管理"
         },
-        "listManagement": {
-            "": "列表管理",
-            "itemList": "物品清单",
-            "commandList": "命令清单"
-        },
         "gameStore": {
             "": "游戏商城",
             "settings": "商店配置",
@@ -173,6 +169,16 @@
         "prefab": {
             "": "预制件",
             "prefabPlace": "预制件放置"
+        },
+        "taskSchedule": {
+            "": "任务计划",
+            "settings": "任务计划配置",
+            "management": "任务计划管理"
+        },
+        "listManagement": {
+            "": "列表管理",
+            "itemList": "物品清单",
+            "commandList": "命令清单"
         },
         "swagger": "接口文档"
     },
@@ -342,6 +348,118 @@
             "lastWeek": "过去一周",
             "lastMonth": "最近一个月",
             "lastMonths": "最近 {0} 个月"
+        },
+        "cronSelector": {
+            "title": "选择 Cron",
+            "preview": "Cron 预览",
+            "invalid": "无效的 cron 表达式",
+            "seconds": {
+                "name": "秒",
+                "every": "每一秒钟",
+                "interval": {
+                    "prefix": "每隔",
+                    "middle": "秒执行 从",
+                    "suffix": "秒开始"
+                },
+                "specific": "具体秒数 (可多选)",
+                "cycle": {
+                    "prefix": "周期从",
+                    "middle": "到",
+                    "suffix": "秒"
+                }
+            },
+            "minutes": {
+                "name": "分",
+                "every": "每一分钟",
+                "interval": {
+                    "prefix": "每隔",
+                    "middle": "分执行 从",
+                    "suffix": "分开始"
+                },
+                "specific": "具体分钟数 (可多选)",
+                "cycle": {
+                    "prefix": "周期从",
+                    "middle": "到",
+                    "suffix": "分"
+                }
+            },
+            "hours": {
+                "name": "时",
+                "every": "每一小时",
+                "interval": {
+                    "prefix": "每隔",
+                    "middle": "小时执行 从",
+                    "suffix": "小时开始"
+                },
+                "specific": "具体小时数 (可多选)",
+                "cycle": {
+                    "prefix": "周期从",
+                    "middle": "到",
+                    "suffix": "小时"
+                }
+            },
+            "day": {
+                "name": "天",
+                "every": "每一天",
+                "intervalWeek": {
+                    "prefix": "每隔",
+                    "middle": "天执行 从",
+                    "suffix": "开始"
+                },
+                "intervalDay": {
+                    "prefix": "每隔",
+                    "middle": "天执行 从第",
+                    "suffix": "日开始"
+                },
+                "specificWeek": "具体星期几 (可多选)",
+                "specificDay": "具体天数 (可多选)",
+                "lastDay": "在这个月的最后一天",
+                "lastWeekday": "在这个月的最后一个工作日",
+                "lastWeek": {
+                    "prefix": "在这个月的最后一个",
+                    "middle": " ",
+                    "suffix": " "
+                },
+                "beforeEndMonth": {
+                    "prefix": "在本月底前",
+                    "middle": "天",
+                    "suffix": " "
+                },
+                "nearestWeekday": {
+                    "prefix": "最近的工作日（周一至周五）至本月",
+                    "middle": "日",
+                    "suffix": " "
+                },
+                "someWeekday": {
+                    "prefix": "在这个月的第",
+                    "middle": "个",
+                    "suffix": " "
+                }
+            },
+            "weeks": [
+                "星期天",
+                "星期一",
+                "星期二",
+                "星期三",
+                "星期四",
+                "星期五",
+                "星期六"
+            ],
+            "month": {
+                "name": "月",
+                "every": "每一月",
+                "interval": {
+                    "prefix": "每隔",
+                    "middle": "月执行 从",
+                    "suffix": "月开始"
+                },
+                "specific": "具体月数 (可多选)",
+                "cycle": {
+                    "prefix": "从",
+                    "middle": "到",
+                    "suffix": "月之间的每个月"
+                }
+            }
         }
     },
     "layout": {
@@ -803,6 +921,20 @@
             "prefabName": "预制件名称",
             "createdAt": "创建时间",
             "undoConfirm": "您确定要撤销吗?"
+        },
+        "taskSchedule": {
+            "isEnabled": "启用任务计划",
+            "tableHeader": {
+                "id": "ID",
+                "createdAt": "创建时间",
+                "name": "名称",
+                "cronExpression": "Cron 表达式",
+                "isEnabled": "是否启用",
+                "lastRunAt": "上次运行",
+                "description": "说明",
+                "bind": "绑定",
+                "bindCmd": "绑定命令"
+            }
         }
     }
 }

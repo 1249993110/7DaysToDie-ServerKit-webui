@@ -33,10 +33,10 @@ export function getRegionLayer(mapInfo) {
         canvas.height = mapInfo.tileSize;
         const ctx = canvas.getContext('2d');
 
-        ctx.strokeStyle = 'lightblue';
-        ctx.fillStyle = 'lightblue';
-        ctx.lineWidth = 1;
-        ctx.font = '14px Arial';
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'white';
+        ctx.lineWidth = 2;
+        ctx.font = '900 24px "Tahoma", "Arial"';
 
         const lineCount = blockWorldSize / mapInfo.regionSize;
         if (lineCount >= 1) {
@@ -57,6 +57,7 @@ export function getRegionLayer(mapInfo) {
                 pos += mapInfo.tileSize / lineCount;
             }
             ctx.fillText(FormatRegionFileName(coordToRegion(blockPos, mapInfo)), 4, mapInfo.tileSize - 5);
+            ctx.strokeText(FormatRegionFileName(coordToRegion(blockPos, mapInfo)), 4, mapInfo.tileSize - 5);
         } else {
             if (tileLeft % mapInfo.regionSize == 0) {
                 // Vertical
@@ -74,6 +75,7 @@ export function getRegionLayer(mapInfo) {
             }
             if (tileLeft % mapInfo.regionSize == 0 && tileBottom % mapInfo.regionSize == 0) {
                 ctx.fillText(FormatRegionFileName(coordToRegion(blockPos, mapInfo)), 4, mapInfo.tileSize - 5);
+                ctx.strokeText(FormatRegionFileName(coordToRegion(blockPos, mapInfo)), 4, mapInfo.tileSize - 5);
             }
         }
         return canvas;

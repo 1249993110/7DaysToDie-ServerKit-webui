@@ -48,6 +48,11 @@ onDeactivated(() => {
 });
 
 const appendMessage = (chatMessage, prepend = false) => {
+    // if (chatMessage.entityId <= 0) {
+    //     //color = 'red';
+    //     return;
+    // }
+
     const message = chatMessage.createdAt + "   '" + chatMessage.senderName + "': " + chatMessage.message;
 
     const element = document.getElementById('live-chat-content');
@@ -56,7 +61,7 @@ const appendMessage = (chatMessage, prepend = false) => {
     switch (chatMessage.chatType) {
         // Global
         case 'Global':
-            color = 'black';
+            color = 'var(--el-text-color-regular)';
             break;
         // Friends
         case 'Friends':
@@ -69,17 +74,15 @@ const appendMessage = (chatMessage, prepend = false) => {
         // Whisper
         case 'Whisper':
             color = '#00C814';
-            break;
+            // break;
+            return;
         default:
             color = 'black';
     }
 
-    if (chatMessage.entityId <= 0) {
-        color = 'red';
-    }
-
     const p = document.createElement('p');
-    p.innerHTML = `<font color="${color}">${message}</font>`;
+    p.style = `color: ${color}`;
+    p.innerHTML = `<font>${message}</font>`;
 
     if (prepend) {
         element.prepend(p);
@@ -139,7 +142,6 @@ onMounted(async () => {
 .live-chat {
     .card {
         margin-top: 20px;
-        background-color: #ffffffaf;
         :deep(.el-card__body) {
             .live-chat-container {
                 height: calc(100vh - 240px);

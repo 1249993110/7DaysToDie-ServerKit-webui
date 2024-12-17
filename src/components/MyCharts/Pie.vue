@@ -24,13 +24,15 @@ function formatNumber(val) {
     return Number(val.toFixed(2));
 }
 
+const isDark = useDark();
+
 function initChart() {
     let myChart = echarts.getInstanceByDom(pieChartRef.value);
     if (myChart === null || myChart === undefined) {
         myChart = echarts.init(pieChartRef.value);
     }
 
-    const theme = 'light';
+    const _isDark = isDark.value;
     const option = {
         title: [
             {
@@ -46,7 +48,7 @@ function initChart() {
                         },
                     },
 
-                    color: theme === 'dark' ? '#ffffff' : '#0f0f0f',
+                    color: _isDark ? '#ffffff' : '#0f0f0f',
                     lineHeight: 25,
                     // fontSize: 20,
                     fontWeight: 500,
@@ -55,7 +57,7 @@ function initChart() {
                 top: '42%',
                 // subtext: props.option.title,
                 // subtextStyle: {
-                //     color: theme === 'dark' ? '#BBBFC4' : '#646A73',
+                //     color: _isDark ? '#BBBFC4' : '#646A73',
                 //     fontSize: 13,
                 // },
                 textAlign: 'center',
@@ -90,7 +92,7 @@ function initChart() {
                 showBackground: true,
                 coordinateSystem: 'polar',
                 backgroundStyle: {
-                    color: theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 94, 235, 0.05)',
+                    color: _isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 94, 235, 0.05)',
                 },
                 color: [
                     new echarts.graphic.LinearGradient(0, 1, 0, 0, [
@@ -116,12 +118,12 @@ function initChart() {
                 label: {
                     show: false,
                 },
-                color: theme === 'dark' ? '#16191D' : '#fff',
+                color: _isDark ? '#16191D' : '#fff',
                 data: [
                     {
                         value: 0,
                         itemStyle: {
-                            shadowColor: theme === 'dark' ? '#16191D' : 'rgba(0, 94, 235, 0.1)',
+                            shadowColor: _isDark ? '#16191D' : 'rgba(0, 94, 235, 0.1)',
                             shadowBlur: 5,
                         },
                     },
@@ -148,6 +150,8 @@ watch(
         }
     }
 );
+
+watch(isDark, initChart);
 
 onMounted(() => {
     initChart();

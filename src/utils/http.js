@@ -44,7 +44,8 @@ service.interceptors.response.use(
 
         switch (error.response.status) {
             case 401:
-                sessionStorage.clear();
+                const userInfoStore = useUserInfoStore();
+                userInfoStore.logout();
                 location.reload();
                 break;
             case 403:

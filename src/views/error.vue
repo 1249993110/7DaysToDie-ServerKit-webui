@@ -1,26 +1,28 @@
 <template>
     <div class="error-page">
-        <div class="error-code">4<span>0</span>4</div>
-        <div class="error-desc">Sorry, the page you visited does not exist.</div>
+        <div class="error-code">4<span>0</span>0</div>
+        <div class="error-desc">{{ message }}</div>
         <div class="error-handle">
             <router-link to="/">
                 <el-button type="primary" size="large">Go back to Home</el-button>
             </router-link>
-            <el-button class="error-btn" type="primary" size="large" @click="goBack">Go back to previous page</el-button>
+            <router-link to="/login" class="error-btn">
+                <el-button type="primary" size="large">Go back to login page</el-button>
+            </router-link>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: '404',
+    name: 'error',
     setup() {
-        const router = useRouter();
-        const goBack = () => {
-            router.back();
-        };
+        const route = useRoute();
+        const message = computed(()=>{
+            return route.query.message;
+        });
         return {
-            goBack,
+            message,
         };
     },
 };
@@ -42,10 +44,10 @@ export default {
     line-height: 1;
     font-size: 250px;
     font-weight: bolder;
-    color: #2d8cf0;
+    color: red;
 }
 .error-code span {
-    color: #00a854;
+    color: orangered;
 }
 .error-desc {
     font-size: 30px;

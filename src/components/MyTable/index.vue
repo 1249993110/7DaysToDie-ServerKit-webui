@@ -25,6 +25,7 @@
         :request="addEditRequest"
         @submit="refresh"
         :label-width="addEditLabelWidth"
+        :rules="addEditFormRules"
     />
 </template>
 
@@ -51,6 +52,10 @@ const props = defineProps({
     addEditFormFields: {
         type: Array,
         default: () => [],
+    },
+    addEditFormRules: {
+        type: Object,
+        default: () => ({}),
     },
     addEditLabelWidth: {
         type: [String, Number],

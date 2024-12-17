@@ -12,7 +12,7 @@
         <div class="send-container">
             <!-- <el-input :placeholder="t('global.message.inputText')" v-model="command" clearable @keyup.enter.native="sendCommand"> </el-input> -->
             <autocomplete
-                style="width: calc(100% - 115px)"
+                class="autocomplete"
                 :search="search"
                 :placeholder="t('global.message.inputText')"
                 :aria-label="t('global.message.inputText')"
@@ -85,7 +85,7 @@ const sendCommand = async () => {
 let messageBuffer = [];
 let isActivated = false;
 onActivated(() => {
-    if(!autoRefrensh.value) {
+    if (!autoRefrensh.value) {
         return;
     }
 
@@ -108,7 +108,7 @@ const appendMessage = (message, logType) => {
             color = 'red';
             break;
         case 'Assert':
-            color = 'white';
+            color = '#BBBFC4';
             break;
         case 'Warning':
             color = 'yellow';
@@ -124,8 +124,8 @@ const appendMessage = (message, logType) => {
     }
 
     const p = document.createElement('p');
+    p.style = `color: ${color}`;
     const font = document.createElement('font');
-    font.setAttribute('color', color);
     font.setAttribute('style', 'font-family: monospace');
     font.innerText = message;
     p.appendChild(font);
@@ -180,6 +180,7 @@ watch(autoRefrensh, (val) => {
         isActivated = false;
     }
 });
+
 </script>
 
 <style scoped lang="scss">
@@ -231,15 +232,27 @@ watch(autoRefrensh, (val) => {
             display: flex;
         }
 
-        .wiki-title {
-            // font-size: 20px;
-            // margin-bottom: 8px;
-        }
-
         .wiki-snippet {
             font-size: 14px;
-            color: rgba(0, 0, 0, 0.54);
+            // color: rgba(0, 0, 0, 0.54);
+            color: var(--el-text-color-regular);
             margin-left: auto;
+        }
+
+        .autocomplete {
+            width: calc(100% - 115px);
+            :deep(.autocomplete-input) {
+                background-color: var(--el-fill-color-blank);
+                border: var(--ty-border);
+            }
+            :deep(.autocomplete-result-list) {
+                background-color: var(--ty-main-bg-color-1);
+                li {
+                    &:hover {
+                        background-color: rgba(128,64,64,0.5);
+                    }
+                }
+            }
         }
     }
 }

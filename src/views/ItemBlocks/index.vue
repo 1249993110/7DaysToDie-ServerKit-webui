@@ -115,7 +115,6 @@ const handleMouseover = (item, event) => {
 .item-blocks {
     height: calc(100vh - 90px);
     .el-card {
-        background-color: #ffffffaf;
         height: 100%;
         :deep(.el-card__body) {
             height: calc(100% - 40px);

@@ -81,7 +81,6 @@ watch(
 .input-help {
     font-size: 13px;
     word-break: break-all;
-    color: #414141;
     width: 100%;
     display: inline-block;
 }

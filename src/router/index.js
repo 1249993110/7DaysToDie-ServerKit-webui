@@ -167,25 +167,6 @@ const routes = [
                 ],
             },
             {
-                path: 'listManagement',
-                name: 'listManagement',
-                redirect: '/listManagement/itemList',
-                children: [
-                    {
-                        path: 'itemList',
-                        name: 'listManagement.itemList',
-                        component: () => import('../views/ListManagement/ItemList/index.vue'),
-                        meta: { requiresAuth: true, keepAlive: true },
-                    },
-                    {
-                        path: 'commandList',
-                        name: 'listManagement.commandList',
-                        component: () => import('../views/ListManagement/CommandList/index.vue'),
-                        meta: { requiresAuth: true, keepAlive: true },
-                    },
-                ],
-            },
-            {
                 path: '/gameStore',
                 name: 'gameStore',
                 redirect: '/gameStore/settings',
@@ -306,12 +287,66 @@ const routes = [
                     },
                 ],
             },
+            
+            {
+                path: 'listManagement',
+                name: 'listManagement',
+                redirect: '/listManagement/itemList',
+                children: [
+                    {
+                        path: 'itemList',
+                        name: 'listManagement.itemList',
+                        component: () => import('../views/ListManagement/ItemList/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'commandList',
+                        name: 'listManagement.commandList',
+                        component: () => import('../views/ListManagement/CommandList/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
+            {
+                path: 'taskSchedule',
+                name: 'taskSchedule',
+                redirect: '/taskSchedule/settings',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'taskSchedule.settings',
+                        component: () => import('../views/TaskSchedule/Settings/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'management',
+                        name: 'taskSchedule.management',
+                        component: () => import('../views/TaskSchedule/Management/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
         ],
     },
     {
         path: '/login',
         name: 'login',
         component: () => import('../views/Login/index.vue'),
+    },
+    {
+        path: '/loginSuccess',
+        name: 'loginSuccess',
+        component: () => import('../views/loginSuccess.vue'),
+    },
+    {
+        path: '/error',
+        name: 'error',
+        component: () => import('../views/error.vue'),
+    },
+    {
+        path: '/403',
+        name: '403',
+        component: () => import('../views/403.vue'),
     },
     {
         path: '/404',

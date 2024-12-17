@@ -26,7 +26,7 @@
                         </el-table-column>
                         <el-table-column prop="value" width="200" show-overflow-tooltip>
                             <template #default="scope">
-                                <span style="font-size: 14px; font-weight: bold; font-family: emoji; color: black">{{ scope.row.value }}</span>
+                                <span style="font-size: 14px; font-weight: bold; font-family: emoji; color: var(--el-text-color-regular);">{{ scope.row.value }}</span>
                             </template>
                         </el-table-column>
                         <el-table-column width="90" fixed="right">

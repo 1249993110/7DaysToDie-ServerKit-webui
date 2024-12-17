@@ -1,35 +1,38 @@
 <template>
     <div>
-        <RouterButton :names="['vipGift.settings', 'vipGift.management']" />
+        <RouterButton :names="['taskSchedule.settings', 'taskSchedule.management']" />
         <MyTable
             ref="myTableRef"
             row-key="id"
             :columns="columns"
-            :model-name="rt(tm('menus.vipGift')[''])"
+            :model-name="rt(tm('menus.taskSchedule')[''])"
             :toolbar="toolbar"
             :search="search"
             :add-edit-form-fields="addEditFormFields"
+            :add-edit-form-rules="addEditFormRules"
             :add-edit-label-width="150"
             :request="request"
         >
             <template #bindCell="{ row }">
-                <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.vipGift.tableHeader.bindItem') }}</el-button>
-                <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.vipGift.tableHeader.bindCmd') }}</el-button>
+                <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.taskSchedule.tableHeader.bindCmd') }}</el-button>
+            </template>
+            <template #isEnabledCell="{ row }">
+                <el-switch v-model="row.isEnabled" :active-value="true" :inactive-value="false" @change="handleEnable(row)" />
             </template>
         </MyTable>
-        <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleItemsEdit" />
         <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleCommandsEdit" />
     </div>
 </template>
 
 <script>
 export default {
-    name: 'vipGift.management',
+    name: 'taskSchedule.management',
 };
 </script>
 
 <script setup>
-import * as api from '~/api/vip-gift';
+import * as api from '~/api/task-schedule';
+import cron from 'cron-validate';
 
 const { t, tm, rt } = useI18n();
 
@@ -38,52 +41,47 @@ const columns = computed(() => [
         type: 'selection',
     },
     {
-        prop: 'id',
-        label: t('views.vipGift.tableHeader.playerId'),
-        width: 320,
-        sortable: 'custom',
-    },
-    {
         prop: 'name',
-        label: t('views.vipGift.tableHeader.name'),
-        minWidth: 150,
+        label: t('views.taskSchedule.tableHeader.name'),
+        minWidth: 120,
         sortable: 'custom',
         tag: true,
     },
     {
-        prop: 'claimState',
-        label: t('views.vipGift.tableHeader.claimState'),
-        width: 160,
-        sortable: 'custom',
-        formatter: (row) => (row.claimState ? t('global.true') : t('global.false')),
+        prop: 'cronExpression',
+        label: t('views.taskSchedule.tableHeader.cronExpression'),
+        width: 140,
     },
     {
-        prop: 'totalClaimCount',
-        label: t('views.vipGift.tableHeader.totalClaimCount'),
-        width: 170,
+        prop: 'isEnabled',
+        label: t('views.taskSchedule.tableHeader.isEnabled'),
+        width: 120,
         sortable: 'custom',
+        formatter: (row) => (row.isEnabled ? t('global.true') : t('global.false')),
     },
     {
-        prop: 'lastClaimAt',
-        label: t('views.vipGift.tableHeader.lastClaimAt'),
+        prop: 'lastRunAt',
+        label: t('views.taskSchedule.tableHeader.lastRunAt'),
         sortable: 'custom',
         width: 160,
     },
     {
         prop: 'description',
-        label: t('views.vipGift.tableHeader.description'),
+        label: t('views.taskSchedule.tableHeader.description'),
         sortable: 'custom',
         minWidth: 150,
     },
     {
         prop: 'bind',
-        label: t('views.vipGift.tableHeader.bind'),
-        width: 225,
+        label: t('views.taskSchedule.tableHeader.bind'),
+        width: 140,
         headerAlign: 'center',
+        fixed: 'right',
+        align: 'center',
     },
     {
         type: 'operation',
-        minWidth: 200,
+        width: 200,
     },
 ]);
 
@@ -91,19 +89,8 @@ const myTableRef = ref(null);
 const toolbar = computed(() => ({
     batchOperationItems: [
         {
-            label: t('views.vipGift.resetAll'),
-            onClick: async () => {
-                try {
-                    if (await myconfirm(t('views.vipGift.resetAllConfirm'))) {
-                        await api.deleteVipGiftByIds([], true);
-                        await myTableRef.value.refresh();
-                    }
-                } catch {}
-            },
-        },
-        {
             type: 'export',
-            fileName: rt(tm('menus.vipGift')['']),
+            fileName: rt(tm('menus.taskSchedule')['']),
         },
     ],
 }));
@@ -125,48 +112,60 @@ const newId = ref(0);
 const addEditFormFields = computed(() => [
     {
         type: 'input',
-        name: 'id',
-        label: t('views.vipGift.tableHeader.playerId'),
+        name: 'name',
+        label: t('views.taskSchedule.tableHeader.name'),
         required: true,
     },
     {
-        type: 'input',
-        name: 'name',
-        label: t('views.vipGift.tableHeader.name'),
+        type: 'CronSelector',
+        name: 'cronExpression',
+        label: t('views.taskSchedule.tableHeader.cronExpression'),
         required: true,
     },
     {
         type: 'switch',
-        name: 'claimState',
-        label: t('views.vipGift.tableHeader.claimState'),
-    },
-    {
-        type: 'input-number',
-        name: 'totalClaimCount',
-        label: t('views.vipGift.tableHeader.totalClaimCount'),
-        required: true,
-        default: 0,
-        props: {
-            min: 0,
-        },
+        name: 'isEnabled',
+        label: t('views.taskSchedule.tableHeader.isEnabled'),
     },
     {
         type: 'input',
         name: 'description',
-        label: t('views.vipGift.tableHeader.description'),
+        label: t('views.taskSchedule.tableHeader.description'),
         props: {
             type: 'textarea',
         },
     },
 ]);
 
+const addEditFormRules = {
+    cronExpression: [
+        {
+            validator: (rule, value, callback) => {
+                const cronResult = cron(value, {
+                    preset: 'aws-cloud-watch',
+                    override: {
+                        useSeconds: true,
+                        useYears: false,
+                    },
+                });
+                if (!cronResult.isValid()) {
+                    return callback(new Error('Invalid cron expression'));
+                }
+                callback();
+            },
+            message: t('components.cronSelector.invalid'),
+            trigger: 'blur',
+        },
+    ],
+};
+
 const requestGet = async (params) => {
-    let data = await api.getVipGift();
+    let data = await api.getTaskSchedule();
     if (data.length) {
         newId.value = data[data.length - 1].id + 1;
     }
 
-    data = searchByKeyword(data, params.keyword, ['id', 'name', 'description']);
+    data = searchByKeyword(data, params.keyword, ['name', 'description']);
     if (params.sortOrder) {
         const desc = params.sortOrder === 'descending';
         const sortPorp = params.sortPorp;
@@ -192,19 +191,19 @@ const requestGet = async (params) => {
 };
 
 const requestAdd = async (formModel) => {
-    await api.addVipGift(formModel);
+    await api.addTaskSchedule(formModel);
 };
 
 const requestEdit = async (formModel) => {
-    await api.updateVipGift(formModel.id, formModel);
+    await api.updateTaskSchedule(formModel.id, formModel);
 };
 
 const requestDetele = async (id) => {
-    await api.deleteVipGiftById(id);
+    await api.deleteTaskScheduleById(id);
 };
 
 const requestBatchDelete = async (selectedIds) => {
-    await api.deleteVipGiftByIds(selectedIds);
+    await api.deleteTaskScheduleByIds(selectedIds);
 };
 
 const request = {
@@ -217,26 +216,9 @@ const request = {
 
 const lastClickId = ref(0);
 
-const associatedItemsVisible = ref(false);
 const associatedCommandsVisible = ref(false);
 const associatedData = ref([]);
 const associatedLoading = ref(false);
-
-const handleAssociatedItem = async (row) => {
-    associatedLoading.value = true;
-    associatedItemsVisible.value = true;
-    lastClickId.value = row.id;
-    try {
-        const data = await api.getItemList(row.id);
-        associatedData.value = data;
-    } finally {
-        associatedLoading.value = false;
-    }
-};
-
-const handleItemsEdit = async (ids) => {
-    await api.updateItemList(lastClickId.value, ids);
-};
 
 const handleAssociatedCommand = async (row) => {
     associatedLoading.value = true;
@@ -252,5 +234,22 @@ const handleAssociatedCommand = async (row) => {
 
 const handleCommandsEdit = async (ids) => {
     await api.updateCommandList(lastClickId.value, ids);
+};
+
+const handleEnable = async (row) => {
+    try {
+        await api.updateTaskSchedule(row.id, row);
+        if (row.isEnabled) {
+            ElMessage.success(t('global.message.enableSuccess'));
+        } else {
+            ElMessage.success(t('global.message.disableSuccess'));
+        }
+    } catch (error) {
+        if (row.isEnabled) {
+            ElMessage.success(t('global.message.enableFailed') + error);
+        } else {
+            ElMessage.success(t('global.message.disableFailed') + error);
+        }
+    }
 };
 </script>

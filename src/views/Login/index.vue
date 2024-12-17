@@ -22,6 +22,11 @@
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm" tabindex="-1">{{ t('views.login.login') }}</el-button>
                 </div>
+                <div class="login-btn-steam">
+                    <a :href="loginThroughSteam">
+                        <img src="../../assets/images/icon_login_steam.png" />
+                    </a>
+                </div>
             </el-form>
         </div>
     </div>
@@ -69,6 +74,14 @@ const submitForm = async () => {
         }
     } catch {}
 };
+
+const returnUrl = encodeURIComponent(window.location.origin + '/api/auth/steam/return?redirect=' + (route.query.redirect ?? '/'));
+const loginThroughSteam =
+    'https://steamcommunity.com/openid/login?openid.ns=http://specs.openid.net/auth/2.0&openid.mode=checkid_setup&openid.return_to=' +
+    returnUrl +
+    '&openid.realm=' +
+    returnUrl +
+    '&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select';
 </script>
 
 <style scoped>
@@ -109,5 +122,13 @@ const submitForm = async () => {
     width: 100%;
     height: 36px;
     margin-bottom: 10px;
+}
+
+.login-btn-steam {
+    display: flex;
+    justify-content: center;
+    img {
+        height: 45px;
+    }
 }
 </style>
