@@ -432,7 +432,7 @@
                 },
                 "someWeekday": {
                     "prefix": "On the",
-                    "middle": "day",
+                    "middle": "of the month",
                     "suffix": "of the month"
                 }
             },
