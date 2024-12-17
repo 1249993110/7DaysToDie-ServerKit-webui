@@ -77,6 +77,7 @@ const columns = computed(() => [
         width: 140,
         headerAlign: 'center',
         fixed: 'right',
+        align: 'center',
     },
     {
         type: 'operation',
