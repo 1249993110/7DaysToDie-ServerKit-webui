@@ -359,13 +359,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "秒执行 从",
-                    "suffix": " "
+                    "suffix": "秒开始"
                 },
                 "specific": "具体秒数 (可多选)",
                 "cycle": {
                     "prefix": "周期从",
                     "middle": "到",
-                    "suffix": " "
+                    "suffix": "秒"
                 }
             },
             "minutes": {
@@ -374,13 +374,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "分执行 从",
-                    "suffix": " "
+                    "suffix": "分开始"
                 },
                 "specific": "具体分钟数 (可多选)",
                 "cycle": {
                     "prefix": "周期从",
                     "middle": "到",
-                    "suffix": " "
+                    "suffix": "分"
                 }
             },
             "hours": {
@@ -389,13 +389,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "小时执行 从",
-                    "suffix": " "
+                    "suffix": "小时开始"
                 },
                 "specific": "具体小时数 (可多选)",
                 "cycle": {
                     "prefix": "周期从",
                     "middle": "到",
-                    "suffix": " "
+                    "suffix": "小时"
                 }
             },
             "day": {
@@ -404,7 +404,7 @@
                 "intervalWeek": {
                     "prefix": "每隔",
                     "middle": "天执行 从",
-                    "suffix": " "
+                    "suffix": "开始"
                 },
                 "intervalDay": {
                     "prefix": "每隔",
@@ -421,7 +421,7 @@
                     "suffix": " "
                 },
                 "beforeEndMonth": {
-                    "prefix": " ",
+                    "prefix": "在本月底前",
                     "middle": "天",
                     "suffix": " "
                 },
@@ -451,13 +451,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "月执行 从",
-                    "suffix": " "
+                    "suffix": "月开始"
                 },
                 "specific": "具体月数 (可多选)",
                 "cycle": {
                     "prefix": "从",
                     "middle": "到",
-                    "suffix": " "
+                    "suffix": "月之间的每个月"
                 }
             }
         }
