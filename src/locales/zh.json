@@ -74,6 +74,7 @@
             "inputText": "请输入文本",
             "inputNumber": "请输入数字",
             "datePickerPlaceholder": "选择日期",
+            "cronPickerPlaceholder": "Select cron",
             "noMoreData": "没有更多数据了"
         }
     },
@@ -136,11 +137,6 @@
             "settings": "签到配置",
             "management": "积分管理"
         },
-        "listManagement": {
-            "": "列表管理",
-            "itemList": "物品清单",
-            "commandList": "命令清单"
-        },
         "gameStore": {
             "": "游戏商城",
             "settings": "商店配置",
@@ -173,6 +169,16 @@
         "prefab": {
             "": "预制件",
             "prefabPlace": "预制件放置"
+        },
+        "taskSchedule": {
+            "": "Task Schedule",
+            "settings": "Task Schedule Settings",
+            "management": "Task Schedule Management"
+        },
+        "listManagement": {
+            "": "列表管理",
+            "itemList": "物品清单",
+            "commandList": "命令清单"
         },
         "swagger": "接口文档"
     },
@@ -342,6 +348,114 @@
             "lastWeek": "过去一周",
             "lastMonth": "最近一个月",
             "lastMonths": "最近 {0} 个月"
+        },
+        "cronSelector": {
+            "title": "Select Cron",
+            "preview": "Cron Preview",
+            "invalid": "Invalid cron expression",
+            "seconds": {
+                "name": "Seconds",
+                "every": "Every second",
+                "interval": {
+                    "prefix": "Every",
+                    "middle": "second(s) starting at second",
+                    "suffix": ""
+                },
+                "specific": "Specific second (choose one or many)",
+                "cycle": {
+                    "prefix": "Every second between second",
+                    "middle": "and second",
+                    "suffix": ""
+                }
+            },
+            "minutes": {
+                "name": "Minutes",
+                "every": "Every minute",
+                "interval": {
+                    "prefix": "Every",
+                    "middle": "minute(s) starting at minute",
+                    "suffix": ""
+                },
+                "specific": "Specific minute (choose one or many)",
+                "cycle": {
+                    "prefix": "Every minute between minute",
+                    "middle": "and minute",
+                    "suffix": ""
+                }
+            },
+            "hours": {
+                "name": "Hours",
+                "every": "Every hour",
+                "interval": {
+                    "prefix": "Every",
+                    "middle": "hour(s) starting at hour",
+                    "suffix": ""
+                },
+                "specific": "Specific hour (choose one or many)",
+                "cycle": {
+                    "prefix": "Every hour between hour",
+                    "middle": "and hour",
+                    "suffix": ""
+                }
+            },
+            "day": {
+                "name": "Day",
+                "every": "Every day",
+                "intervalWeek": {
+                    "prefix": "Every",
+                    "middle": "day(s) starting on",
+                    "suffix": ""
+                },
+                "intervalDay": {
+                    "prefix": "Every",
+                    "middle": "day(s) starting at the",
+                    "suffix": "of the month"
+                },
+                "specificWeek": "Specific day of week (choose one or many)",
+                "specificDay": "Specific day of month (choose one or many)",
+                "lastDay": "On the last day of the month",
+                "lastWeekday": "On the last weekday of the month",
+                "lastWeek": {
+                    "prefix": "On the last",
+                    "middle": "of the month",
+                    "suffix": ""
+                },
+                "beforeEndMonth": "day(s) before the end of the month",
+                "nearestWeekday": {
+                    "prefix": "Nearest weekday (Monday to Friday) to the",
+                    "middle": "of the month",
+                    "suffix": ""
+                },
+                "someWeekday": {
+                    "prefix": "On the",
+                    "middle": "of the month",
+                    "suffix": ""
+                }
+            },
+            "weeks": [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "month": {
+                "name": "Month",
+                "every": "Every month",
+                "interval": {
+                    "prefix": "Every",
+                    "middle": "month(s) starting in",
+                    "suffix": ""
+                },
+                "specific": "Specific month (choose one or many)",
+                "cycle": {
+                    "prefix": "Every month between",
+                    "middle": "and",
+                    "suffix": ""
+                }
+            }
         }
     },
     "layout": {
@@ -803,6 +917,20 @@
             "prefabName": "预制件名称",
             "createdAt": "创建时间",
             "undoConfirm": "您确定要撤销吗?"
+        },
+        "taskSchedule": {
+            "isEnabled": "Enable Task Schedule",
+            "tableHeader": {
+                "id": "ID",
+                "createdAt": "Created At",
+                "name": "Name",
+                "cronExpression": "Cron Expression",
+                "isEnabled": "Enable",
+                "lastRunAt": "Last Run At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindCmd": "Bind Command"
+            }
         }
     }
 }
