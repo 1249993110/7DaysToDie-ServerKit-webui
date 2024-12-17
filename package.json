@@ -13,6 +13,7 @@
     "@trevoreyre/autocomplete-vue": "^3.0.3",
     "@vueuse/core": "^12.0.0",
     "axios": "^1.7.9",
+    "cron-validate": "^1.4.5",
     "dayjs": "^1.11.13",
     "echarts": "^5.5.1",
     "element-plus": "^2.9.1",
