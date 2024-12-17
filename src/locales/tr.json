@@ -420,7 +420,11 @@
                     "middle": "of the month",
                     "suffix": ""
                 },
-                "beforeEndMonth": "day(s) before the end of the month",
+                "beforeEndMonth": {
+                    "prefix": "",
+                    "middle": "day(s) before the end of the month",
+                    "suffix": ""
+                },
                 "nearestWeekday": {
                     "prefix": "Nearest weekday (Monday to Friday) to the",
                     "middle": "of the month",
@@ -428,8 +432,8 @@
                 },
                 "someWeekday": {
                     "prefix": "On the",
-                    "middle": "of the month",
-                    "suffix": ""
+                    "middle": "day",
+                    "suffix": "of the month"
                 }
             },
             "weeks": [
