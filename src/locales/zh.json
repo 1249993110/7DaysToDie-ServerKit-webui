@@ -417,23 +417,23 @@
                 "lastWeekday": "在这个月的最后一个工作日",
                 "lastWeek": {
                     "prefix": "在这个月的最后一个",
-                    "middle": "",
-                    "suffix": ""
+                    "middle": " ",
+                    "suffix": " "
                 },
                 "beforeEndMonth": {
                     "prefix": "在本月底前",
                     "middle": "天",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "nearestWeekday": {
                     "prefix": "最近的工作日（周一至周五）至本月",
                     "middle": "日",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "someWeekday": {
                     "prefix": "在这个月的第",
                     "middle": "个",
-                    "suffix": ""
+                    "suffix": " "
                 }
             },
             "weeks": [
