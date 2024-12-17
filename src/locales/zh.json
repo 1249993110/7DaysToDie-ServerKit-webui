@@ -417,7 +417,7 @@
                 "lastWeekday": "在这个月的最后一个工作日",
                 "lastWeek": {
                     "prefix": "在这个月的最后一个",
-                    "middle": "of the month",
+                    "middle": " ",
                     "suffix": " "
                 },
                 "beforeEndMonth": {
@@ -433,7 +433,7 @@
                 "someWeekday": {
                     "prefix": "在这个月的第",
                     "middle": "个",
-                    "suffix": "of the month"
+                    "suffix": " "
                 }
             },
             "weeks": [
