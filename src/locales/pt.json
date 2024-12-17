@@ -354,105 +354,97 @@
             "preview": "Cron Preview",
             "invalid": "Invalid cron expression",
             "seconds": {
-                "name": "Seconds",
-                "every": "Every second",
+                "name": "Segundos",
+                "every": "A cada segundo",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "second(s) starting at second",
+                    "prefix": "A cada",
+                    "middle": "segundo(s) começando no segundo",
                     "suffix": ""
                 },
-                "specific": "Specific second (choose one or many)",
+                "specific": "Segundo específico (escolha um ou muitos)",
                 "cycle": {
-                    "prefix": "Every second between second",
-                    "middle": "and second",
+                    "prefix": "A Cada segundo entre segundos",
+                    "middle": "e segundo",
                     "suffix": ""
                 }
             },
             "minutes": {
-                "name": "Minutes",
-                "every": "Every minute",
+                "name": "Minutos",
+                "every": "A cada minuto",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "minute(s) starting at minute",
+                    "prefix": "A cada",
+                    "middle": "minuto(s) começando no minuto",
                     "suffix": ""
                 },
-                "specific": "Specific minute (choose one or many)",
+                "specific": "Minuto específico (escolha um ou muitos)",
                 "cycle": {
-                    "prefix": "Every minute between minute",
-                    "middle": "and minute",
+                    "prefix": "A cada minuto entre minutos",
+                    "middle": "e minutos",
                     "suffix": ""
                 }
             },
             "hours": {
-                "name": "Hours",
-                "every": "Every hour",
+                "name": "Horas",
+                "every": "A cada hora",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "hour(s) starting at hour",
+                    "prefix": "A cada",
+                    "middle": "hora(s) começando na hora",
                     "suffix": ""
                 },
-                "specific": "Specific hour (choose one or many)",
+                "specific": "Hora específica (escolha uma ou muitas)",
                 "cycle": {
-                    "prefix": "Every hour between hour",
-                    "middle": "and hour",
+                    "prefix": "A cada hora entre horas",
+                    "middle": "e horas",
                     "suffix": ""
                 }
             },
             "day": {
-                "name": "Day",
-                "every": "Every day",
+                "name": "Dia",
+                "every": "A cada dia",
                 "intervalWeek": {
-                    "prefix": "Every",
-                    "middle": "day(s) starting on",
+                    "prefix": "A cada",
+                    "middle": "dia(s) começando em",
                     "suffix": ""
                 },
                 "intervalDay": {
-                    "prefix": "Every",
-                    "middle": "day(s) starting at the",
-                    "suffix": "of the month"
-                },
-                "specificWeek": "Specific day of week (choose one or many)",
-                "specificDay": "Specific day of month (choose one or many)",
-                "lastDay": "On the last day of the month",
-                "lastWeekday": "On the last weekday of the month",
-                "lastWeek": {
-                    "prefix": "On the last",
-                    "middle": "of the month",
+                    "prefix": "A cada",
+                    "middle": "dia(s) começando no','do mês",
                     "suffix": ""
                 },
-                "beforeEndMonth": "day(s) before the end of the month",
+                "specificWeek": "Dia específico da semana (escolha um ou vários)",
+                "specificDay": "Dia específico do mês (escolha um ou vários)",
+                "lastDay": "No último dia do mês",
+                "lastWeekday": "No último dia da semana do mês",
+                "lastWeek": {
+                    "prefix": "No último",
+                    "middle": " do mês",
+                    "suffix": ""
+                },
+                "beforeEndMonth": "dia(s) antes do final do mês",
                 "nearestWeekday": {
-                    "prefix": "Nearest weekday (Monday to Friday) to the",
-                    "middle": "of the month",
+                    "prefix": "Dia da semana mais próximo (segunda a sexta) ao ",
+                    "middle": "do mês",
                     "suffix": ""
                 },
                 "someWeekday": {
-                    "prefix": "On the",
-                    "middle": "of the month",
+                    "prefix": "No",
+                    "middle": "do mês",
                     "suffix": ""
                 }
             },
-            "weeks": [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-            ],
+            "weeks": ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"],
             "month": {
-                "name": "Month",
-                "every": "Every month",
+                "name": "Mês",
+                "every": "A cada mês",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "month(s) starting in",
+                    "prefix": "A cada",
+                    "middle": "mês(es) começando em",
                     "suffix": ""
                 },
-                "specific": "Specific month (choose one or many)",
+                "specific": "Mês específico (escolha um ou muitos)",
                 "cycle": {
-                    "prefix": "Every month between",
-                    "middle": "and",
+                    "prefix": "Todo mês entre",
+                    "middle": "e",
                     "suffix": ""
                 }
             }
