@@ -359,13 +359,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "秒执行 从",
-                    "suffix": "秒开始"
+                    "suffix": ""
                 },
                 "specific": "具体秒数 (可多选)",
                 "cycle": {
                     "prefix": "周期从",
                     "middle": "到",
-                    "suffix": "秒"
+                    "suffix": ""
                 }
             },
             "minutes": {
@@ -374,13 +374,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "分执行 从",
-                    "suffix": "分开始"
+                    "suffix": ""
                 },
                 "specific": "具体分钟数 (可多选)",
                 "cycle": {
                     "prefix": "周期从",
                     "middle": "到",
-                    "suffix": "分"
+                    "suffix": ""
                 }
             },
             "hours": {
@@ -389,13 +389,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "小时执行 从",
-                    "suffix": "小时开始"
+                    "suffix": ""
                 },
                 "specific": "具体小时数 (可多选)",
                 "cycle": {
                     "prefix": "周期从",
                     "middle": "到",
-                    "suffix": "小时"
+                    "suffix": ""
                 }
             },
             "day": {
@@ -404,7 +404,7 @@
                 "intervalWeek": {
                     "prefix": "每隔",
                     "middle": "天执行 从",
-                    "suffix": "开始"
+                    "suffix": ""
                 },
                 "intervalDay": {
                     "prefix": "每隔",
@@ -417,12 +417,12 @@
                 "lastWeekday": "在这个月的最后一个工作日",
                 "lastWeek": {
                     "prefix": "在这个月的最后一个",
-                    "middle": "",
+                    "middle": "of the month",
                     "suffix": ""
                 },
                 "beforeEndMonth": {
-                    "prefix": "在本月底前",
-                    "middle": "天",
+                    "prefix": "",
+                    "middle": "day(s) before the end of the month",
                     "suffix": ""
                 },
                 "nearestWeekday": {
@@ -432,8 +432,8 @@
                 },
                 "someWeekday": {
                     "prefix": "在这个月的第",
-                    "middle": "个",
-                    "suffix": ""
+                    "middle": "day",
+                    "suffix": "of the month"
                 }
             },
             "weeks": [
@@ -451,13 +451,13 @@
                 "interval": {
                     "prefix": "每隔",
                     "middle": "月执行 从",
-                    "suffix": "月开始"
+                    "suffix": ""
                 },
                 "specific": "具体月数 (可多选)",
                 "cycle": {
                     "prefix": "从",
                     "middle": "到",
-                    "suffix": "月之间的每个月"
+                    "suffix": ""
                 }
             }
         }
