@@ -422,7 +422,7 @@
                 },
                 "beforeEndMonth": {
                     "prefix": "",
-                    "middle": "day(s) before the end of the month",
+                    "middle": "天",
                     "suffix": ""
                 },
                 "nearestWeekday": {
@@ -432,7 +432,7 @@
                 },
                 "someWeekday": {
                     "prefix": "在这个月的第",
-                    "middle": "day",
+                    "middle": "个",
                     "suffix": "of the month"
                 }
             },
