@@ -74,7 +74,7 @@
             "inputText": "请输入文本",
             "inputNumber": "请输入数字",
             "datePickerPlaceholder": "选择日期",
-            "cronPickerPlaceholder": "Select cron",
+            "cronPickerPlaceholder": "选择 cron",
             "noMoreData": "没有更多数据了"
         }
     },
@@ -171,9 +171,9 @@
             "prefabPlace": "预制件放置"
         },
         "taskSchedule": {
-            "": "Task Schedule",
-            "settings": "Task Schedule Settings",
-            "management": "Task Schedule Management"
+            "": "任务计划",
+            "settings": "任务计划配置",
+            "management": "任务计划管理"
         },
         "listManagement": {
             "": "列表管理",
@@ -350,110 +350,114 @@
             "lastMonths": "最近 {0} 个月"
         },
         "cronSelector": {
-            "title": "Select Cron",
-            "preview": "Cron Preview",
-            "invalid": "Invalid cron expression",
+            "title": "选择 Cron",
+            "preview": "Cron 预览",
+            "invalid": "无效的 cron 表达式",
             "seconds": {
-                "name": "Seconds",
-                "every": "Every second",
+                "name": "秒",
+                "every": "每一秒钟",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "second(s) starting at second",
-                    "suffix": ""
+                    "prefix": "每隔",
+                    "middle": "秒执行 从",
+                    "suffix": "秒开始"
                 },
-                "specific": "Specific second (choose one or many)",
+                "specific": "具体秒数 (可多选)",
                 "cycle": {
-                    "prefix": "Every second between second",
-                    "middle": "and second",
-                    "suffix": ""
+                    "prefix": "周期从",
+                    "middle": "到",
+                    "suffix": "秒"
                 }
             },
             "minutes": {
-                "name": "Minutes",
-                "every": "Every minute",
+                "name": "分",
+                "every": "每一分钟",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "minute(s) starting at minute",
-                    "suffix": ""
+                    "prefix": "每隔",
+                    "middle": "分执行 从",
+                    "suffix": "分开始"
                 },
-                "specific": "Specific minute (choose one or many)",
+                "specific": "具体分钟数 (可多选)",
                 "cycle": {
-                    "prefix": "Every minute between minute",
-                    "middle": "and minute",
-                    "suffix": ""
+                    "prefix": "周期从",
+                    "middle": "到",
+                    "suffix": "分"
                 }
             },
             "hours": {
-                "name": "Hours",
-                "every": "Every hour",
+                "name": "时",
+                "every": "每一小时",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "hour(s) starting at hour",
-                    "suffix": ""
+                    "prefix": "每隔",
+                    "middle": "小时执行 从",
+                    "suffix": "小时开始"
                 },
-                "specific": "Specific hour (choose one or many)",
+                "specific": "具体小时数 (可多选)",
                 "cycle": {
-                    "prefix": "Every hour between hour",
-                    "middle": "and hour",
-                    "suffix": ""
+                    "prefix": "周期从",
+                    "middle": "到",
+                    "suffix": "小时"
                 }
             },
             "day": {
-                "name": "Day",
-                "every": "Every day",
+                "name": "天",
+                "every": "每一天",
                 "intervalWeek": {
-                    "prefix": "Every",
-                    "middle": "day(s) starting on",
-                    "suffix": ""
+                    "prefix": "每隔",
+                    "middle": "天执行 从",
+                    "suffix": "开始"
                 },
                 "intervalDay": {
-                    "prefix": "Every",
-                    "middle": "day(s) starting at the",
-                    "suffix": "of the month"
+                    "prefix": "每隔",
+                    "middle": "天执行 从第",
+                    "suffix": "日开始"
                 },
-                "specificWeek": "Specific day of week (choose one or many)",
-                "specificDay": "Specific day of month (choose one or many)",
-                "lastDay": "On the last day of the month",
-                "lastWeekday": "On the last weekday of the month",
+                "specificWeek": "具体星期几 (可多选)",
+                "specificDay": "具体天数 (可多选)",
+                "lastDay": "在这个月的最后一天",
+                "lastWeekday": "在这个月的最后一个工作日",
                 "lastWeek": {
-                    "prefix": "On the last",
-                    "middle": "of the month",
+                    "prefix": "在这个月的最后一个",
+                    "middle": "",
                     "suffix": ""
                 },
-                "beforeEndMonth": "day(s) before the end of the month",
+                "beforeEndMonth": {
+                    "prefix": "在本月底前",
+                    "middle": "天",
+                    "suffix": ""
+                },
                 "nearestWeekday": {
-                    "prefix": "Nearest weekday (Monday to Friday) to the",
-                    "middle": "of the month",
+                    "prefix": "最近的工作日（周一至周五）至本月",
+                    "middle": "日",
                     "suffix": ""
                 },
                 "someWeekday": {
-                    "prefix": "On the",
-                    "middle": "of the month",
+                    "prefix": "在这个月的第",
+                    "middle": "个",
                     "suffix": ""
                 }
             },
             "weeks": [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
+                "星期天",
+                "星期一",
+                "星期二",
+                "星期三",
+                "星期四",
+                "星期五",
+                "星期六"
             ],
             "month": {
-                "name": "Month",
-                "every": "Every month",
+                "name": "月",
+                "every": "每一月",
                 "interval": {
-                    "prefix": "Every",
-                    "middle": "month(s) starting in",
-                    "suffix": ""
+                    "prefix": "每隔",
+                    "middle": "月执行 从",
+                    "suffix": "月开始"
                 },
-                "specific": "Specific month (choose one or many)",
+                "specific": "具体月数 (可多选)",
                 "cycle": {
-                    "prefix": "Every month between",
-                    "middle": "and",
-                    "suffix": ""
+                    "prefix": "从",
+                    "middle": "到",
+                    "suffix": "月之间的每个月"
                 }
             }
         }
@@ -919,17 +923,17 @@
             "undoConfirm": "您确定要撤销吗?"
         },
         "taskSchedule": {
-            "isEnabled": "Enable Task Schedule",
+            "isEnabled": "启用任务计划",
             "tableHeader": {
                 "id": "ID",
-                "createdAt": "Created At",
-                "name": "Name",
-                "cronExpression": "Cron Expression",
-                "isEnabled": "Enable",
-                "lastRunAt": "Last Run At",
-                "description": "Description",
-                "bind": "Bind",
-                "bindCmd": "Bind Command"
+                "createdAt": "创建时间",
+                "name": "名称",
+                "cronExpression": "Cron 表达式",
+                "isEnabled": "是否启用",
+                "lastRunAt": "上次运行",
+                "description": "说明",
+                "bind": "绑定",
+                "bindCmd": "绑定命令"
             }
         }
     }
