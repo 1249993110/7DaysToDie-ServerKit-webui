@@ -359,13 +359,13 @@
                 "interval": {
                     "prefix": "Every",
                     "middle": "second(s) starting at second",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Specific second (choose one or many)",
                 "cycle": {
                     "prefix": "Every second between second",
                     "middle": "and second",
-                    "suffix": ""
+                    "suffix": " "
                 }
             },
             "minutes": {
@@ -374,13 +374,13 @@
                 "interval": {
                     "prefix": "Every",
                     "middle": "minute(s) starting at minute",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Specific minute (choose one or many)",
                 "cycle": {
                     "prefix": "Every minute between minute",
                     "middle": "and minute",
-                    "suffix": ""
+                    "suffix": " "
                 }
             },
             "hours": {
@@ -389,13 +389,13 @@
                 "interval": {
                     "prefix": "Every",
                     "middle": "hour(s) starting at hour",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Specific hour (choose one or many)",
                 "cycle": {
                     "prefix": "Every hour between hour",
                     "middle": "and hour",
-                    "suffix": ""
+                    "suffix": " "
                 }
             },
             "day": {
@@ -404,7 +404,7 @@
                 "intervalWeek": {
                     "prefix": "Every",
                     "middle": "day(s) starting on",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "intervalDay": {
                     "prefix": "Every",
@@ -418,18 +418,22 @@
                 "lastWeek": {
                     "prefix": "On the last",
                     "middle": "of the month",
-                    "suffix": ""
+                    "suffix": " "
                 },
-                "beforeEndMonth": "day(s) before the end of the month",
+                "beforeEndMonth": {
+                    "prefix": " ",
+                    "middle": "day(s) before the end of the month",
+                    "suffix": " "
+                },
                 "nearestWeekday": {
                     "prefix": "Nearest weekday (Monday to Friday) to the",
                     "middle": "of the month",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "someWeekday": {
                     "prefix": "On the",
                     "middle": "of the month",
-                    "suffix": ""
+                    "suffix": "of the month"
                 }
             },
             "weeks": [
@@ -447,13 +451,13 @@
                 "interval": {
                     "prefix": "Every",
                     "middle": "month(s) starting in",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Specific month (choose one or many)",
                 "cycle": {
                     "prefix": "Every month between",
                     "middle": "and",
-                    "suffix": ""
+                    "suffix": " "
                 }
             }
         }
