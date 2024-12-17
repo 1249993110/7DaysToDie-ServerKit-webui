@@ -359,13 +359,13 @@
                 "interval": {
                     "prefix": "A cada",
                     "middle": "segundo(s) começando no segundo",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Segundo específico (escolha um ou muitos)",
                 "cycle": {
                     "prefix": "A Cada segundo entre segundos",
                     "middle": "e segundo",
-                    "suffix": ""
+                    "suffix": " "
                 }
             },
             "minutes": {
@@ -374,13 +374,13 @@
                 "interval": {
                     "prefix": "A cada",
                     "middle": "minuto(s) começando no minuto",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Minuto específico (escolha um ou muitos)",
                 "cycle": {
                     "prefix": "A cada minuto entre minutos",
                     "middle": "e minutos",
-                    "suffix": ""
+                    "suffix": " "
                 }
             },
             "hours": {
@@ -389,13 +389,13 @@
                 "interval": {
                     "prefix": "A cada",
                     "middle": "hora(s) começando na hora",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Hora específica (escolha uma ou muitas)",
                 "cycle": {
                     "prefix": "A cada hora entre horas",
                     "middle": "e horas",
-                    "suffix": ""
+                    "suffix": " "
                 }
             },
             "day": {
@@ -404,7 +404,7 @@
                 "intervalWeek": {
                     "prefix": "A cada",
                     "middle": "dia(s) começando em",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "intervalDay": {
                     "prefix": "A cada",
@@ -418,17 +418,17 @@
                 "lastWeek": {
                     "prefix": "No último",
                     "middle": " do mês",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "beforeEndMonth": {
-                    "prefix": "",
+                    "prefix": " ",
                     "middle": "day(s) before the end of the month",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "nearestWeekday": {
                     "prefix": "Dia da semana mais próximo (segunda a sexta) ao ",
                     "middle": "do mês",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "someWeekday": {
                     "prefix": "No",
@@ -451,13 +451,13 @@
                 "interval": {
                     "prefix": "A cada",
                     "middle": "mês(es) começando em",
-                    "suffix": ""
+                    "suffix": " "
                 },
                 "specific": "Mês específico (escolha um ou muitos)",
                 "cycle": {
                     "prefix": "Todo mês entre",
                     "middle": "e",
-                    "suffix": ""
+                    "suffix": " "
                 }
             }
         }
