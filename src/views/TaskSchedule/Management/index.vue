@@ -53,6 +53,11 @@ const columns = computed(() => [
         width: 140,
     },
     {
+        prop: 'expressionDescription',
+        label: t('views.taskSchedule.tableHeader.expressionDescription'),
+        width: 200,
+    },
+    {
         prop: 'isEnabled',
         label: t('views.taskSchedule.tableHeader.isEnabled'),
         width: 120,
@@ -159,8 +164,10 @@ const addEditFormRules = {
     ],
 };
 
+const localeStore = useLocaleStore();
+
 const requestGet = async (params) => {
-    let data = await api.getTaskSchedule();
+    let data = await api.getTaskSchedule({ language: localeStore.getLanguage() });
     if (data.length) {
         newId.value = data[data.length - 1].id + 1;
     }

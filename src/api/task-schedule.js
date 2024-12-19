@@ -2,8 +2,8 @@
  * 
  * @returns
  */
-export const getTaskSchedule = () => {
-    return http.get('/TaskSchedule');
+export const getTaskSchedule = (params) => {
+    return http.get('/TaskSchedule', { params });
 };
 
 /**
