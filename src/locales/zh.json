@@ -929,6 +929,7 @@
                 "createdAt": "创建时间",
                 "name": "名称",
                 "cronExpression": "Cron 表达式",
+                "expressionDescription": "Expression Description",
                 "isEnabled": "是否启用",
                 "lastRunAt": "上次运行",
                 "description": "说明",
