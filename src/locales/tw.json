@@ -929,6 +929,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
+                "expressionDescription": "Expression Description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",
