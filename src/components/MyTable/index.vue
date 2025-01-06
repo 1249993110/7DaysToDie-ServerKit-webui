@@ -72,9 +72,8 @@ const props = defineProps({
             batchDelete: null,
         },
     },
-    disableIdOnEdit: {
-        type: Boolean,
-        default: true,
+    disableOnEditFields: {
+        type: Array,
     },
 });
 
@@ -120,17 +119,21 @@ const addEditRequest = async () => {
 
 const addEditFormFields = computed(() => {
     const result = props.addEditFormFields;
-    if (!props.disableIdOnEdit) {
-        return result;
+
+    let disableOnEditFields = [];
+    if(!props.disableOnEditFields){
+        disableOnEditFields.push(props.rowKey);
+    }else{
+        disableOnEditFields = props.disableOnEditFields;
     }
 
-    const field = result.find((item) => item.name === props.rowKey);
-    if (!field) {
-        return result;
+    for(let i = 0; i < result.length; i++){
+        if(disableOnEditFields.includes(result[i].name)){
+            result[i].props ??= {};
+            result[i].props.disabled = !isAdd.value;
+        }
     }
 
-    field.props = field.props ?? {};
-    field.props.disabled = !isAdd.value;
     return result;
 });
 
