@@ -147,6 +147,12 @@
             "settings": "禮包配置",
             "management": "禮包管理"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "傳送系統",
             "friend": "好友傳送",
@@ -804,6 +810,29 @@
                 "bind": "綁定",
                 "bindItem": "綁定物品",
                 "bindCmd": "綁定指令"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
