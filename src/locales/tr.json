@@ -683,18 +683,15 @@
                 "isEnabled": "Ölüm cezasını etkinleştir",
                 "executeCommands": "Komutları çalıştır\n(Her satırda bir tane)"
             },
-            "autoRestart": {
-                "isEnabled": "Otomatik yeniden başlatmayı etkinleştir",
-                "time": "Otomatik yeniden başlatma zamanı",
-                "messages": "Otomatik yeniden başlatma bildirimleri\n(Her satırda bir tane)"
-            },
             "blockFamilySharingAccount": "Aile Paylaşımı Hesabını Engelle",
             "removeSleepingBagFromPOI": "POI korumasını etkinleştir",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Oyuncu başlangıç doğma noktasını etkinleştir",
             "playerInitialPosition": "Oyuncu başlangıç koordinatları (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "Otomatik Yedeklemeyi Etkinleştir",
