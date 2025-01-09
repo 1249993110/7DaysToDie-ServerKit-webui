@@ -683,18 +683,15 @@
                 "isEnabled": "죽음 트리거 활성화",
                 "executeCommands": "명령 실행\n(줄당 하나씩)"
             },
-            "autoRestart": {
-                "isEnabled": "자동 재시작 활성화",
-                "time": "재시작 시간",
-                "messages": "메시지\n(줄당 하나씩)"
-            },
             "blockFamilySharingAccount": "가족 공유 계정 차단",
             "removeSleepingBagFromPOI": "POI에서 침낭 제거",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "플레이어 초기 스폰 지점 활성화",
             "playerInitialPosition": "플레이어 초기 위치",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "활성화 자동 백업",
