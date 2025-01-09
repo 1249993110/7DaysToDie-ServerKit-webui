@@ -11,7 +11,8 @@
             :add-edit-form-fields="addEditFormFields"
             :add-edit-label-width="150"
             :request="request"
-        >
+            :disable-on-edit-fields="['key','redeemCount']"
+        >'
             <template #bindCell="{ row }">
                 <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.cdKeyRedeem.tableHeader.bindItem') }}</el-button>
                 <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.cdKeyRedeem.tableHeader.bindCmd') }}</el-button>
