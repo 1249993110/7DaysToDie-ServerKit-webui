@@ -677,6 +677,7 @@
             },
             "blockFamilySharingAccount": "Block Family Sharing Account",
             "removeSleepingBagFromPOI": "Remove Sleeping Bag From POI",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Enable Player Initial Spawn Point",
             "playerInitialPosition": "Player Initial Position",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",

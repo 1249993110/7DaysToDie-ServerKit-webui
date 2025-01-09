@@ -47,7 +47,6 @@ const fields = [
         type: 'switch',
         name: 'teleZombieCheck',
     },
-
     {
         type: 'input',
         name: 'teleDisableTip',
@@ -79,6 +78,14 @@ const fields = [
     {
         type: 'switch',
         name: 'removeSleepingBagFromPOI',
+    },
+    {
+        type: 'input',
+        name: 'removeSleepingBagFromPoiTip',
+        required: true,
+        props: {
+            type: 'textarea',
+        },
     },
     {
         type: 'switch',
