@@ -147,6 +147,11 @@
             "settings": "Gift Settings",
             "management": "Gift Management"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management"
+        },
         "teleSystem": {
             "": "Teleport",
             "friend": "Friend Tele",
@@ -800,6 +805,26 @@
                 "totalClaimCount": "Total Claim Count",
                 "lastClaimAt": "Last Claim At",
                 "createdAt": "Created At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
                 "description": "Description",
                 "bind": "Bind",
                 "bindItem": "Bind Item",
