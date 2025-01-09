@@ -683,18 +683,15 @@
                 "isEnabled": "Czy włączyć karę za śmierć",
                 "executeCommands": "Wykonaj polecenia\n(Jedno na linię)"
             },
-            "autoRestart": {
-                "isEnabled": "Czy włączyć automatyczny restart",
-                "time": "Czas automatycznego restartu",
-                "messages": "Powiadomienia o automatycznym restarcie\n(Jedno na linię)"
-            },
             "blockFamilySharingAccount": "Czy zablokować konto Family Sharing",
             "removeSleepingBagFromPOI": "Czy włączyć ochronę POI",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Czy włączyć początkowy punkt odrodzenia gracza",
             "playerInitialPosition": "Początkowe współrzędne gracza (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "Czy włączyć",
