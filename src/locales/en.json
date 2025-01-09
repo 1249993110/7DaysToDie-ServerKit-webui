@@ -683,7 +683,7 @@
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
             "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
-            "hideCommandInChat": "Hide Command In Global Chat"
+            "hideCommandInChat": "Hide Command In Chat"
         },
         "autoBackup": {
             "isEnabled": "Enable Auto Backup",
