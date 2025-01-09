@@ -1,6 +1,6 @@
 <template>
     <div>
-        <RouterButton :names="['cdKeyRedeem.settings', 'cdKeyRedeem.management']" />
+        <RouterButton :names="['cdKeyRedeem.settings', 'cdKeyRedeem.management', 'cdKeyRedeem.record']" />
         <MyTable
             ref="myTableRef"
             row-key="id"

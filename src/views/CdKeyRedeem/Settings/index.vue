@@ -1,6 +1,6 @@
 <template>
     <div>
-        <RouterButton :names="['cdKeyRedeem.settings', 'cdKeyRedeem.management']" />
+        <RouterButton :names="['cdKeyRedeem.settings', 'cdKeyRedeem.management', 'cdKeyRedeem.record']" />
         <MySettingsFormCard settings-name="CdKeyRedeem" :fields="fields" locale-key-prefix="views.cdKeyRedeem" :label-width="280" />
     </div>
 </template>
