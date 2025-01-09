@@ -683,18 +683,15 @@
                 "isEnabled": "デスペナルティを有効にするかどうか",
                 "executeCommands": "コマンドを実行\n(1行に1つ)"
             },
-            "autoRestart": {
-                "isEnabled": "自動再起動を有効にするかどうか",
-                "time": "自動再起動時間",
-                "messages": "自動再起動通知\n(1行に1つ)"
-            },
             "blockFamilySharingAccount": "ファミリーシェアリングアカウントを禁止するかどうか",
             "removeSleepingBagFromPOI": "POI保護を有効にするかどうか",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "プレイヤー初期スポーンポイントを有効にするかどうか",
             "playerInitialPosition": "プレイヤー初期座標 (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "有効にするかどうか",
