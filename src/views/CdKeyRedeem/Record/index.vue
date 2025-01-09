@@ -32,6 +32,12 @@ const columns = computed(() => [
         type: 'index',
     },
     {
+        prop: 'key',
+        label: t('views.cdKeyRedeem.tableHeader.key'),
+        width: 340,
+        sortable: 'custom',
+    },
+    {
         prop: 'createdAt',
         label: t('views.cdKeyRedeem.tableHeader.createdAt'),
         width: 160,

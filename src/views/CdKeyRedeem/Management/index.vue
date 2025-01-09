@@ -41,7 +41,7 @@ const columns = computed(() => [
     {
         prop: 'key',
         label: t('views.cdKeyRedeem.tableHeader.key'),
-        width: 320,
+        width: 340,
         sortable: 'custom',
     },
     {
