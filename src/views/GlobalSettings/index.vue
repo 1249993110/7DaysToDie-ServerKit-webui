@@ -82,7 +82,6 @@ const fields = [
     {
         type: 'input',
         name: 'removeSleepingBagFromPoiTip',
-        required: true,
         props: {
             type: 'textarea',
         },
