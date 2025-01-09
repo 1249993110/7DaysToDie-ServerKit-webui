@@ -110,5 +110,9 @@ const fields = [
         type: 'switch',
         name: 'enableXmlsSecondaryOverwrite',
     },
+    {
+        type: 'switch',
+        name: 'hideCommandInChat',
+    }
 ];
 </script>
