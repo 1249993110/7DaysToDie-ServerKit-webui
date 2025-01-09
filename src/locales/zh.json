@@ -683,18 +683,15 @@
                 "isEnabled": "是否启用死亡惩罚",
                 "executeCommands": "执行指令\n(每行一条)"
             },
-            "autoRestart": {
-                "isEnabled": "是否启用自动重启",
-                "time": "自动重启时间",
-                "messages": "自动重启提示\n(每行一条)"
-            },
             "blockFamilySharingAccount": "是否禁止家庭共享账号",
             "removeSleepingBagFromPOI": "是否启用POI保护",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "是否启用玩家初始出生点",
             "playerInitialPosition": "玩家初始坐标 (X, Y, Z)",
             "enableAutoZombieCleanup": "启用自动僵尸清理",
             "autoZombieCleanupThreshold": "自动僵尸清理阈值",
-            "enableXmlsSecondaryOverwrite": "启用Xmls防偷"
+            "enableXmlsSecondaryOverwrite": "启用Xmls防偷",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
