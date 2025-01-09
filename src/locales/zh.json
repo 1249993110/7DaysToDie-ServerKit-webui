@@ -810,7 +810,7 @@
             }
         },
         "cdKeyRedeem": {
-            "isEnabled": "启用 CDKey 兑换机",
+            "isEnabled": "启用 CDKey 兑换",
             "variables": "可用变量",
             "hasAlreadyRedeemedTip": "已兑换提示",
             "hasReachedMaxRedemptionLimitTip": "已达到最大兑换数量限制",
