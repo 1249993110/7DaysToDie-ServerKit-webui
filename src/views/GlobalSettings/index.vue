@@ -2,17 +2,6 @@
     <div>
         <RouterButton :names="['globalSettings']" />
         <MySettingsFormCard settings-name="GlobalSettings" :fields="fields" locale-key-prefix="views.globalSettings">
-            <template #autoRestartTime="{ formModel }">
-                <el-time-select
-                    :model-value="getAutoRestartTime(formModel)"
-                    @update:model-value="(val) => setAutoRestartTime(val, formModel)"
-                    clearable
-                    style="width: 120px"
-                    start="00:00"
-                    step="00:60"
-                    end="23:59"
-                />
-            </template>
         </MySettingsFormCard>
     </div>
 </template>
@@ -85,18 +74,6 @@ const fields = [
     },
     {
         type: 'switch',
-        name: 'autoRestart.isEnabled',
-    },
-    {
-        name: 'autoRestart.time',
-        slot: 'autoRestartTime',
-    },
-    {
-        type: 'MyTextarea',
-        name: 'autoRestart.messages',
-    },
-    {
-        type: 'switch',
         name: 'blockFamilySharingAccount',
     },
     {
@@ -128,17 +105,4 @@ const fields = [
         name: 'enableXmlsSecondaryOverwrite',
     },
 ];
-
-const getAutoRestartTime = (formModel) => {
-    if (!formModel.autoRestart) {
-        return '';
-    }
-    return formModel.autoRestart.restartHour.toString().padStart(2, '0') + ':' + formModel.autoRestart.restartMinute.toString().padStart(2, '0');
-};
-
-const setAutoRestartTime = (val, formModel) => {
-    const split = val.split(':');
-    formModel.autoRestart.restartHour = parseInt(split[0]);
-    formModel.autoRestart.restartMinute = parseInt(split[1]);
-};
 </script>

@@ -675,11 +675,6 @@
                 "isEnabled": "Enable Death Trigger",
                 "executeCommands": "Execute Commands\n(one per line)"
             },
-            "autoRestart": {
-                "isEnabled": "Enable Auto Restart",
-                "time": "Restart Time",
-                "messages": "Messages\n(one per line)"
-            },
             "blockFamilySharingAccount": "Block Family Sharing Account",
             "removeSleepingBagFromPOI": "Remove Sleeping Bag From POI",
             "isEnablePlayerInitialSpawnPoint": "Enable Player Initial Spawn Point",
