@@ -147,6 +147,12 @@
             "settings": "Paramètres des cadeaux",
             "management": "Gestion des cadeaux"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "Téléportation",
             "friend": "Téléphone d'ami",
@@ -554,8 +560,8 @@
             "lastClick": "Dernier clic",
             "renderExploredArea": "Rendre la zone explorée",
             "renderExploredAreaConfirm": "Êtes-vous sûr de vouloir rendre la zone explorée ? Cela peut prendre quelques minutes, vous pouvez vérifier la progression dans la console",
-            "renderFullMap": "Rendre la carte complète",
-            "renderFullMapConfirm": "Êtes-vous sûr de vouloir afficher la carte complète ? Cela peut prendre quelques minutes, vous pouvez vérifier la progression dans la console, cette opération n'est généralement effectuée qu'une seule fois après le démarrage du serveur",
+            "renderFullMap": "Explore Full Map",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
             "refreshMap": "Actualiser la carte",
             "autoReload": "Recharger toutes les",
             "seconds": "secondes",
@@ -677,18 +683,15 @@
                 "isEnabled": "Activer le déclencheur de mort",
                 "executeCommands": "Exécuter les commandes\n(une par ligne)"
             },
-            "autoRestart": {
-                "isEnabled": "Activer le redémarrage automatique",
-                "time": "Heure de redémarrage",
-                "messages": "Messages\n(un par ligne)"
-            },
             "blockFamilySharingAccount": "Bloquer le compte de partage familial",
             "removeSleepingBagFromPOI": "Supprimer le sac de couchage du POI",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Activer le point d'apparition initial du joueur",
             "playerInitialPosition": "Position initiale du joueur",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "Activer la sauvegarde automatique",
@@ -804,6 +807,29 @@
                 "bind": "Bind",
                 "bindItem": "Lier l'élément",
                 "bindCmd": "Lier la commande"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
@@ -929,7 +955,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
-                "expressionDescription": "Expression Description",
+                "expressionDescription": "Expression description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",

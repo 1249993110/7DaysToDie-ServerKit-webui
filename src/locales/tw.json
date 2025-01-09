@@ -147,6 +147,12 @@
             "settings": "禮包配置",
             "management": "禮包管理"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "傳送系統",
             "friend": "好友傳送",
@@ -554,8 +560,8 @@
             "lastClick": "上次點擊",
             "renderExploredArea": "渲染已探索區域",
             "renderExploredAreaConfirm": "確認渲染已探索區域嗎? 這可能需要幾分鐘的時間, 您可以前往控制台查看進度",
-            "renderFullMap": "渲染全圖",
-            "renderFullMapConfirm": "確認渲染全圖嗎? 這可能需要幾分鐘的時間, 您可以前往控制台查看進度, 此操作一般僅在開服後執行一次",
+            "renderFullMap": "Explore Full Map",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
             "refreshMap": "刷新地圖",
             "autoReload": "自動刷新",
             "seconds": "秒",
@@ -677,18 +683,15 @@
                 "isEnabled": "是否啟用死亡懲罰",
                 "executeCommands": "執行指令\n(每行一條)"
             },
-            "autoRestart": {
-                "isEnabled": "是否啟用自動重新啟動",
-                "time": "自動重新啟動時間",
-                "messages": "自動重新啟動提示\n(每行一條)"
-            },
             "blockFamilySharingAccount": "是否禁止家庭共享帳號",
             "removeSleepingBagFromPOI": "是否啟用POI保護",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "是否啟用玩家初始出生點",
             "playerInitialPosition": "玩家初始座標 (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "是否啟用",
@@ -804,6 +807,29 @@
                 "bind": "綁定",
                 "bindItem": "綁定物品",
                 "bindCmd": "綁定指令"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
@@ -929,7 +955,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
-                "expressionDescription": "Expression Description",
+                "expressionDescription": "Expression description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",
