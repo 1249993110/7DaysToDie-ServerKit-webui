@@ -150,7 +150,8 @@
         "cdKeyRedeem": {
             "": "CDKey Redeem",
             "settings": "CDKey Redeem Settings",
-            "management": "CDKey Redeem Management"
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
         },
         "teleSystem": {
             "": "Teleport",
@@ -441,15 +442,7 @@
                     "suffix": "of the month"
                 }
             },
-            "weeks": [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-            ],
+            "weeks": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             "month": {
                 "name": "Month",
                 "every": "Every month",
@@ -820,6 +813,7 @@
             "redeemSuccessTip": "Redeem Success Tip",
             "cdKey": "CDKey",
             "tableHeader": {
+                "id": "ID",
                 "key": "Key",
                 "createdAt": "Created At",
                 "redeemCount": "Redeem Count",
@@ -828,7 +822,9 @@
                 "description": "Description",
                 "bind": "Bind",
                 "bindItem": "Bind Item",
-                "bindCmd": "Bind Command"
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
