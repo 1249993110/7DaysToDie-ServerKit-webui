@@ -683,18 +683,15 @@
                 "isEnabled": "Todes-Trigger aktivieren",
                 "executeCommands": "Befehle ausführen\n(einer pro Zeile)"
             },
-            "autoRestart": {
-                "isEnabled": "Automatischen Neustart aktivieren",
-                "time": "Neustartzeit",
-                "messages": "Nachrichten\n(eine pro Zeile)"
-            },
             "blockFamilySharingAccount": "Familienfreigabekonto blockieren",
             "removeSleepingBagFromPOI": "Schlafsack vom POI entfernen",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Anfänglichen Spawnpunkt des Spielers aktivieren",
             "playerInitialPosition": "Anfängliche Position des Spielers",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Global Chat"
         },
         "autoBackup": {
             "isEnabled": "Automatische Sicherung aktivieren",
