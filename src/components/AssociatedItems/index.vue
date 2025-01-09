@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :title="t('components.associatedItems.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px">
+    <el-dialog :title="t('components.associatedItems.title')" draggable append-to-body align-center :close-on-click-modal="false" width="1000px" destroy-on-close>
         <div style="margin-bottom: 8px">
             <el-button type="primary" @click="handleAdd">{{ t('components.associatedItems.add') }}</el-button>
             <el-button color="#626aef" @click="handleAddFromList">{{ t('components.associatedItems.addFromList') }}</el-button>
