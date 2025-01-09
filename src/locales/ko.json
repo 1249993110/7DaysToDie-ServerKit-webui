@@ -147,6 +147,12 @@
             "settings": "선물 설정",
             "management": "선물 관리"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "순간이동",
             "friend": "친구 텔레",
@@ -804,6 +810,29 @@
                 "bind": "바인딩",
                 "bindItem": "아이템 바인딩",
                 "bindCmd": "명령 바인딩"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
