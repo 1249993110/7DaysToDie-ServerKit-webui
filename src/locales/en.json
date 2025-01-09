@@ -442,7 +442,15 @@
                     "suffix": "of the month"
                 }
             },
-            "weeks": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "weeks": [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
             "month": {
                 "name": "Month",
                 "every": "Every month",
