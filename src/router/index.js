@@ -221,6 +221,12 @@ const routes = [
                         component: () => import('../views/CdKeyRedeem/Management/index.vue'),
                         meta: { requiresAuth: true, keepAlive: true },
                     },
+                    {
+                        path: 'record',
+                        name: 'cdKeyRedeem.record',
+                        component: () => import('../views/CdKeyRedeem/Record/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
                 ],
             },
             {
