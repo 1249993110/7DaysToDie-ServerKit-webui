@@ -42,7 +42,7 @@ const fields = [
         name: 'pointsRequired',
         required: true,
         props: {
-            min: 1,
+            min: 0,
         },
     },
     {
