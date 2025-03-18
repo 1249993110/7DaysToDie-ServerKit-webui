@@ -126,7 +126,7 @@ const columns = computed(() => [
         label: t('views.playerList.tableHeader.deaths'),
         formatter: (row) => row.playerDetails.deaths,
         sortable: 'custom',
-        minWidth: 100,
+        minWidth: 105,
     },
     {
         prop: 'skillPoints',
