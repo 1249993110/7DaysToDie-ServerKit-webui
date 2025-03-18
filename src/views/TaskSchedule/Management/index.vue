@@ -149,7 +149,7 @@ const addEditFormRules = {
                 const cronResult = cron(value, {
                     preset: 'aws-cloud-watch',
                     override: {
-                        useSeconds: true,
+                        useSeconds: value.split(' ').length === 6,
                         useYears: false,
                     },
                 });
