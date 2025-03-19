@@ -692,7 +692,7 @@
             "autoZombieCleanupThreshold": "自动僵尸清理阈值",
             "enableXmlsSecondaryOverwrite": "启用Xmls防偷",
             "hideCommandInChat": "在聊天中隐藏命令",
-            "enableFallingBlockProtection": "Enable Falling Block Protection"
+            "enableFallingBlockProtection": "启用塌方保护"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
