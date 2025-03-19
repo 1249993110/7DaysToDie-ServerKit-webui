@@ -691,7 +691,8 @@
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
             "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
-            "hideCommandInChat": "Hide Command In Chat"
+            "hideCommandInChat": "Hide Command In Chat",
+            "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
             "isEnabled": "Automatische Sicherung aktivieren",
