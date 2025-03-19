@@ -691,7 +691,8 @@
             "enableAutoZombieCleanup": "启用自动僵尸清理",
             "autoZombieCleanupThreshold": "自动僵尸清理阈值",
             "enableXmlsSecondaryOverwrite": "启用Xmls防偷",
-            "hideCommandInChat": "在聊天中隐藏命令"
+            "hideCommandInChat": "在聊天中隐藏命令",
+            "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
