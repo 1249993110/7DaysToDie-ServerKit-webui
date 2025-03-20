@@ -84,7 +84,7 @@ const search = computed(() => ({
 
 const addEditFormFields = computed(() => [
     {
-        type: 'input',
+        type: 'PlayerIdSelector',
         name: 'playerId',
         label: t('views.banlist.tableHeader.playerId'),
         required: true,
