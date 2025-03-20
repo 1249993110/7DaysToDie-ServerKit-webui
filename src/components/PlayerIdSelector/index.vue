@@ -10,8 +10,9 @@
                     modelValue = modelValue.trim();
                 }
             "
+            v-bind="$attrs"
         />
-        <el-button @click="dialogVisible = true" style="margin-left: 8px">{{ t('global.button.select') }}</el-button>
+        <el-button @click="dialogVisible = true" style="margin-left: 8px" v-bind="$attrs">{{ t('global.button.select') }}</el-button>
     </div>
 </template>
 

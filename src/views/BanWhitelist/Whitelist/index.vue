@@ -73,7 +73,7 @@ const search = computed(() => ({
 
 const addEditFormFields = computed(() => [
     {
-        type: 'input',
+        type: 'PlayerIdSelector',
         name: 'playerId',
         label: t('views.whitelist.tableHeader.playerId'),
         required: true,

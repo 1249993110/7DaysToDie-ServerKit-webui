@@ -9,6 +9,7 @@
             :search="search"
             :add-edit-form-fields="addEditFormFields"
             :request="request"
+            :disableOnEditFields="['playerId']"
             ref="myTableRef"
         />
     </div>
@@ -98,7 +99,7 @@ const search = computed(() => ({
 
 const addEditFormFields = computed(() => [
     {
-        type: 'input',
+        type: 'PlayerIdSelector',
         name: 'playerId',
         label: t('views.teleSystem.home.tableHeader.playerId'),
         required: true,

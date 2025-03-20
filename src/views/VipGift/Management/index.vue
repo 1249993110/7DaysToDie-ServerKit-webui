@@ -124,7 +124,7 @@ const search = computed(() => ({
 const newId = ref(0);
 const addEditFormFields = computed(() => [
     {
-        type: 'input',
+        type: 'PlayerIdSelector',
         name: 'id',
         label: t('views.vipGift.tableHeader.playerId'),
         required: true,

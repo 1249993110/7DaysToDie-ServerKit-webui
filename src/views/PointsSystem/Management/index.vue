@@ -111,7 +111,7 @@ const search = computed(() => ({
 
 const addEditFormFields = computed(() => [
     {
-        type: 'input',
+        type: 'PlayerIdSelector',
         name: 'id',
         label: t('views.pointsSystem.tableHeader.playerId'),
         required: true,
