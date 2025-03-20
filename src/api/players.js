@@ -5,10 +5,13 @@ export const getOnlinePlayers = () =>{
 }
 
 /**
- * 分页获取历史玩家
+ * 
  * @returns
  */
 export const getHistoryPlayers = (params) => {
     return http.get('/HistoryPlayers', { params: params });
 };
 
+export const getHistoryPlayerIds = () => {
+    return http.get('/HistoryPlayerIds');
+};
