@@ -466,6 +466,15 @@
                     "suffix": "月之间的每个月"
                 }
             }
+        },
+        "playerIdSelector": {
+            "title": "Select Player ID",
+            "playerId": "Player ID",
+            "platformId": "Platform ID",
+            "playerName": "Player Name",
+            "selectPlayerId": "Select Player ID",
+            "selectPlatformId": "Select Platform ID",
+            "selectPlayerName": "Select Player Name"
         }
     },
     "layout": {
