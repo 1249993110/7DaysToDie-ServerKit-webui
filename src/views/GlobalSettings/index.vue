@@ -113,6 +113,10 @@ const fields = [
     {
         type: 'switch',
         name: 'hideCommandInChat',
+    },
+    {
+        type: 'switch',
+        name: 'enableFallingBlockProtection',
     }
 ];
 </script>
