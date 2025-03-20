@@ -466,6 +466,15 @@
                     "suffix": "月之间的每个月"
                 }
             }
+        },
+        "playerIdSelector": {
+            "title": "选择玩家ID",
+            "playerId": "玩家 ID",
+            "platformId": "平台 ID",
+            "playerName": "玩家名称",
+            "selectPlayerId": "选择玩家ID",
+            "selectPlatformId": "选择平台 ID",
+            "selectPlayerName": "选择玩家名称"
         }
     },
     "layout": {
@@ -691,7 +700,8 @@
             "enableAutoZombieCleanup": "启用自动僵尸清理",
             "autoZombieCleanupThreshold": "自动僵尸清理阈值",
             "enableXmlsSecondaryOverwrite": "启用Xmls防偷",
-            "hideCommandInChat": "在聊天中隐藏命令"
+            "hideCommandInChat": "在聊天中隐藏命令",
+            "enableFallingBlockProtection": "启用塌方保护"
         },
         "autoBackup": {
             "isEnabled": "是否启用",
