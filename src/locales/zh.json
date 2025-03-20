@@ -468,13 +468,13 @@
             }
         },
         "playerIdSelector": {
-            "title": "Select Player ID",
-            "playerId": "Player ID",
-            "platformId": "Platform ID",
-            "playerName": "Player Name",
-            "selectPlayerId": "Select Player ID",
-            "selectPlatformId": "Select Platform ID",
-            "selectPlayerName": "Select Player Name"
+            "title": "选择玩家ID",
+            "playerId": "玩家 ID",
+            "platformId": "平台 ID",
+            "playerName": "玩家名称",
+            "selectPlayerId": "选择玩家ID",
+            "selectPlatformId": "选择平台 ID",
+            "selectPlayerName": "选择玩家名称"
         }
     },
     "layout": {
