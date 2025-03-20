@@ -27,7 +27,7 @@
 
 <script setup>
 import { getHistoryPlayerIds } from '~/api/players';
-import { Search, ArrowDown } from '@element-plus/icons-vue';
+import { Search } from '@element-plus/icons-vue';
 import { i18n } from '~/plugins/i18n';
 const { t } = i18n.global;
 
