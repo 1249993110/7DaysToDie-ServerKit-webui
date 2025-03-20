@@ -94,6 +94,10 @@ const tree = [
         icon: getIcon(() => import('~icons/quill/vip')),
     },
     {
+        name: 'cdKeyRedeem',
+        icon: getIcon(() => import('~icons/ant-design/key-outlined')),
+    },
+    {
         name: 'teleSystem',
         icon: getIcon(() => import('~icons/game-icons/teleport')),
         children: [

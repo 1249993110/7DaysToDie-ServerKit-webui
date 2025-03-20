@@ -124,7 +124,7 @@ const search = computed(() => ({
 const newId = ref(0);
 const addEditFormFields = computed(() => [
     {
-        type: 'input',
+        type: 'PlayerIdSelector',
         name: 'id',
         label: t('views.vipGift.tableHeader.playerId'),
         required: true,
@@ -224,8 +224,9 @@ const associatedLoading = ref(false);
 
 const handleAssociatedItem = async (row) => {
     associatedLoading.value = true;
-    associatedItemsVisible.value = true;
     lastClickId.value = row.id;
+    associatedData.value = [];
+    associatedItemsVisible.value = true;
     try {
         const data = await api.getItemList(row.id);
         associatedData.value = data;
@@ -240,8 +241,9 @@ const handleItemsEdit = async (ids) => {
 
 const handleAssociatedCommand = async (row) => {
     associatedLoading.value = true;
-    associatedCommandsVisible.value = true;
     lastClickId.value = row.id;
+    associatedData.value = [];
+    associatedCommandsVisible.value = true;
     try {
         const data = await api.getCommandList(row.id);
         associatedData.value = data;

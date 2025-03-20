@@ -1,28 +1,28 @@
 <template>
     <div>
-        <RouterButton :names="['banWhitelist.banlist', 'banWhitelist.whitelist']" />
+        <RouterButton :names="['cdKeyRedeem.settings', 'cdKeyRedeem.management', 'cdKeyRedeem.record']" />
         <MyTable
-            row-key="playerId"
+            row-key="id"
             :columns="columns"
-            :model-name="t('menus.banWhitelist.whitelist')"
+            :model-name="t('menus.cdKeyRedeem.record')"
             :toolbar="toolbar"
             :search="search"
-            :add-edit-form-fields="addEditFormFields"
             :request="request"
-        />
+        >
+        </MyTable>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'banWhitelist.whitelist',
+    name: 'cdKeyRedeem.record',
 };
 </script>
 
 <script setup>
-import * as api from '~/api/whitelist';
+import * as api from '~/api/cdKeyRedeemRecord';
 
-const { t } = useI18n();
+const { t, tm, rt } = useI18n();
 
 const columns = computed(() => [
     {
@@ -32,20 +32,32 @@ const columns = computed(() => [
         type: 'index',
     },
     {
+        prop: 'key',
+        label: t('views.cdKeyRedeem.tableHeader.key'),
+        width: 340,
+        sortable: 'custom',
+    },
+    {
+        prop: 'createdAt',
+        label: t('views.cdKeyRedeem.tableHeader.createdAt'),
+        width: 160,
+        sortable: 'custom',
+    },
+    {
         prop: 'playerId',
-        label: t('views.whitelist.tableHeader.playerId'),
+        label: t('views.cdKeyRedeem.tableHeader.playerId'),
         width: 320,
         sortable: 'custom',
     },
     {
-        prop: 'displayName',
-        label: t('views.whitelist.tableHeader.displayName'),
-        width: 150,
+        prop: 'playerName',
+        label: t('views.cdKeyRedeem.tableHeader.playerName'),
+        minWidth: 150,
         sortable: 'custom',
-        tag: true,
     },
     {
         type: 'operation',
+        editBtnVisible: false,
     },
 ]);
 
@@ -53,9 +65,10 @@ const toolbar = computed(() => ({
     batchOperationItems: [
         {
             type: 'export',
-            fileName: t('menus.banWhitelist.whitelist'),
+            fileName: t('menus.cdKeyRedeem.record'),
         },
     ],
+    addBtnVisible: false
 }));
 
 const search = computed(() => ({
@@ -71,24 +84,9 @@ const search = computed(() => ({
     ],
 }));
 
-const addEditFormFields = computed(() => [
-    {
-        type: 'PlayerIdSelector',
-        name: 'playerId',
-        label: t('views.whitelist.tableHeader.playerId'),
-        required: true,
-    },
-    {
-        type: 'input',
-        name: 'displayName',
-        label: t('views.whitelist.tableHeader.displayName'),
-    },
-]);
-
 const requestGet = async (params) => {
-    let data = await api.getWhitelist();
-    data = searchByKeyword(data, params.keyword, ['playerId', 'displayName']);
-
+    let data = await api.getCdKeyRedeemRecords();
+    data = searchByKeyword(data, params.keyword, ['key', 'playerId', 'playerName']);
     if (params.sortOrder) {
         const desc = params.sortOrder === 'descending';
         const sortPorp = params.sortPorp;
@@ -99,8 +97,6 @@ const requestGet = async (params) => {
 
             return a[sortPorp] > b[sortPorp] ? 1 : -1;
         });
-    } else {
-        data.reverse();
     }
 
     if (params.pageSize < 0) {
@@ -116,21 +112,19 @@ const requestGet = async (params) => {
 };
 
 const requestAdd = async (formModel) => {
-    const result = await api.addWhitelist(formModel);
-    showCmdExecResult(result);
+    await api.createCdKeyRedeemRecord(formModel);
 };
 
 const requestEdit = async (formModel) => {
-    await api.deleteWhitelist([formModel.playerId]);
-    await requestAdd(formModel);
+    await api.updateCdKeyRedeemRecord(formModel.id, formModel);
 };
 
 const requestDetele = async (id) => {
-    await api.deleteWhitelist([id]);
+    await api.deleteCdKeyRedeemRecord(id);
 };
 
 const requestBatchDelete = async (selectedIds) => {
-    await api.deleteWhitelist(selectedIds);
+    await api.deleteCdKeyRedeemRecords(selectedIds);
 };
 
 const request = {

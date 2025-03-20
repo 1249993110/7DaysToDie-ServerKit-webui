@@ -80,7 +80,7 @@ const search = computed(() => ({
 
 const addEditFormFields = computed(() => [
     {
-        type: 'input',
+        type: 'PlayerIdSelector',
         name: 'playerId',
         label: t('views.permissions.admins.tableHeader.playerId'),
         required: true,

@@ -1,18 +1,21 @@
 <template>
     <div>
-        <RouterButton :names="['gameStore.settings', 'gameStore.management']" />
+        <RouterButton :names="['cdKeyRedeem.settings', 'cdKeyRedeem.management', 'cdKeyRedeem.record']" />
         <MyTable
+            ref="myTableRef"
             row-key="id"
             :columns="columns"
-            :model-name="rt(tm('menus.gameStore')[''])"
+            :model-name="rt(tm('menus.cdKeyRedeem')[''])"
             :toolbar="toolbar"
             :search="search"
             :add-edit-form-fields="addEditFormFields"
+            :add-edit-label-width="150"
             :request="request"
-        >
+            :disable-on-edit-fields="['key','redeemCount']"
+        >'
             <template #bindCell="{ row }">
-                <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.gameStore.tableHeader.bindItem') }}</el-button>
-                <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.gameStore.tableHeader.bindCmd') }}</el-button>
+                <el-button size="small" color="#40e0d0" @click="handleAssociatedItem(row)">{{ t('views.cdKeyRedeem.tableHeader.bindItem') }}</el-button>
+                <el-button size="small" color="#8a2be2" @click="handleAssociatedCommand(row)">{{ t('views.cdKeyRedeem.tableHeader.bindCmd') }}</el-button>
             </template>
         </MyTable>
         <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleItemsEdit" />
@@ -22,12 +25,12 @@
 
 <script>
 export default {
-    name: 'gameStore.management',
+    name: 'cdKeyRedeem.management',
 };
 </script>
 
 <script setup>
-import * as api from '~/api/goods.js';
+import * as api from '~/api/cdKey';
 
 const { t, tm, rt } = useI18n();
 
@@ -36,54 +39,59 @@ const columns = computed(() => [
         type: 'selection',
     },
     {
-        prop: 'id',
-        label: t('views.gameStore.tableHeader.id'),
-        width: 80,
-        sortable: 'custom',
-        align: 'center',
-        fixed: true,
-    },
-    {
-        prop: 'name',
-        label: t('views.gameStore.tableHeader.name'),
-        minWidth: 150,
-        sortable: 'custom',
-        tag: true,
-    },
-    {
-        prop: 'price',
-        label: t('views.gameStore.tableHeader.price'),
-        width: 120,
+        prop: 'key',
+        label: t('views.cdKeyRedeem.tableHeader.key'),
+        width: 340,
         sortable: 'custom',
     },
     {
         prop: 'createdAt',
-        label: t('views.gameStore.tableHeader.createdAt'),
+        label: t('views.cdKeyRedeem.tableHeader.createdAt'),
         width: 160,
         sortable: 'custom',
     },
     {
-        prop: 'description',
-        label: t('views.gameStore.tableHeader.description'),
-        minWidth: 150,
+        prop: 'redeemCount',
+        label: t('views.cdKeyRedeem.tableHeader.redeemCount'),
+        width: 150,
         sortable: 'custom',
     },
     {
+        prop: 'maxRedeemCount',
+        label: t('views.cdKeyRedeem.tableHeader.maxRedeemCount'),
+        width: 180,
+        sortable: 'custom',
+    },
+    {
+        prop: 'expiryAt',
+        label: t('views.cdKeyRedeem.tableHeader.expiryAt'),
+        sortable: 'custom',
+        width: 160,
+    },
+    {
+        prop: 'description',
+        label: t('views.cdKeyRedeem.tableHeader.description'),
+        sortable: 'custom',
+        minWidth: 150,
+    },
+    {
         prop: 'bind',
-        label: t('views.gameStore.tableHeader.bind'),
+        label: t('views.cdKeyRedeem.tableHeader.bind'),
         width: 225,
         headerAlign: 'center',
     },
     {
         type: 'operation',
+        minWidth: 200,
     },
 ]);
 
+const myTableRef = ref(null);
 const toolbar = computed(() => ({
     batchOperationItems: [
         {
             type: 'export',
-            fileName: rt(tm('menus.gameStore')['']),
+            fileName: rt(tm('menus.cdKeyRedeem')['']),
         },
     ],
 }));
@@ -104,29 +112,46 @@ const search = computed(() => ({
 const newId = ref(0);
 const addEditFormFields = computed(() => [
     {
-        type: 'input-number',
-        name: 'id',
-        label: t('views.gameStore.tableHeader.id'),
-        required: true,
-        default: newId.value,
-    },
-    {
         type: 'input',
-        name: 'name',
-        label: t('views.gameStore.tableHeader.name'),
+        name: 'key',
+        label: t('views.cdKeyRedeem.tableHeader.key'),
         required: true,
     },
     {
         type: 'input-number',
-        name: 'price',
-        label: t('views.gameStore.tableHeader.price'),
+        name: 'redeemCount',
+        label: t('views.cdKeyRedeem.tableHeader.redeemCount'),
         required: true,
-        default: 1,
+        default: 0,
+        props: {
+            min: 0,
+            disabled: true,
+        },
+    },
+    {
+        type: 'input-number',
+        name: 'maxRedeemCount',
+        label: t('views.cdKeyRedeem.tableHeader.maxRedeemCount'),
+        required: true,
+        default: -1,
+        props: {
+            min: -1,
+        },
+    },
+    {
+        type: 'date-picker',
+        name: 'expiryAt',
+        label: t('views.cdKeyRedeem.tableHeader.expiryAt'),
+        required: false,
+        props: {
+            type: 'datetime',
+            placeholder: t('global.message.datePickerPlaceholder'),
+        },
     },
     {
         type: 'input',
         name: 'description',
-        label: t('views.gameStore.tableHeader.description'),
+        label: t('views.cdKeyRedeem.tableHeader.description'),
         props: {
             type: 'textarea',
         },
@@ -134,12 +159,12 @@ const addEditFormFields = computed(() => [
 ]);
 
 const requestGet = async (params) => {
-    let data = await api.getGoods();
+    let data = await api.getCdKeys();
     if (data.length) {
         newId.value = data[data.length - 1].id + 1;
     }
 
-    data = searchByKeyword(data, params.keyword, ['id', 'name', 'description']);
+    data = searchByKeyword(data, params.keyword, ['key', 'description']);
     if (params.sortOrder) {
         const desc = params.sortOrder === 'descending';
         const sortPorp = params.sortPorp;
@@ -165,19 +190,19 @@ const requestGet = async (params) => {
 };
 
 const requestAdd = async (formModel) => {
-    await api.addGoods(formModel);
+    await api.createCdKey(formModel);
 };
 
 const requestEdit = async (formModel) => {
-    await api.updateGoods(formModel.id, formModel);
+    await api.updateCdKey(formModel.id, formModel);
 };
 
 const requestDetele = async (id) => {
-    await api.deleteGoodsById(id);
+    await api.deleteCdKey(id);
 };
 
 const requestBatchDelete = async (selectedIds) => {
-    await api.deleteGoodsByIds(selectedIds);
+    await api.deleteCdKeys(selectedIds);
 };
 
 const request = {

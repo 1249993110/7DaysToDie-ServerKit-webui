@@ -147,6 +147,12 @@
             "settings": "ギフト設定",
             "management": "ギフト管理"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "テレポートシステム",
             "friend": "友達テレポート",
@@ -460,6 +466,15 @@
                     "suffix": " "
                 }
             }
+        },
+        "playerIdSelector": {
+            "title": "Select Player ID",
+            "playerId": "Player ID",
+            "platformId": "Platform ID",
+            "playerName": "Player Name",
+            "selectPlayerId": "Select Player ID",
+            "selectPlatformId": "Select Platform ID",
+            "selectPlayerName": "Select Player Name"
         }
     },
     "layout": {
@@ -554,8 +569,8 @@
             "lastClick": "最後のクリック",
             "renderExploredArea": "探索済みエリアをレンダリング",
             "renderExploredAreaConfirm": "探索済みエリアをレンダリングしますか？ これには数分かかる場合があります。コンソールで進行状況を確認できます",
-            "renderFullMap": "全体マップをレンダリング",
-            "renderFullMapConfirm": "全体マップをレンダリングしますか？ これには数分かかる場合があります。コンソールで進行状況を確認できます。この操作は通常、サーバー起動時に一度だけ実行されます",
+            "renderFullMap": "Explore Full Map",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
             "refreshMap": "マップをリフレッシュ",
             "autoReload": "自動リロード",
             "seconds": "秒",
@@ -677,18 +692,16 @@
                 "isEnabled": "デスペナルティを有効にするかどうか",
                 "executeCommands": "コマンドを実行\n(1行に1つ)"
             },
-            "autoRestart": {
-                "isEnabled": "自動再起動を有効にするかどうか",
-                "time": "自動再起動時間",
-                "messages": "自動再起動通知\n(1行に1つ)"
-            },
             "blockFamilySharingAccount": "ファミリーシェアリングアカウントを禁止するかどうか",
             "removeSleepingBagFromPOI": "POI保護を有効にするかどうか",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "プレイヤー初期スポーンポイントを有効にするかどうか",
             "playerInitialPosition": "プレイヤー初期座標 (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Chat",
+            "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
             "isEnabled": "有効にするかどうか",
@@ -804,6 +817,29 @@
                 "bind": "バインド",
                 "bindItem": "バインドアイテム",
                 "bindCmd": "バインドコマンド"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
@@ -929,6 +965,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
+                "expressionDescription": "Expression description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",

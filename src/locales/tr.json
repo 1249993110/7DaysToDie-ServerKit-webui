@@ -147,6 +147,12 @@
             "settings": "Hediye Ayarları",
             "management": "Hediye Yönetimi"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "Teleport Sistemi",
             "friend": "Arkadaşa Teleport",
@@ -460,6 +466,15 @@
                     "suffix": " "
                 }
             }
+        },
+        "playerIdSelector": {
+            "title": "Select Player ID",
+            "playerId": "Player ID",
+            "platformId": "Platform ID",
+            "playerName": "Player Name",
+            "selectPlayerId": "Select Player ID",
+            "selectPlatformId": "Select Platform ID",
+            "selectPlayerName": "Select Player Name"
         }
     },
     "layout": {
@@ -554,8 +569,8 @@
             "lastClick": "Son Tıklama",
             "renderExploredArea": "Keşfedilen Alanı Render Et",
             "renderExploredAreaConfirm": "Keşfedilen alanı render etmek istiyor musunuz? Bu birkaç dakika sürebilir. İlerlemeyi konsoldan takip edebilirsiniz",
-            "renderFullMap": "Tam Haritayı Render Et",
-            "renderFullMapConfirm": "Tam haritayı render etmek istiyor musunuz? Bu birkaç dakika sürebilir. İlerlemeyi konsoldan takip edebilirsiniz. Bu işlem genellikle sunucu başlatıldıktan sonra bir kez yapılır",
+            "renderFullMap": "Explore Full Map",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
             "refreshMap": "Haritayı Yenile",
             "autoReload": "Otomatik Yeniden Yükleme",
             "seconds": "saniye",
@@ -677,18 +692,16 @@
                 "isEnabled": "Ölüm cezasını etkinleştir",
                 "executeCommands": "Komutları çalıştır\n(Her satırda bir tane)"
             },
-            "autoRestart": {
-                "isEnabled": "Otomatik yeniden başlatmayı etkinleştir",
-                "time": "Otomatik yeniden başlatma zamanı",
-                "messages": "Otomatik yeniden başlatma bildirimleri\n(Her satırda bir tane)"
-            },
             "blockFamilySharingAccount": "Aile Paylaşımı Hesabını Engelle",
             "removeSleepingBagFromPOI": "POI korumasını etkinleştir",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Oyuncu başlangıç doğma noktasını etkinleştir",
             "playerInitialPosition": "Oyuncu başlangıç koordinatları (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Chat",
+            "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
             "isEnabled": "Otomatik Yedeklemeyi Etkinleştir",
@@ -804,6 +817,29 @@
                 "bind": "Bağla",
                 "bindItem": "Öğe Bağla ",
                 "bindCmd": "Komut Bağla "
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
@@ -929,6 +965,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
+                "expressionDescription": "Expression description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",

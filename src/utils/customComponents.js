@@ -8,6 +8,7 @@ import RotationSelector from '~/components/RotationSelector/index.vue';
 import AvailablePrefabSelector from '~/components/AvailablePrefabSelector/index.vue';
 import MyDateTimeSelector from '~/components/MyDateTimeSelector/index.vue';
 import CronSelector from '~/components/CronSelector/index.vue';
+import PlayerIdSelector from '~/components/PlayerIdSelector/index.vue';
 
 export default {
     MyTextarea: MyTextarea,
@@ -19,5 +20,6 @@ export default {
     RotationSelector: RotationSelector,
     AvailablePrefabSelector: AvailablePrefabSelector,
     MyDateTimeSelector: MyDateTimeSelector,
-    CronSelector: CronSelector
+    CronSelector: CronSelector,
+    PlayerIdSelector: PlayerIdSelector
 };

@@ -485,8 +485,9 @@ watch(
     (newCron) => {
         if (typeof newCron !== 'string' || !newCron) return false;
         let crons = newCron.split(' ');
+        const offset = crons.length === 5 ? -1 : 0;
         // parse seconds
-        let secondsText = crons[0].trim();
+        let secondsText = crons.length === 5 ? '0' : crons[0].trim();
         if (secondsText === '*') {
             state.second.cronEvery = '1';
         } else if (secondsText.includes('/')) {
@@ -504,7 +505,7 @@ watch(
             state.second.rangeEnd = parseInt(secondsTexts[1]);
         }
         // parse minutes
-        let minutesText = crons[1].trim();
+        let minutesText = crons[1 + offset].trim();
         if (minutesText === '*') {
             state.minute.cronEvery = '1';
         } else if (minutesText.includes('/')) {
@@ -522,7 +523,7 @@ watch(
             state.minute.rangeEnd = parseInt(minutesTexts[1]);
         }
         // parse hours
-        let hoursText = crons[2].trim();
+        let hoursText = crons[2 + offset].trim();
         if (hoursText === '*') {
             state.hour.cronEvery = '1';
         } else if (hoursText.includes('/')) {
@@ -540,8 +541,8 @@ watch(
             state.hour.rangeEnd = parseInt(hoursTexts[1]);
         }
         // parse days weeks
-        let daysText = crons[3].trim();
-        let weeksText = crons[5].trim();
+        let daysText = crons[3 + offset].trim();
+        let weeksText = crons[5 + offset].trim();
         if (daysText.includes('/')) {
             state.day.cronEvery = '3';
             let daysTexts = daysText.split('/');
@@ -583,7 +584,7 @@ watch(
         }
 
         // parse months
-        let monthsText = crons[4].trim();
+        let monthsText = crons[4 + offset].trim();
         if (monthsText === '*') {
             state.month.cronEvery = '1';
         } else if (monthsText.includes('/')) {

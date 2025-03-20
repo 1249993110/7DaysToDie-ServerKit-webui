@@ -147,6 +147,12 @@
             "settings": "Настройки подарка",
             "management": "Управление подарком"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "Телепорт",
             "friend": "Friend Tele",
@@ -460,6 +466,15 @@
                     "suffix": " "
                 }
             }
+        },
+        "playerIdSelector": {
+            "title": "Select Player ID",
+            "playerId": "Player ID",
+            "platformId": "Platform ID",
+            "playerName": "Player Name",
+            "selectPlayerId": "Select Player ID",
+            "selectPlatformId": "Select Platform ID",
+            "selectPlayerName": "Select Player Name"
         }
     },
     "layout": {
@@ -554,8 +569,8 @@
             "lastClick": "Последний щелчок",
             "renderExploredArea": "Отрисовка исследованной области",
             "renderExploredAreaConfirm": "Вы уверены, что хотите отрисовать исследованную область? Это может занять несколько минут, вы можете проверить ход выполнения в консоли",
-            "renderFullMap": "Отрисовка полной карты",
-            "renderFullMapConfirm": "Вы уверены, что хотите отрисовать полную карту? Это может занять несколько минут, вы можете проверить ход выполнения в консоли, эта операция обычно выполняется только один раз после запуска сервера",
+            "renderFullMap": "Explore Full Map",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
             "refreshMap": "Обновить карту",
             "autoReload": "Перезагружать каждые",
             "seconds": "секунд",
@@ -677,18 +692,16 @@
                 "isEnabled": "Включить триггер смерти",
                 "executeCommands": "Выполнить команды\n(по одной в строке)"
             },
-            "autoRestart": {
-                "isEnabled": "Включить авто Перезапустить",
-                "time": "Время перезапустить",
-                "messages": "Сообщения\n(по одному в строке)"
-            },
             "blockFamilySharingAccount": "Заблокировать учетную запись Family Sharing",
             "removeSleepingBagFromPOI": "Удалить спальный мешок из POI",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Включить начальную точку появления игрока",
             "playerInitialPosition": "Начальная позиция игрока",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Chat",
+            "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
             "isEnabled": "Включить автоматическое резервное копирование",
@@ -804,6 +817,29 @@
                 "bind": "Привязать",
                 "bindItem": "Элемент привязки",
                 "bindCmd": "Команда привязки"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
@@ -929,6 +965,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
+                "expressionDescription": "Expression description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",

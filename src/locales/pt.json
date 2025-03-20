@@ -147,6 +147,12 @@
             "settings": "Configurações de Presente",
             "management": "Gerenciamento de Presentes"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "Teletransporte",
             "friend": "Tele de Amigo",
@@ -460,6 +466,15 @@
                     "suffix": " "
                 }
             }
+        },
+        "playerIdSelector": {
+            "title": "Select Player ID",
+            "playerId": "Player ID",
+            "platformId": "Platform ID",
+            "playerName": "Player Name",
+            "selectPlayerId": "Select Player ID",
+            "selectPlatformId": "Select Platform ID",
+            "selectPlayerName": "Select Player Name"
         }
     },
     "layout": {
@@ -554,8 +569,8 @@
             "lastClick": "Último clique",
             "renderExploredArea": "Renderizar área explorada",
             "renderExploredAreaConfirm": "Tem certeza de que deseja renderizar a área explorada? Isso pode levar alguns minutos, você pode verificar o progresso no console",
-            "renderFullMap": "Renderizar mapa completo",
-            "renderFullMapConfirm": "Tem certeza de que deseja renderizar o mapa completo? Isso pode levar alguns minutos, você pode verificar o progresso no console, esta operação geralmente é realizada apenas uma vez após o servidor ser iniciado",
+            "renderFullMap": "Explore Full Map",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
             "refreshMap": "Atualizar mapa",
             "autoReload": "Recarregar a cada",
             "seconds": "segundos",
@@ -677,18 +692,16 @@
                 "isEnabled": "Habilitar gatilho de morte",
                 "executeCommands": "Executar comandos\n(um por linha)"
             },
-            "autoRestart": {
-                "isEnabled": "Habilitar reinicialização automática",
-                "time": "Hora da reinicialização",
-                "messages": "Mensagens\n(uma por linha)"
-            },
             "blockFamilySharingAccount": "Bloquear conta de compartilhamento familiar",
             "removeSleepingBagFromPOI": "Remover saco de dormir do POI",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Habilitar ponto de geração inicial do jogador",
             "playerInitialPosition": "Posição inicial do jogador",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Chat",
+            "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
             "isEnabled": "Habilitar backup automático",
@@ -804,6 +817,29 @@
                 "bind": "Vincular",
                 "bindItem": "Vincular item",
                 "bindCmd": "Vincular comando"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
@@ -929,6 +965,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
+                "expressionDescription": "Expression description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",

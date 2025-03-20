@@ -147,6 +147,12 @@
             "settings": "Ustawienia prezentu",
             "management": "Zarządzanie prezentami"
         },
+        "cdKeyRedeem": {
+            "": "CDKey Redeem",
+            "settings": "CDKey Redeem Settings",
+            "management": "CDKey Redeem Management",
+            "record": "CDKey Redeem Record"
+        },
         "teleSystem": {
             "": "System teleportacji",
             "friend": "Teleportacja do przyjaciela",
@@ -460,6 +466,15 @@
                     "suffix": " "
                 }
             }
+        },
+        "playerIdSelector": {
+            "title": "Select Player ID",
+            "playerId": "Player ID",
+            "platformId": "Platform ID",
+            "playerName": "Player Name",
+            "selectPlayerId": "Select Player ID",
+            "selectPlatformId": "Select Platform ID",
+            "selectPlayerName": "Select Player Name"
         }
     },
     "layout": {
@@ -554,8 +569,8 @@
             "lastClick": "Ostatnie kliknięcie",
             "renderExploredArea": "Renderuj zbadany obszar",
             "renderExploredAreaConfirm": "Czy chcesz renderować zbadany obszar? Może to potrwać kilka minut. Postęp można śledzić w konsoli",
-            "renderFullMap": "Renderuj pełną mapę",
-            "renderFullMapConfirm": "Czy chcesz renderować pełną mapę? Może to potrwać kilka minut. Postęp można śledzić w konsoli. Ta operacja jest zazwyczaj wykonywana raz po uruchomieniu serwera",
+            "renderFullMap": "Explore Full Map",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
             "refreshMap": "Odśwież mapę",
             "autoReload": "Automatyczne przeładowanie",
             "seconds": "sekundy",
@@ -677,18 +692,16 @@
                 "isEnabled": "Czy włączyć karę za śmierć",
                 "executeCommands": "Wykonaj polecenia\n(Jedno na linię)"
             },
-            "autoRestart": {
-                "isEnabled": "Czy włączyć automatyczny restart",
-                "time": "Czas automatycznego restartu",
-                "messages": "Powiadomienia o automatycznym restarcie\n(Jedno na linię)"
-            },
             "blockFamilySharingAccount": "Czy zablokować konto Family Sharing",
             "removeSleepingBagFromPOI": "Czy włączyć ochronę POI",
+            "removeSleepingBagFromPoiTip": "Remove Sleeping Bag From POI Tip",
             "isEnablePlayerInitialSpawnPoint": "Czy włączyć początkowy punkt odrodzenia gracza",
             "playerInitialPosition": "Początkowe współrzędne gracza (X, Y, Z)",
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
-            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite"
+            "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
+            "hideCommandInChat": "Hide Command In Chat",
+            "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
             "isEnabled": "Czy włączyć",
@@ -804,6 +817,29 @@
                 "bind": "Powiązanie",
                 "bindItem": "Powiązany przedmiot",
                 "bindCmd": "Powiązane polecenie"
+            }
+        },
+        "cdKeyRedeem": {
+            "isEnabled": "Enable CDKey Redeem",
+            "variables": "Variables",
+            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "redeemSuccessTip": "Redeem Success Tip",
+            "cdKey": "CDKey",
+            "tableHeader": {
+                "id": "ID",
+                "key": "Key",
+                "createdAt": "Created At",
+                "redeemCount": "Redeem Count",
+                "maxRedeemCount": "Max Redeem Count",
+                "expiryAt": "Expiry At",
+                "description": "Description",
+                "bind": "Bind",
+                "bindItem": "Bind Item",
+                "bindCmd": "Bind Command",
+                "playerId": "Player ID",
+                "playerName": "Player Name"
             }
         },
         "teleSystem": {
@@ -929,6 +965,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
+                "expressionDescription": "Expression description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",

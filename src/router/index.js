@@ -205,6 +205,31 @@ const routes = [
                 ],
             },
             {
+                path: '/cdKeyRedeem',
+                name: 'cdKeyRedeem',
+                redirect: '/cdKeyRedeem/settings',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'cdKeyRedeem.settings',
+                        component: () => import('../views/CdKeyRedeem/Settings/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'management',
+                        name: 'cdKeyRedeem.management',
+                        component: () => import('../views/CdKeyRedeem/Management/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'record',
+                        name: 'cdKeyRedeem.record',
+                        component: () => import('../views/CdKeyRedeem/Record/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
+            },
+            {
                 path: 'teleSystem',
                 name: 'teleSystem',
                 redirect: '/teleSystem/friend',
