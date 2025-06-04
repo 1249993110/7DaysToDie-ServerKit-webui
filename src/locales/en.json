@@ -469,9 +469,9 @@
         },
         "playerIdSelector": {
             "title": "Select Player ID",
-            "playerId":"Player ID",
-            "platformId":"Platform ID",
-            "playerName":"Player Name",
+            "playerId": "Player ID",
+            "platformId": "Platform ID",
+            "playerName": "Player Name",
             "selectPlayerId": "Select Player ID",
             "selectPlatformId": "Select Platform ID",
             "selectPlayerName": "Select Player Name"
@@ -570,7 +570,7 @@
             "renderExploredArea": "Render Explored Area",
             "renderExploredAreaConfirm": "Are you sure you want to render the explored area? This may take a few minutes, you can check the progress in the console",
             "renderFullMap": "Explore Full Map",
-            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started.",
             "refreshMap": "Refresh Map",
             "autoReload": "Reload every",
             "seconds": "seconds",
@@ -700,7 +700,7 @@
             "enableAutoZombieCleanup": "Enable Auto Zombie Cleanup",
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
             "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
-            "hideCommandInChat": "Hide Command In Chat",
+            "hideCommandInChat": "Hide Commands In Chat",
             "enableFallingBlockProtection": "Enable Falling Block Protection"
         },
         "autoBackup": {
@@ -820,13 +820,13 @@
             }
         },
         "cdKeyRedeem": {
-            "isEnabled": "Enable CDKey Redeem",
+            "isEnabled": "Enable CD Key Redeem",
             "variables": "Variables",
-            "hasAlreadyRedeemedTip": "Has Already Redeemed Tip",
-            "hasReachedMaxRedemptionLimitTip": "Has Reached Max Redemption Limit Tip",
-            "hasRedemptionCodeExpiredTip": "Has Redemption Code Expired",
+            "hasAlreadyRedeemedTip": "Already Redeemed Tip",
+            "hasReachedMaxRedemptionLimitTip": "Max Redemption Limit Tip",
+            "hasRedemptionCodeExpiredTip": "Redemption Code Expired Tip",
             "redeemSuccessTip": "Redeem Success Tip",
-            "cdKey": "CDKey",
+            "cdKey": "CD Key",
             "tableHeader": {
                 "id": "ID",
                 "key": "Key",
@@ -965,7 +965,7 @@
                 "createdAt": "Created At",
                 "name": "Name",
                 "cronExpression": "Cron Expression",
-                "expressionDescription": "Expression description",
+                "expressionDescription": "Description",
                 "isEnabled": "Enable",
                 "lastRunAt": "Last Run At",
                 "description": "Description",
