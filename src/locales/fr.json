@@ -701,7 +701,11 @@
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
             "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
             "hideCommandInChat": "Hide Command In Chat",
-            "enableFallingBlockProtection": "Enable Falling Block Protection"
+            "enableFallingBlockProtection": "Enable Falling Block Protection",
+            "enableLandClaimProtection": "Enable Land Claim Protection",
+            "landClaimProtectionTip": "Land Claim Protection Tip",
+            "enableTraderAreaProtection": "Enable Trader Area Protection",
+            "traderAreaProtectionTip": "Trader Area Protection Tip"
         },
         "autoBackup": {
             "isEnabled": "Activer la sauvegarde automatique",
