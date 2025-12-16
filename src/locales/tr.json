@@ -515,7 +515,7 @@
                 "chunks": "Parça Sayısı",
                 "cgo": "CGO",
                 "items": "Eşyalar",
-                "systemInfo": "Sistem Bilgisi"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "Sunucu Adı",
