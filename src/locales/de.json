@@ -515,7 +515,7 @@
                 "chunks": "Chunks",
                 "cgo": "CGO",
                 "items": "Elemente",
-                "systemInfo": "Systeminformationen"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "Server Name",
