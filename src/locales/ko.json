@@ -515,7 +515,7 @@
                 "chunks": "청크",
                 "cgo": "CGO",
                 "items": "아이템",
-                "systemInfo": "시스템 정보"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "서버 이름",
