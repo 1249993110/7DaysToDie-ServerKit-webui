@@ -515,7 +515,7 @@
                 "chunks": "Фрагменты",
                 "cgo": "CGO",
                 "items": "Предметы",
-                "systemInfo": "Системная информация"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "Имя сервера",
