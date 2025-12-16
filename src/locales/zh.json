@@ -515,7 +515,7 @@
                 "chunks": "区块数",
                 "cgo": "CGO",
                 "items": "Items",
-                "systemInfo": "系统信息"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "服务器名称",
