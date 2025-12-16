@@ -515,7 +515,7 @@
                 "chunks": "チャンク数",
                 "cgo": "CGO",
                 "items": "アイテム",
-                "systemInfo": "システム情報"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "サーバー名",
