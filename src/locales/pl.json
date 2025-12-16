@@ -515,7 +515,7 @@
                 "chunks": "Liczba kawałków",
                 "cgo": "CGO",
                 "items": "Przedmioty",
-                "systemInfo": "Informacje o systemie"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "Nazwa serwera",
