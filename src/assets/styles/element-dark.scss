@@ -50,8 +50,8 @@ html.dark {
         background: none !important;
     }
     .router-card .el-radio-button__original-radio:checked + .el-radio-button__inner {
-        color: #fff;
-        background-color: var(--ty-button-active) !important;
-        border: 2px solid var(--el-card-bg-color) !important;
+        color: var(--ty-color-accent) !important;
+        background-color: rgba(56, 189, 248, 0.1) !important;
+        border: 2px solid var(--ty-color-accent) !important;
     }
 }

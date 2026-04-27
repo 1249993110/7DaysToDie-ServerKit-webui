@@ -37,13 +37,18 @@ export const useUserInfoStore = defineStore('user-info', {
             this.save();
         },
         async refresh() {
-            const data = await api.refreshToken(this.refreshToken);
+            try {
+                const data = await api.refreshToken(this.refreshToken);
 
-            this.token = data.access_token;
-            this.expiresAt = dayjs().add(data.expires_in, 'second').format();
-            this.refreshToken = data.refresh_token;
+                this.token = data.access_token;
+                this.expiresAt = dayjs().add(data.expires_in, 'second').format();
+                this.refreshToken = data.refresh_token;
 
-            this.save();
+                this.save();
+            } catch {
+                await this.logout();
+                location.reload();
+            }
         },
         async getToken() {
             if (dayjs() > dayjs(this.expiresAt)) {
