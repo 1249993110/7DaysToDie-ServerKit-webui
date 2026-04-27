@@ -4,6 +4,16 @@
             <el-button v-if="addBtnVisible" type="primary" :icon="Plus" @click="emit('addClick')">
                 <template #default v-if="btnLabelVisible">{{ t('global.button.add') }}</template>
             </el-button>
+            <el-button
+                v-for="btn in customButtons"
+                :key="btn.label"
+                :type="btn.type || 'default'"
+                :icon="btn.icon"
+                :loading="btn.loading?.value"
+                @click="btn.onClick"
+            >
+                <template #default v-if="btnLabelVisible">{{ btn.label }}</template>
+            </el-button>
             <el-button v-if="batchDeleteBtnVisible" type="danger" :icon="Delete" @click="emit('batchDeleteClick')" :disabled="!isSelected">
                 <template #default v-if="btnLabelVisible">{{ t('global.button.batchDelete') }}</template>
             </el-button>
@@ -66,6 +76,10 @@ const props = defineProps({
     batchOperationItems: {
         type: Array,
         default: [],
+    },
+    customButtons: {
+        type: Array,
+        default: () => [],
     },
     btnLabelVisible: {
         type: Boolean,

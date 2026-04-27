@@ -52,7 +52,8 @@ const handleOpen = async () => {
 
 const emit = defineEmits(['select']);
 const handleSelect = (id) => {
-    emit('select', id);
+    const row = tableData.value.find((item) => item.playerId === id);
+    emit('select', id, row);
 };
 
 const handleCommand = (command) => {

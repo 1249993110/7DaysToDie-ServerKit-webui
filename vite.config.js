@@ -97,7 +97,7 @@ export default defineConfig(({ mode }) => {
             },
         },
         build: {
-            // sourcemap: true,
+            outDir: 'wwwroot',
         },
         resolve: {
             alias: {

@@ -11,6 +11,13 @@
             :request="request"
             ref="myTableRef"
         />
+        <CsvImportDialog
+            v-model:visible="csvImportVisible"
+            module-type="itemList"
+            :import-api="api.importItemListCsv"
+            :template-api="api.downloadItemListTemplate"
+            @success="handleImportSuccess"
+        />
     </div>
 </template>
 
@@ -85,8 +92,14 @@ const toolbar = computed(() => ({
     batchOperationItems: [
         {
             type: 'export',
+            label: t('global.button.export') + ' CSV',
             fileName: t('menus.listManagement.itemList'),
-            // divided: true,
+        },
+        {
+            label: t('global.button.import') + ' CSV',
+            onClick: () => {
+                csvImportVisible.value = true;
+            },
         },
     ],
 }));
@@ -190,5 +203,10 @@ const request = {
     edit: requestEdit,
     delete: requestDetele,
     batchDelete: requestBatchDelete,
+};
+
+const csvImportVisible = ref(false);
+const handleImportSuccess = () => {
+    myTableRef.value.refresh();
 };
 </script>

@@ -77,7 +77,7 @@ const getData = async () => {
 
         for (let i = 0; i < len; i++) {
             const item = data[i];
-            item.url = getItemIconUrl(item.itemName);
+            item.url = getItemIconUrl(item.iconName, item.iconColor);
             items.push(item);
         }
     } finally {

@@ -214,7 +214,8 @@
                 "icon": "Icono",
                 "itemName": "Nombre del objeto",
                 "localizationName": "Nombre de la localización",
-                "mod": "Mod"
+                "mod": "Mod",
+                "seed": "Seed"
             }
         },
         "playerSkillsDialog": {
@@ -570,7 +571,12 @@
             "renderExploredArea": "Renderizar área explorada",
             "renderExploredAreaConfirm": "¿Está seguro de que desea renderizar el área explorada? Esto puede tardar unos minutos, puede verificar el progreso en la consola",
             "renderFullMap": "Explore Full Map",
-            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? It runs asynchronously in the background without blocking the server. You can track progress here in real time",
+            "renderFullMapStarted": "Full map exploration started, please wait for progress updates",
+            "renderFullMapDone": "Full map exploration completed, {0} chunks in {1} seconds",
+            "stopRenderFullMap": "Stop Exploring",
+            "stopRenderFullMapConfirm": "Are you sure you want to stop the full map exploration?",
+            "stopRenderFullMapSuccess": "Stop command sent",
             "refreshMap": "Actualizar mapa",
             "autoReload": "Auto recargar",
             "seconds": "segundos",
@@ -816,7 +822,8 @@
                 "description": "Descripción",
                 "bind": "Vincular",
                 "bindItem": "Vincular objeto",
-                "bindCmd": "Comando de vinculación"
+                "bindCmd": "Comando de vinculación",
+                "playerName": "Nombre del jugador"
             }
         },
         "cdKeyRedeem": {

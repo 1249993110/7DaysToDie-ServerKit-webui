@@ -79,3 +79,25 @@ export const getCommandList = (id) => {
 export const updateCommandList = (id, data) => {
     return http.put('/Goods/' + id + '/Commands', data);
 };
+
+/**
+ * CSV批量导入商品
+ * @returns
+ */
+export const importGoodsCsv = (formData) => {
+    return http.post('/Goods/ImportCsv', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+};
+
+/**
+ * 下载商品CSV模板
+ * @returns
+ */
+export const downloadGoodsTemplate = () => {
+    return http.get('/Goods/CsvTemplate', {
+        responseType: 'blob'
+    });
+};

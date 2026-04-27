@@ -1,8 +1,14 @@
 <template>
     <div class="sidebar">
         <Logo />
-        <el-scrollbar always>
-            <el-menu :default-active="defaultActive" @select="handleSelectMenu" :collapse="sidebarStore.isCollapse" :collapse-transition="false" unique-opened>
+        <el-scrollbar>
+            <el-menu
+                :default-active="defaultActive"
+                @select="handleSelectMenu"
+                :collapse="sidebarStore.isCollapse"
+                :collapse-transition="false"
+                unique-opened
+            >
                 <MenuTree :menus="menusStore.tree" />
             </el-menu>
         </el-scrollbar>
@@ -33,7 +39,6 @@ watch(
                 name = name.substring(0, index);
             }
         }
-
         defaultActive.value = name;
     },
     { immediate: true }
@@ -52,7 +57,6 @@ const handleSelectMenu = async (name) => {
         await logout();
         return;
     }
-
     const menu = menusStore.dict[name];
     if (menu.isExternalLink) {
         window.open(menu.path);
@@ -65,11 +69,11 @@ const handleSelectMenu = async (name) => {
 <style scoped lang="scss">
 .sidebar {
     height: 100%;
-    background: url('~/assets/images/logo-title-bg.png') var(--el-menu-bg-color) no-repeat top;
-    background-size: 100%;
+    background-color: var(--ty-sidebar-bg);
     display: flex;
     flex-direction: column;
-    border-right: 1px solid var(--el-border-color-light);
+    border-right: 1px solid var(--ty-sidebar-border);
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.02) inset;
 
     .el-scrollbar {
         flex-grow: 1;
@@ -80,79 +84,95 @@ const handleSelectMenu = async (name) => {
             background: none;
             user-select: none;
             width: 100%;
-            padding: 0 10px;
+            padding: 4px 8px;
 
             :deep(.el-menu-item) {
-                border-radius: 4px;
-                margin: 6px 0;
-                height: 46px;
-                background-color: var(--el-menu-item-bg-color);
+                border-radius: 6px;
+                margin: 1px 0;
+                height: 38px;
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--el-menu-text-color);
+                transition: all 0.12s ease;
+                position: relative;
+
+                .el-icon {
+                    font-size: 17px;
+                }
 
                 &.is-active {
                     background-color: var(--el-menu-item-bg-color-active);
-                    border: 2px solid $primary-color;
+                    color: var(--ty-color-accent);
+                    font-weight: 600;
 
                     &::before {
-                        position: absolute;
-                        border-radius: 4px;
-                        left: 12px;
-                        width: 4px;
-                        height: 14px;
                         content: '';
-                        background: var(--el-menu-active-color);
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 3px;
+                        height: 18px;
+                        background: var(--ty-color-accent);
+                        border-radius: 0 2px 2px 0;
+                    }
+
+                    .el-icon {
+                        color: var(--ty-color-accent);
                     }
                 }
 
                 &:not(.is-active):hover {
-                    .el-icon {
-                        color: $primary-color;
-                    }
+                    background-color: var(--el-menu-hover-bg-color);
+                    color: var(--ty-color-primary);
 
-                    span {
-                        color: $primary-color;
+                    .el-icon {
+                        color: var(--ty-color-primary);
                     }
                 }
             }
+
             :deep(.el-sub-menu) {
                 &.is-active {
                     .el-sub-menu__title {
-                        span {
-                            color: $primary-color;
-                        }
-
+                        color: var(--ty-color-accent);
+                        font-weight: 600;
                         .el-icon {
-                            color: $primary-color;
+                            color: var(--ty-color-accent);
                         }
                     }
                 }
                 .el-sub-menu__title {
-                    border-radius: 4px;
-                    //margin: 6px 0;
-                    height: 46px;
-                    background-color: var(--el-menu-item-bg-color);
+                    border-radius: 6px;
+                    height: 38px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: var(--el-menu-text-color);
+                    transition: all 0.12s ease;
+
+                    .el-icon {
+                        font-size: 17px;
+                    }
 
                     &:hover {
+                        background-color: var(--el-menu-hover-bg-color);
+                        color: var(--ty-color-primary);
                         .el-icon {
-                            color: $primary-color;
-                        }
-
-                        span {
-                            color: $primary-color;
+                            color: var(--ty-color-primary);
                         }
                     }
                 }
                 .el-menu {
                     background: none;
                     padding: 0;
-                    
                     .el-menu-item {
                         box-shadow: none;
-                        padding-left: 35px;
+                        padding-left: 44px !important;
                     }
                 }
             }
             :deep(.el-sub-menu + .el-sub-menu) {
-                margin-top: 6px;
+                margin-top: 1px;
             }
         }
     }

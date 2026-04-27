@@ -1,6 +1,6 @@
 <template>
     <div>
-        <RouterButton :names="['globalSettings']" />
+        <RouterButton :names="['globalSettings.settings', 'globalSettings.zombieKillReward']" />
         <MySettingsFormCard settings-name="GlobalSettings" :fields="fields" locale-key-prefix="views.globalSettings">
         </MySettingsFormCard>
     </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: 'globalSettings',
+    name: 'globalSettings.settings',
 };
 </script>
 
@@ -54,22 +54,6 @@ const fields = [
         props: {
             type: 'textarea',
         },
-    },
-    {
-        type: 'switch',
-        name: 'killZombieTrigger.isEnabled',
-    },
-    {
-        type: 'MyTextarea',
-        name: 'killZombieTrigger.executeCommands',
-    },
-    {
-        type: 'switch',
-        name: 'deathTrigger.isEnabled',
-    },
-    {
-        type: 'MyTextarea',
-        name: 'deathTrigger.executeCommands',
     },
     {
         type: 'switch',

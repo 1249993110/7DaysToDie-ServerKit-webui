@@ -214,7 +214,8 @@
                 "icon": "圖示",
                 "itemName": "物品名稱",
                 "localizationName": "本地化名稱",
-                "mod": "模組"
+                "mod": "模組",
+                "seed": "隨機種子"
             }
         },
         "playerSkillsDialog": {
@@ -569,8 +570,13 @@
             "lastClick": "上次點擊",
             "renderExploredArea": "渲染已探索區域",
             "renderExploredAreaConfirm": "確認渲染已探索區域嗎? 這可能需要幾分鐘的時間, 您可以前往控制台查看進度",
-            "renderFullMap": "Explore Full Map",
-            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
+            "renderFullMap": "探索完整地圖",
+            "renderFullMapConfirm": "確認探索全圖嗎? 此操作將在後台異步執行，不會阻塞伺服器。您可以在此處即時查看進度",
+            "renderFullMapStarted": "全圖探索已啟動，請等待進度更新",
+            "renderFullMapDone": "全圖探索完成，共 {0} 個區塊，耗時 {1} 秒",
+            "stopRenderFullMap": "停止探索",
+            "stopRenderFullMapConfirm": "確認停止全圖探索嗎?",
+            "stopRenderFullMapSuccess": "已發送停止指令",
             "refreshMap": "刷新地圖",
             "autoReload": "自動刷新",
             "seconds": "秒",
@@ -816,7 +822,8 @@
                 "description": "說明",
                 "bind": "綁定",
                 "bindItem": "綁定物品",
-                "bindCmd": "綁定指令"
+                "bindCmd": "綁定指令",
+                "playerName": "玩家名稱"
             }
         },
         "cdKeyRedeem": {

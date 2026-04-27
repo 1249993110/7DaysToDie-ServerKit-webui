@@ -15,3 +15,11 @@ export const getBackupFiles = () => {
 export const deletetBackupFiles = (fileNames) => {
     return http.delete('/AutoBackup', { params: { fileNames } });
 };
+
+/**
+ * 手动备份
+ * @returns
+ */
+export const manualBackup = () => {
+    return http.post('/AutoBackup');
+};

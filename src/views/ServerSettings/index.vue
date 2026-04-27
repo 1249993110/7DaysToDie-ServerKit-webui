@@ -5,39 +5,32 @@
                 <ServerToolBar />
             </template>
         </RouterButton>
-        <el-card shadow="always" class="card">
-            <el-scrollbar always>
-                <template v-for="(item, index) in tableData" :key="index">
-                    <el-table :data="item" border stripe style="width: 100%" :show-header="false" :span-method="objectSpanMethod" size="small">
-                        <el-table-column prop="group" width="110">
-                            <template #default="scope">
-                                <span style="font-size: 16px; font-weight: bolder">{{ scope.row.group }}</span>
-                            </template>
-                        </el-table-column>
-                        <el-table-column prop="name" width="250" show-overflow-tooltip>
-                            <template #default="scope">
-                                <el-tag style="font-weight: bold; font-family: monospace">{{ scope.row.name }}</el-tag>
-                            </template>
-                        </el-table-column>
-                        <el-table-column prop="desc" show-overflow-tooltip>
-                            <template #default="scope">
-                                <span style="font-size: 13px">{{ scope.row.desc }}</span>
-                            </template>
-                        </el-table-column>
-                        <el-table-column prop="value" width="200" show-overflow-tooltip>
-                            <template #default="scope">
-                                <span style="font-size: 14px; font-weight: bold; font-family: emoji; color: var(--el-text-color-regular);">{{ scope.row.value }}</span>
-                            </template>
-                        </el-table-column>
-                        <el-table-column width="90" fixed="right">
-                            <template #default="scope">
-                                <el-button size="small" type="primary" :icon="Edit" @click="handleEdit(scope)">{{ t('global.button.edit') }}</el-button>
-                            </template>
-                        </el-table-column>
-                    </el-table>
-                </template>
-            </el-scrollbar>
-        </el-card>
+        <el-scrollbar class="settings-scroll">
+            <div class="settings-groups">
+                <div v-for="(group, gIndex) in tableData" :key="gIndex" class="settings-group">
+                    <div class="group-header">
+                        <span class="group-title">{{ group[0]?.group }}</span>
+                        <span class="group-count">{{ group.length }}</span>
+                    </div>
+                    <div class="group-items">
+                        <div v-for="(item, index) in group" :key="index" class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-name">
+                                    <code>{{ item.name }}</code>
+                                </div>
+                                <div class="setting-desc" :title="item.desc">{{ item.desc }}</div>
+                            </div>
+                            <div class="setting-action">
+                                <span class="setting-value" :title="item.value">{{ item.value }}</span>
+                                <el-button size="small" type="primary" plain :icon="Edit" @click="handleEdit(item)">
+                                    {{ t('global.button.edit') }}
+                                </el-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </el-scrollbar>
     </div>
 </template>
 
@@ -68,9 +61,7 @@ const tableData = ref([]);
 const localeStore = useLocaleStore();
 const getData = async () => {
     const data = await getSettings(localeStore.getLanguage());
-    const group = Object.groupBy(data, (item) => {
-        return item.group;
-    });
+    const group = Object.groupBy(data, (item) => item.group);
     const array = [];
     for (const key in group) {
         array.push(group[key]);
@@ -79,24 +70,8 @@ const getData = async () => {
 };
 getData();
 
-const objectSpanMethod = ({ rowIndex, columnIndex }) => {
-    if (columnIndex === 0) {
-        if (rowIndex === 0) {
-            return {
-                rowspan: Number.MAX_SAFE_INTEGER,
-                colspan: 1,
-            };
-        } else {
-            return {
-                rowspan: 0,
-                colspan: 0,
-            };
-        }
-    }
-};
-
 const { t } = useI18n();
-const handleEdit = async ({ row }) => {
+const handleEdit = async (row) => {
     try {
         const value = await myprompt(row.name, t('global.message.inputNewValue'), row.value);
         const dict = {};
@@ -109,13 +84,120 @@ const handleEdit = async ({ row }) => {
 
 <style scoped lang="scss">
 .server-settings {
-    .card {
-        margin-top: 20px;
-        :deep(.el-card__body) {
-            height: calc(100vh - 160px);
-            padding: 0;
-            .el-scrollbar__bar {
-                z-index: 2;
+    .settings-scroll {
+        margin-top: 16px;
+        height: calc(100vh - 150px);
+    }
+
+    .settings-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-bottom: 16px;
+    }
+
+    .settings-group {
+        background: var(--ty-card-bg);
+        border: 1px solid var(--el-card-border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .group-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 20px;
+        background: var(--el-fill-color-light);
+        border-bottom: 1px solid var(--el-border-color-lighter);
+
+        .group-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--ty-text-primary);
+        }
+
+        .group-count {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--ty-color-primary);
+            background: var(--el-color-primary-light-9);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+    }
+
+    .group-items {
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--el-border-color-lighter);
+            transition: background-color 0.1s ease;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:hover {
+                background: var(--el-fill-color-light);
+            }
+        }
+    }
+
+    .setting-info {
+        flex: 1;
+        min-width: 0;
+
+        .setting-name {
+            margin-bottom: 4px;
+
+            code {
+                font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--ty-color-primary);
+                background: var(--el-color-primary-light-9);
+                padding: 2px 8px;
+                border-radius: 4px;
+            }
+        }
+
+        .setting-desc {
+            font-size: 12px;
+            color: var(--ty-text-muted);
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .setting-action {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+
+        .setting-value {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ty-text-primary);
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .el-button {
+            box-shadow: none;
+            &:hover {
+                transform: none;
             }
         }
     }

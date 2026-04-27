@@ -1,31 +1,56 @@
 html.dark {
-
-    --ty-color-primary: #005eeb; //#3D8EFF;
-    --ty-main-bg-color: #0c0c0c;
-    --ty-main-bg-color-1: #383b3b;
-    --ty-border: 1px solid #1d2023;
+    --ty-color-primary: #38bdf8;
+    --ty-color-primary-light: #7dd3fc;
+    --ty-color-primary-dark: #0ea5e9;
+    --ty-color-accent: #38bdf8;
+    --ty-main-bg-color: #080e14;
+    --ty-main-bg-color-1: #0e1820;
+    --ty-border: 1px solid #1a2a38;
     --ty-button-active: var(--ty-color-primary);
-    --ty-menu-bg-color: #111417;
+    --ty-sidebar-bg: #0a1018;
+    --ty-sidebar-border: #162230;
+    --ty-card-bg: #0e1820;
+    --ty-text-primary: #e0f2fe;
+    --ty-text-secondary: #7dd3fc;
+    --ty-text-muted: #3a5a72;
 
     --el-color-primary: var(--ty-color-primary);
+    --el-color-primary-light-3: #0ea5e9;
+    --el-color-primary-light-5: #0284c7;
+    --el-color-primary-light-7: #0369a1;
+    --el-color-primary-light-9: #1a3a52;
+    --el-color-primary-dark-2: #7dd3fc;
 
-    --el-menu-bg-color: var(--ty-menu-bg-color) !important;
-    --el-menu-active-color: white;
-    --el-menu-item-bg-color: var(--ty-menu-bg-color);
-    --el-menu-item-bg-color-active: var(--ty-color-primary);
-    --el-menu-hover-bg-color: #272c25;
-    --el-menu-text-color: white;
+    --el-bg-color: #0a1018;
+    --el-bg-color-overlay: #0e1820;
 
-    --el-text-color-regular: #bbbfc4 !important;
+    --el-menu-bg-color: var(--ty-sidebar-bg) !important;
+    --el-menu-active-color: var(--ty-color-accent);
+    --el-menu-item-bg-color: transparent;
+    --el-menu-item-bg-color-active: rgba(56, 189, 248, 0.1);
+    --el-menu-hover-bg-color: rgba(56, 189, 248, 0.05);
+    --el-menu-text-color: #94b8d0;
+
+    --el-text-color-regular: #8ab8d4 !important;
+    --el-text-color-primary: #e0f2fe;
+
+    --el-card-border-color: #1a2a38;
+    --el-fill-color-light: #0e1820;
+
+    --el-border-color: #1a2a38;
+    --el-border-color-light: #162230;
+    --el-border-color-lighter: #121e2a;
+
     .el-card {
-        border: none !important;
+        border: 1px solid #1a2a38 !important;
+        background-color: var(--ty-card-bg);
     }
 
     .router-card .el-radio-button__inner {
         background: none !important;
     }
-    .router-card .el-radio-button__original-radio:checked+.el-radio-button__inner {
-        color: white;
+    .router-card .el-radio-button__original-radio:checked + .el-radio-button__inner {
+        color: #fff;
         background-color: var(--ty-button-active) !important;
         border: 2px solid var(--el-card-bg-color) !important;
     }

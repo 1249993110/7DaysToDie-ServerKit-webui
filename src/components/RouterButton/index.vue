@@ -89,7 +89,6 @@ const handleScreenfull = () => {
     if (!screenfull.isEnabled) {
         ElMessage.warning(t('components.routerButton.fullscreenNotSupport'));
     }
-
     screenfull.toggle();
 };
 
@@ -119,15 +118,19 @@ const toggleDark = () => useToggle(isDark);
         .el-radio-button__inner {
             min-width: 100px;
             height: 100%;
+            font-weight: 600;
+            font-size: 13px;
             color: var(--el-text-color-regular) !important;
             background-color: var(--ty-button-active) !important;
             box-shadow: none !important;
             border: 2px solid transparent !important;
+            border-radius: 6px;
+            transition: all 0.12s ease;
         }
 
         .el-radio-button__original-radio:checked + .el-radio-button__inner {
             border-color: $primary-color !important;
-            border-radius: 4px;
+            color: var(--ty-color-accent) !important;
         }
     }
 
@@ -138,7 +141,7 @@ const toggleDark = () => useToggle(isDark);
         .reload {
             &:hover {
                 transform: rotate(360deg);
-                transition: 0.6s linear;
+                transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             }
         }
     }

@@ -47,6 +47,10 @@ const props = defineProps({
     successMessage: {
         type: String,
     },
+    keepOpenAfterSubmit: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const { t } = i18n.global;
@@ -80,7 +84,9 @@ const handleCancel = () => {
 };
 
 const handleConfirm = async () => {
-    visible.value = false;
+    if (!props.keepOpenAfterSubmit) {
+        visible.value = false;
+    }
     ElMessage.success(props.successMessage ?? t('global.message.saveSuccess'));
 };
 

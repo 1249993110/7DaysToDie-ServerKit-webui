@@ -10,7 +10,7 @@
                         <Main />
                     </el-main>
                 </el-scrollbar>
-                <el-footer height="48px">
+                <el-footer height="40px">
                     <Footer />
                 </el-footer>
             </el-container>
@@ -29,13 +29,13 @@ import { getAppSettings } from '~/api/app-settings';
 const { locale } = useI18n();
 const sidebarStore = useSidebarStore();
 const sidebarWidth = computed(() => {
-    if(sidebarStore.isCollapse){
-        return '80px';
-    }else{
-        if(locale.value === 'en' || locale.value === 'zh' || locale.value === 'tw' || locale.value === 'ko'){
-            return '180px';
+    if (sidebarStore.isCollapse) {
+        return '64px';
+    } else {
+        if (locale.value === 'en' || locale.value === 'zh' || locale.value === 'tw' || locale.value === 'ko') {
+            return '200px';
         }
-        return '220px';
+        return '230px';
     }
 });
 
@@ -51,9 +51,7 @@ watch(
             startWebsocket(url);
         }
     },
-    {
-        immediate: true,
-    }
+    { immediate: true }
 );
 </script>
 
@@ -63,13 +61,15 @@ watch(
     .el-container {
         height: 100%;
         .el-aside {
-            transition: width 0.3s;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
         }
         .el-container {
             background-color: var(--ty-main-bg-color);
             .el-main {
-                transition: margin-left 0.3s;
+                transition: margin-left 0.25s;
                 overflow: hidden;
+                padding: 20px;
             }
             .el-footer {
                 padding: 0;
