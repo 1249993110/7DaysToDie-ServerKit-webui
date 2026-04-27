@@ -19,6 +19,13 @@
         </MyTable>
         <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleItemsEdit" />
         <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleCommandsEdit" />
+        <CsvImportDialog
+            v-model:visible="csvImportVisible"
+            module-type="vipGift"
+            :import-api="api.importVipGiftCsv"
+            :template-api="api.downloadVipGiftTemplate"
+            @success="handleImportSuccess"
+        />
     </div>
 </template>
 
@@ -30,6 +37,7 @@ export default {
 
 <script setup>
 import * as api from '~/api/vip-gift';
+import { getHistoryPlayerIds } from '~/api/players';
 
 const { t, tm, rt } = useI18n();
 
@@ -40,34 +48,43 @@ const columns = computed(() => [
     {
         prop: 'id',
         label: t('views.vipGift.tableHeader.playerId'),
-        width: 320,
+        minWidth: 200,
+        sortable: 'custom',
+    },
+    {
+        prop: 'playerName',
+        label: t('views.vipGift.tableHeader.playerName'),
+        minWidth: 100,
         sortable: 'custom',
     },
     {
         prop: 'name',
         label: t('views.vipGift.tableHeader.name'),
-        minWidth: 150,
+        minWidth: 100,
         sortable: 'custom',
+        align: 'center',
         tag: true,
     },
     {
         prop: 'claimState',
         label: t('views.vipGift.tableHeader.claimState'),
-        width: 160,
+        width: 120,
         sortable: 'custom',
+        align: 'center',
         formatter: (row) => (row.claimState ? t('global.true') : t('global.false')),
     },
     {
         prop: 'totalClaimCount',
         label: t('views.vipGift.tableHeader.totalClaimCount'),
-        width: 170,
+        width: 120,
         sortable: 'custom',
+        align: 'center',
     },
     {
         prop: 'lastClaimAt',
         label: t('views.vipGift.tableHeader.lastClaimAt'),
         sortable: 'custom',
-        width: 160,
+        minWidth: 120,
     },
     {
         prop: 'description',
@@ -78,7 +95,7 @@ const columns = computed(() => [
     {
         prop: 'bind',
         label: t('views.vipGift.tableHeader.bind'),
-        width: 225,
+        width: 260,
         headerAlign: 'center',
     },
     {
@@ -103,7 +120,59 @@ const toolbar = computed(() => ({
         },
         {
             type: 'export',
+            label: t('global.button.export') + ' CSV',
             fileName: rt(tm('menus.vipGift')['']),
+            divided: true,
+            onClick: async () => {
+                const loading = ElLoading.service({ lock: true, text: 'Loading', background: 'rgba(0, 0, 0, 0.7)' });
+                try {
+                    const result = await requestGet({ pageSize: -1 });
+                    const data = result.items;
+
+                    const [itemResults, cmdResults] = await Promise.all([
+                        Promise.all(data.map((row) => api.getItemList(row.id).catch(() => []))),
+                        Promise.all(data.map((row) => api.getCommandList(row.id).catch(() => []))),
+                    ]);
+
+                    const exportData = data.map((row, i) => {
+                        const items = itemResults[i];
+                        const cmds = cmdResults[i];
+                        return {
+                            id: row.id,
+                            playerName: row.playerName || '',
+                            name: row.name,
+                            claimState: row.claimState ? 'true' : 'false',
+                            totalClaimCount: row.totalClaimCount,
+                            lastClaimAt: row.lastClaimAt || '',
+                            description: row.description || '',
+                            bindItems: items.map((item) => `${item.itemName}x${item.count}`).join(', '),
+                            bindCommands: cmds.map((cmd) => cmd.command).join(', '),
+                        };
+                    });
+
+                    const columns = {
+                        id: 'ID',
+                        playerName: '玩家名称',
+                        name: '名称',
+                        claimState: '领取状态',
+                        totalClaimCount: '总领取次数',
+                        lastClaimAt: '上次领取时间',
+                        description: '描述',
+                        bindItems: '绑定物品',
+                        bindCommands: '绑定命令',
+                    };
+
+                    exportCsv(exportData, rt(tm('menus.vipGift')['']), columns);
+                } finally {
+                    loading.close();
+                }
+            },
+        },
+        {
+            label: t('global.button.import') + ' CSV',
+            onClick: () => {
+                csvImportVisible.value = true;
+            },
         },
     ],
 }));
@@ -122,18 +191,40 @@ const search = computed(() => ({
 }));
 
 const newId = ref(0);
+const existingGiftNames = ref([]);
+const handlePlayerSelect = (player) => {
+    const formModel = myTableRef.value?.addEditFormModel;
+    if (formModel) {
+        formModel.playerName = player ? (player.playerName || '') : '';
+    }
+};
 const addEditFormFields = computed(() => [
     {
         type: 'PlayerIdSelector',
         name: 'id',
         label: t('views.vipGift.tableHeader.playerId'),
         required: true,
+        props: {
+            onPlayerSelect: handlePlayerSelect,
+            showSelectButton: false,
+        },
     },
     {
         type: 'input',
+        name: 'playerName',
+        label: t('views.vipGift.tableHeader.playerName'),
+    },
+    {
+        type: 'select-v2',
         name: 'name',
         label: t('views.vipGift.tableHeader.name'),
         required: true,
+        props: {
+            filterable: true,
+            allowCreate: true,
+            options: existingGiftNames.value,
+            placeholder: t('global.message.inputText'),
+        },
     },
     {
         type: 'switch',
@@ -161,16 +252,24 @@ const addEditFormFields = computed(() => [
 ]);
 
 const requestGet = async (params) => {
-    let data = await api.getVipGift();
-    if (data.length) {
-        newId.value = data[data.length - 1].id + 1;
+    const [data, players] = await Promise.all([api.getVipGift(), getHistoryPlayerIds()]);
+    const playerMap = {};
+    for (const p of players) {
+        playerMap[p.playerId] = p.playerName;
+    }
+    let list = data.map((item) => ({ ...item, playerName: item.playerName || playerMap[item.id] || '' }));
+    if (list.length) {
+        newId.value = list[list.length - 1].id + 1;
     }
 
-    data = searchByKeyword(data, params.keyword, ['id', 'name', 'description']);
+    const nameSet = new Set(data.map((item) => item.name).filter(Boolean));
+    existingGiftNames.value = [...nameSet].map((name) => ({ value: name, label: name }));
+
+    list = searchByKeyword(list, params.keyword, ['id', 'name', 'description', 'playerName']);
     if (params.sortOrder) {
         const desc = params.sortOrder === 'descending';
         const sortPorp = params.sortPorp;
-        data = data.sort((a, b) => {
+        list = list.sort((a, b) => {
             if (desc) {
                 return a[sortPorp] < b[sortPorp] ? 1 : -1;
             }
@@ -181,13 +280,13 @@ const requestGet = async (params) => {
 
     if (params.pageSize < 0) {
         return {
-            items: data,
-            total: data.length,
+            items: list,
+            total: list.length,
         };
     }
     return {
-        items: data.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
-        total: data.length,
+        items: list.slice((params.pageNumber - 1) * params.pageSize, params.pageNumber * params.pageSize),
+        total: list.length,
     };
 };
 
@@ -254,5 +353,10 @@ const handleAssociatedCommand = async (row) => {
 
 const handleCommandsEdit = async (ids) => {
     await api.updateCommandList(lastClickId.value, ids);
+};
+
+const csvImportVisible = ref(false);
+const handleImportSuccess = () => {
+    window.location.reload();
 };
 </script>

@@ -17,6 +17,13 @@
         </MyTable>
         <AssociatedItems v-model="associatedItemsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleItemsEdit" />
         <AssociatedCommands v-model="associatedCommandsVisible" v-model:table-data="associatedData" :loading="associatedLoading" @edit="handleCommandsEdit" />
+        <CsvImportDialog
+            v-model:visible="csvImportVisible"
+            module-type="goods"
+            :import-api="api.importGoodsCsv"
+            :template-api="api.downloadGoodsTemplate"
+            @success="handleImportSuccess"
+        />
     </div>
 </template>
 
@@ -83,7 +90,14 @@ const toolbar = computed(() => ({
     batchOperationItems: [
         {
             type: 'export',
+            label: t('global.button.export') + ' CSV',
             fileName: rt(tm('menus.gameStore')['']),
+        },
+        {
+            label: t('global.button.import') + ' CSV',
+            onClick: () => {
+                csvImportVisible.value = true;
+            },
         },
     ],
 }));
@@ -227,5 +241,10 @@ const handleAssociatedCommand = async (row) => {
 
 const handleCommandsEdit = async (ids) => {
     await api.updateCommandList(lastClickId.value, ids);
+};
+
+const csvImportVisible = ref(false);
+const handleImportSuccess = () => {
+    window.location.reload();
 };
 </script>

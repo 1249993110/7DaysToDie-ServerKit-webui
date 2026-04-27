@@ -1,8 +1,13 @@
 <template>
-    <div class="route-button">
-        <el-button link type="primary" @click="handleRestart">{{ t('components.serverToolBar.restart') }}</el-button>
-        <el-divider direction="vertical" />
-        <el-button link type="danger" @click="handleShutdown">{{ t('components.serverToolBar.shutdown') }}</el-button>
+    <div class="server-toolbar">
+        <el-button size="small" type="warning" plain @click="handleRestart">
+            <el-icon style="margin-right: 4px"><icon-mdi-restart /></el-icon>
+            {{ t('components.serverToolBar.restart') }}
+        </el-button>
+        <el-button size="small" type="danger" plain @click="handleShutdown">
+            <el-icon style="margin-right: 4px"><icon-mdi-power /></el-icon>
+            {{ t('components.serverToolBar.shutdown') }}
+        </el-button>
     </div>
 </template>
 
@@ -27,13 +32,22 @@ const handleShutdown = async () => {
 </script>
 
 <style scoped lang="scss">
-.route-button {
-    margin-right: 20px;
+.server-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 16px;
+
     :deep(.el-button) {
-        --el-button-text-color: #005eeb;
-    }
-    :deep(button:nth-child(3)) {
-        --el-button-text-color: #f56c6c;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 12px;
+        padding: 6px 14px;
+        box-shadow: none;
+
+        &:hover {
+            transform: none;
+        }
     }
 }
 </style>

@@ -125,7 +125,11 @@
         },
         "itemBlocks": "Item Blocks",
         "console": "Console",
-        "globalSettings": "Global Settings",
+        "globalSettings": {
+            "": "Global Settings",
+            "settings": "Basic Settings",
+            "zombieKillReward": "Zombie Kill Reward"
+        },
         "autobackup": {
             "": "Auto Backup",
             "settings": "Backup Settings",
@@ -186,6 +190,11 @@
             "itemList": "Item List",
             "commandList": "Command List"
         },
+        "scriptEngine": {
+            "": "Script Engine",
+            "management": "Script Management",
+            "muteCommands": "Mute Commands"
+        },
         "swagger": "API Document"
     },
     "components": {
@@ -214,7 +223,8 @@
                 "icon": "Icon",
                 "itemName": "Item Name",
                 "localizationName": "Localization Name",
-                "mod": "Mod"
+                "mod": "Mod",
+                "seed": "Seed"
             }
         },
         "playerSkillsDialog": {
@@ -515,7 +525,7 @@
                 "chunks": "Chunks",
                 "cgo": "CGO",
                 "items": "Items",
-                "systemInfo": "System Infomation"
+                "systemInfo": "System Information"
             },
             "overview": {
                 "serverName": "Server Name",
@@ -570,7 +580,12 @@
             "renderExploredArea": "Render Explored Area",
             "renderExploredAreaConfirm": "Are you sure you want to render the explored area? This may take a few minutes, you can check the progress in the console",
             "renderFullMap": "Explore Full Map",
-            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? It runs asynchronously in the background without blocking the server. You can track progress here in real time",
+            "renderFullMapStarted": "Full map exploration started, please wait for progress updates",
+            "renderFullMapDone": "Full map exploration completed, {0} chunks in {1} seconds",
+            "stopRenderFullMap": "Stop Exploring",
+            "stopRenderFullMapConfirm": "Are you sure you want to stop the full map exploration?",
+            "stopRenderFullMapSuccess": "Stop command sent",
             "refreshMap": "Refresh Map",
             "autoReload": "Reload every",
             "seconds": "seconds",
@@ -690,6 +705,7 @@
             },
             "deathTrigger": {
                 "isEnabled": "Enable Death Trigger",
+                "isEnableDeathNotification": "Enable Death Notification",
                 "executeCommands": "Execute Commands\n(one per line)"
             },
             "blockFamilySharingAccount": "Block Family Sharing Account",
@@ -701,7 +717,32 @@
             "autoZombieCleanupThreshold": "Auto Zombie Cleanup Threshold",
             "enableXmlsSecondaryOverwrite": "Enable Xmls Secondary Overwrite",
             "hideCommandInChat": "Hide Command In Chat",
-            "enableFallingBlockProtection": "Enable Falling Block Protection"
+            "enableFallingBlockProtection": "Enable Falling Block Protection",
+            "enableLandClaimProtection": "Enable Land Claim Protection",
+            "landClaimProtectionTip": "Land Claim Protection Tip",
+            "enableTraderAreaProtection": "Enable Trader Area Protection",
+            "traderAreaProtectionTip": "Trader Area Protection Tip"
+        },
+        "zombieKillReward": {
+            "addReward": "Add Zombie Kill Reward",
+            "rewardList": "Configured Zombie Rewards",
+            "zombieName": "Zombie Entity Class Name",
+            "searchZombie": "Search zombie by keyword",
+            "rewardPoints": "Reward Points",
+            "executeCommands": "Execute Commands",
+            "commandsPlaceholder": "One command per line",
+            "editReward": "Edit Reward Config",
+            "inputZombieName": "Please enter zombie entity class name",
+            "alreadyExists": "This zombie already has a reward config",
+            "globalTag": "Triggers on any zombie kill",
+            "specificTag": "This zombie only",
+            "globalEntry": "Global (all entities)",
+            "localizationName": "Entity Name",
+            "isEnableKillNotification": "Enable Kill Notification",
+            "deathPenaltyPoints": "Death Penalty Points",
+            "editDeathPenalty": "Edit Death Penalty Points",
+            "pageTitle": "Zombie Kill Reward",
+            "emptyList": "No zombie rewards configured yet"
         },
         "autoBackup": {
             "isEnabled": "Enable Auto Backup",
@@ -711,6 +752,9 @@
             "skipIfThereAreNoPlayers": "Skip If There Are No Players",
             "autoBackupOnServerStartup": "Auto Backup On Server Startup",
             "archiveFolder": "Archive Folder",
+            "manualBackup": "Manual Backup",
+            "manualBackupSuccess": "Manual backup completed",
+            "manualBackupFailed": "Manual backup failed",
             "tableHeader": {
                 "name": "Name",
                 "serverVersion": "Server Version",
@@ -816,7 +860,8 @@
                 "description": "Description",
                 "bind": "Bind",
                 "bindItem": "Bind Item",
-                "bindCmd": "Bind Command"
+                "bindCmd": "Bind Command",
+                "playerName": "Player Name"
             }
         },
         "cdKeyRedeem": {
@@ -971,6 +1016,69 @@
                 "description": "Description",
                 "bind": "Bind",
                 "bindCmd": "Bind Command"
+            }
+        },
+        "scriptEngine": {
+            "title": "Script Management",
+            "editor": "Script Editor",
+            "projectName": "Project Name",
+            "projectNamePlaceholder": "Enter project name",
+            "projectNameRequired": "Please enter project name",
+            "version": "Version",
+            "author": "Author",
+            "description": "Description",
+            "status": "Status",
+            "autoStart": "Auto Start",
+            "actions": "Actions",
+            "editFiles": "Editor",
+            "config": "Config",
+            "configTitle": "Script Config",
+            "configSaveSuccess": "Config saved",
+            "configSaveFailed": "Failed to save config",
+            "noConfig": "No settings available",
+            "settingName": "Name",
+            "settingValue": "Value",
+            "settingDesc": "Description",
+            "modify": "Modify",
+            "start": "Start",
+            "stop": "Stop",
+            "startSuccess": "Script started",
+            "stopSuccess": "Script stopped",
+            "toggleRunningFailed": "Operation failed",
+            "disableAutoStart": "Disable",
+            "enableAutoStart": "Enable",
+            "toggleAutoStartFailed": "Failed to toggle auto start",
+            "createProject": "Create Script Project",
+            "createNew": "New",
+            "createSuccess": "Project created successfully",
+            "createFailed": "Failed to create project",
+            "uploadZip": "Upload & Install",
+            "uploadSuccess": "Script package installed successfully",
+            "uploadFailed": "Failed to install script package",
+            "deleteConfirm": "Are you sure you want to delete this script project? This action cannot be undone.",
+            "fileList": "File List",
+            "fileName": "File Name",
+            "fileNameRequired": "Please enter file name",
+            "newFile": "New File",
+            "selectFileHint": "Select a file from the left panel to edit",
+            "apiDocs": "API Docs",
+            "saveSuccess": "File saved",
+            "saveFailed": "Failed to save file",
+            "loadFileFailed": "Failed to load file",
+            "createFileSuccess": "File created successfully",
+            "createFileFailed": "Failed to create file",
+            "deleteFileConfirm": "Are you sure you want to delete this file?",
+            "muteCommands": {
+                "title": "Mute Command Areas",
+                "commands": "Muted Commands",
+                "command": "Command",
+                "commandPlaceholder": "e.g.: tp, buy, qd, tele",
+                "commandRequired": "Please enter command name",
+                "addTitle": "Add Mute Command Area",
+                "addSuccess": "Mute command area added",
+                "addFailed": "Failed to add",
+                "clearConfirm": "Are you sure you want to clear all mute command areas?",
+                "clearSuccess": "All mute command areas cleared"
             }
         }
     }

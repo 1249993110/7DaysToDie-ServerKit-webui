@@ -2,6 +2,7 @@
     <div class="autobackup-management">
         <RouterButton :names="['autobackup.settings', 'autobackup.management']" />
         <MyTable
+            ref="myTableRef"
             row-key="name"
             :columns="columns"
             :toolbar="toolbar"
@@ -22,6 +23,22 @@ export default {
 import * as api from '~/api/autobackup.js';
 
 const { t, tm, rt } = useI18n();
+
+const myTableRef = ref(null);
+const backingUp = ref(false);
+
+const handleManualBackup = async () => {
+    backingUp.value = true;
+    try {
+        await api.manualBackup();
+        ElMessage.success(t('views.autoBackup.manualBackupSuccess'));
+        await myTableRef.value?.refresh();
+    } catch {
+        ElMessage.error(t('views.autoBackup.manualBackupFailed'));
+    } finally {
+        backingUp.value = false;
+    }
+};
 
 const columns = computed(() => [
     {
@@ -75,6 +92,14 @@ const columns = computed(() => [
 
 const toolbar = computed(() => ({
     addBtnVisible: false,
+    customButtons: [
+        {
+            label: t('views.autoBackup.manualBackup'),
+            type: 'success',
+            loading: backingUp,
+            onClick: handleManualBackup,
+        },
+    ],
     batchOperationItems: [
         {
             type: 'export',
@@ -140,6 +165,4 @@ const request = {
     delete: requestDetele,
     batchDelete: requestBatchDelete,
 };
-
-console.log(request);
 </script>

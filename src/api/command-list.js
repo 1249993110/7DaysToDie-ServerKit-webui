@@ -47,3 +47,25 @@ export const deleteCommandByIds = (ids, deleteAll = false) => {
 export const updateCommand = (id, data) => {
     return http.put('/CommandList/' + id, data);
 };
+
+/**
+ * CSV批量导入命令
+ * @returns
+ */
+export const importCommandListCsv = (formData) => {
+    return http.post('/CommandList/ImportCsv', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+};
+
+/**
+ * 下载命令CSV模板
+ * @returns
+ */
+export const downloadCommandListTemplate = () => {
+    return http.get('/CommandList/CsvTemplate', {
+        responseType: 'blob'
+    });
+};

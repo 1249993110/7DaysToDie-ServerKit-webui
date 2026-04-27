@@ -78,3 +78,25 @@ export const getCommandList = (id) => {
 export const updateCommandList = (id, data) => {
     return http.put('/CdKeys/' + id + '/Commands', data);
 };
+
+/**
+ * CSV批量导入CDKey
+ * @returns
+ */
+export const importCdKeyCsv = (formData) => {
+    return http.post('/CdKeys/ImportCsv', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+};
+
+/**
+ * 下载CDKey CSV模板
+ * @returns
+ */
+export const downloadCdKeyTemplate = () => {
+    return http.get('/CdKeys/CsvTemplate', {
+        responseType: 'blob'
+    });
+};

@@ -77,3 +77,25 @@ export const getCommandList = (id) => {
 export const updateCommandList = (id, data) => {
     return http.put('/VipGift/' + id + '/Commands', data);
 };
+
+/**
+ * CSV批量导入VIP礼包
+ * @returns
+ */
+export const importVipGiftCsv = (formData) => {
+    return http.post('/VipGift/ImportCsv', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+};
+
+/**
+ * 下载VIP礼包CSV模板
+ * @returns
+ */
+export const downloadVipGiftTemplate = () => {
+    return http.get('/VipGift/CsvTemplate', {
+        responseType: 'blob'
+    });
+};

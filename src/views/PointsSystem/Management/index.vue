@@ -11,6 +11,13 @@
             :add-edit-form-fields="addEditFormFields"
             :request="request"
         />
+        <CsvImportDialog
+            v-model:visible="csvImportVisible"
+            module-type="pointsInfo"
+            :import-api="api.importPointsInfoCsv"
+            :template-api="api.downloadPointsInfoTemplate"
+            @success="handleImportSuccess"
+        />
     </div>
 </template>
 
@@ -90,8 +97,15 @@ const toolbar = computed(() => ({
         },
         {
             type: 'export',
+            label: t('global.button.export') + ' CSV',
             fileName: rt(tm('menus.pointsSystem')['']),
             divided: true,
+        },
+        {
+            label: t('global.button.import') + ' CSV',
+            onClick: () => {
+                csvImportVisible.value = true;
+            },
         },
     ],
 }));
@@ -175,5 +189,10 @@ const request = {
     edit: requestEdit,
     delete: requestDetele,
     batchDelete: requestBatchDelete,
+};
+
+const csvImportVisible = ref(false);
+const handleImportSuccess = () => {
+    myTableRef.value.refresh();
 };
 </script>

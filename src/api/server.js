@@ -88,3 +88,11 @@ export const putSettings = (data) => {
 export const getAllowedCommands = () => {
     return http.get('/Server/AllowedCommands');
 }
+
+/**
+ * 获取所有实体名称
+ * @returns {Promise<{entityClassName: string, localizationName: string|null}[]>}
+ */
+export const getZombieEntityClasses = (language) => {
+    return http.get('/Server/ZombieEntityClasses', { params: { language } });
+};

@@ -20,29 +20,37 @@ defineProps({
 
 <style scoped lang="scss">
 .card {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
     .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         span {
             position: relative;
-            font-size: 16px;
-            font-weight: 500;
-            margin-left: 18px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--ty-text-primary);
+            margin-left: 14px;
+
             &::before {
                 position: absolute;
-                top: 4px;
-                left: -13px;
-                width: 4px;
-                height: 14px;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -14px;
+                width: 3px;
+                height: 16px;
                 content: '';
-                background: $primary-color;
-                border-radius: 10px;
+                background: var(--ty-color-primary);
+                border-radius: 2px;
             }
         }
     }
 
     div:nth-child(2) {
-        margin-top: 20px;
+        margin-top: 16px;
     }
 }
 </style>

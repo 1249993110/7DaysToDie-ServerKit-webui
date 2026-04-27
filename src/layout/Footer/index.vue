@@ -1,10 +1,10 @@
 <template>
     <div class="footer">
         <a href="https://github.com/1249993110/7DaysToDie-ServerKit" target="_blank">{{ t('layout.footer.codeRepository') }}</a>
+        <span class="sep">·</span>
         <a href="https://7dtd.top" target="_blank">{{ version + ' ' + t('layout.footer.copyright') }}</a>
-        <a :href="t('layout.footer.group.url')" target="_blank">
-            {{ t('layout.footer.group.title') }}
-        </a>
+        <span class="sep">·</span>
+        <a :href="t('layout.footer.group.url')" target="_blank">{{ t('layout.footer.group.title') }}</a>
     </div>
 </template>
 
@@ -17,23 +17,29 @@ const { t } = useI18n();
 .footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 48px;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
     background-color: var(--ty-main-bg-color);
     border-top: var(--ty-border);
     box-sizing: border-box;
-    padding: 10px 20px;
+
     a {
-        font-size: 12px;
-        color: #858585;
+        font-size: 11px;
+        color: var(--ty-text-muted);
         text-decoration: none;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
+        transition: color 0.12s ease;
+
+        &:hover {
+            color: var(--ty-color-accent);
+        }
     }
-    span {
-        font-size: 12px;
-        color: #858585;
-        text-decoration: none;
-        letter-spacing: 0.5px;
+
+    .sep {
+        color: var(--ty-text-muted);
+        font-size: 10px;
+        opacity: 0.5;
     }
 }
 </style>

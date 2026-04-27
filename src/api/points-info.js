@@ -47,3 +47,25 @@ export const deletePointsInfoByIds = (ids, resetPoints = false, resetSignIn = fa
  export const updatePointsInfo = (id, data) => {
     return http.put('/PointsInfo/' + id, data);
 };
+
+/**
+ * CSV批量导入积分
+ * @returns
+ */
+export const importPointsInfoCsv = (formData) => {
+    return http.post('/PointsInfo/ImportCsv', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+};
+
+/**
+ * 下载积分CSV模板
+ * @returns
+ */
+export const downloadPointsInfoTemplate = () => {
+    return http.get('/PointsInfo/CsvTemplate', {
+        responseType: 'blob'
+    });
+};

@@ -2,7 +2,7 @@
     <div>
         <RouterButton :names="['teleSystem.home.settings', 'teleSystem.home.management']" />
         <MyTable
-            row-key="playerId"
+            row-key="id"
             :columns="columns"
             :model-name="rt(tm('menus.teleSystem.home')[''])"
             :toolbar="toolbar"

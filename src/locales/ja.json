@@ -214,7 +214,8 @@
                 "icon": "アイコン",
                 "itemName": "アイテム名",
                 "localizationName": "ローカライズ名",
-                "mod": "MOD"
+                "mod": "MOD",
+                "seed": "Seed"
             }
         },
         "playerSkillsDialog": {
@@ -569,8 +570,13 @@
             "lastClick": "最後のクリック",
             "renderExploredArea": "探索済みエリアをレンダリング",
             "renderExploredAreaConfirm": "探索済みエリアをレンダリングしますか？ これには数分かかる場合があります。コンソールで進行状況を確認できます",
-            "renderFullMap": "Explore Full Map",
-            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
+            "renderFullMap": "フルマップ探索",
+            "renderFullMapConfirm": "フルマップを探索しますか？バックグラウンドで非同期実行され、サーバーをブロックしません。ここでリアルタイムに進捗を確認できます",
+            "renderFullMapStarted": "フルマップ探索を開始しました。進捗の更新をお待ちください",
+            "renderFullMapDone": "フルマップ探索完了、{0} チャンク、{1} 秒",
+            "stopRenderFullMap": "探索を停止",
+            "stopRenderFullMapConfirm": "フルマップ探索を停止しますか？",
+            "stopRenderFullMapSuccess": "停止コマンドを送信しました",
             "refreshMap": "マップをリフレッシュ",
             "autoReload": "自動リロード",
             "seconds": "秒",
@@ -816,7 +822,8 @@
                 "description": "説明",
                 "bind": "バインド",
                 "bindItem": "バインドアイテム",
-                "bindCmd": "バインドコマンド"
+                "bindCmd": "バインドコマンド",
+                "playerName": "プレイヤー名"
             }
         },
         "cdKeyRedeem": {

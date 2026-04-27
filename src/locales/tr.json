@@ -214,7 +214,8 @@
                 "icon": "Simge",
                 "itemName": "Eşya Adı",
                 "localizationName": "Çeviri Adı",
-                "mod": "MOD"
+                "mod": "MOD",
+                "seed": "Seed"
             }
         },
         "playerSkillsDialog": {
@@ -570,7 +571,12 @@
             "renderExploredArea": "Keşfedilen Alanı Render Et",
             "renderExploredAreaConfirm": "Keşfedilen alanı render etmek istiyor musunuz? Bu birkaç dakika sürebilir. İlerlemeyi konsoldan takip edebilirsiniz",
             "renderFullMap": "Explore Full Map",
-            "renderFullMapConfirm": "Are you sure you want to explore the full map? This may take a few minutes, you can check the progress in the console, this operation is generally performed only once after the server is started",
+            "renderFullMapConfirm": "Are you sure you want to explore the full map? It runs asynchronously in the background without blocking the server. You can track progress here in real time",
+            "renderFullMapStarted": "Full map exploration started, please wait for progress updates",
+            "renderFullMapDone": "Full map exploration completed, {0} chunks in {1} seconds",
+            "stopRenderFullMap": "Stop Exploring",
+            "stopRenderFullMapConfirm": "Are you sure you want to stop the full map exploration?",
+            "stopRenderFullMapSuccess": "Stop command sent",
             "refreshMap": "Haritayı Yenile",
             "autoReload": "Otomatik Yeniden Yükleme",
             "seconds": "saniye",
@@ -816,7 +822,8 @@
                 "description": "Açıklama",
                 "bind": "Bağla",
                 "bindItem": "Öğe Bağla ",
-                "bindCmd": "Komut Bağla "
+                "bindCmd": "Komut Bağla ",
+                "playerName": "Oyuncu Adı"
             }
         },
         "cdKeyRedeem": {
