@@ -1,5 +1,5 @@
 <template>
-    <MyFormDialog ref="addEditRef" :fields="fields" :form-model="formModel" :request="request" :successMessage="t('global.message.cmdSentSuccess')" />
+    <MyFormDialog ref="addEditRef" :fields="fields" :form-model="formModel" :request="request" :successMessage="t('global.message.cmdSentSuccess')" keepOpenAfterSubmit />
 </template>
 
 <script setup>
@@ -21,6 +21,10 @@ const fields = computed(() => [
         name: 'itemName',
         label: t('components.batchGiveItem.itemName'),
         required: true,
+        props: {
+            showIcon: false,
+            showSelectButton: false,
+        },
     },
     {
         type: 'input-number',

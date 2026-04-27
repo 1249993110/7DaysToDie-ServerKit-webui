@@ -119,8 +119,21 @@ const routes = [
             {
                 path: 'globalSettings',
                 name: 'globalSettings',
-                component: () => import('../views/GlobalSettings/index.vue'),
-                meta: { requiresAuth: true, keepAlive: true },
+                redirect: '/globalSettings/settings',
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'globalSettings.settings',
+                        component: () => import('../views/GlobalSettings/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                    {
+                        path: 'zombieKillReward',
+                        name: 'globalSettings.zombieKillReward',
+                        component: () => import('../views/GlobalSettings/ZombieKillReward/index.vue'),
+                        meta: { requiresAuth: true, keepAlive: true },
+                    },
+                ],
             },
             {
                 path: 'autobackup',

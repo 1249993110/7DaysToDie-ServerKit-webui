@@ -31,12 +31,10 @@ const getTitle = (name) => {
     if (name === 'logout') {
         return t('views.login.logout');
     }
-
     const localeName = 'menus.' + name;
     if (te(localeName)) {
         return t(localeName);
     }
-
     const localeMessages = tm(localeName);
     if (Object.keys(localeMessages).length === 0) {
         console.warn(`Missing translation for ${localeName}`);
@@ -54,67 +52,62 @@ const getTitle = (name) => {
         width: 100%;
 
         .el-menu-item {
-            border-radius: 4px;
-            margin: 6px 0;
-            height: 46px;
+            border-radius: 6px;
+            margin: 1px 0;
+            height: 38px;
+            font-size: 13px;
+            font-weight: 500;
             background-color: var(--el-menu-item-bg-color);
+            transition: all 0.12s ease;
+            position: relative;
 
             &.is-active {
-                    background-color: var(--el-menu-item-bg-color-active);
-                    border: 2px solid $primary-color;
+                background-color: var(--el-menu-item-bg-color-active);
+                color: var(--ty-color-accent);
 
-                    &::before {
-                        position: absolute;
-                        border-radius: 4px;
-                        left: 12px;
-                        width: 4px;
-                        height: 14px;
-                        content: '';
-                        background: var(--el-menu-active-color);
-                    }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 3px;
+                    height: 18px;
+                    background: var(--ty-color-accent);
+                    border-radius: 0 2px 2px 0;
                 }
-                
-                &:not(.is-active):hover {
-                    .el-icon {
-                        color: $primary-color;
-                    }
+            }
 
-                    span {
-                        color: $primary-color;
-                    }
-                }
+            &:not(.is-active):hover {
+                background-color: var(--el-menu-hover-bg-color);
+                .el-icon { color: var(--ty-color-primary); }
+                span { color: var(--ty-color-primary); }
+            }
         }
+
         .el-sub-menu {
             &.is-active {
                 .el-sub-menu__title {
-                    span {
-                        color: $primary-color;
-                    }
-
-                    .el-icon {
-                        color: $primary-color;
-                    }
+                    span { color: var(--ty-color-accent); }
+                    .el-icon { color: var(--ty-color-accent); }
                 }
             }
             .el-sub-menu__title {
-                border-radius: 4px;
-                //margin: 6px 0;
-                height: 46px;
+                border-radius: 6px;
+                height: 38px;
+                font-size: 13px;
                 background-color: var(--el-menu-item-bg-color);
+                transition: all 0.12s ease;
 
                 &:hover {
-                    .el-icon {
-                        color: $primary-color;
-                    }
-
-                    span {
-                        color: $primary-color;
-                    }
+                    background-color: var(--el-menu-hover-bg-color);
+                    .el-icon { color: var(--ty-color-primary); }
+                    span { color: var(--ty-color-primary); }
                 }
             }
         }
         .el-sub-menu + .el-sub-menu {
-            margin-top: 6px;
+            margin-top: 1px;
         }
     }
 }

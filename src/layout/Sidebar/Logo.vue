@@ -1,20 +1,13 @@
 <template>
-    <div class="logo"><img :src="getLogoUrl()" alt="logo" /></div>
+    <div class="logo">
+        <span v-if="!sidebarStore.isCollapse" class="logo-text">TianYi</span>
+        <span v-else class="logo-text logo-text--mini">T</span>
+    </div>
 </template>
 
 <script setup>
 import { useSidebarStore } from '~/store/sidebar';
-
 const sidebarStore = useSidebarStore();
-
-const getLogoUrl = () => {
-    // const theme = globalStore.$state.themeConfig.theme || 'light';
-    if (sidebarStore.isCollapse) {
-        return new URL(`~/assets/images/logo-blue.png`, import.meta.url).href;
-    } else {
-        return new URL(`~/assets/images/logo-title.png`, import.meta.url).href;
-    }
-};
 </script>
 
 <style scoped lang="scss">
@@ -22,11 +15,24 @@ const getLogoUrl = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 55px;
+    height: 60px;
     overflow: hidden;
-    img {
-        object-fit: contain;
-        height: 40px;
+    border-bottom: 1px solid var(--ty-sidebar-border);
+
+    .logo-text {
+        font-family: 'Pacifico', cursive;
+        font-size: 26px;
+        color: var(--ty-color-primary);
+        user-select: none;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9, #7dd3fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        &--mini {
+            font-size: 28px;
+        }
     }
 }
 </style>

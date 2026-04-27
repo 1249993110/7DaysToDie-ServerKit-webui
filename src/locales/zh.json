@@ -78,6 +78,27 @@
             "noMoreData": "没有更多数据了"
         }
     },
+    "csvImport": {
+        "title": "CSV批量导入",
+        "dragTip": "拖拽文件到此处或点击上传",
+        "formatTip": "支持 .csv 和 .txt 格式，文件大小不超过 10MB",
+        "downloadTemplate": "下载模板",
+        "importing": "正在导入数据，请稍候...",
+        "importSuccess": "成功导入 {count} 条记录",
+        "importFailed": "导入失败",
+        "partialSuccess": "成功导入 {success} 条，失败 {failure} 条",
+        "downloadFailures": "下载失败记录",
+        "startImport": "开始导入",
+        "fileFormatError": "文件格式不支持，请上传 .csv 或 .txt 文件",
+        "fileSizeError": "文件大小超过 10MB 限制",
+        "fileExceedError": "只能上传一个文件",
+        "importError": "导入过程发生错误",
+        "downloadTemplateError": "下载模板失败",
+        "rowNumber": "行号",
+        "errorMessage": "错误信息",
+        "successCount": "成功: {count} 条",
+        "failureCount": "失败: {count} 条"
+    },
     "copy": "复制",
     "player": "玩家",
     "playerOperation": {
@@ -125,7 +146,11 @@
         },
         "itemBlocks": "物品方块",
         "console": "控制台",
-        "globalSettings": "功能配置",
+        "globalSettings": {
+            "": "功能配置",
+            "settings": "基础配置",
+            "zombieKillReward": "击杀配置"
+        },
         "autobackup": {
             "": "自动备份",
             "settings": "备份配置",
@@ -186,6 +211,11 @@
             "itemList": "物品清单",
             "commandList": "命令清单"
         },
+        "scriptEngine": {
+            "": "脚本引擎",
+            "management": "脚本管理",
+            "muteCommands": "区域命令禁用"
+        },
         "swagger": "接口文档"
     },
     "components": {
@@ -214,7 +244,8 @@
                 "icon": "图标",
                 "itemName": "物品名称",
                 "localizationName": "本地化名称",
-                "mod": "模组"
+                "mod": "模组",
+                "seed": "随机种子"
             }
         },
         "playerSkillsDialog": {
@@ -570,7 +601,12 @@
             "renderExploredArea": "渲染已探索区域",
             "renderExploredAreaConfirm": "确认渲染已探索区域吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度",
             "renderFullMap": "探索完整地图",
-            "renderFullMapConfirm": "确认探索全图吗? 这可能需要几分钟的时间, 您可以前往控制台查看进度, 此操作一般仅在开服后执行一次",
+            "renderFullMapConfirm": "确认探索全图吗? 此操作将在后台异步执行，不会阻塞服务器。您可以在此处实时查看进度",
+            "renderFullMapStarted": "全图探索已启动，请等待进度更新",
+            "renderFullMapDone": "全图探索完成，共 {0} 个区块，耗时 {1} 秒",
+            "stopRenderFullMap": "停止探索",
+            "stopRenderFullMapConfirm": "确认停止全图探索吗?",
+            "stopRenderFullMapSuccess": "已发送停止指令",
             "refreshMap": "刷新地图",
             "autoReload": "自动刷新",
             "seconds": "秒",
@@ -629,8 +665,10 @@
             },
             "chatType": {
                 "global": "公屏",
+                "globalAll": "公屏所有消息",
+                "globalPlayerOnly": "公屏过滤系统消息",
                 "friends": "好友",
-                "party": "阵营",
+                "party": "组队",
                 "whisper": "私聊",
                 "unknown": "未知"
             },
@@ -685,11 +723,13 @@
             "teleZombieCheck": "传送前是否检查玩家周围是否有僵尸",
             "teleDisableTip": "禁止传送提示",
             "killZombieTrigger": {
-                "isEnabled": "是否启用僵尸击杀奖励",
+                "isEnabled": "是否启用击杀奖励",
+                "isEnableds": "击杀配置开关",
                 "executeCommands": "执行指令\n(每行一条)"
             },
             "deathTrigger": {
                 "isEnabled": "是否启用死亡惩罚",
+                "isEnableDeathNotification": "是否启用死亡通知",
                 "executeCommands": "执行指令\n(每行一条)"
             },
             "blockFamilySharingAccount": "是否禁止家庭共享账号",
@@ -707,6 +747,28 @@
             "enableTraderAreaProtection": "启用交易区保护",
             "traderAreaProtectionTip": "交易区保护提示"
         },
+        "zombieKillReward": {
+            "addReward": "实体击杀配置",
+            "rewardList": "实体奖励列表",
+            "zombieName": "实体类名",
+            "searchZombie": "输入关键词搜索僵尸",
+            "rewardPoints": "奖励积分",
+            "executeCommands": "执行指令",
+            "commandsPlaceholder": "每行一条指令",
+            "editReward": "编辑奖励配置",
+            "inputZombieName": "请输入实体类名",
+            "alreadyExists": "该僵尸已存在奖励配置",
+            "globalEntry": "全局丧尸",
+            "localizationName": "实体名称",
+            "isEnableKillNotification": "是否启用击杀通知",
+            "deathPenaltyPoints": "死亡扣除积分",
+            "editDeathPenalty": "编辑死亡惩罚积分",
+            "globalTag": "击杀任意僵尸触发",
+            "specificTag": "仅该僵尸触发",
+            "pageTitle": "击杀配置",
+            "pageSubtitle": "配置不同僵尸类型的击杀奖励与指令",
+            "emptyList": "暂未配置任何僵尸奖励"
+        },
         "autoBackup": {
             "isEnabled": "是否启用",
             "interval": "自动备份间隔 (秒)",
@@ -715,6 +777,9 @@
             "skipIfThereAreNoPlayers": "是否在没有玩家时跳过备份",
             "autoBackupOnServerStartup": "是否在服务器启动时自动备份",
             "archiveFolder": "备份文件夹",
+            "manualBackup": "手动备份",
+            "manualBackupSuccess": "手动备份成功",
+            "manualBackupFailed": "手动备份失败",
             "tableHeader": {
                 "name": "名称",
                 "serverVersion": "服务端版本",
@@ -820,7 +885,8 @@
                 "description": "说明",
                 "bind": "绑定",
                 "bindItem": "绑定物品",
-                "bindCmd": "绑定命令"
+                "bindCmd": "绑定命令",
+                "playerName": "玩家名称"
             }
         },
         "cdKeyRedeem": {
@@ -975,6 +1041,69 @@
                 "description": "说明",
                 "bind": "绑定",
                 "bindCmd": "绑定命令"
+            }
+        },
+        "scriptEngine": {
+            "title": "脚本管理",
+            "editor": "脚本编辑器",
+            "projectName": "项目名称",
+            "projectNamePlaceholder": "请输入项目名称",
+            "projectNameRequired": "请输入项目名称",
+            "version": "版本",
+            "author": "作者",
+            "description": "描述",
+            "status": "状态",
+            "autoStart": "开机自启",
+            "actions": "操作",
+            "editFiles": "编辑",
+            "config": "配置",
+            "configTitle": "脚本配置",
+            "configSaveSuccess": "配置已保存",
+            "configSaveFailed": "配置保存失败",
+            "noConfig": "暂无配置参数",
+            "settingName": "名称",
+            "settingValue": "数值",
+            "settingDesc": "说明",
+            "modify": "修改",
+            "start": "开启",
+            "stop": "关闭",
+            "startSuccess": "脚本已开启",
+            "stopSuccess": "脚本已关闭",
+            "toggleRunningFailed": "操作失败",
+            "disableAutoStart": "卸载",
+            "enableAutoStart": "自启",
+            "toggleAutoStartFailed": "切换自启状态失败",
+            "createProject": "新建脚本项目",
+            "createNew": "新建",
+            "createSuccess": "项目创建成功",
+            "createFailed": "项目创建失败",
+            "uploadZip": "上传安装",
+            "uploadSuccess": "脚本包安装成功",
+            "uploadFailed": "脚本包安装失败",
+            "deleteConfirm": "确定要删除此脚本项目吗？此操作不可恢复。",
+            "fileList": "文件列表",
+            "fileName": "文件名",
+            "fileNameRequired": "请输入文件名",
+            "newFile": "新建文件",
+            "selectFileHint": "请从左侧选择一个文件进行编辑",
+            "apiDocs": "开发文档",
+            "saveSuccess": "文件已保存",
+            "saveFailed": "文件保存失败",
+            "loadFileFailed": "文件加载失败",
+            "createFileSuccess": "文件创建成功",
+            "createFileFailed": "文件创建失败",
+            "deleteFileConfirm": "确定要删除此文件吗？",
+            "muteCommands": {
+                "title": "区域命令禁用管理",
+                "commands": "禁用命令",
+                "command": "命令",
+                "commandPlaceholder": "如：tp, buy, qd, tele 等",
+                "commandRequired": "请输入命令名称",
+                "addTitle": "添加区域命令禁用",
+                "addSuccess": "区域命令禁用已添加",
+                "addFailed": "添加失败",
+                "clearConfirm": "确定要清空所有区域命令禁用吗？",
+                "clearSuccess": "已清空所有区域命令禁用"
             }
         }
     }

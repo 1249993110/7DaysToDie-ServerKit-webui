@@ -72,6 +72,14 @@ const tree = [
     {
         name: 'globalSettings',
         icon: getIcon(() => import('~icons/ep/setting')),
+        children: [
+            {
+                name: 'globalSettings.settings',
+            },
+            {
+                name: 'globalSettings.zombieKillReward',
+            },
+        ],
     },
     {
         name: 'autobackup',

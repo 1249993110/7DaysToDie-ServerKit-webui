@@ -19,6 +19,7 @@
         </el-table-column>
         <el-table-column prop="itemName" :label="t('components.inventoryDialog.tableHeader.itemName')" min-width="30%" show-overflow-tooltip> </el-table-column>
         <el-table-column prop="localizationName" :label="t('components.inventoryDialog.tableHeader.localizationName')" min-width="20%" show-overflow-tooltip> </el-table-column>
+        <el-table-column prop="seed" :label="t('components.inventoryDialog.tableHeader.seed')" width="100px"> </el-table-column>
         <el-table-column :label="t('components.inventoryDialog.tableHeader.mod')" class-name="table-icon-col" min-width="50%">
             <template #default="{ row }">
                 <template v-if="row.parts && row.parts.length">
